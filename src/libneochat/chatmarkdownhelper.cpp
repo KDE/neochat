@@ -5,6 +5,7 @@
 
 #include <QTextCursor>
 #include <QTextDocument>
+#include <qnamespace.h>
 #include <qtextcursor.h>
 
 #include "chattextitemhelper.h"
@@ -188,7 +189,7 @@ void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int chars
     // This can happen when formatting is applied.
     if (charsAdded == charsRemoved) {
         return;
-    } else if (m_textItem->isCompleting || charsRemoved > charsAdded || charsAdded - charsRemoved > 1) {
+    } else if ((m_textItem->textFormat() && m_textItem->textFormat() == Qt::TextFormat::PlainText) || m_textItem->isCompleting || charsRemoved > charsAdded || charsAdded - charsRemoved > 1) {
         updatePosition(std::max(0, position - charsRemoved + charsAdded));
         return;
     }
