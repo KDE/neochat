@@ -13,7 +13,7 @@ import org.kde.neochat
 /**
  * @brief A component to show rich text from a message.
  */
-QQC2.TextArea {
+TextEdit {
     id: root
 
     /**
@@ -106,15 +106,6 @@ QQC2.TextArea {
     readOnly: !root.editable
     wrapMode: Text.Wrap
     textFormat: Text.RichText
-    placeholderText: if (!editable || index !== (Message.contentModel?.hasAttachment ? 1 : 0)) {
-        return "";
-    } else if (Message.contentModel?.hasAttachment) {
-        i18nc("@placeholder", "Set an attachment caption…")
-    } else if (Message.room?.usesEncryption) {
-        i18nc("@placeholder", "Send an encrypted message…")
-    } else {
-        i18nc("@placeholder", "Send a message…")
-    }
 
     onLinkActivated: link => {
         if (!root.editable) {
@@ -128,6 +119,29 @@ QQC2.TextArea {
     }
 
     Component.onCompleted: manageDefaultMenus()
+
+    QQC2.Label {
+        id: placeholder
+        x: root.leftPadding
+        y: root.topPadding
+        width: root.width - (root.leftPadding + root.rightPadding)
+        height: root.height - (root.topPadding + root.bottomPadding)
+
+        text: if (root.Message.contentModel?.hasAttachment) {
+            i18nc("@placeholder", "Set an attachment caption…")
+        } else if (root.Message.room?.usesEncryption) {
+            i18nc("@placeholder", "Send an encrypted message…")
+        } else {
+            i18nc("@placeholder", "Send a message…")
+        }
+        font: root.font
+        color: Kirigami.Theme.disabledTextColor
+        horizontalAlignment: root.horizontalAlignment
+        verticalAlignment: root.verticalAlignment
+        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && !root.length && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
+        elide: Text.ElideRight
+        wrapMode: Text.WordWrap
+    }
 
     HoverHandler {
         cursorShape: root.hoveredLink || (!(root.componentAttributes?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
@@ -169,6 +183,4 @@ QQC2.TextArea {
             }
         }
     }
-
-    background: null
 }
