@@ -186,7 +186,7 @@ void ChatTextItemHelper::initialize()
         cursor.movePosition(QTextCursor::End);
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor, m_fixedEndChars.length());
         if (cursor.selectedText() != m_fixedEndChars) {
-            cursor.keepPositionOnInsert();
+            cursor.movePosition(QTextCursor::End);
             cursor.insertText(m_fixedEndChars);
         }
     }

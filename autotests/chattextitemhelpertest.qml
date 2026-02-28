@@ -109,6 +109,34 @@ TestCase {
         compare(spyCursor.count, 5);
     }
 
+    function test_longFixedChars(): void {
+        textEdit.forceActiveFocus();
+        testHelper.setFixedChars("111", "222");
+        compare(textEdit.text, "111222");
+        compare(textEdit.cursorPosition, 3);
+        compare(spyCursor.count, 0);
+        keyClick("b");
+        compare(textEdit.text, "111b222");
+        compare(textEdit.cursorPosition, 4);
+        compare(spyCursor.count, 1);
+        keyClick(Qt.Key_Left);
+        compare(textEdit.text, "111b222");
+        compare(textEdit.cursorPosition, 3);
+        compare(spyCursor.count, 2);
+        keyClick(Qt.Key_Left);
+        compare(textEdit.text, "111b222");
+        compare(textEdit.cursorPosition, 3);
+        compare(spyCursor.count, 3);
+        keyClick(Qt.Key_Right);
+        compare(textEdit.text, "111b222");
+        compare(textEdit.cursorPosition, 4);
+        compare(spyCursor.count, 4);
+        keyClick(Qt.Key_Right);
+        compare(textEdit.text, "111b222");
+        compare(textEdit.cursorPosition, 4);
+        compare(spyCursor.count, 5);
+    }
+
     function test_document(): void {
         // We can't get to the QTextDocument from QML so we have to use a helper function.
         compare(testHelper.compareDocuments(textEdit.textDocument), true);
