@@ -99,14 +99,14 @@ int MediaMessageFilterModel::selectedMessageCount() const
     return static_cast<MessageFilterModel *>(sourceModel())->selectedMessageCount();
 }
 
-bool MediaMessageFilterModel::isMessageSelected(const QString &roomId, const QString &eventId) const
+bool MediaMessageFilterModel::isMessageSelected(const QString &eventId) const
 {
-    return static_cast<MessageFilterModel *>(sourceModel())->isMessageSelected(roomId, eventId);
+    return static_cast<MessageFilterModel *>(sourceModel())->isMessageSelected(eventId);
 }
 
-void MediaMessageFilterModel::toggleMessageSelection(const QString &roomId, const QString &eventId)
+void MediaMessageFilterModel::toggleMessageSelection(const QString &eventId)
 {
-    static_cast<MessageFilterModel *>(sourceModel())->toggleMessageSelection(roomId, eventId);
+    static_cast<MessageFilterModel *>(sourceModel())->toggleMessageSelection(eventId);
 }
 
 int MediaMessageFilterModel::getRowForEventId(const QString &eventId) const

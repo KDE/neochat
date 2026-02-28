@@ -81,12 +81,12 @@ public:
     /**
      * @brief Whether the given message is selected.
      */
-    Q_INVOKABLE bool isMessageSelected(const QString &roomId, const QString &eventId) const;
+    Q_INVOKABLE bool isMessageSelected(const QString &eventId) const;
 
     /**
      * @brief Toggle the selection state of the given message.
      */
-    Q_INVOKABLE void toggleMessageSelection(const QString &roomId, const QString &eventId);
+    Q_INVOKABLE void toggleMessageSelection(const QString &eventId);
 
     int getRowForEventId(const QString &eventId) const;
 

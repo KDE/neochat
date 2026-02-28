@@ -172,24 +172,24 @@ int MessageFilterModel::selectedMessageCount() const
     return messageModel->selectedMessageCount();
 }
 
-bool MessageFilterModel::isMessageSelected(const QString &roomId, const QString &eventId) const
+bool MessageFilterModel::isMessageSelected(const QString &eventId) const
 {
     const auto [messageModel, _] = this->messageModel();
     if (!messageModel) {
         return false;
     }
 
-    return messageModel->isMessageSelected(roomId, eventId);
+    return messageModel->isMessageSelected(eventId);
 }
 
-void MessageFilterModel::toggleMessageSelection(const QString &roomId, const QString &eventId)
+void MessageFilterModel::toggleMessageSelection(const QString &eventId)
 {
     const auto [messageModel, _] = this->messageModel();
     if (!messageModel) {
         return;
     }
 
-    messageModel->toggleMessageSelection(roomId, eventId);
+    messageModel->toggleMessageSelection(eventId);
 }
 
 bool MessageFilterModel::showAuthor(QModelIndex index) const

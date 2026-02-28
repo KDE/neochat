@@ -251,7 +251,7 @@ MessageDelegateBase {
 
         QQC2.CheckBox {
             checked: root.isSelected
-            onClicked: root.Message.messageModel.toggleMessageSelection(root.room.id, root.eventId)
+            onClicked: root.Message.messageModel.toggleMessageSelection(root.eventId)
         }
 
         Kirigami.Separator {

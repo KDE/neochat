@@ -423,10 +423,13 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        visible: root.blockType !== Blocks.Other && typeof root.messageModel?.toggleMessageSelection === "function"
-        text: root.messageModel?.selectedMessageCount > 0 && typeof root.messageModel?.isMessageSelected === "function" && root.messageModel?.isMessageSelected(root.room.id, root.eventId) ? i18nc("@action:inmenu", "Deselect Message") : i18nc("@action:inmenu", "Select Message")
+        readonly property bool canSelect: typeof root.messageModel?.toggleMessageSelection === "function"
+        readonly property bool selected: canSelect && typeof root.messageModel?.isMessageSelected === "function" && root.messageModel?.isMessageSelected(root.eventId)
+
+        visible: root.blockType !== Blocks.Other && canSelect
+        text: root.messageModel?.selectedMessageCount > 0 && selected ? i18nc("@action:inmenu", "Deselect Message") : i18nc("@action:inmenu", "Select Message")
         icon.name: "edit-select-all-symbolic"
-        onTriggered: root.messageModel.toggleMessageSelection(root.room.id, root.eventId)
+        onTriggered: root.messageModel.toggleMessageSelection(root.eventId)
     }
 
     Kirigami.Action {
