@@ -308,11 +308,9 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    if (m_replyModel && m_replyModel->eventId() == eventId) {
-        return;
+    if (!m_replyModel || m_replyModel->eventId() != eventId) {
+        m_replyModel = new EventMessageContentModel(m_room, *eventId, true, false, this);
     }
-
-    m_replyModel = new EventMessageContentModel(m_room, *eventId, true, false, this);
 
     if (!hasComponentType(MessageComponentType::Reply)) {
         int insertRow = 0;
