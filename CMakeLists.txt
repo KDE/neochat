@@ -65,7 +65,7 @@ if (QT_KNOWN_POLICY_QTP0004)
 qt_policy(SET QTP0004 NEW)
 endif ()
 
-find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons Sonnet ItemModels ColorScheme IconThemes)
+find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons ItemModels ColorScheme IconThemes)
 set_package_properties(KF6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
@@ -127,6 +127,7 @@ ecm_find_qmlmodule(org.kde.kitemmodels 1.0)
 ecm_find_qmlmodule(org.kde.quickcharts 1.0)
 ecm_find_qmlmodule(QtLocation)
 ecm_find_qmlmodule(org.kde.prison)
+ecm_find_qmlmodule(org.kde.sonnet 1.0)
 
 find_package(KQuickImageEditor COMPONENTS)
 set_package_properties(KQuickImageEditor PROPERTIES

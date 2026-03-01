@@ -10,7 +10,6 @@ target_sources(LibNeoChat PRIVATE
     accountmanager.cpp
     chatbarcache.cpp
     blockcache.cpp
-    chatbarsyntaxhighlighter.cpp
     chatkeyhelper.cpp
     chatmarkdownhelper.cpp
     chattextitemhelper.cpp
@@ -120,7 +119,6 @@ target_link_libraries(LibNeoChat PUBLIC
     KF6::CoreAddons
     KF6::I18n
     KF6::Kirigami
-    KF6::SonnetCore
     QuotientQt6
     cmark::cmark
     QCoro::Core

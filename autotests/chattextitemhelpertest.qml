@@ -19,40 +19,36 @@ TestCase {
         id: textEdit2
     }
 
-    ChatTextItemHelper {
-        id: textItemHelper
-
-        textItem: textEdit
-    }
-
     ChatTextItemHelperTestHelper {
         id: testHelper
-
-        textItem: textItemHelper
     }
 
     SignalSpy {
         id: spyItem
-        target: textItemHelper
+        target: testHelper.textItem
         signalName: "textItemChanged"
     }
 
     SignalSpy {
         id: spyContentsChanged
-        target: textItemHelper
+        target: testHelper.textItem
         signalName: "contentsChanged"
     }
 
     SignalSpy {
         id: spyContentsChange
-        target: textItemHelper
+        target: testHelper.textItem
         signalName: "contentsChange"
     }
 
     SignalSpy {
         id: spyCursor
-        target: textItemHelper
+        target: testHelper.textItem
         signalName: "cursorPositionChanged"
+    }
+
+    function initTestCase(): void {
+        testHelper.textItem.textItem = textEdit;
     }
 
     function init(): void {
@@ -66,18 +62,17 @@ TestCase {
     }
 
     function cleanupTestCase(): void {
-        testHelper.textItem = null;
-        textItemHelper.textItem = null;
+        testHelper.textItem.textItem = null;
     }
 
     function test_item(): void {
-        compare(textItemHelper.textItem, textEdit);
+        compare(testHelper.textItem.textItem, textEdit);
         compare(spyItem.count, 0);
-        textItemHelper.textItem = textEdit2;
-        compare(textItemHelper.textItem, textEdit2);
+        testHelper.textItem.textItem = textEdit2;
+        compare(testHelper.textItem.textItem, textEdit2);
         compare(spyItem.count, 1);
-        textItemHelper.textItem = textEdit;
-        compare(textItemHelper.textItem, textEdit);
+        testHelper.textItem.textItem = textEdit;
+        compare(testHelper.textItem.textItem, textEdit);
         compare(spyItem.count, 2);
     }
 

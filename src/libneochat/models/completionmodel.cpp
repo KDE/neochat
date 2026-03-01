@@ -310,7 +310,6 @@ void CompletionModel::insertCompletion(const QString &text, const QUrl &link)
         cursor.insertText(u" "_s, previousFormat);
     }
     cursor.endEditBlock();
-    m_textItem->rehighlight();
 }
 
 #include "moc_completionmodel.cpp"

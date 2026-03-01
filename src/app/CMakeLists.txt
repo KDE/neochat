@@ -208,7 +208,6 @@ target_link_libraries(neochat PUBLIC
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::CoreAddons
-    KF6::SonnetCore
     KF6::ItemModels
     KF6::I18nQml
     KirigamiApp

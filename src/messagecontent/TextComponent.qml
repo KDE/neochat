@@ -7,8 +7,11 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.sonnet as Sonnet
 
 import org.kde.neochat
+
+pragma ComponentBehavior: Bound
 
 /**
  * @brief A component to show rich text from a message.
@@ -44,7 +47,6 @@ TextEdit {
      * @brief Whether the component should be editable.
      */
     required property bool editable
-    onEditableChanged: manageDefaultMenus()
 
     /**
      * @brief The attributes of the component.
@@ -118,8 +120,6 @@ TextEdit {
         (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
     }
 
-    Component.onCompleted: manageDefaultMenus()
-
     QQC2.Label {
         id: placeholder
         x: root.leftPadding
@@ -154,16 +154,43 @@ TextEdit {
         enabled: !root.hoveredLink && !root.editable
         acceptedButtons: Qt.LeftButton
         acceptedDevices: PointerDevice.TouchScreen
-        onLongPressed: {
-            requestMenu();
+        onLongPressed: if (root.editable) {
+            root.editMenu(point.position);
+        } else {
+            root.requestMenu();
         }
     }
     TapHandler {
-        enabled: !root.editable
         acceptedButtons: Qt.RightButton
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
-        onTapped: {
-            requestMenu();
+        onTapped: eventPoint => {
+            if (root.editable) {
+                root.editMenu(eventPoint.position);
+            } else {
+                root.requestMenu();
+            }
+        }
+    }
+
+    Instantiator {
+        id: spellcheckHighlighterInstantiator
+
+        active: root.editable
+        asynchronous: true
+
+        Sonnet.SpellcheckHighlighter {
+            id: spellcheckHighlighter
+            active: true
+            document: root.textDocument
+            cursorPosition: root.cursorPosition
+            selectionStart: root.selectionStart
+            selectionEnd: root.selectionEnd
+            misspelledColor: Kirigami.Theme.negativeTextColor
+
+            onChangeCursorPosition: (start, end) => {
+                root.cursorPosition = start;
+                root.moveCursorSelection(end, TextEdit.SelectCharacters);
+            }
         }
     }
 
@@ -172,15 +199,21 @@ TextEdit {
         RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
     }
 
-    // TODO - Remove this once the state of TextArea is sorted in QQC2
-    // This is horrible I know I hate it but currently seemingly the only way to stop the default
-    // menus in TextArea see https://invent.kde.org/frameworks/qqc2-desktop-style/-/issues/15
-    function manageDefaultMenus(): void {
-        for (let i = 0; i < resources.length; i++) {
-            if (resources[i] instanceof TapHandler) {
-                (resources[i] as TapHandler).enabled = root.editable;
-                return;
-            }
-        }
+    function editMenu(point: point): void {
+        _private.persistentSelectionSetting = root.persistentSelection;
+        root.persistentSelection = true;
+        let menu = Qt.createComponent('org.kde.neochat.messagecontent', 'TextComponentEditMenu').createObject({}, {
+            target: root,
+            spellcheckHighlighter: spellcheckHighlighterInstantiator.object,
+            openPoint: point
+        }) as TextComponentEditMenu;
+        menu.storeCursorAndSelection();
+        menu.closed.connect(() => { root.persistentSelection = _private.persistentSelectionSetting });
+        menu.popup(root);
+    }
+
+    QtObject {
+        id: _private
+        property bool persistentSelectionSetting
     }
 }

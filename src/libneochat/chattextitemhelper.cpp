@@ -10,7 +10,6 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
-#include "chatbarsyntaxhighlighter.h"
 #include "neochatroom.h"
 
 // Because we can't get access to the private header we foward declare this so the SIGNAL() macro works in setTextItem.
@@ -21,41 +20,34 @@ enum TextFormat : unsigned int;
 
 ChatTextItemHelper::ChatTextItemHelper(QObject *parent)
     : QObject(parent)
-    , m_highlighter(new ChatBarSyntaxHighlighter(this))
 {
 }
 
 NeoChatRoom *ChatTextItemHelper::room() const
 {
-    if (!m_highlighter) {
-        return nullptr;
-    }
-    return m_highlighter->room;
+    return m_room;
 }
 
 void ChatTextItemHelper::setRoom(NeoChatRoom *room)
 {
-    if (!m_highlighter) {
+    if (room == m_room) {
         return;
     }
-    m_highlighter->room = room;
+    m_room = room;
     Q_EMIT roomChanged();
 }
 
 ChatBarType::Type ChatTextItemHelper::type() const
 {
-    if (!m_highlighter) {
-        return ChatBarType::None;
-    }
-    return m_highlighter->type;
+    return m_type;
 }
 
 void ChatTextItemHelper::setType(ChatBarType::Type type)
 {
-    if (!m_highlighter) {
+    if (type == m_type) {
         return;
     }
-    m_highlighter->type = type;
+    m_type = type;
     Q_EMIT typeChanged();
 }
 
@@ -89,7 +81,6 @@ void ChatTextItemHelper::setTextItem(QQuickItem *textItem)
                 m_contentsJustChanged = true;
             });
             connect(doc, &QTextDocument::contentsChange, this, &ChatTextItemHelper::contentsChange);
-            m_highlighter->setDocument(doc);
         }
         initialize();
     }
@@ -614,11 +605,6 @@ void ChatTextItemHelper::forceActiveFocus() const
         return;
     }
     m_textItem->forceActiveFocus();
-}
-
-void ChatTextItemHelper::rehighlight() const
-{
-    m_highlighter->rehighlight();
 }
 
 bool ChatTextItemHelper::hasRichFormatting() const

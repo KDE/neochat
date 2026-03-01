@@ -13,7 +13,6 @@
 
 class QTextDocument;
 
-class ChatBarSyntaxHighlighter;
 class NeoChatRoom;
 
 /**
@@ -245,11 +244,6 @@ public:
     void forceActiveFocus() const;
 
     /**
-     * @brief Rehightlight the text in the text item.
-     */
-    void rehighlight() const;
-
-    /**
      * @brief Whether there is any rich formatting in the item text.
      */
     bool hasRichFormatting() const;
@@ -328,8 +322,9 @@ Q_SIGNALS:
     void selectedTextChanged();
 
 private:
+    QPointer<NeoChatRoom> m_room;
+    ChatBarType::Type m_type = ChatBarType::None;
     QPointer<QQuickItem> m_textItem;
-    QPointer<ChatBarSyntaxHighlighter> m_highlighter;
 
     bool m_contentsJustChanged = false;
     bool m_selectionJustChanged = false;

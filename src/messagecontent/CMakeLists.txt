@@ -42,6 +42,7 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         TextComponent.qml
         ThreadBodyComponent.qml
         VideoComponent.qml
+        TextComponentEditMenu.qml
     SOURCES
         contentprovider.cpp
         mediasizehelper.cpp

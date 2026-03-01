@@ -19,25 +19,18 @@ class ChatTextItemHelperTestHelper : public QObject
     /**
      * @brief The QML text Item the TextItemHelper is handling.
      */
-    Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
+    Q_PROPERTY(ChatTextItemHelper *textItem READ textItem CONSTANT)
 
 public:
     explicit ChatTextItemHelperTestHelper(QObject *parent = nullptr)
         : QObject(parent)
+        , m_textItem(new ChatTextItemHelper(this))
     {
     }
 
     ChatTextItemHelper *textItem() const
     {
         return m_textItem;
-    }
-    void setTextItem(ChatTextItemHelper *textItem)
-    {
-        if (textItem == m_textItem) {
-            return;
-        }
-        m_textItem = textItem;
-        Q_EMIT textItemChanged();
     }
 
     Q_INVOKABLE void setFixedChars(const QString &startChars, const QString &endChars)
@@ -141,11 +134,10 @@ public:
         if (!m_textItem) {
             return;
         }
-        const auto textItem = new ChatTextItemHelper(this);
-        textItem->setTextItem(item);
-        textItem->setCursorPosition(cursorPos);
-        m_textItem->setCursorFromTextItem(textItem, infront);
-        textItem->deleteLater();
+        ChatTextItemHelper textItem;
+        textItem.setTextItem(item);
+        textItem.setCursorPosition(cursorPos);
+        m_textItem->setCursorFromTextItem(&textItem, infront);
     }
 
     Q_INVOKABLE void mergeFormatOnCursor(RichFormat::Format format)
@@ -209,9 +201,6 @@ public:
         }
         return m_textItem->markdownText();
     }
-
-Q_SIGNALS:
-    void textItemChanged();
 
 private:
     QPointer<ChatTextItemHelper> m_textItem;
