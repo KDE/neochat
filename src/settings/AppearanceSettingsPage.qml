@@ -348,13 +348,21 @@ FormCard.FormCardPage {
             }
             enabled: !NeoChatConfig.isShowAvatarInTimelineImmutable
         }
-
         FormCard.FormCheckDelegate {
             text: i18n("In sidebar")
             checked: NeoChatConfig.showAvatarInRoomDrawer
             enabled: !NeoChatConfig.isShowAvatarInRoomDrawerImmutable
             onToggled: {
                 NeoChatConfig.showAvatarInRoomDrawer = checked;
+                NeoChatConfig.save();
+            }
+        }
+        FormCard.FormCheckDelegate {
+            text: i18nc("@label:checkbox", "In room information")
+            checked: NeoChatConfig.showAvatarInRoomInfo
+            enabled: !NeoChatConfig.isShowAvatarInRoomInfoImmutable
+            onToggled: {
+                NeoChatConfig.showAvatarInRoomInfo = checked;
                 NeoChatConfig.save();
             }
         }

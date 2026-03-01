@@ -261,8 +261,8 @@ void MessageDelegateBase::updateAvatar()
         m_avatarIncubating = true;
     } else if (!showAvatar() && m_avatarItem) {
         cleanupItem(m_avatarItem);
-        markAsDirty();
     }
+    markAsDirty();
 }
 
 QQmlComponent *MessageDelegateBase::sectionComponent() const

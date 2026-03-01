@@ -24,6 +24,8 @@ ColumnLayout {
      */
     readonly property string roomAlias: room?.aliases[0] ?? ""
 
+    property bool showAvatar: NeoChatConfig.showAvatarInRoomInfo
+
     spacing: 0
 
     RowLayout {
@@ -37,6 +39,7 @@ ColumnLayout {
         KirigamiComponents.Avatar {
             Layout.preferredWidth: Kirigami.Units.iconSizes.large
             Layout.preferredHeight: Kirigami.Units.iconSizes.large
+            visible: root.showAvatar
 
             name: root.room ? root.room.displayName : ""
             source: root.room ? root.room.avatarMediaUrl : ""

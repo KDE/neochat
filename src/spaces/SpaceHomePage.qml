@@ -70,6 +70,7 @@ ColumnLayout {
                 id: header
                 Layout.fillWidth: true
                 room: root.room
+                showAvatar: NeoChatConfig.showAvatarInTimeline
             }
             RowLayout {
                 Layout.fillWidth: true

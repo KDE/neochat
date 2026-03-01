@@ -29,6 +29,7 @@ ColumnLayout {
     }
 
     KirigamiComponents.AvatarButton {
+        visible: NeoChatConfig.showAvatarInRoomInfo
         name: root.room ? root.room.displayName : ""
         source: root.room ? root.room.avatarMediaUrl : ""
 

@@ -298,6 +298,7 @@ QQC2.ScrollView {
 
             contentItem: RowLayout {
                 KirigamiComponents.Avatar {
+                    visible: NeoChatConfig.showAvatarInRoomInfo
                     implicitWidth: height
                     sourceSize {
                         height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
