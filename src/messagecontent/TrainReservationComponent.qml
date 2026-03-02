@@ -121,7 +121,7 @@ ItineraryReservationComponent {
                             let platform = root.departurePlatform;
 
                             if (platform) {
-                                return i18n("Pl. %1", platform);
+                                return i18nc("Short for train platform", "Pl. %1", platform);
                             } else {
                                 return "";
                             }
@@ -188,7 +188,7 @@ ItineraryReservationComponent {
                             let platform = root.arrivalPlatform;
 
                             if (platform) {
-                                return i18n("Pl. %1", platform);
+                                return i18nc("Short for train platform", "Pl. %1", platform);
                             } else {
                                 return "";
                             }
