@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-02 00:44+0000\n"
 "PO-Revision-Date: 2026-03-01 01:47+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3705,7 +3705,7 @@ msgctxt "@info:label"
 msgid "No public rooms"
 msgstr "No hay salas públicas"
 
-#: src/libneochat/qml/GroupChatDrawerHeader.qml:72
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:75
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
@@ -4280,19 +4280,19 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Cancelar respuesta"
 
-#: src/messagecontent/TextComponent.qml:112
+#: src/messagecontent/TextComponent.qml:131
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Definir un subtítulo de adjunto…"
 
-#: src/messagecontent/TextComponent.qml:114
+#: src/messagecontent/TextComponent.qml:133
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Enviar un mensaje cifrado…"
 
-#: src/messagecontent/TextComponent.qml:116
+#: src/messagecontent/TextComponent.qml:135
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4435,7 +4435,7 @@ msgstr "Salir de la sala…"
 msgid "Members"
 msgstr "Miembros"
 
-#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:86
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -4835,39 +4835,39 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Copiar dirección del espacio"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:134
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Preferencias del espacio"
 
-#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this space to the administrators'"
 msgid "Report…"
 msgstr "Denunciar…"
 
-#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Space"
 msgstr "Denunciar espacio"
 
-#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
 msgstr "Proporcione un motivo para denunciar este espacio (opcional)"
 
-#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this space to the administrators'"
 msgid "Report"
 msgstr "Denunciar"
 
-#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Report Space"
@@ -5152,10 +5152,18 @@ msgstr "Mostrar avatares"
 msgid "In chat"
 msgstr "En el chat"
 
-#: src/settings/AppearanceSettingsPage.qml:353
+#: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
 msgid "In sidebar"
 msgstr "En la barra lateral"
+
+#: src/settings/AppearanceSettingsPage.qml:361
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Room Information"
+msgctxt "@label:checkbox"
+msgid "In room information"
+msgstr "Información de la sala"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -7377,19 +7385,19 @@ msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Sala existente…"
 
-#: src/spaces/SpaceHomePage.qml:80
+#: src/spaces/SpaceHomePage.qml:81
 #, kde-format
 msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
 msgstr "Invitar a espacio…"
 
-#: src/spaces/SpaceHomePage.qml:92
+#: src/spaces/SpaceHomePage.qml:93
 #, kde-format
 msgctxt "@button"
 msgid "Add to Space…"
 msgstr "Añadir a espacio…"
 
-#: src/spaces/SpaceHomePage.qml:99
+#: src/spaces/SpaceHomePage.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this Space…"

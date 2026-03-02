@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-02 00:44+0000\n"
 "PO-Revision-Date: 2026-01-15 01:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3727,7 +3727,7 @@ msgctxt "@info:label"
 msgid "No public rooms"
 msgstr "沒有公開聊天室"
 
-#: src/libneochat/qml/GroupChatDrawerHeader.qml:72
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:75
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
@@ -4295,19 +4295,19 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "取消回覆"
 
-#: src/messagecontent/TextComponent.qml:112
+#: src/messagecontent/TextComponent.qml:131
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "設定附件說明…"
 
-#: src/messagecontent/TextComponent.qml:114
+#: src/messagecontent/TextComponent.qml:133
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "傳送已加密訊息…"
 
-#: src/messagecontent/TextComponent.qml:116
+#: src/messagecontent/TextComponent.qml:135
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4450,7 +4450,7 @@ msgstr "離開聊天室…"
 msgid "Members"
 msgstr "成員"
 
-#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:86
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -4868,13 +4868,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "複製聊天空間位址"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:134
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "聊天空間設定"
 
-#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this user to the administrators'"
@@ -4884,7 +4884,7 @@ msgctxt ""
 msgid "Report…"
 msgstr "檢舉…"
 
-#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Report User"
@@ -4892,7 +4892,7 @@ msgctxt "@title:dialog"
 msgid "Report Space"
 msgstr "檢舉使用者"
 
-#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this user"
@@ -4900,7 +4900,7 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
 msgstr "檢舉此使用者的原因"
 
-#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this user to the administrators'"
@@ -4910,7 +4910,7 @@ msgctxt ""
 msgid "Report"
 msgstr "檢舉"
 
-#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report User"
@@ -5201,10 +5201,18 @@ msgstr "顯示大頭貼"
 msgid "In chat"
 msgstr "在聊天畫面中"
 
-#: src/settings/AppearanceSettingsPage.qml:353
+#: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
 msgid "In sidebar"
 msgstr "在側邊欄中"
+
+#: src/settings/AppearanceSettingsPage.qml:361
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Room information"
+msgctxt "@label:checkbox"
+msgid "In room information"
+msgstr "聊天室資訊"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -7389,7 +7397,7 @@ msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "現存的聊天室…"
 
-#: src/spaces/SpaceHomePage.qml:80
+#: src/spaces/SpaceHomePage.qml:81
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Invite user to space"
@@ -7397,7 +7405,7 @@ msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
 msgstr "邀請使用者到聊天空間"
 
-#: src/spaces/SpaceHomePage.qml:92
+#: src/spaces/SpaceHomePage.qml:93
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Add to Space"
@@ -7405,7 +7413,7 @@ msgctxt "@button"
 msgid "Add to Space…"
 msgstr "加入聊天空間"
 
-#: src/spaces/SpaceHomePage.qml:99
+#: src/spaces/SpaceHomePage.qml:100
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Leave this space…"
@@ -8275,10 +8283,6 @@ msgstr[0] "%2 人正在輸入訊息"
 
 #~ msgid "Save As"
 #~ msgstr "另存新檔"
-
-#~ msgctxt "@action:title"
-#~ msgid "Room information"
-#~ msgstr "聊天室資訊"
 
 #~ msgid "Matrix client"
 #~ msgstr "Matrix 用戶端"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-02 00:44+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3799,7 +3799,7 @@ msgctxt "@info:label"
 msgid "No public rooms"
 msgstr "공개 대화방을 찾을 수 없음"
 
-#: src/libneochat/qml/GroupChatDrawerHeader.qml:72
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:75
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
@@ -4373,19 +4373,19 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "답장 취소"
 
-#: src/messagecontent/TextComponent.qml:112
+#: src/messagecontent/TextComponent.qml:131
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "첨부 파일 캡션 설정…"
 
-#: src/messagecontent/TextComponent.qml:114
+#: src/messagecontent/TextComponent.qml:133
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "암호화된 메시지 보내기…"
 
-#: src/messagecontent/TextComponent.qml:116
+#: src/messagecontent/TextComponent.qml:135
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4544,7 +4544,7 @@ msgstr "대화방 떠나기…"
 msgid "Members"
 msgstr "구성원"
 
-#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:86
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -4989,13 +4989,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "스페이스 주소 복사"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:134
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "스페이스 설정"
 
-#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -5005,7 +5005,7 @@ msgctxt ""
 msgid "Report…"
 msgstr "신고…"
 
-#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Report Message"
@@ -5013,7 +5013,7 @@ msgctxt "@title:dialog"
 msgid "Report Space"
 msgstr "메시지 신고"
 
-#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -5021,7 +5021,7 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
 msgstr "이 메시지를 신고하는 이유"
 
-#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -5031,7 +5031,7 @@ msgctxt ""
 msgid "Report"
 msgstr "신고"
 
-#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -5326,10 +5326,17 @@ msgstr "아바타 표시"
 msgid "In chat"
 msgstr "대화에"
 
-#: src/settings/AppearanceSettingsPage.qml:353
+#: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
 msgid "In sidebar"
 msgstr "사이드바에"
+
+#: src/settings/AppearanceSettingsPage.qml:361
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@label:checkbox"
+msgid "In room information"
+msgstr "대화방 정보"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -7608,7 +7615,7 @@ msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "기존 대화방…"
 
-#: src/spaces/SpaceHomePage.qml:80
+#: src/spaces/SpaceHomePage.qml:81
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Invite user to space"
@@ -7616,7 +7623,7 @@ msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
 msgstr "스페이스에 사용자 초대"
 
-#: src/spaces/SpaceHomePage.qml:92
+#: src/spaces/SpaceHomePage.qml:93
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Add to Space"
@@ -7624,7 +7631,7 @@ msgctxt "@button"
 msgid "Add to Space…"
 msgstr "스페이스에 추가"
 
-#: src/spaces/SpaceHomePage.qml:99
+#: src/spaces/SpaceHomePage.qml:100
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Leave this space…"
@@ -8897,9 +8904,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 
 #~ msgid "The day before yesterday"
 #~ msgstr "그저께"
-
-#~ msgid "Room information"
-#~ msgstr "대화방 정보"
 
 #~ msgctxt "@title"
 #~ msgid "Select a Homeserver"

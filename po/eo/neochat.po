@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-02 00:44+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -3910,7 +3910,7 @@ msgctxt "@info:label"
 msgid "No public rooms"
 msgstr "Trovis neniujn publikajn ĉambrojn"
 
-#: src/libneochat/qml/GroupChatDrawerHeader.qml:72
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:75
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
@@ -4498,21 +4498,21 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Nuligi respondon"
 
-#: src/messagecontent/TextComponent.qml:112
+#: src/messagecontent/TextComponent.qml:131
 #, fuzzy, kde-format
 #| msgid "Set an attachment caption…"
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Agordi kunsendaĵan apudskribon…"
 
-#: src/messagecontent/TextComponent.qml:114
+#: src/messagecontent/TextComponent.qml:133
 #, fuzzy, kde-format
 #| msgid "Send an encrypted message…"
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Sendi ĉifritan mesaĝon…"
 
-#: src/messagecontent/TextComponent.qml:116
+#: src/messagecontent/TextComponent.qml:135
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@placeholder"
@@ -4669,7 +4669,7 @@ msgstr "Forlasi Ĉambron"
 msgid "Members"
 msgstr "Membroj"
 
-#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:86
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -5136,13 +5136,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopii Ligil-Adreson"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:134
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Spacaj Agordoj"
 
-#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -5152,7 +5152,7 @@ msgctxt ""
 msgid "Report…"
 msgstr "Raporti"
 
-#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Report Message"
@@ -5160,7 +5160,7 @@ msgctxt "@title:dialog"
 msgid "Report Space"
 msgstr "Raporti Mesaĝon"
 
-#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -5168,7 +5168,7 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
 msgstr "Kialo por raporti ĉi tiun mesaĝon"
 
-#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -5178,7 +5178,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Raporti"
 
-#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -5477,10 +5477,17 @@ msgstr "Montri avataron"
 msgid "In chat"
 msgstr "En babilejo"
 
-#: src/settings/AppearanceSettingsPage.qml:353
+#: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
 msgid "In sidebar"
 msgstr "En flanka kolumno"
+
+#: src/settings/AppearanceSettingsPage.qml:361
+#, fuzzy, kde-format
+#| msgid "Room Information"
+msgctxt "@label:checkbox"
+msgid "In room information"
+msgstr "Informoj pri Ĉambro"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -7829,7 +7836,7 @@ msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Elekti Ekzistantan Ĉambron"
 
-#: src/spaces/SpaceHomePage.qml:80
+#: src/spaces/SpaceHomePage.qml:81
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Invite user to space"
@@ -7837,14 +7844,14 @@ msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
 msgstr "Inviti uzanton al spaco"
 
-#: src/spaces/SpaceHomePage.qml:92
+#: src/spaces/SpaceHomePage.qml:93
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"
 msgid "Add to Space…"
 msgstr "Aldoni al Ŝatatoj"
 
-#: src/spaces/SpaceHomePage.qml:99
+#: src/spaces/SpaceHomePage.qml:100
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Leave this space"
@@ -8653,9 +8660,6 @@ msgstr[1] "%2 estas tajpantaj"
 
 #~ msgid "Switch User"
 #~ msgstr "Ŝanĝi Uzanton"
-
-#~ msgid "Room Information"
-#~ msgstr "Informoj pri Ĉambro"
 
 #~ msgid "Room name:"
 #~ msgstr "Ĉambronomo:"

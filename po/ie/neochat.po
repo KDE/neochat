@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-02 00:44+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -3904,7 +3904,7 @@ msgctxt "@info:label"
 msgid "No public rooms"
 msgstr "Chambres"
 
-#: src/libneochat/qml/GroupChatDrawerHeader.qml:72
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:75
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
@@ -4503,19 +4503,19 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Anullar li response"
 
-#: src/messagecontent/TextComponent.qml:112
+#: src/messagecontent/TextComponent.qml:131
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/messagecontent/TextComponent.qml:114
+#: src/messagecontent/TextComponent.qml:133
 #, fuzzy, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Ciffrat missage"
 
-#: src/messagecontent/TextComponent.qml:116
+#: src/messagecontent/TextComponent.qml:135
 #, fuzzy, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4673,7 +4673,7 @@ msgstr "Forlassar li chambre"
 msgid "Members"
 msgstr "Membres"
 
-#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:86
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
@@ -5120,13 +5120,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Copiar"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:134
 #, fuzzy, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Parametres del chambre"
 
-#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -5136,20 +5136,20 @@ msgctxt ""
 msgid "Report…"
 msgstr "Raportar"
 
-#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@title:dialog"
 msgid "Report Space"
 msgstr "Raportar li missage"
 
-#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
 #, fuzzy, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
 msgstr "Raportante spam..."
 
-#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -5159,7 +5159,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Raportar"
 
-#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -5471,11 +5471,18 @@ msgstr "Monstrar li avatar"
 msgid "In chat"
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:353
+#: src/settings/AppearanceSettingsPage.qml:352
 #, fuzzy, kde-format
 #| msgid "In Sidebar"
 msgid "In sidebar"
 msgstr "In li panel lateral"
+
+#: src/settings/AppearanceSettingsPage.qml:361
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@label:checkbox"
+msgid "In room information"
+msgstr "Information pri li chambre"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -7820,20 +7827,20 @@ msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Trovar un chambre..."
 
-#: src/spaces/SpaceHomePage.qml:80
+#: src/spaces/SpaceHomePage.qml:81
 #, fuzzy, kde-format
 msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
 msgstr "Invitar un usator"
 
-#: src/spaces/SpaceHomePage.qml:92
+#: src/spaces/SpaceHomePage.qml:93
 #, fuzzy, kde-format
 #| msgid "Add to Favourites"
 msgctxt "@button"
 msgid "Add to Space…"
 msgstr "Adjunter al preferet"
 
-#: src/spaces/SpaceHomePage.qml:99
+#: src/spaces/SpaceHomePage.qml:100
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -9053,9 +9060,6 @@ msgstr[1] "%2 tippa"
 
 #~ msgid "The day before yesterday"
 #~ msgstr "Anteyer"
-
-#~ msgid "Room information"
-#~ msgstr "Information pri li chambre"
 
 #~ msgctxt "@title"
 #~ msgid "Select a Homeserver"

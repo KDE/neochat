@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:43+0000\n"
+"POT-Creation-Date: 2026-03-02 00:44+0000\n"
 "PO-Revision-Date: 2026-01-12 14:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3791,7 +3791,7 @@ msgctxt "@info:label"
 msgid "No public rooms"
 msgstr "Ei julkisia huoneita"
 
-#: src/libneochat/qml/GroupChatDrawerHeader.qml:72
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:75
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
@@ -4366,19 +4366,19 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Peru vastaus"
 
-#: src/messagecontent/TextComponent.qml:112
+#: src/messagecontent/TextComponent.qml:131
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Aseta liitteen selite…"
 
-#: src/messagecontent/TextComponent.qml:114
+#: src/messagecontent/TextComponent.qml:133
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Lähetä salattu viesti…"
 
-#: src/messagecontent/TextComponent.qml:116
+#: src/messagecontent/TextComponent.qml:135
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4521,7 +4521,7 @@ msgstr "Poistu huoneesta…"
 msgid "Members"
 msgstr "Jäsenet"
 
-#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:86
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -4947,13 +4947,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopioi tilan osoite"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:134
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Tilan asetukset"
 
-#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this user to the administrators'"
@@ -4963,7 +4963,7 @@ msgctxt ""
 msgid "Report…"
 msgstr "Ilmoita…"
 
-#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Report User"
@@ -4971,7 +4971,7 @@ msgctxt "@title:dialog"
 msgid "Report Space"
 msgstr "Ilmoita käyttäjästä"
 
-#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -4979,7 +4979,7 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
 msgstr "Syy viestistä ilmoittamiseen"
 
-#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this user to the administrators'"
@@ -4989,7 +4989,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Ilmoita"
 
-#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report User"
@@ -5280,10 +5280,17 @@ msgstr "Näytä avatarit"
 msgid "In chat"
 msgstr "Keskustelussa"
 
-#: src/settings/AppearanceSettingsPage.qml:353
+#: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
 msgid "In sidebar"
 msgstr "Sivupaneelissa"
+
+#: src/settings/AppearanceSettingsPage.qml:361
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@label:checkbox"
+msgid "In room information"
+msgstr "Tietoa huoneesta"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -7552,7 +7559,7 @@ msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Olemassa oleva huone…"
 
-#: src/spaces/SpaceHomePage.qml:80
+#: src/spaces/SpaceHomePage.qml:81
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Invite user to space"
@@ -7560,7 +7567,7 @@ msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
 msgstr "Kutsu käyttäjä tilaan"
 
-#: src/spaces/SpaceHomePage.qml:92
+#: src/spaces/SpaceHomePage.qml:93
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Add to Space"
@@ -7568,7 +7575,7 @@ msgctxt "@button"
 msgid "Add to Space…"
 msgstr "Lisää tilaan"
 
-#: src/spaces/SpaceHomePage.qml:99
+#: src/spaces/SpaceHomePage.qml:100
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Leave this space…"
@@ -8831,9 +8838,6 @@ msgstr[1] "%2 kirjoittavat"
 
 #~ msgid "The day before yesterday"
 #~ msgstr "Toissapäivänä"
-
-#~ msgid "Room information"
-#~ msgstr "Tietoa huoneesta"
 
 #~ msgctxt "@title"
 #~ msgid "Select a Homeserver"
