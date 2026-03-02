@@ -92,7 +92,7 @@ Item {
                 id: editImageButton
                 visible: root.editable
                 icon.name: "document-edit"
-                text: i18n("Edit")
+                text: i18nc("@action:button", "Edit")
                 display: QQC2.AbstractButton.IconOnly
 
                 Component {
