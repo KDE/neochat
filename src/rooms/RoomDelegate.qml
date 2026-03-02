@@ -33,6 +33,7 @@ Delegates.RoundedItemDelegate {
     readonly property bool hasUnreadMessages: notificationCount > 0
 
     dropAreaHovered: dropArea.containsDrag
+    font.weight: root.hasUnreadMessages ? Font.Bold : Font.Normal
 
     Accessible.name: root.displayName
     Accessible.onPressAction: clicked()
@@ -91,43 +92,15 @@ Delegates.RoundedItemDelegate {
             showNotificationLabel: root.hasNotableNotifications && root.collapsed
             asynchronous: true
 
+            Layout.fillHeight: true
             Layout.preferredWidth: height
         }
-
-        ColumnLayout {
-            spacing: 0
-
+        Kirigami.TitleSubtitle {
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignVCenter
-            visible: !root.collapsed
-
-            QQC2.Label {
-                id: label
-
-                text: root.displayName
-                elide: Text.ElideRight
-                font.weight: root.hasUnreadMessages ? Font.Bold : Font.Normal
-                textFormat: Text.PlainText
-
-                Layout.fillWidth: true
-                Layout.alignment: subtitle.visible ? Qt.AlignLeft | Qt.AlignBottom : Qt.AlignLeft | Qt.AlignVCenter
-            }
-
-            QQC2.Label {
-                id: subtitle
-
-                text: root.subtitleText
-                elide: Text.ElideRight
-                font: Kirigami.Theme.smallFont
-                opacity: root.hasUnreadMessages ? 0.9 : 0.7
-                visible: !NeoChatConfig.compactRoomList && text.length > 0
-                textFormat: Text.PlainText
-
-                Layout.fillWidth: true
-                Layout.alignment: visible ? Qt.AlignLeft | Qt.AlignTop : Qt.AlignLeft | Qt.AlignVCenter
-            }
+            title: root.displayName
+            subtitle: NeoChatConfig.compactRoomList ? "" : root.subtitleText
+            font: root.font
         }
-
         Kirigami.Icon {
             source: "notifications-disabled"
             enabled: false
@@ -137,7 +110,6 @@ Delegates.RoundedItemDelegate {
             Accessible.name: i18n("Muted room")
             Layout.rightMargin: Kirigami.Units.smallSpacing
         }
-
         QQC2.Label {
             id: notificationCountLabel
 
@@ -155,7 +127,7 @@ Delegates.RoundedItemDelegate {
             }
 
             Layout.rightMargin: Kirigami.Units.smallSpacing
-            Layout.minimumHeight: Kirigami.Units.iconSizes.smallMedium
+            Layout.minimumHeight: NeoChatConfig.compactRoomList ? Kirigami.Units.iconSizes.small : Kirigami.Units.iconSizes.smallMedium
             Layout.minimumWidth: Math.max(notificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
 
             TextMetrics {
@@ -163,7 +135,6 @@ Delegates.RoundedItemDelegate {
                 text: notificationCountLabel.text
             }
         }
-
         QQC2.Button {
             id: configButton
             visible: root.hovered && !Kirigami.Settings.isMobile && !NeoChatConfig.compactRoomList && !root.collapsed && root.showConfigure
