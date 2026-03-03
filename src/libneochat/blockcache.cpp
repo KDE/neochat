@@ -17,13 +17,13 @@ inline QString formatQuote(const QString &input)
         if (string.startsWith(u'*')) {
             string.removeFirst();
         }
-        if (string.startsWith(u'\"')) {
+        if (string.startsWith(u'“')) {
             string.removeFirst();
         }
         if (string.endsWith(u'*')) {
             string.removeLast();
         }
-        if (string.endsWith(u'\"')) {
+        if (string.endsWith(u'”')) {
             string.removeLast();
         }
         if (!stringOut.isEmpty()) {

@@ -193,23 +193,6 @@ void ChatTextItemHelper::initialize()
     setCursorPosition(finalCursorPos);
     cursor.endEditBlock();
 
-    qWarning() << doc->toRawText();
-    const auto blockProperties = cursor.blockFormat().properties();
-    for (const auto &property : blockProperties.keys()) {
-        qWarning() << static_cast<QTextFormat::Property>(property) << blockProperties[property];
-    }
-    const auto textProperties = cursor.charFormat().properties();
-    for (const auto &property : textProperties.keys()) {
-        qWarning() << static_cast<QTextFormat::Property>(property) << textProperties[property];
-    }
-    const auto currentList = cursor.currentList();
-    if (currentList) {
-        const auto listProperties = currentList->format().properties();
-        for (const auto &property : listProperties.keys()) {
-            qWarning() << static_cast<QTextFormat::Property>(property) << listProperties[property];
-        }
-    }
-
     m_initializingChars = false;
 }
 

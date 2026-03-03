@@ -193,7 +193,7 @@ void ChatBarMessageContentModel::initializeEdit()
             textItemWrapper->setRoom(m_room);
             textItemWrapper->setType(m_type);
             if (component.type == MessageComponentType::Quote) {
-                textItemWrapper->setFixedChars(u"\""_s, u"\""_s);
+                textItemWrapper->setFixedChars(u"“"_s, u"”"_s);
             }
 
             component.attributes.insert(TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItemWrapper));
