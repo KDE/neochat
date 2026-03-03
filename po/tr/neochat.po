@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2026-02-27 07:54+0300\n"
+"POT-Creation-Date: 2026-03-03 00:46+0000\n"
+"PO-Revision-Date: 2026-03-02 11:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -330,7 +330,6 @@ msgid "Attachment:"
 msgstr "İlişik:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -4073,7 +4072,7 @@ msgid "Stop Download"
 msgstr "İndirmeyi Durdur"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4101,14 +4100,21 @@ msgstr "Giriş zamanı: %1"
 msgid "Check-out time: %1"
 msgstr "Çıkış zamanı: %1"
 
-#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/ImageComponent.qml:79
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Görseli Gizle"
 
-#: src/messagecontent/ImageComponent.qml:189
+#: src/messagecontent/ImageComponent.qml:95
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action:button"
+msgid "Edit"
+msgstr "Düzenle"
+
+#: src/messagecontent/ImageComponent.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4282,7 +4288,9 @@ msgstr "İleti gönder…"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pl. %1"
+msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
@@ -5140,11 +5148,10 @@ msgid "In sidebar"
 msgstr "Kenar çubuğunda"
 
 #: src/settings/AppearanceSettingsPage.qml:361
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "In room information"
-msgstr "Oda Bilgisi"
+msgstr "Oda bilgisinde"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format

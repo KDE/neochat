@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2026-03-01 01:47+0100\n"
+"POT-Creation-Date: 2026-03-03 00:46+0000\n"
+"PO-Revision-Date: 2026-03-02 17:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -333,7 +333,6 @@ msgid "Attachment:"
 msgstr "Adjunto:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -4091,7 +4090,7 @@ msgid "Stop Download"
 msgstr "Detener descarga"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4119,14 +4118,21 @@ msgstr "Hora de entrada: %1"
 msgid "Check-out time: %1"
 msgstr "Hora de salida: %1"
 
-#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/ImageComponent.qml:79
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Ocultar imagen"
 
-#: src/messagecontent/ImageComponent.qml:189
+#: src/messagecontent/ImageComponent.qml:95
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action:button"
+msgid "Edit"
+msgstr "Editar"
+
+#: src/messagecontent/ImageComponent.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4300,7 +4306,9 @@ msgstr "Enviar un mensaje…"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pl. %1"
+msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Andén %1"
 
@@ -5158,12 +5166,10 @@ msgid "In sidebar"
 msgstr "En la barra lateral"
 
 #: src/settings/AppearanceSettingsPage.qml:361
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "In room information"
-msgstr "Información de la sala"
+msgstr "Información en la sala"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format

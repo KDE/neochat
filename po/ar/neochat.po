@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-02 00:44+0000\n"
+"POT-Creation-Date: 2026-03-03 00:46+0000\n"
 "PO-Revision-Date: 2026-02-28 13:27+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -329,7 +329,6 @@ msgid "Attachment:"
 msgstr "المرفق:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -4043,7 +4042,7 @@ msgid "Stop Download"
 msgstr "أوقف التنزيل"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4071,14 +4070,21 @@ msgstr "وقت تسجيل الوصول: %1"
 msgid "Check-out time: %1"
 msgstr "وقت تسجيل الخروج: %1"
 
-#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/ImageComponent.qml:79
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "أخفِ صورة"
 
-#: src/messagecontent/ImageComponent.qml:189
+#: src/messagecontent/ImageComponent.qml:95
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action:button"
+msgid "Edit"
+msgstr "حرّر"
+
+#: src/messagecontent/ImageComponent.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4268,7 +4274,9 @@ msgstr "أرسل رسالة…"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pl. %1"
+msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "المنصة %1"
 

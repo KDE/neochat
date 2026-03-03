@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-02 00:44+0000\n"
-"PO-Revision-Date: 2026-02-26 15:11+0100\n"
+"POT-Creation-Date: 2026-03-03 00:46+0000\n"
+"PO-Revision-Date: 2026-03-02 12:45+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -333,7 +333,6 @@ msgid "Attachment:"
 msgstr "Attachamento:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -1730,14 +1729,13 @@ msgstr "Quita"
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
-msgstr ""
+msgstr "Inserta startar a nove linea"
 
 #: src/chatbar/ChatBar.qml:85
-#, fuzzy, kde-format
-#| msgid "%1 sent a message"
+#, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
-msgstr "%1 inviava un message"
+msgstr "Inserta invia le message"
 
 #: src/chatbar/ChatBarCore.qml:79
 #, kde-format
@@ -2036,13 +2034,13 @@ msgstr "Invia un message vocal"
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
-msgstr ""
+msgstr "Cela controlos de Rich Text (Texto Ric)"
 
 #: src/chatbar/SendBar.qml:195
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
-msgstr ""
+msgstr "Monstra controlos de Rich Text (Texto Ric)"
 
 #: src/chatbar/SendBar.qml:209
 #, kde-format
@@ -4088,7 +4086,7 @@ msgid "Stop Download"
 msgstr "Stoppa discargamento"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4116,14 +4114,21 @@ msgstr "Tempore de Check-in: %1"
 msgid "Check-out time: %1"
 msgstr "Tempore de Check-Out: %1"
 
-#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/ImageComponent.qml:79
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Cela imagine"
 
-#: src/messagecontent/ImageComponent.qml:189
+#: src/messagecontent/ImageComponent.qml:95
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action:button"
+msgid "Edit"
+msgstr "Modifica"
+
+#: src/messagecontent/ImageComponent.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4297,7 +4302,9 @@ msgstr "Invia un message…"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pl. %1"
+msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
@@ -5155,11 +5162,10 @@ msgid "In sidebar"
 msgstr "In Barra leteral"
 
 #: src/settings/AppearanceSettingsPage.qml:361
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "In room information"
-msgstr "Information de sala"
+msgstr "In Information de sala"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format

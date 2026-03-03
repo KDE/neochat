@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-02 00:44+0000\n"
+"POT-Creation-Date: 2026-03-03 00:46+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -361,7 +361,6 @@ msgid "Attachment:"
 msgstr "Anexo:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -4462,7 +4461,7 @@ msgid "Stop Download"
 msgstr "Parar a Transferência"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:119
 #, fuzzy, kde-format
 #| msgid "Remove Message"
 msgctxt "@action:button"
@@ -4491,7 +4490,7 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
-#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/ImageComponent.qml:79
 #: src/messagecontent/VideoComponent.qml:150
 #, fuzzy, kde-format
 #| msgid "Set Image"
@@ -4499,7 +4498,14 @@ msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Definir uma Imagem"
 
-#: src/messagecontent/ImageComponent.qml:189
+#: src/messagecontent/ImageComponent.qml:95
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action:button"
+msgid "Edit"
+msgstr "Editar"
+
+#: src/messagecontent/ImageComponent.qml:194
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
@@ -4689,6 +4695,7 @@ msgstr "Enviar uma mensagem…"
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
+msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr ""
 
