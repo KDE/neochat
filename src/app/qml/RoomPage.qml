@@ -417,8 +417,13 @@ Kirigami.Page {
             });
         }
 
+        property DelegateContextMenu currentMenu: null
+
         function onShowDelegateMenu(parent: QtObject, room: NeoChatRoom, eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, selectedText: string, hoveredLink: string) {
-            (delegateContextMenu.createObject(parent, {
+            if (currentMenu) {
+                return;
+            }
+            currentMenu = delegateContextMenu.createObject(parent, {
                 room: room,
                 author: author,
                 eventId: eventId,
@@ -428,7 +433,9 @@ Kirigami.Page {
                 messageComponentType: messageComponentType,
                 selectedText,
                 hoveredLink,
-            }) as DelegateContextMenu).popup();
+            });
+            currentMenu.closed.connect(() => {currentMenu = null});
+            currentMenu.popup();
         }
 
         function onShowMaximizedMedia(index) {
