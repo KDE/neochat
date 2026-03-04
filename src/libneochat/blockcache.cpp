@@ -48,18 +48,38 @@ inline QString trim(QString string)
     while (string.endsWith(u"\n"_s)) {
         string.removeLast();
     }
-    return string;
+    return string.trimmed();
 }
 
 QString CacheItem::toString() const
 {
-    auto newText = trim(type == MessageComponentType::Code ? content.toPlainText() : content.toMarkdown(QTextDocument::MarkdownDialectGitHub));
-    if (type == MessageComponentType::Quote) {
-        newText = formatQuote(newText);
-    } else if (type == MessageComponentType::Code) {
-        newText = formatCode(newText);
+    if (type == MessageComponentType::Code) {
+        return formatCode(trim(content.toPlainText()));
     }
-    return newText;
+
+    QString textOut;
+    auto doc = QTextDocument();
+    auto cursor = QTextCursor(&doc);
+    cursor.insertFragment(content);
+    cursor.movePosition(QTextCursor::Start);
+    while (!cursor.atEnd()) {
+        cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+        auto nextText = cursor.selection().toMarkdown().trimmed();
+        if (!cursor.currentList()) {
+            nextText.replace(u'\n', u' ');
+        }
+        if (!textOut.isEmpty()) {
+            textOut += cursor.currentList() ? u"\n"_s : u"\n\n"_s;
+        }
+        textOut += nextText;
+        cursor.movePosition(QTextCursor::NextBlock);
+    }
+
+    textOut = trim(textOut);
+    if (type == MessageComponentType::Quote) {
+        textOut = formatQuote(textOut);
+    }
+    return textOut;
 }
 
 void Cache::fill(QList<MessageComponent> components)

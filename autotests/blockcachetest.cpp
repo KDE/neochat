@@ -33,6 +33,10 @@ void BlockCacheTest::toStringTest_data()
                                         << u"```\nsome code\n# looks like a markdown header but is plain in code block\n```"_s;
     QTest::newRow("quote") << u"“this is a quote”"_s << MessageComponentType::Quote << u"> this is a quote"_s;
     QTest::newRow("heading") << u"# heading\n\nnext line"_s << MessageComponentType::Text << u"# heading\n\nnext line"_s;
+    QTest::newRow("long string")
+        << u"a very very very very very very very very very very very very very very very very very very very very very very very long string"_s
+        << MessageComponentType::Text
+        << u"a very very very very very very very very very very very very very very very very very very very very very very very long string"_s;
 }
 
 void BlockCacheTest::toStringTest()
