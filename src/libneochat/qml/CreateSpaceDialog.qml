@@ -22,25 +22,19 @@ Kirigami.Dialog {
     title: i18nc("@title", "Create a Space")
     implicitWidth: Kirigami.Units.gridUnit * 20
     showCloseButton: false
-    standardButtons: QQC2.Dialog.Cancel
+    standardButtons: QQC2.Dialog.Cancel | QQC2.Dialog.Ok
 
-    Component.onCompleted: roomNameField.forceActiveFocus()
+    Component.onCompleted: {
+        roomNameField.forceActiveFocus()
+        const createAction = standardButton(QQC2.Dialog.Ok);
+        createAction.icon.name = "list-add-symbolic";
+        createAction.text = i18nc("@action:button Create new space", "Create")
+        createAction.enabled = Qt.binding(() => roomNameField.text.length > 0)
+    }
 
     onAccepted: {
         root.connection.createSpace(roomNameField.text, "", root.parentId, newOfficialCheck.checked);
         root.newChild(roomNameField.text);
-    }
-
-    footer: QQC2.DialogButtonBox {
-        QQC2.Button {
-            icon.name: "list-add-symbolic"
-            text: i18nc("@action:button Create new space", "Create")
-            enabled: roomNameField.text.length > 0
-
-            onClicked: root.accept()
-
-            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
-        }
     }
 
     ColumnLayout {
