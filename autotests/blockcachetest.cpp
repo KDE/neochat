@@ -29,6 +29,8 @@ void BlockCacheTest::toStringTest_data()
     QTest::newRow("list") << u"- list 1\n- list 2\n- list 3\n"_s << MessageComponentType::Text << u"- list 1\n- list 2\n- list 3"_s;
     QTest::newRow("code") << u"for (some code) {\n\n    do something\n\n}"_s << MessageComponentType::Code
                           << u"```\nfor (some code) {\n    do something\n}\n```"_s;
+    QTest::newRow("code with markdown") << u"some code\n\n# looks like a markdown header but is plain in code block"_s << MessageComponentType::Code
+                                        << u"```\nsome code\n# looks like a markdown header but is plain in code block\n```"_s;
     QTest::newRow("quote") << u"“this is a quote”"_s << MessageComponentType::Quote << u"> this is a quote"_s;
     QTest::newRow("heading") << u"# heading\n\nnext line"_s << MessageComponentType::Text << u"# heading\n\nnext line"_s;
 }
@@ -42,7 +44,8 @@ void BlockCacheTest::toStringTest()
     Cache cache;
     cache += CacheItem{
         .type = itemType,
-        .content = QTextDocumentFragment::fromMarkdown(inputString),
+        .content =
+            itemType == MessageComponentType::Code ? QTextDocumentFragment::fromPlainText(inputString) : QTextDocumentFragment::fromMarkdown(inputString),
     };
 
     QCOMPARE(cache.toString(), outputstring);

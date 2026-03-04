@@ -98,6 +98,26 @@ TestCase {
         compare(spyUnhandledFormat.count, data.unhandled);
     }
 
+    function text_code_newline(): void {
+        spyUnhandledFormat.clear();
+        compare(spyUnhandledFormat.count, 0);
+
+        keyClick("`");
+        compare(chatMarkdownHelper.checkText("`"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        keyClick("`");
+        compare(chatMarkdownHelper.checkText("``"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        keyClick("`");
+        compare(chatMarkdownHelper.checkText("```"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        keyClick(Qt.Key_Return);
+        compare(chatMarkdownHelper.checkText(""), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+
+        compare(spyUnhandledFormat.count, 1);
+    }
+
     function test_backspace(): void {
         keyClick("*");
         compare(chatMarkdownHelper.checkText("*"), true);

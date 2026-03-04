@@ -6,6 +6,7 @@
 #include <QRegularExpression>
 
 #include "chattextitemhelper.h"
+#include "messagecomponenttype.h"
 
 using namespace Block;
 
@@ -52,7 +53,7 @@ inline QString trim(QString string)
 
 QString CacheItem::toString() const
 {
-    auto newText = trim(content.toMarkdown(QTextDocument::MarkdownDialectGitHub));
+    auto newText = trim(type == MessageComponentType::Code ? content.toPlainText() : content.toMarkdown(QTextDocument::MarkdownDialectGitHub));
     if (type == MessageComponentType::Quote) {
         newText = formatQuote(newText);
     } else if (type == MessageComponentType::Code) {

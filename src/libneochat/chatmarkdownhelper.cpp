@@ -275,6 +275,10 @@ void ChatMarkdownHelper::complete()
 
     const auto formatType = RichFormat::typeForFormat(syntax->format);
     if (formatType == RichFormat::Block) {
+        // We just hit enter and don't want an extra empty line.
+        if (cursor.atBlockStart()) {
+            cursor.deletePreviousChar();
+        }
         Q_EMIT unhandledBlockFormat(syntax->format);
     } else {
         m_textItem->mergeFormatOnCursor(syntax->format, cursor);
