@@ -150,7 +150,6 @@ QList<MessageComponent> ChatBarCache::relationComponents() const
         return {};
     }
     if (auto [event, _] = m_room->getEvent(m_relationId); event != nullptr) {
-        TextHandler handler;
         return TextHandler().textComponents(EventHandler::rawMessageBody(*event), EventHandler::messageBodyInputFormat(*event), m_room, event);
     }
     return {};
