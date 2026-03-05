@@ -58,11 +58,6 @@ QQC2.TextArea {
         forceActiveFocus();
     }
 
-    /**
-     * @brief The user selected text has changed.
-     */
-    signal selectedTextChanged(string selectedText)
-
     Keys.onPressed: (event) => {
         event.accepted = Message.contentModel.keyHelper.handleKey(event.key, event.modifiers);
     }
