@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-02-28 13:27+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -322,23 +322,6 @@ msgstr "هل ترغب في بَدء دردشة مع %1؟"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "ابدأ دردشة"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "المرفق:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "حرّر"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "ألغ إرسال المرفق"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1729,6 +1712,11 @@ msgstr "الصورة التعبيرية"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "الملصقات"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "حرّر"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4272,6 +4260,89 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "أرسل رسالة…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, kde-format
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "تجاهل"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "التدقيق الإملائي"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@action:button Undo modification"
+#| msgid "Undo"
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "تراجع"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "كرّر"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Cut"
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "قصّ"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "انسخ"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "ألصق"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "احذف"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "حدّد الكل"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4449,26 +4520,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "لا توجد رسائل مثبتة"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "ابحث في الرسائل"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "ابحث عن رسائل…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "ادخل نص لتبدأ البحث"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "لا يعثر على رسائل"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7694,6 +7770,13 @@ msgstr[3] "‏%2 يكتبون"
 msgstr[4] "‏%2 يكتبون"
 msgstr[5] "‏%2 يكتبون"
 
+#~ msgid "Attachment:"
+#~ msgstr "المرفق:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "ألغ إرسال المرفق"
+
 #, fuzzy
 #~| msgctxt "@label:textbox"
 #~| msgid "Link Text:"
@@ -8052,30 +8135,6 @@ msgstr[5] "‏%2 يكتبون"
 #~ msgid "Undo"
 #~ msgstr "تراجع"
 
-#~ msgctxt "text editing menu action"
-#~ msgid "Redo"
-#~ msgstr "كرّر"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Cut"
-#~ msgstr "قصّ"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Copy"
-#~ msgstr "انسخ"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Paste"
-#~ msgstr "ألصق"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "احذف"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Select All"
-#~ msgstr "حدّد الكل"
-
 #~ msgctxt "menu"
 #~ msgid "Edit"
 #~ msgstr "حرّر"
@@ -8393,9 +8452,6 @@ msgstr[5] "‏%2 يكتبون"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "عن كِيدِي"
-
-#~ msgid "Spell Checking"
-#~ msgstr "التدقيق الإملائي"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"

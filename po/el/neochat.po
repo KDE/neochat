@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -346,24 +346,6 @@ msgstr "Θέλεις να ξεκινήσεις συνομιλία με τον %1
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Έναρξη συνομιλίας"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Συνημμένο:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Επεξεργασία"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, fuzzy, kde-format
-#| msgid "Cancel sending Image"
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Ακύρωση αποστολής εικόνας"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, fuzzy, kde-format
@@ -1917,6 +1899,11 @@ msgstr "Χωρίς εμότζι"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Αυτοκόλλητα"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Επεξεργασία"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4642,6 +4629,88 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Αποστολή μηνύματος…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, kde-format
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Αγνόηση αυτού του χρήστη"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Ορθογραφικός έλεγχος"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@action:button Undo modification"
+#| msgid "Undo"
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Αναίρεση"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Επανάληψη"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Cut"
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Αποκοπή"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Επικόλληση"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Επιλογή όλων"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
@@ -4837,28 +4906,33 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Αναφορά μηνύματος"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Αναζήτηση στα μηνύματα"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgid "Find messages…"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Δώσε κείμενο για να ξεκινήσει η αναζήτηση"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgid "No messages found"
 msgstr "Δεν βρέθηκαν αποτελέσματα"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, fuzzy, kde-format
@@ -8435,6 +8509,15 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 πληκτρολογεί"
 msgstr[1] "%2 πληκτρολογούν"
 
+#~ msgid "Attachment:"
+#~ msgstr "Συνημμένο:"
+
+#, fuzzy
+#~| msgid "Cancel sending Image"
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Ακύρωση αποστολής εικόνας"
+
 #, fuzzy
 #~| msgid "Choose local file"
 #~ msgctxt "@action:button"
@@ -8766,30 +8849,6 @@ msgstr[1] "%2 πληκτρολογούν"
 #~ msgctxt "text editing menu action"
 #~ msgid "Undo"
 #~ msgstr "Αναίρεση"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Redo"
-#~ msgstr "Επανάληψη"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Cut"
-#~ msgstr "Αποκοπή"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Copy"
-#~ msgstr "Αντιγραφή"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Paste"
-#~ msgstr "Επικόλληση"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Διαγραφή"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Select All"
-#~ msgstr "Επιλογή όλων"
 
 #~ msgctxt "menu"
 #~ msgid "Edit"
@@ -9131,9 +9190,6 @@ msgstr[1] "%2 πληκτρολογούν"
 #~ msgctxt "@title:window"
 #~ msgid "About NeoChat"
 #~ msgstr "Σχετικά με το NeoChat"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Ορθογραφικός έλεγχος"
 
 #, fuzzy
 #~| msgctxt "@window:title"

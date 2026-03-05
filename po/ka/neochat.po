@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-03-03 02:48+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -322,23 +322,6 @@ msgstr "გნებავთ დაიწყოთ საუბარი %1-ს
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "საუბრის დაწყება"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "მიმაგრება:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "ჩასწორება"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "მიმაგრებული ფაილის გაგზავნის გაუქმება"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1741,6 +1724,11 @@ msgstr "ემოჯიები"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "სტიკერები"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "ჩასწორება"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4275,6 +4263,89 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "შეტყობინების გაგზავნა…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, kde-format
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "იგნორი"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "მართლწერის შემოწმება"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@action:button Undo modification"
+#| msgid "Undo"
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "დაბრუნება"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "აღდგენა"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Cut"
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "ამოჭრა"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "კოპირება"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "ჩასმა"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "წაშლა"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "ყველაფრის მონიშვნა"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
@@ -4449,26 +4520,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "მიმაგრებული შეტყობინებების გარეშე"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "შეტყობინებების ძებნა"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "შეტყობინებების ძებნა…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "ძებნის დასაწყებად შეიყვანეთ ტექსტი"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "შეტყობინებების გარეშე"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7703,6 +7779,13 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 კრეფს"
 msgstr[1] "%2 კრეფს"
 
+#~ msgid "Attachment:"
+#~ msgstr "მიმაგრება:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "მიმაგრებული ფაილის გაგზავნის გაუქმება"
+
 #~ msgctxt "@action:button"
 #~ msgid "Rich Text"
 #~ msgstr "მდიდარი ტექსტი"
@@ -8056,30 +8139,6 @@ msgstr[1] "%2 კრეფს"
 #~ msgid "Undo"
 #~ msgstr "დაბრუნება"
 
-#~ msgctxt "text editing menu action"
-#~ msgid "Redo"
-#~ msgstr "აღდგენა"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Cut"
-#~ msgstr "ამოჭრა"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Copy"
-#~ msgstr "კოპირება"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Paste"
-#~ msgstr "ჩასმა"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "წაშლა"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Select All"
-#~ msgstr "ყველაფრის მონიშვნა"
-
 #~ msgctxt "menu"
 #~ msgid "Edit"
 #~ msgstr "ჩასწორება"
@@ -8389,9 +8448,6 @@ msgstr[1] "%2 კრეფს"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "KDE-ს შესახებ"
-
-#~ msgid "Spell Checking"
-#~ msgstr "მართლწერის შემოწმება"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"

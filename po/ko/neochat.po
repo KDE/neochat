@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -325,23 +325,6 @@ msgstr "%1 님과 대화를 시작하시겠습니까?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "대화 시작"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "첨부:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "편집"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "첨부 전송 취소"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1833,6 +1816,11 @@ msgstr "이모지"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "스티커"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "편집"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4397,6 +4385,79 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "메시지 보내기…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "No suggestions for %1"
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr "%1의 추천 목록 없음"
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "무시"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "맞춤법 검사"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "실행 취소"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "다시 실행"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "잘라내기"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "복사"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "붙여넣기"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "삭제"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "모두 선택"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4587,26 +4648,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "고정된 메시지 없음"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "메시지 검색"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "메시지 찾기…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "검색을 시작하려면 텍스트를 입력하십시오"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "메시지를 찾을 수 없음"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, fuzzy, kde-format
@@ -7987,6 +8053,13 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
 
+#~ msgid "Attachment:"
+#~ msgstr "첨부:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "첨부 전송 취소"
+
 #~ msgctxt "@option:check"
 #~ msgid "Reject invitations from unknown users"
 #~ msgstr "알 수 없는 사용자의 초대 거절"
@@ -8354,10 +8427,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 #~ msgstr "붙여넣기"
 
 #~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "삭제"
-
-#~ msgctxt "text editing menu action"
 #~ msgid "Select All"
 #~ msgstr "모두 선택"
 
@@ -8688,9 +8757,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "KDE 정보"
-
-#~ msgid "Spell Checking"
-#~ msgstr "맞춤법 검사"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"
@@ -9071,34 +9137,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 
 #~ msgid "Please make sure that the keychain is opened."
 #~ msgstr "키 체인이 열려 있는지 확인하십시오."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "%1의 추천 목록 없음"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "실행 취소"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "다시 실행"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "잘라내기"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "복사"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "붙여넣기"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "모두 선택"
 
 #~ msgid "Server-side Logout Failed: %1"
 #~ msgstr "서버 측 로그아웃 실패: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-02-21 09:12+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -323,23 +323,6 @@ msgstr "Czy chcesz rozpocząć rozmowę z %1?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Rozpocznij rozmowę"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Załącznik:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Zmień"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Wyłącz wysyłanie załączników"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1764,6 +1747,11 @@ msgstr "Emoji"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Naklejki"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Zmień"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4296,6 +4284,79 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Wiadomość do wysłania…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "No suggestions for %1"
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr "Brak podpowiedzi dla %1"
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Pomiń"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Sprawdzanie pisowni"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Cofnij"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Przywróć"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Wytnij"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Skopiuj"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Wklej"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Usuń"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Zaznacz wszystko"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4470,26 +4531,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Brak przypiętych wiadomości"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Poszukaj wiadomości"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "Poszukaj wiadomości…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Wpisz tekst, aby rozpocząć wyszukiwanie"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "Nie znaleziono żadnych wiadomości"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7750,6 +7816,13 @@ msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
 
+#~ msgid "Attachment:"
+#~ msgstr "Załącznik:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Wyłącz wysyłanie załączników"
+
 #, fuzzy
 #~| msgctxt "@label:textbox"
 #~| msgid "Link Text:"
@@ -8122,10 +8195,6 @@ msgstr[2] "%2 pisze"
 #~ msgstr "Wklej"
 
 #~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Usuń"
-
-#~ msgctxt "text editing menu action"
 #~ msgid "Select All"
 #~ msgstr "Zaznacz wszystko"
 
@@ -8444,9 +8513,6 @@ msgstr[2] "%2 pisze"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "O KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Sprawdzanie pisowni"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"
@@ -8827,34 +8893,6 @@ msgstr[2] "%2 pisze"
 
 #~ msgid "Please make sure that the keychain is opened."
 #~ msgstr "Upewnij się, że łańcuch kluczy jest otwarty."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "Brak podpowiedzi dla %1"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "Cofnij"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "Przywróć"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "Wytnij"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "Skopiuj"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "Wklej"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "Zaznacz wszystko"
 
 #~ msgid "Server-side Logout Failed: %1"
 #~ msgstr "Nie udało się wyjść po stronie serwera: %1"

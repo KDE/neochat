@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-03-03 07:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -325,23 +325,6 @@ msgstr "Ali želite začeti klepet z %1?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Začni klepet"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Priloga:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Uredi"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Prekliči pošiljanje priloge"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1755,6 +1738,11 @@ msgstr "Čustvenčki"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Nalepke"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Uredi"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4295,6 +4283,89 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Pošlji sporočilo…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, kde-format
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Prezri"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Preverjanje črkovanja"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@action:button Undo modification"
+#| msgid "Undo"
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Razveljavi"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Ponovno uveljavi"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Cut"
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Izreži"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Kopiraj"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Prilepi"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Zbriši"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Izberi vse"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
@@ -4470,26 +4541,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Ni pripetih sporočil"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Išči sporočila"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "Najdi sporočila …"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Vnesite besedilo za začetek iskanja"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "Ni najdenih sporočil"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7726,6 +7802,13 @@ msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
 
+#~ msgid "Attachment:"
+#~ msgstr "Priloga:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Prekliči pošiljanje priloge"
+
 #~ msgctxt "@action:button"
 #~ msgid "Rich Text"
 #~ msgstr "Obogateno besedilo"
@@ -8070,30 +8153,6 @@ msgstr[3] "%2 tipkajo"
 #~ msgid "Undo"
 #~ msgstr "Razveljavi"
 
-#~ msgctxt "text editing menu action"
-#~ msgid "Redo"
-#~ msgstr "Ponovno uveljavi"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Cut"
-#~ msgstr "Izreži"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Copy"
-#~ msgstr "Kopiraj"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Paste"
-#~ msgstr "Prilepi"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Zbriši"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Select All"
-#~ msgstr "Izberi vse"
-
 #~ msgctxt "menu"
 #~ msgid "Edit"
 #~ msgstr "Uredi"
@@ -8403,9 +8462,6 @@ msgstr[3] "%2 tipkajo"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "O KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Preverjanje črkovanja"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"

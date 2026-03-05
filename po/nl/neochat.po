@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-03-03 10:44+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -323,23 +323,6 @@ msgstr "Wilt u een chat beginnen met %1?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Chat starten"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Bijlage:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Bewerken"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Verzenden van bijlage annuleren"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1764,6 +1747,11 @@ msgstr "Emoji's"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Stickers"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Bewerken"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4299,6 +4287,79 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Een bericht verzenden…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "No suggestions for %1"
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr "Geen suggesties voor %1"
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Negeren"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Spellingcontrole"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Opnieuw"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Knippen"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Kopiëren"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Plakken"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Alles selecteren"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
@@ -4472,26 +4533,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Geen vast gepinde berichten"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Berichten doorzoeken"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "Berichten zoeken…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Tekst invoeren om te beginnen met zoeken"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "Geen berichten gevonden"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7740,6 +7806,13 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
 
+#~ msgid "Attachment:"
+#~ msgstr "Bijlage:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Verzenden van bijlage annuleren"
+
 #~| msgctxt "@label:textbox"
 #~| msgid "Link Text:"
 #~ msgctxt "@action:button"
@@ -8115,10 +8188,6 @@ msgstr[1] "%2 zijn bezig met het typen"
 #~ msgstr "Plakken"
 
 #~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Verwijderen"
-
-#~ msgctxt "text editing menu action"
 #~ msgid "Select All"
 #~ msgstr "Alles selecteren"
 
@@ -8431,9 +8500,6 @@ msgstr[1] "%2 zijn bezig met het typen"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "Over KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Spellingcontrole"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"
@@ -8823,34 +8889,6 @@ msgstr[1] "%2 zijn bezig met het typen"
 
 #~ msgid "Please make sure that the keychain is opened."
 #~ msgstr "Zorg er voor dat de sleutelketting is geopend."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "Geen suggesties voor %1"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "Ongedaan maken"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "Opnieuw"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "Knippen"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "Kopiëren"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "Plakken"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "Alles selecteren"
 
 #~ msgid "Server-side Logout Failed: %1"
 #~ msgstr "Afmelden aan de kant van de server is mislukt: %1"

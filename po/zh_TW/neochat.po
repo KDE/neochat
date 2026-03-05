@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-01-15 01:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -328,23 +328,6 @@ msgstr "您要與 %1 開始私人聊天嗎？"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "開始私人聊天"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "附件："
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "編輯"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "取消傳送附件"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1780,6 +1763,11 @@ msgstr "表情符號"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "貼圖"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "編輯"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4319,6 +4307,89 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "傳送訊息…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, kde-format
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "忽略"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "拼字檢查"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@action:button Undo modification"
+#| msgid "Undo"
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "復原"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "重做"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Cut"
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "剪下"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "複製"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "貼上"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "刪除"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "全部選取"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4493,26 +4564,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "沒有置頂訊息"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "搜尋訊息"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "尋找訊息…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "輸入文字開始搜尋"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "找不到訊息"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7766,6 +7842,13 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 人正在輸入訊息"
 
+#~ msgid "Attachment:"
+#~ msgstr "附件："
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "取消傳送附件"
+
 #~ msgctxt "@option:check"
 #~ msgid "Reject invitations from unknown users"
 #~ msgstr "回絕來自未知使用者的邀請"
@@ -8106,30 +8189,6 @@ msgstr[0] "%2 人正在輸入訊息"
 #~ msgid "Undo"
 #~ msgstr "復原"
 
-#~ msgctxt "text editing menu action"
-#~ msgid "Redo"
-#~ msgstr "重做"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Cut"
-#~ msgstr "剪下"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Copy"
-#~ msgstr "複製"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Paste"
-#~ msgstr "貼上"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "刪除"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Select All"
-#~ msgstr "全部選取"
-
 #~ msgctxt "menu"
 #~ msgid "Edit"
 #~ msgstr "編輯"
@@ -8433,9 +8492,6 @@ msgstr[0] "%2 人正在輸入訊息"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "關於 KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "拼字檢查"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"

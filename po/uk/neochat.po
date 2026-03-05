@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-03-03 15:40+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -325,23 +325,6 @@ msgstr "Хочете розпочати спілкування з %1?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Почати спілкування"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Долучення:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Змінити"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Скасувати надсилання долучення"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1764,6 +1747,11 @@ msgstr "Емоційки"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Наліпки"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Змінити"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4308,6 +4296,79 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "No suggestions for %1"
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr "Немає пропозицій для %1"
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Ігнорувати"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Перевірка правопису"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Скасувати"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Повторити"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Вирізати"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Копіювати"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Вставити"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Вилучити"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Позначити все"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
@@ -4484,26 +4545,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Немає пришпилених повідомлень"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Пошук повідомлень"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "Знайти повідомлення…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Введіть фрагмент тексту, щоб почати пошук"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "Відповідних повідомлень не знайдено"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7768,6 +7834,13 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
+#~ msgid "Attachment:"
+#~ msgstr "Долучення:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Скасувати надсилання долучення"
+
 #~| msgctxt "@label:textbox"
 #~| msgid "Link Text:"
 #~ msgctxt "@action:button"
@@ -8145,10 +8218,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgstr "Вставити"
 
 #~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Вилучити"
-
-#~ msgctxt "text editing menu action"
 #~ msgid "Select All"
 #~ msgstr "Позначити все"
 
@@ -8468,9 +8537,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "Про KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Перевірка правопису"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"
@@ -8866,34 +8932,6 @@ msgstr[3] "%2 вводить текст…"
 
 #~ msgid "Please make sure that the keychain is opened."
 #~ msgstr "Будь ласка, переконайтеся, що відкрито набір ключів."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "Немає пропозицій для %1"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "Скасувати"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "Повторити"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "Вирізати"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "Копіювати"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "Вставити"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "Позначити все"
 
 #~ msgid "Server-side Logout Failed: %1"
 #~ msgstr "Невдала спроба вийти на боці сервера: %1"

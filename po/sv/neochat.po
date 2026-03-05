@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2025-10-22 20:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -325,23 +325,6 @@ msgstr "Vill du starta en chatt med %1?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Starta chatt"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Bilaga:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Redigera"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Avbryt sändning av bilaga"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1850,6 +1833,11 @@ msgstr "Emoji"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Klistermärken"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Redigera"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4419,6 +4407,79 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Skicka ett meddelande…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "No suggestions for %1"
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr "Inga förslag för %1"
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Ignorera"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Stavningskontroll"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Ångra"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Gör om"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Klipp ut"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Kopiera"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Klistra in"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Ta bort"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Markera alla"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4608,26 +4669,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Inga uppsatta meddelanden"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Sök meddelanden"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "Sök efter meddelanden…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Skriv in text för att börja söka"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "Inga meddelanden hittades"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -8028,6 +8094,13 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 skriver"
 msgstr[1] "%2 skriver"
 
+#~ msgid "Attachment:"
+#~ msgstr "Bilaga:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Avbryt sändning av bilaga"
+
 #~ msgctxt "@option:check"
 #~ msgid "Reject invitations from unknown users"
 #~ msgstr "Avslå inbjudningar från okända användare"
@@ -8391,10 +8464,6 @@ msgstr[1] "%2 skriver"
 #~ msgstr "Klistra in"
 
 #~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Ta bort"
-
-#~ msgctxt "text editing menu action"
 #~ msgid "Select All"
 #~ msgstr "Markera alla"
 
@@ -8707,9 +8776,6 @@ msgstr[1] "%2 skriver"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "Om KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Stavningskontroll"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"
@@ -9100,34 +9166,6 @@ msgstr[1] "%2 skriver"
 
 #~ msgid "Please make sure that the keychain is opened."
 #~ msgstr "Säkerställ att nyckelkedjan är öppnad."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "Inga förslag för %1"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "Ångra"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "Gör om"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "Klipp ut"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "Kopiera"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "Klistra in"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "Markera alla"
 
 #~ msgid "Server-side Logout Failed: %1"
 #~ msgstr "Utloggning på serversidan misslyckades: %1"

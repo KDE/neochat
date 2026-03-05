@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2026-03-02 22:12+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -328,23 +328,6 @@ msgstr "%1(r)ekin berriketa bat hasi nahi duzu?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Hasi berriketa"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Eranskina:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Editatu"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Utzi eranskin bidalketa bertan behera"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1814,6 +1797,11 @@ msgstr "Emojiak"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Eranskailuak"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Editatu"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4378,6 +4366,79 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Bidali mezua bat…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "No suggestions for %1"
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr "Ez dago %1(r)entzako iradokizunik"
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Ezikusi"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Ortografia egiaztatzea"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Desegin"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Berregin"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Ebaki"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Kopiatu"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Itsatsi"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Hautatu denak"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4553,26 +4614,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Ez dago iltzatutako mezurik"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Bilatu mezuak"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "Aurkitu mezuak…"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Sartu bilatzen hasteko testua"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "Ez da mezurik aurkitu"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7921,6 +7987,13 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 tekleatzen ari da"
 msgstr[1] "%2 tekleatzen ari dira"
 
+#~ msgid "Attachment:"
+#~ msgstr "Eranskina:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Utzi eranskin bidalketa bertan behera"
+
 #~ msgctxt "@option:check"
 #~ msgid "Reject invitations from unknown users"
 #~ msgstr "Errefusatu erabiltzaile ezezagunen gonbidapenak"
@@ -8283,10 +8356,6 @@ msgstr[1] "%2 tekleatzen ari dira"
 #~ msgstr "Itsatsi"
 
 #~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Ezabatu"
-
-#~ msgctxt "text editing menu action"
 #~ msgid "Select All"
 #~ msgstr "Hautatu denak"
 
@@ -8602,9 +8671,6 @@ msgstr[1] "%2 tekleatzen ari dira"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "KDEri buruz"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Ortografia egiaztatzea"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"
@@ -8988,34 +9054,6 @@ msgstr[1] "%2 tekleatzen ari dira"
 #~ msgctxt "menu"
 #~ msgid "Preferences…"
 #~ msgstr "Hobespenak…"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "Ez dago %1(r)entzako iradokizunik"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "Desegin"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "Berregin"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "Ebaki"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "Kopiatu"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "Itsatsi"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "Hautatu denak"
 
 #~ msgid "Server-side Logout Failed: %1"
 #~ msgstr "Zerbitzari-aldean saio-ixtea huts egin du: %1"

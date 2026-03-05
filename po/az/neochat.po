@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -351,25 +351,6 @@ msgstr "%1 ilə söhbətə başlamaq istəyirsiniz?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Söhbətə başlayın"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Qoşma fayl:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Düzəliş etmək"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "onların görünən adı silindi"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, fuzzy, kde-format
@@ -1887,6 +1868,11 @@ msgstr "Xüsusi Emoji"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Söz əlavə edin"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Düzəliş etmək"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4699,6 +4685,78 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "İsmarıcı göndərin..."
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "No suggestions for %1"
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr "%1 üçün təkliflər yoxdur"
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "İmtina"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Orfoqrafiya yoxlaması"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Geriyə qaytarın"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Təkrarlayın"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Kəsmək"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Kopyalamaq"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Yerləşdirin"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Silmək"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Hamısını seçin"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
@@ -4896,29 +4954,34 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgid "Find messages…"
 msgstr "İsmarıcı göndərin..."
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr ""
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "No messages found"
 msgstr "Otaqlar tapılmadı"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, fuzzy, kde-format
@@ -8543,6 +8606,16 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 yazır"
 msgstr[1] "%2 yazırlar"
 
+#~ msgid "Attachment:"
+#~ msgstr "Qoşma fayl:"
+
+#, fuzzy
+#~| msgctxt "their refers to a singular user"
+#~| msgid "cleared their display name"
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "onların görünən adı silindi"
+
 #, fuzzy
 #~| msgid "Choose local file"
 #~ msgctxt "@action:button"
@@ -8854,10 +8927,6 @@ msgstr[1] "%2 yazırlar"
 #~ msgctxt "text editing menu action"
 #~ msgid "Paste"
 #~ msgstr "Yerləşdirin"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Silmək"
 
 #~ msgctxt "text editing menu action"
 #~ msgid "Select All"
@@ -9185,9 +9254,6 @@ msgstr[1] "%2 yazırlar"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "Haqqında"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Orfoqrafiya yoxlaması"
 
 #, fuzzy
 #~| msgid "Spell Checking"
@@ -9570,34 +9636,6 @@ msgstr[1] "%2 yazırlar"
 
 #~ msgid "Please make sure that the keychain is opened."
 #~ msgstr "Açar zəncirinin açıq olduğuna əmin olun."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "%1 üçün təkliflər yoxdur"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "Geriyə qaytarın"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "Təkrarlayın"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "Kəsmək"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "Kopyalamaq"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "Yerləşdirin"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "Hamısını seçin"
 
 #~ msgid "Server-side Logout Failed: %1"
 #~ msgstr "Server tərəfdən çıxış baş tutmadı: %1"

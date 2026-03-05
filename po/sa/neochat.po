@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -340,24 +340,6 @@ msgstr "%1 इत्यनेन सह गपशपं आरभतुम् �
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "गपशपं आरभत"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "संलग्न:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "सम्पादन"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, fuzzy, kde-format
-#| msgid "Cancel sending attachment"
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "संलग्नकं प्रेषयन् रद्दं कुरुत"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1901,6 +1883,11 @@ msgstr "इमोजीज"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "स्टिकर"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "सम्पादन"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4514,6 +4501,88 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "सन्देशं प्रेषयन्तु..."
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, kde-format
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "उपेक्षा"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@action:button Undo modification"
+#| msgid "Undo"
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "पूर्ववत"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "पुनः करो"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Cut"
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "छिन्न"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "प्रतिलिपि"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "चिनोतु"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "लुप्"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "All इति चिनोतु"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4705,26 +4774,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "अधिकांशः अपठितः सन्देशः"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "सन्देशान् अन्वेष्टुम्"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "सन्देशान् अन्वेष्टुम्..."
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "अन्वेषणं आरभ्य पाठं प्रविशन्तु"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "न सन्देशाः प्राप्ताः"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, fuzzy, kde-format
@@ -8222,6 +8296,15 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 टङ्कयति"
 msgstr[1] "%2 टङ्कयन्ति"
 
+#~ msgid "Attachment:"
+#~ msgstr "संलग्न:"
+
+#, fuzzy
+#~| msgid "Cancel sending attachment"
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "संलग्नकं प्रेषयन् रद्दं कुरुत"
+
 #~ msgctxt "@option:check"
 #~ msgid "Reject invitations from unknown users"
 #~ msgstr "अज्ञातप्रयोक्तृभ्यः आमन्त्रणं अङ्गीकुरुत"
@@ -8593,30 +8676,6 @@ msgstr[1] "%2 टङ्कयन्ति"
 #~ msgctxt "text editing menu action"
 #~ msgid "Undo"
 #~ msgstr "पूर्ववत"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Redo"
-#~ msgstr "पुनः करो"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Cut"
-#~ msgstr "छिन्न"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Copy"
-#~ msgstr "प्रतिलिपि"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Paste"
-#~ msgstr "चिनोतु"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "लुप्"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Select All"
-#~ msgstr "All इति चिनोतु"
 
 #~ msgctxt "menu"
 #~ msgid "Edit"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -327,23 +327,6 @@ msgstr "Vai vēlaties uzsākt tērzēšanu ar lietotāju „%1“?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Uzsākt tērzēšanu"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Pielikums:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Rediģēt"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Atcelt pielikuma sūtīšanu"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, kde-format
@@ -1838,6 +1821,11 @@ msgstr "Emocijzīmes"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Uzlīmes"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Rediģēt"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4404,6 +4392,89 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Sūtīt ziņu…"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, kde-format
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Ignorēt"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Pareizrakstības pārbaude"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@action:button Undo modification"
+#| msgid "Undo"
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Atsaukt"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Atatsaukt"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Cut"
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Izgriezt"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Kopēt"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Ielīmēt"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Dzēst"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Atlasīt visu"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4580,26 +4651,31 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Nav piespraustu ziņu"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Meklēt ziņas"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
 msgstr "Atrast ziņas..."
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Ievadiet tekstu, lai meklētu"
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
 msgstr "Ziņas nav atrastas"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -7972,6 +8048,13 @@ msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
 
+#~ msgid "Attachment:"
+#~ msgstr "Pielikums:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Atcelt pielikuma sūtīšanu"
+
 #~ msgctxt "@option:check"
 #~ msgid "Reject invitations from unknown users"
 #~ msgstr "Noraidīt uzaicinājumus no nezināmiem lietotājiem"
@@ -8309,30 +8392,6 @@ msgstr[2] "%2 raksta"
 #~ msgid "Undo"
 #~ msgstr "Atsaukt"
 
-#~ msgctxt "text editing menu action"
-#~ msgid "Redo"
-#~ msgstr "Atatsaukt"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Cut"
-#~ msgstr "Izgriezt"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Copy"
-#~ msgstr "Kopēt"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Paste"
-#~ msgstr "Ielīmēt"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Dzēst"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Select All"
-#~ msgstr "Atlasīt visu"
-
 #~ msgctxt "menu"
 #~ msgid "Edit"
 #~ msgstr "Rediģēt"
@@ -8646,9 +8705,6 @@ msgstr[2] "%2 raksta"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "Par KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Pareizrakstības pārbaude"
 
 #~ msgctxt "@title"
 #~ msgid "Spellchecking"

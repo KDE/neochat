@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -345,24 +345,6 @@ msgstr "Esque vu vole iniciar un conversation con %1?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Iniciar conversation"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Atachament:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Modificar"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, fuzzy, kde-format
-#| msgid "Cancel sending Image"
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "Anullar emission del image"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, fuzzy, kde-format
@@ -1850,6 +1832,11 @@ msgstr "Converter smileys a emojis"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Adjunter un parol"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Modificar"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4527,6 +4514,88 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Ne successat inviar un missage D-Bus"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, kde-format
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Ignorar ti usator"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Control de ortografie"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@action:button Undo modification"
+#| msgid "Undo"
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Defar"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Redo"
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Refar"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Cut"
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Exciser"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Copiar"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Paste"
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Collar"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Remover"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Select omnicos"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
@@ -4723,27 +4792,32 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Raportar li missage"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Direct missages"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, fuzzy, kde-format
 msgid "Find messages…"
 msgstr "Ne successat inviar un missage D-Bus"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr ""
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, fuzzy, kde-format
 msgid "No messages found"
 msgstr "Chambres"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, fuzzy, kde-format
@@ -8226,6 +8300,15 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 tippa"
 msgstr[1] "%2 tippa"
 
+#~ msgid "Attachment:"
+#~ msgstr "Atachament:"
+
+#, fuzzy
+#~| msgid "Cancel sending Image"
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "Anullar emission del image"
+
 #, fuzzy
 #~| msgid "Choose local file"
 #~ msgctxt "@action:button"
@@ -8512,30 +8595,6 @@ msgstr[1] "%2 tippa"
 #~ msgctxt "text editing menu action"
 #~ msgid "Undo"
 #~ msgstr "Defar"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Redo"
-#~ msgstr "Refar"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Cut"
-#~ msgstr "Exciser"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Copy"
-#~ msgstr "Copiar"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Paste"
-#~ msgstr "Collar"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Remover"
-
-#~ msgctxt "text editing menu action"
-#~ msgid "Select All"
-#~ msgstr "Select omnicos"
 
 #~ msgctxt "menu"
 #~ msgid "Edit"
@@ -8856,9 +8915,6 @@ msgstr[1] "%2 tippa"
 #~ msgctxt "@title:window"
 #~ msgid "About NeoChat"
 #~ msgstr "Pri NeoChat"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Control de ortografie"
 
 #, fuzzy
 #~| msgctxt "@window:title"

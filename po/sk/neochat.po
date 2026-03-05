@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:45+0000\n"
+"POT-Creation-Date: 2026-03-05 00:44+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -347,25 +347,6 @@ msgstr "Chcete začať rozhovor s %1?"
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Začať rozhovor"
-
-#: src/app/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Príloha:"
-
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:199
-#, kde-format
-msgid "Edit"
-msgstr "Upraviť"
-
-#: src/app/qml/AttachmentPane.qml:61
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
-msgctxt "@action:button"
-msgid "Cancel sending attachment"
-msgstr "vymazali svoje zobrazované meno"
 
 #: src/app/qml/ChooseRoomDialog.qml:13
 #, fuzzy, kde-format
@@ -1874,6 +1855,11 @@ msgstr "Vlastné"
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Upraviť zariadenie"
+
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#, kde-format
+msgid "Edit"
+msgstr "Upraviť"
 
 #: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
@@ -4658,6 +4644,79 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Odoslať správu"
 
+#: src/messagecontent/TextComponentEditMenu.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "No suggestions for %1"
+msgctxt "As in no suggestion for spellcheck to fix spelling"
+msgid "No Suggestions for \"%1\""
+msgstr "Žiadne návrhy pre %1"
+
+#: src/messagecontent/TextComponentEditMenu.qml:103
+#, kde-format
+msgctxt "As in add the word %1 to spellcheck dictionary"
+msgid "Add \"%1\" to Dictionary"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:inmenu"
+msgid "Ignore"
+msgstr "Ignorovať"
+
+#: src/messagecontent/TextComponentEditMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@action:inmenu"
+msgid "Spell Check"
+msgstr "Kontrola pravopisu"
+
+#: src/messagecontent/TextComponentEditMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Undo"
+msgstr "Vrátiť"
+
+#: src/messagecontent/TextComponentEditMenu.qml:151
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Redo"
+msgstr "Znovu"
+
+#: src/messagecontent/TextComponentEditMenu.qml:165
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Cut"
+msgstr "Vystrihnúť"
+
+#: src/messagecontent/TextComponentEditMenu.qml:178
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy"
+msgstr "Kopírovať"
+
+#: src/messagecontent/TextComponentEditMenu.qml:191
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste"
+msgstr "Vložiť"
+
+#: src/messagecontent/TextComponentEditMenu.qml:204
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgctxt "@action:inmenu"
+msgid "Delete"
+msgstr "Vymazať"
+
+#: src/messagecontent/TextComponentEditMenu.qml:218
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Select All"
+msgstr "Vybrať všetky"
+
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, fuzzy, kde-format
@@ -4855,29 +4914,34 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Preposlať správu"
 
-#: src/roominfo/RoomSearchPage.qml:33
+#: src/roominfo/RoomSearchPage.qml:36
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Priame správy"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:48
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Find messages…"
 msgstr "Nájsť správy"
 
-#: src/roominfo/RoomSearchPage.qml:46
+#: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
 msgstr ""
 
-#: src/roominfo/RoomSearchPage.qml:47
+#: src/roominfo/RoomSearchPage.qml:50
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "No messages found"
 msgstr "Žiadne miestnosti neboli nájdené"
+
+#: src/roominfo/RoomSearchPage.qml:52
+#, kde-format
+msgid "Cannot search in encrypted rooms"
+msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:18
 #, fuzzy, kde-format
@@ -8449,6 +8513,16 @@ msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
 
+#~ msgid "Attachment:"
+#~ msgstr "Príloha:"
+
+#, fuzzy
+#~| msgctxt "their refers to a singular user"
+#~| msgid "cleared their display name"
+#~ msgctxt "@action:button"
+#~ msgid "Cancel sending attachment"
+#~ msgstr "vymazali svoje zobrazované meno"
+
 #, fuzzy
 #~| msgid "Choose local file"
 #~ msgctxt "@action:button"
@@ -8813,10 +8887,6 @@ msgstr[2] "%2 píšu"
 #~ msgstr "Vložiť"
 
 #~ msgctxt "text editing menu action"
-#~ msgid "Delete"
-#~ msgstr "Vymazať"
-
-#~ msgctxt "text editing menu action"
 #~ msgid "Select All"
 #~ msgstr "Vybrať všetko"
 
@@ -9139,9 +9209,6 @@ msgstr[2] "%2 píšu"
 #~ msgctxt "@title:window"
 #~ msgid "About KDE"
 #~ msgstr "O aplikácii"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Kontrola pravopisu"
 
 #, fuzzy
 #~| msgid "Spell Checking"
@@ -9469,34 +9536,6 @@ msgstr[2] "%2 píšu"
 
 #~ msgid "Write your message..."
 #~ msgstr "Napíšte vašu správu..."
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "Žiadne návrhy pre %1"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "Vrátiť"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "Znovu"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "Vystrihnúť"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "Kopírovať"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "Vložiť"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "Vybrať všetky"
 
 #~ msgid "Server-side Logout Failed: %1"
 #~ msgstr "Odhlásenie na strane servera zlyhalo: %1"
