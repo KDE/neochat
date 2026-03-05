@@ -86,7 +86,7 @@ Kirigami.Page {
     // Resets the view settling of the timeline.
     // This should be called whenever the apparent height of the timeline changes, or else the view will scroll on its own!
     function resetViewSettling(): void {
-        (timelineViewLoader.item as TimelineView).resetViewSettling();
+        (timelineViewLoader.item as TimelineView)?.resetViewSettling();
     }
 
     actions: [
@@ -94,7 +94,7 @@ Kirigami.Page {
             id: jitsiMeetingAction
 
             readonly property bool hasExistingMeeting: root.widgetModel.jitsiIndex >= 0
-            readonly property bool canStartNewMeeting: root.currentRoom.canSendState("im.vector.modular.widgets")
+            readonly property bool canStartNewMeeting: root.currentRoom?.canSendState("im.vector.modular.widgets") ?? false
 
             tooltip: {
                 if (hasExistingMeeting) {
@@ -152,24 +152,11 @@ Kirigami.Page {
             (chatBarLoader.item as ChatBar).forceActiveFocus();
         }
 
-        if (root.currentRoom.tagNames.includes("m.server_notice")) {
+        if (root.currentRoom?.tagNames.includes("m.server_notice")) {
             banner.text = i18nc("@info", "This room contains official messages from your homeserver.")
             banner.show("message");
         } else {
             banner.hideIf("message");
-        }
-    }
-
-    Connections {
-        target: root.currentRoom.connection
-        function onIsOnlineChanged() {
-            if (!root.currentRoom.connection.isOnline) {
-                banner.text = i18nc("@info:status", "NeoChat is offline. Please check your network connection.");
-                banner.type = Kirigami.MessageType.Error;
-                banner.show("offline");
-            } else {
-                banner.hideIf("offline");
-            }
         }
     }
 
@@ -205,7 +192,7 @@ Kirigami.Page {
                 }
 
                 QQC2.Label {
-                    text: root.currentRoom.pinnedMessage
+                    text: root.currentRoom?.pinnedMessage ?? ""
                     maximumLineCount: 1
                     elide: Text.ElideRight
 
@@ -381,10 +368,21 @@ Kirigami.Page {
     }
 
     Connections {
-        target: root.currentRoom.connection
+        target: root.currentRoom?.connection as NeoChatConnection
+
         function onJoinedRoom(room, invited) {
             if (root.currentRoom.id === invited.id) {
                 RoomManager.resolveResource(room.id);
+            }
+        }
+
+        function onIsOnlineChanged(): void {
+            if (!root.currentRoom.connection.isOnline) {
+                banner.text = i18nc("@info:status", "NeoChat is offline. Please check your network connection.");
+                banner.type = Kirigami.MessageType.Error;
+                banner.show("offline");
+            } else {
+                banner.hideIf("offline");
             }
         }
     }
