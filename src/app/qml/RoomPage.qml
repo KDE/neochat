@@ -370,12 +370,6 @@ Kirigami.Page {
     Connections {
         target: root.currentRoom?.connection as NeoChatConnection
 
-        function onJoinedRoom(room, invited) {
-            if (root.currentRoom.id === invited.id) {
-                RoomManager.resolveResource(room.id);
-            }
-        }
-
         function onIsOnlineChanged(): void {
             if (!root.currentRoom.connection.isOnline) {
                 banner.text = i18nc("@info:status", "NeoChat is offline. Please check your network connection.");
