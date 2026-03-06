@@ -95,6 +95,8 @@ class NeoChatConnection : public Quotient::Connection
      */
     Q_PROPERTY(bool blockAllInvites READ blockAllInvites WRITE setBlockAllInvites NOTIFY blockAllInvitesChanged)
 
+    Q_PROPERTY(QString accountManagementUri READ accountManagementUri NOTIFY accountManagementUriChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -239,6 +241,8 @@ public:
     bool blockAllInvites() const;
     void setBlockAllInvites(bool block);
 
+    QString accountManagementUri() const;
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void identityServerChanged();
@@ -254,6 +258,7 @@ Q_SIGNALS:
     void canCheckMutualRoomsChanged();
     void canEraseDataChanged();
     void enablePushNotificationsChanged();
+    void accountManagementUriChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
@@ -284,8 +289,10 @@ private:
     static PushRuleAction::Action m_defaultAction;
 
     void connectSignals();
+    void setAccountManagementUri(const QString &uri);
 
     int m_badgeNotificationCount = 0;
+    QString m_accountManagementUri;
 
     QCache<QUrl, LinkPreviewer> m_linkPreviewers;
 
