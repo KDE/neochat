@@ -107,6 +107,11 @@ Kirigami.ScrollablePage {
     property Kirigami.Action noResultHelpfulAction
 
     /**
+     * @brief The text to be searched
+     */
+    property alias searchText: searchField.text
+
+    /**
      * @brief Force the search field to be focussed.
      */
     function focusSearch() {
