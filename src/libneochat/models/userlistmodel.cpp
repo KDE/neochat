@@ -111,10 +111,14 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
 
         auto userPl = pl->powerLevelForUser(memberId);
 
-        return i18nc("%1 is the name of the power level, e.g. admin and %2 is the value that represents.",
-                     "%1 (%2)",
-                     PowerLevel::nameForLevel(PowerLevel::levelForValue(userPl)),
-                     userPl);
+        if (PowerLevel::levelForValue(userPl) == PowerLevel::Custom) {
+            return i18nc("%1 is the name of the power level, e.g. admin and %2 is the value that represents.",
+                         "%1 (%2)",
+                         PowerLevel::nameForLevel(PowerLevel::levelForValue(userPl)),
+                         userPl);
+        }
+
+        return PowerLevel::nameForLevel(PowerLevel::levelForValue(userPl));
     }
     if (role == IsCreatorRole) {
         return m_currentRoom->isCreator(memberId);
