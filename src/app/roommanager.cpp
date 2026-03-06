@@ -644,6 +644,11 @@ QString RoomManager::currentSpace() const
 
 void RoomManager::resetState()
 {
+    if (!m_connection) {
+        m_currentRoom = {};
+        m_currentSpaceId.clear();
+        return;
+    }
     setCurrentRoom({});
     setCurrentSpace({});
 }
