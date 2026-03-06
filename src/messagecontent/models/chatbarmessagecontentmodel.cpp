@@ -453,7 +453,7 @@ ChatBarMessageContentModel::insertComponent(int row, MessageComponentType::Type 
         textItemWrapper->setRoom(m_room);
         textItemWrapper->setType(m_type);
         if (type == MessageComponentType::Quote) {
-            textItemWrapper->setFixedChars(u"\""_s, u"\""_s);
+            textItemWrapper->setFixedChars(u"“"_s, u"”"_s);
         }
 
         attributes.insert(TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItemWrapper));
