@@ -22,13 +22,7 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QOb
 
     setRecursiveFilteringEnabled(true);
     sort(0);
-    connect(this, &SortFilterRoomTreeModel::filterTextChanged, this, &SortFilterRoomTreeModel::invalidateFilter);
     connect(sourceModel, &RoomTreeModel::invalidateSort, this, &SortFilterRoomTreeModel::invalidate);
-    connect(this, &SortFilterRoomTreeModel::sourceModelChanged, this, [this]() {
-        this->sourceModel()->disconnect(this);
-        connect(this->sourceModel(), &QAbstractItemModel::rowsInserted, this, &SortFilterRoomTreeModel::invalidateFilter);
-        connect(this->sourceModel(), &QAbstractItemModel::rowsRemoved, this, &SortFilterRoomTreeModel::invalidateFilter);
-    });
 }
 
 bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
@@ -70,7 +64,9 @@ bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QMo
 
 void SortFilterRoomTreeModel::setFilterText(const QString &text)
 {
+    beginFilterChange();
     m_filterText = text;
+    endFilterChange();
     Q_EMIT filterTextChanged();
 }
 

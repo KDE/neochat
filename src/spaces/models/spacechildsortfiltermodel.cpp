@@ -14,9 +14,10 @@ SpaceChildSortFilterModel::SpaceChildSortFilterModel(QObject *parent)
 
 void SpaceChildSortFilterModel::setFilterText(const QString &filterText)
 {
+    beginFilterChange();
     m_filterText = filterText;
+    endFilterChange();
     Q_EMIT filterTextChanged();
-    invalidateFilter();
 }
 
 QString SpaceChildSortFilterModel::filterText() const
