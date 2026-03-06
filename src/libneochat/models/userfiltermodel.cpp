@@ -25,9 +25,10 @@ QString UserFilterModel::filterText() const
 
 void UserFilterModel::setFilterText(const QString &filterText)
 {
+    beginFilterChange();
     m_filterText = filterText;
+    endFilterChange();
     Q_EMIT filterTextChanged();
-    invalidateFilter();
 }
 
 bool UserFilterModel::allowEmpty() const
