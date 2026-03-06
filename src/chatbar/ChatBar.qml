@@ -81,7 +81,7 @@ Item {
         }
         QQC2.Label {
             Layout.fillWidth: true
-            visible: !Kirigami.Setting.isMobile
+            visible: !Kirigami.Settings.isMobile
             text: NeoChatConfig.sendMessageWith === 1 ? i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : i18nc("As in enter starts send the chat message", "Enter sends the message")
             horizontalAlignment: Text.AlignRight
             font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale * 0.75
