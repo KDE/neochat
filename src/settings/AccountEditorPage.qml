@@ -173,8 +173,10 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title:group", "Password")
+        visible: root.connection.accountManagementUri.length === 0
     }
     FormCard.FormCard {
+        visible: root.connection.accountManagementUri.length === 0
         FormCard.FormTextDelegate {
             visible: root.connection !== undefined && root.connection.canChangePassword === false
             text: i18nc("@info", "Your server doesn't support changing your password")
@@ -222,25 +224,57 @@ FormCard.FormCardPage {
         }
     }
     ThreePIdCard {
+        visible: root.connection.accountManagementUri.length === 0
         connection: root.connection
         title: i18nc("@title:group", "Email Addresses")
         medium: "email"
     }
     ThreePIdCard {
-        visible: NeoChatConfig.phone3PId
+        visible: NeoChatConfig.phone3PId && root.connection.accountManagementUri.length === 0
         connection: root.connection
         title: i18nc("@title:group", "Phone Numbers")
         medium: "msisdn"
     }
     FormCard.FormHeader {
+        visible: root.connection.accountManagementUri.length === 0
         Layout.fillWidth: true
         title: i18nc("@title:group", "Identity Server")
     }
     FormCard.FormCard {
+        visible: root.connection.accountManagementUri.length === 0
         IdentityServerDelegate {
             connection: root.connection
         }
     }
+
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Account Management")
+    }
+
+    FormCard.FormCard {
+        visible: root.connection.accountManagementUri.length > 0
+        FormCard.FormLinkDelegate {
+            text: i18nc("@info", "Manage Account")
+            url: root.connection.accountManagementUri
+        }
+    }
+
+    FormCard.FormCard {
+        visible: root.connection.accountManagementUri.length === 0
+        FormCard.FormButtonDelegate {
+            id: deactivateAccountButton
+            text: i18nc("@action:button", "Deactivate Account…")
+            icon.name: "trash-empty-symbolic"
+            onClicked: {
+                const component = Qt.createComponent('org.kde.neochat', 'ConfirmDeactivateAccountDialog');
+                const dialog = component.createObject(QQC2.ApplicationWindow.window, {
+                    connection: root.connection,
+                });
+                dialog.open();
+            }
+        }
+    }
+
     FormCard.FormHeader {
         Layout.fillWidth: true
         title: i18nc("@title:group", "Server Information")
@@ -266,23 +300,6 @@ FormCard.FormCardPage {
             text: i18n("Server version")
             description: root.connection.homeserver
         }*/
-    }
-    FormCard.FormHeader {
-        title: i18nc("@title:group", "Account Management")
-    }
-    FormCard.FormCard {
-        FormCard.FormButtonDelegate {
-            id: deactivateAccountButton
-            text: i18nc("@action:button", "Deactivate Account…")
-            icon.name: "trash-empty-symbolic"
-            onClicked: {
-                const component = Qt.createComponent('org.kde.neochat', 'ConfirmDeactivateAccountDialog');
-                const dialog = component.createObject(QQC2.ApplicationWindow.window, {
-                    connection: root.connection,
-                });
-                dialog.open();
-            }
-        }
     }
 
     data: Connections {

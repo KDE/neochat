@@ -6,6 +6,7 @@
 #include <QImageReader>
 #include <QJsonDocument>
 
+#include "jobs/neochatauthmetadatajob.h"
 #include "jobs/neochatreportuserjob.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
@@ -149,6 +150,10 @@ void NeoChatConnection::connectSignals()
                 Q_EMIT canCheckMutualRoomsChanged();
                 m_canEraseData = job->unstableFeatures().value("org.matrix.msc4025"_L1, false) || job->versions().count("v1.10"_L1);
                 Q_EMIT canEraseDataChanged();
+            });
+
+            callApi<NeoChatAuthMetadataJob>().then([this](const auto &job) {
+                setAccountManagementUri(job->jsonData()[u"account_management_uri"_s].toString());
             });
         },
         Qt::SingleShotConnection);
@@ -658,6 +663,17 @@ void NeoChatConnection::setBlockAllInvites(bool block)
         object.remove("default_action"_L1);
     }
     setAccountData(QStringLiteral("m.invite_permission_config"), object);
+}
+
+QString NeoChatConnection::accountManagementUri() const
+{
+    return m_accountManagementUri;
+}
+
+void NeoChatConnection::setAccountManagementUri(const QString &uri)
+{
+    m_accountManagementUri = uri;
+    Q_EMIT accountManagementUriChanged();
 }
 
 #include "moc_neochatconnection.cpp"

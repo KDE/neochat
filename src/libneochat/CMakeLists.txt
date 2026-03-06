@@ -43,6 +43,7 @@ target_sources(LibNeoChat PRIVATE
     jobs/neochatgetcommonroomsjob.cpp
     jobs/neochatreportroomjob.cpp
     jobs/neochatreportuserjob.cpp
+    jobs/neochatauthmetadatajob.cpp
     models/actionsmodel.cpp
     models/completionmodel.cpp
     models/completionproxymodel.cpp
