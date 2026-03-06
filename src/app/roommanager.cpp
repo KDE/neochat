@@ -499,6 +499,10 @@ void RoomManager::setConnection(NeoChatConnection *connection)
             resolveResource(room->id());
         });
         connect(m_connection, &NeoChatConnection::directChatAvailable, this, [this](Quotient::Room *directChat) {
+            if (!directChat) {
+                qWarning() << "Failed to get room for direct chat";
+                return;
+            }
             resolveResource(directChat->id());
         });
         connect(m_connection, &NeoChatConnection::joinedRoom, this, [this](const auto &room, const auto &previousRoom) {
