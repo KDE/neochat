@@ -18,16 +18,18 @@ bool StateFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &source
 void StateFilterModel::addStateEventTypeFiltered(const QString &stateEventType)
 {
     if (!m_stateEventTypesFiltered.contains(stateEventType)) {
+        beginFilterChange();
         m_stateEventTypesFiltered.append(stateEventType);
-        invalidateFilter();
+        endFilterChange();
     }
 }
 
 void StateFilterModel::removeStateEventTypeFiltered(const QString &stateEventType)
 {
     if (m_stateEventTypesFiltered.contains(stateEventType)) {
+        beginFilterChange();
         m_stateEventTypesFiltered.removeAll(stateEventType);
-        invalidateFilter();
+        endFilterChange();
     }
 }
 

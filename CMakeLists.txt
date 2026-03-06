@@ -15,7 +15,7 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 project(NeoChat VERSION ${RELEASE_SERVICE_VERSION})
 
 set(KF_MIN_VERSION "6.17")
-set(QT_MIN_VERSION "6.9")
+set(QT_MIN_VERSION "6.10")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -48,7 +48,7 @@ endif()
 
 set(QUOTIENT_FORCE_NAMESPACED_INCLUDES TRUE)
 
-ecm_set_disabled_deprecation_versions(Qt 6.9.0 KF 6.17.0)
+ecm_set_disabled_deprecation_versions(Qt 6.10.0 KF 6.23.0)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX NEOCHAT

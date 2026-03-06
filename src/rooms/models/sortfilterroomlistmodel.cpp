@@ -15,17 +15,13 @@ SortFilterRoomListModel::SortFilterRoomListModel(RoomListModel *sourceModel, QOb
     setSourceModel(sourceModel);
 
     sort(0);
-    connect(this, &SortFilterRoomListModel::filterTextChanged, this, &SortFilterRoomListModel::invalidateFilter);
-    connect(this, &SortFilterRoomListModel::sourceModelChanged, this, [this]() {
-        this->sourceModel()->disconnect(this);
-        connect(this->sourceModel(), &QAbstractListModel::rowsInserted, this, &SortFilterRoomListModel::invalidateRowsFilter);
-        connect(this->sourceModel(), &QAbstractListModel::rowsRemoved, this, &SortFilterRoomListModel::invalidateRowsFilter);
-    });
 }
 
 void SortFilterRoomListModel::setFilterText(const QString &text)
 {
+    beginFilterChange();
     m_filterText = text;
+    endFilterChange();
     Q_EMIT filterTextChanged();
 }
 
