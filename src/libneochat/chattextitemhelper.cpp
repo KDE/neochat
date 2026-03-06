@@ -198,7 +198,11 @@ QTextDocument *ChatTextItemHelper::document() const
 
 bool ChatTextItemHelper::isEmpty() const
 {
-    return markdownText().length() == 0;
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return markdownText().length() == 0 && !cursor.currentList();
 }
 
 int ChatTextItemHelper::lineCount() const
