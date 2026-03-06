@@ -71,7 +71,7 @@ RowLayout {
 
     function openVoiceDialog(): void {
         let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'VoiceMessageDialog').createObject(root, {
-            room: root.currentRoom
+            room: root.room
         }) as VoiceMessageDialog;
         dialog.open();
     }
