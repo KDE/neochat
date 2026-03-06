@@ -741,4 +741,9 @@ void ChatBarMessageContentModel::handleTyping()
     }
 }
 
+bool ChatBarMessageContentModel::sendTypingNotifications() const
+{
+    return m_sendTypingNotifications;
+}
+
 #include "moc_chatbarmessagecontentmodel.cpp"

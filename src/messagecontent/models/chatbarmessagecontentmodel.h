@@ -85,7 +85,7 @@ class ChatBarMessageContentModel : public MessageContentModel
     /**
      * @brief Whether to send typing notifications to the server when the content changes.
      */
-    Q_PROPERTY(bool sendTypingNotifications WRITE setSendTypingNotifications)
+    Q_PROPERTY(bool sendTypingNotifications READ sendTypingNotifications WRITE setSendTypingNotifications)
 
 public:
     explicit ChatBarMessageContentModel(QObject *parent = nullptr);
@@ -115,6 +115,7 @@ public:
     void setSendMessageWithEnter(bool sendMessageWithEnter);
 
     void setSendTypingNotifications(bool sendTypingNotifications);
+    [[nodiscard]] bool sendTypingNotifications() const;
 
     Q_INVOKABLE void postMessage();
 
