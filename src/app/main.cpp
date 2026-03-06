@@ -36,7 +36,7 @@
 #include <KIconTheme>
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
-#include <KirigamiApp>
+#include <KirigamiAppDefaults>
 
 #include "neochat-version.h"
 
@@ -60,10 +60,6 @@
 
 #if defined(HAVE_RUNNER) && defined(HAVE_KUNIFIEDPUSH)
 #include "fakerunner.h"
-#endif
-
-#ifdef Q_OS_WINDOWS
-#include <Windows.h>
 #endif
 
 using namespace Quotient;
@@ -113,8 +109,12 @@ int main(int argc, char *argv[])
     QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGLRhi);
 #endif
 
-    KirigamiApp::App app(argc, argv);
-    KirigamiApp kirigamiApp;
+#ifdef Q_OS_ANDROID
+    QGuiApplication app(argc, argv);
+#else
+    QApplication app(argc, argv);
+#endif
+    KirigamiAppDefaults::apply(&app);
 
 #ifdef Q_OS_WINDOWS
     QApplication::setStyle(u"breeze"_s);
@@ -276,7 +276,8 @@ int main(int argc, char *argv[])
 
     engine.addImageProvider(u"blurhash"_s, new BlurhashImageProvider);
 
-    if (!kirigamiApp.start("org.kde.neochat", "Main", &engine)) {
+    engine.loadFromModule("org.kde.neochat", "Main");
+    if (engine.rootObjects().isEmpty()) {
         return -1;
     }
 
