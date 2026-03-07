@@ -226,12 +226,6 @@ FormCard.FormCardPage {
         title: i18nc("@title:group", "Email Addresses")
         medium: "email"
     }
-    ThreePIdCard {
-        visible: NeoChatConfig.phone3PId
-        connection: root.connection
-        title: i18nc("@title:group", "Phone Numbers")
-        medium: "msisdn"
-    }
     FormCard.FormHeader {
         Layout.fillWidth: true
         title: i18nc("@title:group", "Identity Server")
