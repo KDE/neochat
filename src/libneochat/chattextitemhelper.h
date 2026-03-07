@@ -38,6 +38,11 @@ class ChatTextItemHelper : public QObject
     Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     /**
+     * @brief Whether the item is empty.
+     */
+    Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY contentsChanged)
+
+    /**
      * @brief The QML text Item the ChatTextItemHelper is handling.
      */
     Q_PROPERTY(QRect cursorRectangle READ cursorRectangle NOTIFY cursorPositionChanged)

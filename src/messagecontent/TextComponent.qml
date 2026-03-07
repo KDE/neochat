@@ -138,7 +138,7 @@ TextEdit {
         color: Kirigami.Theme.disabledTextColor
         horizontalAlignment: root.horizontalAlignment
         verticalAlignment: root.verticalAlignment
-        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && !root.length && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
+        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && root.chatTextItemHelper.isEmpty  && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
         elide: Text.ElideRight
         wrapMode: Text.WordWrap
     }
