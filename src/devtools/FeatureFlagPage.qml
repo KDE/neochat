@@ -15,15 +15,6 @@ FormCard.FormCard {
     Layout.topMargin: Kirigami.Units.largeSpacing
 
     FormCard.FormCheckDelegate {
-        text: i18nc("@option:check Enable the matrix feature to add a phone number as a third party ID", "Add phone numbers as 3PIDs")
-        checked: NeoChatConfig.phone3PId
-
-        onToggled: {
-            NeoChatConfig.phone3PId = checked
-            NeoChatConfig.save();
-        }
-    }
-    FormCard.FormCheckDelegate {
         text: i18nc("@option:check Enable the matrix feature for audio and video calling", "Calls")
         checked: NeoChatConfig.calls
 
