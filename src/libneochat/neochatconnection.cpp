@@ -56,9 +56,6 @@ NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
 void NeoChatConnection::connectSignals()
 {
     connect(this, &NeoChatConnection::accountDataChanged, this, [this](const QString &type) {
-        if (type == u"org.kde.neochat.account_label"_s) {
-            Q_EMIT labelChanged();
-        }
         if (type == u"m.identity_server"_s) {
             Q_EMIT identityServerChanged();
         }
@@ -275,20 +272,6 @@ void NeoChatConnection::changePassword(const QString &currentPassword, const QSt
                                     Q_EMIT passwordStatus(job->jsonData()["errcode"_L1] == "M_FORBIDDEN"_L1 ? PasswordStatus::Wrong : PasswordStatus::Other);
                                 });
     });
-}
-
-void NeoChatConnection::setLabel(const QString &label)
-{
-    QJsonObject json{
-        {"account_label"_L1, label},
-    };
-    setAccountData("org.kde.neochat.account_label"_L1, json);
-    Q_EMIT labelChanged();
-}
-
-QString NeoChatConnection::label() const
-{
-    return accountDataJson("org.kde.neochat.account_label"_L1).value("account_label"_L1).toString();
 }
 
 void NeoChatConnection::deactivateAccount(const QString &password, const bool erase)

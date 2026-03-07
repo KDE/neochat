@@ -23,16 +23,6 @@ class NeoChatConnection : public Quotient::Connection
     QML_UNCREATABLE("")
 
     /**
-     * @brief The account label for this account.
-     *
-     * Account labels are a concept specific to NeoChat, allowing accounts to be
-     * labelled, e.g. for "Work", "Private", etc.
-     *
-     * Set to an empty string to remove the label.
-     */
-    Q_PROPERTY(QString label READ label WRITE setLabel NOTIFY labelChanged)
-
-    /**
      * @brief Whether an identity server is configured.
      */
     Q_PROPERTY(bool hasIdentityServer READ hasIdentityServer NOTIFY identityServerChanged)
@@ -138,9 +128,6 @@ public:
      * @brief Change the avatar for an account.
      */
     Q_INVOKABLE bool setAvatar(const QUrl &avatarSource);
-
-    [[nodiscard]] QString label() const;
-    void setLabel(const QString &label);
 
     Q_INVOKABLE void deactivateAccount(const QString &password, bool erase);
 
@@ -254,7 +241,6 @@ public:
 
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
-    void labelChanged();
     void identityServerChanged();
     void directChatNotificationsChanged();
     void directChatsHaveHighlightNotificationsChanged();

@@ -74,7 +74,7 @@ RowLayout {
                 QQC2.Label {
                     id: idLabel
                     Layout.fillWidth: true
-                    text: (root.connection.label.length > 0 ? (root.connection.label + " ") : "") + root.connection.localUser.id
+                    text: root.connection.localUser.id
                     font.pointSize: displayNameLabel.font.pointSize * 0.8
                     opacity: 0.7
                     textFormat: Text.PlainText
