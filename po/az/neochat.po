@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-05 00:44+0000\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1043,14 +1043,7 @@ msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:167
-#, fuzzy, kde-format
-#| msgid "NeoChat is offline. Please check your network connection."
-msgctxt "@info:status"
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat qoşulmayıb. Lütfən, şəbəkə bağlantısını yoxlayın."
-
-#: src/app/qml/RoomPage.qml:227 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:214 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
@@ -1058,20 +1051,20 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/app/qml/RoomPage.qml:249
+#: src/app/qml/RoomPage.qml:236
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@info"
 msgid "Selected Messages: %1"
 msgstr "İsmarıcı göndərin"
 
-#: src/app/qml/RoomPage.qml:253
+#: src/app/qml/RoomPage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:257
+#: src/app/qml/RoomPage.qml:244
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy address to clipboard"
@@ -1079,14 +1072,14 @@ msgctxt "@info"
 msgid "Conversation copied to clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
-#: src/app/qml/RoomPage.qml:261
+#: src/app/qml/RoomPage.qml:248
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:button"
 msgid "Delete Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/app/qml/RoomPage.qml:267 src/app/qml/RoomPage.qml:274
+#: src/app/qml/RoomPage.qml:254 src/app/qml/RoomPage.qml:261
 #: src/app/qml/UserDetailDialog.qml:331
 #, fuzzy, kde-format
 #| msgid "Edit Message"
@@ -1094,35 +1087,42 @@ msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/RoomPage.qml:268
+#: src/app/qml/RoomPage.qml:255
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/RoomPage.qml:269 src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/RoomPage.qml:256 src/app/qml/UserDetailDialog.qml:333
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Silmək"
 
-#: src/app/qml/RoomPage.qml:351
+#: src/app/qml/RoomPage.qml:338
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Matrix'ə xoş gəldiniz"
 
-#: src/app/qml/RoomPage.qml:352
+#: src/app/qml/RoomPage.qml:339
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Başlamaq üçün bəzi otaqlara qoşulun"
 
-#: src/app/qml/RoomPage.qml:415
+#: src/app/qml/RoomPage.qml:375
+#, fuzzy, kde-format
+#| msgid "NeoChat is offline. Please check your network connection."
+msgctxt "@info:status"
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat qoşulmayıb. Lütfən, şəbəkə bağlantısını yoxlayın."
+
+#: src/app/qml/RoomPage.qml:407
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -4103,7 +4103,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Hamısını seçin"
 
-#: src/libneochat/qml/SearchPage.qml:166
+#: src/libneochat/qml/SearchPage.qml:171
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -5224,13 +5224,13 @@ msgstr "Səssiz"
 msgid "Configure room"
 msgstr "Otağı tənzimləmək"
 
-#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:253
+#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:257
+#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:256
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -5271,7 +5271,7 @@ msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/rooms/RoomListPage.qml:253
+#: src/rooms/RoomListPage.qml:252
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgctxt "@action:button"
