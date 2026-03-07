@@ -238,8 +238,7 @@ Kirigami.Page {
             text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18nc("@action:button Search public directory for this room", "Search for Room") : i18nc("@action:button Explore public rooms and spaces", "Explore")
             onTriggered: {
                 let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
-                    connection: root.connection,
-                    keyword: RoomManager.sortFilterRoomTreeModel.filterText
+                    connection: root.connection
                 }, {});
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
