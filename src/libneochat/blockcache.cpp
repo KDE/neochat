@@ -40,7 +40,15 @@ inline QString formatCode(const QString &input)
     return u"```\n%1\n```"_s.arg(input).replace(u"\n\n"_s, u"\n"_s);
 }
 
-inline QString trim(QString string)
+inline QString trimmedTrailing(QString string)
+{
+    while (string.endsWith(u' ')) {
+        string.removeLast();
+    }
+    return string;
+}
+
+inline QString trimNewline(QString string)
 {
     while (string.startsWith(u"\n"_s)) {
         string.removeFirst();
@@ -48,13 +56,13 @@ inline QString trim(QString string)
     while (string.endsWith(u"\n"_s)) {
         string.removeLast();
     }
-    return string.trimmed();
+    return string;
 }
 
 QString CacheItem::toString() const
 {
     if (type == MessageComponentType::Code) {
-        return formatCode(trim(content.toPlainText()));
+        return formatCode(trimNewline(content.toPlainText()));
     }
 
     QString textOut;
@@ -64,7 +72,8 @@ QString CacheItem::toString() const
     cursor.movePosition(QTextCursor::Start);
     while (!cursor.atEnd()) {
         cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
-        auto nextText = cursor.selection().toMarkdown().trimmed();
+        qWarning() << cursor.selection().toMarkdown();
+        auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown()));
         if (!cursor.currentList()) {
             nextText.replace(u'\n', u' ');
         }
@@ -75,7 +84,7 @@ QString CacheItem::toString() const
         cursor.movePosition(QTextCursor::NextBlock);
     }
 
-    textOut = trim(textOut);
+    textOut = trimNewline(textOut).trimmed();
     if (type == MessageComponentType::Quote) {
         textOut = formatQuote(textOut);
     }
