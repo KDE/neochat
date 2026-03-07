@@ -96,8 +96,7 @@ QQC2.Control {
                     });
                     dialog.y =  -dialog.implicitHeight - Kirigami.Units.smallSpacing;
                     dialog.onChosen.connect((emoji) => {
-                        root.chatButtonHelper.insertText(emoji);
-                        close();
+                        richEditBar.chatButtonHelper.insertText(emoji);
                     });
                     dialog.onClosed.connect(() => {
                         dialog = null;
