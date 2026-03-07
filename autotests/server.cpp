@@ -400,3 +400,5 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
 
     responder.write(QJsonDocument(syncData), QHttpServerResponder::StatusCode::Ok);
 }
+
+#include "moc_server.cpp"

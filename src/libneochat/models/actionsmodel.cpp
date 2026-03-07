@@ -593,3 +593,5 @@ void ActionsModel::setAllowQuickEdit(bool allow)
 {
     m_allowQuickEdit = allow;
 }
+
+#include "moc_actionsmodel.cpp"

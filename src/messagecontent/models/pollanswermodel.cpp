@@ -78,3 +78,5 @@ QHash<int, QByteArray> PollAnswerModel::roleNames() const
         {IsWinnerRole, "isWinner"},
     };
 }
+
+#include "moc_pollanswermodel.cpp"

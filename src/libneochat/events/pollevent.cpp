@@ -69,3 +69,5 @@ std::optional<EventRelation> PollEndEvent::relatesTo() const
 {
     return contentPart<std::optional<EventRelation>>(RelatesToKey);
 }
+
+#include "moc_pollevent.cpp"

@@ -104,3 +104,5 @@ RoomSortParameterModel *RoomSortParameterModel::allParameterModel() const
 {
     return new RoomSortParameterModel(RoomSortParameter::allParameterList());
 }
+
+#include "moc_roomsortparametermodel.cpp"

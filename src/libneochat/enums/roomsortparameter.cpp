@@ -159,3 +159,5 @@ void RoomSortParameter::setCustomSortOrder(QList<Parameter> order)
 {
     RoomSortParameter::m_customSortOrder = order;
 }
+
+#include "moc_roomsortparameter.cpp"

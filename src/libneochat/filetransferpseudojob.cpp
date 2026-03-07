@@ -65,3 +65,5 @@ bool FileTransferPseudoJob::doKill()
     Q_EMIT cancelRequested(m_eventId);
     return true;
 }
+
+#include "moc_filetransferpseudojob.cpp"

@@ -130,3 +130,5 @@ bool MessageComponentType::isFileType(const MessageComponentType::Type &type)
 {
     return fileTypes.contains(type);
 }
+
+#include "moc_messagecomponenttype.cpp"
