@@ -265,3 +265,5 @@ bool AccountManager::dropRegistry(NeoChatConnection *connection)
     Q_EMIT connectionDropped(connection);
     return true;
 }
+
+#include "moc_accountmanager.cpp"

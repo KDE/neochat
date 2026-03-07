@@ -223,3 +223,5 @@ QList<RichFormat::Format> RichFormat::formatsAtCursor(const QTextCursor &cursor)
     }
     return formats;
 }
+
+#include "moc_richformat.cpp"

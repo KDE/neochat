@@ -122,3 +122,5 @@ bool VoiceRecorder::isSupported() const
 {
     return m_format.isSupported(QMediaFormat::Encode);
 }
+
+#include "moc_voicerecorder.cpp"

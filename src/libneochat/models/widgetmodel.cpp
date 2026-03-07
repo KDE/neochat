@@ -354,3 +354,5 @@ bool WidgetModel::removeWidget(int index)
 
     return true;
 }
+
+#include "moc_widgetmodel.cpp"

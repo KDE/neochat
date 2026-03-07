@@ -35,3 +35,5 @@ bool MessageContentFilterModel::filterAcceptsRow(int source_row, const QModelInd
     auto contentType = static_cast<MessageComponentType::Type>(index.data(MessageContentModel::ComponentTypeRole).toInt());
     return contentType != MessageComponentType::Author;
 }
+
+#include "moc_messagecontentfiltermodel.cpp"
