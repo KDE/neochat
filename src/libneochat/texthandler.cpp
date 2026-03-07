@@ -748,6 +748,10 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
     const auto processSyntax = [&buffer](const QString &syntax, const QString &beginTag, const QString &endTag) {
         qsizetype beginCodeBlockTag = buffer.indexOf(u"<code>"_s);
         qsizetype endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
+        qsizetype beginlinkBlockTag = buffer.indexOf(u"<a href"_s);
+        qsizetype endLinkBlockTag = buffer.indexOf(u"</a>"_s, beginCodeBlockTag + 1);
+        QRegularExpressionMatch plainLinkMatch;
+        qsizetype plainLink = buffer.indexOf(TextRegex::plainUrl, 0, &plainLinkMatch);
 
         // Index to search from
         qsizetype lastPos = 0;
@@ -766,6 +770,21 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
                 beginCodeBlockTag = buffer.indexOf(u"<code>"_s, lastPos + 1);
                 endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
 
+                continue;
+            }
+            const bool validLinkBlock = beginlinkBlockTag != -1 && endLinkBlockTag != -1;
+            if (validLinkBlock && pos > beginlinkBlockTag && pos < endLinkBlockTag) {
+                lastPos = endLinkBlockTag + 4;
+
+                beginlinkBlockTag = buffer.indexOf(u"<a href"_s, lastPos + 1);
+                endLinkBlockTag = buffer.indexOf(u"</a>"_s, beginlinkBlockTag + 1);
+
+                continue;
+            }
+            if (plainLink != -1 && pos > plainLink && pos < plainLink + plainLinkMatch.capturedLength()) {
+                lastPos = plainLink + plainLinkMatch.capturedLength();
+
+                plainLink = buffer.indexOf(TextRegex::plainUrl, lastPos, &plainLinkMatch);
                 continue;
             }
 

@@ -68,7 +68,7 @@ QString CacheItem::toString() const
         if (!cursor.currentList()) {
             nextText.replace(u'\n', u' ');
         }
-        if (!textOut.isEmpty()) {
+        if (!textOut.isEmpty() && !nextText.isEmpty()) {
             textOut += cursor.currentList() ? u"\n"_s : u"\n\n"_s;
         }
         textOut += nextText;
