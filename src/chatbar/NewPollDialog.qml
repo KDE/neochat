@@ -145,8 +145,6 @@ Kirigami.Dialog {
             text: i18nc("@action:button", "Send")
             icon.name: "document-send"
 
-            onClicked: root.accept()
-
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
     }
