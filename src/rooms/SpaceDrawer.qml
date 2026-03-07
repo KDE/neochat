@@ -291,7 +291,7 @@ QQC2.Control {
                             keyword: RoomManager.sortFilterRoomTreeModel.filterText
                         }, {});
                         dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                            RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
+                            RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join_confirmed");
                         });
                     }
                 }
