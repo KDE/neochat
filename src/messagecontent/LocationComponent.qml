@@ -122,6 +122,8 @@ ColumnLayout {
     }
 
     TextComponent {
+        editable: false
+        currentFocus: false
         eventId: root.eventId
         author: root.author
         display: root.display
