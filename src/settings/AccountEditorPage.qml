@@ -112,13 +112,6 @@ FormCard.FormCardPage {
             text: root.connection ? root.connection.localUser.displayName : ""
         }
         FormCard.FormDelegateSeparator {}
-        FormCard.FormTextFieldDelegate {
-            id: accountLabel
-            label: i18n("Label:")
-            placeholderText: i18n("Work")
-            text: root.connection ? root.connection.label : ""
-        }
-        FormCard.FormDelegateSeparator {}
         FormCard.FormTextDelegate {
             id: userIdDelegate
             text: i18nc("@info:label", "User ID")
