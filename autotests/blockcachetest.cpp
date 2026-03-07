@@ -3,7 +3,12 @@
 
 #include <QObject>
 #include <QTest>
+<<<<<<< HEAD
 #include <qtestcase.h>
+=======
+#include <QTextCursor>
+#include <QTextList>
+>>>>>>> c7096180b (Make sure that lists are not flattened)
 
 #include "blockcache.h"
 
@@ -18,6 +23,8 @@ class BlockCacheTest : public QObject
 private Q_SLOTS:
     void toStringTest_data();
     void toStringTest();
+
+    void listTest();
 };
 
 void BlockCacheTest::toStringTest_data()
@@ -28,7 +35,6 @@ void BlockCacheTest::toStringTest_data()
     QTest::addColumn<QString>("outputstring");
 
     QTest::newRow("plainText") << u"test string"_s << MessageComponentType::Text << false << u"test string"_s;
-    QTest::newRow("list") << u"- list 1\n- list 2\n- list 3\n"_s << MessageComponentType::Text << false << u"- list 1\n- list 2\n- list 3"_s;
     QTest::newRow("code") << u"for (some code) {\n\n    do something\n\n}"_s << MessageComponentType::Code << true
                           << u"```\nfor (some code) {\n    do something\n}\n```"_s;
     QTest::newRow("code with markdown") << u"some code\n\n# looks like a markdown header but is plain in code block"_s << MessageComponentType::Code << true
@@ -60,6 +66,52 @@ void BlockCacheTest::toStringTest()
     };
 
     QCOMPARE(cache.toString(), outputstring);
+}
+
+void BlockCacheTest::listTest()
+{
+    auto doc = QTextDocument();
+    auto cursor = QTextCursor(&doc);
+    Cache cache;
+
+    // Single level
+    auto listFormat = QTextListFormat();
+    listFormat.setStyle(QTextListFormat::ListDecimal);
+    cursor.createList(listFormat);
+    cursor.insertText(u"list 1\nlist 2\nlist 3"_s);
+
+    cursor.select(QTextCursor::Document);
+
+    cache += CacheItem{
+        .type = MessageComponentType::Text,
+        .content = cursor.selection(),
+    };
+    // Note looks weird but from a spec perspective doesn't matter only the first
+    // number counts then the rest just go up from there.
+    QCOMPARE(cache.toString(), u"1.  list 1\n1.  list 2\n1.  list 3"_s);
+
+    cursor.select(QTextCursor::Document);
+    cursor.removeSelectedText();
+    cache.clear();
+
+    // Nested
+    listFormat = QTextListFormat();
+    listFormat.setStyle(QTextListFormat::ListDecimal);
+    cursor.createList(listFormat);
+    cursor.insertText(u"list 1\n"_s);
+    auto currentList = cursor.currentList();
+    listFormat.setIndent(listFormat.indent() + 1);
+    currentList->setFormat(listFormat);
+    cursor.insertText(u"list 1.1"_s);
+
+    cursor.select(QTextCursor::Document);
+
+    cache += CacheItem{
+        .type = MessageComponentType::Text,
+        .content = cursor.selection(),
+    };
+
+    QCOMPARE(cache.toString(), u"1.  list 1\n    1.  list 1.1"_s);
 }
 
 QTEST_MAIN(BlockCacheTest)
