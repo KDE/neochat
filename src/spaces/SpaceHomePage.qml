@@ -109,7 +109,7 @@ ColumnLayout {
                 QQC2.Button {
                     text: i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report…")
                     icon.name: "dialog-warning-symbolic"
-                    visible: root.connection.supportsMatrixSpecVersion("v1.13")
+                    visible: root.room.connection.supportsMatrixSpecVersion("v1.13")
                     onClicked: {
                         let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                             title: i18nc("@title:dialog", "Report Space"),
