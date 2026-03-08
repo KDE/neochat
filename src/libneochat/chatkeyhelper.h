@@ -126,6 +126,8 @@ private:
 
     bool vKey(Qt::KeyboardModifiers modifiers);
 
+    bool xKey(Qt::KeyboardModifiers modifiers);
+
     bool up(Qt::KeyboardModifiers modifiers);
 
     bool down();

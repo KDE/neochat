@@ -40,6 +40,8 @@ bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
     switch (key) {
     case Qt::Key_V:
         return vKey(modifiers);
+    case Qt::Key_X:
+        return xKey(modifiers);
     case Qt::Key_Up:
         return up(modifiers);
     case Qt::Key_Down:
@@ -69,6 +71,27 @@ bool ChatKeyHelper::vKey(Qt::KeyboardModifiers modifiers)
 {
     if (modifiers.testFlag(Qt::ControlModifier)) {
         return pasteImage();
+    }
+    return false;
+}
+
+bool ChatKeyHelper::xKey(Qt::KeyboardModifiers modifiers)
+{
+    if (!m_textItem || !modifiers.testFlag(Qt::ControlModifier)) {
+        return false;
+    }
+    QTextCursor cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    if (cursor.selectionStart() == 0 && cursor.selectionEnd() == cursor.document()->characterCount() - 1) {
+        m_textItem->cut();
+        if (cursor.currentList()) {
+            QTextBlockFormat blockFormat;
+            blockFormat.setObjectIndex(-1);
+            cursor.setBlockFormat(blockFormat);
+        }
+        return true;
     }
     return false;
 }

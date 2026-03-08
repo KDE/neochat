@@ -254,6 +254,11 @@ public:
     bool hasRichFormatting() const;
 
     /**
+     * @brief Call the underlying text item's cut method.
+     */
+    void cut() const;
+
+    /**
      * @brief Output the text in the text item in markdown format.
      */
     QString markdownText() const;
