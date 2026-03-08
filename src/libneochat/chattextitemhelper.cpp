@@ -616,6 +616,14 @@ bool ChatTextItemHelper::hasRichFormatting() const
     return markdownText() != plainText();
 }
 
+void ChatTextItemHelper::cut() const
+{
+    if (!m_textItem) {
+        return;
+    }
+    metaObject()->invokeMethod(m_textItem, "cut", Qt::DirectConnection);
+}
+
 QString ChatTextItemHelper::markdownText() const
 {
     const auto doc = document();
