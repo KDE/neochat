@@ -41,6 +41,7 @@ void ChatButtonHelper::setTextItem(ChatTextItemHelper *textItem)
     Q_EMIT textItemChanged();
     Q_EMIT richFormatEnabledChanged();
     Q_EMIT styleChanged();
+    Q_EMIT listChanged();
 }
 
 bool ChatButtonHelper::inQuote() const
