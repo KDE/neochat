@@ -3,12 +3,8 @@
 
 #include <QObject>
 #include <QTest>
-<<<<<<< HEAD
-#include <qtestcase.h>
-=======
 #include <QTextCursor>
 #include <QTextList>
->>>>>>> c7096180b (Make sure that lists are not flattened)
 
 #include "blockcache.h"
 
@@ -79,6 +75,23 @@ void BlockCacheTest::listTest()
     listFormat.setStyle(QTextListFormat::ListDecimal);
     cursor.createList(listFormat);
     cursor.insertText(u"list 1\nlist 2\nlist 3"_s);
+
+    cursor.select(QTextCursor::Document);
+
+    cache += CacheItem{
+        .type = MessageComponentType::Text,
+        .content = cursor.selection(),
+    };
+    // Note looks weird but from a spec perspective doesn't matter only the first
+    // number counts then the rest just go up from there.
+    QCOMPARE(cache.toString(), u"1.  list 1\n1.  list 2\n1.  list 3"_s);
+
+    cursor.select(QTextCursor::Document);
+    cursor.removeSelectedText();
+    cache.clear();
+
+    // Empty items
+    cursor.insertText(u"list 1\n\nlist 2\n\nlist 3"_s);
 
     cursor.select(QTextCursor::Document);
 
