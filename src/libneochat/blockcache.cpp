@@ -72,7 +72,6 @@ QString CacheItem::toString() const
     cursor.movePosition(QTextCursor::Start);
     while (!cursor.atEnd()) {
         cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
-        qWarning() << cursor.selection().toMarkdown();
         auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown()));
         if (!cursor.currentList()) {
             nextText.replace(u'\n', u' ');
