@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-05 00:44+0000\n"
+"POT-Creation-Date: 2026-03-07 00:44+0000\n"
 "PO-Revision-Date: 2026-01-12 14:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -970,40 +970,34 @@ msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "Huone sisältää virallisia viestejä kotipalvelimeltasi."
 
-#: src/app/qml/RoomPage.qml:167
-#, kde-format
-msgctxt "@info:status"
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat ei ole verkossa. Tarkista verkkoyhteys."
-
-#: src/app/qml/RoomPage.qml:227 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:214 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Kiinnitetyt viestit"
 
-#: src/app/qml/RoomPage.qml:249
+#: src/app/qml/RoomPage.qml:236
 #, fuzzy, kde-format
 #| msgid "Show deleted messages"
 msgctxt "@info"
 msgid "Selected Messages: %1"
 msgstr "Näytä poistetut viestit"
 
-#: src/app/qml/RoomPage.qml:253
+#: src/app/qml/RoomPage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:257
+#: src/app/qml/RoomPage.qml:244
 #, fuzzy, kde-format
 #| msgid "Copy to clipboard"
 msgctxt "@info"
 msgid "Conversation copied to clipboard"
 msgstr "Kopioi leikepöydälle"
 
-#: src/app/qml/RoomPage.qml:261
+#: src/app/qml/RoomPage.qml:248
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:button"
@@ -1011,14 +1005,14 @@ msgid "Delete Messages"
 msgstr "Suoraviestit"
 
 # Voisi olla myös ”Poista viestejä”, jos on valikossa…
-#: src/app/qml/RoomPage.qml:267 src/app/qml/RoomPage.qml:274
+#: src/app/qml/RoomPage.qml:254 src/app/qml/RoomPage.qml:261
 #: src/app/qml/UserDetailDialog.qml:331
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Poista viestit"
 
-#: src/app/qml/RoomPage.qml:268
+#: src/app/qml/RoomPage.qml:255
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for removing this message"
@@ -1026,25 +1020,31 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
 msgstr "Syy viestin poistamiseen"
 
-#: src/app/qml/RoomPage.qml:269 src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/RoomPage.qml:256 src/app/qml/UserDetailDialog.qml:333
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Poista"
 
-#: src/app/qml/RoomPage.qml:351
+#: src/app/qml/RoomPage.qml:338
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Tervetuloa NeoChatiin"
 
-#: src/app/qml/RoomPage.qml:352
+#: src/app/qml/RoomPage.qml:339
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Aloita valitsemalla huone tai liittymällä huoneeseen"
 
-#: src/app/qml/RoomPage.qml:415
+#: src/app/qml/RoomPage.qml:375
+#, kde-format
+msgctxt "@info:status"
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat ei ole verkossa. Tarkista verkkoyhteys."
+
+#: src/app/qml/RoomPage.qml:407
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -3833,7 +3833,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Valitse tiedosto"
 
-#: src/libneochat/qml/SearchPage.qml:166
+#: src/libneochat/qml/SearchPage.qml:171
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -4877,13 +4877,13 @@ msgstr "Vaimennettu huone"
 msgid "Configure room"
 msgstr "Huoneen asetukset"
 
-#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:253
+#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Etsi kavereita"
 
-#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:257
+#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:256
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -4924,7 +4924,7 @@ msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
 msgstr "Etsi huoneita"
 
-#: src/rooms/RoomListPage.qml:253
+#: src/rooms/RoomListPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
