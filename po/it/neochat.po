@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2026-03-03 09:14+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2214,14 +2214,6 @@ msgstr "Flag di funzionalità"
 
 #: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
-msgctxt ""
-"@option:check Enable the matrix feature to add a phone number as a third "
-"party ID"
-msgid "Add phone numbers as 3PIDs"
-msgstr "Aggiungi numeri di telefono come 3PID"
-
-#: src/devtools/FeatureFlagPage.qml:27
-#, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "Chiamate"
@@ -3523,7 +3515,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Creatore"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/neochatconnection.cpp:73
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3532,18 +3524,18 @@ msgstr ""
 "File troppo grande per essere scaricato.<br />Contatta l'amministratore del "
 "server Matrix per assistenza."
 
-#: src/libneochat/neochatconnection.cpp:340
+#: src/libneochat/neochatconnection.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nessun server delle identità configurato"
 
-#: src/libneochat/neochatconnection.cpp:371
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creazione della stanza non riuscita: %1"
 
-#: src/libneochat/neochatconnection.cpp:400
+#: src/libneochat/neochatconnection.cpp:383
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
@@ -4996,129 +4988,113 @@ msgstr "Nome visualizzato:"
 
 #: src/settings/AccountEditorPage.qml:117
 #, kde-format
-msgid "Label:"
-msgstr "Etichetta:"
-
-#: src/settings/AccountEditorPage.qml:118
-#, kde-format
-msgid "Work"
-msgstr "Lavoro"
-
-#: src/settings/AccountEditorPage.qml:124
-#, kde-format
 msgctxt "@info:label"
 msgid "User ID"
 msgstr "ID utente"
 
-#: src/settings/AccountEditorPage.qml:128
+#: src/settings/AccountEditorPage.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
 msgstr "Copia l'ID utente negli appunti"
 
-#: src/settings/AccountEditorPage.qml:143
+#: src/settings/AccountEditorPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "Mostra il codice QR"
 
-#: src/settings/AccountEditorPage.qml:158
-#: src/settings/AccountEditorPage.qml:214
+#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:207
 #: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
 msgstr "Salva"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:168
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Password"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:173
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Il tuo server non supporta la modifica della password"
 
-#: src/settings/AccountEditorPage.qml:187
+#: src/settings/AccountEditorPage.qml:180
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Password attuale:"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:187
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nuova password:"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:194
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Conferma la nuova password:"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:199
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Le password non corrispondono"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:219
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Indirizzi di posta elettronica"
 
-#: src/settings/AccountEditorPage.qml:232
-#, kde-format
-msgctxt "@title:group"
-msgid "Phone Numbers"
-msgstr "Numeri di telefono"
-
-#: src/settings/AccountEditorPage.qml:237
+#: src/settings/AccountEditorPage.qml:224
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Server delle identità"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:233
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informazioni server"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:237
 #, kde-format
 msgid "Homeserver url"
 msgstr "Server principale"
 
-#: src/settings/AccountEditorPage.qml:271
+#: src/settings/AccountEditorPage.qml:258
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Gestione degli account"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Disattiva account…"
 
-#: src/settings/AccountEditorPage.qml:293
+#: src/settings/AccountEditorPage.qml:280
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Password modificata correttamente"
 
-#: src/settings/AccountEditorPage.qml:296
+#: src/settings/AccountEditorPage.qml:283
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Password non valida"
 
-#: src/settings/AccountEditorPage.qml:299
+#: src/settings/AccountEditorPage.qml:286
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -7820,6 +7796,22 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 sta scrivendo"
 msgstr[1] "%2 stanno scrivendo"
+
+#~ msgctxt ""
+#~ "@option:check Enable the matrix feature to add a phone number as a third "
+#~ "party ID"
+#~ msgid "Add phone numbers as 3PIDs"
+#~ msgstr "Aggiungi numeri di telefono come 3PID"
+
+#~ msgid "Label:"
+#~ msgstr "Etichetta:"
+
+#~ msgid "Work"
+#~ msgstr "Lavoro"
+
+#~ msgctxt "@title:group"
+#~ msgid "Phone Numbers"
+#~ msgstr "Numeri di telefono"
 
 #~ msgid "Attachment:"
 #~ msgstr "Allegato:"

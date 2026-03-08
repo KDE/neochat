@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2026-03-05 07:02+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2168,14 +2168,6 @@ msgstr "דגלוני יכולות"
 
 #: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
-msgctxt ""
-"@option:check Enable the matrix feature to add a phone number as a third "
-"party ID"
-msgid "Add phone numbers as 3PIDs"
-msgstr "הוספת מספרי טלפון כמזהי צד־שלישי"
-
-#: src/devtools/FeatureFlagPage.qml:27
-#, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "שיחות"
@@ -3470,7 +3462,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "יוצר/ת"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/neochatconnection.cpp:73
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3479,18 +3471,18 @@ msgstr ""
 "הקובץ גדול מכדי להוריד אותו.<br />נא ליצור קשר עם הנהלת שרת ה־matrix שלך "
 "לקבלת תמיכה."
 
-#: src/libneochat/neochatconnection.cpp:340
+#: src/libneochat/neochatconnection.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "לא הוגדר שרת זהות"
 
-#: src/libneochat/neochatconnection.cpp:371
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "יצירת החדר נכשלה: %1"
 
-#: src/libneochat/neochatconnection.cpp:400
+#: src/libneochat/neochatconnection.cpp:383
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "יצירת המרחב נכשלה: %1"
@@ -4936,129 +4928,113 @@ msgstr "שם תצוגה:"
 
 #: src/settings/AccountEditorPage.qml:117
 #, kde-format
-msgid "Label:"
-msgstr "תווית:"
-
-#: src/settings/AccountEditorPage.qml:118
-#, kde-format
-msgid "Work"
-msgstr "עבודה"
-
-#: src/settings/AccountEditorPage.qml:124
-#, kde-format
 msgctxt "@info:label"
 msgid "User ID"
 msgstr "מזהה משתמש"
 
-#: src/settings/AccountEditorPage.qml:128
+#: src/settings/AccountEditorPage.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
 msgstr "העתקת מזהה המשתמש ללוח הגזירים"
 
-#: src/settings/AccountEditorPage.qml:143
+#: src/settings/AccountEditorPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "הצגת קוד QR"
 
-#: src/settings/AccountEditorPage.qml:158
-#: src/settings/AccountEditorPage.qml:214
+#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:207
 #: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
 msgstr "שמירה"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:168
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "סיסמה"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:173
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "השרת שלך לא תומך בשינוי הסיסמה שלך"
 
-#: src/settings/AccountEditorPage.qml:187
+#: src/settings/AccountEditorPage.qml:180
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "הסיסמה הנוכחית:"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:187
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "הסיסמה החדשה:"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:194
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "אימות הסיסמה החדשה:"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:199
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "הססמאות אינן תואמות"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:219
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "כתובות דוא״ל"
 
-#: src/settings/AccountEditorPage.qml:232
-#, kde-format
-msgctxt "@title:group"
-msgid "Phone Numbers"
-msgstr "מספרי טלפון"
-
-#: src/settings/AccountEditorPage.qml:237
+#: src/settings/AccountEditorPage.qml:224
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "שרת זהות"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:233
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "פרטי שרת"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:237
 #, kde-format
 msgid "Homeserver url"
 msgstr "כתובת שרת בית"
 
-#: src/settings/AccountEditorPage.qml:271
+#: src/settings/AccountEditorPage.qml:258
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "ניהול חשבון"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:263
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "השבתת חשבון…"
 
-#: src/settings/AccountEditorPage.qml:293
+#: src/settings/AccountEditorPage.qml:280
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "הסיסמה הוחלפה בהצלחה"
 
-#: src/settings/AccountEditorPage.qml:296
+#: src/settings/AccountEditorPage.qml:283
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "סיסמה שגויה"
 
-#: src/settings/AccountEditorPage.qml:299
+#: src/settings/AccountEditorPage.qml:286
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -7713,6 +7689,22 @@ msgstr[0] "הקלדה מצד %2"
 msgstr[1] "הקלדה מצד %2"
 msgstr[2] "הקלדה מצד %2"
 msgstr[3] "הקלדה מצד %2"
+
+#~ msgctxt ""
+#~ "@option:check Enable the matrix feature to add a phone number as a third "
+#~ "party ID"
+#~ msgid "Add phone numbers as 3PIDs"
+#~ msgstr "הוספת מספרי טלפון כמזהי צד־שלישי"
+
+#~ msgid "Label:"
+#~ msgstr "תווית:"
+
+#~ msgid "Work"
+#~ msgstr "עבודה"
+
+#~ msgctxt "@title:group"
+#~ msgid "Phone Numbers"
+#~ msgstr "מספרי טלפון"
 
 #~ msgid "Attachment:"
 #~ msgstr "קובץ מצורף:"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -2356,14 +2356,6 @@ msgstr "Funksjonsflagg"
 
 #: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
-msgctxt ""
-"@option:check Enable the matrix feature to add a phone number as a third "
-"party ID"
-msgid "Add phone numbers as 3PIDs"
-msgstr "Legg til telefonnummer som 3PID-ar"
-
-#: src/devtools/FeatureFlagPage.qml:27
-#, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr ""
@@ -3680,25 +3672,25 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Lag ny"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/neochatconnection.cpp:73
 #, fuzzy, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr "Ta kontakt med administratoren av Matrix-tenaren for brukarstøtte."
 
-#: src/libneochat/neochatconnection.cpp:340
+#: src/libneochat/neochatconnection.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ingen identitetstenar sett opp"
 
-#: src/libneochat/neochatconnection.cpp:371
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Feil ved romregistrering: %1"
 
-#: src/libneochat/neochatconnection.cpp:400
+#: src/libneochat/neochatconnection.cpp:383
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
@@ -5257,16 +5249,6 @@ msgid "Display Name:"
 msgstr "Visingsnamn:"
 
 #: src/settings/AccountEditorPage.qml:117
-#, kde-format
-msgid "Label:"
-msgstr "Merkelapp:"
-
-#: src/settings/AccountEditorPage.qml:118
-#, kde-format
-msgid "Work"
-msgstr "Arbeid"
-
-#: src/settings/AccountEditorPage.qml:124
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "User ID"
@@ -5274,117 +5256,111 @@ msgctxt "@info:label"
 msgid "User ID"
 msgstr "Brukar-ID"
 
-#: src/settings/AccountEditorPage.qml:128
+#: src/settings/AccountEditorPage.qml:121
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
 msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
 msgstr "Kopier rom-ID til utklippstavla"
 
-#: src/settings/AccountEditorPage.qml:143
+#: src/settings/AccountEditorPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "Vis QR-kode"
 
-#: src/settings/AccountEditorPage.qml:158
-#: src/settings/AccountEditorPage.qml:214
+#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:207
 #: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
 msgstr "Lagra"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:168
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Passord"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:173
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Tenaren støttar ikkje endring av passord"
 
-#: src/settings/AccountEditorPage.qml:187
+#: src/settings/AccountEditorPage.qml:180
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Gjeldande passord:"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:187
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nytt passord:"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:194
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Stadfest passord:"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:199
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Passorda er ikkje like"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:219
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-postadresser"
 
-#: src/settings/AccountEditorPage.qml:232
-#, fuzzy, kde-format
-msgctxt "@title:group"
-msgid "Phone Numbers"
-msgstr "Telefonnummer"
-
-#: src/settings/AccountEditorPage.qml:237
+#: src/settings/AccountEditorPage.qml:224
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Identitetstenar"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:233
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Tenarinformasjon"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:237
 #, kde-format
 msgid "Homeserver url"
 msgstr "Adresse til heimetenar"
 
-#: src/settings/AccountEditorPage.qml:271
+#: src/settings/AccountEditorPage.qml:258
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Kontohandsaming"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:263
 #, fuzzy, kde-format
 #| msgid "Deactivate Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Deaktiver konto"
 
-#: src/settings/AccountEditorPage.qml:293
+#: src/settings/AccountEditorPage.qml:280
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Passordet er no endra"
 
-#: src/settings/AccountEditorPage.qml:296
+#: src/settings/AccountEditorPage.qml:283
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Ugyldig passfrase"
 
-#: src/settings/AccountEditorPage.qml:299
+#: src/settings/AccountEditorPage.qml:286
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -8213,3 +8189,20 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
+
+#~ msgctxt ""
+#~ "@option:check Enable the matrix feature to add a phone number as a third "
+#~ "party ID"
+#~ msgid "Add phone numbers as 3PIDs"
+#~ msgstr "Legg til telefonnummer som 3PID-ar"
+
+#~ msgid "Label:"
+#~ msgstr "Merkelapp:"
+
+#~ msgid "Work"
+#~ msgstr "Arbeid"
+
+#, fuzzy
+#~ msgctxt "@title:group"
+#~ msgid "Phone Numbers"
+#~ msgstr "Telefonnummer"

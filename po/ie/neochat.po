@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:44+0000\n"
+"POT-Creation-Date: 2026-03-08 00:44+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -2320,14 +2320,6 @@ msgstr ""
 
 #: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
-msgctxt ""
-"@option:check Enable the matrix feature to add a phone number as a third "
-"party ID"
-msgid "Add phone numbers as 3PIDs"
-msgstr ""
-
-#: src/devtools/FeatureFlagPage.qml:27
-#, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr ""
@@ -3713,25 +3705,25 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Chambres e privat conversationes:"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/neochatconnection.cpp:73
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:340
+#: src/libneochat/neochatconnection.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:371
+#: src/libneochat/neochatconnection.cpp:354
 #, fuzzy, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
 
-#: src/libneochat/neochatconnection.cpp:400
+#: src/libneochat/neochatconnection.cpp:383
 #, fuzzy, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
@@ -5296,23 +5288,13 @@ msgid "Display Name:"
 msgstr "Monitores"
 
 #: src/settings/AccountEditorPage.qml:117
-#, kde-format
-msgid "Label:"
-msgstr "Etiquette:"
-
-#: src/settings/AccountEditorPage.qml:118
-#, kde-format
-msgid "Work"
-msgstr ""
-
-#: src/settings/AccountEditorPage.qml:124
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@info:label"
 msgid "User ID"
 msgstr "Bannir ti usator"
 
-#: src/settings/AccountEditorPage.qml:128
+#: src/settings/AccountEditorPage.qml:121
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Address to Clipboard"
@@ -5320,20 +5302,20 @@ msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
 msgstr "Copiar li adresse al Paperiere"
 
-#: src/settings/AccountEditorPage.qml:143
+#: src/settings/AccountEditorPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:158
-#: src/settings/AccountEditorPage.qml:214
+#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:207
 #: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
 msgstr "Gardar"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:168
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -5341,98 +5323,91 @@ msgctxt "@title:group"
 msgid "Password"
 msgstr "Contrasigne"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:173
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:187
+#: src/settings/AccountEditorPage.qml:180
 #, fuzzy, kde-format
 #| msgid "Current Password:"
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Actual contrasigne:"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:187
 #, fuzzy, kde-format
 #| msgid "New Password:"
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nov contrasigne:"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:194
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Confirmar li contrasigne:"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:199
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Contrasignes"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:219
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Visibil nómine"
 
-#: src/settings/AccountEditorPage.qml:232
-#, fuzzy, kde-format
-#| msgid "Members"
-msgctxt "@title:group"
-msgid "Phone Numbers"
-msgstr "Membres"
-
-#: src/settings/AccountEditorPage.qml:237
+#: src/settings/AccountEditorPage.qml:224
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Hem-servitor:"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:233
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Information pri li chambre"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:237
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "Homeserver url"
 msgstr "Hem-servitor:"
 
-#: src/settings/AccountEditorPage.qml:271
+#: src/settings/AccountEditorPage.qml:258
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Conto:"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:263
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "_Conto:"
 
-#: src/settings/AccountEditorPage.qml:293
+#: src/settings/AccountEditorPage.qml:280
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Li contrasigne sta cambiat successosimen"
 
-#: src/settings/AccountEditorPage.qml:296
+#: src/settings/AccountEditorPage.qml:283
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Vor contrasigne"
 
-#: src/settings/AccountEditorPage.qml:299
+#: src/settings/AccountEditorPage.qml:286
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -8299,6 +8274,15 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 tippa"
 msgstr[1] "%2 tippa"
+
+#~ msgid "Label:"
+#~ msgstr "Etiquette:"
+
+#, fuzzy
+#~| msgid "Members"
+#~ msgctxt "@title:group"
+#~ msgid "Phone Numbers"
+#~ msgstr "Membres"
 
 #~ msgid "Attachment:"
 #~ msgstr "Atachament:"
