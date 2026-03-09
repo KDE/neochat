@@ -329,6 +329,19 @@ int TextHandler::nextBlockPos(const QString &string)
         return string.size();
     }
 
+    // Handle nested lists
+    if (tagType == u"ul"_s || tagType == u"ol"_s) {
+        bool nestContinue = true;
+        while (nestContinue) {
+            const auto nextOpenTagPos = string.indexOf(tag, closeTagPos + closeTag.size());
+            const auto nextCloseTagPos = string.indexOf(closeTag, closeTagPos + closeTag.size());
+            nestContinue = nextCloseTagPos < nextOpenTagPos || (nextCloseTagPos != -1 && nextOpenTagPos == -1);
+            if (nestContinue) {
+                closeTagPos = nextCloseTagPos;
+            }
+        }
+    }
+
     return closeTagPos + closeTag.size();
 }
 
