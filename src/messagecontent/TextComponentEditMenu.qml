@@ -122,12 +122,14 @@ QQC2.Menu {
     }
     QQC2.MenuItem {
         checkable: true
-        checked: root.settings.checkerEnabledByDefault
+        checked: if (root.spellcheckHighlighter) {
+            return root.spellcheckHighlighter.active;
+        }
         text: i18nc("@action:inmenu", "Spell Check")
 
         onToggled: {
-            if (root.target) {
-                root.target.Kirigami.SpellCheck.enabled = checked;
+            if (root.spellcheckHighlighter) {
+                root.spellcheckHighlighter.active = checked;
             }
         }
     }

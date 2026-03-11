@@ -107,7 +107,7 @@ TextEdit {
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: !root.editable
     wrapMode: Text.Wrap
-    textFormat: Text.RichText
+    textFormat: root.editable && !NeoChatConfig.richChatBar ? Text.PlainText : Text.RichText
 
     onLinkActivated: link => {
         if (!root.editable) {
@@ -178,9 +178,13 @@ TextEdit {
         active: root.editable
         asynchronous: true
 
+        Sonnet.Settings {
+            id: sonnetSettings
+        }
+
         Sonnet.SpellcheckHighlighter {
             id: spellcheckHighlighter
-            active: true
+            active: sonnetSettings.checkerEnabledByDefault
             document: root.textDocument
             cursorPosition: root.cursorPosition
             selectionStart: root.selectionStart

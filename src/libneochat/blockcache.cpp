@@ -59,8 +59,31 @@ inline QString trimNewline(QString string)
     return string;
 }
 
+bool CacheItem::richTextActive = true;
+
 QString CacheItem::toString() const
 {
+    if (!richTextActive) {
+        auto plainText = content.toPlainText();
+        const auto markdownText = content.toMarkdown();
+        QRegularExpression mentionRegex(u"\\[(.*)]\\(.*\\)"_s);
+        QRegularExpressionMatch mentionMatch;
+        qsizetype lastPos = 0;
+        qsizetype mentionPos = markdownText.indexOf(mentionRegex, lastPos, &mentionMatch);
+        while (mentionPos != -1) {
+            auto mentionName = mentionMatch.captured(1);
+            if (mentionName.startsWith(u"\\"_s)) {
+                mentionName.remove(0, 1);
+            }
+            qsizetype plainPos = plainText.indexOf(mentionName);
+            if (plainPos != -1) {
+                plainText.replace(plainPos, mentionName.length(), mentionMatch.captured());
+            }
+            lastPos = mentionPos + mentionMatch.capturedLength();
+            mentionPos = markdownText.indexOf(mentionRegex, lastPos, &mentionMatch);
+        }
+        return trimNewline(plainText);
+    }
     if (type == MessageComponentType::Code) {
         return formatCode(trimNewline(content.toPlainText()));
     }
