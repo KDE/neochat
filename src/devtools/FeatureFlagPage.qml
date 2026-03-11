@@ -23,4 +23,13 @@ FormCard.FormCard {
             NeoChatConfig.save();
         }
     }
+    FormCard.FormCheckDelegate {
+        text: i18nc("@option:check Enable the rich text chat bar", "Rich Chat Bar")
+        checked: NeoChatConfig.richChatBar
+
+        onToggled: {
+            NeoChatConfig.richChatBar = checked;
+            NeoChatConfig.save();
+        }
+    }
 }

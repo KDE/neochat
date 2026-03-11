@@ -26,6 +26,8 @@ struct CacheItem {
      * @brief Return the contents of the CacheItem as a single string.
      */
     QString toString() const;
+
+    static bool richTextActive;
 };
 
 /**
