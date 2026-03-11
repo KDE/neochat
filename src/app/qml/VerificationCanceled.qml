@@ -11,6 +11,8 @@ VerificationMessage {
 
     required property int reason
 
+    isDone: false
+
     icon: {
         switch (root.reason) {
             case KeyVerificationSession.TIMEOUT:
