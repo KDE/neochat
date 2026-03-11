@@ -22,6 +22,8 @@ public:
     ChatTextItemHelper *textItem() const;
     void setTextItem(ChatTextItemHelper *textItem);
 
+    static bool richTextActive;
+
 Q_SIGNALS:
     void textItemChanged();
 

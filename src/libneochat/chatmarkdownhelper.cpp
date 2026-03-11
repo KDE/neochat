@@ -135,6 +135,8 @@ std::optional<MarkdownSyntax> syntaxForSequence(const QString &sequence)
 }
 }
 
+bool ChatMarkdownHelper::richTextActive = true;
+
 ChatMarkdownHelper::ChatMarkdownHelper(QObject *parent)
     : QObject(parent)
 {
@@ -183,6 +185,10 @@ void ChatMarkdownHelper::updateStart()
 
 void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int charsAdded)
 {
+    if (!richTextActive) {
+        return;
+    }
+
     updatePosition(position);
 
     // This can happen when formatting is applied.

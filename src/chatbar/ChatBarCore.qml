@@ -58,7 +58,7 @@ QQC2.Control {
     contentItem: ColumnLayout {
         RichEditBar {
             id: richEditBar
-            visible: NeoChatConfig.sendMessageWith === 1
+            visible: NeoChatConfig.sendMessageWith === 1 && NeoChatConfig.richChatBar
             maxAvailableWidth: root.maxAvailableWidth - Kirigami.Units.largeSpacing * 2
 
             room: root.room
@@ -68,7 +68,7 @@ QQC2.Control {
         }
         Kirigami.Separator {
             Layout.fillWidth: true
-            visible: NeoChatConfig.sendMessageWith === 1
+            visible: NeoChatConfig.sendMessageWith === 1 && NeoChatConfig.richChatBar
         }
         RowLayout {
             QQC2.ToolButton {

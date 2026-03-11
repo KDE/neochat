@@ -4,7 +4,9 @@
 
 #include "roommanager.h"
 
+#include "blockcache.h"
 #include "chatbarcache.h"
+#include "chatmarkdownhelper.h"
 #include "contentprovider.h"
 #include "controller.h"
 #include "eventhandler.h"
@@ -142,6 +144,14 @@ RoomManager::RoomManager(QObject *parent)
         if (NeoChatConfig::allRoomsInHome()) {
             resetState();
         }
+    });
+    Block::CacheItem::richTextActive = NeoChatConfig::richChatBar();
+    connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
+        Block::CacheItem::richTextActive = NeoChatConfig::richChatBar();
+    });
+    ChatMarkdownHelper::richTextActive = NeoChatConfig::richChatBar();
+    connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
+        ChatMarkdownHelper::richTextActive = NeoChatConfig::richChatBar();
     });
 }
 

@@ -192,7 +192,11 @@ RowLayout {
     
     QQC2.ToolButton {
         icon.name: "edit-select-text-symbolic"
-        text: NeoChatConfig.sendMessageWith === 1 ? i18nc("@action:button", "Hide Rich Text Controls") : i18nc("@action:button", "Show Rich Text Controls")
+        text: if (NeoChatConfig.richChatBar) {
+            return NeoChatConfig.sendMessageWith === 1 ? i18nc("@action:button", "Hide Rich Text Controls") : i18nc("@action:button", "Show Rich Text Controls");
+        } else {
+            return NeoChatConfig.sendMessageWith === 1 ? i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : i18nc("As in enter starts send the chat message", "Enter sends the message")
+        }
         display: QQC2.AbstractButton.IconOnly
         checkable: true
         checked: NeoChatConfig.sendMessageWith === 1
