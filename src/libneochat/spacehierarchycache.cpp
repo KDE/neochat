@@ -62,7 +62,7 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
 
     m_nextBatchTokens[spaceId] = QString();
     m_connection->callApi<GetSpaceHierarchyJob>(spaceId, std::nullopt, std::nullopt, std::nullopt, *m_nextBatchTokens[spaceId])
-        .onResult([this, spaceId](const auto &job) {
+        .then([this, spaceId](const auto &job) {
             addBatch(spaceId, job);
         });
     auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_L1), "Cache"_L1);
