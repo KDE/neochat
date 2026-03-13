@@ -30,6 +30,15 @@ QQC2.Control {
         sendTypingNotifications: NeoChatConfig.typingNotifications
     }
 
+    Connections {
+        target: NeoChatConfig
+
+        function onRichChatBarChanged(): void {
+            console.warn("rich change");
+            root.model.resetModel();
+        }
+    }
+
     readonly property LibNeoChat.CompletionModel completionModel: LibNeoChat.CompletionModel {
         textItem: root.model.focusedTextItem
         roomListModel: RoomManager.roomListModel
