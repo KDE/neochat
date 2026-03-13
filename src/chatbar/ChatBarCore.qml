@@ -34,7 +34,6 @@ QQC2.Control {
         target: NeoChatConfig
 
         function onRichChatBarChanged(): void {
-            console.warn("rich change");
             root.model.resetModel();
         }
     }
