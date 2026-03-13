@@ -17,6 +17,7 @@ ecm_add_qml_module(Login GENERATE_PLUGIN_SOURCE
         LoginRegister.qml
         Password.qml
         RegisterPassword.qml
+        RegistrationToken.qml
         Sso.qml
         Terms.qml
         Username.qml

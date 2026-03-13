@@ -222,6 +222,9 @@ Kirigami.Page {
                             if (Registration.nextStep === "m.login.recaptcha") {
                                 stepConnections.onProcessed("Captcha");
                             }
+                            if (Registration.nextStep === "m.login.registration_token") {
+                                stepConnections.onProcessed("RegistrationToken");
+                            }
                             if (Registration.nextStep === "m.login.terms") {
                                 stepConnections.onProcessed("Terms");
                             }

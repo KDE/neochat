@@ -12,6 +12,7 @@
 #include <QVariantMap>
 
 #include <Quotient/csapi/registration.h>
+#include <Quotient/csapi/registration_tokens.h>
 
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/util.h>
@@ -66,6 +67,7 @@ class Registration : public QObject
     QML_SINGLETON
 
     Q_PROPERTY(QString homeserver READ homeserver WRITE setHomeserver NOTIFY homeserverChanged)
+    Q_PROPERTY(QString registrationToken READ registrationToken WRITE setRegistrationToken NOTIFY registrationTokenChanged)
     Q_PROPERTY(QString username READ username WRITE setUsername NOTIFY usernameChanged)
     Q_PROPERTY(QString recaptchaSiteKey READ recaptchaSiteKey WRITE setRecaptchaSiteKey NOTIFY recaptchaSiteKeyChanged)
     Q_PROPERTY(QString recaptchaResponse READ recaptchaResponse WRITE setRecaptchaResponse NOTIFY recaptchaResponseChanged)
@@ -83,6 +85,10 @@ public:
         TestingHomeserver,
         InvalidServer,
         ServerNoRegistration,
+        RegistrationTokenRequired,
+        TestingRegistrationToken,
+        NoRegistrationTokenPrevalidation,
+        InvalidRegistrationToken,
         NoUsername,
         TestingUsername,
         UsernameTaken,
@@ -116,6 +122,9 @@ public:
     void setHomeserver(const QString &url);
     QString homeserver() const;
 
+    QString registrationToken() const;
+    void setRegistrationToken(const QString &registrationToken);
+
     QString username() const;
     void setUsername(const QString &username);
 
@@ -139,6 +148,7 @@ Q_SIGNALS:
     void homeserverChanged();
     void homeserverAvailableChanged();
     void testingChanged();
+    void registrationTokenChanged();
     void usernameChanged();
     void usernameAvailableChanged();
     void testingUsernameChanged();
@@ -158,6 +168,7 @@ private:
     QString m_recaptchaSiteKey;
     QString m_recaptchaResponse;
     QString m_homeserver;
+    QString m_registrationToken;
     QString m_username;
     QString m_password;
     QList<QVariantMap> m_terms;
@@ -169,12 +180,14 @@ private:
     QString m_emailSecret;
     QUrl m_oidcUrl;
 
+    QPointer<Quotient::RegistrationTokenValidityJob> m_testValidityJob;
     QPointer<Quotient::CheckUsernameAvailabilityJob> m_usernameJob;
     QPointer<NeoChatRegisterJob> m_testServerJob;
     QList<QList<QString>> m_flows;
     QPointer<NeoChatConnection> m_connection;
 
     void testHomeserver();
+    void testRegistrationToken();
     void testUsername();
     void setStatus(Status status);
 

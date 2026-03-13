@@ -31,6 +31,7 @@ Registration::Registration()
 
     connect(this, &Registration::homeserverChanged, this, &Registration::testHomeserver);
     connect(this, &Registration::usernameChanged, this, &Registration::testUsername);
+    connect(this, &Registration::registrationTokenChanged, this, &Registration::testRegistrationToken);
 }
 
 void Registration::setAccountManager(AccountManager *manager)
@@ -69,6 +70,12 @@ void Registration::registerAccount()
         authData = QJsonObject{
             {"type"_L1, "m.login.recaptcha"_L1},
             {"response"_L1, m_recaptchaResponse},
+            {"session"_L1, m_session},
+        };
+    } else if (nextStep() == "m.login.registration_token"_L1) {
+        authData = QJsonObject{
+            {"type"_L1, "m.login.registration_token"_L1},
+            {"token"_L1, m_registrationToken},
             {"session"_L1, m_session},
         };
     } else if (nextStep() == "m.login.terms"_L1) {
@@ -120,6 +127,13 @@ void Registration::registerAccount()
 
             return;
         }
+
+        if (job->status() == BaseJob::Unauthorised && nextStep() == "m.login.registration_token"_L1) {
+            // Only reachable if validity endpoint is not implemented by homeserver.
+            setStatus(InvalidRegistrationToken);
+            return;
+        }
+
         const auto &data = job->jsonData();
         m_session = data["session"_L1].toString();
         const auto &params = data["params"_L1].toObject();
@@ -220,6 +234,10 @@ void Registration::testHomeserver()
                     setStatus(ServerNoRegistration);
                     return;
                 }
+                if (m_testServerJob->status().code == BaseJob::StatusCode::Unauthorised) {
+                    setStatus(RegistrationTokenRequired);
+                    return;
+                }
                 if (m_testServerJob->status().code != 106) {
                     setStatus(InvalidServer);
                     return;
@@ -233,6 +251,42 @@ void Registration::testHomeserver()
             });
         },
         Qt::SingleShotConnection);
+}
+
+void Registration::setRegistrationToken(const QString &registrationToken)
+{
+    m_registrationToken = registrationToken;
+    Q_EMIT registrationTokenChanged();
+}
+
+QString Registration::registrationToken() const
+{
+    return m_registrationToken;
+}
+
+void Registration::testRegistrationToken()
+{
+    if (status() <= ServerNoRegistration) {
+        return;
+    }
+
+    setStatus(TestingRegistrationToken);
+
+    if (m_testValidityJob) {
+        m_testValidityJob->abandon();
+    }
+    if (m_registrationToken.isEmpty() || m_registrationToken.length() > 64) {
+        setStatus(InvalidRegistrationToken);
+        return;
+    }
+
+    m_testValidityJob = m_connection->callApi<RegistrationTokenValidityJob>(m_registrationToken).onResult([this]() {
+        if (m_testValidityJob->error() == BaseJob::StatusCode::NotFound) {
+            setStatus(NoRegistrationTokenPrevalidation);
+        } else {
+            setStatus(m_testValidityJob->error() == BaseJob::StatusCode::Success && m_testValidityJob->valid() ? Ready : InvalidRegistrationToken);
+        }
+    });
 }
 
 void Registration::setUsername(const QString &username)
@@ -343,6 +397,12 @@ QString Registration::statusString() const
         return i18n("This is not a valid server.");
     case ServerNoRegistration:
         return i18n("Registration for this server is disabled.");
+    case RegistrationTokenRequired:
+        return i18nc("@info", "Registration for this server requires a registration token.");
+    case NoRegistrationTokenPrevalidation:
+        return i18nc("@info", "This server cannot prevalidate registration tokens.");
+    case InvalidRegistrationToken:
+        return i18nc("@info", "This is not a valid registration token.");
     case NoUsername:
         return i18n("No username.");
     case TestingUsername:
