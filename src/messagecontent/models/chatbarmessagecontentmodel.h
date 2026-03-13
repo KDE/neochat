@@ -117,6 +117,8 @@ public:
     void setSendTypingNotifications(bool sendTypingNotifications);
     [[nodiscard]] bool sendTypingNotifications() const;
 
+    Q_INVOKABLE void resetModel();
+
     Q_INVOKABLE void postMessage();
 
     bool hasAnyContent() const;

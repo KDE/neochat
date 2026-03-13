@@ -664,6 +664,13 @@ void ChatBarMessageContentModel::updateCache() const
     m_room->cacheForType(m_type)->cache().fill(m_components);
 }
 
+void ChatBarMessageContentModel::resetModel()
+{
+    clearModel();
+    initializeModel();
+    refocusCurrentComponent();
+}
+
 void ChatBarMessageContentModel::postMessage()
 {
     if (m_type == ChatBarType::None || !m_room) {
