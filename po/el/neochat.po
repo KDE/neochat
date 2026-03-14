@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:43+0000\n"
+"POT-Creation-Date: 2026-03-14 00:44+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1820,24 +1820,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr ""
 
-#: src/app/roommanager.cpp:226
+#: src/app/roommanager.cpp:236
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "Το %1 δεν είναι ένα σωστό αναγνωριστικό του Matrix"
 
-#: src/app/roommanager.cpp:428
+#: src/app/roommanager.cpp:438
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to join %1:<br />%2"
 msgstr "Προσκαλεί σε μια αίθουσα"
 
-#: src/app/roommanager.cpp:452
+#: src/app/roommanager.cpp:462
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/app/roommanager.cpp:456
+#: src/app/roommanager.cpp:466
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to request joining room<br />%1"
@@ -1853,20 +1853,20 @@ msgstr "Εμφάνιση"
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/chatbar/ChatBarCore.qml:79
+#: src/chatbar/ChatBarCore.qml:88
 #, fuzzy, kde-format
 #| msgid "Emojis & Stickers"
 msgid "Emojis & Stickers"
@@ -2191,26 +2191,26 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:213
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Αποστολή μηνύματος"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:226 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -2406,6 +2406,12 @@ msgstr "Σημαίες λειτουργιών"
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:27
+#, kde-format
+msgctxt "@option:check Enable the rich text chat bar"
+msgid "Rich Chat Bar"
 msgstr ""
 
 #: src/devtools/RoomData.qml:22
@@ -4126,7 +4132,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:258
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -4190,54 +4196,85 @@ msgstr "Επιβεβαίωση κωδικού:"
 msgid "The passwords do not match."
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
 
-#: src/login/registration.cpp:339
+#: src/login/registration.cpp:393
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add server"
 msgid "No server."
 msgstr "Προσθήκη εξυπηρετητή"
 
-#: src/login/registration.cpp:341
+#: src/login/registration.cpp:395
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/login/registration.cpp:343
+#: src/login/registration.cpp:397
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "This is not a valid server."
 msgstr "Το δοσμένο κείμενο δεν είναι έγκυρο url"
 
-#: src/login/registration.cpp:345
+#: src/login/registration.cpp:399
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/login/registration.cpp:347
+#: src/login/registration.cpp:401
+#, kde-format
+msgctxt "@info"
+msgid "Registration for this server requires a registration token."
+msgstr ""
+
+#: src/login/registration.cpp:403
+#, kde-format
+msgctxt "@info"
+msgid "This server cannot prevalidate registration tokens."
+msgstr ""
+
+#: src/login/registration.cpp:405
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgctxt "@info"
+msgid "This is not a valid registration token."
+msgstr "Το δοσμένο κείμενο δεν είναι έγκυρο url"
+
+#: src/login/registration.cpp:407
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Χωρίς όνομα"
 
-#: src/login/registration.cpp:349
+#: src/login/registration.cpp:409
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/login/registration.cpp:351
+#: src/login/registration.cpp:411
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "Δεν υπάρχουν διαθέσιμοι χρήστες"
 
-#: src/login/registration.cpp:353
+#: src/login/registration.cpp:413
 #, kde-format
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: src/login/registration.cpp:355
+#: src/login/registration.cpp:415
 #, kde-format
 msgid "Working"
+msgstr ""
+
+#: src/login/RegistrationToken.qml:20
+#, kde-format
+msgctxt "@label"
+msgid "Registration Token:"
+msgstr ""
+
+#: src/login/RegistrationToken.qml:23
+#, kde-format
+msgctxt "@info"
+msgid "Invalid registration token"
 msgstr ""
 
 #: src/login/Sso.qml:29
@@ -4312,14 +4349,14 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Σύνδεση με υφιστάμενο λογαριασμό"
 
-#: src/login/WelcomePage.qml:268
+#: src/login/WelcomePage.qml:271
 #, fuzzy, kde-format
 #| msgid "Room Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Ρυθμίσεις αίθουσας"
 
-#: src/login/WelcomePage.qml:277
+#: src/login/WelcomePage.qml:280
 #, fuzzy, kde-format
 #| msgctxt "@action:button As in 'go back'"
 #| msgid "Back"
@@ -4640,14 +4677,14 @@ msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Αγνόηση αυτού του χρήστη"
 
-#: src/messagecontent/TextComponentEditMenu.qml:126
+#: src/messagecontent/TextComponentEditMenu.qml:128
 #, fuzzy, kde-format
 #| msgid "Spell Checking"
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Ορθογραφικός έλεγχος"
 
-#: src/messagecontent/TextComponentEditMenu.qml:138
+#: src/messagecontent/TextComponentEditMenu.qml:140
 #, fuzzy, kde-format
 #| msgctxt "@action:button Undo modification"
 #| msgid "Undo"
@@ -4655,7 +4692,7 @@ msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: src/messagecontent/TextComponentEditMenu.qml:151
+#: src/messagecontent/TextComponentEditMenu.qml:153
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Redo"
@@ -4663,7 +4700,7 @@ msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Επανάληψη"
 
-#: src/messagecontent/TextComponentEditMenu.qml:165
+#: src/messagecontent/TextComponentEditMenu.qml:167
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Cut"
@@ -4671,7 +4708,7 @@ msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Αποκοπή"
 
-#: src/messagecontent/TextComponentEditMenu.qml:178
+#: src/messagecontent/TextComponentEditMenu.qml:180
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Copy"
@@ -4679,7 +4716,7 @@ msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Αντιγραφή"
 
-#: src/messagecontent/TextComponentEditMenu.qml:191
+#: src/messagecontent/TextComponentEditMenu.qml:193
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Paste"
@@ -4687,7 +4724,7 @@ msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Επικόλληση"
 
-#: src/messagecontent/TextComponentEditMenu.qml:204
+#: src/messagecontent/TextComponentEditMenu.qml:206
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Delete"
@@ -4695,7 +4732,7 @@ msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: src/messagecontent/TextComponentEditMenu.qml:218
+#: src/messagecontent/TextComponentEditMenu.qml:220
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"

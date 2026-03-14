@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:43+0000\n"
+"POT-Creation-Date: 2026-03-14 00:44+0000\n"
 "PO-Revision-Date: 2026-03-06 14:21+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1657,24 +1657,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Готово"
 
-#: src/app/roommanager.cpp:226
+#: src/app/roommanager.cpp:236
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Неверно сформированный или пустой идентификатор Matrix<br />%1 — "
 "некорректный идентификатор Matrix"
 
-#: src/app/roommanager.cpp:428
+#: src/app/roommanager.cpp:438
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Не удалось присоединиться к «%1»:<br />%2"
 
-#: src/app/roommanager.cpp:452
+#: src/app/roommanager.cpp:462
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Вы отправили запрос на присоединение к «%1»"
 
-#: src/app/roommanager.cpp:456
+#: src/app/roommanager.cpp:466
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Не удалось отправить запрос на присоединение к комнате<br />%1"
@@ -1689,19 +1689,19 @@ msgstr "Показать"
 msgid "Quit"
 msgstr "Выход"
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Клавиша Enter начинает новую строку"
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Клавиша Enter отправляет сообщение"
 
-#: src/chatbar/ChatBarCore.qml:79
+#: src/chatbar/ChatBarCore.qml:88
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Эмодзи и стикеры"
@@ -1999,25 +1999,25 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Отправить голосовое сообщение"
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
 msgstr "Скрыть элементы управления форматированием"
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
 msgstr "Показать элементы управления форматированием"
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Отправить сообщение"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:226 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -2199,6 +2199,12 @@ msgstr "Флаги возможностей"
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "Вызовы"
+
+#: src/devtools/FeatureFlagPage.qml:27
+#, kde-format
+msgctxt "@option:check Enable the rich text chat bar"
+msgid "Rich Chat Bar"
+msgstr ""
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -3812,7 +3818,7 @@ msgstr "Идентификатор Matrix:"
 msgid "Matrix ID"
 msgstr "Идентификатор Matrix"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:258
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3874,50 +3880,82 @@ msgstr "Проверка пароля:"
 msgid "The passwords do not match."
 msgstr "Пароли не совпадают."
 
-#: src/login/registration.cpp:339
+#: src/login/registration.cpp:393
 #, kde-format
 msgid "No server."
 msgstr "Сервер отсутствует."
 
-#: src/login/registration.cpp:341
+#: src/login/registration.cpp:395
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Проверка доступности сервера."
 
-#: src/login/registration.cpp:343
+#: src/login/registration.cpp:397
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Этот сервер является некорректным."
 
-#: src/login/registration.cpp:345
+#: src/login/registration.cpp:399
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Для этого сервера отключена регистрация."
 
-#: src/login/registration.cpp:347
+#: src/login/registration.cpp:401
+#, fuzzy, kde-format
+#| msgid "Registration for this server is disabled."
+msgctxt "@info"
+msgid "Registration for this server requires a registration token."
+msgstr "Для этого сервера отключена регистрация."
+
+#: src/login/registration.cpp:403
+#, kde-format
+msgctxt "@info"
+msgid "This server cannot prevalidate registration tokens."
+msgstr ""
+
+#: src/login/registration.cpp:405
+#, fuzzy, kde-format
+#| msgid "This is not a valid server."
+msgctxt "@info"
+msgid "This is not a valid registration token."
+msgstr "Этот сервер является некорректным."
+
+#: src/login/registration.cpp:407
 #, kde-format
 msgid "No username."
 msgstr "Имя пользователя отсутствует."
 
-#: src/login/registration.cpp:349
+#: src/login/registration.cpp:409
 #, kde-format
 msgid "Checking username availability."
 msgstr "Проверка доступности имени пользователя."
 
-#: src/login/registration.cpp:351
+#: src/login/registration.cpp:411
 #, kde-format
 msgid "This username is not available."
 msgstr "Это имя пользователя недоступно."
 
-#: src/login/registration.cpp:353
+#: src/login/registration.cpp:413
 #, kde-format
 msgid "Continue"
 msgstr "Продолжить"
 
-#: src/login/registration.cpp:355
+#: src/login/registration.cpp:415
 #, kde-format
 msgid "Working"
 msgstr "Работает"
+
+#: src/login/RegistrationToken.qml:20
+#, kde-format
+msgctxt "@label"
+msgid "Registration Token:"
+msgstr ""
+
+#: src/login/RegistrationToken.qml:23
+#, kde-format
+msgctxt "@info"
+msgid "Invalid registration token"
+msgstr ""
 
 #: src/login/Sso.qml:29
 #, kde-format
@@ -3981,13 +4019,13 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Вход в существующую учётную запись или создание новой"
 
-#: src/login/WelcomePage.qml:268
+#: src/login/WelcomePage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Параметры"
 
-#: src/login/WelcomePage.qml:277
+#: src/login/WelcomePage.qml:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Go Back"
@@ -4296,49 +4334,49 @@ msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: src/messagecontent/TextComponentEditMenu.qml:126
+#: src/messagecontent/TextComponentEditMenu.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Проверка орфографии"
 
-#: src/messagecontent/TextComponentEditMenu.qml:138
+#: src/messagecontent/TextComponentEditMenu.qml:140
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Отменить"
 
-#: src/messagecontent/TextComponentEditMenu.qml:151
+#: src/messagecontent/TextComponentEditMenu.qml:153
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Повторить"
 
-#: src/messagecontent/TextComponentEditMenu.qml:165
+#: src/messagecontent/TextComponentEditMenu.qml:167
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Вырезать"
 
-#: src/messagecontent/TextComponentEditMenu.qml:178
+#: src/messagecontent/TextComponentEditMenu.qml:180
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/messagecontent/TextComponentEditMenu.qml:191
+#: src/messagecontent/TextComponentEditMenu.qml:193
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Вставить"
 
-#: src/messagecontent/TextComponentEditMenu.qml:204
+#: src/messagecontent/TextComponentEditMenu.qml:206
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Удалить"
 
-#: src/messagecontent/TextComponentEditMenu.qml:218
+#: src/messagecontent/TextComponentEditMenu.qml:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"

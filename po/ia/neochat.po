@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:43+0000\n"
+"POT-Creation-Date: 2026-03-14 00:44+0000\n"
 "PO-Revision-Date: 2026-03-05 11:32+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1676,24 +1676,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Facite"
 
-#: src/app/roommanager.cpp:226
+#: src/app/roommanager.cpp:236
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Id de Matrix malformate o vacue<br />%1 non es un correcte identificator de "
 "Matrix"
 
-#: src/app/roommanager.cpp:428
+#: src/app/roommanager.cpp:438
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Falleva a unir %1<br />%2"
 
-#: src/app/roommanager.cpp:452
+#: src/app/roommanager.cpp:462
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Tu requireva unir a '%1'"
 
-#: src/app/roommanager.cpp:456
+#: src/app/roommanager.cpp:466
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Il falleva a requirer unir sala<br />%1"
@@ -1708,19 +1708,19 @@ msgstr "Monstra "
 msgid "Quit"
 msgstr "Quita"
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Inserta startar a nove linea"
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Inserta invia le message"
 
-#: src/chatbar/ChatBarCore.qml:79
+#: src/chatbar/ChatBarCore.qml:88
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis & Etiquettas Gummate (Stickers)"
@@ -2018,25 +2018,25 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Invia un message vocal"
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
 msgstr "Cela controlos de Rich Text (Texto Ric)"
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
 msgstr "Monstra controlos de Rich Text (Texto Ric)"
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Invia message"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:226 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -2219,6 +2219,12 @@ msgstr "Bandieras de characteristica"
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "Appellos"
+
+#: src/devtools/FeatureFlagPage.qml:27
+#, kde-format
+msgctxt "@option:check Enable the rich text chat bar"
+msgid "Rich Chat Bar"
+msgstr ""
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -3820,7 +3826,7 @@ msgstr "ID de Matrix:"
 msgid "Matrix ID"
 msgstr "ID de Matrix:"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:258
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3882,50 +3888,82 @@ msgstr "Confirma contrasigno:"
 msgid "The passwords do not match."
 msgstr "Le contrasigno non es correspondente."
 
-#: src/login/registration.cpp:339
+#: src/login/registration.cpp:393
 #, kde-format
 msgid "No server."
 msgstr "Nulle servitor."
 
-#: src/login/registration.cpp:341
+#: src/login/registration.cpp:395
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Verificante disponibilitate de Servitor."
 
-#: src/login/registration.cpp:343
+#: src/login/registration.cpp:397
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Isto non es un valide servitor."
 
-#: src/login/registration.cpp:345
+#: src/login/registration.cpp:399
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Registration per iste servitor es dishabilitate."
 
-#: src/login/registration.cpp:347
+#: src/login/registration.cpp:401
+#, fuzzy, kde-format
+#| msgid "Registration for this server is disabled."
+msgctxt "@info"
+msgid "Registration for this server requires a registration token."
+msgstr "Registration per iste servitor es dishabilitate."
+
+#: src/login/registration.cpp:403
+#, kde-format
+msgctxt "@info"
+msgid "This server cannot prevalidate registration tokens."
+msgstr ""
+
+#: src/login/registration.cpp:405
+#, fuzzy, kde-format
+#| msgid "This is not a valid server."
+msgctxt "@info"
+msgid "This is not a valid registration token."
+msgstr "Isto non es un valide servitor."
+
+#: src/login/registration.cpp:407
 #, kde-format
 msgid "No username."
 msgstr "Necun nomine de usator."
 
-#: src/login/registration.cpp:349
+#: src/login/registration.cpp:409
 #, kde-format
 msgid "Checking username availability."
 msgstr "Verificante disponibilitate de nomine de usator."
 
-#: src/login/registration.cpp:351
+#: src/login/registration.cpp:411
 #, kde-format
 msgid "This username is not available."
 msgstr "Iste nomine de usator non es disponibile."
 
-#: src/login/registration.cpp:353
+#: src/login/registration.cpp:413
 #, kde-format
 msgid "Continue"
 msgstr "Continua"
 
-#: src/login/registration.cpp:355
+#: src/login/registration.cpp:415
 #, kde-format
 msgid "Working"
 msgstr "travaliante"
+
+#: src/login/RegistrationToken.qml:20
+#, kde-format
+msgctxt "@label"
+msgid "Registration Token:"
+msgstr ""
+
+#: src/login/RegistrationToken.qml:23
+#, kde-format
+msgctxt "@info"
+msgid "Invalid registration token"
+msgstr ""
 
 #: src/login/Sso.qml:29
 #, kde-format
@@ -3991,13 +4029,13 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Accede  o crea un conto nove"
 
-#: src/login/WelcomePage.qml:268
+#: src/login/WelcomePage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Preferentias"
 
-#: src/login/WelcomePage.qml:277
+#: src/login/WelcomePage.qml:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Go Back"
@@ -4297,49 +4335,49 @@ msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: src/messagecontent/TextComponentEditMenu.qml:126
+#: src/messagecontent/TextComponentEditMenu.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Controlo Orthographic"
 
-#: src/messagecontent/TextComponentEditMenu.qml:138
+#: src/messagecontent/TextComponentEditMenu.qml:140
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Annulla"
 
-#: src/messagecontent/TextComponentEditMenu.qml:151
+#: src/messagecontent/TextComponentEditMenu.qml:153
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Reface"
 
-#: src/messagecontent/TextComponentEditMenu.qml:165
+#: src/messagecontent/TextComponentEditMenu.qml:167
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Talia"
 
-#: src/messagecontent/TextComponentEditMenu.qml:178
+#: src/messagecontent/TextComponentEditMenu.qml:180
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Copia"
 
-#: src/messagecontent/TextComponentEditMenu.qml:191
+#: src/messagecontent/TextComponentEditMenu.qml:193
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Colla"
 
-#: src/messagecontent/TextComponentEditMenu.qml:204
+#: src/messagecontent/TextComponentEditMenu.qml:206
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Dele"
 
-#: src/messagecontent/TextComponentEditMenu.qml:218
+#: src/messagecontent/TextComponentEditMenu.qml:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
