@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-12 02:36+0000\n"
-"PO-Revision-Date: 2026-03-05 20:06+0100\n"
-"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
+"PO-Revision-Date: 2026-03-10 23:12+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1419,33 +1419,27 @@ msgid "Set Power Level"
 msgstr "Berechtigungsstufe festlegen"
 
 #: src/app/qml/UserDetailDialog.qml:402
-#, fuzzy, kde-format
-#| msgid "All Rooms"
+#, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr "Alle Räume"
+msgstr "Gemeinsame Räume"
 
 #: src/app/qml/UserDetailDialog.qml:424
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
-msgstr "Keine Räume gefunden"
+msgstr "Keine gemeinsamen Räume"
 
 #: src/app/qml/UserDetailDialog.qml:459
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] " und %1 weiterer"
-msgstr[1] " und %1 weitere"
+msgstr[0] "und 1 weiterer …"
+msgstr[1] "und %1 weitere …"
 
 #: src/app/qml/UserDetailDialog.qml:466
 #, kde-format
@@ -1732,11 +1726,10 @@ msgid "Enter starts a new line"
 msgstr ""
 
 #: src/chatbar/ChatBar.qml:85
-#, fuzzy, kde-format
-#| msgid "%1 sent a message"
+#, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
-msgstr "%1 hat eine Nachricht gesendet"
+msgstr "Eingabetaste sendet die Nachricht"
 
 #: src/chatbar/ChatBarCore.qml:79
 #, kde-format
@@ -4141,8 +4134,7 @@ msgid "Hide Image"
 msgstr "Bild ausblenden"
 
 #: src/messagecontent/ImageComponent.qml:95
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -4157,7 +4149,7 @@ msgstr "Bild anzeigen"
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr "Zu KDE Itinerary senden"
+msgstr "An KDE Itinerary senden"
 
 #: src/messagecontent/LinkPreviewComponent.qml:140
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
@@ -4335,19 +4327,16 @@ msgid "Add \"%1\" to Dictionary"
 msgstr ""
 
 #: src/messagecontent/TextComponentEditMenu.qml:115
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ignorieren"
 
 #: src/messagecontent/TextComponentEditMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr "Rechtschreibprüfung"
+msgstr "Rechtschreibung prüfen"
 
 #: src/messagecontent/TextComponentEditMenu.qml:138
 #, kde-format
@@ -4380,9 +4369,7 @@ msgid "Paste"
 msgstr "Einfügen"
 
 #: src/messagecontent/TextComponentEditMenu.qml:204
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Löschen"
@@ -4398,7 +4385,7 @@ msgstr "Alle auswählen"
 #, kde-format
 msgctxt "Short for train platform"
 msgid "Pl. %1"
-msgstr ""
+msgstr "Gl. %1"
 
 #: src/messagecontent/VideoComponent.qml:178
 #, kde-format
@@ -5799,12 +5786,10 @@ msgid "Go to Previous Room"
 msgstr ""
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "Raum auswählen"
+msgstr "Zum nächsten Raum gehen"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
@@ -5953,11 +5938,9 @@ msgid "Send live location updates"
 msgstr "Aktualisierungen des Live-Standorts senden"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 haben eine Abstimmung gestartet"
+msgstr "Abstimmungen starten"
 
 #: src/settings/models/permissionsmodel.cpp:84
 msgctxt "Room permission type"
@@ -5965,12 +5948,9 @@ msgid "Vote in polls"
 msgstr "An Abstimmungen teilnehmen"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "Geschlossene Abstimmung"
+msgstr "Abstimmungen schließen"
 
 #: src/settings/models/permissionsmodel.cpp:90
 msgctxt "Room permission type"
@@ -6330,7 +6310,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
-msgstr ""
+msgstr "Alle"
 
 #: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
@@ -6361,13 +6341,13 @@ msgstr "Der Server unterstützt diese Einstellung nicht."
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
-msgstr ""
+msgstr "Niemand"
 
 #: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
-msgstr ""
+msgstr "Niemand kann Ihnen Einladungen senden."
 
 #: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
@@ -6500,7 +6480,7 @@ msgstr "Geräte"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Tastenkürzel"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -6683,11 +6663,10 @@ msgid "Confirm"
 msgstr "Bestätigen"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "Benachrichtigungen"
+msgstr "Benachrichtigungen senden für"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
@@ -6699,7 +6678,7 @@ msgstr "Voreinstellungen"
 #, kde-format
 msgctxt "@window:title"
 msgid "Advanced"
-msgstr ""
+msgstr "Erweitert"
 
 #: src/settings/RoomAdvancedPage.qml:27
 #, kde-format
@@ -6775,18 +6754,16 @@ msgid "Aliases"
 msgstr "Alias"
 
 #: src/settings/RoomGeneralPage.qml:108
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgctxt "@info"
 msgid "No canonical alias set"
-msgstr "Keine Hauptklarkennung gesetzt"
+msgstr "Kein Haupt-Alias festgelegt"
 
 #: src/settings/RoomGeneralPage.qml:125
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
-msgstr "Diese Klarkennung zur Hauptadresse des Raumes machen"
+msgstr "Dieses Alias zum Haupt-Alias des Raums machen"
 
 #: src/settings/RoomGeneralPage.qml:138
 #, kde-format
@@ -6825,7 +6802,7 @@ msgstr "Die Vorschau bei Adressen ist in diesem Raum standardmäßig deaktiviert
 #, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
 #: src/settings/RoomGeneralPage.qml:218
 #, fuzzy, kde-format
@@ -7145,7 +7122,7 @@ msgstr "Profil"
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
-msgstr ""
+msgstr "Erweitert"
 
 #: src/settings/RoomSortParameterDialog.qml:17
 #, kde-format
@@ -7262,7 +7239,7 @@ msgstr ""
 #: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid "We've sent you an email"
-msgstr ""
+msgstr "Wir haben Ihnen eine E-Mail gesendet"
 
 #: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
 #, kde-format
@@ -7704,13 +7681,13 @@ msgstr "Web-Kürzel einrichten …"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "Text laut vorlesen"
 
 #: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 sagte %2"
 
 #: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
@@ -7725,11 +7702,10 @@ msgid "Pin"
 msgstr "Anpinnen"
 
 #: src/timeline/DelegateContextMenu.qml:422
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
-msgstr "Direktnachrichten"
+msgstr "Nachricht nicht mehr auswählen"
 
 #: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
