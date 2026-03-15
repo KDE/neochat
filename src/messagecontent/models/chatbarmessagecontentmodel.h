@@ -123,6 +123,8 @@ public:
 
     bool hasAnyContent() const;
 
+    static bool richTextActive;
+
 Q_SIGNALS:
     void typeChanged(ChatBarType::Type oldType, ChatBarType::Type newType);
     void focusRowChanged();
