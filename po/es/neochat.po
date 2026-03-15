@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-14 00:44+0000\n"
-"PO-Revision-Date: 2026-03-07 01:21+0100\n"
+"PO-Revision-Date: 2026-03-14 12:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -2227,7 +2227,7 @@ msgstr "Llamadas"
 #, kde-format
 msgctxt "@option:check Enable the rich text chat bar"
 msgid "Rich Chat Bar"
-msgstr ""
+msgstr "Barra de conversación de texto enriquecido"
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -3911,27 +3911,25 @@ msgstr "Este servidor no es válido."
 #: src/login/registration.cpp:399
 #, kde-format
 msgid "Registration for this server is disabled."
-msgstr "El registro de este servidor está desactivado."
+msgstr "El registro en este servidor está desactivado."
 
 #: src/login/registration.cpp:401
-#, fuzzy, kde-format
-#| msgid "Registration for this server is disabled."
+#, kde-format
 msgctxt "@info"
 msgid "Registration for this server requires a registration token."
-msgstr "El registro de este servidor está desactivado."
+msgstr "El registro en este servidor requiere un token de registro."
 
 #: src/login/registration.cpp:403
 #, kde-format
 msgctxt "@info"
 msgid "This server cannot prevalidate registration tokens."
-msgstr ""
+msgstr "Este servidor no puede prevalidar tókenes de registro."
 
 #: src/login/registration.cpp:405
-#, fuzzy, kde-format
-#| msgid "This is not a valid server."
+#, kde-format
 msgctxt "@info"
 msgid "This is not a valid registration token."
-msgstr "Este servidor no es válido."
+msgstr "Esto no es un token de registro válido."
 
 #: src/login/registration.cpp:407
 #, kde-format
@@ -3962,13 +3960,13 @@ msgstr "Trabajando"
 #, kde-format
 msgctxt "@label"
 msgid "Registration Token:"
-msgstr ""
+msgstr "Token de registro:"
 
 #: src/login/RegistrationToken.qml:23
 #, kde-format
 msgctxt "@info"
 msgid "Invalid registration token"
-msgstr ""
+msgstr "Token de registro no válido"
 
 #: src/login/Sso.qml:29
 #, kde-format
@@ -7812,19 +7810,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
-
-#~ msgctxt ""
-#~ "@option:check Enable the matrix feature to add a phone number as a third "
-#~ "party ID"
-#~ msgid "Add phone numbers as 3PIDs"
-#~ msgstr "Añadir números de teléfono como 3PID"
-
-#~ msgid "Label:"
-#~ msgstr "Etiqueta:"
-
-#~ msgid "Work"
-#~ msgstr "Trabajo"
-
-#~ msgctxt "@title:group"
-#~ msgid "Phone Numbers"
-#~ msgstr "Números de teléfono"
