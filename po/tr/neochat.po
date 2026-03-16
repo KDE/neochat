@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 02:36+0000\n"
+"POT-Creation-Date: 2026-03-16 02:38+0000\n"
 "PO-Revision-Date: 2026-03-05 14:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1664,24 +1664,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Bitti"
 
-#: src/app/roommanager.cpp:226
+#: src/app/roommanager.cpp:236
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Hatalı oluşturulmuş veya boş Matrik kimliği.<br />%1, doğru bir Matrix "
 "tanımlayıcısı değil"
 
-#: src/app/roommanager.cpp:428
+#: src/app/roommanager.cpp:438
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Katılınılamadı: %1<br />%2"
 
-#: src/app/roommanager.cpp:452
+#: src/app/roommanager.cpp:462
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "“%1” odasına katılmak istediniz"
 
-#: src/app/roommanager.cpp:456
+#: src/app/roommanager.cpp:466
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Odaya katılma istenemedi<br />%1"
@@ -1696,19 +1696,19 @@ msgstr "Göster"
 msgid "Quit"
 msgstr "Çık"
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Giriş düğmesi yeni bir satır başlatır"
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Giriş düğmesi iletiyi gönderir"
 
-#: src/chatbar/ChatBarCore.qml:79
+#: src/chatbar/ChatBarCore.qml:87
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojiler ve Çıkartmalar"
@@ -2006,25 +2006,25 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Ses İletisi Gönder"
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
 msgstr "Zengin Metin Denetimlerini Gizle"
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
 msgstr "Zengin Metin Denetimlerini Göster"
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "İleti gönder"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:226 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -2216,6 +2216,12 @@ msgstr "Üçüncü parti kimlik olarak telefon numaraları ekle"
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "Aramalar"
+
+#: src/devtools/FeatureFlagPage.qml:36
+#, kde-format
+msgctxt "@option:check Enable the rich text chat bar"
+msgid "Rich Chat Bar"
+msgstr ""
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -4291,49 +4297,49 @@ msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Yok Say"
 
-#: src/messagecontent/TextComponentEditMenu.qml:126
+#: src/messagecontent/TextComponentEditMenu.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Yazım Denetimi"
 
-#: src/messagecontent/TextComponentEditMenu.qml:138
+#: src/messagecontent/TextComponentEditMenu.qml:140
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: src/messagecontent/TextComponentEditMenu.qml:151
+#: src/messagecontent/TextComponentEditMenu.qml:153
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Yinele"
 
-#: src/messagecontent/TextComponentEditMenu.qml:165
+#: src/messagecontent/TextComponentEditMenu.qml:167
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Kes"
 
-#: src/messagecontent/TextComponentEditMenu.qml:178
+#: src/messagecontent/TextComponentEditMenu.qml:180
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopyala"
 
-#: src/messagecontent/TextComponentEditMenu.qml:191
+#: src/messagecontent/TextComponentEditMenu.qml:193
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Yapıştır"
 
-#: src/messagecontent/TextComponentEditMenu.qml:204
+#: src/messagecontent/TextComponentEditMenu.qml:206
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Sil"
 
-#: src/messagecontent/TextComponentEditMenu.qml:218
+#: src/messagecontent/TextComponentEditMenu.qml:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"

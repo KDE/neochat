@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 02:36+0000\n"
+"POT-Creation-Date: 2026-03-16 02:38+0000\n"
 "PO-Revision-Date: 2026-03-10 23:12+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1686,24 +1686,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Fertig"
 
-#: src/app/roommanager.cpp:226
+#: src/app/roommanager.cpp:236
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Ungültige oder leere Matrix-Kennung<br />%1 ist keine korrekte Matrix-Kennung"
 
-#: src/app/roommanager.cpp:428
+#: src/app/roommanager.cpp:438
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Raum kann nicht betreten werden<br />%1"
 
-#: src/app/roommanager.cpp:452
+#: src/app/roommanager.cpp:462
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/app/roommanager.cpp:456
+#: src/app/roommanager.cpp:466
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to request joining room<br />%1"
@@ -1719,19 +1719,19 @@ msgstr "Anzeigen"
 msgid "Quit"
 msgstr "Beenden"
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:85
+#: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Eingabetaste sendet die Nachricht"
 
-#: src/chatbar/ChatBarCore.qml:79
+#: src/chatbar/ChatBarCore.qml:87
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis & Sticker"
@@ -2029,25 +2029,25 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Eine Sprachnachricht senden"
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:195
+#: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Nachricht senden"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:226 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -2240,6 +2240,12 @@ msgstr "Telefonnummer als Drittanbieterkennung"
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "Anrufe"
+
+#: src/devtools/FeatureFlagPage.qml:36
+#, kde-format
+msgctxt "@option:check Enable the rich text chat bar"
+msgid "Rich Chat Bar"
+msgstr ""
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -4332,49 +4338,49 @@ msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ignorieren"
 
-#: src/messagecontent/TextComponentEditMenu.qml:126
+#: src/messagecontent/TextComponentEditMenu.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Rechtschreibung prüfen"
 
-#: src/messagecontent/TextComponentEditMenu.qml:138
+#: src/messagecontent/TextComponentEditMenu.qml:140
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: src/messagecontent/TextComponentEditMenu.qml:151
+#: src/messagecontent/TextComponentEditMenu.qml:153
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Wiederherstellen"
 
-#: src/messagecontent/TextComponentEditMenu.qml:165
+#: src/messagecontent/TextComponentEditMenu.qml:167
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Ausschneiden"
 
-#: src/messagecontent/TextComponentEditMenu.qml:178
+#: src/messagecontent/TextComponentEditMenu.qml:180
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopieren"
 
-#: src/messagecontent/TextComponentEditMenu.qml:191
+#: src/messagecontent/TextComponentEditMenu.qml:193
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Einfügen"
 
-#: src/messagecontent/TextComponentEditMenu.qml:204
+#: src/messagecontent/TextComponentEditMenu.qml:206
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Löschen"
 
-#: src/messagecontent/TextComponentEditMenu.qml:218
+#: src/messagecontent/TextComponentEditMenu.qml:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
