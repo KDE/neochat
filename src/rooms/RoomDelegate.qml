@@ -94,6 +94,7 @@ Delegates.RoundedItemDelegate {
 
             Layout.fillHeight: true
             Layout.preferredWidth: height
+            Layout.maximumHeight: height
         }
         Kirigami.TitleSubtitle {
             Layout.fillWidth: true
