@@ -155,7 +155,19 @@ Kirigami.Page {
                     // NOTE: This padding value should be kept in sync with the padding value of our delegates.
                     const padding = Kirigami.Units.mediumSpacing;
                     // NOTE: This calculation should be kept in sync with the height value of our delegates.
-                    return Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2) + padding * 2;
+                    return titleFontMetrics.height + (NeoChatConfig.compactRoomList ? 0 : subtitleFontMetrics.height)  + padding * 2;
+                }
+
+                // Should be identical to Kirigami.TitleSubtitle's default title font
+                FontMetrics {
+                    id: titleFontMetrics
+                    font: Kirigami.Theme.defaultFont
+                }
+
+                // Should be identical to Kirigami.TitleSubtitle's default subtitle font
+                FontMetrics {
+                    id: subtitleFontMetrics
+                    font: Kirigami.Theme.smallFont
                 }
 
                 // NOTE: For any future delegate spelunkers, please *keep the delegate heights in sync*.
