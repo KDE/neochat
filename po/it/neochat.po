@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-14 00:44+0000\n"
-"PO-Revision-Date: 2026-03-03 09:14+0100\n"
+"PO-Revision-Date: 2026-03-16 08:14+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -2222,7 +2222,7 @@ msgstr "Chiamate"
 #, kde-format
 msgctxt "@option:check Enable the rich text chat bar"
 msgid "Rich Chat Bar"
-msgstr ""
+msgstr "Barra di formattazione della chat"
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -3916,24 +3916,22 @@ msgid "Registration for this server is disabled."
 msgstr "La registrazione per questo server è disabilitata."
 
 #: src/login/registration.cpp:401
-#, fuzzy, kde-format
-#| msgid "Registration for this server is disabled."
+#, kde-format
 msgctxt "@info"
 msgid "Registration for this server requires a registration token."
-msgstr "La registrazione per questo server è disabilitata."
+msgstr "La registrazione per questo server richiede un token di registrazione."
 
 #: src/login/registration.cpp:403
 #, kde-format
 msgctxt "@info"
 msgid "This server cannot prevalidate registration tokens."
-msgstr ""
+msgstr "Questo server non può pre-convalidare i token di registrazione."
 
 #: src/login/registration.cpp:405
-#, fuzzy, kde-format
-#| msgid "This is not a valid server."
+#, kde-format
 msgctxt "@info"
 msgid "This is not a valid registration token."
-msgstr "Questo non è un server valido."
+msgstr "Questo non è un token di registrazione valido."
 
 #: src/login/registration.cpp:407
 #, kde-format
@@ -3964,13 +3962,13 @@ msgstr "Attivo"
 #, kde-format
 msgctxt "@label"
 msgid "Registration Token:"
-msgstr ""
+msgstr "Token di registrazione:"
 
 #: src/login/RegistrationToken.qml:23
 #, kde-format
 msgctxt "@info"
 msgid "Invalid registration token"
-msgstr ""
+msgstr "Token di registrazione non valido"
 
 #: src/login/Sso.qml:29
 #, kde-format
@@ -4324,30 +4322,25 @@ msgid "Send a message…"
 msgstr "Invia un messaggio…"
 
 #: src/messagecontent/TextComponentEditMenu.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "No suggestions for %1"
+#, kde-format
 msgctxt "As in no suggestion for spellcheck to fix spelling"
 msgid "No Suggestions for \"%1\""
-msgstr "Nessun suggerimento per %1"
+msgstr "Nessun suggerimento per «%1»"
 
 #: src/messagecontent/TextComponentEditMenu.qml:103
 #, kde-format
 msgctxt "As in add the word %1 to spellcheck dictionary"
 msgid "Add \"%1\" to Dictionary"
-msgstr ""
+msgstr "Aggiungi «%1» al dizionario"
 
 #: src/messagecontent/TextComponentEditMenu.qml:115
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ignora"
 
 #: src/messagecontent/TextComponentEditMenu.qml:128
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Controllo ortografico"
@@ -4383,9 +4376,7 @@ msgid "Paste"
 msgstr "Incolla"
 
 #: src/messagecontent/TextComponentEditMenu.qml:206
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Elimina"
@@ -4594,7 +4585,7 @@ msgstr "Nessun messaggio trovato"
 #: src/roominfo/RoomSearchPage.qml:52
 #, kde-format
 msgid "Cannot search in encrypted rooms"
-msgstr ""
+msgstr "Impossibile cercare nelle stanze cifrate"
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
