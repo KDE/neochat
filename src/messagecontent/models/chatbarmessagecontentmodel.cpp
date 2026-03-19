@@ -6,6 +6,8 @@
 #include <QTextDocumentFragment>
 #include <QTimer>
 
+#include <Kirigami/Platform/PlatformTheme>
+
 #include "chatbarcache.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
@@ -16,12 +18,13 @@
 #include "messagecomponent.h"
 #include "messagecontentmodel.h"
 #include "neochatroom.h"
-#include "texthandler.h"
 
 namespace
 {
 constexpr auto TextItemKey = "chatTextItemHelper"_L1;
 }
+
+bool ChatBarMessageContentModel::richTextActive = true;
 
 ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
     : MessageContentModel(parent)
@@ -172,11 +175,73 @@ void ChatBarMessageContentModel::initializeFromCache()
     Q_EMIT focusRowChanged();
 }
 
+inline QString trimmedTrailing(QString string)
+{
+    while (string.endsWith(u' ')) {
+        string.removeLast();
+    }
+    return string;
+}
+
+inline QString trimNewline(QString string)
+{
+    while (string.startsWith(u"\n"_s)) {
+        string.removeFirst();
+    }
+    while (string.endsWith(u"\n"_s)) {
+        string.removeLast();
+    }
+    return string;
+}
+
 void ChatBarMessageContentModel::initializeEdit()
 {
     clearModel();
 
     const auto currentCache = m_room->cacheForType(m_type);
+    if (!richTextActive) {
+        auto doc = QTextDocument();
+        doc.setHtml(currentCache->relationMessage().replace(u'\n', u""_s));
+        auto cursor = QTextCursor(&doc);
+        QString escapedText;
+        while (!cursor.atEnd()) {
+            cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+            auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown()));
+            if (!cursor.currentList()) {
+                nextText.replace(u'\n', u' ');
+                nextText.replace(u"  "_s, u" "_s);
+            }
+            if (!escapedText.isEmpty() && !nextText.isEmpty()) {
+                escapedText += cursor.currentList() ? u"\n"_s : u"\n\n"_s;
+            }
+            escapedText += nextText;
+            cursor.movePosition(QTextCursor::NextBlock);
+        }
+        doc.setPlainText(escapedText);
+        QRegularExpression mentionRegex(u"\\[(.*?)]\\((.*?)\\)"_s);
+        const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+        auto nextMention = doc.find(mentionRegex, 0);
+        while (nextMention.hasSelection()) {
+            const auto mentionMatch = mentionRegex.match(nextMention.selectedText());
+            auto mentionName = mentionMatch.captured(1);
+            if (mentionName.startsWith(u"\\"_s)) {
+                mentionName.remove(0, 1);
+            }
+            nextMention.removeSelectedText();
+            QTextCharFormat mentionFormat;
+            mentionFormat.setForeground(theme->linkColor());
+            mentionFormat.setFontWeight(QFont::Bold);
+            mentionFormat.setAnchor(true);
+            mentionFormat.setAnchorHref(mentionMatch.captured(2));
+            nextMention.insertText(mentionName, mentionFormat);
+            nextMention = doc.find(mentionRegex, nextMention.position());
+        }
+        cursor.movePosition(QTextCursor::End);
+        cursor.select(QTextCursor::Document);
+        insertComponent(0, MessageComponentType::Text, {}, cursor.selection());
+        return;
+    }
+
     auto components = currentCache->relationComponents();
     if (components.isEmpty()) {
         initializeModel();

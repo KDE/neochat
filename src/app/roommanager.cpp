@@ -11,6 +11,7 @@
 #include "controller.h"
 #include "eventhandler.h"
 #include "models/actionsmodel.h"
+#include "models/chatbarmessagecontentmodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -152,6 +153,10 @@ RoomManager::RoomManager(QObject *parent)
     ChatMarkdownHelper::richTextActive = NeoChatConfig::richChatBar();
     connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
         ChatMarkdownHelper::richTextActive = NeoChatConfig::richChatBar();
+    });
+    ChatBarMessageContentModel::richTextActive = NeoChatConfig::richChatBar();
+    connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
+        ChatBarMessageContentModel::richTextActive = NeoChatConfig::richChatBar();
     });
 }
 
