@@ -101,6 +101,13 @@ Delegates.RoundedItemDelegate {
             title: root.displayName
             subtitle: NeoChatConfig.compactRoomList ? "" : root.subtitleText
             font: root.font
+
+            // Can remove once we require minimum of Kirigami v6.25 as that will contain the textFormat property we need
+            Component.onCompleted: {
+                if (typeof textFormat !== "undefined") {
+                    textFormat = Text.PlainText;
+                }
+            }
         }
         Kirigami.Icon {
             source: "notifications-disabled"
