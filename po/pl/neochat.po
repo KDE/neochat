@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-21 02:42+0000\n"
-"PO-Revision-Date: 2026-02-21 09:12+0100\n"
+"PO-Revision-Date: 2026-03-21 07:09+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -1168,7 +1168,7 @@ msgstr "Kontakt przez e-mail (%1)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Zarządzenie przechowywaniem kluczy"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, kde-format
@@ -1189,18 +1189,14 @@ msgid "Unlock using Recovery Key"
 msgstr "Odblokuj przy użyciu klucza przywracania"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key or backup passphrase for this account, enter "
-#| "it below or upload it as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a recovery key (also known as a “security key” or “backup "
 "passphrase”), enter it below or upload it as a file."
 msgstr ""
-"Jeśli masz klucz zabezpieczający lub hasło zapasowe dla tego konta, to wpisz "
-"go poniżej lub wyślij jako plik."
+"Jeśli masz klucz odzyskiwania (znany także jako \"klucz zabezpieczający\" "
+"lub \"hasło zapasowe\"), to wpisz go poniżej lub wyślij jako plik."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
@@ -1227,18 +1223,14 @@ msgid "Unlock from Cross-Signing"
 msgstr "Odblokuj z podpisywania krzyżowego"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have previously verified this device, you request encryption keys "
 "from other verified devices."
 msgstr ""
-"Jeśli poprzednio potwierdziłeś ważność tego urządzenia, to możesz wczytać "
-"klucz kopii zapasowej z innych urządzeń, naciskając na poniższy przycisk."
+"Jeśli poprzednio potwierdziłeś ważność tego urządzenia, to możesz poprosić o "
+"klucze szyfrowania z innych potwierdzonych urządzeń."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
 #, kde-format
@@ -1710,14 +1702,13 @@ msgstr "Zakończ"
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
-msgstr ""
+msgstr "Klawisz enter rozpoczyna nowy wiersz"
 
 #: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
-#, fuzzy, kde-format
-#| msgid "%1 sent a message"
+#, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
-msgstr "%1 wysłał(a) wiadomość"
+msgstr "Klawisz enter wysyła wiadomość"
 
 #: src/chatbar/ChatBarCore.qml:87
 #, kde-format
@@ -1931,13 +1922,13 @@ msgstr "Podkreśl"
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
-msgstr ""
+msgstr "Sformatuj tekst"
 
 #: src/chatbar/RichEditBar.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Text Style"
-msgstr ""
+msgstr "Wygląd tekstu"
 
 #: src/chatbar/RichEditBar.qml:238
 #, kde-format
@@ -1984,6 +1975,8 @@ msgid ""
 "Attachments can only have plain text captions, all rich formatting will be "
 "removed"
 msgstr ""
+"Załączniki mogą być podpisane tylko nieformatowanym tekstem, więc "
+"formatowanie zostanie z nich usunięte"
 
 #: src/chatbar/SendBar.qml:88
 #, kde-format
@@ -2019,13 +2012,13 @@ msgstr "Wyślij wiadomość głosową"
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
-msgstr ""
+msgstr "Ukryj przyciski formatowania tekstu"
 
 #: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
-msgstr ""
+msgstr "Pokaż przyciski formatowania tekstu"
 
 #: src/chatbar/SendBar.qml:213
 #, kde-format
@@ -2088,6 +2081,8 @@ msgid ""
 "Voice message recording requires a newer Qt version than is currently "
 "installed on this system."
 msgstr ""
+"Nagrywanie wiadomości głosowych wymaga nowszej wersji Qt niż ta, którą masz "
+"obecnie."
 
 #: src/chatbar/VoiceMessageDialog.qml:61
 #, kde-format
@@ -2227,7 +2222,7 @@ msgstr "Rozmowy"
 #, kde-format
 msgctxt "@option:check Enable the rich text chat bar"
 msgid "Rich Chat Bar"
-msgstr ""
+msgstr "Pasek rozmowy formatowanej"
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -2425,7 +2420,7 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "As in the default paragraph text style in the chat bar"
 msgid "Paragraph Style"
-msgstr ""
+msgstr "Wygląd akapitu"
 
 #: src/libneochat/enums/richformat.cpp:21
 #, kde-format
@@ -2474,7 +2469,7 @@ msgstr "Kod"
 msgctxt ""
 "As in the default paragraph text style inside a quote block in the chat bar"
 msgid "Quote Paragraph Style"
-msgstr ""
+msgstr "Wygląd cytowania akapitu"
 
 #: src/libneochat/enums/richformat.cpp:46
 #, kde-format
@@ -4108,11 +4103,10 @@ msgid "Hide Image"
 msgstr "Ukryj obraz"
 
 #: src/messagecontent/ImageComponent.qml:95
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit"
-msgstr "Zmień"
+msgstr "Edytuj"
 
 #: src/messagecontent/ImageComponent.qml:194
 #, kde-format
@@ -4291,30 +4285,25 @@ msgid "Send a message…"
 msgstr "Wiadomość do wysłania…"
 
 #: src/messagecontent/TextComponentEditMenu.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "No suggestions for %1"
+#, kde-format
 msgctxt "As in no suggestion for spellcheck to fix spelling"
 msgid "No Suggestions for \"%1\""
-msgstr "Brak podpowiedzi dla %1"
+msgstr "Brak podpowiedzi dla \"%1\""
 
 #: src/messagecontent/TextComponentEditMenu.qml:103
 #, kde-format
 msgctxt "As in add the word %1 to spellcheck dictionary"
 msgid "Add \"%1\" to Dictionary"
-msgstr ""
+msgstr "Dodaj \"%1\" do słownika"
 
 #: src/messagecontent/TextComponentEditMenu.qml:115
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Pomiń"
 
 #: src/messagecontent/TextComponentEditMenu.qml:128
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Sprawdzanie pisowni"
@@ -4350,9 +4339,7 @@ msgid "Paste"
 msgstr "Wklej"
 
 #: src/messagecontent/TextComponentEditMenu.qml:206
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Usuń"
@@ -4365,8 +4352,7 @@ msgstr "Zaznacz wszystko"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
-#, fuzzy, kde-format
-#| msgid "Pl. %1"
+#, kde-format
 msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Per. %1"
@@ -4561,7 +4547,7 @@ msgstr "Nie znaleziono żadnych wiadomości"
 #: src/roominfo/RoomSearchPage.qml:52
 #, kde-format
 msgid "Cannot search in encrypted rooms"
-msgstr ""
+msgstr "Nie można szukać w pokojach zaszyfrowanych"
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -4917,48 +4903,36 @@ msgid "Space Settings"
 msgstr "Ustawienia space"
 
 #: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this user to the administrators'"
-#| msgid "Report…"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this space to the administrators'"
 msgid "Report…"
 msgstr "Zgłoś…"
 
 #: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Report User"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Space"
-msgstr "Zgłoś użytkownika"
+msgstr "Zgłoś przestrzeń"
 
 #: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Optionally give a reason for reporting this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
-msgstr "Możesz wpisać powód zgłoszenia tego użytkownika"
+msgstr "Możesz wpisać powód zgłoszenia tej przestrzeni"
 
 #: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this user to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this space to the administrators'"
 msgid "Report"
 msgstr "Zgłoś"
 
 #: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report User"
+#, kde-format
 msgctxt "@title"
 msgid "Report Space"
-msgstr "Zgłoś użytkownika"
+msgstr "Zgłoś przestrzeń"
 
 #: src/rooms/SpaceListContextMenu.qml:107
 #, kde-format
@@ -5245,11 +5219,10 @@ msgid "In sidebar"
 msgstr "Na pasku bocznym"
 
 #: src/settings/AppearanceSettingsPage.qml:361
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "In room information"
-msgstr "Informacje o pokoju"
+msgstr "Szczegóły w pokoju"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -6331,6 +6304,7 @@ msgstr "Znani użytkownicy"
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
+"Tylko użytkownicy, z którymi dzielisz pokój mogą wysyłać ci zaproszenia."
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #: src/settings/NeoChatSecurityPage.qml:112
@@ -6349,7 +6323,7 @@ msgstr "Nikt"
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
-msgstr ""
+msgstr "Nikt nie może wysyłać ci zaproszeń."
 
 #: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
@@ -6376,7 +6350,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Zarządzenie przechowywaniem kluczy"
 
 #: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
