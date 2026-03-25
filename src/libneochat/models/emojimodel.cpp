@@ -135,17 +135,6 @@ QVariantList EmojiModel::emojis(Category category) const
     if (category == History) {
         return emojiHistory();
     }
-    if (category == HistoryNoCustom) {
-        QVariantList list;
-        const auto &history = emojiHistory();
-        for (const auto &e : history) {
-            auto emoji = qvariant_cast<Emoji>(e);
-            if (!emoji.isCustom) {
-                list.append(e);
-            }
-        }
-        return list;
-    }
     if (category == Custom) {
         return CustomEmojiModel::instance().filterModel({});
     }
@@ -166,7 +155,7 @@ QVariantList EmojiModel::categories() const
 {
     return QVariantList{
         {QVariantMap{
-            {u"category"_s, EmojiModel::HistoryNoCustom},
+            {u"category"_s, EmojiModel::History},
             {u"name"_s, i18nc("Previously used emojis", "History")},
             {u"emoji"_s, u"⌛️"_s},
         }},
@@ -242,12 +231,18 @@ QVariantList EmojiModel::emojiHistory() const
 {
     QVariantList list;
     const auto &lastUsed = lastUsedEmojis();
+    const auto &customEmojis = CustomEmojiModel::instance().filterModel({});
     for (const auto &historicEmoji : lastUsed) {
         for (const auto &emojiCategory : std::as_const(_emojis)) {
             for (const auto &emoji : emojiCategory) {
                 if (qvariant_cast<Emoji>(emoji).shortName == historicEmoji) {
                     list.append(emoji);
                 }
+            }
+        }
+        for (const auto &emoji : customEmojis) {
+            if (qvariant_cast<Emoji>(emoji).shortName == historicEmoji) {
+                list.append(emoji);
             }
         }
     }
