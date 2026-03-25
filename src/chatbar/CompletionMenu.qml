@@ -85,8 +85,9 @@ QQC2.Popup {
         ListView {
             id: completions
             currentIndex: 0
-            keyNavigationWraps: true
-            highlightMoveDuration: 100
+            // We want this to be instantaneous because the delay makes key navigation feel like garbage
+            highlightMoveDuration: 0
+            clip: true
             onCountChanged: currentIndex = 0
             delegate: Delegates.RoundedItemDelegate {
                 id: completionDelegate
