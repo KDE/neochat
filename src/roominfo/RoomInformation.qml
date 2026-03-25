@@ -73,7 +73,7 @@ QQC2.ScrollView {
                 id: hackTimer
 
                 // The internal wrapping and height changes happen quickly, so we don't need a long interval here
-                interval: 1
+                interval: 2
                 onTriggered: userList.viewHasSettled = true
             }
 
