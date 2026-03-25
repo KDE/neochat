@@ -45,14 +45,14 @@ QQC2.Menu {
 
     // deal with whether text should be deselected
     onClosed: {
+        // run action
+        runOnMenuClose();
+        runOnMenuClose = () => {};
+
         // restore cursor position
         target.forceActiveFocus();
         target.cursorPosition = restoredCursorPosition;
         target.select(restoredSelectionStart, restoredSelectionEnd);
-
-        // run action
-        runOnMenuClose();
-        runOnMenuClose = () => {};
     }
 
     onOpened: {
@@ -76,6 +76,10 @@ QQC2.Menu {
 
             onClicked: {
                 root.runOnMenuClose = () => {
+                    // Select the mispelled word so it gets replaced by Sonnet correctly
+                    target.cursorPosition = openPoint;
+                    target.selectWord();
+
                     root.spellcheckHighlighter.replaceWord(modelData);
                 };
             }
