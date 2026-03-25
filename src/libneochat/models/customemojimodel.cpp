@@ -53,10 +53,11 @@ void CustomEmojiModel::fetchEmojis()
 
     for (const auto &emoji : emojis.keys()) {
         const auto &data = emojis[emoji];
+        if (data["usage"_L1].toArray().contains("emoticon"_L1)) {
+            const auto e = emoji.startsWith(":"_L1) ? emoji : (u":"_s + emoji + u":"_s);
 
-        const auto e = emoji.startsWith(":"_L1) ? emoji : (u":"_s + emoji + u":"_s);
-
-        m_emojis << CustomEmoji{e, data.toObject().value("url"_L1).toString(), QRegularExpression(e)};
+            m_emojis << CustomEmoji{e, data.toObject().value("url"_L1).toString(), QRegularExpression(e)};
+        }
     }
 
     endResetModel();
