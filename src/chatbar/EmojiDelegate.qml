@@ -17,20 +17,24 @@ QQC2.ItemDelegate {
     QQC2.ToolTip.text: root.name
     QQC2.ToolTip.visible: hovered && root.name !== ""
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    leftInset: Kirigami.Units.smallSpacing
-    topInset: Kirigami.Units.smallSpacing
-    rightInset: Kirigami.Units.smallSpacing
-    bottomInset: Kirigami.Units.smallSpacing
+
+    topPadding: Kirigami.Units.smallSpacing
+    bottomPadding: Kirigami.Units.smallSpacing
+    leftPadding: Kirigami.Units.smallSpacing
+    rightPadding: Kirigami.Units.smallSpacing
 
     contentItem: Item {
-        Kirigami.Heading {
+        QQC2.Label {
             anchors.fill: parent
             visible: !root.emoji.startsWith("mxc") && !root.isImage
             text: root.emoji
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             font.family: "emoji"
-            font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.5
+            font.pixelSize: height - Kirigami.Units.largeSpacing
+            elide: Text.ElideNone
+            wrapMode: Text.NoWrap
+            textFormat: Text.PlainText
 
             Kirigami.Icon {
                 width: Kirigami.Units.gridUnit * 0.5

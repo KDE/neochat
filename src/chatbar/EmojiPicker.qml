@@ -120,7 +120,7 @@ ColumnLayout {
 
     EmojiGrid {
         id: emojiGrid
-        targetIconSize: root.currentCategory === EmojiModel.Custom ? Kirigami.Units.gridUnit * 3 : root.categoryIconSize  // Custom emojis are bigger
+        targetIconSize: root.categoryIconSize
         model: root.selectedType === 1 ? emoticonFilterModel : searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
         Layout.fillWidth: true
         Layout.fillHeight: true
