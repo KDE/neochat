@@ -30,8 +30,9 @@ EmojiModel::EmojiModel(QObject *parent)
 {
     if (_emojis.isEmpty()) {
         for (const auto &emoji : emoji_data) {
-            _emojis[emoji.category].push_back(QVariant::fromValue(
-                Emoji(QString::fromUtf8(emoji.escaped_sequence), QString::fromUtf8(emoji.shortcode), QString::fromUtf8(emoji.description))));
+            _emojis[emoji.category].push_back(QVariant::fromValue(Emoji(QString::fromUtf8(emoji.escaped_sequence),
+                                                                        QStringLiteral(":%1:").arg(QString::fromUtf8(emoji.shortcode)),
+                                                                        QString::fromUtf8(emoji.description))));
         }
     }
 }
