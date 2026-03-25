@@ -195,6 +195,7 @@ Kirigami.Page {
                     text: root.currentRoom?.pinnedMessage ?? ""
                     maximumLineCount: 1
                     elide: Text.ElideRight
+                    textFormat: Text.RichText
 
                     onLinkActivated: link => UrlHelper.openUrl(link)
                     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
