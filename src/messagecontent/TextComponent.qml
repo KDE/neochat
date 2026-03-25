@@ -222,7 +222,7 @@ TextEdit {
         let menu = Qt.createComponent('org.kde.neochat.messagecontent', 'TextComponentEditMenu').createObject({}, {
             target: root,
             spellcheckHighlighter: spellcheckHighlighterInstantiator.object,
-            openPoint: point
+            openPoint: root.positionAt(point.x, point.y)
         }) as TextComponentEditMenu;
         menu.storeCursorAndSelection();
         menu.closed.connect(() => { root.persistentSelection = _private.persistentSelectionSetting });

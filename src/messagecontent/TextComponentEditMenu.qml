@@ -15,7 +15,7 @@ QQC2.Menu {
     id: root
 
     required property TextEdit target
-    required property point openPoint
+    required property int openPoint
     property int restoredCursorPosition: 0
     property int restoredSelectionStart
     property int restoredSelectionEnd
