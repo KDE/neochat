@@ -120,7 +120,7 @@ TextEdit {
         (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
     }
     onTextEdited: {
-        spellcheckHighlighterInstantiator.object.active = false;
+        spellcheckHighlighterInstantiator.object.highlighter.active = false;
         spellingTimer.restart();
     }
 
@@ -130,7 +130,7 @@ TextEdit {
 
         interval: 1000
 
-        onTriggered: spellcheckHighlighterInstantiator.object.active = true
+        onTriggered: spellcheckHighlighterInstantiator.object.highlighter.active = true
     }
 
     QQC2.Label {
@@ -191,22 +191,20 @@ TextEdit {
         active: root.editable
         asynchronous: true
 
-        Sonnet.Settings {
-            id: sonnetSettings
-        }
+        QtObject {
+            readonly property Sonnet.Settings settings: Sonnet.Settings {}
+            readonly property Sonnet.SpellcheckHighlighter highlighter: Sonnet.SpellcheckHighlighter {
+                active: settings.checkerEnabledByDefault
+                document: root.textDocument
+                cursorPosition: root.cursorPosition
+                selectionStart: root.selectionStart
+                selectionEnd: root.selectionEnd
+                misspelledColor: Kirigami.Theme.negativeTextColor
 
-        Sonnet.SpellcheckHighlighter {
-            id: spellcheckHighlighter
-            active: sonnetSettings.checkerEnabledByDefault
-            document: root.textDocument
-            cursorPosition: root.cursorPosition
-            selectionStart: root.selectionStart
-            selectionEnd: root.selectionEnd
-            misspelledColor: Kirigami.Theme.negativeTextColor
-
-            onChangeCursorPosition: (start, end) => {
-                root.cursorPosition = start;
-                root.moveCursorSelection(end, TextEdit.SelectCharacters);
+                onChangeCursorPosition: (start, end) => {
+                    root.cursorPosition = start;
+                    root.moveCursorSelection(end, TextEdit.SelectCharacters);
+                }
             }
         }
     }
@@ -221,7 +219,7 @@ TextEdit {
         root.persistentSelection = true;
         let menu = Qt.createComponent('org.kde.neochat.messagecontent', 'TextComponentEditMenu').createObject({}, {
             target: root,
-            spellcheckHighlighter: spellcheckHighlighterInstantiator.object,
+            spellcheckHighlighter: spellcheckHighlighterInstantiator.object.highlighter,
             openPoint: root.positionAt(point.x, point.y)
         }) as TextComponentEditMenu;
         menu.storeCursorAndSelection();
