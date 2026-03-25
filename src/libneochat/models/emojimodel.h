@@ -94,7 +94,6 @@ public:
         Search, /**< The results of a filter. */
         SearchNoCustom, /**< The results of a filter with no custom emojis. */
         History, /**< Recently used emojis. */
-        HistoryNoCustom, /**< Recently used emojis with no custom emojis. */
         Smileys, /**< Smileys & emotion emojis. */
         People, /**< People & Body emojis. */
         Nature, /**< Animals & Nature emojis. */
