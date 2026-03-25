@@ -120,7 +120,8 @@ ColumnLayout {
 
     EmojiGrid {
         id: emojiGrid
-        targetIconSize: root.categoryIconSize
+        // Make stickers bigger to be more visible, to match their bigger relative size in chat
+        targetIconSize: root.selectedType === 1 ? 75 : root.categoryIconSize
         model: root.selectedType === 1 ? emoticonFilterModel : searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
         Layout.fillWidth: true
         Layout.fillHeight: true
