@@ -119,6 +119,19 @@ TextEdit {
     } else {
         (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
     }
+    onTextEdited: {
+        spellcheckHighlighterInstantiator.object.active = false;
+        spellingTimer.restart();
+    }
+
+    // Delay checking spelling so it doesn't highlight words the user is currently typing
+    Timer {
+        id: spellingTimer
+
+        interval: 1000
+
+        onTriggered: spellcheckHighlighterInstantiator.object.active = true
+    }
 
     QQC2.Label {
         id: placeholder
