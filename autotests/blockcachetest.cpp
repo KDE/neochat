@@ -56,11 +56,9 @@ void BlockCacheTest::toStringTest()
     QFETCH(QString, outputstring);
 
     Cache cache;
-    cache += CacheItem{
-        .type = itemType,
-        .content = isPlain ? QTextDocumentFragment::fromPlainText(inputString) : QTextDocumentFragment::fromMarkdown(inputString),
-    };
-
+    cache.append(
+        std::make_unique<TextCacheItem>(itemType,
+                                        isPlain ? QTextDocumentFragment::fromPlainText(inputString) : QTextDocumentFragment::fromMarkdown(inputString)));
     QCOMPARE(cache.toString(), outputstring);
 }
 
@@ -78,10 +76,7 @@ void BlockCacheTest::listTest()
 
     cursor.select(QTextCursor::Document);
 
-    cache += CacheItem{
-        .type = MessageComponentType::Text,
-        .content = cursor.selection(),
-    };
+    cache.append(std::make_unique<TextCacheItem>(MessageComponentType::Text, cursor.selection()));
     // Note looks weird but from a spec perspective doesn't matter only the first
     // number counts then the rest just go up from there.
     QCOMPARE(cache.toString(), u"1.  list 1\n1.  list 2\n1.  list 3"_s);
@@ -95,10 +90,7 @@ void BlockCacheTest::listTest()
 
     cursor.select(QTextCursor::Document);
 
-    cache += CacheItem{
-        .type = MessageComponentType::Text,
-        .content = cursor.selection(),
-    };
+    cache.append(std::make_unique<TextCacheItem>(MessageComponentType::Text, cursor.selection()));
     // Note looks weird but from a spec perspective doesn't matter only the first
     // number counts then the rest just go up from there.
     QCOMPARE(cache.toString(), u"1.  list 1\n1.  list 2\n1.  list 3"_s);
@@ -119,11 +111,7 @@ void BlockCacheTest::listTest()
 
     cursor.select(QTextCursor::Document);
 
-    cache += CacheItem{
-        .type = MessageComponentType::Text,
-        .content = cursor.selection(),
-    };
-
+    cache.append(std::make_unique<TextCacheItem>(MessageComponentType::Text, cursor.selection()));
     QCOMPARE(cache.toString(), u"1.  list 1\n    1.  list 1.1"_s);
 }
 

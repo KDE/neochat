@@ -42,6 +42,8 @@ Item {
         }
     }
 
+    property alias model: core.model
+
     onActiveFocusChanged: if (activeFocus) {
         core.forceActiveFocus();
     }

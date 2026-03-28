@@ -3,11 +3,14 @@
 
 #include "chatbarmessagecontentmodel.h"
 
+#include <QMimeData>
 #include <QTextDocumentFragment>
 #include <QTimer>
 
+#include <KUrlMimeData>
 #include <Kirigami/Platform/PlatformTheme>
 
+#include "blockcache.h"
 #include "chatbarcache.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
@@ -118,11 +121,6 @@ void ChatBarMessageContentModel::connectCache(ChatBarCache *oldCache)
             initializeEdit();
         }
     });
-    connect(m_room->cacheForType(m_type), &ChatBarCache::attachmentPathChanged, this, [this]() {
-        if (m_room->cacheForType(m_type)->attachmentPath().length() > 0) {
-            addAttachment(QUrl(m_room->cacheForType(m_type)->attachmentPath()));
-        }
-    });
 }
 
 void ChatBarMessageContentModel::initializeModel(const QString &initialText)
@@ -148,28 +146,20 @@ void ChatBarMessageContentModel::initializeModel(const QString &initialText)
 
 void ChatBarMessageContentModel::initializeFromCache()
 {
-    if (m_room->cacheForType(m_type)->attachmentPath().length() > 0) {
-        addAttachment(QUrl(m_room->cacheForType(m_type)->attachmentPath()));
-    }
-
     clearModel();
 
     const auto &currentCache = m_room->cacheForType(m_type);
     const auto &blockCache = currentCache->cache();
-    if (blockCache.isEmpty()) {
+    if (blockCache.empty()) {
         initializeModel();
         return;
     }
 
     beginResetModel();
-    std::ranges::for_each(blockCache.constBegin(), blockCache.constEnd(), [this](const Block::CacheItem &cacheItem) {
-        insertComponent(rowCount(), cacheItem.type, {}, cacheItem.content);
+    std::ranges::for_each(blockCache.cbegin(), blockCache.cend(), [this](std::unique_ptr<Block::CacheItem> const &cacheItem) {
+        insertComponentFromCache(cacheItem.get());
     });
     endResetModel();
-
-    if (currentCache->attachmentPath().length() > 0) {
-        addAttachment(QUrl(currentCache->attachmentPath()));
-    }
 
     m_currentFocusComponent = QPersistentModelIndex(index(rowCount() - 1));
     Q_EMIT focusRowChanged();
@@ -337,7 +327,7 @@ void ChatBarMessageContentModel::connectKeyHelper()
         }
     });
     connect(m_keyHelper, &ChatKeyHelper::imagePasted, this, [this](const QString &filePath) {
-        m_room->cacheForType(m_type)->setAttachmentPath(filePath);
+        addAttachment(QUrl(filePath));
     });
 }
 
@@ -488,21 +478,37 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     clearModel();
     initializeModel(plainText);
 
-    QFileInfo fileInfo(path.isLocalFile() ? path.toLocalFile() : path.toString());
-    auto mime = QMimeDatabase().mimeTypeForUrl(path);
-    auto it = insertComponent(m_components.first().type == MessageComponentType::Reply ? 1 : 0,
-                              MessageComponentType::typeForPath(path),
-                              {
-                                  {"filename"_L1, path.fileName()},
-                                  {"source"_L1, path},
-                                  {"animated"_L1, false},
-                                  {"mimeIcon"_L1, mime.name()},
-                                  {"size"_L1, fileInfo.size()},
-                              });
+    auto it =
+        insertComponent(m_components.first().type == MessageComponentType::Reply ? 1 : 0, MessageComponentType::typeForPath(path), attributesForFile(path));
     it->display = path.fileName();
     Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {DisplayRole});
-    m_room->cacheForType(m_type)->setAttachmentPath(path.toString());
     Q_EMIT hasAttachmentChanged();
+}
+
+void ChatBarMessageContentModel::drop(QList<QUrl> u, const QString &transferPortal)
+{
+    QMimeData mimeData;
+    mimeData.setUrls(u);
+    if (!transferPortal.isEmpty()) {
+        mimeData.setData(u"application/vnd.portal.filetransfer"_s, transferPortal.toLatin1());
+    }
+    auto urls = KUrlMimeData::urlsFromMimeData(&mimeData);
+    if (urls.size() > 0) {
+        addAttachment(urls[0]);
+    }
+}
+
+QVariantMap ChatBarMessageContentModel::attributesForFile(const QUrl &path)
+{
+    QFileInfo fileInfo(path.isLocalFile() ? path.toLocalFile() : path.toString());
+    auto mime = QMimeDatabase().mimeTypeForUrl(path);
+    return {
+        {"filename"_L1, path.fileName()},
+        {"source"_L1, path},
+        {"animated"_L1, false},
+        {"mimeIcon"_L1, mime.name()},
+        {"size"_L1, fileInfo.size()},
+    };
 }
 
 ChatBarMessageContentModel::ComponentIt
@@ -618,9 +624,6 @@ void ChatBarMessageContentModel::removeAttachment()
     }
     removeComponent(mediaRow);
     refocusCurrentComponent();
-    if (m_room) {
-        m_room->cacheForType(m_type)->setAttachmentPath({});
-    }
     Q_EMIT hasAttachmentChanged();
 }
 
@@ -686,6 +689,19 @@ void ChatBarMessageContentModel::removeComponent(ChatTextItemHelper *textItem)
     const auto index = indexForTextItem(textItem);
     if (index.isValid()) {
         removeComponent(index.row());
+    }
+}
+
+void ChatBarMessageContentModel::insertComponentFromCache(Block::CacheItem *item)
+{
+    if (!MessageComponentType::isTextType(item->type) && !MessageComponentType::isFileType(item->type)) {
+        return;
+    }
+    if (const auto fileCacheItem = dynamic_cast<const Block::FileCacheItem *>(item)) {
+        insertComponent(rowCount(), fileCacheItem->type, attributesForFile(fileCacheItem->source));
+    }
+    if (const auto textCacheItem = dynamic_cast<const Block::TextCacheItem *>(item)) {
+        insertComponent(rowCount(), textCacheItem->type, {}, textCacheItem->content);
     }
 }
 

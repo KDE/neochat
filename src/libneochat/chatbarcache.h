@@ -102,14 +102,6 @@ class ChatBarCache : public QObject
      */
     Q_PROPERTY(QString threadId READ threadId WRITE setThreadId NOTIFY threadIdChanged)
 
-    /**
-     * @brief The local path for a file to send, if any.
-     *
-     * @note Replying, editing and attachments are exclusive so setting this will
-     *       clear an edit or reply.
-     */
-    Q_PROPERTY(QString attachmentPath READ attachmentPath WRITE setAttachmentPath NOTIFY attachmentPathChanged)
-
 public:
     /**
      * @brief Describes the type of relation which relationId can refer to.
@@ -147,9 +139,6 @@ public:
     QString threadId() const;
     void setThreadId(const QString &threadId);
 
-    QString attachmentPath() const;
-    void setAttachmentPath(const QString &attachmentPath);
-
     /**
      * @brief Clear all relations in the cache.
      *
@@ -172,12 +161,9 @@ public:
      */
     Q_INVOKABLE void postMessage();
 
-    Q_INVOKABLE void drop(QList<QUrl> urls, const QString &transferPortal);
-
 Q_SIGNALS:
     void relationIdChanged(const QString &oldEventId, const QString &newEventId);
     void threadIdChanged(const QString &oldThreadId, const QString &newThreadId);
-    void attachmentPathChanged();
     void mentionAdded(const QString &text, const QString &hRef);
     void relationAuthorIsPresentChanged();
 
@@ -188,7 +174,6 @@ private:
     QString m_relationId = QString();
     RelationType m_relationType = RelationType::None;
     QString m_threadId = QString();
-    QString m_attachmentPath = QString();
     QString m_savedText;
 
     void clearCache();

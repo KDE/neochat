@@ -9,7 +9,9 @@
 
 #include <Quotient/roommember.h>
 
+#include "blockcache.h"
 #include "eventhandler.h"
+#include "messagecomponenttype.h"
 #include "models/actionsmodel.h"
 #include "neochatroom.h"
 #include "texthandler.h"
@@ -36,10 +38,10 @@ Block::Cache &ChatBarCache::cache()
 QString ChatBarCache::sendText() const
 {
     const auto cacheText = m_cache.toString();
-    if (!attachmentPath().isEmpty()) {
-        QUrl url(attachmentPath());
+    if (cacheText.isEmpty() && MessageComponentType::isFileType(m_cache.at(0)->type)) {
+        QUrl url(dynamic_cast<const Block::FileCacheItem *>(m_cache.at(0))->source);
         auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
-        return cacheText.isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : cacheText;
+        return path.mid(path.lastIndexOf(u'/') + 1);
     }
 
     return cacheText;
@@ -69,9 +71,7 @@ void ChatBarCache::setReplyId(const QString &replyId)
     } else {
         m_relationType = Reply;
     }
-    m_attachmentPath = QString();
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
-    Q_EMIT attachmentPathChanged();
 }
 
 bool ChatBarCache::isEditing() const
@@ -98,9 +98,7 @@ void ChatBarCache::setEditId(const QString &editId)
     } else {
         m_relationType = Edit;
     }
-    m_attachmentPath = QString();
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
-    Q_EMIT attachmentPathChanged();
 }
 
 Quotient::RoomMember ChatBarCache::relationAuthor() const
@@ -174,33 +172,12 @@ void ChatBarCache::setThreadId(const QString &threadId)
     Q_EMIT threadIdChanged(oldThreadId, m_threadId);
 }
 
-QString ChatBarCache::attachmentPath() const
-{
-    return m_attachmentPath;
-}
-
-void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
-{
-    if (attachmentPath == m_attachmentPath) {
-        return;
-    }
-    m_attachmentPath = attachmentPath;
-    Q_EMIT attachmentPathChanged();
-
-    if (m_relationType == Edit) {
-        const auto oldEventId = std::exchange(m_relationId, QString());
-        Q_EMIT relationIdChanged(oldEventId, m_relationId);
-    }
-}
-
 void ChatBarCache::clearRelations()
 {
     const auto oldEventId = std::exchange(m_relationId, QString());
     const auto oldThreadId = std::exchange(m_threadId, QString());
-    m_attachmentPath = QString();
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT threadIdChanged(oldThreadId, m_threadId);
-    Q_EMIT attachmentPathChanged();
 }
 
 QString ChatBarCache::savedText() const
@@ -231,8 +208,9 @@ void ChatBarCache::postMessage()
         relatesTo = Quotient::EventRelation::replyTo(replyId());
     }
 
-    if (!attachmentPath().isEmpty()) {
-        m_room->uploadFile(QUrl(attachmentPath()), sendText(), relatesTo);
+    if (MessageComponentType::isFileType(m_cache.at(0)->type)) {
+        const auto fileCacheItem = dynamic_cast<const Block::FileCacheItem *>(m_cache.at(0));
+        m_room->uploadFile(fileCacheItem->source, sendText(), relatesTo);
         clearCache();
         return;
     }
@@ -264,19 +242,6 @@ void ChatBarCache::clearCache()
     m_cache.clear();
     m_savedText = QString();
     clearRelations();
-}
-
-void ChatBarCache::drop(QList<QUrl> u, const QString &transferPortal)
-{
-    QMimeData mimeData;
-    mimeData.setUrls(u);
-    if (!transferPortal.isEmpty()) {
-        mimeData.setData(u"application/vnd.portal.filetransfer"_s, transferPortal.toLatin1());
-    }
-    auto urls = KUrlMimeData::urlsFromMimeData(&mimeData);
-    if (urls.size() > 0) {
-        setAttachmentPath(urls[0].toString());
-    }
 }
 
 #include "moc_chatbarcache.cpp"

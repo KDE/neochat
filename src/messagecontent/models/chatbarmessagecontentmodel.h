@@ -6,6 +6,7 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include "blockcache.h"
 #include "chatbarcache.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
@@ -106,6 +107,7 @@ public:
     bool hasRichFormatting() const;
     bool hasAttachment() const;
     Q_INVOKABLE void addAttachment(const QUrl &path);
+    Q_INVOKABLE void drop(QList<QUrl> urls, const QString &transferPortal);
 
     Q_INVOKABLE void removeComponent(int row, bool removeLast = false);
 
@@ -157,9 +159,13 @@ private:
     QPointer<ChatKeyHelper> m_keyHelper;
     void connectKeyHelper();
 
+    QVariantMap attributesForFile(const QUrl &path);
+
     ComponentIt insertComponent(int row, MessageComponentType::Type type, QVariantMap attributes = {}, const QTextDocumentFragment &intialFragment = {});
     ComponentIt removeComponent(ComponentIt it);
     void removeComponent(ChatTextItemHelper *textItem);
+
+    void insertComponentFromCache(Block::CacheItem *item);
 
     void handleBlockTransition(bool up);
 
