@@ -40,7 +40,6 @@ private Q_SLOTS:
     void reply();
     void replyMissingUser();
     void edit();
-    void attachment();
 };
 
 void ChatBarCacheTest::initTestCase()
@@ -83,14 +82,12 @@ void ChatBarCacheTest::empty()
     QCOMPARE(chatBarCache->editId(), QString());
     QCOMPARE(chatBarCache->relationAuthor(), room->member(QString()));
     QCOMPARE(chatBarCache->relationMessage(), QString());
-    QCOMPARE(chatBarCache->attachmentPath(), QString());
 }
 
 void ChatBarCacheTest::reply()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(u"some text"_s)};
-    chatBarCache->setAttachmentPath(u"some/path"_s);
+    chatBarCache->cache().append(std::make_unique<Block::TextCacheItem>(MessageComponentType::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
     chatBarCache->setReplyId(eventId);
 
     QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
@@ -100,15 +97,13 @@ void ChatBarCacheTest::reply()
     QCOMPARE(chatBarCache->editId(), QString());
     QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));
     QCOMPARE(chatBarCache->relationMessage(), u"foo"_s);
-    QCOMPARE(chatBarCache->attachmentPath(), QString());
     QCOMPARE(chatBarCache->relationAuthorIsPresent(), true);
 }
 
 void ChatBarCacheTest::replyMissingUser()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(u"some text"_s)};
-    chatBarCache->setAttachmentPath(u"some/path"_s);
+    chatBarCache->cache().append(std::make_unique<Block::TextCacheItem>(MessageComponentType::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
     chatBarCache->setReplyId(eventId);
 
     QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
@@ -118,7 +113,6 @@ void ChatBarCacheTest::replyMissingUser()
     QCOMPARE(chatBarCache->editId(), QString());
     QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));
     QCOMPARE(chatBarCache->relationMessage(), u"foo"_s);
-    QCOMPARE(chatBarCache->attachmentPath(), QString());
     QCOMPARE(chatBarCache->relationAuthorIsPresent(), true);
 
     QSignalSpy relationAuthorIsPresentSpy(chatBarCache.get(), &ChatBarCache::relationAuthorIsPresentChanged);
@@ -138,8 +132,7 @@ void ChatBarCacheTest::edit()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
 
-    chatBarCache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(u"some text"_s)};
-    chatBarCache->setAttachmentPath(u"some/path"_s);
+    chatBarCache->cache().append(std::make_unique<Block::TextCacheItem>(MessageComponentType::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
     connect(chatBarCache.get(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
         QCOMPARE(oldEventId, QString());
         QCOMPARE(newEventId, eventId);
@@ -153,24 +146,6 @@ void ChatBarCacheTest::edit()
     QCOMPARE(chatBarCache->editId(), eventId);
     QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));
     QCOMPARE(chatBarCache->relationMessage(), u"foo"_s);
-    QCOMPARE(chatBarCache->attachmentPath(), QString());
-}
-
-void ChatBarCacheTest::attachment()
-{
-    QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(u"some text"_s)};
-    chatBarCache->setEditId(eventId);
-    chatBarCache->setAttachmentPath(u"some/path"_s);
-
-    QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
-    QCOMPARE(chatBarCache->isReplying(), false);
-    QCOMPARE(chatBarCache->replyId(), QString());
-    QCOMPARE(chatBarCache->isEditing(), false);
-    QCOMPARE(chatBarCache->editId(), QString());
-    QCOMPARE(chatBarCache->relationAuthor(), room->member(QString()));
-    QCOMPARE(chatBarCache->relationMessage(), QString());
-    QCOMPARE(chatBarCache->attachmentPath(), u"some/path"_s);
 }
 
 QTEST_MAIN(ChatBarCacheTest)

@@ -12,22 +12,58 @@
 namespace Block
 {
 /**
- * @struct CacheItem
+ * @class CacheItem
  *
  * A structure to define an item stored in a Block::Cache.
  *
  * @sa Block::Cache
  */
-struct CacheItem {
+class CacheItem
+{
+public:
+    CacheItem(MessageComponentType::Type type);
+    virtual ~CacheItem();
+
     MessageComponentType::Type type = MessageComponentType::Other;
-    QTextDocumentFragment content;
 
     /**
      * @brief Return the contents of the CacheItem as a single string.
      */
-    QString toString() const;
+    virtual QString toString() const;
 
     static bool richTextActive;
+};
+
+/**
+ * @class TextCacheItem
+ *
+ * A structure to define a text item stored in a Block::Cache.
+ *
+ * @sa Block::Cache
+ */
+class TextCacheItem : public CacheItem
+{
+public:
+    TextCacheItem(MessageComponentType::Type type, const QTextDocumentFragment &content);
+
+    QTextDocumentFragment content;
+
+    QString toString() const override;
+};
+
+/**
+ * @class FileCacheItem
+ *
+ * A structure to define a file item stored in a Block::Cache.
+ *
+ * @sa Block::Cache
+ */
+class FileCacheItem : public CacheItem
+{
+public:
+    FileCacheItem(MessageComponentType::Type type, const QUrl &source);
+
+    QUrl source;
 };
 
 /**
@@ -42,13 +78,47 @@ struct CacheItem {
  *
  * @sa ChatBarMessageContentModel, QTextDocumentFragment, QTextDocument, Block::CacheItem
  */
-class Cache : private QList<CacheItem>
+class Cache
 {
+    using CacheItems = std::vector<std::unique_ptr<CacheItem>>;
+
 public:
-    using QList<CacheItem>::constBegin, QList<CacheItem>::constEnd;
-    using QList<CacheItem>::isEmpty;
-    using QList<CacheItem>::clear;
-    using QList<CacheItem>::append, QList<CacheItem>::operator+=, QList<CacheItem>::operator<<;
+    CacheItems::iterator begin();
+    CacheItems::iterator end();
+    CacheItems::const_iterator begin() const;
+    CacheItems::const_iterator end() const;
+    CacheItems::const_iterator cbegin() const;
+    CacheItems::const_iterator cend() const;
+
+    /**
+     * @brief Whether the Cache has any CacheItem in it.
+     *
+     * @sa CacheItem
+     */
+    bool empty() const;
+
+    /**
+     * @brief Return the CacheItem at the given index.
+     *
+     * nullptr if i is not a valid index.
+     *
+     * @sa CacheItem
+     */
+    const CacheItem *at(qsizetype i) const;
+
+    /**
+     * @brief Prepend the given CacheItem to the cache.
+     *
+     * @sa CacheItem
+     */
+    void prepend(std::unique_ptr<CacheItem> item);
+
+    /**
+     * @brief Append the given CacheItem to the cache.
+     *
+     * @sa CacheItem
+     */
+    void append(std::unique_ptr<CacheItem> item);
 
     /**
      * @brief Fill the cache from a list of MessageComponents.
@@ -58,8 +128,23 @@ public:
     void fill(QList<MessageComponent> components);
 
     /**
+     * @brief Remove the CacheItem at the given index from the cache.
+     *
+     * @sa CacheItem
+     */
+    void removeAt(qsizetype i);
+
+    /**
+     * @brief Clear the Cache.
+     */
+    void clear();
+
+    /**
      * @brief Return the contents of the Cache as a single string.
      */
     QString toString() const;
+
+private:
+    CacheItems m_items;
 };
 }

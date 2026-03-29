@@ -310,6 +310,12 @@ Kirigami.Page {
             messageFilterModel: root.messageFilterModel
             compactLayout: NeoChatConfig.compactLayout
             markReadCondition: NeoChatConfig.markReadCondition
+
+            onDropped: drop => {
+                if (chatBarLoader.active) {
+                    (chatBarLoader.item as ChatBar).model.drop(drop.urls, drop.getDataAsString("application/vnd.portal.filetransfer"))
+                }
+            }
         }
     }
 

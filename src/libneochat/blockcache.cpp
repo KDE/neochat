@@ -61,7 +61,27 @@ inline QString trimNewline(QString string)
 
 bool CacheItem::richTextActive = true;
 
+CacheItem::CacheItem(MessageComponentType::Type type)
+    : type(type)
+{
+}
+
+CacheItem::~CacheItem()
+{
+}
+
 QString CacheItem::toString() const
+{
+    return {};
+}
+
+TextCacheItem::TextCacheItem(MessageComponentType::Type type, const QTextDocumentFragment &content)
+    : CacheItem(type)
+    , content(content)
+{
+}
+
+QString TextCacheItem::toString() const
 {
     if (!richTextActive) {
         auto plainText = content.toPlainText();
@@ -113,31 +133,101 @@ QString CacheItem::toString() const
     return textOut;
 }
 
+FileCacheItem::FileCacheItem(MessageComponentType::Type type, const QUrl &source)
+    : CacheItem(type)
+    , source(source)
+{
+}
+
+Cache::CacheItems::iterator Cache::begin()
+{
+    return m_items.begin();
+}
+
+Cache::CacheItems::iterator Cache::end()
+{
+    return m_items.end();
+}
+
+Cache::CacheItems::const_iterator Cache::begin() const
+{
+    return m_items.begin();
+}
+
+Cache::CacheItems::const_iterator Cache::end() const
+{
+    return m_items.end();
+}
+
+Cache::CacheItems::const_iterator Cache::cbegin() const
+{
+    return m_items.cbegin();
+}
+
+Cache::CacheItems::const_iterator Cache::cend() const
+{
+    return m_items.cend();
+}
+
+bool Cache::empty() const
+{
+    return m_items.empty();
+}
+
+const CacheItem *Cache::at(qsizetype i) const
+{
+    if (i < 0 || i >= (qsizetype)m_items.size()) {
+        return nullptr;
+    }
+    return m_items.at(i).get();
+}
+
+void Cache::prepend(std::unique_ptr<CacheItem> item)
+{
+    m_items.insert(m_items.begin(), std::move(item));
+}
+
+void Cache::append(std::unique_ptr<CacheItem> item)
+{
+    m_items.push_back(std::move(item));
+}
+
 void Cache::fill(QList<MessageComponent> components)
 {
     std::ranges::for_each(components, [this](const MessageComponent &component) {
-        if (!MessageComponentType::isTextType(component.type)) {
-            return;
+        if (MessageComponentType::isTextType(component.type)) {
+            const auto textItem = component.attributes["chatTextItemHelper"_L1].value<ChatTextItemHelper *>();
+            if (!textItem) {
+                return;
+            }
+            m_items.push_back(std::make_unique<TextCacheItem>(component.type, textItem->toFragment()));
         }
-        const auto textItem = component.attributes["chatTextItemHelper"_L1].value<ChatTextItemHelper *>();
-        if (!textItem) {
-            return;
+        if (MessageComponentType::isFileType(component.type)) {
+            m_items.push_back(std::make_unique<FileCacheItem>(component.type, component.attributes["source"_L1].toUrl()));
         }
-        append(CacheItem{
-            .type = component.type,
-            .content = textItem->toFragment(),
-        });
     });
+}
+
+void Cache::removeAt(qsizetype i)
+{
+    m_items.erase(m_items.begin() + i);
+}
+
+void Cache::clear()
+{
+    m_items.clear();
 }
 
 QString Cache::toString() const
 {
     QString text;
-    std::ranges::for_each(constBegin(), constEnd(), [&text](const CacheItem &item) {
+    std::ranges::for_each(m_items, [&text](std::unique_ptr<CacheItem> const &item) {
         if (!text.isEmpty()) {
             text += u"\n\n"_s;
         }
-        text += item.toString();
+        text += item->toString();
     });
     return text;
 }
+
+#include "moc_blockcache.cpp"

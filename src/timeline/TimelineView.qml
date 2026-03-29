@@ -36,6 +36,8 @@ QQC2.ScrollView {
      */
     required property int markReadCondition
 
+    signal dropped(drop: DragEvent)
+
     /**
      * @brief Shift the view to the given event ID.
      */
@@ -315,7 +317,7 @@ QQC2.ScrollView {
         DropArea {
             id: dropAreaFile
             anchors.fill: parent
-            onDropped: drop => _private.room.mainCache.drop(drop.urls, drop.getDataAsString("application/vnd.portal.filetransfer"))
+            onDropped: drop => root.dropped(drop)
         }
 
         QQC2.Pane {
