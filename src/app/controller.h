@@ -51,6 +51,11 @@ class Controller : public QObject
 
     Q_PROPERTY(QStringList accountsLoading READ accountsLoading NOTIFY accountsLoadingChanged)
 
+    /**
+     * @brief The minor component of the libQuotient version. For example, libQuotient 0.9.5 would return "9" here.
+     */
+    Q_PROPERTY(int libquotientMinorVersion READ libquotientMinorVersion CONSTANT)
+
 public:
     static Controller &instance();
     static Controller *create(QQmlEngine *engine, QJSEngine *)
@@ -100,6 +105,8 @@ public:
     Q_INVOKABLE bool isImageShown(const QString &eventId);
     Q_INVOKABLE void markImageShown(const QString &eventId);
     Q_INVOKABLE void markImageHidden(const QString &eventId);
+
+    int libquotientMinorVersion() const;
 
 private:
     explicit Controller(QObject *parent = nullptr);

@@ -380,4 +380,9 @@ void Controller::markImageHidden(const QString &eventId)
     m_shownImages.removeAll(eventId);
 }
 
+int Controller::libquotientMinorVersion() const
+{
+    return Quotient_VERSION_MINOR;
+}
+
 #include "moc_controller.cpp"
