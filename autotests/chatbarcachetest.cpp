@@ -87,7 +87,7 @@ void ChatBarCacheTest::empty()
 void ChatBarCacheTest::reply()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->cache().append(std::make_unique<Block::TextCacheItem>(MessageComponentType::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
+    chatBarCache->cache().append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
     chatBarCache->setReplyId(eventId);
 
     QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
@@ -103,7 +103,7 @@ void ChatBarCacheTest::reply()
 void ChatBarCacheTest::replyMissingUser()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->cache().append(std::make_unique<Block::TextCacheItem>(MessageComponentType::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
+    chatBarCache->cache().append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
     chatBarCache->setReplyId(eventId);
 
     QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
@@ -132,7 +132,7 @@ void ChatBarCacheTest::edit()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
 
-    chatBarCache->cache().append(std::make_unique<Block::TextCacheItem>(MessageComponentType::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
+    chatBarCache->cache().append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
     connect(chatBarCache.get(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
         QCOMPARE(oldEventId, QString());
         QCOMPARE(newEventId, eventId);

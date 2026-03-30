@@ -57,7 +57,7 @@ RowLayout {
 
     readonly property ChatButtonHelper chatButtonHelper: ChatButtonHelper {
         textItem: root.contentModel.focusedTextItem
-        inQuote: root.contentModel.focusType == LibNeoChat.MessageComponentType.Quote
+        inQuote: root.contentModel.focusType == LibNeoChat.Blocks.Quote
         hasAttachment: root.contentModel.hasAttachment
     }
 
@@ -202,7 +202,7 @@ RowLayout {
         icon.name: "typewriter"
         text: i18nc("@action:button", "Text Style")
         style: root.chatButtonHelper.currentStyle
-        inQuote: root.contentModel.focusType == LibNeoChat.MessageComponentType.Quote
+        inQuote: root.contentModel.focusType == LibNeoChat.Blocks.Quote
         compressed: root.maxAvailableWidth < root.extraTextCompressedImplicitWidth
         enabled: root.chatButtonHelper.styleFormatEnabled
         display: QQC2.AbstractButton.IconOnly
@@ -222,7 +222,7 @@ RowLayout {
             width: styleButton.compressed ? implicitWidth : styleButton.width
             chatContentModel: root.contentModel
             chatButtonHelper: root.chatButtonHelper
-            inQuote: root.contentModel.focusType == LibNeoChat.MessageComponentType.Quote
+            inQuote: root.contentModel.focusType == LibNeoChat.Blocks.Quote
 
             onClosed: {
                 root.clicked()

@@ -6,10 +6,10 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.messagecontent
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/messagecontent
     QML_FILES
-        BaseMessageComponentChooser.qml
-        MessageComponentChooser.qml
-        ReplyMessageComponentChooser.qml
-        ThreadBodyMessageComponentChooser.qml
+        BaseBlockChooser.qml
+        BlockChooser.qml
+        ReplyBlockChooser.qml
+        ThreadBodyBlockChooser.qml
         AuthorComponent.qml
         AudioComponent.qml
         CodeComponent.qml

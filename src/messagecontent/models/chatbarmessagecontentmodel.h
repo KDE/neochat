@@ -11,9 +11,8 @@
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
 #include "chattextitemhelper.h"
-#include "enums/messagecomponenttype.h"
+#include "enums/blocktype.h"
 #include "enums/richformat.h"
-#include "messagecomponent.h"
 #include "models/messagecontentmodel.h"
 
 /**
@@ -37,9 +36,9 @@ class ChatBarMessageContentModel : public MessageContentModel
     Q_PROPERTY(int focusRow READ focusRow WRITE setFocusRow NOTIFY focusRowChanged)
 
     /**
-     * @brief The MessageComponentType of the focussed row.
+     * @brief The Blocks::Type of the focussed row.
      */
-    Q_PROPERTY(MessageComponentType::Type focusType READ focusType NOTIFY focusRowChanged)
+    Q_PROPERTY(Blocks::Type focusType READ focusType NOTIFY focusRowChanged)
 
     /**
      * @brief The text item that the helper is interfacing with.
@@ -95,14 +94,14 @@ public:
     void setType(ChatBarType::Type type);
     ChatKeyHelper *keyHelper() const;
     int focusRow() const;
-    MessageComponentType::Type focusType() const;
+    Blocks::Type focusType() const;
     Q_INVOKABLE void setFocusRow(int focusRow, bool mouse = false);
     Q_INVOKABLE void refocusCurrentComponent() const;
     ChatTextItemHelper *focusedTextItem() const;
 
     Q_INVOKABLE void insertStyleAtCursor(RichFormat::Format style);
 
-    Q_INVOKABLE void insertComponentAtCursor(MessageComponentType::Type type);
+    Q_INVOKABLE void insertComponentAtCursor(Blocks::Type type);
 
     bool hasRichFormatting() const;
     bool hasAttachment() const;
@@ -151,7 +150,7 @@ private:
     void emitFocusChangeSignals();
 
     void connectTextItem(ChatTextItemHelper *chattextitemhelper);
-    ChatTextItemHelper *textItemForComponent(const MessageComponent &component) const;
+    ChatTextItemHelper *textItemForComponent(const Blocks::Block &component) const;
     ChatTextItemHelper *textItemForIndex(const QModelIndex &index) const;
     QModelIndex indexForTextItem(ChatTextItemHelper *textItem) const;
 
@@ -161,11 +160,11 @@ private:
 
     QVariantMap attributesForFile(const QUrl &path);
 
-    ComponentIt insertComponent(int row, MessageComponentType::Type type, QVariantMap attributes = {}, const QTextDocumentFragment &intialFragment = {});
+    ComponentIt insertComponent(int row, Blocks::Type type, QVariantMap attributes = {}, const QTextDocumentFragment &intialFragment = {});
     ComponentIt removeComponent(ComponentIt it);
     void removeComponent(ChatTextItemHelper *textItem);
 
-    void insertComponentFromCache(Block::CacheItem *item);
+    void insertComponentFromCache(Blocks::CacheItem *item);
 
     void handleBlockTransition(bool up);
 

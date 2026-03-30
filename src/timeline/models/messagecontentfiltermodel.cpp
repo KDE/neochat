@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "messagecontentfiltermodel.h"
-#include "enums/messagecomponenttype.h"
+#include "enums/blocktype.h"
 #include "models/messagecontentmodel.h"
 
 MessageContentFilterModel::MessageContentFilterModel(QObject *parent)
@@ -32,8 +32,8 @@ bool MessageContentFilterModel::filterAcceptsRow(int source_row, const QModelInd
     }
 
     const auto index = sourceModel()->index(source_row, 0, source_parent);
-    auto contentType = static_cast<MessageComponentType::Type>(index.data(MessageContentModel::ComponentTypeRole).toInt());
-    return contentType != MessageComponentType::Author;
+    auto contentType = static_cast<Blocks::Type>(index.data(MessageContentModel::ComponentTypeRole).toInt());
+    return contentType != Blocks::Author;
 }
 
 #include "moc_messagecontentfiltermodel.cpp"

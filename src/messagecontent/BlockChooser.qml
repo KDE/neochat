@@ -9,13 +9,13 @@ import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
 
 /**
- * @brief Select a message component based on a MessageComponentType.
+ * @brief Select a message component based on a Blocks.Type.
  */
-BaseMessageComponentChooser {
+BaseBlockChooser {
     id: root
 
     DelegateChoice {
-        roleValue: MessageComponentType.ThreadBody
+        roleValue: Blocks.ThreadBody
         delegate: ThreadBodyComponent {
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
@@ -27,7 +27,7 @@ BaseMessageComponentChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.ChatBar
+        roleValue: Blocks.ChatBar
         delegate: ChatBarCore {
 
             /**

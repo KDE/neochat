@@ -17,7 +17,7 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
-#include "messagecomponenttype.h"
+#include "blocktype.h"
 #include "models/customemojimodel.h"
 #include "utils.h"
 
@@ -345,13 +345,13 @@ int TextHandler::nextBlockPos(const QString &string)
     return closeTagPos + closeTag.size();
 }
 
-MessageComponent TextHandler::nextBlock(const QString &string,
-                                        int nextBlockPos,
-                                        Qt::TextFormat inputFormat,
-                                        const NeoChatRoom *room,
-                                        const Quotient::RoomEvent *event,
-                                        bool isEdited,
-                                        bool spoilerRevealed)
+Blocks::Block TextHandler::nextBlock(const QString &string,
+                                     int nextBlockPos,
+                                     Qt::TextFormat inputFormat,
+                                     const NeoChatRoom *room,
+                                     const Quotient::RoomEvent *event,
+                                     bool isEdited,
+                                     bool spoilerRevealed)
 {
     if (string.isEmpty()) {
         return {};
@@ -360,16 +360,16 @@ MessageComponent TextHandler::nextBlock(const QString &string,
     int tagEndPos = string.indexOf(u'>');
     QString tag = string.first(tagEndPos + 1);
     QString tagType = getTagType(tag);
-    const auto messageComponentType = MessageComponentType::typeForTag(tagType);
+    const auto blockType = Blocks::typeForTag(tagType);
     QVariantMap attributes;
-    if (messageComponentType == MessageComponentType::Code) {
+    if (blockType == Blocks::Code) {
         attributes = getAttributes(u"code"_s, string.mid(tagEndPos + 1, string.indexOf(u'>', tagEndPos + 1) - tagEndPos));
     }
 
     auto content = stripBlockTags(string.first(nextBlockPos), tagType);
     setData(content);
-    switch (messageComponentType) {
-    case MessageComponentType::Code:
+    switch (blockType) {
+    case Blocks::Code:
         content = unescapeHtml(content);
         break;
     default:
@@ -379,7 +379,7 @@ MessageComponent TextHandler::nextBlock(const QString &string,
     if (content.contains(u"data-mx-spoiler"_s)) {
         attributes[u"hasSpoiler"_s] = true;
     }
-    return MessageComponent{messageComponentType, content, attributes};
+    return Blocks::Block{blockType, content, attributes};
 }
 
 QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
@@ -614,21 +614,21 @@ QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagStr
     return attributes;
 }
 
-QList<MessageComponent> TextHandler::textComponents(QString string,
-                                                    Qt::TextFormat inputFormat,
-                                                    const NeoChatRoom *room,
-                                                    const Quotient::RoomEvent *event,
-                                                    bool isEdited,
-                                                    bool spoilerRevealed)
+QList<Blocks::Block> TextHandler::textComponents(QString string,
+                                                 Qt::TextFormat inputFormat,
+                                                 const NeoChatRoom *room,
+                                                 const Quotient::RoomEvent *event,
+                                                 bool isEdited,
+                                                 bool spoilerRevealed)
 {
     if (string.trimmed().isEmpty()) {
-        return {MessageComponent{MessageComponentType::Text, i18n("<i>This event does not have any content.</i>"), {}}};
+        return {Blocks::Block{Blocks::Text, i18n("<i>This event does not have any content.</i>"), {}}};
     }
 
     // Strip mx-reply if present.
     string.remove(TextRegex::removeRichReply);
 
-    QList<MessageComponent> components;
+    QList<Blocks::Block> components;
     while (!string.isEmpty()) {
         const auto nextBlockPos = this->nextBlockPos(string);
         const auto nextBlock =
@@ -643,17 +643,17 @@ QList<MessageComponent> TextHandler::textComponents(QString string,
 
         if (event != nullptr && room != nullptr) {
             if (auto e = eventCast<const Quotient::RoomMessageEvent>(event); e && e->msgtype() == Quotient::MessageEventType::Emote && components.size() == 1) {
-                if (components[0].type == MessageComponentType::Text) {
+                if (components[0].type == Blocks::Text) {
                     components[0].display = emoteString(room, event) + components[0].display;
                 } else {
-                    components.prepend(MessageComponent{MessageComponentType::Text, emoteString(room, event), {}});
+                    components.prepend(Blocks::Block{Blocks::Text, emoteString(room, event), {}});
                 }
             }
         }
     }
 
-    if (isEdited && components.last().type != MessageComponentType::Text && components.last().type != MessageComponentType::Quote) {
-        components += MessageComponent{MessageComponentType::Text, editString(), {}};
+    if (isEdited && components.last().type != Blocks::Text && components.last().type != Blocks::Quote) {
+        components += Blocks::Block{Blocks::Text, editString(), {}};
     }
 
     return components;

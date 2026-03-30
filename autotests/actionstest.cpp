@@ -9,7 +9,7 @@
 #include "accountmanager.h"
 #include "blockcache.h"
 #include "chatbarcache.h"
-#include "enums/messagecomponenttype.h"
+#include "enums/blocktype.h"
 #include "models/actionsmodel.h"
 
 #include "server.h"
@@ -91,7 +91,7 @@ void ActionsTest::testActions()
     QFETCH(std::optional<Quotient::RoomMessageEvent::MsgType>, type);
 
     auto cache = new ChatBarCache(room);
-    cache->cache().append(std::make_unique<Block::TextCacheItem>(MessageComponentType::Text, QTextDocumentFragment::fromMarkdown(command)));
+    cache->cache().append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(command)));
     auto result = ActionsModel::handleAction(room, cache);
     QCOMPARE(resultText, std::get<std::optional<QString>>(result));
     QCOMPARE(type, std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result));

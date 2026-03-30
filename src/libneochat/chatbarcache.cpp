@@ -9,9 +9,10 @@
 
 #include <Quotient/roommember.h>
 
+#include "block.h"
 #include "blockcache.h"
+#include "blocktype.h"
 #include "eventhandler.h"
-#include "messagecomponenttype.h"
 #include "models/actionsmodel.h"
 #include "neochatroom.h"
 #include "texthandler.h"
@@ -30,7 +31,7 @@ ChatBarCache::ChatBarCache(NeoChatRoom *room)
     connect(this, &ChatBarCache::relationIdChanged, this, &ChatBarCache::relationAuthorIsPresentChanged);
 }
 
-Block::Cache &ChatBarCache::cache()
+Blocks::Cache &ChatBarCache::cache()
 {
     return m_cache;
 }
@@ -38,8 +39,8 @@ Block::Cache &ChatBarCache::cache()
 QString ChatBarCache::sendText() const
 {
     const auto cacheText = m_cache.toString();
-    if (cacheText.isEmpty() && MessageComponentType::isFileType(m_cache.at(0)->type)) {
-        QUrl url(dynamic_cast<const Block::FileCacheItem *>(m_cache.at(0))->source);
+    if (cacheText.isEmpty() && Blocks::isFileType(m_cache.at(0)->type)) {
+        QUrl url(dynamic_cast<const Blocks::FileCacheItem *>(m_cache.at(0))->source);
         auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
         return path.mid(path.lastIndexOf(u'/') + 1);
     }
@@ -138,7 +139,7 @@ QString ChatBarCache::relationMessage() const
     return {};
 }
 
-QList<MessageComponent> ChatBarCache::relationComponents() const
+QList<Blocks::Block> ChatBarCache::relationComponents() const
 {
     if (!m_room) {
         qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
@@ -208,8 +209,8 @@ void ChatBarCache::postMessage()
         relatesTo = Quotient::EventRelation::replyTo(replyId());
     }
 
-    if (MessageComponentType::isFileType(m_cache.at(0)->type)) {
-        const auto fileCacheItem = dynamic_cast<const Block::FileCacheItem *>(m_cache.at(0));
+    if (Blocks::isFileType(m_cache.at(0)->type)) {
+        const auto fileCacheItem = dynamic_cast<const Blocks::FileCacheItem *>(m_cache.at(0));
         m_room->uploadFile(fileCacheItem->source, sendText(), relatesTo);
         clearCache();
         return;

@@ -67,7 +67,7 @@ QQC2.Control {
             Repeater {
                 id: contentRepeater
                 model: root.replyContentModel
-                delegate: ReplyMessageComponentChooser {
+                delegate: ReplyBlockChooser {
                     onReplyClicked: RoomManager.goToEvent(root.replyContentModel.eventId)
                 }
             }

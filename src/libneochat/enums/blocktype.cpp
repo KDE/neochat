@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-#include "messagecomponenttype.h"
+#include "blocktype.h"
 
 #include <QMimeDatabase>
 
@@ -11,93 +11,64 @@
 
 #include "events/pollevent.h"
 
-const QList<MessageComponentType::Type> MessageComponentType::textTypes = {
-    Text,
-    Code,
-    Quote,
-};
-
-const QList<MessageComponentType::Type> MessageComponentType::fileTypes = {
-    File,
-    Image,
-    Video,
-    Audio,
-};
-
-MessageComponentType::Type MessageComponentType::typeForEvent(const Quotient::RoomEvent &event, bool isInReply)
+Blocks::Type Blocks::typeForEvent(const Quotient::RoomEvent &event, bool isInReply)
 {
     using namespace Quotient;
 
     if (event.isRedacted()) {
-        return MessageComponentType::Text;
+        return Text;
     }
 
     if (const auto e = eventCast<const RoomMessageEvent>(&event)) {
         if (e->rawMsgtype() == u"m.key.verification.request"_s) {
-            return MessageComponentType::Verification;
+            return Verification;
         }
 
         switch (e->msgtype()) {
         case MessageEventType::Emote:
-            return MessageComponentType::Text;
+            return Text;
         case MessageEventType::Notice:
-            return MessageComponentType::Text;
+            return Text;
         case MessageEventType::Image:
-            return MessageComponentType::Image;
+            return Image;
         case MessageEventType::Audio:
-            return MessageComponentType::Audio;
+            return Audio;
         case MessageEventType::Video:
-            return MessageComponentType::Video;
+            return Video;
         case MessageEventType::Location:
-            return MessageComponentType::Location;
+            return Location;
         case MessageEventType::File:
-            return MessageComponentType::File;
+            return File;
         default:
-            return MessageComponentType::Text;
+            return Text;
         }
     }
     if (is<const StickerEvent>(event)) {
-        return MessageComponentType::Image;
+        return Image;
     }
     if (event.isStateEvent()) {
         if (event.matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
-            return MessageComponentType::LiveLocation;
+            return LiveLocation;
         }
         // In the (unlikely) case that this is a reply to a state event, we do want to show something
-        return isInReply ? MessageComponentType::Text : MessageComponentType::Other;
+        return isInReply ? Text : Other;
     }
     if (is<const EncryptedEvent>(event)) {
-        return MessageComponentType::Encrypted;
+        return Encrypted;
     }
     if (is<PollStartEvent>(event)) {
         const auto pollEvent = eventCast<const PollStartEvent>(&event);
         if (pollEvent->isRedacted()) {
-            return MessageComponentType::Text;
+            return Text;
         }
-        return MessageComponentType::Poll;
+        return Poll;
     }
 
     // In the (unlikely) case that this is a reply to an unusual event, we do want to show something
-    return isInReply ? MessageComponentType::Text : MessageComponentType::Other;
+    return isInReply ? Text : Other;
 }
 
-MessageComponentType::Type MessageComponentType::typeForString(const QString &string)
-{
-    if (string.isEmpty()) {
-        return Text;
-    }
-
-    if (string.startsWith(u'>')) {
-        return Quote;
-    }
-    if (string.startsWith(u"```"_s) && string.endsWith(u"```"_s)) {
-        return Code;
-    }
-
-    return Text;
-}
-
-MessageComponentType::Type MessageComponentType::typeForTag(const QString &tag)
+Blocks::Type Blocks::typeForTag(const QString &tag)
 {
     if (tag == u"pre"_s || tag == u"pre"_s) {
         return Code;
@@ -108,7 +79,7 @@ MessageComponentType::Type MessageComponentType::typeForTag(const QString &tag)
     return Text;
 }
 
-MessageComponentType::Type MessageComponentType::typeForPath(const QUrl &path)
+Blocks::Type Blocks::typeForPath(const QUrl &path)
 {
     auto mime = QMimeDatabase().mimeTypeForUrl(path);
     if (mime.name().startsWith("image/"_L1)) {
@@ -121,14 +92,25 @@ MessageComponentType::Type MessageComponentType::typeForPath(const QUrl &path)
     return File;
 }
 
-bool MessageComponentType::isTextType(const MessageComponentType::Type &type)
+bool Blocks::isTextType(const Blocks::Type &type)
 {
+    static const QList<Type> textTypes = {
+        Text,
+        Code,
+        Quote,
+    };
     return textTypes.contains(type);
 }
 
-bool MessageComponentType::isFileType(const MessageComponentType::Type &type)
+bool Blocks::isFileType(const Blocks::Type &type)
 {
+    static const QList<Type> fileTypes = {
+        File,
+        Image,
+        Video,
+        Audio,
+    };
     return fileTypes.contains(type);
 }
 
-#include "moc_messagecomponenttype.cpp"
+#include "moc_blocktype.cpp"

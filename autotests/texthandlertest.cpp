@@ -11,7 +11,7 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
-#include "enums/messagecomponenttype.h"
+#include "enums/blocktype.h"
 #include "models/customemojimodel.h"
 #include "neochatconnection.h"
 
@@ -616,46 +616,40 @@ void TextHandlerTest::receiveRichColor()
 void TextHandlerTest::componentOutput_data()
 {
     QTest::addColumn<QString>("testInputString");
-    QTest::addColumn<QList<MessageComponent>>("testOutputComponents");
+    QTest::addColumn<QList<Blocks::Block>>("testOutputComponents");
 
     QTest::newRow("multiple paragraphs") << u"<p>Text</p>\n<p>Text</p>"_s
-                                         << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
-                                                                    MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
+                                         << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}}, Blocks::Block{Blocks::Text, u"Text"_s, {}}};
     QTest::newRow("code") << u"<p>Text</p>\n<pre><code class=\"language-html\">Some code\n</code></pre>"_s
-                          << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
-                                                     MessageComponent{MessageComponentType::Code, u"Some code"_s, QVariantMap{{u"class"_s, u"html"_s}}}};
+                          << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}},
+                                                  Blocks::Block{Blocks::Code, u"Some code"_s, QVariantMap{{u"class"_s, u"html"_s}}}};
     QTest::newRow("quote") << u"<p>Text</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>"_s
-                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
-                                                      MessageComponent{MessageComponentType::Quote, u"“blockquote”"_s, {}}};
+                           << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}}, Blocks::Block{Blocks::Quote, u"“blockquote”"_s, {}}};
     QTest::newRow("multiple paragraph quote") << u"<blockquote>\n<p>blockquote</p>\n<p>next paragraph</p>\n</blockquote>"_s
-                                              << QList<MessageComponent>{
-                                                     MessageComponent{MessageComponentType::Quote, u"<p>“blockquote</p>\n<p>next paragraph”</p>"_s, {}}};
+                                              << QList<Blocks::Block>{Blocks::Block{Blocks::Quote, u"<p>“blockquote</p>\n<p>next paragraph”</p>"_s, {}}};
     QTest::newRow("no tag first paragraph") << u"Text\n<p>Text</p>"_s
-                                            << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
-                                                                       MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
+                                            << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}}, Blocks::Block{Blocks::Text, u"Text"_s, {}}};
     QTest::newRow("no tag last paragraph") << u"<p>Text</p>\nText"_s
-                                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
-                                                                      MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
+                                           << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}}, Blocks::Block{Blocks::Text, u"Text"_s, {}}};
     QTest::newRow("inline code") << u"<p><code>https://kde.org</code></p>\n<p>Text</p>"_s
-                                 << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"<code>https://kde.org</code>"_s, {}},
-                                                            MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
+                                 << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"<code>https://kde.org</code>"_s, {}},
+                                                         Blocks::Block{Blocks::Text, u"Text"_s, {}}};
     QTest::newRow("inline code single block") << u"<code>https://kde.org</code>"_s
-                                              << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"<code>https://kde.org</code>"_s, {}}};
+                                              << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"<code>https://kde.org</code>"_s, {}}};
     QTest::newRow("long start tag")
         << u"Ah, you mean something like<br/><pre data-md=\"```\"><code class=\"language-qml\"># main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}\n</code></pre>Sure you can, it's still local to the same file where you defined the id"_s
-        << QList<MessageComponent>{
-               MessageComponent{MessageComponentType::Text, u"Ah, you mean something like<br/>"_s, {}},
-               MessageComponent{
-                   MessageComponentType::Code,
-                   u"# main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}"_s,
-                   QVariantMap{{u"class"_s, u"qml"_s}}},
-               MessageComponent{MessageComponentType::Text, u"Sure you can, it's still local to the same file where you defined the id"_s, {}}};
+        << QList<Blocks::Block>{
+               Blocks::Block{Blocks::Text, u"Ah, you mean something like<br/>"_s, {}},
+               Blocks::Block{Blocks::Code,
+                             u"# main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}"_s,
+                             QVariantMap{{u"class"_s, u"qml"_s}}},
+               Blocks::Block{Blocks::Text, u"Sure you can, it's still local to the same file where you defined the id"_s, {}}};
 }
 
 void TextHandlerTest::componentOutput()
 {
     QFETCH(QString, testInputString);
-    QFETCH(QList<MessageComponent>, testOutputComponents);
+    QFETCH(QList<Blocks::Block>, testOutputComponents);
 
     TextHandler testTextHandler;
     QCOMPARE(testTextHandler.textComponents(testInputString), testOutputComponents);

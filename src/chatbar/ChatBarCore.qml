@@ -147,7 +147,7 @@ QQC2.Control {
 
                         model: root.model
 
-                        delegate: BaseMessageComponentChooser {
+                        delegate: BaseBlockChooser {
                             rightAnchorMargin: chatScrollView.QQC2.ScrollBar.vertical.visible ? chatScrollView.QQC2.ScrollBar.vertical.width : 0
                         }
                     }

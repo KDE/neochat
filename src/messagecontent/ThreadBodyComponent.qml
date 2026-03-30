@@ -40,7 +40,7 @@ ColumnLayout {
         id: threadRepeater
         model: root.Message.contentModel.modelForThread(root.threadRoot);
 
-        delegate: ThreadBodyMessageComponentChooser {
+        delegate: ThreadBodyBlockChooser {
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
             }

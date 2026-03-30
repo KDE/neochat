@@ -6,9 +6,8 @@
 #include <QRegularExpression>
 
 #include "chattextitemhelper.h"
-#include "messagecomponenttype.h"
 
-using namespace Block;
+using namespace Blocks;
 
 inline QString formatQuote(const QString &input)
 {
@@ -61,7 +60,7 @@ inline QString trimNewline(QString string)
 
 bool CacheItem::richTextActive = true;
 
-CacheItem::CacheItem(MessageComponentType::Type type)
+CacheItem::CacheItem(Type type)
     : type(type)
 {
 }
@@ -75,7 +74,7 @@ QString CacheItem::toString() const
     return {};
 }
 
-TextCacheItem::TextCacheItem(MessageComponentType::Type type, const QTextDocumentFragment &content)
+TextCacheItem::TextCacheItem(Type type, const QTextDocumentFragment &content)
     : CacheItem(type)
     , content(content)
 {
@@ -104,7 +103,7 @@ QString TextCacheItem::toString() const
         }
         return trimNewline(plainText);
     }
-    if (type == MessageComponentType::Code) {
+    if (type == Code) {
         return formatCode(trimNewline(content.toPlainText()));
     }
 
@@ -127,15 +126,21 @@ QString TextCacheItem::toString() const
     }
 
     textOut = trimNewline(textOut).trimmed();
-    if (type == MessageComponentType::Quote) {
+    if (type == Quote) {
         textOut = formatQuote(textOut);
     }
     return textOut;
 }
 
-FileCacheItem::FileCacheItem(MessageComponentType::Type type, const QUrl &source)
+FileCacheItem::FileCacheItem(Type type, const QUrl &source)
     : CacheItem(type)
     , source(source)
+{
+}
+
+ReplyCacheItem::ReplyCacheItem(Type type, const QString &id)
+    : CacheItem(type)
+    , id(id)
 {
 }
 
@@ -192,17 +197,17 @@ void Cache::append(std::unique_ptr<CacheItem> item)
     m_items.push_back(std::move(item));
 }
 
-void Cache::fill(QList<MessageComponent> components)
+void Cache::fill(QList<Block> components)
 {
-    std::ranges::for_each(components, [this](const MessageComponent &component) {
-        if (MessageComponentType::isTextType(component.type)) {
+    std::ranges::for_each(components, [this](const Block &component) {
+        if (isTextType(component.type)) {
             const auto textItem = component.attributes["chatTextItemHelper"_L1].value<ChatTextItemHelper *>();
             if (!textItem) {
                 return;
             }
             m_items.push_back(std::make_unique<TextCacheItem>(component.type, textItem->toFragment()));
         }
-        if (MessageComponentType::isFileType(component.type)) {
+        if (isFileType(component.type)) {
             m_items.push_back(std::make_unique<FileCacheItem>(component.type, component.attributes["source"_L1].toUrl()));
         }
     });

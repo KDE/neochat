@@ -93,7 +93,7 @@ QQC2.Control {
                     showAuthor: root.showAuthor
                     sourceModel: root.contentModel
                 }
-                delegate: MessageComponentChooser {
+                delegate: BlockChooser {
                     onSelectedTextChanged: selectedText => {
                         root.selectedTextChanged(selectedText);
                     }

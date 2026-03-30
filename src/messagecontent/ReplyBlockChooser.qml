@@ -12,7 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat
 
 /**
- * @brief Select a message component based on a MessageComponentType.
+ * @brief Select a message component based on a Blocks.Type.
  */
 DelegateChooser {
     id: root
@@ -25,12 +25,12 @@ DelegateChooser {
     role: "componentType"
 
     DelegateChoice {
-        roleValue: MessageComponentType.Author
+        roleValue: Blocks.Author
         delegate: ReplyAuthorComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Text
+        roleValue: Blocks.Text
         delegate: TextComponent {
             MouseArea {
                 anchors.fill: parent
@@ -42,14 +42,14 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Image
+        roleValue: Blocks.Image
         delegate: ImageComponent {
             contentMaxHeight: Kirigami.Units.gridUnit * 5
         }
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Video
+        roleValue: Blocks.Video
         delegate: MimeComponent {
             required property var componentAttributes
             
@@ -61,7 +61,7 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Code
+        roleValue: Blocks.Code
         delegate: CodeComponent {
             Layout.maximumHeight: Kirigami.Units.gridUnit * 5
 
@@ -75,7 +75,7 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Quote
+        roleValue: Blocks.Quote
         delegate: QuoteComponent {
             MouseArea {
                 anchors.fill: parent
@@ -87,7 +87,7 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Audio
+        roleValue: Blocks.Audio
         delegate: MimeComponent {
             required property string display
             required property var componentAttributes
@@ -100,7 +100,7 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.File
+        roleValue: Blocks.File
         delegate: MimeComponent {
             required property string display
             required property var componentAttributes
@@ -112,12 +112,12 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Poll
+        roleValue: Blocks.Poll
         delegate: PollComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Location
+        roleValue: Blocks.Location
         delegate: MimeComponent {
             required property string display
             mimeIconSource: "mark-location"
@@ -126,7 +126,7 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.LiveLocation
+        roleValue: Blocks.LiveLocation
         delegate: MimeComponent {
             required property string display
             mimeIconSource: "mark-location"
@@ -135,17 +135,17 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Encrypted
+        roleValue: Blocks.Encrypted
         delegate: EncryptedComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Loading
+        roleValue: Blocks.Loading
         delegate: LoadComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Other
+        roleValue: Blocks.Other
         delegate: Item {}
     }
 }

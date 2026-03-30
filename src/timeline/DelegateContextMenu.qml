@@ -56,7 +56,7 @@ KirigamiComponents.ConvergentContextMenu {
     /**
      * @brief The delegate type of the message.
      */
-    required property int messageComponentType
+    required property int blockType
 
     /**
      * @brief The display text of the message as plain text.
@@ -97,7 +97,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         id: emojiAction
-        visible: root.messageComponentType === MessageComponentType.Other ? NeoChatConfig.relateAnyEvent : true
+        visible: root.blockType === Blocks.Other ? NeoChatConfig.relateAnyEvent : true
 
         displayComponent: RowLayout {
             visible: emojiAction.visible
@@ -159,7 +159,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         id: replyAction
-        visible: !root.room.readOnly && (root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent)
+        visible: !root.room.readOnly && (root.blockType !== Blocks.Other || NeoChatConfig.relateAnyEvent)
         text: i18nc("@action:inmenu", "Reply")
         icon.name: "mail-replied-symbolic"
         onTriggered: {
@@ -181,7 +181,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         id: replyThreadAction
-        visible: (root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent)
+        visible: (root.blockType !== Blocks.Other || NeoChatConfig.relateAnyEvent)
         text: i18nc("@action:inmenu", "Reply in Thread")
         icon.name: "dialog-messages"
         onTriggered: {
@@ -195,7 +195,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         id: editAction
-        visible: !root.hasFileContent && root.author.isLocalMember && root.messageComponentType === MessageComponentType.Text
+        visible: !root.hasFileContent && root.author.isLocalMember && root.blockType === Blocks.Text
         text: i18n("Edit")
         icon.name: "document-edit"
         onTriggered: {
@@ -207,7 +207,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         id: removeAction
-        visible: (root.author.isLocalMember || root.room.canSendState("redact")) && root.messageComponentType !== MessageComponentType.Other
+        visible: (root.author.isLocalMember || root.room.canSendState("redact")) && root.blockType !== Blocks.Other
         text: i18nc("@action:button", "Remove…")
         icon.name: "edit-delete-remove"
         icon.color: "red"
@@ -235,7 +235,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        visible: root.messageComponentType !== MessageComponentType.Other
+        visible: root.blockType !== Blocks.Other
         text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
         icon.name: "mail-forward-symbolic"
         onTriggered: {
@@ -255,11 +255,11 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         visible: root.hasFileContent
         text: {
-            if (root.messageComponentType === MessageComponentType.Image) {
+            if (root.blockType === Blocks.Image) {
                 return i18nc("@action:inmenu", "Open Image");
-            } else if (root.messageComponentType === MessageComponentType.Audio) {
+            } else if (root.blockType === Blocks.Audio) {
                 return i18nc("@action:inmenu", "Open Audio");
-            } else if (root.messageComponentType === MessageComponentType.Video) {
+            } else if (root.blockType === Blocks.Video) {
                 return i18nc("@action:inmenu", "Open Video");
             } else {
                 return i18nc("@action:inmenu", "Open File");
@@ -274,11 +274,11 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         visible: root.hasFileContent
         text: {
-            if (root.messageComponentType === MessageComponentType.Image) {
+            if (root.blockType === Blocks.Image) {
                 return i18nc("@action:inmenu", "Save Image…");
-            } else if (root.messageComponentType === MessageComponentType.Audio) {
+            } else if (root.blockType === Blocks.Audio) {
                 return i18nc("@action:inmenu", "Save Audio…");
-            } else if (root.messageComponentType === MessageComponentType.Video) {
+            } else if (root.blockType === Blocks.Video) {
                 return i18nc("@action:inmenu", "Save Video…");
             } else {
                 return i18nc("@action:inmenu", "Save File…");
@@ -295,11 +295,11 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         visible: root.hasFileContent
         text: {
-            if (root.messageComponentType === MessageComponentType.Image) {
+            if (root.blockType === Blocks.Image) {
                 return i18nc("@action:inmenu", "Copy Image");
-            } else if (root.messageComponentType === MessageComponentType.Audio) {
+            } else if (root.blockType === Blocks.Audio) {
                 return i18nc("@action:inmenu", "Copy Audio");
-            } else if (root.messageComponentType === MessageComponentType.Video) {
+            } else if (root.blockType === Blocks.Video) {
                 return i18nc("@action:inmenu", "Copy Video");
             } else {
                 return i18nc("@action:inmenu", "Copy File");
@@ -411,14 +411,14 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         readonly property bool pinned: root.room.isEventPinned(root.eventId)
 
-        visible: root.room.canSendState("m.room.pinned_events") && root.messageComponentType !== MessageComponentType.Other
+        visible: root.room.canSendState("m.room.pinned_events") && root.blockType !== Blocks.Other
         text: pinned ? i18nc("@action:button 'Unpin' as in 'Unpin this message'", "Unpin") : i18nc("@action:button 'Pin' as in 'Pin the message in the room'", "Pin")
         icon.name: pinned ? "window-unpin-symbolic" : "pin-symbolic"
         onTriggered: pinned ? root.room.unpinEvent(root.eventId) : root.room.pinEvent(root.eventId)
     }
 
     Kirigami.Action {
-        visible: root.messageComponentType !== MessageComponentType.Other
+        visible: root.blockType !== Blocks.Other
         text: root.room.selectedMessageCount > 0 && root.room.isMessageSelected(root.eventId) ? i18nc("@action:inmenu", "Deselect Message") : i18nc("@action:inmenu", "Select Message")
         icon.name: "edit-select-all-symbolic"
         onTriggered: root.room.toggleMessageSelection(root.eventId)

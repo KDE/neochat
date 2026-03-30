@@ -11,7 +11,7 @@
 #include <Quotient/roommember.h>
 #include <Quotient/uriresolver.h>
 
-#include "enums/messagecomponenttype.h"
+#include "enums/blocktype.h"
 #include "enums/messagetype.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messagefiltermodel.h"
@@ -312,7 +312,7 @@ Q_SIGNALS:
                           NeoChatRoom *room,
                           const QString &eventId,
                           const NeochatRoomMember *author,
-                          MessageComponentType::Type messageComponentType,
+                          Blocks::Type blockType,
                           const QString &plainText,
                           const QString &richtText,
                           const QString &mimeType,

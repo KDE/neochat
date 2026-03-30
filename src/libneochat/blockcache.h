@@ -6,25 +6,25 @@
 #include <QList>
 #include <QTextDocumentFragment>
 
-#include "enums/messagecomponenttype.h"
-#include "messagecomponent.h"
+#include "block.h"
+#include "enums/blocktype.h"
 
-namespace Block
+namespace Blocks
 {
 /**
  * @class CacheItem
  *
- * A structure to define an item stored in a Block::Cache.
+ * A structure to define an item stored in a Blocks::Cache.
  *
- * @sa Block::Cache
+ * @sa Blocks::Cache
  */
 class CacheItem
 {
 public:
-    CacheItem(MessageComponentType::Type type);
+    CacheItem(Type type);
     virtual ~CacheItem();
 
-    MessageComponentType::Type type = MessageComponentType::Other;
+    Type type = Other;
 
     /**
      * @brief Return the contents of the CacheItem as a single string.
@@ -37,14 +37,14 @@ public:
 /**
  * @class TextCacheItem
  *
- * A structure to define a text item stored in a Block::Cache.
+ * A structure to define a text item stored in a Blocks::Cache.
  *
- * @sa Block::Cache
+ * @sa Blocks::Cache
  */
 class TextCacheItem : public CacheItem
 {
 public:
-    TextCacheItem(MessageComponentType::Type type, const QTextDocumentFragment &content);
+    TextCacheItem(Type type, const QTextDocumentFragment &content);
 
     QTextDocumentFragment content;
 
@@ -54,16 +54,31 @@ public:
 /**
  * @class FileCacheItem
  *
- * A structure to define a file item stored in a Block::Cache.
+ * A structure to define a file item stored in a Blocks::Cache.
  *
- * @sa Block::Cache
+ * @sa Blocks::Cache
  */
 class FileCacheItem : public CacheItem
 {
 public:
-    FileCacheItem(MessageComponentType::Type type, const QUrl &source);
+    FileCacheItem(Type type, const QUrl &source);
 
     QUrl source;
+};
+
+/**
+ * @class ReplyCacheItem
+ *
+ * A structure to define a reply item stored in a Blocks::Cache.
+ *
+ * @sa Blocks::Cache
+ */
+class ReplyCacheItem : public CacheItem
+{
+public:
+    ReplyCacheItem(Type type, const QString &id);
+
+    QString id;
 };
 
 /**
@@ -73,10 +88,10 @@ public:
  *
  * We can't store the actual content items as the QTextDocuments are attached to
  * text items that may be deleted by the QML engine. Instead we get the contents
- * as a QTextDocumentFragment in a Block::CacheItem which can be used to reconstruct the
+ * as a QTextDocumentFragment in a Blocks::CacheItem which can be used to reconstruct the
  * model later.
  *
- * @sa ChatBarMessageContentModel, QTextDocumentFragment, QTextDocument, Block::CacheItem
+ * @sa ChatBarMessageContentModel, QTextDocumentFragment, QTextDocument, Blocks::CacheItem
  */
 class Cache
 {
@@ -121,11 +136,11 @@ public:
     void append(std::unique_ptr<CacheItem> item);
 
     /**
-     * @brief Fill the cache from a list of MessageComponents.
+     * @brief Fill the cache from a list of Blocks.
      *
-     * @sa MessageComponent
+     * @sa Block
      */
-    void fill(QList<MessageComponent> components);
+    void fill(QList<Block> components);
 
     /**
      * @brief Remove the CacheItem at the given index from the cache.

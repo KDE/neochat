@@ -10,7 +10,7 @@
 
 #include "chatbarcache.h"
 #include "contentprovider.h"
-#include "enums/messagecomponenttype.h"
+#include "enums/blocktype.h"
 #include "eventhandler.h"
 #include "neochatroom.h"
 
@@ -197,7 +197,7 @@ QVariant ThreadFetchModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ComponentTypeRole) {
-        return MessageComponentType::FetchButton;
+        return Blocks::FetchButton;
     }
     return {};
 }
@@ -248,7 +248,7 @@ QVariant ThreadChatBarModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ComponentTypeRole) {
-        return m_room->threadCache()->threadId() == threadModel->threadRootId() ? MessageComponentType::ChatBar : MessageComponentType::ReplyButton;
+        return m_room->threadCache()->threadId() == threadModel->threadRootId() ? Blocks::ChatBar : Blocks::ReplyButton;
     }
     if (role == ChatBarCacheRole) {
         if (m_room == nullptr) {

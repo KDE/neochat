@@ -3,20 +3,23 @@
 
 #pragma once
 
-#include "enums/messagecomponenttype.h"
+#include "enums/blocktype.h"
 
-struct MessageComponent {
-    MessageComponentType::Type type = MessageComponentType::Other;
+namespace Blocks
+{
+struct Block {
+    Type type = Other;
     QString display;
     QVariantMap attributes;
 
-    bool operator==(const MessageComponent &right) const
+    bool operator==(const Block &right) const
     {
         return type == right.type && display == right.display && attributes == right.attributes;
     }
 
     bool isEmpty() const
     {
-        return type == MessageComponentType::Other;
+        return type == Other;
     }
 };
+}

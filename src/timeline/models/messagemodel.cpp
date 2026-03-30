@@ -13,8 +13,8 @@
 #include <KFormat>
 
 #include "contentprovider.h"
+#include "enums/blocktype.h"
 #include "enums/delegatetype.h"
-#include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
 #include "events/pollevent.h"
 #include "models/eventmessagecontentmodel.h"
@@ -307,8 +307,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsEditableRole) {
-        return MessageComponentType::typeForEvent(event.value().get()) == MessageComponentType::Text
-            && event.value().get().senderId() == eventRoom->localMember().id();
+        return Blocks::typeForEvent(event.value().get()) == Blocks::Text && event.value().get().senderId() == eventRoom->localMember().id();
     }
 
     if (role == ShowAuthorRole) {

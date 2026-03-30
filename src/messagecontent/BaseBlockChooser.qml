@@ -10,9 +10,10 @@ import Qt.labs.qmlmodels
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.neochat.libneochat
 
 /**
- * @brief Select a message component based on a MessageComponentType.
+ * @brief Select a message component based on a Blocks.Type.
  */
 DelegateChooser {
     id: root
@@ -44,12 +45,12 @@ DelegateChooser {
     role: "componentType"
 
     DelegateChoice {
-        roleValue: MessageComponentType.Author
+        roleValue: Blocks.Author
         delegate: AuthorComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Text
+        roleValue: Blocks.Text
         delegate: TextComponent {
             onSelectedTextChanged: root.selectedTextChanged(selectedText)
             onHoveredLinkChanged: root.hoveredLinkChanged(hoveredLink)
@@ -57,19 +58,19 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Image
+        roleValue: Blocks.Image
         delegate: ImageComponent {
             rightAnchorMargin: root.rightAnchorMargin
         }
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Video
+        roleValue: Blocks.Video
         delegate: VideoComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Code
+        roleValue: Blocks.Code
         delegate: CodeComponent {
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
@@ -78,7 +79,7 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Quote
+        roleValue: Blocks.Quote
         delegate: QuoteComponent {
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
@@ -87,66 +88,66 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Audio
+        roleValue: Blocks.Audio
         delegate: AudioComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.File
+        roleValue: Blocks.File
         delegate: FileComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Itinerary
+        roleValue: Blocks.Itinerary
         delegate: ItineraryComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Pdf
+        roleValue: Blocks.Pdf
         delegate: PdfPreviewComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Poll
+        roleValue: Blocks.Poll
         delegate: PollComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Location
+        roleValue: Blocks.Location
         delegate: LocationComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.LiveLocation
+        roleValue: Blocks.LiveLocation
         delegate: LiveLocationComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Encrypted
+        roleValue: Blocks.Encrypted
         delegate: EncryptedComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Reply
+        roleValue: Blocks.Reply
         delegate: ReplyComponent {
             rightAnchorMargin: root.rightAnchorMargin
         }
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Reaction
+        roleValue: Blocks.Reaction
         delegate: ReactionComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.LinkPreview
+        roleValue: Blocks.LinkPreview
         delegate: LinkPreviewComponent {
             onRemove: index => root.removeLinkPreview(index)
         }
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.LinkPreviewLoad
+        roleValue: Blocks.LinkPreviewLoad
         delegate: LinkPreviewLoadComponent {
             type: LinkPreviewLoadComponent.LinkPreview
             onRemove: index => root.removeLinkPreview(index)
@@ -154,19 +155,19 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.ReplyButton
+        roleValue: Blocks.ReplyButton
         delegate: ReplyButtonComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.FetchButton
+        roleValue: Blocks.FetchButton
         delegate: FetchButtonComponent {
             onFetchMoreEvents: root.fetchMoreEvents()
         }
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Verification
+        roleValue: Blocks.Verification
         delegate: MimeComponent {
             mimeIconSource: "security-high"
             label: i18n("%1 started a user verification", model.author.htmlSafeDisplayName)
@@ -174,12 +175,12 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Loading
+        roleValue: Blocks.Loading
         delegate: LoadComponent {}
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Separator
+        roleValue: Blocks.Separator
         delegate: Kirigami.Separator {
             Layout.fillWidth: true
             Layout.maximumWidth: Message.maxContentWidth
@@ -187,7 +188,7 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.Other
+        roleValue: Blocks.Other
         delegate: Item {}
     }
 }

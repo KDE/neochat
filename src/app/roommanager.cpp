@@ -146,9 +146,9 @@ RoomManager::RoomManager(QObject *parent)
             resetState();
         }
     });
-    Block::CacheItem::richTextActive = NeoChatConfig::richChatBar();
+    Blocks::CacheItem::richTextActive = NeoChatConfig::richChatBar();
     connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
-        Block::CacheItem::richTextActive = NeoChatConfig::richChatBar();
+        Blocks::CacheItem::richTextActive = NeoChatConfig::richChatBar();
     });
     ChatMarkdownHelper::richTextActive = NeoChatConfig::richChatBar();
     connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
@@ -321,7 +321,7 @@ void RoomManager::viewEventMenu(QObject *parent, const RoomEvent *event, NeoChat
                             room,
                             event->id(),
                             room->qmlSafeMember(event->senderId()),
-                            MessageComponentType::typeForEvent(*event),
+                            Blocks::typeForEvent(*event),
                             EventHandler::plainBody(room, event),
                             EventHandler::richBody(room, event),
                             EventHandler::mediaInfo(room, event)["mimeType"_L1].toString(),

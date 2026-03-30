@@ -15,7 +15,11 @@ namespace Quotient
 class RoomMember;
 }
 
-struct MessageComponent;
+namespace Block
+{
+struct Block;
+}
+
 class NeoChatRoom;
 
 /**
@@ -118,7 +122,7 @@ public:
 
     explicit ChatBarCache(NeoChatRoom *room);
 
-    Block::Cache &cache();
+    Blocks::Cache &cache();
     QString sendText() const;
 
     bool isReplying() const;
@@ -133,7 +137,7 @@ public:
     bool relationAuthorIsPresent() const;
 
     QString relationMessage() const;
-    QList<MessageComponent> relationComponents() const;
+    QList<Blocks::Block> relationComponents() const;
 
     bool isThreaded() const;
     QString threadId() const;
@@ -168,7 +172,7 @@ Q_SIGNALS:
     void relationAuthorIsPresentChanged();
 
 private:
-    Block::Cache m_cache;
+    Blocks::Cache m_cache;
     QPointer<NeoChatRoom> m_room;
 
     QString m_relationId = QString();

@@ -13,10 +13,10 @@
 #include <KSyntaxHighlighting/Repository>
 #endif
 
-#include "enums/messagecomponenttype.h"
+#include "block.h"
+#include "enums/blocktype.h"
 #include "filetype.h"
 #include "linkpreviewer.h"
-#include "messagecomponent.h"
 #include "models/itinerarymodel.h"
 #include "models/reactionmodel.h"
 #include "neochatroom.h"
@@ -30,7 +30,7 @@ class NeoChatDateTime;
  * A model to visualise the content of a message.
  *
  * This is a base model designed to be extended. The inherited class needs to define
- * how the MessageComponents are added.
+ * how the Blocks are added.
  */
 class MessageContentModel : public QAbstractListModel
 {
@@ -162,13 +162,13 @@ protected:
      */
     virtual QString threadRootId() const;
 
-    using ComponentIt = QList<MessageComponent>::iterator;
+    using ComponentIt = QList<Blocks::Block>::iterator;
 
-    QList<MessageComponent> m_components;
-    bool hasComponentType(MessageComponentType::Type type) const;
-    bool hasComponentType(const QList<MessageComponentType::Type> &types) const;
-    void forEachComponentOfType(MessageComponentType::Type type, std::function<ComponentIt(ComponentIt)> function);
-    void forEachComponentOfType(QList<MessageComponentType::Type> types, std::function<ComponentIt(ComponentIt)> function);
+    QList<Blocks::Block> m_components;
+    bool hasComponentType(Blocks::Type type) const;
+    bool hasComponentType(const QList<Blocks::Type> &types) const;
+    void forEachComponentOfType(Blocks::Type type, std::function<ComponentIt(ComponentIt)> function);
+    void forEachComponentOfType(QList<Blocks::Type> types, std::function<ComponentIt(ComponentIt)> function);
 
     /**
      * @brief The ID for the event that the message is replying to, if any.
@@ -195,7 +195,7 @@ private:
     std::function<ComponentIt(const ComponentIt &)> m_fileFunction = [this](ComponentIt it) {
         if (m_itineraryModel && m_itineraryModel->rowCount() > 0) {
             beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-            it = m_components.insert(it + 1, MessageComponent{MessageComponentType::Itinerary, QString(), {}});
+            it = m_components.insert(it + 1, Blocks::Block{Blocks::Itinerary, QString(), {}});
             endInsertRows();
             return it;
         } else if (m_emptyItinerary) {
@@ -216,7 +216,9 @@ private:
                 }
 
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                it = m_components.insert(it + 1, MessageComponent{MessageComponentType::Code,  QString::fromStdString(file.readAll().toStdString()), {{u"class"_s, definitionForFile.name()}}});
+                it = m_components.insert(
+                    it + 1,
+                    Blocks::Block{Blocks::Code, QString::fromStdString(file.readAll().toStdString()), {{u"class"_s, definitionForFile.name()}}});
                 endInsertRows();
                 return it;
             }
@@ -225,7 +227,7 @@ private:
             if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
                 QImageReader reader(fileTransferInfo.localPath.path());
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                it = m_components.insert(it + 1, MessageComponent{MessageComponentType::Pdf, QString(), {{u"size"_s, reader.size()}}});
+                it = m_components.insert(it + 1, Blocks::Block{Blocks::Pdf, QString(), {{u"size"_s, reader.size()}}});
                 endInsertRows();
             }
         }
@@ -263,7 +265,7 @@ private:
     };
 
     QList<QUrl> m_removedLinkPreviews;
-    MessageComponent linkPreviewComponent(const QUrl &link);
+    Blocks::Block linkPreviewComponent(const QUrl &link);
 
     void updateSpoilers();
     void updateSpoiler(const QModelIndex &index);

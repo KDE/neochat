@@ -40,15 +40,15 @@ void MessageContentModel::initializeModel()
         }
 
         if (m_room->urlPreviewEnabled()) {
-            forEachComponentOfType({MessageComponentType::Text, MessageComponentType::Quote}, m_linkPreviewAddFunction);
+            forEachComponentOfType({Blocks::Text, Blocks::Quote}, m_linkPreviewAddFunction);
         } else {
-            forEachComponentOfType({MessageComponentType::LinkPreview, MessageComponentType::LinkPreviewLoad}, m_linkPreviewRemoveFunction);
+            forEachComponentOfType({Blocks::LinkPreview, Blocks::LinkPreviewLoad}, m_linkPreviewRemoveFunction);
         }
         m_components.squeeze();
     });
     connect(this, &MessageContentModel::itineraryUpdated, this, [this]() {
-        if (hasComponentType(MessageComponentType::File)) {
-            forEachComponentOfType(MessageComponentType::File, m_fileFunction);
+        if (hasComponentType(Blocks::File)) {
+            forEachComponentOfType(Blocks::File, m_fileFunction);
         }
     });
 }
@@ -73,26 +73,22 @@ void MessageContentModel::setRoom(NeoChatRoom *room)
     if (m_room) {
         connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
             if (eventId == m_eventId) {
-                forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
-                                       m_fileInfoFunction);
+                forEachComponentOfType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video}, m_fileInfoFunction);
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
             if (eventId == m_eventId) {
-                forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
-                                       m_fileInfoFunction);
+                forEachComponentOfType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video}, m_fileInfoFunction);
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
             if (m_room != nullptr && eventId == m_eventId) {
-                forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
-                                       m_fileInfoFunction);
+                forEachComponentOfType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video}, m_fileInfoFunction);
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
             if (eventId == m_eventId) {
-                forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
-                                       m_fileInfoFunction);
+                forEachComponentOfType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video}, m_fileInfoFunction);
                 if (errorMessage.isEmpty()) {
                     Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
                 } else {
@@ -189,7 +185,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return threadRootId();
     }
     if (role == LinkPreviewerRole) {
-        if (component.type == MessageComponentType::LinkPreview) {
+        if (component.type == Blocks::LinkPreview) {
             return QVariant::fromValue<LinkPreviewer *>(
                 dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(component.attributes["link"_L1].toUrl()));
         } else {
@@ -245,30 +241,29 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     return roles;
 }
 
-bool MessageContentModel::hasComponentType(MessageComponentType::Type type) const
+bool MessageContentModel::hasComponentType(Blocks::Type type) const
 {
     return std::find_if(m_components.cbegin(),
                         m_components.cend(),
-                        [type](const MessageComponent &component) {
+                        [type](const Blocks::Block &component) {
                             return component.type == type;
                         })
         != m_components.cend();
 }
 
-bool MessageContentModel::hasComponentType(const QList<MessageComponentType::Type> &types) const
+bool MessageContentModel::hasComponentType(const QList<Blocks::Type> &types) const
 {
-    return std::ranges::any_of(types, [this](const MessageComponentType::Type &type) {
+    return std::ranges::any_of(types, [this](const Blocks::Type &type) {
         return hasComponentType(type);
     });
 }
 
-void MessageContentModel::forEachComponentOfType(MessageComponentType::Type type,
-                                                 std::function<MessageContentModel::ComponentIt(MessageContentModel::ComponentIt)> function)
+void MessageContentModel::forEachComponentOfType(Blocks::Type type, std::function<MessageContentModel::ComponentIt(MessageContentModel::ComponentIt)> function)
 {
     auto it = m_components.begin();
     while ((it = std::find_if(it,
                               m_components.end(),
-                              [type](const MessageComponent &component) {
+                              [type](const Blocks::Block &component) {
                                   return component.type == type;
                               }))
            != m_components.end()) {
@@ -276,7 +271,7 @@ void MessageContentModel::forEachComponentOfType(MessageComponentType::Type type
     }
 }
 
-void MessageContentModel::forEachComponentOfType(QList<MessageComponentType::Type> types,
+void MessageContentModel::forEachComponentOfType(QList<Blocks::Type> types,
                                                  std::function<MessageContentModel::ComponentIt(MessageContentModel::ComponentIt)> function)
 {
     for (const auto &type : types) {
@@ -297,8 +292,8 @@ void MessageContentModel::updateReplyModel()
             m_replyModel->disconnect(this);
             m_replyModel->deleteLater();
         }
-        if (hasComponentType(MessageComponentType::Reply)) {
-            forEachComponentOfType(MessageComponentType::Reply, [this](ComponentIt it) {
+        if (hasComponentType(Blocks::Reply)) {
+            forEachComponentOfType(Blocks::Reply, [this](ComponentIt it) {
                 beginRemoveRows({}, std::distance(m_components.begin(), it), std::distance(m_components.begin(), it));
                 it = m_components.erase(it);
                 endRemoveRows();
@@ -312,16 +307,16 @@ void MessageContentModel::updateReplyModel()
         m_replyModel = new EventMessageContentModel(m_room, *eventId, true, false, this);
     }
 
-    if (!hasComponentType(MessageComponentType::Reply)) {
+    if (!hasComponentType(Blocks::Reply)) {
         int insertRow = 0;
-        if (m_components.first().type == MessageComponentType::Author) {
+        if (m_components.first().type == Blocks::Author) {
             insertRow = 1;
         }
         beginInsertRows({}, insertRow, insertRow);
-        m_components.insert(insertRow, MessageComponent{MessageComponentType::Reply, QString(), {}});
+        m_components.insert(insertRow, Blocks::Block{Blocks::Reply, QString(), {}});
         endInsertRows();
     } else {
-        forEachComponentOfType(MessageComponentType::Reply, [this](ComponentIt it) {
+        forEachComponentOfType(Blocks::Reply, [this](ComponentIt it) {
             const auto replyIndex = index(std::distance(m_components.begin(), it));
             dataChanged(replyIndex, replyIndex, {ReplyContentModelRole});
             return ++it;
@@ -329,28 +324,28 @@ void MessageContentModel::updateReplyModel()
     }
 }
 
-MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
+Blocks::Block MessageContentModel::linkPreviewComponent(const QUrl &link)
 {
     const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
     if (linkPreviewer == nullptr) {
         return {};
     }
     if (linkPreviewer->loaded()) {
-        return MessageComponent{MessageComponentType::LinkPreview, QString(), {{"link"_L1, link}}};
+        return Blocks::Block{Blocks::LinkPreview, QString(), {{"link"_L1, link}}};
     }
     connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
         const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
         if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
-            forEachComponentOfType(MessageComponentType::LinkPreviewLoad, [this, link](ComponentIt it) {
+            forEachComponentOfType(Blocks::LinkPreviewLoad, [this, link](ComponentIt it) {
                 if (it->attributes["link"_L1].toUrl() == link) {
-                    it->type = MessageComponentType::LinkPreview;
+                    it->type = Blocks::LinkPreview;
                     Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
                 }
                 return ++it;
             });
         }
     });
-    return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_L1, link}}};
+    return Blocks::Block{Blocks::LinkPreviewLoad, QString(), {{"link"_L1, link}}};
 }
 
 void MessageContentModel::closeLinkPreview(int row)
@@ -360,7 +355,7 @@ void MessageContentModel::closeLinkPreview(int row)
         return;
     }
 
-    if (m_components[row].type == MessageComponentType::LinkPreview || m_components[row].type == MessageComponentType::LinkPreviewLoad) {
+    if (m_components[row].type == Blocks::LinkPreview || m_components[row].type == Blocks::LinkPreviewLoad) {
         beginRemoveRows({}, row, row);
         m_removedLinkPreviews += m_components[row].attributes["link"_L1].toUrl();
         m_components.remove(row);
@@ -396,7 +391,7 @@ void MessageContentModel::toggleSpoiler(QModelIndex index)
         qCWarning(MessageContent) << __FUNCTION__ << "called with invalid row" << row << m_components.size();
         return;
     }
-    if (m_components[row].type != MessageComponentType::Text) {
+    if (m_components[row].type != Blocks::Text) {
         return;
     }
     const auto spoilerRevealed = !m_components[row].attributes.value("spoilerRevealed"_L1, false).toBool();

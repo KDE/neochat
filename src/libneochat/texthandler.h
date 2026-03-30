@@ -6,7 +6,7 @@
 #include <QObject>
 #include <QString>
 
-#include "messagecomponent.h"
+#include "block.h"
 #include "neochatroom.h"
 
 namespace Quotient
@@ -96,17 +96,17 @@ public:
     QString handleRecievePlainText(Qt::TextFormat inputFormat = Qt::PlainText, const bool &stripNewlines = false);
 
     /**
-     * @brief Split the given string into MessageComponent blocks.
+     * @brief Split the given string into Blocks.
      *
      * Separate blocks are used for thing like paragraphs, codeblocks and quotes.
      * Each block will have handleRecieveRichText() called on it.
      */
-    QList<MessageComponent> textComponents(QString string,
-                                           Qt::TextFormat inputFormat = Qt::RichText,
-                                           const NeoChatRoom *room = nullptr,
-                                           const Quotient::RoomEvent *event = nullptr,
-                                           bool isEdited = false,
-                                           bool spoilerRevealed = false);
+    QList<Blocks::Block> textComponents(QString string,
+                                        Qt::TextFormat inputFormat = Qt::RichText,
+                                        const NeoChatRoom *room = nullptr,
+                                        const Quotient::RoomEvent *event = nullptr,
+                                        bool isEdited = false,
+                                        bool spoilerRevealed = false);
 
     /**
      * @brief Modify the style parameters of the spoilers to reveal or hide the text.
@@ -125,13 +125,13 @@ private:
     Type nextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType) const;
 
     int nextBlockPos(const QString &string);
-    MessageComponent nextBlock(const QString &string,
-                               int nextBlockPos,
-                               Qt::TextFormat inputFormat = Qt::RichText,
-                               const NeoChatRoom *room = nullptr,
-                               const Quotient::RoomEvent *event = nullptr,
-                               bool isEdited = false,
-                               bool spoilerRevealed = false);
+    Blocks::Block nextBlock(const QString &string,
+                            int nextBlockPos,
+                            Qt::TextFormat inputFormat = Qt::RichText,
+                            const NeoChatRoom *room = nullptr,
+                            const Quotient::RoomEvent *event = nullptr,
+                            bool isEdited = false,
+                            bool spoilerRevealed = false);
     QString stripBlockTags(QString string, const QString &tagType) const;
 
     QString getTagType(const QString &tagToken) const;
