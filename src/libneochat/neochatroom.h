@@ -230,6 +230,24 @@ class NeoChatRoom : public Quotient::Room
      */
     Q_PROPERTY(bool canDeleteSelectedMessages READ canDeleteSelectedMessages NOTIFY selectionChanged)
 
+    /**
+     * @brief The current join rule for the room as a QString.
+     *
+     * Possible values are [public, knock, invite, private, restricted].
+     *
+     * @sa https://spec.matrix.org/v1.5/client-server-api/#mroomjoin_rules
+     */
+    Q_PROPERTY(QString joinRuleString READ joinRuleString WRITE setJoinRuleString NOTIFY joinRuleStringChanged)
+
+#if Quotient_VERSION_MINOR < 10
+    /**
+     * @brief The space IDs that members of can join this room.
+     *
+     * Empty if the join rule is not restricted.
+     */
+    Q_PROPERTY(QList<QString> allowIds READ allowIds NOTIFY joinRuleStringChanged)
+#endif
+
 public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
@@ -730,6 +748,27 @@ public:
      */
     void sortAllMembers();
 
+    [[nodiscard]] QString joinRuleString() const;
+
+    /**
+     * @brief Set the join rule for the room.
+     *
+     * Will fail if the user doesn't have the required privileges.
+     *
+     * @param joinRule the join rule [public, knock, invite, private, restricted].
+     * @param allowedSpaces only used when the join rule is restricted. This is a
+     *        list of space Matrix IDs that members of can join without an invite.
+     *        If the rule is restricted and this list is empty it is treated as a join
+     *        rule of private instead.
+     *
+     * @sa https://spec.matrix.org/latest/client-server-api/#mroomjoin_rules
+     */
+    Q_INVOKABLE void setJoinRuleString(const QString &joinRule, const QList<QString> &allowedSpaces = {});
+
+#if Quotient_VERSION_MAJOR < 10
+    QList<QString> allowIds() const;
+#endif
+
 private:
     bool m_visible = false;
 
@@ -806,6 +845,7 @@ Q_SIGNALS:
     void highlightCycleStartedChanged();
     void spaceHasUnreadMessagesChanged();
     void selectionChanged();
+    void joinRuleStringChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
