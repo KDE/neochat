@@ -38,6 +38,12 @@ bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QMo
         return false;
     }
 
+    // Ensure "Find your friends" is at the top where its discoverable
+    if (sourceModel()->data(source_left, RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::AddDirect && m_mode == DirectChats
+        && sourceModel()->rowCount(sourceModel()->index(NeoChatRoomType::Direct, 0)) > 0) {
+        return true;
+    }
+
     // Don't sort the top level categories, unless there's a server notice with unread messages.
     if (!source_left.parent().isValid() || !source_right.parent().isValid()) {
         if (source_left.row() == NeoChatRoomType::ServerNotice) {
