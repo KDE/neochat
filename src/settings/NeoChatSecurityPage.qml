@@ -67,6 +67,10 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
+        FormCard.FormDelegateSeparator {
+            above: typingNotificationsDelegate
+            below: publicReceiptsDelegate
+        }
         FormCard.FormCheckDelegate {
             id: publicReceiptsDelegate
             text: i18nc("@option:check", "Send read receipts")
