@@ -329,6 +329,13 @@ if(ANDROID)
         "user-symbolic"
         "mark-location-symbolic"
         "amarok_playcount"
+        "network-server-symbolic"
+        "document-export"
+        "document-import"
+        "unlock"
+        "input-keyboard-symbolic"
+        "cloud-upload"
+        "emblem-shared-symbolic"
 
         ${KIRIGAMI_ADDONS_ICONS}
     )
