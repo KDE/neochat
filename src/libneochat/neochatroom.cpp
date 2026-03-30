@@ -51,6 +51,9 @@
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 #include "jobs/neochatreportroomjob.h"
+#if Quotient_VERSION_MINOR < 10
+#include "events/joinrulesevent.h"
+#endif
 
 #ifndef Q_OS_ANDROID
 #include <KIO/Job>
@@ -141,6 +144,7 @@ NeoChatRoom::NeoChatRoom(Connection *c, QString roomId, JoinState joinState)
         Q_EMIT parentIdsChanged();
         Q_EMIT canonicalParentChanged();
         Q_EMIT readOnlyChanged();
+        Q_EMIT joinRuleStringChanged();
     });
     connect(connection, &Connection::capabilitiesLoaded, this, &NeoChatRoom::maxRoomVersionChanged);
     connect(this, &Room::changed, this, [this]() {
@@ -2050,5 +2054,68 @@ void NeoChatRoom::clearSelectedMessages()
     m_selectedMessageIds.clear();
     Q_EMIT selectionChanged();
 }
+
+QString NeoChatRoom::joinRuleString() const
+{
+#if Quotient_VERSION_MINOR < 10
+    auto joinRulesEvent = currentState().get<JoinRulesEvent>();
+    if (!joinRulesEvent) {
+        return {};
+    }
+    return joinRulesEvent->joinRule();
+#else
+    return JsonConverter<Quotient::JoinRule>::dump(joinRule());
+#endif
+}
+
+void NeoChatRoom::setJoinRuleString(const QString &joinRule, const QList<QString> &allowedSpaces)
+{
+#if Quotient_VERSION_MINOR < 10
+    if (!canSendState("m.room.join_rules"_L1)) {
+        qWarning() << "Power level too low to set join rules";
+        return;
+    }
+    auto actualRule = joinRule;
+    if (joinRule == "restricted"_L1 && allowedSpaces.isEmpty()) {
+        actualRule = "private"_L1;
+    }
+
+    QJsonArray allowConditions;
+    if (actualRule == "restricted"_L1) {
+        for (auto allowedSpace : allowedSpaces) {
+            allowConditions += QJsonObject{{"type"_L1, "m.room_membership"_L1}, {"room_id"_L1, allowedSpace}};
+        }
+    }
+
+    QJsonObject content;
+    content.insert("join_rule"_L1, joinRule);
+    if (!allowConditions.isEmpty()) {
+        content.insert("allow"_L1, allowConditions);
+    }
+    setState("m.room.join_rules"_L1, {}, content);
+    // Not emitting joinRuleChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
+#else
+    setJoinRule(JsonConverter<Quotient::JoinRule>::load(joinRule), allowedSpaces);
+#endif
+}
+
+#if Quotient_VERSION_MINOR < 10
+QList<QString> NeoChatRoom::allowIds() const
+{
+    auto joinRulesEvent = currentState().get<JoinRulesEvent>();
+    if (!joinRulesEvent) {
+        return {};
+    }
+    if (joinRulesEvent->joinRule() != "restricted"_L1) {
+        return {};
+    }
+
+    QList<QString> roomIds;
+    for (auto allow : joinRulesEvent->allow()) {
+        roomIds += allow.toObject().value("room_id"_L1).toString();
+    }
+    return roomIds;
+}
+#endif
 
 #include "moc_neochatroom.cpp"

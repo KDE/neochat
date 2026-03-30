@@ -60,6 +60,13 @@ target_sources(LibNeoChat PRIVATE
     models/widgetmodel.h
 )
 
+if (${QuotientQt6_VERSION_MAJOR} LESS 10)
+    target_sources(LibNeoChat PRIVATE
+            events/joinrulesevent.cpp
+            events/joinrulesevent.h
+    )
+endif()
+
 ecm_qt_declare_logging_category(LibNeoChat
     HEADER "chatbarlogging.h"
     IDENTIFIER "ChatBar"

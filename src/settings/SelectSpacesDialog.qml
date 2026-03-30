@@ -11,8 +11,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as Components
 
-import Quotient
-
 import org.kde.neochat
 
 Kirigami.Dialog {
@@ -26,7 +24,7 @@ Kirigami.Dialog {
     /**
      * @brief The current list of space IDs that members of can join this room.
      */
-    property list<string> restrictedIds: room.restrictedIds
+    property list<string> allowIds: room.allowIds
 
     leftPadding: 0
     rightPadding: 0
@@ -44,7 +42,7 @@ Kirigami.Dialog {
                 ids.push(spaceGroup.buttons[i].modelData.id);
             }
         }
-        root.room.setJoinRule(JoinRule.Restricted, ids);
+        root.room.setJoinRuleString("restricted", ids);
     }
 
     QQC2.ButtonGroup {
@@ -63,7 +61,7 @@ Kirigami.Dialog {
 
                 text: modelData.displayName
                 description: modelData.canonicalAlias
-                checked: root.restrictedIds.includes(modelData.id)
+                checked: root.allowIds.includes(modelData.id)
                 QQC2.ButtonGroup.group: spaceGroup
 
                 leading: Components.Avatar {
