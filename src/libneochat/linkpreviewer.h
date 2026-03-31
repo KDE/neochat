@@ -50,7 +50,7 @@ class LinkPreviewer : public QObject
     /**
      * @brief Whether there is a link to preview.
      *
-     * A linkPreviwer is empty if the URL is empty.
+     * A linkPreviwer is empty if the title and description is empty.
      */
     Q_PROPERTY(bool empty READ empty NOTIFY emptyChanged)
 
