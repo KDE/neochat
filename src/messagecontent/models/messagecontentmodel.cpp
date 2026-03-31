@@ -340,14 +340,26 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
     }
     connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
         const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
+
         if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
-            forEachComponentOfType(MessageComponentType::LinkPreviewLoad, [this, link](ComponentIt it) {
+            QList<int> linkPreviewsToClose;
+            forEachComponentOfType(MessageComponentType::LinkPreviewLoad, [this, link, linkPreviewer, &linkPreviewsToClose](ComponentIt it) {
                 if (it->attributes["link"_L1].toUrl() == link) {
-                    it->type = MessageComponentType::LinkPreview;
-                    Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
+                    if (linkPreviewer->empty()) {
+                        // Hide the link preview, lest it be confusingly displayed with nothing in it!
+                        linkPreviewsToClose.push_back(it - m_components.begin());
+                    } else {
+                        it->type = MessageComponentType::LinkPreview;
+                        Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
+                    }
                 }
                 return ++it;
             });
+
+            // We need to do this outside of forEachComponentOfType to not invalidate iterators
+            for (const auto &index : linkPreviewsToClose) {
+                closeLinkPreview(index);
+            }
         }
     });
     return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_L1, link}}};

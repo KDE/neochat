@@ -90,7 +90,7 @@ void LinkPreviewer::loadUrlPreview()
 
 bool LinkPreviewer::empty() const
 {
-    return m_url.isEmpty();
+    return m_title.isEmpty() && m_description.isEmpty();
 }
 
 QList<QUrl> LinkPreviewer::linkPreviews(QString string)
