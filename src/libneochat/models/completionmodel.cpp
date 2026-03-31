@@ -14,6 +14,7 @@
 #include "models/customemojimodel.h"
 #include "models/emojimodel.h"
 #include "models/roomlistmodel.h"
+#include "userfiltermodel.h"
 #include "userlistmodel.h"
 
 CompletionModel::CompletionModel(QObject *parent)
@@ -264,12 +265,12 @@ void CompletionModel::setRoomListModel(RoomListModel *roomListModel)
     Q_EMIT roomListModelChanged();
 }
 
-UserListModel *CompletionModel::userListModel() const
+UserFilterModel *CompletionModel::userListModel() const
 {
     return m_userListModel;
 }
 
-void CompletionModel::setUserListModel(UserListModel *userListModel)
+void CompletionModel::setUserFilterModel(UserFilterModel *userListModel)
 {
     if (userListModel == m_userListModel) {
         return;

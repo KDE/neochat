@@ -14,7 +14,7 @@
 #include "neochatroom.h"
 
 class CompletionProxyModel;
-class UserListModel;
+class UserFilterModel;
 class RoomListModel;
 
 /**
@@ -48,12 +48,12 @@ class CompletionModel : public QAbstractListModel
     Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged)
 
     /**
-     * @brief The UserListModel to be used for room completions.
+     * @brief The UserFilterModel to be used for room completions.
      */
-    Q_PROPERTY(UserListModel *userListModel READ userListModel WRITE setUserListModel NOTIFY userListModelChanged)
+    Q_PROPERTY(UserFilterModel *userListModel READ userListModel WRITE setUserFilterModel NOTIFY userListModelChanged)
 
     /**
-     * @brief The UserListModel to be used for room completions.
+     * @brief The UserFilterModel to be used for room completions.
      */
     Q_PROPERTY(bool isCompleting READ isCompleting NOTIFY isCompletingChanged)
 
@@ -115,8 +115,8 @@ public:
     RoomListModel *roomListModel() const;
     void setRoomListModel(RoomListModel *roomListModel);
 
-    UserListModel *userListModel() const;
-    void setUserListModel(UserListModel *userListModel);
+    UserFilterModel *userListModel() const;
+    void setUserFilterModel(UserFilterModel *userListModel);
 
     AutoCompletionType autoCompletionType() const;
     void setAutoCompletionType(AutoCompletionType autoCompletionType);
@@ -142,7 +142,7 @@ private:
 
     void updateCompletion();
 
-    UserListModel *m_userListModel;
+    UserFilterModel *m_userListModel;
     RoomListModel *m_roomListModel;
     QConcatenateTablesProxyModel *m_emojiModel;
 };
