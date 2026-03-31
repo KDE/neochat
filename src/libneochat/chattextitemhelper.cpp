@@ -483,6 +483,7 @@ void ChatTextItemHelper::mergeFormatOnCursor(RichFormat::Format format, QTextCur
         if (format != RichFormat::Paragraph) {
             return;
         }
+        [[fallthrough]];
     case RichFormat::Style:
         mergeStyleFormatOnCursor(format, cursor);
         return;
