@@ -199,7 +199,8 @@ void CompletionModel::updateCompletion()
     cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
     const auto fullText = cursor.selectedText();
 
-    if (text.startsWith(QLatin1Char('@'))) {
+    // Don't start filtering users until they type one more character, because this can load a lot of users for big rooms.
+    if (text.startsWith(QLatin1Char('@')) && text.size() > 1) {
         m_filterModel->setSourceModel(m_userListModel);
         m_filterModel->setFilterRole(UserListModel::UserIdRole);
         m_filterModel->setSecondaryFilterRole(UserListModel::DisplayNameRole);
