@@ -54,8 +54,8 @@ QUrl avatarUrl(NeoChatRoom *room)
 // with an integration manager: https://github.com/matrix-org/matrix-spec-proposals/blob/main/proposals/1961-integrations-auth.md
 // Also requires accepting the terms: https://github.com/matrix-org/matrix-spec-proposals/blob/main/proposals/2140-terms-of-service-2.md
 // Example:
-// curl -X POST "https://scalar.vector.im/_matrix/integrations/v1/register" \
-//    -H "Content-Type: application/json" \
+// curl -X POST "https://scalar.vector.im/_matrix/integrations/v1/register"
+//    -H "Content-Type: application/json"
 //    --data '<OpenIdCredentials>'
 // Then append the resulting json key-value pairs as query items to the widget url.
 QUrl buildWidgetUrl(QByteArray templateString, NeoChatRoom *room, const QJsonObject &data)
