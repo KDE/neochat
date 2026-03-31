@@ -41,7 +41,12 @@ QQC2.Control {
     readonly property LibNeoChat.CompletionModel completionModel: LibNeoChat.CompletionModel {
         textItem: root.model.focusedTextItem
         roomListModel: RoomManager.roomListModel
-        userListModel: RoomManager.userListModel
+        // We plug in a UserFilterModel in here because it will filter by Join membership for us!
+        userListModel: UserFilterModel {
+            id: userFilterModel
+            sourceModel: RoomManager.userListModel
+            allowEmpty: true // We don't need its built-in sorting here
+        }
 
         onIsCompletingChanged: {
             if (!isCompleting) {
