@@ -46,7 +46,7 @@ SearchPage {
     }
 
     searchFieldPlaceholder: i18n("Find messages…")
-    noSearchPlaceholderMessage: i18n("Enter text to start searching")
+    noSearchPlaceholderMessage: senderId.length > 0 ? i18nc("@info:placeholder", "Enter text to start searching %1's messages", root.senderId) : i18nc("@info:placeholder", "Enter text to start searching")
     noResultPlaceholderMessage: i18n("No messages found")
     customPlaceholderIcon: "lock-symbolic"
     customPlaceholderText: !canSearch ? i18n("Cannot search in encrypted rooms") : ""
