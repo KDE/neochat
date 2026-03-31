@@ -304,10 +304,9 @@ void ChatTextItemHelper::insertFragment(const QTextDocumentFragment fragment, In
         return;
     }
 
-    int currentPosition;
+    int currentPosition = 0;
     switch (position) {
     case Start:
-        currentPosition = 0;
         break;
     case End:
         currentPosition = document()->characterCount() - 1;
