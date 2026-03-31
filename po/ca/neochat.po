@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:43+0000\n"
+"POT-Creation-Date: 2026-03-31 00:44+0000\n"
 "PO-Revision-Date: 2026-03-14 10:07+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4044,7 +4044,7 @@ msgctxt "@action:button"
 msgid "Go Back"
 msgstr "Enrere"
 
-#: src/messagecontent/BaseMessageComponentChooser.qml:172
+#: src/messagecontent/BaseBlockChooser.qml:173
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 ha començat una verificació d'usuari"
@@ -4188,7 +4188,7 @@ msgid "Loading URL preview"
 msgstr "S'està carregant la vista prèvia de l'URL"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
@@ -4216,19 +4216,19 @@ msgstr ""
 "Aquest missatge no s'ha trobat o no teniu permís per a veure'l o l'ha enviat "
 "un usuari ignorat"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "S'està carregant la resposta…"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:97
+#: src/messagecontent/models/messagecontentmodel.cpp:93
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Ha fallat en baixar el fitxer."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:100
+#: src/messagecontent/models/messagecontentmodel.cpp:96
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -5651,7 +5651,7 @@ msgid "Add keyword"
 msgstr "Afegeix una paraula clau"
 
 #: src/settings/GlobalNotificationsPage.qml:167
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:97
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6287,13 +6287,21 @@ msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "Envia notificacions d'escriptura"
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:72
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Send reactions"
+msgctxt "@option:check"
+msgid "Send read receipts"
+msgstr "Enviar reaccions"
+
+#: src/settings/NeoChatSecurityPage.qml:86
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "Oculta les imatges i vídeos de manera predeterminada"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6303,25 +6311,25 @@ msgstr ""
 "Quan aquesta opció està activada, les imatges i els vídeos només es mostren "
 "després de fer clic en un botó."
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:101
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
 msgstr "Tothom"
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
 msgstr "Tothom us pot enviar invitacions."
 
-#: src/settings/NeoChatSecurityPage.qml:98
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Known users"
 msgstr "Usuaris coneguts"
 
-#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:109
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
@@ -6329,38 +6337,38 @@ msgstr ""
 "Només us poden enviar invitacions els usuaris amb els quals compartiu una "
 "sala."
 
-#: src/settings/NeoChatSecurityPage.qml:99
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "El vostre servidor no permet aquest paràmetre."
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:119
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
 msgstr "Ningú"
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
 msgstr "Ningú us pot enviar invitacions."
 
-#: src/settings/NeoChatSecurityPage.qml:117
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Encriptatge"
 
-#: src/settings/NeoChatSecurityPage.qml:122
+#: src/settings/NeoChatSecurityPage.qml:132
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Activa l'encriptatge als xats nous"
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6369,63 +6377,63 @@ msgstr ""
 "Si s'activa, el NeoChat utilitzarà l'encriptatge en iniciar missatges "
 "directes nous."
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:147
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr "Gestiona l'emmagatzematge de claus"
 
-#: src/settings/NeoChatSecurityPage.qml:138
+#: src/settings/NeoChatSecurityPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Importa o desbloqueja les claus d'encriptatge des d'altres dispositius."
 
-#: src/settings/NeoChatSecurityPage.qml:141
+#: src/settings/NeoChatSecurityPage.qml:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Gestió de la còpia de seguretat del secret"
 
-#: src/settings/NeoChatSecurityPage.qml:150
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importa les claus"
 
-#: src/settings/NeoChatSecurityPage.qml:151
+#: src/settings/NeoChatSecurityPage.qml:161
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr ""
 "Importa les claus d'encriptatge a partir d'un fitxer de còpia de seguretat."
 
-#: src/settings/NeoChatSecurityPage.qml:157
+#: src/settings/NeoChatSecurityPage.qml:167
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importació de claus"
 
-#: src/settings/NeoChatSecurityPage.qml:160
+#: src/settings/NeoChatSecurityPage.qml:170
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Les claus s'han importat correctament"
 
-#: src/settings/NeoChatSecurityPage.qml:173
+#: src/settings/NeoChatSecurityPage.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Exporta les claus"
 
-#: src/settings/NeoChatSecurityPage.qml:174
+#: src/settings/NeoChatSecurityPage.qml:184
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Exporta les claus d'encriptatge d'aquest dispositiu a un fitxer."
 
-#: src/settings/NeoChatSecurityPage.qml:180
+#: src/settings/NeoChatSecurityPage.qml:190
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6699,19 +6707,27 @@ msgctxt "@action:button"
 msgid "Upgrade Room…"
 msgstr "Actualitza la sala…"
 
-#: src/settings/RoomAdvancedPage.qml:81
+#: src/settings/RoomAdvancedPage.qml:74
+#, fuzzy, kde-format
+#| msgctxt "The person that created a room"
+#| msgid "Creator"
+msgctxt "@title:group"
+msgid "Room Creators"
+msgstr "Creador"
+
+#: src/settings/RoomAdvancedPage.qml:103
 #, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "Actualitza una sala"
 
-#: src/settings/RoomAdvancedPage.qml:85
+#: src/settings/RoomAdvancedPage.qml:107
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "Selecciona la versió nova"
 
-#: src/settings/RoomAdvancedPage.qml:93
+#: src/settings/RoomAdvancedPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:43+0000\n"
+"POT-Creation-Date: 2026-03-31 00:44+0000\n"
 "PO-Revision-Date: 2026-03-21 07:09+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -4027,7 +4027,7 @@ msgctxt "@action:button"
 msgid "Go Back"
 msgstr "Przejdź wstecz"
 
-#: src/messagecontent/BaseMessageComponentChooser.qml:172
+#: src/messagecontent/BaseBlockChooser.qml:173
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 rozpoczął sprawdzanie użytkownika"
@@ -4171,7 +4171,7 @@ msgid "Loading URL preview"
 msgstr "Wczytywanie podglądu adresu URL"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
@@ -4199,19 +4199,19 @@ msgstr ""
 "Nie znaleziono tej wiadomości lub nie masz uprawnień do jej odczytu lub "
 "wysłał ją pomijany użytkownik"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Wczytywanie odpowiedzi…"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:97
+#: src/messagecontent/models/messagecontentmodel.cpp:93
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Nie udało się pobrać pliku."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:100
+#: src/messagecontent/models/messagecontentmodel.cpp:96
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -5634,7 +5634,7 @@ msgid "Add keyword"
 msgstr "Dodaj słowo kluczowe"
 
 #: src/settings/GlobalNotificationsPage.qml:167
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:97
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6272,13 +6272,21 @@ msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "Wysyłaj powiadomienia o pisaniu"
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:72
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Send reactions"
+msgctxt "@option:check"
+msgid "Send read receipts"
+msgstr "Wysyłanie reakcji"
+
+#: src/settings/NeoChatSecurityPage.qml:86
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "Domyślnie ukryj obrazy i filmy"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6288,63 +6296,63 @@ msgstr ""
 "Po zaznaczeniu tego, zdjęcia i filmy zostaną pokazane dopiero po naciśnięciu "
 "przycisku."
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:101
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
 msgstr "Wszyscy"
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
 msgstr "Każdy może wysłać ci zaproszenie."
 
-#: src/settings/NeoChatSecurityPage.qml:98
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Known users"
 msgstr "Znani użytkownicy"
 
-#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:109
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
 "Tylko użytkownicy, z którymi dzielisz pokój mogą wysyłać ci zaproszenia."
 
-#: src/settings/NeoChatSecurityPage.qml:99
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Twój serwer nie obsługuje tego ustawienia."
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:119
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
 msgstr "Nikt"
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
 msgstr "Nikt nie może wysyłać ci zaproszeń."
 
-#: src/settings/NeoChatSecurityPage.qml:117
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Szyfrowanie"
 
-#: src/settings/NeoChatSecurityPage.qml:122
+#: src/settings/NeoChatSecurityPage.qml:132
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Włącz szyfrowanie w nowych rozmowach"
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6353,61 +6361,61 @@ msgstr ""
 "Gdy włączone, to NeoChat będzie szyfrował nowozaczynane wiadomości "
 "bezpośrednie."
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:147
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr "Zarządzenie przechowywaniem kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:138
+#: src/settings/NeoChatSecurityPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Zaimportuj lub odblokuj klucze szyfrujące z innych urządzeń."
 
-#: src/settings/NeoChatSecurityPage.qml:141
+#: src/settings/NeoChatSecurityPage.qml:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Zarządzaj kopią zapasową danych poufnych"
 
-#: src/settings/NeoChatSecurityPage.qml:150
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:151
+#: src/settings/NeoChatSecurityPage.qml:161
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Zaimportuj klucze szyfrujące z pliku kopii zapasowej."
 
-#: src/settings/NeoChatSecurityPage.qml:157
+#: src/settings/NeoChatSecurityPage.qml:167
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:160
+#: src/settings/NeoChatSecurityPage.qml:170
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Pomyślnie zaimportowano klucze"
 
-#: src/settings/NeoChatSecurityPage.qml:173
+#: src/settings/NeoChatSecurityPage.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Eksportowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:174
+#: src/settings/NeoChatSecurityPage.qml:184
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Wyeksportuj klucze szyfrujące tego urządzenia do pliku."
 
-#: src/settings/NeoChatSecurityPage.qml:180
+#: src/settings/NeoChatSecurityPage.qml:190
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6681,19 +6689,27 @@ msgctxt "@action:button"
 msgid "Upgrade Room…"
 msgstr "Uaktualnij pokój…"
 
-#: src/settings/RoomAdvancedPage.qml:81
+#: src/settings/RoomAdvancedPage.qml:74
+#, fuzzy, kde-format
+#| msgctxt "The person that created a room"
+#| msgid "Creator"
+msgctxt "@title:group"
+msgid "Room Creators"
+msgstr "Twórca"
+
+#: src/settings/RoomAdvancedPage.qml:103
 #, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "Uaktualnij pokój"
 
-#: src/settings/RoomAdvancedPage.qml:85
+#: src/settings/RoomAdvancedPage.qml:107
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "Wybierz nową wersję"
 
-#: src/settings/RoomAdvancedPage.qml:93
+#: src/settings/RoomAdvancedPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
