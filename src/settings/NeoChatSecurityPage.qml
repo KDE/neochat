@@ -72,6 +72,7 @@ FormCard.FormCardPage {
             text: i18nc("@option:check", "Send read receipts")
             checked: NeoChatConfig.publicReadReceipts
             enabled: !NeoChatConfig.isPublicReadReceiptsImmutable
+            visible: Controller.libquotientMinorVersion >= 10
             onToggled: {
                 NeoChatConfig.publicReadReceipts = checked;
                 NeoChatConfig.save();
