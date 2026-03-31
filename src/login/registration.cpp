@@ -390,13 +390,13 @@ QString Registration::statusString() const
 {
     switch (m_status) {
     case NoServer:
-        return i18n("No server.");
+        return i18nc("@info", "No server.");
     case TestingHomeserver:
-        return i18n("Checking Server availability.");
+        return i18nc("@info", "Checking Server availability.");
     case InvalidServer:
-        return i18n("This is not a valid server.");
+        return i18nc("@info", "This is not a valid server.");
     case ServerNoRegistration:
-        return i18n("Registration for this server is disabled.");
+        return i18nc("@info", "Registration for this server is disabled.");
     case RegistrationTokenRequired:
         return i18nc("@info", "Registration for this server requires a registration token.");
     case NoRegistrationTokenPrevalidation:
@@ -404,15 +404,19 @@ QString Registration::statusString() const
     case InvalidRegistrationToken:
         return i18nc("@info", "This is not a valid registration token.");
     case NoUsername:
-        return i18n("No username.");
+        return i18nc("@info", "No username.");
     case TestingUsername:
-        return i18n("Checking username availability.");
+        return i18nc("@info", "Checking username availability.");
     case UsernameTaken:
-        return i18n("This username is not available.");
+        return i18nc("@info", "This username is not available.");
     case Ready:
-        return i18n("Continue");
+        return i18nc("@info", "Continue");
     case Working:
-        return i18n("Working");
+        return i18nc("@info", "Working");
+    case TestingRegistrationToken:
+        return i18nc("@info", "Checking registration token.");
+    case Oidc:
+        return i18nc("@info", "Waiting for login confirmation in your browser.");
     }
     return {};
 }
