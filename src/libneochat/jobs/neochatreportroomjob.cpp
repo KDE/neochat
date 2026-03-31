@@ -6,7 +6,7 @@
 using namespace Quotient;
 
 NeochatReportRoomJob::NeochatReportRoomJob(const QString &userId, const QString &reason)
-    : BaseJob(HttpVerb::Post, u"ReportRoomJob"_s, makePath(" /_matrix/client/v3/", userId, "/report"))
+    : BaseJob(HttpVerb::Post, u"ReportRoomJob"_s, makePath("/_matrix/client/v3/", userId, "/report"))
 {
     QJsonObject _dataJson;
     addParam<IfNotEmpty>(_dataJson, "reason"_L1, reason);
