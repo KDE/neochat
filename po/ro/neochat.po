@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# SPDX-FileCopyrightText: 2025 Sergiu Bivol <sergiu@cip.md>
-#
+# SPDX-FileCopyrightText: 2025, 2026 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2026 Viorel-Cătălin Răpițeanu <rapiteanu.catalin@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 02:38+0000\n"
-"PO-Revision-Date: 2025-10-20 11:56+0100\n"
+"POT-Creation-Date: 2026-04-01 02:40+0000\n"
+"PO-Revision-Date: 2026-03-31 15:03+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -216,11 +216,10 @@ msgid "Open Profile"
 msgstr "Deschide profilul"
 
 #: src/app/qml/AccountMenu.qml:33
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Scan a QR Code"
-msgstr "Scanați un cod QR"
+msgstr "Scanează un cod QR"
 
 #: src/app/qml/AccountMenu.qml:39 src/app/qml/QrScannerPage.qml:16
 #, kde-format
@@ -271,13 +270,10 @@ msgid "To proceed, accept the verification request on another device."
 msgstr "Pentru a continua, acceptați cererea de verificare pe alt dispozitiv."
 
 #: src/app/qml/AccountMenu.qml:89
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
-msgstr "Raport"
+msgstr "Asistență"
 
 #: src/app/qml/AccountMenu.qml:103
 #, kde-format
@@ -340,12 +336,10 @@ msgid "Copy to clipboard"
 msgstr "Copiază în clipboard"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Confirm Leaving Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Space"
-msgstr "Confirmați părăsirea camerei"
+msgstr "Confirmați părăsirea spațiului"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -360,12 +354,10 @@ msgid "Do you really want to leave %1?"
 msgstr "Sigur doriți să părăsiți %1?"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@action:button Leave this room/space"
 msgid "Leave"
-msgstr "Părăsește camera"
+msgstr "Părăsește"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -508,11 +500,10 @@ msgid "Create a Room"
 msgstr "Creează o cameră"
 
 #: src/app/qml/GlobalMenu.qml:48
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Explorează camere"
+msgstr "Explorează"
 
 #: src/app/qml/GlobalMenu.qml:60
 #, kde-format
@@ -601,20 +592,16 @@ msgid "Reject Invite"
 msgstr "Refuză invitația"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "Deschide profilul"
+msgstr "Vezi profilul lui %1"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "Refuză invitația"
+msgstr "Ignoră pe %1 și refuză invitația"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -743,12 +730,10 @@ msgid "The input is not a valid room ID or alias"
 msgstr "Textul introdus nu e un identificator sau alias valid de cameră"
 
 #: src/app/qml/ManualRoomDialog.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join this room/space"
 msgid "Join"
-msgstr "Alăturare"
+msgstr "Alătură"
 
 #: src/app/qml/ManualUserDialog.qml:26
 #, kde-format
@@ -775,21 +760,19 @@ msgstr "Textul introdus nu e un identificator valid de utilizator"
 #, kde-format
 msgctxt "@action:button Perform an action with this user ID"
 msgid "Ok"
-msgstr ""
+msgstr "Bine"
 
 #: src/app/qml/MeetingDialog.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Join Meeting"
-msgstr ""
+msgstr "Alătură la ședință"
 
 #: src/app/qml/MeetingDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start Meeting"
-msgstr "Începe conversația"
+msgstr "Începe ședință"
 
 #: src/app/qml/MeetingDialog.qml:17
 #, kde-format
@@ -804,20 +787,16 @@ msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr ""
 
 #: src/app/qml/MeetingDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
-msgstr "Alăturare"
+msgstr "Alătură"
 
 #: src/app/qml/MeetingDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
-msgstr "Începe conversația"
+msgstr "Începe"
 
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
@@ -948,19 +927,19 @@ msgstr "Ignoră"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "Alătură la ședință Jitsi…"
 
 #: src/app/qml/RoomPage.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "Începe ședință Jitsi…"
 
 #: src/app/qml/RoomPage.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr ""
+msgstr "Nu aveți permisiunile pentru începerea ședințelor Jitsi"
 
 #: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:182
 #: src/roominfo/RoomInformation.qml:109
@@ -983,53 +962,47 @@ msgid "Pinned Messages"
 msgstr "Mesaje fixate"
 
 #: src/app/qml/RoomPage.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@info"
 msgid "Selected Messages: %1"
-msgstr "Mesaje directe"
+msgstr "Mesaje alese: %1"
 
 #: src/app/qml/RoomPage.qml:241
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
-msgstr ""
+msgstr "Copiază conversația"
 
 #: src/app/qml/RoomPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Copy to clipboard"
+#, kde-format
 msgctxt "@info"
 msgid "Conversation copied to clipboard"
-msgstr "Copiază în clipboard"
+msgstr "Conversație copiată în clipboard"
 
 #: src/app/qml/RoomPage.qml:249
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Messages"
-msgstr "Mesaje directe"
+msgstr "Șterge mesajele"
 
 #: src/app/qml/RoomPage.qml:255 src/app/qml/RoomPage.qml:262
 #: src/app/qml/UserDetailDialog.qml:331
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
-msgstr ""
+msgstr "Eliminați mesaje"
 
 #: src/app/qml/RoomPage.qml:256
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
-msgstr "Motivul pentru care utilizatorul e dat afară"
+msgstr "Opțional, oferiți un motiv pentru ștergerea acestor mesaje"
 
 #: src/app/qml/RoomPage.qml:257 src/app/qml/UserDetailDialog.qml:333
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
-msgstr ""
+msgstr "Elimină"
 
 #: src/app/qml/RoomPage.qml:339
 #, kde-format
@@ -1047,7 +1020,7 @@ msgstr "Alegeți o cameră sau alăturați-vă la una pentru a începe"
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
-msgstr ""
+msgstr "NeoChat e deconectat. Verificați conexiunea la rețea."
 
 #: src/app/qml/RoomPage.qml:408
 #, kde-format
@@ -1059,7 +1032,7 @@ msgstr "Sursă mesaj"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "Văzut de"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1140,73 +1113,64 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "URL-ul partajat pentru imagine e <a href='%1'>%1</a>"
 
 #: src/app/qml/SupportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title Support information"
 msgid "Support"
-msgstr "Raport"
+msgstr "Asistență"
 
 #: src/app/qml/SupportDialog.qml:35
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
 msgid "Official support resources provided by %1:"
-msgstr ""
+msgstr "Resurse de asistență oficiale oferite de %1:"
 
 #: src/app/qml/SupportDialog.qml:36
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
 msgid "%1 has no support resources."
-msgstr ""
+msgstr "%1 nu are resurse de asistență."
 
 #: src/app/qml/SupportDialog.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
+#, kde-format
 msgctxt "@action:button Open support webpage"
 msgid "Open Support"
-msgstr "Deschide sondajul"
+msgstr "Deschide asistența"
 
 #: src/app/qml/SupportDialog.qml:84
 #, kde-format
 msgctxt "@info:label Adminstrator contact"
 msgid "Admin"
-msgstr ""
+msgstr "Administrator"
 
 #: src/app/qml/SupportDialog.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@info:label Security contact"
 msgid "Security"
-msgstr "Cheie de securitate:"
+msgstr "Securitate"
 
 #: src/app/qml/SupportDialog.qml:106
 #, kde-format
 msgctxt "@info:tooltip %1 is a Matrix ID"
 msgid "Contact via Matrix (%1)"
-msgstr ""
+msgstr "Contactează prin Matrix (%1)"
 
 #: src/app/qml/SupportDialog.qml:117
 #, kde-format
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
-msgstr ""
+msgstr "Contactează prin poșta electronică (%1)"
 
 #: src/app/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Gestionează stocarea cheilor"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
-msgstr "Fraza secretă nu a fost corectă."
+msgstr "Cheia de recuperare nu a fost corectă."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1215,12 +1179,10 @@ msgid "Encryption keys restored."
 msgstr "Chei de criptare restabilite."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
-msgstr "Deblochează folosind fraza secretă"
+msgstr "Deblochează folosind cheia de recuperare"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
 #, kde-format
@@ -1234,12 +1196,10 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
-msgstr ""
+msgstr "Cheie de recuperare:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Încarcă din fișier"
@@ -1265,9 +1225,7 @@ msgid ""
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
+#, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Cere de la alte dispozitive"
@@ -1279,119 +1237,90 @@ msgid "Account Details"
 msgstr "Detalii cont"
 
 #: src/app/qml/UserDetailDialog.qml:150
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "Mesaje directe"
+msgstr "Trimite mesaj"
 
 #: src/app/qml/UserDetailDialog.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "Ignoră"
+msgstr "Dezignoră"
 
 #: src/app/qml/UserDetailDialog.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ignoră"
 
 #: src/app/qml/UserDetailDialog.qml:168
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Copiază legătura"
 
 #: src/app/qml/UserDetailDialog.qml:174
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "Mesaje directe"
+msgstr "Caută mesaje…"
 
 #: src/app/qml/UserDetailDialog.qml:188
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
-msgstr "Raport"
+msgstr "Raportează…"
 
 #: src/app/qml/UserDetailDialog.qml:194
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
-msgstr "Raport"
+msgstr "Raportează utilizatorul"
 
 #: src/app/qml/UserDetailDialog.qml:195
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this user"
-msgstr "Motivul pentru care utilizatorul e dat afară"
+msgstr "Opțional, oferiți un motiv pentru raportarea acestui utilizator"
 
 #: src/app/qml/UserDetailDialog.qml:197
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
-msgstr "Raport"
+msgstr "Raportează"
 
 #: src/app/qml/UserDetailDialog.qml:201
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title"
 msgid "Report User"
-msgstr "Raport"
+msgstr "Raportează utilizatorul"
 
 #: src/app/qml/UserDetailDialog.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
-msgstr "Deschide profilul"
+msgstr "Vezi profilul principal"
 
 #: src/app/qml/UserDetailDialog.qml:222
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
-msgstr "Deschide profilul"
+msgstr "Vezi profilul camerei"
 
 #: src/app/qml/UserDetailDialog.qml:233
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Mention"
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "Menționează"
+msgstr "Moderare"
 
 #: src/app/qml/UserDetailDialog.qml:258
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "Dat afară"
+msgstr "Dă afară…"
 
 #: src/app/qml/UserDetailDialog.qml:262 src/app/qml/UserDetailDialog.qml:269
 #, kde-format
@@ -1400,58 +1329,52 @@ msgid "Kick User"
 msgstr "Dă afară utilizatorul"
 
 #: src/app/qml/UserDetailDialog.qml:263
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for kicking this user"
-msgstr "Motivul pentru care utilizatorul e dat afară"
+msgstr "Opțional, oferiți un motiv pentru care dați afară acest utilizator"
 
 #: src/app/qml/UserDetailDialog.qml:264
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr "Dat afară"
+msgstr "Dă afară"
 
 #: src/app/qml/UserDetailDialog.qml:286
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "Interzice…"
 
 #: src/app/qml/UserDetailDialog.qml:291 src/app/qml/UserDetailDialog.qml:298
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
-msgstr ""
+msgstr "Interzice utilizatorul"
 
 #: src/app/qml/UserDetailDialog.qml:292
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for banning this user"
-msgstr "Motivul pentru care utilizatorul e dat afară"
+msgstr "Opțional, oferiți un motiv pentru interzicerea acestui utilizator"
 
 #: src/app/qml/UserDetailDialog.qml:293
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr ""
+msgstr "Interzice"
 
 #: src/app/qml/UserDetailDialog.qml:315
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "Permite"
 
 #: src/app/qml/UserDetailDialog.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Send a message…"
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "Trimite mesaj…"
+msgstr "Elimină mesajele…"
 
 #: src/app/qml/UserDetailDialog.qml:332
 #, kde-format
@@ -1463,34 +1386,32 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr ""
+msgstr "Eliminați mesaje"
 
 #: src/app/qml/UserDetailDialog.qml:351
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr ""
+msgstr "Nivel de putere"
 
 #: src/app/qml/UserDetailDialog.qml:375
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr ""
+msgstr "Stabilește nivelul de putere"
 
 #: src/app/qml/UserDetailDialog.qml:402
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr ""
+msgstr "Camere mutuale"
 
 #: src/app/qml/UserDetailDialog.qml:424
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
-msgstr "Nicio cameră găsită"
+msgstr "Nicio cameră în comun"
 
 #: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
@@ -1499,23 +1420,21 @@ msgctxt ""
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "și încă una…"
+msgstr[1] "și încă %1…"
+msgstr[2] "și încă %1…"
 
 #: src/app/qml/UserDetailDialog.qml:466
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Private"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "Privată"
+msgstr "Notă privată"
 
 #: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "Vizibilă doar dumneavoastră"
 
 #: src/app/qml/UserMenu.qml:68
 #, kde-format
@@ -1551,7 +1470,7 @@ msgstr "Găsiți-vă prietenii…"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
-msgstr ""
+msgstr "Introduceți text pentru a începe căutarea de prieteni"
 
 #: src/app/qml/UserSearchPage.qml:93
 #, kde-format
@@ -1757,7 +1676,7 @@ msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Trimite mesaj"
 
-#: src/chatbar/ChatBarCore.qml:87
+#: src/chatbar/ChatBarCore.qml:92
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
@@ -3598,12 +3517,12 @@ msgstr ""
 msgid "Space creation failed: %1"
 msgstr ""
 
-#: src/libneochat/neochatroom.cpp:1244
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/libneochat/neochatroom.cpp:1610 src/libneochat/neochatroom.cpp:1618
+#: src/libneochat/neochatroom.cpp:1614 src/libneochat/neochatroom.cpp:1622
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4362,12 +4281,10 @@ msgstr "Ignoră"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
-msgstr ""
+msgstr "Verificare ortografică"
 
 #: src/messagecontent/TextComponentEditMenu.qml:144
-#, fuzzy, kde-format
-#| msgctxt "@action:button Undo modification"
-#| msgid "Undo"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Desfă"
@@ -4376,55 +4293,49 @@ msgstr "Desfă"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "Refă"
 
 #: src/messagecontent/TextComponentEditMenu.qml:171
-#, fuzzy, kde-format
-#| msgctxt "'Custom' is a category of emoji"
-#| msgid "Custom"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr "Personalizat"
+msgstr "Taie"
 
 #: src/messagecontent/TextComponentEditMenu.qml:184
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Text"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr "Copiază textul"
+msgstr "Copiază"
 
 #: src/messagecontent/TextComponentEditMenu.qml:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "Lipește"
 
 #: src/messagecontent/TextComponentEditMenu.qml:210
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr ""
+msgstr "Șterge"
 
 #: src/messagecontent/TextComponentEditMenu.qml:224
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Select a File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr "Alegeți un fișier"
+msgstr "Selectează tot"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
 msgctxt "Short for train platform"
 msgid "Pl. %1"
-msgstr ""
+msgstr "Pl. %1"
 
 #: src/messagecontent/VideoComponent.qml:178
 #, kde-format
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: src/messagecontent/VideoComponent.qml:217
 #, kde-format
@@ -4445,12 +4356,10 @@ msgid "Locations"
 msgstr "Amplasări"
 
 #: src/roominfo/LocationsPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No shared locations"
-msgstr "Trimite o amplasare"
+msgstr "Nicio amplasare partajată"
 
 #: src/roominfo/LocationsPage.qml:71
 #, kde-format
@@ -4463,12 +4372,12 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
-msgstr ""
+msgstr "Configurări pentru camere"
 
 #: src/roominfo/RoomDrawer.qml:173 src/roominfo/RoomDrawerPage.qml:93
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informații"
 
 #: src/roominfo/RoomDrawer.qml:178 src/roominfo/RoomDrawerPage.qml:98
 #, kde-format
@@ -4485,7 +4394,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
-msgstr ""
+msgstr "Informații despre cameră"
 
 #: src/roominfo/RoomInformation.qml:90
 #, kde-format
@@ -4494,22 +4403,19 @@ msgid "Actions"
 msgstr "Acțiuni"
 
 #: src/roominfo/RoomInformation.qml:100
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
-msgstr "Mesaje directe"
+msgstr "Caută mesaje"
 
 #: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
-msgstr ""
+msgstr "Verifică utilizatorul"
 
 #: src/roominfo/RoomInformation.qml:128
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Extensii"
@@ -4521,17 +4427,13 @@ msgid "Extensions"
 msgstr "Extensii"
 
 #: src/roominfo/RoomInformation.qml:144
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr "Trimite o amplasare"
+msgstr "Amplasări partajate"
 
 #: src/roominfo/RoomInformation.qml:161
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Mesaje fixate"
@@ -4543,31 +4445,27 @@ msgid "Inspect Room Data"
 msgstr ""
 
 #: src/roominfo/RoomInformation.qml:197
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create a Space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
-msgstr "Creează un spațiu"
+msgstr "Părăsește spațiul…"
 
 #: src/roominfo/RoomInformation.qml:197
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
-msgstr "Părăsește camera"
+msgstr "Părăsește camera…"
 
 #: src/roominfo/RoomInformation.qml:210
 #, kde-format
 msgid "Members"
-msgstr ""
+msgstr "Membri"
 
 #: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:86
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
-msgstr ""
+msgstr "Invitați un utilizator"
 
 #: src/roominfo/RoomInformation.qml:229
 #, kde-format
@@ -4579,8 +4477,9 @@ msgstr ""
 msgctxt "@info"
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 membru"
+msgstr[1] "%1 membri"
+msgstr[2] "%1 de membri"
 
 #: src/roominfo/RoomInformation.qml:236
 #, kde-format
@@ -4597,7 +4496,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr ""
+msgstr "Niciun mesaj fixat"
 
 #: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
@@ -4608,22 +4507,22 @@ msgstr ""
 #: src/roominfo/RoomSearchPage.qml:48
 #, kde-format
 msgid "Find messages…"
-msgstr ""
+msgstr "Găsește mesaje…"
 
 #: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
-msgstr ""
+msgstr "Introduceți text pentru a începe căutarea"
 
 #: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
 msgid "No messages found"
-msgstr ""
+msgstr "Niciun mesaj găsit"
 
 #: src/roominfo/RoomSearchPage.qml:52
 #, kde-format
 msgid "Cannot search in encrypted rooms"
-msgstr ""
+msgstr "Nu se poate căuta în camere criptate"
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -4632,36 +4531,31 @@ msgid "Extensions"
 msgstr "Extensii"
 
 #: src/roominfo/WidgetsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@placeholder"
 msgid "No extensions"
-msgstr "Extensii"
+msgstr "Fără extensii"
 
 #: src/roominfo/WidgetsPage.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
-msgstr ""
+msgstr "Elimină controlul"
 
 #: src/rooms/ExploreComponent.qml:36
 #, kde-format
 msgctxt "@title Home space"
 msgid "Home"
-msgstr ""
+msgstr "Acasă"
 
 #: src/rooms/ExploreComponent.qml:38
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Direct Messages"
 msgstr "Mesaje directe"
 
 #: src/rooms/ExploreComponent.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Rooms"
+#, kde-format
 msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Camere"
@@ -4682,21 +4576,19 @@ msgstr "Deschide configurările"
 #, kde-format
 msgctxt "@action:button The 'normal' view of NeoChat including the room list"
 msgid "Home"
-msgstr ""
+msgstr "Acasă"
 
 #: src/rooms/ExploreComponentMobile.qml:41
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:button View all notifications for this account"
 msgid "Notifications"
 msgstr "Notificări"
 
 #: src/rooms/ExploreComponentMobile.qml:57
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@action:button Open the account menu"
 msgid "Account"
-msgstr "Conturi"
+msgstr "Cont"
 
 #: src/rooms/ExploreComponentMobile.qml:122
 #, kde-format
@@ -4722,148 +4614,133 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 v-a invitat"
 
-#: src/rooms/RoomContextMenu.qml:47
+#: src/rooms/RoomContextMenu.qml:45
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
 msgstr "Marchează ca citit"
 
-#: src/rooms/RoomContextMenu.qml:58
+#: src/rooms/RoomContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Notificări"
 
-#: src/rooms/RoomContextMenu.qml:62
+#: src/rooms/RoomContextMenu.qml:60
 #, kde-format
 msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "Configurări implicite"
 
-#: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#: src/rooms/RoomContextMenu.qml:72 src/settings/PushNotification.qml:41
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
-msgstr "Mesaje directe"
+msgstr "Toate mesajele"
 
-#: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
+#: src/rooms/RoomContextMenu.qml:84 src/settings/PushNotification.qml:50
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
 "keyword'"
 msgid "@Mentions and Keywords"
-msgstr ""
+msgstr "@Mențiuni și cuvinte-cheie"
 
-#: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
+#: src/rooms/RoomContextMenu.qml:96 src/settings/PushNotification.qml:59
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
-msgstr ""
+msgstr "Niciunul"
 
-#: src/rooms/RoomContextMenu.qml:111
+#: src/rooms/RoomContextMenu.qml:109
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
 msgstr "Elimină din favorite"
 
-#: src/rooms/RoomContextMenu.qml:111
+#: src/rooms/RoomContextMenu.qml:109
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
 msgstr "Adaugă la favorite"
 
-#: src/rooms/RoomContextMenu.qml:117
+#: src/rooms/RoomContextMenu.qml:115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
-msgstr ""
+msgstr "Reprioritizează"
 
-#: src/rooms/RoomContextMenu.qml:117
+#: src/rooms/RoomContextMenu.qml:115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
-msgstr ""
+msgstr "Deprioritizează"
 
-#: src/rooms/RoomContextMenu.qml:127
+#: src/rooms/RoomContextMenu.qml:125
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Link"
-msgstr ""
+msgstr "Copiază legătura camerei"
 
-#: src/rooms/RoomContextMenu.qml:142
+#: src/rooms/RoomContextMenu.qml:140
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
-msgstr ""
+msgstr "Configurări pentru cameră"
 
-#: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#: src/rooms/RoomContextMenu.qml:152
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report…"
-msgstr "Raport"
+msgstr "Raportează…"
 
-#: src/rooms/RoomContextMenu.qml:159
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#: src/rooms/RoomContextMenu.qml:157
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Room"
-msgstr "Raport"
+msgstr "Raportează camera"
 
-#: src/rooms/RoomContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#: src/rooms/RoomContextMenu.qml:158
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this room"
-msgstr "Motivul pentru care utilizatorul e dat afară"
+msgstr "Opțional, oferiți un motiv pentru raportarea acestei camere"
 
-#: src/rooms/RoomContextMenu.qml:162
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#: src/rooms/RoomContextMenu.qml:160
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report"
-msgstr "Raport"
+msgstr "Raportează"
 
-#: src/rooms/RoomContextMenu.qml:166
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#: src/rooms/RoomContextMenu.qml:164
+#, kde-format
 msgctxt "@title"
 msgid "Report Room"
-msgstr "Raport"
+msgstr "Raportează camera"
 
-#: src/rooms/RoomContextMenu.qml:176
+#: src/rooms/RoomContextMenu.qml:174
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
-msgstr ""
+msgstr "Părăsește camera…"
 
 #: src/rooms/RoomDelegate.qml:118
 #, kde-format
 msgid "Muted room"
-msgstr ""
+msgstr "Cameră muțită"
 
 #: src/rooms/RoomDelegate.qml:149
 #, kde-format
 msgid "Configure room"
-msgstr ""
+msgstr "Configurează camera"
 
 #: src/rooms/RoomListPage.qml:207 src/rooms/RoomListPage.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
-msgstr ""
+msgstr "Găsiți-vă prietenii"
 
 #: src/rooms/RoomListPage.qml:215 src/rooms/RoomListPage.qml:268
 #, kde-format
@@ -4875,219 +4752,193 @@ msgstr "Găsiți-vă prietenii"
 #, kde-format
 msgctxt "@info"
 msgid "No friends found"
-msgstr ""
+msgstr "Niciun prieten găsit"
 
 #: src/rooms/RoomListPage.qml:241
 #, kde-format
 msgctxt "@info"
 msgid "No rooms found"
-msgstr ""
+msgstr "Nicio cameră găsită"
 
 #: src/rooms/RoomListPage.qml:243
 #, kde-format
 msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
-msgstr ""
+msgstr "Nu ați adăugat niciun prieten, apăsați mai jos pentru a-i căuta."
 
 #: src/rooms/RoomListPage.qml:243
 #, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
-msgstr ""
+msgstr "Alăturați-vă câtorva camere pentru a începe"
 
 #: src/rooms/RoomListPage.qml:250
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:inmenu opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
-msgstr "Caută camere"
+msgstr "Caută o cameră"
 
 #: src/rooms/RoomListPage.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
-msgstr ""
+msgstr "Caută în directorul cu prieteni"
 
 #: src/rooms/RoomTreeSection.qml:73
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
-msgstr ""
+msgstr "Restrânge %1"
 
 #: src/rooms/RoomTreeSection.qml:73
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
-msgstr ""
+msgstr "Desfășoară %1"
 
 #: src/rooms/SpaceDrawer.qml:59
-#, fuzzy, kde-format
-#| msgid "No Notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "Nicio notificare"
-msgstr[1] "Nicio notificare"
-msgstr[2] "Nicio notificare"
+msgstr[0] "Acasă (%1 notificare)"
+msgstr[1] "Acasă (%1 notificări)"
+msgstr[2] "Acasă (%1 de notificări)"
 
 #: src/rooms/SpaceDrawer.qml:59
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
-msgstr ""
+msgstr "Acasă"
 
 #: src/rooms/SpaceDrawer.qml:110
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
 msgid_plural "Direct Messages (%1 notifications)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mesaje directe (%1 notificare)"
+msgstr[1] "Mesaje directe (%1 notificări)"
+msgstr[2] "Mesaje directe (%1 de notificări)"
 
 #: src/rooms/SpaceDrawer.qml:113
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
-msgstr ""
+msgstr "Mesaje directe"
 
 #: src/rooms/SpaceDrawer.qml:195
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
-msgstr ""
+msgstr "Alăturare la %1"
 
 #: src/rooms/SpaceDrawer.qml:239
-#, fuzzy, kde-format
-#| msgctxt "@action:button Create new room"
-#| msgid "Create"
+#, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Creează"
 
 #: src/rooms/SpaceDrawer.qml:253
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder Placeholder for room name"
-#| msgid "New Room"
+#, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
-msgstr "Cameră nouă"
+msgstr "Cameră nouă…"
 
 #: src/rooms/SpaceDrawer.qml:264
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "New Space"
+#, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
-msgstr "Spațiu nou"
+msgstr "Spațiu nou…"
 
 #: src/rooms/SpaceListContextMenu.qml:44
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark Space as Read"
-msgstr "Marchează ca citit"
+msgstr "Marchează spațiul ca citit"
 
 #: src/rooms/SpaceListContextMenu.qml:57
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr ""
+msgstr "Vezi spațiul"
 
 #: src/rooms/SpaceListContextMenu.qml:63
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr ""
+msgstr "Copiază adresa spațiului"
 
 #: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:134
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
-msgstr ""
+msgstr "Configurări pentru spațiu"
 
 #: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this space to the administrators'"
 msgid "Report…"
-msgstr "Raport"
+msgstr "Raportează…"
 
 #: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Space"
-msgstr "Raport"
+msgstr "Raportează spațiul"
 
 #: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
-msgstr "Motivul pentru care utilizatorul e dat afară"
+msgstr "Opțional, oferiți un motiv pentru raportarea acestui spațiu"
 
 #: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this space to the administrators'"
 msgid "Report"
-msgstr "Raport"
+msgstr "Raportează"
 
 #: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title"
 msgid "Report Space"
-msgstr "Raport"
+msgstr "Raportează spațiul"
 
 #: src/rooms/SpaceListContextMenu.qml:107
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
-msgstr ""
+msgstr "Părăsește spațiul…"
 
 #: src/rooms/UserInfo.qml:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr ""
+msgstr "Gestionează contul"
 
 #: src/rooms/UserInfo.qml:95
 #, kde-format
 msgid "View notifications"
-msgstr ""
+msgstr "Vezi notificările"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Account"
-msgstr ""
+msgstr "Modifică contul"
 
 #: src/settings/AccountEditorPage.qml:66
 #, kde-format
 msgid "Upload new avatar"
-msgstr ""
+msgstr "Încarcă avatar nou"
 
 #: src/settings/AccountEditorPage.qml:83
 #, kde-format
 msgid "Remove current avatar"
-msgstr ""
+msgstr "Elimină avatarul actual"
 
 #: src/settings/AccountEditorPage.qml:106
 #, kde-format
@@ -5098,7 +4949,7 @@ msgstr "Informații despre utilizator"
 #: src/settings/AccountEditorPage.qml:111
 #, kde-format
 msgid "Display Name:"
-msgstr ""
+msgstr "Nume afișat:"
 
 #: src/settings/AccountEditorPage.qml:117
 #, kde-format
@@ -5108,22 +4959,19 @@ msgstr "Etichetă:"
 #: src/settings/AccountEditorPage.qml:118
 #, kde-format
 msgid "Work"
-msgstr ""
+msgstr "Serviciu"
 
 #: src/settings/AccountEditorPage.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "User ID"
+#, kde-format
 msgctxt "@info:label"
 msgid "User ID"
 msgstr "Id. utilizator"
 
 #: src/settings/AccountEditorPage.qml:128
-#, fuzzy, kde-format
-#| msgid "Copy to clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
-msgstr "Copiază în clipboard"
+msgstr "Copiază identificatorul utilizatorului în clipboard"
 
 #: src/settings/AccountEditorPage.qml:143
 #, kde-format
@@ -5242,7 +5090,7 @@ msgstr "Conturi"
 #: src/settings/AccountsPage.qml:35 src/settings/AccountsPage.qml:52
 #, kde-format
 msgid "Account editor"
-msgstr ""
+msgstr "Redactor de conturi"
 
 #: src/settings/AccountsPage.qml:40
 #, kde-format
@@ -5270,7 +5118,7 @@ msgstr "Aspect"
 #, kde-format
 msgctxt "@title:group"
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 #: src/settings/AppearanceSettingsPage.qml:39
 #, kde-format
@@ -5285,34 +5133,33 @@ msgid "Chat font scaling"
 msgstr "Discutați pe Matrix"
 
 #: src/settings/AppearanceSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "@label:slider Current font scale percentage. %1 is the numeric percentage "
 "value, the second % is the symbol e.g. 120%"
 msgid "%1%"
-msgstr "%1: %2"
+msgstr "%1%"
 
 #: src/settings/AppearanceSettingsPage.qml:83
 #, kde-format
 msgctxt "@title:group"
 msgid "Message Layout"
-msgstr ""
+msgstr "Aranjament mesaje"
 
 #: src/settings/AppearanceSettingsPage.qml:177
 #, kde-format
 msgid "Bubbles"
-msgstr ""
+msgstr "Bule"
 
 #: src/settings/AppearanceSettingsPage.qml:246
 #, kde-format
 msgid "Compact"
-msgstr ""
+msgstr "Compact"
 
 #: src/settings/AppearanceSettingsPage.qml:269
 #, kde-format
 msgid "Use transparent chat page"
-msgstr ""
+msgstr "Folosește pagină de discuții transparentă"
 
 #: src/settings/AppearanceSettingsPage.qml:292
 #, kde-format
@@ -5333,25 +5180,23 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
-msgstr ""
+msgstr "Arată avatare"
 
 #: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
-msgstr ""
+msgstr "În discuție"
 
 #: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
 msgid "In sidebar"
-msgstr ""
+msgstr "În bara laterală"
 
 #: src/settings/AppearanceSettingsPage.qml:361
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Room Information"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "In room information"
-msgstr "Arată informații despre cameră"
+msgstr "În informațiile camerei"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -5362,7 +5207,7 @@ msgstr "Tematică de culori"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Account Deactivation"
-msgstr ""
+msgstr "Confirmați dezactivarea contului"
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:18
 #, kde-format
@@ -5372,6 +5217,11 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"Contul dumneavoastră va fi dezactivat permanent.\n"
+"Acest lucru nu poate fi desfăcut.\n"
+"Identificatorul dumneavoastră Matrix nu va fi disponibil pentru conturile "
+"noi.\n"
+"Mesajele dumneavoastră vor rămâne disponibile."
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:28
 #, kde-format
@@ -5383,24 +5233,24 @@ msgstr "Parolă"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Șterge datele"
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
-msgstr ""
+msgstr "Cere serverului să șteargă cât de multe date e posibil."
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:44
 #, kde-format
 msgid "Deactivate account"
-msgstr ""
+msgstr "Dezactivează contul"
 
 #: src/settings/ConfirmEncryptionDialog.qml:14
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Activate Encryption"
-msgstr ""
+msgstr "Activează criptarea"
 
 #: src/settings/ConfirmEncryptionDialog.qml:15
 #, kde-format
@@ -5411,40 +5261,40 @@ msgstr ""
 #: src/settings/ConfirmEncryptionDialog.qml:25
 #, kde-format
 msgid "Activate Encryption"
-msgstr ""
+msgstr "Activează criptarea"
 
 #: src/settings/DeviceDelegate.qml:53
 #, kde-format
 msgctxt "@label"
 msgid "%1, Last activity: %2"
-msgstr ""
+msgstr "%1, Ultima activitate: %2"
 
 #: src/settings/DeviceDelegate.qml:62
 #, kde-format
 msgid "New device name"
-msgstr ""
+msgstr "Noua denumire a dispozitivului"
 
 #: src/settings/DeviceDelegate.qml:71
 #, kde-format
 msgid "Cancel editing display name"
-msgstr ""
+msgstr "Renunță la modificarea denumirii afișate"
 
 #: src/settings/DeviceDelegate.qml:78
 #, kde-format
 msgid "Confirm new display name"
-msgstr ""
+msgstr "Confirmă noua denumire afișată"
 
 #: src/settings/DeviceDelegate.qml:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit device name"
-msgstr ""
+msgstr "Modifică denumirea dispozitivului"
 
 #: src/settings/DeviceDelegate.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify device"
-msgstr ""
+msgstr "Verifică dispozitivul"
 
 #: src/settings/DeviceDelegate.qml:119
 #, kde-format
@@ -5456,19 +5306,19 @@ msgstr "Verificat"
 #, kde-format
 msgctxt "@action:button"
 msgid "Logout device"
-msgstr ""
+msgstr "Deconectează dispozitivul"
 
 #: src/settings/DeviceDelegate.qml:146
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove device"
-msgstr ""
+msgstr "Elimină dispozitivul"
 
 #: src/settings/DeviceDelegate.qml:165
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Remove"
-msgstr ""
+msgstr "Elimină"
 
 #: src/settings/DevicesPage.qml:17
 #, kde-format
@@ -5480,13 +5330,13 @@ msgstr "Dispozitive"
 #, kde-format
 msgctxt "@info:group"
 msgid "This Device"
-msgstr ""
+msgstr "Acest dispozitiv"
 
 #: src/settings/DevicesPage.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify This Device"
-msgstr ""
+msgstr "Verifică acest dispozitiv"
 
 #: src/settings/DevicesPage.qml:40
 #, kde-format
@@ -7009,141 +6859,141 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Security"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:27
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Criptare"
 
-#: src/settings/RoomSecurityPage.qml:39
+#: src/settings/RoomSecurityPage.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:50
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:51
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:62
+#: src/settings/RoomSecurityPage.qml:60
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Acces"
 
-#: src/settings/RoomSecurityPage.qml:66
+#: src/settings/RoomSecurityPage.qml:64
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@info"
 msgid "Only invited people can join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:75
+#: src/settings/RoomSecurityPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:76
+#: src/settings/RoomSecurityPage.qml:74
 #, kde-format
 msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select spaces"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:103
+#: src/settings/RoomSecurityPage.qml:101
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:113
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:114
+#: src/settings/RoomSecurityPage.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:124
+#: src/settings/RoomSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:136
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:146
+#: src/settings/RoomSecurityPage.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:147
+#: src/settings/RoomSecurityPage.qml:145
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7151,13 +7001,13 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:155
+#: src/settings/RoomSecurityPage.qml:153
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:156
+#: src/settings/RoomSecurityPage.qml:154
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7299,7 +7149,7 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Bine"
 
-#: src/settings/SelectSpacesDialog.qml:37
+#: src/settings/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"

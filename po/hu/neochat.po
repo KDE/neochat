@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 02:38+0000\n"
+"POT-Creation-Date: 2026-04-01 02:40+0000\n"
 "PO-Revision-Date: 2026-01-03 22:36+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1811,7 +1811,7 @@ msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "%1 üzenetet küldött"
 
-#: src/chatbar/ChatBarCore.qml:87
+#: src/chatbar/ChatBarCore.qml:92
 #, fuzzy, kde-format
 #| msgid "Emojis & Stickers"
 msgid "Emojis & Stickers"
@@ -3693,12 +3693,12 @@ msgstr "Nem sikerült létrehozni a szobát: %1"
 msgid "Space creation failed: %1"
 msgstr "Nem sikerült létrehozni a teret: %1"
 
-#: src/libneochat/neochatroom.cpp:1244
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Jelentés sikeresen elküldve."
 
-#: src/libneochat/neochatroom.cpp:1610 src/libneochat/neochatroom.cpp:1618
+#: src/libneochat/neochatroom.cpp:1614 src/libneochat/neochatroom.cpp:1622
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4850,20 +4850,20 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 meghívta Önt"
 
-#: src/rooms/RoomContextMenu.qml:47
+#: src/rooms/RoomContextMenu.qml:45
 #, fuzzy, kde-format
 #| msgid "Mark as Read"
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
 msgstr "Megjelölés olvasottként"
 
-#: src/rooms/RoomContextMenu.qml:58
+#: src/rooms/RoomContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Értesítések"
 
-#: src/rooms/RoomContextMenu.qml:62
+#: src/rooms/RoomContextMenu.qml:60
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "Default Settings"
@@ -4871,14 +4871,14 @@ msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "Alapértelmezett beállítások"
 
-#: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
+#: src/rooms/RoomContextMenu.qml:72 src/settings/PushNotification.qml:41
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
 msgstr "Üzenet küldése"
 
-#: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
+#: src/rooms/RoomContextMenu.qml:84 src/settings/PushNotification.qml:50
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -4886,55 +4886,55 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Megemlítések és kulcsszavak"
 
-#: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
+#: src/rooms/RoomContextMenu.qml:96 src/settings/PushNotification.qml:59
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
 msgstr "Nincs"
 
-#: src/rooms/RoomContextMenu.qml:111
+#: src/rooms/RoomContextMenu.qml:109
 #, fuzzy, kde-format
 #| msgid "Remove from Favorites"
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
 msgstr "Eltávolítás a kedvencek közül"
 
-#: src/rooms/RoomContextMenu.qml:111
+#: src/rooms/RoomContextMenu.qml:109
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
 msgstr "Hozzáadás a kedvencekhez"
 
-#: src/rooms/RoomContextMenu.qml:117
+#: src/rooms/RoomContextMenu.qml:115
 #, fuzzy, kde-format
 #| msgid "Reprioritize"
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
 msgstr "Újrapriorizálás"
 
-#: src/rooms/RoomContextMenu.qml:117
+#: src/rooms/RoomContextMenu.qml:115
 #, fuzzy, kde-format
 #| msgid "Deprioritize"
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
 msgstr "Fontosság csökkentése"
 
-#: src/rooms/RoomContextMenu.qml:127
+#: src/rooms/RoomContextMenu.qml:125
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Room Link"
 msgstr "Hivatkozás másolása"
 
-#: src/rooms/RoomContextMenu.qml:142
+#: src/rooms/RoomContextMenu.qml:140
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "Szobabeállítások"
 
-#: src/rooms/RoomContextMenu.qml:154
+#: src/rooms/RoomContextMenu.qml:152
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -4944,7 +4944,7 @@ msgctxt ""
 msgid "Report…"
 msgstr "Jelentés…"
 
-#: src/rooms/RoomContextMenu.qml:159
+#: src/rooms/RoomContextMenu.qml:157
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -4953,7 +4953,7 @@ msgctxt "@title:dialog"
 msgid "Report Room"
 msgstr "Jelentés"
 
-#: src/rooms/RoomContextMenu.qml:160
+#: src/rooms/RoomContextMenu.qml:158
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -4961,7 +4961,7 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this room"
 msgstr "Az üzenet jelentésének oka"
 
-#: src/rooms/RoomContextMenu.qml:162
+#: src/rooms/RoomContextMenu.qml:160
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -4971,7 +4971,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Jelentés"
 
-#: src/rooms/RoomContextMenu.qml:166
+#: src/rooms/RoomContextMenu.qml:164
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -4980,7 +4980,7 @@ msgctxt "@title"
 msgid "Report Room"
 msgstr "Jelentés"
 
-#: src/rooms/RoomContextMenu.qml:176
+#: src/rooms/RoomContextMenu.qml:174
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:inmenu"
@@ -7247,7 +7247,7 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "Alapértelmezések visszaállítása"
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7255,79 +7255,79 @@ msgid ""
 msgstr ""
 "A beállítás bekapcsolásához frissítenie kell a szobát egy újabb verzióra."
 
-#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Security"
 msgstr "Biztonság"
 
-#: src/settings/RoomSecurityPage.qml:27
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Titkosítás"
 
-#: src/settings/RoomSecurityPage.qml:39
+#: src/settings/RoomSecurityPage.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
 msgstr "Ez a szoba titkosítást használ."
 
-#: src/settings/RoomSecurityPage.qml:50
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
 msgstr "Titkosítás bekapcsolása…"
 
-#: src/settings/RoomSecurityPage.qml:51
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "A bekapcsolás után a titkosítást nem lehet kikapcsolni."
 
-#: src/settings/RoomSecurityPage.qml:62
+#: src/settings/RoomSecurityPage.qml:60
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Hozzáférés"
 
-#: src/settings/RoomSecurityPage.qml:66
+#: src/settings/RoomSecurityPage.qml:64
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Privát (csak meghívással)"
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "Csak meghívottak csatlakozhatnak."
 
-#: src/settings/RoomSecurityPage.qml:75
+#: src/settings/RoomSecurityPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Tér tagjai"
 
-#: src/settings/RoomSecurityPage.qml:76
+#: src/settings/RoomSecurityPage.qml:74
 #, kde-format
 msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "A kiválasztott terekben bárki megtalálhatja és csatlakozhat."
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "Terek kiválasztása"
 
-#: src/settings/RoomSecurityPage.qml:103
+#: src/settings/RoomSecurityPage.qml:101
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Kopogás"
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
@@ -7335,44 +7335,44 @@ msgstr ""
 "A szobában nem tartózkodó személyeknek meghívást kell kérniük, hogy "
 "csatlakozhassanak a szobához."
 
-#: src/settings/RoomSecurityPage.qml:113
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Nyilvános"
 
-#: src/settings/RoomSecurityPage.qml:114
+#: src/settings/RoomSecurityPage.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Bárki megtalálhatja és csatlakozhat."
 
-#: src/settings/RoomSecurityPage.qml:124
+#: src/settings/RoomSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Üzenetelőzmények láthatósága"
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Bárki"
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 "Bárki, függetlenül attól, hogy csatlakozott-e, megtekintheti az előzményeket."
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Csak tagok"
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:136
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7381,13 +7381,13 @@ msgstr ""
 "Minden tag megtekintheti az összes korábbi üzenetet, a csatlakozása "
 "előttieket is."
 
-#: src/settings/RoomSecurityPage.qml:146
+#: src/settings/RoomSecurityPage.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Csak tagoknak (meghívás óta)"
 
-#: src/settings/RoomSecurityPage.qml:147
+#: src/settings/RoomSecurityPage.qml:145
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7397,13 +7397,13 @@ msgstr ""
 "Az új tagok megtekinthetik a korábbi üzeneteket attól a ponttól kezdve, "
 "amikor meghívták őket a szobába."
 
-#: src/settings/RoomSecurityPage.qml:155
+#: src/settings/RoomSecurityPage.qml:153
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Csak tagoknak (csatlakozása óta)"
 
-#: src/settings/RoomSecurityPage.qml:156
+#: src/settings/RoomSecurityPage.qml:154
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7550,7 +7550,7 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "OK"
 
-#: src/settings/SelectSpacesDialog.qml:37
+#: src/settings/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
