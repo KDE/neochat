@@ -139,7 +139,7 @@ QString ChatBarCache::relationMessage() const
     return {};
 }
 
-QList<Blocks::Block> ChatBarCache::relationComponents() const
+Blocks::BlockPtrs ChatBarCache::relationComponents() const
 {
     if (!m_room) {
         qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";

@@ -160,8 +160,8 @@ private:
 
     QVariantMap attributesForFile(const QUrl &path);
 
-    ComponentIt insertComponent(int row, Blocks::Type type, QVariantMap attributes = {}, const QTextDocumentFragment &intialFragment = {});
-    ComponentIt removeComponent(ComponentIt it);
+    Blocks::BlockPtrsIt insertComponent(int row, Blocks::Type type, QVariantMap attributes = {}, const QTextDocumentFragment &intialFragment = {});
+    Blocks::BlockPtrsIt removeComponent(Blocks::BlockPtrsIt it);
     void removeComponent(ChatTextItemHelper *textItem);
 
     void insertComponentFromCache(Blocks::CacheItem *item);

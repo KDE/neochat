@@ -34,17 +34,15 @@ QQC2.TextArea {
     /**
      * @brief The Blocks::Block for the delegate.
      */
-    required property block block
+    required property TextBlock block
+    onBlockChanged: if (block) {
+        block.item.textItem = root;
+    }
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
-
-    readonly property ChatTextItemHelper chatTextItemHelper: block.attributes?.chatTextItemHelper ?? null
-    onChatTextItemHelperChanged: if (chatTextItemHelper) {
-        chatTextItemHelper.textItem = root;
-    }
 
     /**
      * @brief Whether the component is currently focussed.
@@ -64,7 +62,7 @@ QQC2.TextArea {
     topPadding: Kirigami.Units.smallSpacing
     bottomPadding: Kirigami.Units.smallSpacing
 
-    text: root.editable ? "" : root.display
+    text: root.editable ? "" : root.block.display
     selectByMouse: true
     readOnly: !root.editable
     textFormat: TextEdit.RichText

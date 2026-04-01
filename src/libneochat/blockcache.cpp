@@ -197,18 +197,18 @@ void Cache::append(std::unique_ptr<CacheItem> item)
     m_items.push_back(std::move(item));
 }
 
-void Cache::fill(QList<Block> components)
+void Cache::fill(const BlockPtrs &components)
 {
-    std::ranges::for_each(components, [this](const Block &component) {
-        if (isTextType(component.type)) {
-            const auto textItem = component.attributes["chatTextItemHelper"_L1].value<ChatTextItemHelper *>();
+    std::ranges::for_each(components, [this](const BlockPtr &component) {
+        if (isTextType(component->type)) {
+            const auto textItem = component->attributes["chatTextItemHelper"_L1].value<ChatTextItemHelper *>();
             if (!textItem) {
                 return;
             }
-            m_items.push_back(std::make_unique<TextCacheItem>(component.type, textItem->toFragment()));
+            m_items.push_back(std::make_unique<TextCacheItem>(component->type, textItem->toFragment()));
         }
-        if (isFileType(component.type)) {
-            m_items.push_back(std::make_unique<FileCacheItem>(component.type, component.attributes["source"_L1].toUrl()));
+        if (isFileType(component->type)) {
+            m_items.push_back(std::make_unique<FileCacheItem>(component->type, component->attributes["source"_L1].toUrl()));
         }
     });
 }

@@ -51,7 +51,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.Video
         delegate: MimeComponent {
-            required property block block
+            required property Block block
             
             mimeIconSource: block.attributes.mimeIcon
             size: block.attributes.size
@@ -89,7 +89,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.Audio
         delegate: MimeComponent {
-            required property block block
+            required property Block block
 
             mimeIconSource: block.attributes.mimeIcon
             size: block.attributes.size
@@ -101,7 +101,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.File
         delegate: MimeComponent {
-            required property block block
+            required property Block block
 
             mimeIconSource: block.attributes.mimeIcon
             size: block.attributes.size
@@ -117,7 +117,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.Location
         delegate: MimeComponent {
-            required property block block
+            required property Block block
             mimeIconSource: "mark-location"
             label: block.display
         }
@@ -126,7 +126,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.LiveLocation
         delegate: MimeComponent {
-            required property block block
+            required property Block block
             mimeIconSource: "mark-location"
             label: block.display
         }

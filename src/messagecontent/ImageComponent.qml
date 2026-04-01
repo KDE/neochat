@@ -27,7 +27,7 @@ Item {
     /**
      * @brief The Blocks::Block for the delegate.
      */
-    required property block block
+    required property Block block
 
     /**
      * @brief FileTransferInfo for any downloading files.

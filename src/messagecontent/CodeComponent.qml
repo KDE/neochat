@@ -40,17 +40,15 @@ QQC2.Control {
     /**
      * @brief The Blocks::Block for the delegate.
      */
-    required property block block
+    required property TextBlock block
+    onBlockChanged: if (block) {
+        block.item.textItem = codeText;
+    }
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
-
-    readonly property ChatTextItemHelper chatTextItemHelper: block.attributes?.chatTextItemHelper ?? null
-    onChatTextItemHelperChanged: if (chatTextItemHelper) {
-        chatTextItemHelper.textItem = codeText;
-    }
 
     /**
      * @brief Whether the component is currently focussed.

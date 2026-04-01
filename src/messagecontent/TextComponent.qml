@@ -41,17 +41,15 @@ TextEdit {
     /**
      * @brief The Blocks::Block for the delegate.
      */
-    required property block block
+    required property TextBlock block
+    onBlockChanged: if (block) {
+        block.item.textItem = root;
+    }
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
-
-    readonly property ChatTextItemHelper chatTextItemHelper: block.attributes?.chatTextItemHelper ?? null
-    onChatTextItemHelperChanged: if (chatTextItemHelper) {
-        chatTextItemHelper.textItem = root;
-    }
 
     /**
      * @brief Whether the component is currently focussed.
@@ -88,8 +86,6 @@ TextEdit {
     bottomPadding: 0
     leftPadding: 0
     rightPadding: 0
-
-    text: root.editable ? "" : block.display
 
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
@@ -147,7 +143,7 @@ TextEdit {
         color: Kirigami.Theme.disabledTextColor
         horizontalAlignment: root.horizontalAlignment
         verticalAlignment: root.verticalAlignment
-        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && root.chatTextItemHelper.isEmpty  && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
+        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && root.item.isEmpty  && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
         elide: Text.ElideRight
         wrapMode: Text.WordWrap
     }

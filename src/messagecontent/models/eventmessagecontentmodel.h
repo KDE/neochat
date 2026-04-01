@@ -59,14 +59,14 @@ private:
     void initializeEvent();
     void getEvent();
 
-    Blocks::Block unavailableBlock() const;
+    Blocks::BlockPtr unavailableBlock() const;
     void resetModel();
     void resetContent(bool isEditing = false, bool isThreading = false);
-    QList<Blocks::Block> messageContentComponents(bool isEditing = false, bool isThreading = false);
+    Blocks::BlockPtrs messageContentComponents(bool isEditing = false, bool isThreading = false);
 
     std::optional<QString> getReplyEventId() override;
 
-    QList<Blocks::Block> componentsForType(Blocks::Type type);
+    Blocks::BlockPtrs componentsForType(Blocks::Type type);
 
     void updateItineraryModel();
 

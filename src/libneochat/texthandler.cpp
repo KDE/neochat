@@ -17,6 +17,7 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
+#include "block.h"
 #include "blocktype.h"
 #include "models/customemojimodel.h"
 #include "utils.h"
@@ -345,13 +346,13 @@ int TextHandler::nextBlockPos(const QString &string)
     return closeTagPos + closeTag.size();
 }
 
-Blocks::Block TextHandler::nextBlock(const QString &string,
-                                     int nextBlockPos,
-                                     Qt::TextFormat inputFormat,
-                                     const NeoChatRoom *room,
-                                     const Quotient::RoomEvent *event,
-                                     bool isEdited,
-                                     bool spoilerRevealed)
+Blocks::BlockPtr TextHandler::nextBlock(const QString &string,
+                                        int nextBlockPos,
+                                        Qt::TextFormat inputFormat,
+                                        const NeoChatRoom *room,
+                                        const Quotient::RoomEvent *event,
+                                        bool isEdited,
+                                        bool spoilerRevealed)
 {
     if (string.isEmpty()) {
         return {};
@@ -379,7 +380,10 @@ Blocks::Block TextHandler::nextBlock(const QString &string,
     if (content.contains(u"data-mx-spoiler"_s)) {
         attributes[u"hasSpoiler"_s] = true;
     }
-    return Blocks::Block(blockType, content, attributes);
+    return std::make_unique<Blocks::TextBlock>(blockType,
+                                               blockType == Blocks::Code ? QTextDocumentFragment::fromPlainText(content)
+                                                                         : QTextDocumentFragment::fromHtml(content),
+                                               attributes);
 }
 
 QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
@@ -614,26 +618,26 @@ QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagStr
     return attributes;
 }
 
-QList<Blocks::Block> TextHandler::textComponents(QString string,
-                                                 Qt::TextFormat inputFormat,
-                                                 const NeoChatRoom *room,
-                                                 const Quotient::RoomEvent *event,
-                                                 bool isEdited,
-                                                 bool spoilerRevealed)
+Blocks::BlockPtrs TextHandler::textComponents(QString string,
+                                              Qt::TextFormat inputFormat,
+                                              const NeoChatRoom *room,
+                                              const Quotient::RoomEvent *event,
+                                              bool isEdited,
+                                              bool spoilerRevealed)
 {
+    Blocks::BlockPtrs components;
+
     if (string.trimmed().isEmpty()) {
-        return {Blocks::Block(Blocks::Text, i18n("<i>This event does not have any content.</i>"), {})};
+        components.push_back(std::make_unique<Blocks::Block>(Blocks::Text, i18n("<i>This event does not have any content.</i>"), QVariantMap()));
+        return components;
     }
 
     // Strip mx-reply if present.
     string.remove(TextRegex::removeRichReply);
 
-    QList<Blocks::Block> components;
     while (!string.isEmpty()) {
         const auto nextBlockPos = this->nextBlockPos(string);
-        const auto nextBlock =
-            this->nextBlock(string, nextBlockPos, inputFormat, room, event, nextBlockPos == string.size() ? isEdited : false, spoilerRevealed);
-        components += nextBlock;
+        components.push_back(nextBlock(string, nextBlockPos, inputFormat, room, event, nextBlockPos == string.size() ? isEdited : false, spoilerRevealed));
         string.remove(0, nextBlockPos);
 
         if (string.startsWith(u"\n"_s)) {
@@ -643,17 +647,17 @@ QList<Blocks::Block> TextHandler::textComponents(QString string,
 
         if (event != nullptr && room != nullptr) {
             if (auto e = eventCast<const Quotient::RoomMessageEvent>(event); e && e->msgtype() == Quotient::MessageEventType::Emote && components.size() == 1) {
-                if (components[0].type == Blocks::Text) {
-                    components[0].display = emoteString(room, event) + components[0].display;
+                if (components[0]->type == Blocks::Text) {
+                    components[0]->display = emoteString(room, event) + components[0]->display;
                 } else {
-                    components.prepend(Blocks::Block(Blocks::Text, emoteString(room, event), {}));
+                    components.insert(components.begin(), std::make_unique<Blocks::Block>(Blocks::Text, emoteString(room, event), QVariantMap()));
                 }
             }
         }
     }
 
-    if (isEdited && components.last().type != Blocks::Text && components.last().type != Blocks::Quote) {
-        components += Blocks::Block(Blocks::Text, editString(), {});
+    if (isEdited && components.back()->type != Blocks::Text && components.back()->type != Blocks::Quote) {
+        components.push_back(std::make_unique<Blocks::Block>(Blocks::Text, editString(), QVariantMap()));
     }
 
     return components;

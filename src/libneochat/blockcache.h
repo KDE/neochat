@@ -140,7 +140,7 @@ public:
      *
      * @sa Block
      */
-    void fill(QList<Block> components);
+    void fill(const BlockPtrs &components);
 
     /**
      * @brief Remove the CacheItem at the given index from the cache.

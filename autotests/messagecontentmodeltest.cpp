@@ -10,6 +10,7 @@
 #include <Quotient/roommember.h>
 #include <Quotient/syncdata.h>
 
+#include "block.h"
 #include "models/eventmessagecontentmodel.h"
 
 #include "neochatconnection.h"
@@ -43,19 +44,19 @@ void MessageContentModelTest::missingEvent()
 
     QCOMPARE(model1.rowCount(), 1);
     QCOMPARE(model1.data(model1.index(0), MessageContentModel::ComponentTypeRole), Blocks::Loading);
-    QCOMPARE(model1.data(model1.index(0), MessageContentModel::DisplayRole), u"Loading…"_s);
+    QCOMPARE(model1.data(model1.index(0), MessageContentModel::BlockRole).value<Blocks::Block *>()->display, u"Loading…"_s);
 
     auto model2 = EventMessageContentModel(room, u"$153456789:example.org"_s, true);
 
     QCOMPARE(model2.rowCount(), 1);
     QCOMPARE(model2.data(model2.index(0), MessageContentModel::ComponentTypeRole), Blocks::Loading);
-    QCOMPARE(model2.data(model2.index(0), MessageContentModel::DisplayRole), u"Loading reply…"_s);
+    QCOMPARE(model2.data(model1.index(0), MessageContentModel::BlockRole).value<Blocks::Block *>()->display, u"Loading reply…"_s);
 
     room->syncNewEvents(u"test-min-sync.json"_s);
     QCOMPARE(model1.rowCount(), 2);
     QCOMPARE(model1.data(model1.index(0), MessageContentModel::ComponentTypeRole), Blocks::Author);
     QCOMPARE(model1.data(model1.index(1), MessageContentModel::ComponentTypeRole), Blocks::Text);
-    QCOMPARE(model1.data(model1.index(1), MessageContentModel::DisplayRole), u"<b>This is an example<br>text message</b>"_s);
+    QCOMPARE(model1.data(model1.index(1), MessageContentModel::BlockRole).value<Blocks::Block *>()->display, u"<b>This is an example<br>text message</b>"_s);
 }
 
 QTEST_MAIN(MessageContentModelTest)

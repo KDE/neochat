@@ -18,7 +18,7 @@ RowLayout {
     /**
      * @brief The Blocks::Block for the delegate.
      */
-    required property block block
+    required property Block block
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth

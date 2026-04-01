@@ -34,7 +34,7 @@ ColumnLayout {
     /**
      * @brief The Blocks::Block for the delegate.
      */
-    required property block block
+    required property Block block
 
     required property int index
 

@@ -18,7 +18,7 @@ Rectangle {
     /**
      * @brief The Blocks::Block for the delegate.
      */
-    required property block block
+    required property Block block
 
     Layout.preferredWidth: mediaSizeHelper.currentSize.width
     Layout.preferredHeight: mediaSizeHelper.currentSize.height

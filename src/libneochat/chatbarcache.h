@@ -137,7 +137,7 @@ public:
     bool relationAuthorIsPresent() const;
 
     QString relationMessage() const;
-    QList<Blocks::Block> relationComponents() const;
+    Blocks::BlockPtrs relationComponents() const;
 
     bool isThreaded() const;
     QString threadId() const;
