@@ -32,22 +32,37 @@ Kirigami.Dialog {
         FormCard.FormComboBoxDelegate {
             id: pollTypeCombo
 
-            text: i18nc("@label", "Poll type:")
+            text: i18nc("@label The type of poll to create", "Show Results:")
             currentIndex: 0
             textRole: "text"
             valueRole: "value"
             model: [
-                { value: PollKind.Disclosed, text: i18nc("@item:inlistbox", "Open poll") },
-                { value: PollKind.Undisclosed, text: i18nc("@item:inlistbox", "Closed poll") }
+                { value: PollKind.Disclosed, text: i18nc("@item:inlistbox Show results after a user votes", "After Voting") },
+                { value: PollKind.Undisclosed, text: i18nc("@item:inlistbox Show results after the poll ends", "After Poll Ends") }
             ]
         }
-        FormCard.FormTextDelegate {
-            verticalPadding: 0
-            text: pollTypeCombo.currentValue == 0 ? i18nc("@info", "Voters can see the result as soon as they have voted") : i18nc("@info", "Results are revealed only after the poll has closed")
+        FormCard.AbstractFormDelegate {
+            id: anonymousWarningDelegate
+
+            contentItem: Kirigami.InlineMessage {
+                showCloseButton: false
+                visible: true
+                type: Kirigami.MessageType.Information
+                position: Kirigami.InlineMessage.Position.Inline
+                text: i18nc("@info", "Votes are not anonymous and will be visible to everyone in the room.")
+            }
+        }
+        FormCard.FormDelegateSeparator {
+            above: anonymousWarningDelegate
+            below: questionTextField
         }
         FormCard.FormTextFieldDelegate {
             id: questionTextField
             label: i18nc("@label", "Question:")
+            placeholderText: i18nc("@info:placeholder Example poll question", "What's your favorite food?")
+        }
+        FormCard.FormDelegateSeparator {
+            above: questionTextField
         }
         Repeater {
             id: optionRepeater
@@ -112,7 +127,10 @@ Kirigami.Dialog {
                             display: QQC2.AbstractButton.IconOnly
                             text: i18nc("@action:button", "Remove option")
                             icon.name: "edit-delete-remove"
+                            enabled: optionRepeater.count > 2 // Don't allow removing the last two options
+
                             onClicked: optionModel.remove(optionDelegate.index)
+
                             QQC2.ToolTip.text: text
                             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                             QQC2.ToolTip.visible: hovered
@@ -123,20 +141,6 @@ Kirigami.Dialog {
                 background: null
             }
         }
-        Delegates.RoundedItemDelegate {
-            Layout.fillWidth: true
-
-            horizontalPadding: Kirigami.Units.largeSpacing * 2
-            leftInset: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-            rightInset: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-
-            highlighted: true
-
-            icon.name: "list-add"
-            text: i18nc("@action:button", "Add option")
-
-            onClicked: optionModel.append({optionText: ""})
-        }
     }
 
     footer: QQC2.DialogButtonBox {
@@ -146,6 +150,15 @@ Kirigami.Dialog {
             icon.name: "document-send"
 
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
+        }
+
+        QQC2.Button {
+            icon.name: "list-add"
+            text: i18nc("@action:button Add new poll option", "Add Option")
+
+            onClicked: optionModel.append({optionText: ""})
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ActionRole
         }
     }
 }
