@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:44+0000\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
 "PO-Revision-Date: 2026-03-21 07:09+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -801,8 +801,8 @@ msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
 msgstr "Rozpocznij"
 
-#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
-#: src/devtools/RoomData.qml:108
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:74
+#: src/devtools/RoomData.qml:123
 #, kde-format
 msgid "Event Source"
 msgstr "Źródło wydarzenia"
@@ -1710,7 +1710,7 @@ msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Klawisz enter wysyła wiadomość"
 
-#: src/chatbar/ChatBarCore.qml:87
+#: src/chatbar/ChatBarCore.qml:92
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji i naklejki"
@@ -2240,22 +2240,31 @@ msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "Wybierz pokój"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:42
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Id pokoju: %1"
 
-#: src/devtools/RoomData.qml:45
+#: src/devtools/RoomData.qml:47
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt ""
+"@option:check Toggle for whether this room is considered a direct chat or not"
+msgid "Direct Chat"
+msgstr "Rozpocznij rozmowę"
+
+#: src/devtools/RoomData.qml:60
 #, kde-format
 msgid "Room Account Data"
 msgstr "Dane konta pokoju"
 
-#: src/devtools/RoomData.qml:67
+#: src/devtools/RoomData.qml:82
 #, kde-format
 msgid "Room State"
 msgstr "Stan pokoju"
 
-#: src/devtools/RoomData.qml:84
+#: src/devtools/RoomData.qml:99
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -2264,7 +2273,7 @@ msgstr[0] "%1 zdarzenie tego rodzaju"
 msgstr[1] "%1 zdarzenia tego rodzaju"
 msgstr[2] "%1 zdarzeń tego rodzaju"
 
-#: src/devtools/RoomData.qml:93
+#: src/devtools/RoomData.qml:108
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -3507,7 +3516,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Twórca"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:74
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3516,28 +3525,28 @@ msgstr ""
 "Plik jest zbyt duży do pobrania.<br /> Napisz do obsługi twojego serwera "
 "Matriksa z prośbą o pomoc."
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:328
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nie ustawiono żadnego serwera tożsamości"
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:359
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Nie udało się utworzyć pokoju: %1"
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Nie udało się utworzyć przestrzeni: %1"
 
-#: src/libneochat/neochatroom.cpp:1244
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
 
-#: src/libneochat/neochatroom.cpp:1610 src/libneochat/neochatroom.cpp:1618
+#: src/libneochat/neochatroom.cpp:1614 src/libneochat/neochatroom.cpp:1622
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3878,22 +3887,30 @@ msgid "The passwords do not match."
 msgstr "Hasła nie są sobie równe."
 
 #: src/login/registration.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No server."
+msgctxt "@info"
 msgid "No server."
 msgstr "Nie ma żadnego serwera."
 
 #: src/login/registration.cpp:395
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Checking Server availability."
+msgctxt "@info"
 msgid "Checking Server availability."
 msgstr "Sprawdzanie dostępności serwera."
 
 #: src/login/registration.cpp:397
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This is not a valid server."
+msgctxt "@info"
 msgid "This is not a valid server."
 msgstr "To nie jest poprawny serwer."
 
 #: src/login/registration.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Registration for this server is disabled."
+msgctxt "@info"
 msgid "Registration for this server is disabled."
 msgstr "Rejestrowanie się na ten serwer jest wyłączone."
 
@@ -3917,29 +3934,54 @@ msgid "This is not a valid registration token."
 msgstr "To nie jest poprawny token rejestracyjny."
 
 #: src/login/registration.cpp:407
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No username."
+msgctxt "@info"
 msgid "No username."
 msgstr "Brak nazwy użytkownika."
 
 #: src/login/registration.cpp:409
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Checking username availability."
+msgctxt "@info"
 msgid "Checking username availability."
 msgstr "Sprawdzanie dostępności nazwy użytkownika."
 
 #: src/login/registration.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This username is not available."
+msgctxt "@info"
 msgid "This username is not available."
 msgstr "Ta nazwa użytkownika jest niedostępna."
 
 #: src/login/registration.cpp:413
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Continue"
+msgctxt "@info"
 msgid "Continue"
 msgstr "Dalej"
 
 #: src/login/registration.cpp:415
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Working"
+msgctxt "@info"
 msgid "Working"
 msgstr "Pracuje"
+
+#: src/login/registration.cpp:417
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Invalid registration token"
+msgctxt "@info"
+msgid "Checking registration token."
+msgstr "Nieprawidłowy token rejestracyjny"
+
+#: src/login/registration.cpp:419
+#, fuzzy, kde-format
+#| msgid "Continue the login process in your browser."
+msgctxt "@info"
+msgid "Waiting for login confirmation in your browser."
+msgstr "Dokończ logowanie w swojej przeglądarce."
 
 #: src/login/RegistrationToken.qml:20
 #, kde-format
@@ -4558,7 +4600,17 @@ msgid "Find messages…"
 msgstr "Poszukaj wiadomości…"
 
 #: src/roominfo/RoomSearchPage.qml:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@placeholder"
+#| msgid "Enter text to start searching for users"
+msgctxt "@info:placeholder"
+msgid "Enter text to start searching %1's messages"
+msgstr "Wpisz tekst, aby zacząć szukać użytkowników"
+
+#: src/roominfo/RoomSearchPage.qml:49
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching"
+msgctxt "@info:placeholder"
 msgid "Enter text to start searching"
 msgstr "Wpisz tekst, aby rozpocząć wyszukiwanie"
 
@@ -4662,31 +4714,31 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 zaprosił cię"
 
-#: src/rooms/RoomContextMenu.qml:47
+#: src/rooms/RoomContextMenu.qml:45
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
 msgstr "Oznacz jako przeczytane"
 
-#: src/rooms/RoomContextMenu.qml:58
+#: src/rooms/RoomContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Powiadomienia"
 
-#: src/rooms/RoomContextMenu.qml:62
+#: src/rooms/RoomContextMenu.qml:60
 #, kde-format
 msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "Ustawienia domyślne"
 
-#: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
+#: src/rooms/RoomContextMenu.qml:72 src/settings/PushNotification.qml:41
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
 msgstr "Wszystkie wiadomości"
 
-#: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
+#: src/rooms/RoomContextMenu.qml:84 src/settings/PushNotification.qml:50
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -4694,81 +4746,81 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Wzmianki i Słowa Kluczowe"
 
-#: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
+#: src/rooms/RoomContextMenu.qml:96 src/settings/PushNotification.qml:59
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
 msgstr "Brak"
 
-#: src/rooms/RoomContextMenu.qml:111
+#: src/rooms/RoomContextMenu.qml:109
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
 msgstr "Usuń z ulubionych"
 
-#: src/rooms/RoomContextMenu.qml:111
+#: src/rooms/RoomContextMenu.qml:109
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
 msgstr "Dodaj do ulubionych"
 
-#: src/rooms/RoomContextMenu.qml:117
+#: src/rooms/RoomContextMenu.qml:115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
 msgstr "Zmień priorytet"
 
-#: src/rooms/RoomContextMenu.qml:117
+#: src/rooms/RoomContextMenu.qml:115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
 msgstr "Obniż priorytet"
 
-#: src/rooms/RoomContextMenu.qml:127
+#: src/rooms/RoomContextMenu.qml:125
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Link"
 msgstr "Skopiuj odnośnik do pokoju"
 
-#: src/rooms/RoomContextMenu.qml:142
+#: src/rooms/RoomContextMenu.qml:140
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "Ustawienia pokoju"
 
-#: src/rooms/RoomContextMenu.qml:154
+#: src/rooms/RoomContextMenu.qml:152
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report…"
 msgstr "Zgłoś…"
 
-#: src/rooms/RoomContextMenu.qml:159
+#: src/rooms/RoomContextMenu.qml:157
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Room"
 msgstr "Zgłoś pokój"
 
-#: src/rooms/RoomContextMenu.qml:160
+#: src/rooms/RoomContextMenu.qml:158
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this room"
 msgstr "Możesz wpisać powód zgłoszenia tego pokoju"
 
-#: src/rooms/RoomContextMenu.qml:162
+#: src/rooms/RoomContextMenu.qml:160
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report"
 msgstr "Zgłoś"
 
-#: src/rooms/RoomContextMenu.qml:166
+#: src/rooms/RoomContextMenu.qml:164
 #, kde-format
 msgctxt "@title"
 msgid "Report Room"
 msgstr "Zgłoś pokój"
 
-#: src/rooms/RoomContextMenu.qml:176
+#: src/rooms/RoomContextMenu.qml:174
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
@@ -5020,7 +5072,7 @@ msgid "Show QR Code"
 msgstr "Zeskanuj kod QR"
 
 #: src/settings/AccountEditorPage.qml:151
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:209
 #: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
@@ -5032,84 +5084,92 @@ msgctxt "@title:group"
 msgid "Password"
 msgstr "Hasło"
 
-#: src/settings/AccountEditorPage.qml:173
+#: src/settings/AccountEditorPage.qml:175
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Twój serwer nie obsługuje zmieniania twojego hasła"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:182
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Obecne hasło:"
 
-#: src/settings/AccountEditorPage.qml:187
+#: src/settings/AccountEditorPage.qml:189
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nowe hasło:"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:196
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Nowe hasło jeszcze raz:"
 
-#: src/settings/AccountEditorPage.qml:199
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Hasła nie są sobie równe"
 
-#: src/settings/AccountEditorPage.qml:219
+#: src/settings/AccountEditorPage.qml:222
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Adresy e-mail"
 
-#: src/settings/AccountEditorPage.qml:224
+#: src/settings/AccountEditorPage.qml:228
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Serwer tożsamości"
 
-#: src/settings/AccountEditorPage.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Server Information"
-msgstr "Szczegóły o serwerze"
-
-#: src/settings/AccountEditorPage.qml:237
-#, kde-format
-msgid "Homeserver url"
-msgstr "Adres URL serwera domowego"
-
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:238
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Zarządzanie kontem"
 
-#: src/settings/AccountEditorPage.qml:263
+#: src/settings/AccountEditorPage.qml:244
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Manage Account"
+msgctxt "@info"
+msgid "Manage Account"
+msgstr "Zarządzaj kontem"
+
+#: src/settings/AccountEditorPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Wyłącz konto…"
 
-#: src/settings/AccountEditorPage.qml:280
+#: src/settings/AccountEditorPage.qml:267
+#, kde-format
+msgctxt "@title:group"
+msgid "Server Information"
+msgstr "Szczegóły o serwerze"
+
+#: src/settings/AccountEditorPage.qml:271
+#, kde-format
+msgid "Homeserver url"
+msgstr "Adres URL serwera domowego"
+
+#: src/settings/AccountEditorPage.qml:297
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Pomyślnie zmieniono hasło"
 
-#: src/settings/AccountEditorPage.qml:283
+#: src/settings/AccountEditorPage.qml:300
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Nieprawidłowe hasło"
 
-#: src/settings/AccountEditorPage.qml:286
+#: src/settings/AccountEditorPage.qml:303
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -5634,7 +5694,7 @@ msgid "Add keyword"
 msgstr "Dodaj słowo kluczowe"
 
 #: src/settings/GlobalNotificationsPage.qml:167
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6272,7 +6332,7 @@ msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "Wysyłaj powiadomienia o pisaniu"
 
-#: src/settings/NeoChatSecurityPage.qml:72
+#: src/settings/NeoChatSecurityPage.qml:76
 #, fuzzy, kde-format
 #| msgctxt "Room permission type"
 #| msgid "Send reactions"
@@ -6280,13 +6340,13 @@ msgctxt "@option:check"
 msgid "Send read receipts"
 msgstr "Wysyłanie reakcji"
 
-#: src/settings/NeoChatSecurityPage.qml:86
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "Domyślnie ukryj obrazy i filmy"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6296,63 +6356,63 @@ msgstr ""
 "Po zaznaczeniu tego, zdjęcia i filmy zostaną pokazane dopiero po naciśnięciu "
 "przycisku."
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:106
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
 msgstr "Wszyscy"
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
 msgstr "Każdy może wysłać ci zaproszenie."
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Known users"
 msgstr "Znani użytkownicy"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
 "Tylko użytkownicy, z którymi dzielisz pokój mogą wysyłać ci zaproszenia."
 
-#: src/settings/NeoChatSecurityPage.qml:109
-#: src/settings/NeoChatSecurityPage.qml:122
+#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Twój serwer nie obsługuje tego ustawienia."
 
-#: src/settings/NeoChatSecurityPage.qml:119
+#: src/settings/NeoChatSecurityPage.qml:124
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
 msgstr "Nikt"
 
-#: src/settings/NeoChatSecurityPage.qml:122
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
 msgstr "Nikt nie może wysyłać ci zaproszeń."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:132
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Szyfrowanie"
 
-#: src/settings/NeoChatSecurityPage.qml:132
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Włącz szyfrowanie w nowych rozmowach"
 
-#: src/settings/NeoChatSecurityPage.qml:133
+#: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6361,61 +6421,61 @@ msgstr ""
 "Gdy włączone, to NeoChat będzie szyfrował nowozaczynane wiadomości "
 "bezpośrednie."
 
-#: src/settings/NeoChatSecurityPage.qml:147
+#: src/settings/NeoChatSecurityPage.qml:152
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr "Zarządzenie przechowywaniem kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:148
+#: src/settings/NeoChatSecurityPage.qml:153
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Zaimportuj lub odblokuj klucze szyfrujące z innych urządzeń."
 
-#: src/settings/NeoChatSecurityPage.qml:151
+#: src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Zarządzaj kopią zapasową danych poufnych"
 
-#: src/settings/NeoChatSecurityPage.qml:160
+#: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:161
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Zaimportuj klucze szyfrujące z pliku kopii zapasowej."
 
-#: src/settings/NeoChatSecurityPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:172
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:170
+#: src/settings/NeoChatSecurityPage.qml:175
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Pomyślnie zaimportowano klucze"
 
-#: src/settings/NeoChatSecurityPage.qml:183
+#: src/settings/NeoChatSecurityPage.qml:188
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Eksportowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:184
+#: src/settings/NeoChatSecurityPage.qml:189
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Wyeksportuj klucze szyfrujące tego urządzenia do pliku."
 
-#: src/settings/NeoChatSecurityPage.qml:190
+#: src/settings/NeoChatSecurityPage.qml:195
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6905,7 +6965,7 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "Przywróć domyślne"
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6913,79 +6973,79 @@ msgid ""
 msgstr ""
 "Aby móc włączyć to ustawienie, należy uaktualnić ten pokój do nowej wersji."
 
-#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Security"
 msgstr "Zabezpieczenia"
 
-#: src/settings/RoomSecurityPage.qml:27
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Szyfrowanie"
 
-#: src/settings/RoomSecurityPage.qml:39
+#: src/settings/RoomSecurityPage.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
 msgstr "Ten pokój używa szyfrowania."
 
-#: src/settings/RoomSecurityPage.qml:50
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
 msgstr "Włącz szyfrowanie…"
 
-#: src/settings/RoomSecurityPage.qml:51
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Po włączeniu, nie będzie można wyłączyć szyfrowania."
 
-#: src/settings/RoomSecurityPage.qml:62
+#: src/settings/RoomSecurityPage.qml:60
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Dostęp"
 
-#: src/settings/RoomSecurityPage.qml:66
+#: src/settings/RoomSecurityPage.qml:64
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Prywatny (tylko po zaproszeniu)"
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "Tylko zaproszeni ludzie mogą dołączyć."
 
-#: src/settings/RoomSecurityPage.qml:75
+#: src/settings/RoomSecurityPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Członkowie przestrzeni"
 
-#: src/settings/RoomSecurityPage.qml:76
+#: src/settings/RoomSecurityPage.qml:74
 #, kde-format
 msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Każdy w zaznaczonych przestrzeniach może odszukać i dołączyć."
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "Zaznacz przestrzenie"
 
-#: src/settings/RoomSecurityPage.qml:103
+#: src/settings/RoomSecurityPage.qml:101
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Zapukaj"
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
@@ -6993,43 +7053,43 @@ msgstr ""
 "Ludzie, nie będący w pokoju, muszą poprosić o zaproszenie, aby do niego "
 "dołączyć."
 
-#: src/settings/RoomSecurityPage.qml:113
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Publiczny"
 
-#: src/settings/RoomSecurityPage.qml:114
+#: src/settings/RoomSecurityPage.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Każdy może odszukać i dołączyć."
 
-#: src/settings/RoomSecurityPage.qml:124
+#: src/settings/RoomSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Widoczność historii wiadomości"
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Ktokolwiek"
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Historię może przeglądać ktokolwiek, niezależnie czy dołączył."
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Tylko członkowie"
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:136
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7038,13 +7098,13 @@ msgstr ""
 "Wszyscy członkowie mogą przeglądać całą historię rozmów, nawet tę sprzed ich "
 "dołączenia."
 
-#: src/settings/RoomSecurityPage.qml:146
+#: src/settings/RoomSecurityPage.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Tylko członkowie (od zaproszenia)"
 
-#: src/settings/RoomSecurityPage.qml:147
+#: src/settings/RoomSecurityPage.qml:145
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7053,13 +7113,13 @@ msgid ""
 msgstr ""
 "Nowi członkowie mogą przeglądać historię rozmów od czasu ich zaproszenia."
 
-#: src/settings/RoomSecurityPage.qml:155
+#: src/settings/RoomSecurityPage.qml:153
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Tylko członkowie (od dołączenia)"
 
-#: src/settings/RoomSecurityPage.qml:156
+#: src/settings/RoomSecurityPage.qml:154
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7203,7 +7263,7 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ok"
 
-#: src/settings/SelectSpacesDialog.qml:37
+#: src/settings/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"

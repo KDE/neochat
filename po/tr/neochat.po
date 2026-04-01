@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:44+0000\n"
-"PO-Revision-Date: 2026-03-14 12:50+0300\n"
+"POT-Creation-Date: 2026-04-01 00:45+0000\n"
+"PO-Revision-Date: 2026-03-31 13:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -799,8 +799,8 @@ msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
 msgstr "Başlat"
 
-#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
-#: src/devtools/RoomData.qml:108
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:74
+#: src/devtools/RoomData.qml:123
 #, kde-format
 msgid "Event Source"
 msgstr "Olay Kaynağı"
@@ -1708,7 +1708,7 @@ msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Giriş düğmesi iletiyi gönderir"
 
-#: src/chatbar/ChatBarCore.qml:87
+#: src/chatbar/ChatBarCore.qml:92
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojiler ve Çıkartmalar"
@@ -2239,22 +2239,31 @@ msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "Oda Seç"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:42
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Oda kimliği: %1"
 
-#: src/devtools/RoomData.qml:45
+#: src/devtools/RoomData.qml:47
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt ""
+"@option:check Toggle for whether this room is considered a direct chat or not"
+msgid "Direct Chat"
+msgstr "Sohbet Başlat"
+
+#: src/devtools/RoomData.qml:60
 #, kde-format
 msgid "Room Account Data"
 msgstr "Oda Hesabı Bilgisi"
 
-#: src/devtools/RoomData.qml:67
+#: src/devtools/RoomData.qml:82
 #, kde-format
 msgid "Room State"
 msgstr "Oda Durumu"
 
-#: src/devtools/RoomData.qml:84
+#: src/devtools/RoomData.qml:99
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -2262,7 +2271,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "bu türden %1 olay"
 msgstr[1] "bu türden %1 olay"
 
-#: src/devtools/RoomData.qml:93
+#: src/devtools/RoomData.qml:108
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -3505,7 +3514,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Oluşturan"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:74
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3514,28 +3523,28 @@ msgstr ""
 "Dosya indirmek için pek büyük.<br />Destek için Matrix sunucusu yöneticisine "
 "ulaşın."
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:328
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Yapılandırılmış kimlik sunucusu yok"
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:359
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Oda oluşturulamadı: %1"
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
 
-#: src/libneochat/neochatroom.cpp:1244
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/libneochat/neochatroom.cpp:1610 src/libneochat/neochatroom.cpp:1618
+#: src/libneochat/neochatroom.cpp:1614 src/libneochat/neochatroom.cpp:1622
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3878,22 +3887,30 @@ msgid "The passwords do not match."
 msgstr "Parolalar uyuşmuyor."
 
 #: src/login/registration.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No server."
+msgctxt "@info"
 msgid "No server."
 msgstr "Sunucu yok."
 
 #: src/login/registration.cpp:395
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Checking Server availability."
+msgctxt "@info"
 msgid "Checking Server availability."
 msgstr "Sunucu kullanılabilirliği denetleniyor."
 
 #: src/login/registration.cpp:397
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This is not a valid server."
+msgctxt "@info"
 msgid "This is not a valid server."
 msgstr "Bu, geçerli bir sunucu değil."
 
 #: src/login/registration.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Registration for this server is disabled."
+msgctxt "@info"
 msgid "Registration for this server is disabled."
 msgstr "Bu sunucu için kayıt işlemi devre dışı."
 
@@ -3916,29 +3933,54 @@ msgid "This is not a valid registration token."
 msgstr "Bu, geçerli bir kayıt jetonu değil."
 
 #: src/login/registration.cpp:407
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No username."
+msgctxt "@info"
 msgid "No username."
 msgstr "Kullanıcı adı yok."
 
 #: src/login/registration.cpp:409
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Checking username availability."
+msgctxt "@info"
 msgid "Checking username availability."
 msgstr "Kullanıcı adı kullanılabilirliği denetleniyor."
 
 #: src/login/registration.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This username is not available."
+msgctxt "@info"
 msgid "This username is not available."
 msgstr "Bu kullanıcı adı kullanılamıyor."
 
 #: src/login/registration.cpp:413
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Continue"
+msgctxt "@info"
 msgid "Continue"
 msgstr "Sürdür"
 
 #: src/login/registration.cpp:415
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Working"
+msgctxt "@info"
 msgid "Working"
 msgstr "Çalışıyor"
+
+#: src/login/registration.cpp:417
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Invalid registration token"
+msgctxt "@info"
+msgid "Checking registration token."
+msgstr "Geçersiz kayıt jetonu"
+
+#: src/login/registration.cpp:419
+#, fuzzy, kde-format
+#| msgid "Continue the login process in your browser."
+msgctxt "@info"
+msgid "Waiting for login confirmation in your browser."
+msgstr "Oturum açma işlemini tarayıcıda sürdürün."
 
 #: src/login/RegistrationToken.qml:20
 #, kde-format
@@ -4551,7 +4593,17 @@ msgid "Find messages…"
 msgstr "İletileri bul…"
 
 #: src/roominfo/RoomSearchPage.qml:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@placeholder"
+#| msgid "Enter text to start searching for users"
+msgctxt "@info:placeholder"
+msgid "Enter text to start searching %1's messages"
+msgstr "Kullanıcılar aramaya başlamak için metin gir…"
+
+#: src/roominfo/RoomSearchPage.qml:49
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching"
+msgctxt "@info:placeholder"
 msgid "Enter text to start searching"
 msgstr "Aramaya başlamak için metin gir"
 
@@ -4655,31 +4707,31 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1, sizi davet etti"
 
-#: src/rooms/RoomContextMenu.qml:47
+#: src/rooms/RoomContextMenu.qml:45
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
 msgstr "Okundu Olarak İmle"
 
-#: src/rooms/RoomContextMenu.qml:58
+#: src/rooms/RoomContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Bildirimler"
 
-#: src/rooms/RoomContextMenu.qml:62
+#: src/rooms/RoomContextMenu.qml:60
 #, kde-format
 msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "Öntanımlı Ayarlar"
 
-#: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
+#: src/rooms/RoomContextMenu.qml:72 src/settings/PushNotification.qml:41
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
 msgstr "Doğrudan İletiler"
 
-#: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
+#: src/rooms/RoomContextMenu.qml:84 src/settings/PushNotification.qml:50
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -4687,81 +4739,81 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Söz Etmeler ve Anahtar Sözcükler"
 
-#: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
+#: src/rooms/RoomContextMenu.qml:96 src/settings/PushNotification.qml:59
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
 msgstr "Yok"
 
-#: src/rooms/RoomContextMenu.qml:111
+#: src/rooms/RoomContextMenu.qml:109
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
 msgstr "Sık Kullanılanlardan Kaldır"
 
-#: src/rooms/RoomContextMenu.qml:111
+#: src/rooms/RoomContextMenu.qml:109
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
 msgstr "Sık Kullanılanlara Ekle"
 
-#: src/rooms/RoomContextMenu.qml:117
+#: src/rooms/RoomContextMenu.qml:115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
 msgstr "Yeniden Önceliklendir"
 
-#: src/rooms/RoomContextMenu.qml:117
+#: src/rooms/RoomContextMenu.qml:115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
 msgstr "Önceliğini Azalt"
 
-#: src/rooms/RoomContextMenu.qml:127
+#: src/rooms/RoomContextMenu.qml:125
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Link"
 msgstr "Oda Bağlantısını Kopyala"
 
-#: src/rooms/RoomContextMenu.qml:142
+#: src/rooms/RoomContextMenu.qml:140
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "Oda Ayarları"
 
-#: src/rooms/RoomContextMenu.qml:154
+#: src/rooms/RoomContextMenu.qml:152
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report…"
 msgstr "Bildir…"
 
-#: src/rooms/RoomContextMenu.qml:159
+#: src/rooms/RoomContextMenu.qml:157
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Room"
 msgstr "Odayı Bildir"
 
-#: src/rooms/RoomContextMenu.qml:160
+#: src/rooms/RoomContextMenu.qml:158
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this room"
 msgstr "İsteğe bağlı olarak bu odayı rapor etme gerekçenizi verin"
 
-#: src/rooms/RoomContextMenu.qml:162
+#: src/rooms/RoomContextMenu.qml:160
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report"
 msgstr "Bildir"
 
-#: src/rooms/RoomContextMenu.qml:166
+#: src/rooms/RoomContextMenu.qml:164
 #, kde-format
 msgctxt "@title"
 msgid "Report Room"
 msgstr "Odayı Bildir"
 
-#: src/rooms/RoomContextMenu.qml:176
+#: src/rooms/RoomContextMenu.qml:174
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
@@ -5011,7 +5063,7 @@ msgid "Show QR Code"
 msgstr "Kare Kodu Göster"
 
 #: src/settings/AccountEditorPage.qml:151
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:209
 #: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
@@ -5023,84 +5075,92 @@ msgctxt "@title:group"
 msgid "Password"
 msgstr "Parola"
 
-#: src/settings/AccountEditorPage.qml:173
+#: src/settings/AccountEditorPage.qml:175
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Sunucunuz parolanızı değiştirmeyi desteklemiyor"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:182
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Geçerli parola:"
 
-#: src/settings/AccountEditorPage.qml:187
+#: src/settings/AccountEditorPage.qml:189
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Yeni parola:"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:196
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Yeni parolayı onayla:"
 
-#: src/settings/AccountEditorPage.qml:199
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Parolalar uyuşmuyor"
 
-#: src/settings/AccountEditorPage.qml:219
+#: src/settings/AccountEditorPage.qml:222
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-posta Adresleri"
 
-#: src/settings/AccountEditorPage.qml:224
+#: src/settings/AccountEditorPage.qml:228
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Kimlik Sunucusu"
 
-#: src/settings/AccountEditorPage.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Server Information"
-msgstr "Sunucu Bilgisi"
-
-#: src/settings/AccountEditorPage.qml:237
-#, kde-format
-msgid "Homeserver url"
-msgstr "Ana Sunucu URL’si"
-
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:238
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Hesap Yönetimi"
 
-#: src/settings/AccountEditorPage.qml:263
+#: src/settings/AccountEditorPage.qml:244
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Manage Account"
+msgctxt "@info"
+msgid "Manage Account"
+msgstr "Hesabı yönet"
+
+#: src/settings/AccountEditorPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Hesabı Devre Dışı Bırak…"
 
-#: src/settings/AccountEditorPage.qml:280
+#: src/settings/AccountEditorPage.qml:267
+#, kde-format
+msgctxt "@title:group"
+msgid "Server Information"
+msgstr "Sunucu Bilgisi"
+
+#: src/settings/AccountEditorPage.qml:271
+#, kde-format
+msgid "Homeserver url"
+msgstr "Ana Sunucu URL’si"
+
+#: src/settings/AccountEditorPage.qml:297
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Parola başarıyla değiştirildi"
 
-#: src/settings/AccountEditorPage.qml:283
+#: src/settings/AccountEditorPage.qml:300
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Geçersiz parola"
 
-#: src/settings/AccountEditorPage.qml:286
+#: src/settings/AccountEditorPage.qml:303
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -5623,7 +5683,7 @@ msgid "Add keyword"
 msgstr "Anahtar sözcük ekle"
 
 #: src/settings/GlobalNotificationsPage.qml:167
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6251,21 +6311,19 @@ msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "“Yazıyor” bildirimlerini gönder"
 
-#: src/settings/NeoChatSecurityPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Send reactions"
+#: src/settings/NeoChatSecurityPage.qml:76
+#, kde-format
 msgctxt "@option:check"
 msgid "Send read receipts"
-msgstr "Tepkiler gönder"
+msgstr "Okundu makbuzları gönder"
 
-#: src/settings/NeoChatSecurityPage.qml:86
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "Görselleri ve videoları öntanımlı olarak gizle"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6275,63 +6333,63 @@ msgstr ""
 "Bu seçenek etkinleştirildiğinde, görseller ve videolar yalnızca bir düğmeye "
 "tıklandıktan sonra gösterilirler."
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:106
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
 msgstr "Herkes"
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
 msgstr "Herkes size davet gönderebilir."
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Known users"
 msgstr "Bilinen kullanıcılar"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
 "Yalnızca bir odayı paylaştığınız kullanıcılar size davet gönderebilirler."
 
-#: src/settings/NeoChatSecurityPage.qml:109
-#: src/settings/NeoChatSecurityPage.qml:122
+#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Sunucunuz bu ayarı desteklemiyor."
 
-#: src/settings/NeoChatSecurityPage.qml:119
+#: src/settings/NeoChatSecurityPage.qml:124
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
 msgstr "Hiç kimse"
 
-#: src/settings/NeoChatSecurityPage.qml:122
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
 msgstr "Hiç kimse size davet gönderemez."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:132
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: src/settings/NeoChatSecurityPage.qml:132
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Yeni sohbetlerde şifrelemeyi aç"
 
-#: src/settings/NeoChatSecurityPage.qml:133
+#: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6340,62 +6398,62 @@ msgstr ""
 "Etkinleştirilmişse NeoChat, yeni doğrudan iletiler başlatırken şifreleme "
 "kullanır."
 
-#: src/settings/NeoChatSecurityPage.qml:147
+#: src/settings/NeoChatSecurityPage.qml:152
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr "Anahtar Depolamasını Yönet"
 
-#: src/settings/NeoChatSecurityPage.qml:148
+#: src/settings/NeoChatSecurityPage.qml:153
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Başka aygıtlardan şifreleme anahtarları içe aktarın veya kilitlerini açın."
 
-#: src/settings/NeoChatSecurityPage.qml:151
+#: src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Giz Yedeğini Yönet"
 
-#: src/settings/NeoChatSecurityPage.qml:160
+#: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Anahtarlar İçe Aktar"
 
-#: src/settings/NeoChatSecurityPage.qml:161
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Bir yedek dosyasından şifreleme anahtarları içe aktarın."
 
-#: src/settings/NeoChatSecurityPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:172
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Anahtarlar İçe Aktar"
 
-#: src/settings/NeoChatSecurityPage.qml:170
+#: src/settings/NeoChatSecurityPage.qml:175
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Anahtarlar başarıyla içe aktarıldı"
 
-#: src/settings/NeoChatSecurityPage.qml:183
+#: src/settings/NeoChatSecurityPage.qml:188
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Anahtarları Dışa Aktar"
 
-#: src/settings/NeoChatSecurityPage.qml:184
+#: src/settings/NeoChatSecurityPage.qml:189
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Bu aygıtın şifreleme anahtarlarını bir dosyaya dışa aktarın."
 
-#: src/settings/NeoChatSecurityPage.qml:190
+#: src/settings/NeoChatSecurityPage.qml:195
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6670,12 +6728,10 @@ msgid "Upgrade Room…"
 msgstr "Odayı Yükselt…"
 
 #: src/settings/RoomAdvancedPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt "The person that created a room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Creators"
-msgstr "Oluşturan"
+msgstr "Oda Yaratıcıları"
 
 #: src/settings/RoomAdvancedPage.qml:103
 #, kde-format
@@ -6886,7 +6942,7 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "Öntanımlılara Sıfırla"
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6895,79 +6951,79 @@ msgstr ""
 "Bu ayarı etkinleştirmek için odayı daha yeni bir sürüme yükseltmeniz "
 "gerekiyor."
 
-#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Security"
 msgstr "Güvenlik"
 
-#: src/settings/RoomSecurityPage.qml:27
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: src/settings/RoomSecurityPage.qml:39
+#: src/settings/RoomSecurityPage.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
 msgstr "Bu oda şifreleme kullanıyor."
 
-#: src/settings/RoomSecurityPage.qml:50
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
 msgstr "Şifrelemeyi Etkinleştir…"
 
-#: src/settings/RoomSecurityPage.qml:51
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Etkinleştirildiğinde, şifreleme devre dışı bırakılamaz."
 
-#: src/settings/RoomSecurityPage.qml:62
+#: src/settings/RoomSecurityPage.qml:60
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Erişim"
 
-#: src/settings/RoomSecurityPage.qml:66
+#: src/settings/RoomSecurityPage.qml:64
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Özel (yalnızca davetliler)"
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "Yalnızca davet edilen kişiler katılabilir."
 
-#: src/settings/RoomSecurityPage.qml:75
+#: src/settings/RoomSecurityPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Alan üyeleri"
 
-#: src/settings/RoomSecurityPage.qml:76
+#: src/settings/RoomSecurityPage.qml:74
 #, kde-format
 msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Seçili alanlardaki herkes bulabilir ve katılabilir."
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "Alanlar Seç"
 
-#: src/settings/RoomSecurityPage.qml:103
+#: src/settings/RoomSecurityPage.qml:101
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Tıklat"
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
@@ -6975,43 +7031,43 @@ msgstr ""
 "Odada bulunmayan kişilerin, odaya katılabilmeleri için bir davet isteğinde "
 "bulunmaları gerekir."
 
-#: src/settings/RoomSecurityPage.qml:113
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Herkese Açık"
 
-#: src/settings/RoomSecurityPage.qml:114
+#: src/settings/RoomSecurityPage.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Herkes bulabilir ve katılabilir."
 
-#: src/settings/RoomSecurityPage.qml:124
+#: src/settings/RoomSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "İleti Geçmişi Görünürlüğü"
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Herkes"
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Katılıp katılmadığına bakılmaksızın herkes geçmişi görüntüleyebilir."
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Yalnızca üyeler"
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:136
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7019,13 +7075,13 @@ msgid ""
 msgstr ""
 "Tüm üyeler, katılmadan önce bile tüm ileti geçmişini görüntüleyebilirler."
 
-#: src/settings/RoomSecurityPage.qml:146
+#: src/settings/RoomSecurityPage.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Yalnızca üyeler (davetten bu yana)"
 
-#: src/settings/RoomSecurityPage.qml:147
+#: src/settings/RoomSecurityPage.qml:145
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7035,13 +7091,13 @@ msgstr ""
 "Yeni üyeler, odaya davet edildikleri andan itibaren ileti geçmişini "
 "görüntüleyebilirler."
 
-#: src/settings/RoomSecurityPage.qml:155
+#: src/settings/RoomSecurityPage.qml:153
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Yalnızca üyeler (katılımdan bu yana)"
 
-#: src/settings/RoomSecurityPage.qml:156
+#: src/settings/RoomSecurityPage.qml:154
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7184,7 +7240,7 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Tamam"
 
-#: src/settings/SelectSpacesDialog.qml:37
+#: src/settings/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
