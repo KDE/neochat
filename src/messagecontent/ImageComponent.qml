@@ -25,14 +25,9 @@ Item {
     required property string eventId
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
-
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
+    required property block block
 
     /**
      * @brief FileTransferInfo for any downloading files.
@@ -98,7 +93,7 @@ Item {
                 Component {
                     id: imageEditorPage
                     ImageEditorPage {
-                        imagePath: root.componentAttributes.source
+                        imagePath: root.block.attributes.source
                     }
                 }
 
@@ -145,7 +140,7 @@ Item {
 
             Image {
                 anchors.fill: parent
-                source: root?.componentAttributes.tempInfo?.source ?? ""
+                source: root?.block.attributes.tempInfo?.source ?? ""
             }
         }
 
@@ -156,9 +151,9 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
 
-            active: !root.componentAttributes.animated && !_private.hideImage
+            active: !root.block.attributes.animated && !_private.hideImage
             sourceComponent: Image {
-                source: root.componentAttributes.source
+                source: root.block.attributes.source
                 sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
                 sourceSize.height: mediaSizeHelper.currentSize.height * Screen.devicePixelRatio
 
@@ -174,9 +169,9 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
 
-            active: (root?.componentAttributes.animated ?? false) && !_private.hideImage
+            active: (root?.block.attributes.animated ?? false) && !_private.hideImage
             sourceComponent: AnimatedImage {
-                source: root.componentAttributes.source
+                source: root.block.attributes.source
 
                 fillMode: Image.PreserveAspectFit
                 autoTransform: true
@@ -204,20 +199,20 @@ Item {
             gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
             onTapped: {
                 root.QQC2.ToolTip.hide();
-                if (root.componentAttributes.animated) {
+                if (root.block.attributes.animated) {
                     _private.imageItem.paused = true;
                 }
                 if (root.Message.timeline) {
                     root.Message.timeline.interactive = false;
                 }
-                if (!root.componentAttributes.isSticker && !root.editable && !_private.hideImage) {
+                if (!root.block.attributes.isSticker && !root.editable && !_private.hideImage) {
                     RoomManager.maximizeMedia(root.eventId);
                 }
             }
         }
     }
 
-    QQC2.ToolTip.text: root.display
+    QQC2.ToolTip.text: root.block.display
     QQC2.ToolTip.visible: hoverHandler.hovered
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
@@ -243,13 +238,13 @@ Item {
         id: mediaSizeHelper
         contentMaxWidth: root.Message.maxContentWidth
         contentMaxHeight: root.contentMaxHeight ?? -1
-        mediaWidth: root?.componentAttributes.isSticker ? 256 : (root?.componentAttributes.width ?? 0)
-        mediaHeight: root?.componentAttributes.isSticker ? 256 : (root?.componentAttributes.height ?? 0)
+        mediaWidth: root?.block.attributes.isSticker ? 256 : (root?.block.attributes.width ?? 0)
+        mediaHeight: root?.block.attributes.isSticker ? 256 : (root?.block.attributes.height ?? 0)
     }
 
     QtObject {
         id: _private
-        readonly property var imageItem: root.componentAttributes.animated ? animatedImageLoader.item : imageLoader.item
+        readonly property var imageItem: root.block.attributes.animated ? animatedImageLoader.item : imageLoader.item
 
         // The space available for the component after taking away the border
         readonly property real downloaded: root.fileTransferInfo && root.fileTransferInfo.completed

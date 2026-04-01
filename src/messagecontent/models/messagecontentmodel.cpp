@@ -148,14 +148,11 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
 
     const auto component = m_components[index.row()];
 
-    if (role == DisplayRole) {
-        return component.display;
-    }
     if (role == ComponentTypeRole) {
         return component.type;
     }
-    if (role == ComponentAttributesRole) {
-        return component.attributes;
+    if (role == BlockRole) {
+        return component.toVariant();
     }
     if (role == EventIdRole) {
         return eventId();
@@ -222,9 +219,8 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
 QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
 {
     QHash<int, QByteArray> roles;
-    roles[MessageContentModel::DisplayRole] = "display";
     roles[MessageContentModel::ComponentTypeRole] = "componentType";
-    roles[MessageContentModel::ComponentAttributesRole] = "componentAttributes";
+    roles[MessageContentModel::BlockRole] = "block";
     roles[MessageContentModel::EventIdRole] = "eventId";
     roles[MessageContentModel::DateTimeRole] = "dateTime";
     roles[MessageContentModel::AuthorRole] = "author";
@@ -313,7 +309,7 @@ void MessageContentModel::updateReplyModel()
             insertRow = 1;
         }
         beginInsertRows({}, insertRow, insertRow);
-        m_components.insert(insertRow, Blocks::Block{Blocks::Reply, QString(), {}});
+        m_components.insert(insertRow, Blocks::Block(Blocks::Reply, QString(), {}));
         endInsertRows();
     } else {
         forEachComponentOfType(Blocks::Reply, [this](ComponentIt it) {
@@ -331,7 +327,7 @@ Blocks::Block MessageContentModel::linkPreviewComponent(const QUrl &link)
         return {};
     }
     if (linkPreviewer->loaded()) {
-        return Blocks::Block{Blocks::LinkPreview, QString(), {{"link"_L1, link}}};
+        return Blocks::Block(Blocks::LinkPreview, QString(), {{"link"_L1, link}});
     }
     connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
         const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
@@ -357,7 +353,7 @@ Blocks::Block MessageContentModel::linkPreviewComponent(const QUrl &link)
             }
         }
     });
-    return Blocks::Block{Blocks::LinkPreviewLoad, QString(), {{"link"_L1, link}}};
+    return Blocks::Block(Blocks::LinkPreviewLoad, QString(), {{"link"_L1, link}});
 }
 
 void MessageContentModel::closeLinkPreview(int row)

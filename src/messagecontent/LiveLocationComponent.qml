@@ -23,14 +23,9 @@ ColumnLayout {
     required property string eventId
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
-
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
+    required property block block
 
     required property int index
 
@@ -81,9 +76,8 @@ ColumnLayout {
     }
 
     TextComponent {
-        display: root.display
-        visible: root.display !== ""
-        componentAttributes: root.componentAttributes
+        block: root.block
+        visible: root.block.display !== ""
         index: root.index
         eventId: root.eventId
         author: root.author

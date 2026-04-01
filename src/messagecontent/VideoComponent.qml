@@ -25,14 +25,9 @@ Video {
     required property string eventId
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
-
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
+    required property block block
 
     /**
      * @brief FileTransferInfo for any downloading files.
@@ -165,7 +160,7 @@ Video {
         anchors.fill: parent
         visible: false
 
-        source: visible ? root.componentAttributes.tempInfo.source : ""
+        source: visible ? root.block.attributes.tempInfo.source : ""
         fillMode: Image.PreserveAspectFit
     }
 
@@ -398,8 +393,8 @@ Video {
     MediaSizeHelper {
         id: mediaSizeHelper
         contentMaxWidth: root.Message.maxContentWidth
-        mediaWidth: root.componentAttributes.width
-        mediaHeight: root.componentAttributes.height
+        mediaWidth: root.block.attributes.width
+        mediaHeight: root.block.attributes.height
     }
 
     function downloadAndPlay() {

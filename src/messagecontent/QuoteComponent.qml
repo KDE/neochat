@@ -32,20 +32,16 @@ QQC2.TextArea {
     required property NeochatRoomMember author
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
+    required property block block
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
 
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
-    readonly property ChatTextItemHelper chatTextItemHelper: componentAttributes?.chatTextItemHelper ?? null
+    readonly property ChatTextItemHelper chatTextItemHelper: block.attributes?.chatTextItemHelper ?? null
     onChatTextItemHelperChanged: if (chatTextItemHelper) {
         chatTextItemHelper.textItem = root;
     }

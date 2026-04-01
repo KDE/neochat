@@ -15,7 +15,10 @@ import org.kde.neochat
 RowLayout {
     id: root
 
-    required property string display
+    /**
+     * @brief The Blocks::Block for the delegate.
+     */
+    required property block block
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
@@ -27,7 +30,7 @@ RowLayout {
         Layout.fillWidth: true
         verticalAlignment: Text.AlignVCenter
         level: 2
-        text: root.display.length > 0 ? root.display : i18nc("@info Loading this message", "Loading…")
+        text: root.block.display.length > 0 ? root.block.display : i18nc("@info Loading this message", "Loading…")
     }
 }
 

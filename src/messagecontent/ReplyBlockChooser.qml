@@ -51,12 +51,12 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.Video
         delegate: MimeComponent {
-            required property var componentAttributes
+            required property block block
             
-            mimeIconSource: componentAttributes.mimeIcon
-            size: componentAttributes.size
-            duration: componentAttributes.duration
-            label: componentAttributes.filename
+            mimeIconSource: block.attributes.mimeIcon
+            size: block.attributes.size
+            duration: block.attributes.duration
+            label: block.attributes.filename
         }
     }
 
@@ -89,25 +89,23 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.Audio
         delegate: MimeComponent {
-            required property string display
-            required property var componentAttributes
+            required property block block
 
-            mimeIconSource: componentAttributes.mimeIcon
-            size: componentAttributes.size
-            duration: componentAttributes.duration
-            label: componentAttributes.filename
+            mimeIconSource: block.attributes.mimeIcon
+            size: block.attributes.size
+            duration: block.attributes.duration
+            label: block.attributes.filename
         }
     }
 
     DelegateChoice {
         roleValue: Blocks.File
         delegate: MimeComponent {
-            required property string display
-            required property var componentAttributes
+            required property block block
 
-            mimeIconSource: componentAttributes.mimeIcon
-            size: componentAttributes.size
-            label: componentAttributes.filename
+            mimeIconSource: block.attributes.mimeIcon
+            size: block.attributes.size
+            label: block.attributes.filename
         }
     }
 
@@ -119,18 +117,18 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.Location
         delegate: MimeComponent {
-            required property string display
+            required property block block
             mimeIconSource: "mark-location"
-            label: display
+            label: block.display
         }
     }
 
     DelegateChoice {
         roleValue: Blocks.LiveLocation
         delegate: MimeComponent {
-            required property string display
+            required property block block
             mimeIconSource: "mark-location"
-            label: display
+            label: block.display
         }
     }
 

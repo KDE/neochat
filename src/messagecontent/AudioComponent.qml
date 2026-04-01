@@ -24,9 +24,9 @@ ColumnLayout {
     required property string eventId
 
     /**
-     * @brief The attributes of the component.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property var componentAttributes
+    required property block block
 
     /**
      * @brief FileTransferInfo for any downloading files.
@@ -113,12 +113,12 @@ ColumnLayout {
             spacing: 0
 
             QQC2.Label {
-                text: root.componentAttributes.filename
+                text: root.block.attributes.filename
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
             }
             QQC2.Label {
-                text: Format.formatDuration(root.componentAttributes.duration)
+                text: Format.formatDuration(root.block.attributes.duration)
                 color: Kirigami.Theme.disabledTextColor
                 visible: !audio.hasAudio
                 Layout.fillWidth: true
@@ -130,7 +130,7 @@ ColumnLayout {
         visible: false
         Layout.fillWidth: true
         from: 0
-        to: root.componentAttributes.size
+        to: root.block.attributes.size
         value: root.fileTransferInfo.progress
     }
     RowLayout {

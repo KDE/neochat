@@ -120,11 +120,7 @@ void ChatBarMessageContentModel::initializeModel(const QString &initialText)
     const auto textItem = new ChatTextItemHelper(this);
     textItem->setInitialFragment(QTextDocumentFragment::fromPlainText(initialText));
     connectTextItem(textItem);
-    m_components += Blocks::Block{
-        .type = Blocks::Text,
-        .display = {},
-        .attributes = {{TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItem)}},
-    };
+    m_components += Blocks::Block(Blocks::Text, {}, {{TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItem)}});
     endInsertRows();
 
     m_currentFocusComponent = QPersistentModelIndex(index(0));
@@ -513,12 +509,7 @@ ChatBarMessageContentModel::insertComponent(int row, Blocks::Type type, QVariant
         connectTextItem(textItemWrapper);
     }
     beginInsertRows({}, row, row);
-    const auto it = m_components.insert(row,
-                                        Blocks::Block{
-                                            .type = type,
-                                            .display = {},
-                                            .attributes = attributes,
-                                        });
+    const auto it = m_components.insert(row, Blocks::Block(type, {}, attributes));
     endInsertRows();
     Q_EMIT hasRichFormattingChanged();
 

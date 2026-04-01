@@ -54,9 +54,8 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        DisplayRole = Qt::DisplayRole, /**< The display text for the message. */
         ComponentTypeRole = Qt::UserRole, /**< The type of component to visualise the message. */
-        ComponentAttributesRole, /**< The attributes of the component. */
+        BlockRole, /**< The Blocks::Block for the delegate. */
         EventIdRole, /**< The matrix event ID of the event. */
         DateTimeRole, /**< The timestamp for when the event was sent (as a NeoChatDateTime). */
         AuthorRole, /**< The author of the event. */
@@ -69,7 +68,7 @@ public:
         LinkPreviewerRole, /**< The link preview details. */
         ChatBarCacheRole, /**< The ChatBarCache to use. */
         EditableRole, /**< Whether the component can be edited. */
-        CurrentFocusRole, /**< Whteher the delegate should have focus. */
+        CurrentFocusRole, /**< Whether the delegate should have focus. */
     };
     Q_ENUM(Roles)
 
@@ -195,7 +194,7 @@ private:
     std::function<ComponentIt(const ComponentIt &)> m_fileFunction = [this](ComponentIt it) {
         if (m_itineraryModel && m_itineraryModel->rowCount() > 0) {
             beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-            it = m_components.insert(it + 1, Blocks::Block{Blocks::Itinerary, QString(), {}});
+            it = m_components.insert(it + 1, Blocks::Block(Blocks::Itinerary, QString(), {}));
             endInsertRows();
             return it;
         } else if (m_emptyItinerary) {
@@ -218,7 +217,7 @@ private:
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
                 it = m_components.insert(
                     it + 1,
-                    Blocks::Block{Blocks::Code, QString::fromStdString(file.readAll().toStdString()), {{u"class"_s, definitionForFile.name()}}});
+                    Blocks::Block(Blocks::Code, QString::fromStdString(file.readAll().toStdString()), {{u"class"_s, definitionForFile.name()}}));
                 endInsertRows();
                 return it;
             }
@@ -227,7 +226,7 @@ private:
             if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
                 QImageReader reader(fileTransferInfo.localPath.path());
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                it = m_components.insert(it + 1, Blocks::Block{Blocks::Pdf, QString(), {{u"size"_s, reader.size()}}});
+                it = m_components.insert(it + 1, Blocks::Block(Blocks::Pdf, QString(), {{u"size"_s, reader.size()}}));
                 endInsertRows();
             }
         }

@@ -32,14 +32,9 @@ ColumnLayout {
     required property var author
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
-
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
+    required property block block
 
     required property int index
 
@@ -52,15 +47,15 @@ ColumnLayout {
         Layout.preferredWidth: root.Message.maxContentWidth
         Layout.preferredHeight: root.Message.maxContentWidth / 16 * 9
 
-        map.center: QtPositioning.coordinate(root.componentAttributes.latitude, root.componentAttributes.longitude)
+        map.center: QtPositioning.coordinate(root.block.attributes.latitude, root.block.attributes.longitude)
         map.zoomLevel: 15
 
         map.plugin: OsmLocationPlugin.plugin
 
         readonly property LocationMapItem locationMapItem: LocationMapItem {
-            latitude: root.componentAttributes.latitude
-            longitude: root.componentAttributes.longitude
-            asset: root.componentAttributes.asset
+            latitude: root.block.attributes.latitude
+            longitude: root.block.attributes.longitude
+            asset: root.block.attributes.asset
             author: root.author
             isLive: true
             heading: NaN
@@ -89,7 +84,7 @@ ColumnLayout {
                 icon.name: "open-link-symbolic"
                 display: AbstractButton.IconOnly
 
-                onClicked: Qt.openUrlExternally("geo:" + root.componentAttributes.latitude + "," + root.componentAttributes.longitude)
+                onClicked: Qt.openUrlExternally("geo:" + root.block.attributes.latitude + "," + root.block.attributes.longitude)
 
                 ToolTip.text: text
                 ToolTip.visible: hovered
@@ -103,9 +98,9 @@ ColumnLayout {
 
                 onClicked: {
                     let map = fullScreenMap.createObject(parent, {
-                        latitude: root.componentAttributes.latitude,
-                        longitude: root.componentAttributes.longitude,
-                        asset: root.componentAttributes.asset,
+                        latitude: root.block.attributes.latitude,
+                        longitude: root.block.attributes.longitude,
+                        asset: root.block.attributes.asset,
                         author: root.author
                     });
                 }
@@ -126,9 +121,8 @@ ColumnLayout {
         currentFocus: false
         eventId: root.eventId
         author: root.author
-        display: root.display
-        visible: root.display !== ""
+        block: root.block
+        visible: root.block.display !== ""
         index: root.index
-        componentAttributes: root.componentAttributes
     }
 }

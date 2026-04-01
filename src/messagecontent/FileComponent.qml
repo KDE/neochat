@@ -27,9 +27,9 @@ ColumnLayout {
     required property string eventId
 
     /**
-     * @brief The attributes of the component.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property var componentAttributes
+    required property block block
 
     /**
      * @brief FileTransferInfo for any downloading files.
@@ -119,7 +119,7 @@ ColumnLayout {
         ]
 
         Kirigami.Icon {
-            source: root.componentAttributes.mimeIcon
+            source: root.block.attributes.mimeIcon
             fallback: "unknown"
         }
 
@@ -127,14 +127,14 @@ ColumnLayout {
             spacing: 0
             QQC2.Label {
                 Layout.fillWidth: true
-                text: root.componentAttributes.filename
+                text: root.block.attributes.filename
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
             }
             QQC2.Label {
                 id: sizeLabel
                 Layout.fillWidth: true
-                text: Format.formatByteSize(root.componentAttributes.size)
+                text: Format.formatByteSize(root.block.attributes.size)
                 opacity: 0.7
                 elide: Text.ElideRight
                 maximumLineCount: 1

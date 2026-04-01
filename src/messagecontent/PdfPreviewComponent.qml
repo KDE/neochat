@@ -16,9 +16,9 @@ Rectangle {
     required property var fileTransferInfo
 
     /**
-     * @brief The attributes of the component.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property var componentAttributes
+    required property block block
 
     Layout.preferredWidth: mediaSizeHelper.currentSize.width
     Layout.preferredHeight: mediaSizeHelper.currentSize.height
@@ -32,8 +32,8 @@ Rectangle {
         MediaSizeHelper {
             id: mediaSizeHelper
             contentMaxWidth: root.Message.maxContentWidth
-            mediaWidth: root.componentAttributes.size.width
-            mediaHeight: root.componentAttributes.size.height
+            mediaWidth: root.block.attributes.size.width
+            mediaHeight: root.block.attributes.size.height
         }
     }
 }

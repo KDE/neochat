@@ -379,7 +379,7 @@ Blocks::Block TextHandler::nextBlock(const QString &string,
     if (content.contains(u"data-mx-spoiler"_s)) {
         attributes[u"hasSpoiler"_s] = true;
     }
-    return Blocks::Block{blockType, content, attributes};
+    return Blocks::Block(blockType, content, attributes);
 }
 
 QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
@@ -622,7 +622,7 @@ QList<Blocks::Block> TextHandler::textComponents(QString string,
                                                  bool spoilerRevealed)
 {
     if (string.trimmed().isEmpty()) {
-        return {Blocks::Block{Blocks::Text, i18n("<i>This event does not have any content.</i>"), {}}};
+        return {Blocks::Block(Blocks::Text, i18n("<i>This event does not have any content.</i>"), {})};
     }
 
     // Strip mx-reply if present.
@@ -646,14 +646,14 @@ QList<Blocks::Block> TextHandler::textComponents(QString string,
                 if (components[0].type == Blocks::Text) {
                     components[0].display = emoteString(room, event) + components[0].display;
                 } else {
-                    components.prepend(Blocks::Block{Blocks::Text, emoteString(room, event), {}});
+                    components.prepend(Blocks::Block(Blocks::Text, emoteString(room, event), {}));
                 }
             }
         }
     }
 
     if (isEdited && components.last().type != Blocks::Text && components.last().type != Blocks::Quote) {
-        components += Blocks::Block{Blocks::Text, editString(), {}};
+        components += Blocks::Block(Blocks::Text, editString(), {});
     }
 
     return components;
