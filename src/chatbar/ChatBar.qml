@@ -33,6 +33,7 @@ Item {
      * @brief The current room that user is viewing.
      */
     required property LibNeoChat.NeoChatRoom currentRoom
+
     onCurrentRoomChanged: {
         if (ShareHandler.text.length > 0 && ShareHandler.room === root.currentRoom.id) {
             contentModel.focusedTextItem.
@@ -73,22 +74,46 @@ Item {
 
     ColumnLayout {
         id: column
+
         anchors.top: root.top
         anchors.horizontalCenter: root.horizontalCenter
+
         ChatBarCore {
             id: core
             Message.room: root.currentRoom
             room: root.currentRoom
             maxAvailableWidth: chatBarSizeHelper.availableWidth
         }
-        QQC2.Label {
+        RowLayout {
             Layout.fillWidth: true
+
             visible: !Kirigami.Settings.isMobile
-            text: NeoChatConfig.sendMessageWith === 1 ? i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : i18nc("As in enter starts send the chat message", "Enter sends the message")
-            horizontalAlignment: Text.AlignRight
-            font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale * 0.75
+
+            FontMetrics {
+                id: fontMetrics
+            }
+
+            TypingPane {
+                id: typingPane
+                labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.currentRoom.otherMembersTyping.length, root.currentRoom.otherMembersTyping.map(member => member.displayName).join(", ")) : ""
+                drawBackground: false
+                visible: root.currentRoom && root.currentRoom.otherMembersTyping.length > 0
+
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignLeft
+            }
+            QQC2.Label {
+                text: NeoChatConfig.sendMessageWith === 1 ? i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : i18nc("As in enter starts send the chat message", "Enter sends the message")
+                horizontalAlignment: Text.AlignRight
+                font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale * 0.75
+
+                Layout.alignment: Qt.AlignRight
+                Layout.fillWidth: !typingPane.visible
+                Layout.preferredHeight: fontMetrics.height // Prevent layout shifts with the typing indicator loading/unloading
+            }
         }
     }
+
     LibNeoChat.DelegateSizeHelper {
         id: chatBarSizeHelper
         parentItem: root

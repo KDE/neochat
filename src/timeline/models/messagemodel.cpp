@@ -394,6 +394,10 @@ int MessageModel::selectedMessageCount() const
 
 bool MessageModel::canDeleteSelectedMessages() const
 {
+    if (!m_room) {
+        return false;
+    }
+
     const QString localUserId = m_room->connection()->userId();
 
     return std::ranges::all_of(m_selectedMessageIds.asKeyValueRange(), [this, &localUserId](const auto &pair) {

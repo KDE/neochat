@@ -13,11 +13,17 @@ import org.kde.kirigami as Kirigami
 
 Loader {
     id: root
+
     property string labelText: ""
+    property bool drawBackground: true
 
     active: visible
     sourceComponent: QQC2.Control {
         id: typingPane
+
+        padding: Kirigami.Units.smallSpacing
+        topPadding: root.drawBackground ? padding : 0
+        bottomPadding: root.drawBackground ? padding : 0
 
         FontMetrics {
             id: fontMetrics
@@ -101,6 +107,10 @@ Loader {
                 elide: Text.ElideRight
                 text: root.labelText
                 textFormat: Text.PlainText
+                horizontalAlignment: Text.AlignLeft
+
+                Layout.alignment: Qt.AlignLeft
+                Layout.fillWidth: true
             }
         }
 
@@ -114,6 +124,7 @@ Loader {
                 color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
                 width: 1
             }
+            visible: root.drawBackground
         }
     }
 }

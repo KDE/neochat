@@ -336,7 +336,8 @@ QQC2.ScrollView {
 
         RowLayout {
             id: typingPaneContainer
-            visible: _private.room && _private.room.otherMembersTyping.length > 0
+            // On desktop, this is moved into the char bar footer
+            visible: _private.room && _private.room.otherMembersTyping.length > 0 && Kirigami.Settings.isMobile
             anchors {
                 left: parent.left
                 leftMargin: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : 0
