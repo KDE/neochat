@@ -9,6 +9,7 @@
 class QTextCursor;
 
 class ChatTextItemHelper;
+class NeoChatRoom;
 
 /**
  * @class ChatKeyHelper
@@ -26,6 +27,8 @@ class ChatKeyHelper : public QObject
 
 public:
     explicit ChatKeyHelper(QObject *parent = nullptr);
+
+    QPointer<NeoChatRoom> room;
 
     /**
      * @brief The ChatTextItemHelper that ChatKeyHelper is handling key presses for.

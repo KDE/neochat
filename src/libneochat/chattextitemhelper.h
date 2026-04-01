@@ -7,13 +7,10 @@
 #include <QQuickItem>
 #include <QTextDocumentFragment>
 
-#include "enums/chatbartype.h"
 #include "enums/richformat.h"
 #include "nestedlisthelper_p.h"
 
 class QTextDocument;
-
-class NeoChatRoom;
 
 /**
  * @class ChatTextItemHelper
@@ -55,34 +52,6 @@ public:
     };
 
     explicit ChatTextItemHelper(QObject *parent = nullptr);
-
-    /**
-     * @brief Get the NeoChatRoom used by the syntax highlighter.
-     *
-     * @sa NeoChatRoom
-     */
-    NeoChatRoom *room() const;
-
-    /**
-     * @brief Set the NeoChatRoom required by the syntax highlighter.
-     *
-     * @sa NeoChatRoom
-     */
-    void setRoom(NeoChatRoom *room);
-
-    /**
-     * @brief Get the ChatBarType::Type used by the syntax highlighter.
-     *
-     * @sa ChatBarType::Type
-     */
-    ChatBarType::Type type() const;
-
-    /**
-     * @brief Set the ChatBarType::Type required by the syntax highlighter.
-     *
-     * @sa ChatBarType::Type
-     */
-    void setType(ChatBarType::Type type);
 
     QQuickItem *textItem() const;
     void setTextItem(QQuickItem *textItem);
@@ -274,16 +243,6 @@ public:
     QTextDocumentFragment toFragment() const;
 
 Q_SIGNALS:
-    /**
-     * @brief Emitted when the NeoChatRoom used by the syntax highlighter is changed.
-     */
-    void roomChanged();
-
-    /**
-     * @brief Emitted when the ChatBarType::Type used by the syntax highlighter is changed.
-     */
-    void typeChanged();
-
     void textItemChanged();
 
     /**
@@ -332,8 +291,6 @@ Q_SIGNALS:
     void selectedTextChanged();
 
 private:
-    QPointer<NeoChatRoom> m_room;
-    ChatBarType::Type m_type = ChatBarType::None;
     QPointer<QQuickItem> m_textItem;
 
     bool m_contentsJustChanged = false;

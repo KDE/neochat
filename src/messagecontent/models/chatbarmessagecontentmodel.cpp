@@ -52,11 +52,7 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
         m_keyHelper->setTextItem(focusedTextItem());
     });
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
-        for (const auto &component : std::as_const(m_components)) {
-            if (const auto textItem = textItemForComponent(component)) {
-                textItem->setRoom(m_room);
-            }
-        }
+        m_keyHelper->room = m_room;
         // We can't guarantee whether room or type is intialised first so we have to handle.
         if (!m_room || !unhandledTypeChange) {
             return;
@@ -71,11 +67,6 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
         initializeFromCache();
     });
     connect(this, &ChatBarMessageContentModel::typeChanged, this, [this](ChatBarType::Type oldType) {
-        for (const auto &component : std::as_const(m_components)) {
-            if (const auto textItem = textItemForComponent(component)) {
-                textItem->setType(m_type);
-            }
-        }
         if (!m_room) {
             unhandledTypeChange = oldType;
             return;
@@ -127,8 +118,6 @@ void ChatBarMessageContentModel::initializeModel(const QString &initialText)
 
     beginInsertRows({}, rowCount(), rowCount());
     const auto textItem = new ChatTextItemHelper(this);
-    textItem->setRoom(m_room);
-    textItem->setType(m_type);
     textItem->setInitialFragment(QTextDocumentFragment::fromPlainText(initialText));
     connectTextItem(textItem);
     m_components += Blocks::Block{
@@ -243,8 +232,6 @@ void ChatBarMessageContentModel::initializeEdit()
             const auto initialFragment =
                 component.type == Blocks::Code ? QTextDocumentFragment::fromPlainText(component.display) : QTextDocumentFragment::fromHtml(component.display);
             textItemWrapper->setInitialFragment(initialFragment);
-            textItemWrapper->setRoom(m_room);
-            textItemWrapper->setType(m_type);
             if (component.type == Blocks::Quote) {
                 textItemWrapper->setFixedChars(u"“"_s, u"”"_s);
             }
@@ -518,8 +505,6 @@ ChatBarMessageContentModel::insertComponent(int row, Blocks::Type type, QVariant
     if (Blocks::isTextType(type)) {
         const auto textItemWrapper = new ChatTextItemHelper(this);
         textItemWrapper->setInitialFragment(intialFragment);
-        textItemWrapper->setRoom(m_room);
-        textItemWrapper->setType(m_type);
         if (type == Blocks::Quote) {
             textItemWrapper->setFixedChars(u"“"_s, u"”"_s);
         }

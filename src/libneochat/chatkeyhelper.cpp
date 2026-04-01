@@ -103,7 +103,6 @@ bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
     }
 
     if (modifiers.testFlag(Qt::ControlModifier)) {
-        const auto room = m_textItem->room();
         if (!room) {
             return false;
         }

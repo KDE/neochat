@@ -23,34 +23,6 @@ ChatTextItemHelper::ChatTextItemHelper(QObject *parent)
 {
 }
 
-NeoChatRoom *ChatTextItemHelper::room() const
-{
-    return m_room;
-}
-
-void ChatTextItemHelper::setRoom(NeoChatRoom *room)
-{
-    if (room == m_room) {
-        return;
-    }
-    m_room = room;
-    Q_EMIT roomChanged();
-}
-
-ChatBarType::Type ChatTextItemHelper::type() const
-{
-    return m_type;
-}
-
-void ChatTextItemHelper::setType(ChatBarType::Type type)
-{
-    if (type == m_type) {
-        return;
-    }
-    m_type = type;
-    Q_EMIT typeChanged();
-}
-
 QQuickItem *ChatTextItemHelper::textItem() const
 {
     return m_textItem;
