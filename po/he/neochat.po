@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-01 00:45+0000\n"
-"PO-Revision-Date: 2026-03-31 08:16+0300\n"
+"POT-Creation-Date: 2026-04-02 00:43+0000\n"
+"PO-Revision-Date: 2026-04-01 09:39+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -938,7 +938,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "אין לך הרשאות להתחיל פגישות Jitsi"
 
-#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:182
+#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:187
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
@@ -958,68 +958,25 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "הודעות נעוצות"
 
-#: src/app/qml/RoomPage.qml:237
-#, kde-format
-msgctxt "@info"
-msgid "Selected Messages: %1"
-msgstr "הודעות נבחרות: %1"
-
-#: src/app/qml/RoomPage.qml:241
-#, kde-format
-msgctxt "@action:button"
-msgid "Copy Conversation"
-msgstr "העתקת השיחה"
-
-#: src/app/qml/RoomPage.qml:245
-#, kde-format
-msgctxt "@info"
-msgid "Conversation copied to clipboard"
-msgstr "השיחה הועתקה ללוח הגזירים"
-
-#: src/app/qml/RoomPage.qml:249
-#, kde-format
-msgctxt "@action:button"
-msgid "Delete Messages"
-msgstr "מחיקת הודעות"
-
-#: src/app/qml/RoomPage.qml:255 src/app/qml/RoomPage.qml:262
-#: src/app/qml/UserDetailDialog.qml:331
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "הסרת הודעות"
-
-#: src/app/qml/RoomPage.qml:256
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Optionally give a reason for removing these messages"
-msgstr "אפשר לספק סיבה להסרת ההודעות האלה"
-
-#: src/app/qml/RoomPage.qml:257 src/app/qml/UserDetailDialog.qml:333
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "הסרה"
-
-#: src/app/qml/RoomPage.qml:345
+#: src/app/qml/RoomPage.qml:299
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "ברוך בואך ל־NeoChat"
 
-#: src/app/qml/RoomPage.qml:346
+#: src/app/qml/RoomPage.qml:300
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "נא לבחור או להצטרף לחדר כדי להתחיל"
 
-#: src/app/qml/RoomPage.qml:382
+#: src/app/qml/RoomPage.qml:336
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat לא מחובר. נא לבדוק את החיבור שלך לרשת."
 
-#: src/app/qml/RoomPage.qml:414
+#: src/app/qml/RoomPage.qml:368
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1030,6 +987,51 @@ msgstr "מקור הודעה"
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
 msgstr "נצפה על ידי"
+
+#: src/app/qml/SelectedMessagesControl.qml:25
+#, kde-format
+msgctxt "@info"
+msgid "Selected Messages: %1"
+msgstr "הודעות נבחרות: %1"
+
+#: src/app/qml/SelectedMessagesControl.qml:29
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Conversation"
+msgstr "העתקת השיחה"
+
+#: src/app/qml/SelectedMessagesControl.qml:33
+#, kde-format
+msgctxt "@info"
+msgid "Conversation copied to clipboard"
+msgstr "השיחה הועתקה ללוח הגזירים"
+
+#: src/app/qml/SelectedMessagesControl.qml:37
+#, kde-format
+msgctxt "@action:button"
+msgid "Delete Messages"
+msgstr "מחיקת הודעות"
+
+#: src/app/qml/SelectedMessagesControl.qml:43
+#: src/app/qml/SelectedMessagesControl.qml:49
+#: src/app/qml/UserDetailDialog.qml:336
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "הסרת הודעות"
+
+#: src/app/qml/SelectedMessagesControl.qml:44
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for removing these messages"
+msgstr "אפשר לספק סיבה להסרת ההודעות האלה"
+
+#: src/app/qml/SelectedMessagesControl.qml:45
+#: src/app/qml/UserDetailDialog.qml:338
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "הסרה"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1230,190 +1232,198 @@ msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "בקשה מהתקנים אחרים"
 
-#: src/app/qml/UserDetailDialog.qml:51
+#: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "פרטי חשבון"
 
-#: src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/UserDetailDialog.qml:155
 #, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "הודעה"
 
-#: src/app/qml/UserDetailDialog.qml:160
+#: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "ביטול התעלמות"
 
-#: src/app/qml/UserDetailDialog.qml:160
+#: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "התעלמות"
 
-#: src/app/qml/UserDetailDialog.qml:168
+#: src/app/qml/UserDetailDialog.qml:173
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "העתקת קישור"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:179
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "חיפוש הודעות…"
 
-#: src/app/qml/UserDetailDialog.qml:188
+#: src/app/qml/UserDetailDialog.qml:193
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "דיווח…"
 
-#: src/app/qml/UserDetailDialog.qml:194
+#: src/app/qml/UserDetailDialog.qml:199
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "דיווח על משתמש"
 
-#: src/app/qml/UserDetailDialog.qml:195
+#: src/app/qml/UserDetailDialog.qml:200
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this user"
 msgstr "הסיבה לדיווח על המשתמש הזה כרשות"
 
-#: src/app/qml/UserDetailDialog.qml:197
+#: src/app/qml/UserDetailDialog.qml:202
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "דיווח"
 
-#: src/app/qml/UserDetailDialog.qml:201
+#: src/app/qml/UserDetailDialog.qml:206
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "דיווח על משתמש"
 
-#: src/app/qml/UserDetailDialog.qml:212
+#: src/app/qml/UserDetailDialog.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "הצגת הפרופיל הראשי"
 
-#: src/app/qml/UserDetailDialog.qml:222
+#: src/app/qml/UserDetailDialog.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "הצגת פרופיל החדר"
 
-#: src/app/qml/UserDetailDialog.qml:233
+#: src/app/qml/UserDetailDialog.qml:238
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "השגחה"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:263
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "בעיטה…"
 
-#: src/app/qml/UserDetailDialog.qml:262 src/app/qml/UserDetailDialog.qml:269
+#: src/app/qml/UserDetailDialog.qml:267 src/app/qml/UserDetailDialog.qml:274
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "בעיטת משתמש"
 
-#: src/app/qml/UserDetailDialog.qml:263
+#: src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for kicking this user"
 msgstr "הסיבה לבעיטת המשתמש הזה כרשות"
 
-#: src/app/qml/UserDetailDialog.qml:264
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "בעיטה"
 
-#: src/app/qml/UserDetailDialog.qml:286
+#: src/app/qml/UserDetailDialog.qml:291
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "חסימה…"
 
-#: src/app/qml/UserDetailDialog.qml:291 src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:296 src/app/qml/UserDetailDialog.qml:303
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "חסימת משתמש"
 
-#: src/app/qml/UserDetailDialog.qml:292
+#: src/app/qml/UserDetailDialog.qml:297
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for banning this user"
 msgstr "הסיבה לחסימת המשתמש הזה כרשות"
 
-#: src/app/qml/UserDetailDialog.qml:293
+#: src/app/qml/UserDetailDialog.qml:298
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "חסימה"
 
-#: src/app/qml/UserDetailDialog.qml:315
+#: src/app/qml/UserDetailDialog.qml:320
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "הסרת חסימה"
 
-#: src/app/qml/UserDetailDialog.qml:326
+#: src/app/qml/UserDetailDialog.qml:331
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "הסרת הודעות…"
 
-#: src/app/qml/UserDetailDialog.qml:332
+#: src/app/qml/UserDetailDialog.qml:337
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
 msgstr "הסיבה להסרת ההודעות האחרונות של המשתמש הזה כרשות"
 
-#: src/app/qml/UserDetailDialog.qml:338
+#: src/app/qml/UserDetailDialog.qml:343
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "הסרת הודעות"
 
-#: src/app/qml/UserDetailDialog.qml:351
+#: src/app/qml/UserDetailDialog.qml:356
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
 msgstr "רמת העוצמה"
 
-#: src/app/qml/UserDetailDialog.qml:375
+#: src/app/qml/UserDetailDialog.qml:380
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "הגדרת רמת העוצמה"
 
-#: src/app/qml/UserDetailDialog.qml:402
+#: src/app/qml/UserDetailDialog.qml:407
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Timeline"
+msgctxt "@title The user's timezone"
+msgid "Timezone"
+msgstr "ציר זמן"
+
+#: src/app/qml/UserDetailDialog.qml:434
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "חדרים משותפים"
 
-#: src/app/qml/UserDetailDialog.qml:424
+#: src/app/qml/UserDetailDialog.qml:456
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
 msgstr "אין חדרים במשותף"
 
-#: src/app/qml/UserDetailDialog.qml:459
+#: src/app/qml/UserDetailDialog.qml:491
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1425,13 +1435,13 @@ msgstr[1] "ועוד שניים…"
 msgstr[2] " ועוד %1…"
 msgstr[3] "ועוד %1…"
 
-#: src/app/qml/UserDetailDialog.qml:466
+#: src/app/qml/UserDetailDialog.qml:498
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "הערה פרטית"
 
-#: src/app/qml/UserDetailDialog.qml:478
+#: src/app/qml/UserDetailDialog.qml:510
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1641,17 +1651,17 @@ msgstr "בוצע"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "מזהה Matrix שגוי או ריק<br />%1 אינו מזהה נכון של Matrix"
 
-#: src/app/roommanager.cpp:443
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "נכשלה ההצטרפות אל %1:<br />%2"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:473
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "ביקשת להצטרף אל ‚%1’"
 
-#: src/app/roommanager.cpp:471
+#: src/app/roommanager.cpp:477
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "נכשלה הבקשה להצטרף לחדר<br />%1"
@@ -1707,7 +1717,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "מדבקות"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:204
 #, kde-format
 msgid "Edit"
 msgstr "עריכה"
@@ -2208,13 +2218,11 @@ msgid "Room Id: %1"
 msgstr "מזהה חדר: %1"
 
 #: src/devtools/RoomData.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt ""
 "@option:check Toggle for whether this room is considered a direct chat or not"
 msgid "Direct Chat"
-msgstr "התחלת שיחה"
+msgstr "שיחה ישירה"
 
 #: src/devtools/RoomData.qml:60
 #, kde-format
@@ -3471,13 +3479,19 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "אמוג׳ים שלי"
 
+#: src/libneochat/models/timezonemodel.cpp:21
+#, kde-format
+msgctxt "@item:inlistbox Prefer not to say which timezone im in"
+msgid "Prefer not to say"
+msgstr ""
+
 #: src/libneochat/models/userlistmodel.cpp:102
 #, kde-format
 msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "יוצר/ת"
 
-#: src/libneochat/neochatconnection.cpp:74
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3486,18 +3500,18 @@ msgstr ""
 "הקובץ גדול מכדי להוריד אותו.<br />נא ליצור קשר עם הנהלת שרת ה־matrix שלך "
 "לקבלת תמיכה."
 
-#: src/libneochat/neochatconnection.cpp:328
+#: src/libneochat/neochatconnection.cpp:345
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "לא הוגדר שרת זהות"
 
-#: src/libneochat/neochatconnection.cpp:359
+#: src/libneochat/neochatconnection.cpp:376
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "יצירת החדר נכשלה: %1"
 
-#: src/libneochat/neochatconnection.cpp:388
+#: src/libneochat/neochatconnection.cpp:405
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "יצירת המרחב נכשלה: %1"
@@ -3700,7 +3714,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "בחירת קובץ"
 
-#: src/libneochat/qml/SearchPage.qml:171
+#: src/libneochat/qml/SearchPage.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3847,29 +3861,25 @@ msgid "The passwords do not match."
 msgstr "הסיסמאות לא תואמות."
 
 #: src/login/registration.cpp:393
-#, fuzzy, kde-format
-#| msgid "No server."
+#, kde-format
 msgctxt "@info"
 msgid "No server."
 msgstr "אין שרת."
 
 #: src/login/registration.cpp:395
-#, fuzzy, kde-format
-#| msgid "Checking Server availability."
+#, kde-format
 msgctxt "@info"
 msgid "Checking Server availability."
 msgstr "זמינות השרת נבדקת."
 
 #: src/login/registration.cpp:397
-#, fuzzy, kde-format
-#| msgid "This is not a valid server."
+#, kde-format
 msgctxt "@info"
 msgid "This is not a valid server."
 msgstr "זה לא שרת תקף."
 
 #: src/login/registration.cpp:399
-#, fuzzy, kde-format
-#| msgid "Registration for this server is disabled."
+#, kde-format
 msgctxt "@info"
 msgid "Registration for this server is disabled."
 msgstr "ההרשמה לשרת הזה מושבתת."
@@ -3893,54 +3903,46 @@ msgid "This is not a valid registration token."
 msgstr "זה לא אסימון הרשמה תקף."
 
 #: src/login/registration.cpp:407
-#, fuzzy, kde-format
-#| msgid "No username."
+#, kde-format
 msgctxt "@info"
 msgid "No username."
 msgstr "אין שם משתמש."
 
 #: src/login/registration.cpp:409
-#, fuzzy, kde-format
-#| msgid "Checking username availability."
+#, kde-format
 msgctxt "@info"
 msgid "Checking username availability."
 msgstr "זמינות שם המשתמש נבדקת."
 
 #: src/login/registration.cpp:411
-#, fuzzy, kde-format
-#| msgid "This username is not available."
+#, kde-format
 msgctxt "@info"
 msgid "This username is not available."
 msgstr "שם המשתמש הזה לא זמין."
 
 #: src/login/registration.cpp:413
-#, fuzzy, kde-format
-#| msgid "Continue"
+#, kde-format
 msgctxt "@info"
 msgid "Continue"
 msgstr "להמשיך"
 
 #: src/login/registration.cpp:415
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgctxt "@info"
 msgid "Working"
 msgstr "בעבודה"
 
 #: src/login/registration.cpp:417
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid registration token"
+#, kde-format
 msgctxt "@info"
 msgid "Checking registration token."
-msgstr "אסימון רישום שגוי"
+msgstr "אסימון הרישום נבדק."
 
 #: src/login/registration.cpp:419
-#, fuzzy, kde-format
-#| msgid "Continue the login process in your browser."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for login confirmation in your browser."
-msgstr "נא להמשיך את הכניסה לחשבון בדפדפן שלך."
+msgstr "בהמתנה לאישור כניסה מהדפדפן שלך."
 
 #: src/login/RegistrationToken.qml:20
 #, kde-format
@@ -4549,38 +4551,35 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "אין הודעות נעוצות"
 
-#: src/roominfo/RoomSearchPage.qml:36
+#: src/roominfo/RoomSearchPage.qml:40
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "חיפוש הודעות"
 
-#: src/roominfo/RoomSearchPage.qml:48
+#: src/roominfo/RoomSearchPage.qml:58
 #, kde-format
 msgid "Find messages…"
 msgstr "איתור הודעות…"
 
-#: src/roominfo/RoomSearchPage.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter text to start searching for users"
+#: src/roominfo/RoomSearchPage.qml:59
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching %1's messages"
-msgstr "נא להקליד כדי להתחיל לחפש משתמשים"
+msgstr "נא להקליד כדי להתחיל לחפש בהודעות של %1"
 
-#: src/roominfo/RoomSearchPage.qml:49
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching"
+#: src/roominfo/RoomSearchPage.qml:59
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching"
 msgstr "נא להקליד טקסט כדי להתחיל לחפש"
 
-#: src/roominfo/RoomSearchPage.qml:50
+#: src/roominfo/RoomSearchPage.qml:60
 #, kde-format
 msgid "No messages found"
 msgstr "לא נמצאו הודעות"
 
-#: src/roominfo/RoomSearchPage.qml:52
+#: src/roominfo/RoomSearchPage.qml:62
 #, kde-format
 msgid "Cannot search in encrypted rooms"
 msgstr "לא ניתן לחפש בחדרים מוצפנים"
@@ -5026,111 +5025,117 @@ msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
 msgstr "העתקת מזהה המשתמש ללוח הגזירים"
 
-#: src/settings/AccountEditorPage.qml:136
+#: src/settings/AccountEditorPage.qml:142
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Timeline"
+msgctxt "@label:combobox"
+msgid "Timezone:"
+msgstr "ציר זמן"
+
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "הצגת קוד QR"
 
-#: src/settings/AccountEditorPage.qml:151
-#: src/settings/AccountEditorPage.qml:209
+#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:233
 #: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
 msgstr "שמירה"
 
-#: src/settings/AccountEditorPage.qml:168
+#: src/settings/AccountEditorPage.qml:192
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "סיסמה"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:199
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "השרת שלך לא תומך בשינוי הסיסמה שלך"
 
-#: src/settings/AccountEditorPage.qml:182
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "הסיסמה הנוכחית:"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:213
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "הסיסמה החדשה:"
 
-#: src/settings/AccountEditorPage.qml:196
+#: src/settings/AccountEditorPage.qml:220
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "אימות הסיסמה החדשה:"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "הססמאות אינן תואמות"
 
-#: src/settings/AccountEditorPage.qml:222
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "כתובות דוא״ל"
 
-#: src/settings/AccountEditorPage.qml:228
+#: src/settings/AccountEditorPage.qml:252
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "שרת זהות"
 
-#: src/settings/AccountEditorPage.qml:238
+#: src/settings/AccountEditorPage.qml:262
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "ניהול חשבון"
 
-#: src/settings/AccountEditorPage.qml:244
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Manage Account"
+#: src/settings/AccountEditorPage.qml:268
+#, kde-format
 msgctxt "@info"
 msgid "Manage Account"
 msgstr "ניהול חשבון"
 
-#: src/settings/AccountEditorPage.qml:253
+#: src/settings/AccountEditorPage.qml:277
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "השבתת חשבון…"
 
-#: src/settings/AccountEditorPage.qml:267
+#: src/settings/AccountEditorPage.qml:291
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "פרטי שרת"
 
-#: src/settings/AccountEditorPage.qml:271
+#: src/settings/AccountEditorPage.qml:295
 #, kde-format
 msgid "Homeserver url"
 msgstr "כתובת שרת בית"
 
-#: src/settings/AccountEditorPage.qml:297
+#: src/settings/AccountEditorPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "הסיסמה הוחלפה בהצלחה"
 
-#: src/settings/AccountEditorPage.qml:300
+#: src/settings/AccountEditorPage.qml:324
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "סיסמה שגויה"
 
-#: src/settings/AccountEditorPage.qml:303
+#: src/settings/AccountEditorPage.qml:327
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -7463,226 +7468,226 @@ msgctxt "@action:button"
 msgid "Leave this Space…"
 msgstr "עזיבת המרחב הזה…"
 
-#: src/timeline/DelegateContextMenu.qml:163
+#: src/timeline/DelegateContextMenu.qml:168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "תגובה"
 
-#: src/timeline/DelegateContextMenu.qml:185
+#: src/timeline/DelegateContextMenu.qml:190
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "תגובה בשרשור"
 
-#: src/timeline/DelegateContextMenu.qml:211
+#: src/timeline/DelegateContextMenu.qml:216
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "הסרה…"
 
-#: src/timeline/DelegateContextMenu.qml:216
-#: src/timeline/DelegateContextMenu.qml:223
+#: src/timeline/DelegateContextMenu.qml:221
+#: src/timeline/DelegateContextMenu.qml:228
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "הסרת הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:217
+#: src/timeline/DelegateContextMenu.qml:222
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "הסיבה להסרת ההודעה הזאת כרשות"
 
-#: src/timeline/DelegateContextMenu.qml:218
+#: src/timeline/DelegateContextMenu.qml:223
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "הסרה"
 
-#: src/timeline/DelegateContextMenu.qml:239
+#: src/timeline/DelegateContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "העברה…"
 
-#: src/timeline/DelegateContextMenu.qml:245
+#: src/timeline/DelegateContextMenu.qml:250
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "העברת הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:259
+#: src/timeline/DelegateContextMenu.qml:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "פתיחת תמונה"
 
-#: src/timeline/DelegateContextMenu.qml:261
+#: src/timeline/DelegateContextMenu.qml:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "פתיחת קטע שמע"
 
-#: src/timeline/DelegateContextMenu.qml:263
+#: src/timeline/DelegateContextMenu.qml:268
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "פתיחת סרטון"
 
-#: src/timeline/DelegateContextMenu.qml:265
+#: src/timeline/DelegateContextMenu.qml:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "פתיחת קובץ"
 
-#: src/timeline/DelegateContextMenu.qml:278
+#: src/timeline/DelegateContextMenu.qml:283
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "שמירת תמונה…"
 
-#: src/timeline/DelegateContextMenu.qml:280
+#: src/timeline/DelegateContextMenu.qml:285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "שמירת קטע שמע…"
 
-#: src/timeline/DelegateContextMenu.qml:282
+#: src/timeline/DelegateContextMenu.qml:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "שמירת סרטון…"
 
-#: src/timeline/DelegateContextMenu.qml:284
+#: src/timeline/DelegateContextMenu.qml:289
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "שמירת קובץ…"
 
-#: src/timeline/DelegateContextMenu.qml:299
+#: src/timeline/DelegateContextMenu.qml:304
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "העתקת תמונה"
 
-#: src/timeline/DelegateContextMenu.qml:301
+#: src/timeline/DelegateContextMenu.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "העתקת שמע"
 
-#: src/timeline/DelegateContextMenu.qml:303
+#: src/timeline/DelegateContextMenu.qml:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "העתקת סרטון"
 
-#: src/timeline/DelegateContextMenu.qml:305
+#: src/timeline/DelegateContextMenu.qml:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "העתקת קובץ"
 
-#: src/timeline/DelegateContextMenu.qml:315
+#: src/timeline/DelegateContextMenu.qml:320
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "העתקת כתובת קישור"
 
-#: src/timeline/DelegateContextMenu.qml:323
+#: src/timeline/DelegateContextMenu.qml:328
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "העתקת טקסט"
 
-#: src/timeline/DelegateContextMenu.qml:329
+#: src/timeline/DelegateContextMenu.qml:334
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "העתקת קישור להודעה"
 
-#: src/timeline/DelegateContextMenu.qml:337
+#: src/timeline/DelegateContextMenu.qml:342
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "דיווח…"
 
-#: src/timeline/DelegateContextMenu.qml:342
+#: src/timeline/DelegateContextMenu.qml:347
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "דיווח על הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:343
+#: src/timeline/DelegateContextMenu.qml:348
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "הסיבה לדיווח על ההודעה הזאת כרשות"
 
-#: src/timeline/DelegateContextMenu.qml:345
+#: src/timeline/DelegateContextMenu.qml:350
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "דיווח"
 
-#: src/timeline/DelegateContextMenu.qml:349
+#: src/timeline/DelegateContextMenu.qml:354
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "דיווח על הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:361
+#: src/timeline/DelegateContextMenu.qml:366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "חיפוש אחר ‚%1’"
 
-#: src/timeline/DelegateContextMenu.qml:384
+#: src/timeline/DelegateContextMenu.qml:389
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "הגדרת קיצורי אינטרנט…"
 
-#: src/timeline/DelegateContextMenu.qml:392
+#: src/timeline/DelegateContextMenu.qml:397
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "להקריא את הטקסט בקול"
 
-#: src/timeline/DelegateContextMenu.qml:395
+#: src/timeline/DelegateContextMenu.qml:400
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 אמר/ה %2"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:420
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "שחרור נעיצה"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:420
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "נעיצה"
 
-#: src/timeline/DelegateContextMenu.qml:422
+#: src/timeline/DelegateContextMenu.qml:430
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "ביטול בחירת הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:422
+#: src/timeline/DelegateContextMenu.qml:430
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "בחירת הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:435
+#: src/timeline/DelegateContextMenu.qml:443
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"

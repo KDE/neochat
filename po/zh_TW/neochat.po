@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-01 00:45+0000\n"
+"POT-Creation-Date: 2026-04-02 00:43+0000\n"
 "PO-Revision-Date: 2026-01-15 01:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -952,7 +952,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "您沒有權限開始進行 Jitsi 會議"
 
-#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:182
+#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:187
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
@@ -972,67 +972,19 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "置頂訊息"
 
-#: src/app/qml/RoomPage.qml:237
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
-msgctxt "@info"
-msgid "Selected Messages: %1"
-msgstr "顯示已刪除的訊息"
-
-#: src/app/qml/RoomPage.qml:241
-#, kde-format
-msgctxt "@action:button"
-msgid "Copy Conversation"
-msgstr ""
-
-#: src/app/qml/RoomPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Copy to clipboard"
-msgctxt "@info"
-msgid "Conversation copied to clipboard"
-msgstr "複製到剪貼簿"
-
-#: src/app/qml/RoomPage.qml:249
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@action:button"
-msgid "Delete Messages"
-msgstr "私訊"
-
-#: src/app/qml/RoomPage.qml:255 src/app/qml/RoomPage.qml:262
-#: src/app/qml/UserDetailDialog.qml:331
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "移除訊息"
-
-#: src/app/qml/RoomPage.qml:256
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for removing this message"
-msgctxt "@info:placeholder"
-msgid "Optionally give a reason for removing these messages"
-msgstr "移除此訊息的原因"
-
-#: src/app/qml/RoomPage.qml:257 src/app/qml/UserDetailDialog.qml:333
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "移除"
-
-#: src/app/qml/RoomPage.qml:345
+#: src/app/qml/RoomPage.qml:299
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "歡迎來到 NeoChat"
 
-#: src/app/qml/RoomPage.qml:346
+#: src/app/qml/RoomPage.qml:300
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "先加入或選擇聊天室吧"
 
-#: src/app/qml/RoomPage.qml:382
+#: src/app/qml/RoomPage.qml:336
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
@@ -1041,7 +993,7 @@ msgstr "NeoChat 目前為離線狀態。請檢查您的網路連線。"
 # sourceText: root.currentRoom.getEventJsonSource(eventId)
 # 應該確實是原始碼吧
 # --Kisaragi
-#: src/app/qml/RoomPage.qml:414
+#: src/app/qml/RoomPage.qml:368
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1052,6 +1004,56 @@ msgstr "訊息原始碼"
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
 msgstr "由誰看到"
+
+#: src/app/qml/SelectedMessagesControl.qml:25
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "@info"
+msgid "Selected Messages: %1"
+msgstr "顯示已刪除的訊息"
+
+#: src/app/qml/SelectedMessagesControl.qml:29
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Conversation"
+msgstr ""
+
+#: src/app/qml/SelectedMessagesControl.qml:33
+#, fuzzy, kde-format
+#| msgid "Copy to clipboard"
+msgctxt "@info"
+msgid "Conversation copied to clipboard"
+msgstr "複製到剪貼簿"
+
+#: src/app/qml/SelectedMessagesControl.qml:37
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:button"
+msgid "Delete Messages"
+msgstr "私訊"
+
+#: src/app/qml/SelectedMessagesControl.qml:43
+#: src/app/qml/SelectedMessagesControl.qml:49
+#: src/app/qml/UserDetailDialog.qml:336
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "移除訊息"
+
+#: src/app/qml/SelectedMessagesControl.qml:44
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for removing this message"
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for removing these messages"
+msgstr "移除此訊息的原因"
+
+#: src/app/qml/SelectedMessagesControl.qml:45
+#: src/app/qml/UserDetailDialog.qml:338
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "移除"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1277,56 +1279,56 @@ msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "從其他裝置請求"
 
-#: src/app/qml/UserDetailDialog.qml:51
+#: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "帳號詳細資訊"
 
-#: src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/UserDetailDialog.qml:155
 #, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "傳訊息"
 
-#: src/app/qml/UserDetailDialog.qml:160
+#: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "取消忽略"
 
-#: src/app/qml/UserDetailDialog.qml:160
+#: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/app/qml/UserDetailDialog.qml:168
+#: src/app/qml/UserDetailDialog.qml:173
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "複製連結"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:179
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "搜尋訊息…"
 
-#: src/app/qml/UserDetailDialog.qml:188
+#: src/app/qml/UserDetailDialog.qml:193
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "檢舉…"
 
-#: src/app/qml/UserDetailDialog.qml:194
+#: src/app/qml/UserDetailDialog.qml:199
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "檢舉使用者"
 
-#: src/app/qml/UserDetailDialog.qml:195
+#: src/app/qml/UserDetailDialog.qml:200
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this user"
@@ -1334,50 +1336,50 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this user"
 msgstr "檢舉此使用者的原因"
 
-#: src/app/qml/UserDetailDialog.qml:197
+#: src/app/qml/UserDetailDialog.qml:202
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "檢舉"
 
-#: src/app/qml/UserDetailDialog.qml:201
+#: src/app/qml/UserDetailDialog.qml:206
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "檢舉使用者"
 
-#: src/app/qml/UserDetailDialog.qml:212
+#: src/app/qml/UserDetailDialog.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "檢視主要個人檔案"
 
-#: src/app/qml/UserDetailDialog.qml:222
+#: src/app/qml/UserDetailDialog.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "檢視聊天室個人檔案"
 
-#: src/app/qml/UserDetailDialog.qml:233
+#: src/app/qml/UserDetailDialog.qml:238
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "內容管理"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:263
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "踢出…"
 
-#: src/app/qml/UserDetailDialog.qml:262 src/app/qml/UserDetailDialog.qml:269
+#: src/app/qml/UserDetailDialog.qml:267 src/app/qml/UserDetailDialog.qml:274
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "踢出使用者"
 
-#: src/app/qml/UserDetailDialog.qml:263
+#: src/app/qml/UserDetailDialog.qml:268
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for kicking this user"
@@ -1385,25 +1387,25 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for kicking this user"
 msgstr "踢出這個使用者的原因"
 
-#: src/app/qml/UserDetailDialog.qml:264
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "踢出"
 
-#: src/app/qml/UserDetailDialog.qml:286
+#: src/app/qml/UserDetailDialog.qml:291
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "封鎖…"
 
-#: src/app/qml/UserDetailDialog.qml:291 src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:296 src/app/qml/UserDetailDialog.qml:303
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "封鎖使用者"
 
-#: src/app/qml/UserDetailDialog.qml:292
+#: src/app/qml/UserDetailDialog.qml:297
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for banning this user"
@@ -1411,25 +1413,25 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for banning this user"
 msgstr "封鎖這個使用者的原因"
 
-#: src/app/qml/UserDetailDialog.qml:293
+#: src/app/qml/UserDetailDialog.qml:298
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "封鎖"
 
-#: src/app/qml/UserDetailDialog.qml:315
+#: src/app/qml/UserDetailDialog.qml:320
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "解除封鎖"
 
-#: src/app/qml/UserDetailDialog.qml:326
+#: src/app/qml/UserDetailDialog.qml:331
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "移除訊息…"
 
-#: src/app/qml/UserDetailDialog.qml:332
+#: src/app/qml/UserDetailDialog.qml:337
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for removing this user's recent messages"
@@ -1437,32 +1439,40 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
 msgstr "移除此使用者最近訊息的原因"
 
-#: src/app/qml/UserDetailDialog.qml:338
+#: src/app/qml/UserDetailDialog.qml:343
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "移除訊息"
 
-#: src/app/qml/UserDetailDialog.qml:351
+#: src/app/qml/UserDetailDialog.qml:356
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
 msgstr "能力等級"
 
-#: src/app/qml/UserDetailDialog.qml:375
+#: src/app/qml/UserDetailDialog.qml:380
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "設定能力等級"
 
-#: src/app/qml/UserDetailDialog.qml:402
+#: src/app/qml/UserDetailDialog.qml:407
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Timeline"
+msgctxt "@title The user's timezone"
+msgid "Timezone"
+msgstr "時間軸"
+
+#: src/app/qml/UserDetailDialog.qml:434
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "互為成員的聊天室"
 
-#: src/app/qml/UserDetailDialog.qml:424
+#: src/app/qml/UserDetailDialog.qml:456
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "No rooms found"
@@ -1470,7 +1480,7 @@ msgctxt "@info:label"
 msgid "No rooms in common"
 msgstr "找不到聊天室"
 
-#: src/app/qml/UserDetailDialog.qml:459
+#: src/app/qml/UserDetailDialog.qml:491
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1479,13 +1489,13 @@ msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] "和另外 %1 個聊天室…"
 
-#: src/app/qml/UserDetailDialog.qml:466
+#: src/app/qml/UserDetailDialog.qml:498
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "私人備註"
 
-#: src/app/qml/UserDetailDialog.qml:478
+#: src/app/qml/UserDetailDialog.qml:510
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1695,17 +1705,17 @@ msgstr "完成"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "格式不正確或空白的 Matrix ID<br />%1 不是一個正確的 Matrix ID"
 
-#: src/app/roommanager.cpp:443
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "加入 %1 失敗：<br />%2"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:473
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
-#: src/app/roommanager.cpp:471
+#: src/app/roommanager.cpp:477
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "請求加入聊天室失敗<br />%1"
@@ -1764,7 +1774,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "貼圖"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:199
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:204
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
@@ -3549,31 +3559,37 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "自己的表情符號"
 
+#: src/libneochat/models/timezonemodel.cpp:21
+#, kde-format
+msgctxt "@item:inlistbox Prefer not to say which timezone im in"
+msgid "Prefer not to say"
+msgstr ""
+
 #: src/libneochat/models/userlistmodel.cpp:102
 #, kde-format
 msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "建立者"
 
-#: src/libneochat/neochatconnection.cpp:74
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr "檔案超過下載大小上限。請聯絡您的 matrix 伺服器管理員以求支援。"
 
-#: src/libneochat/neochatconnection.cpp:328
+#: src/libneochat/neochatconnection.cpp:345
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "未設定身份伺服器"
 
-#: src/libneochat/neochatconnection.cpp:359
+#: src/libneochat/neochatconnection.cpp:376
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室建立失敗：%1"
 
-#: src/libneochat/neochatconnection.cpp:388
+#: src/libneochat/neochatconnection.cpp:405
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
@@ -3776,7 +3792,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "選擇檔案"
 
-#: src/libneochat/qml/SearchPage.qml:171
+#: src/libneochat/qml/SearchPage.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -4635,18 +4651,18 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "沒有置頂訊息"
 
-#: src/roominfo/RoomSearchPage.qml:36
+#: src/roominfo/RoomSearchPage.qml:40
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "搜尋訊息"
 
-#: src/roominfo/RoomSearchPage.qml:48
+#: src/roominfo/RoomSearchPage.qml:58
 #, kde-format
 msgid "Find messages…"
 msgstr "尋找訊息…"
 
-#: src/roominfo/RoomSearchPage.qml:49
+#: src/roominfo/RoomSearchPage.qml:59
 #, fuzzy, kde-format
 #| msgctxt "@placeholder"
 #| msgid "Enter text to start searching for users"
@@ -4654,19 +4670,19 @@ msgctxt "@info:placeholder"
 msgid "Enter text to start searching %1's messages"
 msgstr "輸入文字開始搜尋使用者"
 
-#: src/roominfo/RoomSearchPage.qml:49
+#: src/roominfo/RoomSearchPage.qml:59
 #, fuzzy, kde-format
 #| msgid "Enter text to start searching"
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching"
 msgstr "輸入文字開始搜尋"
 
-#: src/roominfo/RoomSearchPage.qml:50
+#: src/roominfo/RoomSearchPage.qml:60
 #, kde-format
 msgid "No messages found"
 msgstr "找不到訊息"
 
-#: src/roominfo/RoomSearchPage.qml:52
+#: src/roominfo/RoomSearchPage.qml:62
 #, kde-format
 msgid "Cannot search in encrypted rooms"
 msgstr ""
@@ -5143,74 +5159,82 @@ msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
 msgstr "複製聊天室 ID 到剪貼簿"
 
-#: src/settings/AccountEditorPage.qml:136
+#: src/settings/AccountEditorPage.qml:142
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Timeline"
+msgctxt "@label:combobox"
+msgid "Timezone:"
+msgstr "時間軸"
+
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "顯示 QR 碼"
 
-#: src/settings/AccountEditorPage.qml:151
-#: src/settings/AccountEditorPage.qml:209
+#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:233
 #: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
 msgstr "儲存"
 
-#: src/settings/AccountEditorPage.qml:168
+#: src/settings/AccountEditorPage.qml:192
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "密碼"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:199
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "您的伺服器不支援變更您的密碼"
 
-#: src/settings/AccountEditorPage.qml:182
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "目前密碼："
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:213
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "新密碼："
 
-#: src/settings/AccountEditorPage.qml:196
+#: src/settings/AccountEditorPage.qml:220
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "確認新密碼："
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "密碼不符"
 
-#: src/settings/AccountEditorPage.qml:222
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "電子郵件地址"
 
-#: src/settings/AccountEditorPage.qml:228
+#: src/settings/AccountEditorPage.qml:252
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "身份伺服器"
 
-#: src/settings/AccountEditorPage.qml:238
+#: src/settings/AccountEditorPage.qml:262
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "帳號管理"
 
-#: src/settings/AccountEditorPage.qml:244
+#: src/settings/AccountEditorPage.qml:268
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Manage Account"
@@ -5218,36 +5242,36 @@ msgctxt "@info"
 msgid "Manage Account"
 msgstr "管理帳號"
 
-#: src/settings/AccountEditorPage.qml:253
+#: src/settings/AccountEditorPage.qml:277
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "停用帳號…"
 
-#: src/settings/AccountEditorPage.qml:267
+#: src/settings/AccountEditorPage.qml:291
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "伺服器資訊"
 
-#: src/settings/AccountEditorPage.qml:271
+#: src/settings/AccountEditorPage.qml:295
 #, kde-format
 msgid "Homeserver url"
 msgstr "家伺服器網址"
 
-#: src/settings/AccountEditorPage.qml:297
+#: src/settings/AccountEditorPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "密碼已成功變更"
 
-#: src/settings/AccountEditorPage.qml:300
+#: src/settings/AccountEditorPage.qml:324
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "無效密碼"
 
-#: src/settings/AccountEditorPage.qml:303
+#: src/settings/AccountEditorPage.qml:327
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -7594,32 +7618,32 @@ msgctxt "@action:button"
 msgid "Leave this Space…"
 msgstr "離開這個聊天空間…"
 
-#: src/timeline/DelegateContextMenu.qml:163
+#: src/timeline/DelegateContextMenu.qml:168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "回覆"
 
-#: src/timeline/DelegateContextMenu.qml:185
+#: src/timeline/DelegateContextMenu.qml:190
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: src/timeline/DelegateContextMenu.qml:211
+#: src/timeline/DelegateContextMenu.qml:216
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "移除…"
 
-#: src/timeline/DelegateContextMenu.qml:216
-#: src/timeline/DelegateContextMenu.qml:223
+#: src/timeline/DelegateContextMenu.qml:221
+#: src/timeline/DelegateContextMenu.qml:228
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "移除訊息"
 
-#: src/timeline/DelegateContextMenu.qml:217
+#: src/timeline/DelegateContextMenu.qml:222
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for removing this message"
@@ -7627,128 +7651,128 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "移除此訊息的原因"
 
-#: src/timeline/DelegateContextMenu.qml:218
+#: src/timeline/DelegateContextMenu.qml:223
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "移除"
 
-#: src/timeline/DelegateContextMenu.qml:239
+#: src/timeline/DelegateContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "轉寄…"
 
-#: src/timeline/DelegateContextMenu.qml:245
+#: src/timeline/DelegateContextMenu.qml:250
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "轉寄訊息"
 
-#: src/timeline/DelegateContextMenu.qml:259
+#: src/timeline/DelegateContextMenu.qml:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "開啟影像"
 
-#: src/timeline/DelegateContextMenu.qml:261
+#: src/timeline/DelegateContextMenu.qml:266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "開啟音效"
 
-#: src/timeline/DelegateContextMenu.qml:263
+#: src/timeline/DelegateContextMenu.qml:268
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "開啟影片"
 
-#: src/timeline/DelegateContextMenu.qml:265
+#: src/timeline/DelegateContextMenu.qml:270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "開啟檔案"
 
-#: src/timeline/DelegateContextMenu.qml:278
+#: src/timeline/DelegateContextMenu.qml:283
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "儲存影像…"
 
-#: src/timeline/DelegateContextMenu.qml:280
+#: src/timeline/DelegateContextMenu.qml:285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "儲存音效…"
 
-#: src/timeline/DelegateContextMenu.qml:282
+#: src/timeline/DelegateContextMenu.qml:287
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "儲存影片…"
 
-#: src/timeline/DelegateContextMenu.qml:284
+#: src/timeline/DelegateContextMenu.qml:289
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "儲存檔案…"
 
-#: src/timeline/DelegateContextMenu.qml:299
+#: src/timeline/DelegateContextMenu.qml:304
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "複製影像"
 
-#: src/timeline/DelegateContextMenu.qml:301
+#: src/timeline/DelegateContextMenu.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "複製音效"
 
-#: src/timeline/DelegateContextMenu.qml:303
+#: src/timeline/DelegateContextMenu.qml:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "複製影片"
 
-#: src/timeline/DelegateContextMenu.qml:305
+#: src/timeline/DelegateContextMenu.qml:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "複製檔案"
 
-#: src/timeline/DelegateContextMenu.qml:315
+#: src/timeline/DelegateContextMenu.qml:320
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "複製連結位址"
 
-#: src/timeline/DelegateContextMenu.qml:323
+#: src/timeline/DelegateContextMenu.qml:328
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "複製文字"
 
-#: src/timeline/DelegateContextMenu.qml:329
+#: src/timeline/DelegateContextMenu.qml:334
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "複製訊息連結"
 
-#: src/timeline/DelegateContextMenu.qml:337
+#: src/timeline/DelegateContextMenu.qml:342
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "檢舉…"
 
-#: src/timeline/DelegateContextMenu.qml:342
+#: src/timeline/DelegateContextMenu.qml:347
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: src/timeline/DelegateContextMenu.qml:343
+#: src/timeline/DelegateContextMenu.qml:348
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -7756,70 +7780,70 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "檢舉此訊息的原因"
 
-#: src/timeline/DelegateContextMenu.qml:345
+#: src/timeline/DelegateContextMenu.qml:350
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "檢舉"
 
-#: src/timeline/DelegateContextMenu.qml:349
+#: src/timeline/DelegateContextMenu.qml:354
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: src/timeline/DelegateContextMenu.qml:361
+#: src/timeline/DelegateContextMenu.qml:366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "搜尋 '%1'"
 
-#: src/timeline/DelegateContextMenu.qml:384
+#: src/timeline/DelegateContextMenu.qml:389
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "設定網頁捷徑…"
 
-#: src/timeline/DelegateContextMenu.qml:392
+#: src/timeline/DelegateContextMenu.qml:397
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "唸出文字"
 
-#: src/timeline/DelegateContextMenu.qml:395
+#: src/timeline/DelegateContextMenu.qml:400
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 說道 %2"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:420
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "取消釘選"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:420
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "釘選"
 
-#: src/timeline/DelegateContextMenu.qml:422
+#: src/timeline/DelegateContextMenu.qml:430
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "私訊"
 
-#: src/timeline/DelegateContextMenu.qml:422
+#: src/timeline/DelegateContextMenu.qml:430
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "私訊"
 
-#: src/timeline/DelegateContextMenu.qml:435
+#: src/timeline/DelegateContextMenu.qml:443
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
