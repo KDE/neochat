@@ -126,7 +126,6 @@ Flow {
 
         EmojiDialog {
             currentRoom: root.Message.room
-            showQuickReaction: true
         }
     }
 }

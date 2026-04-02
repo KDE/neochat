@@ -65,7 +65,6 @@ RowLayout {
             id: emojiDialog
             EmojiDialog {
                 currentRoom: root.room
-                showQuickReaction: true
             }
         }
     }

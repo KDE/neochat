@@ -18,7 +18,6 @@ ColumnLayout {
     property NeoChatRoom currentRoom
 
     property bool includeCustom: false
-    property bool showQuickReaction: false
     property bool showStickers: true
 
     readonly property var currentEmojiModel: {
@@ -131,38 +130,6 @@ ColumnLayout {
         Keys.forwardTo: searchField
         stickers: root.selectedType === 1
         onStickerChosen: index => stickerModel.postSticker(emoticonFilterModel.mapToSource(emoticonFilterModel.index(index, 0)).row)
-    }
-
-    Kirigami.Separator {
-        visible: root.showQuickReaction
-        Layout.fillWidth: true
-        Layout.preferredHeight: 1
-    }
-
-    QQC2.ScrollView {
-        visible: root.showQuickReaction
-        Layout.fillWidth: true
-        Layout.preferredHeight: root.categoryIconSize + QQC2.ScrollBar.horizontal.height
-        QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
-
-        ListView {
-            id: quickReactions
-            Layout.fillWidth: true
-
-            model: ["👍", "👎", "😄", "🎉", "😕", "❤️", "🚀", "👀"]
-
-            delegate: EmojiDelegate {
-                required property string modelData
-                emoji: modelData
-
-                height: root.categoryIconSize
-                width: height
-
-                onClicked: root.chosen(modelData)
-            }
-
-            orientation: Qt.Horizontal
-        }
     }
 
     ImagePacksModel {
