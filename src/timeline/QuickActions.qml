@@ -39,7 +39,7 @@ RowLayout {
         id: reactButton
         visible: root.availableWidth > overflowButton.implicitWidth + root.spacing + reactButton.implicitWidth
         text: i18n("React")
-        icon.name: "preferences-desktop-emoticons"
+        icon.name: "smiley-add-symbolic"
         display: QQC2.ToolButton.IconOnly
         onClicked: {
             root.reacting = true;
