@@ -79,6 +79,7 @@ QQC2.Control {
             Layout.preferredHeight: root.defaultHeight
             Layout.maximumWidth: root.defaultHeight
             Layout.fillHeight: true
+            Layout.maximumHeight: root.defaultHeight // prevent accidentally giant link previews
             visible: root.linkPreviewer.imageSource.toString().length > 0
             source: root.linkPreviewer.imageSource
             fillMode: Image.PreserveAspectFit
