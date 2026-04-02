@@ -109,21 +109,20 @@ QVariantList EmojiModel::filterModelNoCustom(const QString &filter, bool limit)
     return result;
 }
 
-void EmojiModel::emojiUsed(const QVariant &modelData)
+void EmojiModel::emojiUsed(const QString &shortName)
 {
     auto list = lastUsedEmojis();
-    const auto emoji = modelData.value<Emoji>();
 
     auto it = list.begin();
     while (it != list.end()) {
-        if (*it == emoji.shortName) {
+        if (*it == shortName) {
             it = list.erase(it);
         } else {
             it++;
         }
     }
 
-    list.push_front(emoji.shortName);
+    list.push_front(shortName);
 
     m_configGroup.writeEntry(u"lastUsedEmojis"_s, list);
 
@@ -225,6 +224,18 @@ QVariantList EmojiModel::categoriesWithCustom() const
                 });
     ;
     return cats;
+}
+
+QVariantList EmojiModel::quickReactions() const
+{
+    QVariantList reactions;
+    reactions.append(filterModel(QStringLiteral(":thumbsup:"), true));
+    reactions.append(filterModel(QStringLiteral(":thumbsdown:"), true));
+    reactions.append(filterModel(QStringLiteral(":smile:"), true));
+    reactions.append(filterModel(QStringLiteral(":tada:"), true));
+    reactions.append(filterModel(QStringLiteral(":red heart:"), true));
+
+    return reactions;
 }
 
 QVariantList EmojiModel::emojiHistory() const

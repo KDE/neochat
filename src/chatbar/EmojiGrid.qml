@@ -65,7 +65,7 @@ QQC2.ScrollView {
                 }
                 root.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode);
                 if (!root.stickers) {
-                    EmojiModel.emojiUsed(modelData);
+                    EmojiModel.emojiUsed(modelData.shortName);
                 }
             }
             Keys.onSpacePressed: pressAndHold()

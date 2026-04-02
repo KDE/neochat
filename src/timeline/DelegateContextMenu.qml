@@ -110,15 +110,20 @@ KirigamiComponents.ConvergentContextMenu {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
             Repeater {
-                model: ["👍", "👎️", "😄", "🎉", "❤️", "⋮"]
+                model: EmojiModel.quickReactions
                 delegate: Delegates.RoundedItemDelegate {
                     id: emojiDelegate
 
-                    required property string modelData
+                    required property string shortName
+                    required property string unicode
+
                     Layout.fillWidth: true
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2.5
                     Layout.fillHeight: true
-                    visible: emojiAction.visible
+
+                    QQC2.ToolTip.text: shortName
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                     contentItem: Kirigami.Heading {
                         id: emojiText
@@ -126,32 +131,53 @@ KirigamiComponents.ConvergentContextMenu {
                         verticalAlignment: Text.AlignVCenter
 
                         font.family: "emoji"
-                        text: emojiDelegate.modelData
+                        text: emojiDelegate.unicode
                     }
 
                     onClicked: {
-                        if (emojiText.text === "⋮") {
-                            let dialog = emojiDialog.createObject(emojiDelegate) as EmojiDialog;
-                            dialog.showStickers = false;
-                            dialog.chosen.connect(emoji => {
-                                root.room.toggleReaction(root.eventId, emoji);
-                                root.close();
-                            });
-                            dialog.open();
-                            return;
-                        }
-
-                        root.room.toggleReaction(root.eventId, modelData);
+                        root.room.toggleReaction(root.eventId, unicode);
                         root.close();
+                        EmojiModel.emojiUsed(shortName);
                     }
                 }
             }
-            Component {
-                id: emojiDialog
+            // Pick emoji menu button
+            Delegates.RoundedItemDelegate {
+                id: emojiDelegate
 
-                EmojiDialog {
-                    currentRoom: root.room
-                    showQuickReaction: true
+                Layout.fillWidth: true
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 2.5
+                Layout.fillHeight: true
+
+                QQC2.ToolTip.text: i18nc("@info:tooltip Pick specific emoji for a reaction", "Pick Reaction")
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+                contentItem: Kirigami.Heading {
+                    id: emojiText
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    font.family: "emoji"
+                    text: "⋮"
+                }
+
+                onClicked: {
+                    let dialog = emojiDialog.createObject(emojiDelegate) as EmojiDialog;
+                    dialog.showStickers = false;
+                    dialog.chosen.connect(emoji => {
+                        root.room.toggleReaction(root.eventId, emoji);
+                        root.close();
+                    });
+                    dialog.open();
+                }
+
+                Component {
+                    id: emojiDialog
+
+                    EmojiDialog {
+                        currentRoom: root.room
+                    }
                 }
             }
         }

@@ -61,6 +61,11 @@ class EmojiModel : public QAbstractListModel
      */
     Q_PROPERTY(QVariantList categoriesWithCustom READ categoriesWithCustom CONSTANT)
 
+    /**
+     * @brief Return a list of quick reactions.
+     */
+    Q_PROPERTY(QVariantList quickReactions READ quickReactions CONSTANT)
+
 public:
     static EmojiModel &instance()
     {
@@ -164,12 +169,18 @@ public:
 
     QVariantList categories() const;
     QVariantList categoriesWithCustom() const;
+    QVariantList quickReactions() const;
 
 Q_SIGNALS:
     void historyChanged();
 
 public Q_SLOTS:
-    void emojiUsed(const QVariant &modelData);
+    /**
+     * @brief Add the specified emoji @p shortname to the history.
+     *
+     * @note If the emoji was already in the recent history, it moves to the front.
+     */
+    void emojiUsed(const QString &shortName);
 
 private:
     static QHash<Category, QVariantList> _emojis;
