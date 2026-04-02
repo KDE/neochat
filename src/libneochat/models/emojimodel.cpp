@@ -58,14 +58,14 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
         auto emoji = category[row].value<Emoji>();
         switch (role) {
         case ShortNameRole:
-            return u":%1:"_s.arg(emoji.shortName);
+            return emoji.shortName;
         case UnicodeRole:
         case ReplacedTextRole:
             return emoji.unicode;
         case InvalidRole:
             return u"invalid"_s;
         case DisplayRole:
-            return u"%2   :%1:"_s.arg(emoji.shortName, emoji.unicode);
+            return u"%2   %1"_s.arg(emoji.shortName, emoji.unicode);
         case DescriptionRole:
             return emoji.description;
         }
