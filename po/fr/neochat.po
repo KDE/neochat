@@ -5,9 +5,9 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-02 00:43+0000\n"
-"PO-Revision-Date: 2026-03-15 18:28+0100\n"
+"PO-Revision-Date: 2026-04-02 09:49+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: \n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2273,13 +2273,11 @@ msgid "Room Id: %1"
 msgstr "Identifiant du salon : %1"
 
 #: src/devtools/RoomData.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt ""
 "@option:check Toggle for whether this room is considered a direct chat or not"
 msgid "Direct Chat"
-msgstr "Démarrer la conversation"
+msgstr "Discussion en direct"
 
 #: src/devtools/RoomData.qml:60
 #, kde-format
@@ -3930,29 +3928,25 @@ msgid "The passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
 
 #: src/login/registration.cpp:393
-#, fuzzy, kde-format
-#| msgid "No server."
+#, kde-format
 msgctxt "@info"
 msgid "No server."
 msgstr "Aucun serveur."
 
 #: src/login/registration.cpp:395
-#, fuzzy, kde-format
-#| msgid "Checking Server availability."
+#, kde-format
 msgctxt "@info"
 msgid "Checking Server availability."
 msgstr "Vérification de la disponibilité du serveur."
 
 #: src/login/registration.cpp:397
-#, fuzzy, kde-format
-#| msgid "This is not a valid server."
+#, kde-format
 msgctxt "@info"
 msgid "This is not a valid server."
-msgstr "Ceci n'est pas un serveur valable."
+msgstr "Ceci est un serveur non valable."
 
 #: src/login/registration.cpp:399
-#, fuzzy, kde-format
-#| msgid "Registration for this server is disabled."
+#, kde-format
 msgctxt "@info"
 msgid "Registration for this server is disabled."
 msgstr "L'enregistrement avec ce serveur est désactivé."
@@ -3976,54 +3970,46 @@ msgid "This is not a valid registration token."
 msgstr "Ceci n'est pas un jeton d'inscription valable."
 
 #: src/login/registration.cpp:407
-#, fuzzy, kde-format
-#| msgid "No username."
+#, kde-format
 msgctxt "@info"
 msgid "No username."
 msgstr "Aucun nom d'utilisateur."
 
 #: src/login/registration.cpp:409
-#, fuzzy, kde-format
-#| msgid "Checking username availability."
+#, kde-format
 msgctxt "@info"
 msgid "Checking username availability."
 msgstr "Vérification de la disponibilité du nom d'utilisateur."
 
 #: src/login/registration.cpp:411
-#, fuzzy, kde-format
-#| msgid "This username is not available."
+#, kde-format
 msgctxt "@info"
 msgid "This username is not available."
 msgstr "Ce nom d'utilisateur est indisponible."
 
 #: src/login/registration.cpp:413
-#, fuzzy, kde-format
-#| msgid "Continue"
+#, kde-format
 msgctxt "@info"
 msgid "Continue"
 msgstr "Continuer"
 
 #: src/login/registration.cpp:415
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgctxt "@info"
 msgid "Working"
-msgstr "De travail"
+msgstr "En cours de traitement"
 
 #: src/login/registration.cpp:417
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid registration token"
+#, kde-format
 msgctxt "@info"
 msgid "Checking registration token."
-msgstr "Jeton d'inscription non valable"
+msgstr "Vérification du jeton d'enregistrement"
 
 #: src/login/registration.cpp:419
-#, fuzzy, kde-format
-#| msgid "Continue the login process in your browser."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for login confirmation in your browser."
-msgstr "Continuer le processus de connexion dans votre navigateur."
+msgstr "En attente de confirmation de connexion dans votre navigateur."
 
 #: src/login/RegistrationToken.qml:20
 #, kde-format
@@ -4640,16 +4626,14 @@ msgid "Find messages…"
 msgstr "Rechercher un message..."
 
 #: src/roominfo/RoomSearchPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter text to start searching for users"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching %1's messages"
-msgstr "Saisissez un texte pour démarrer la recherche des utilisateurs"
+msgstr ""
+"Saisissez un texte pour démarrer la recherche des messages provenant de %1."
 
 #: src/roominfo/RoomSearchPage.qml:59
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching"
 msgstr "Saisissez un texte pour démarrer la recherche"
@@ -5180,9 +5164,7 @@ msgid "Account Management"
 msgstr "Gestion des comptes"
 
 #: src/settings/AccountEditorPage.qml:268
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Manage Account"
+#, kde-format
 msgctxt "@info"
 msgid "Manage Account"
 msgstr "Gérer le compte"
@@ -6398,12 +6380,10 @@ msgid "Send typing notifications"
 msgstr "Envoyer les notifications de saisie"
 
 #: src/settings/NeoChatSecurityPage.qml:76
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Send reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Send read receipts"
-msgstr "Envoyer des réactions"
+msgstr "Envoyer des accusés de réception"
 
 #: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
@@ -6817,12 +6797,10 @@ msgid "Upgrade Room…"
 msgstr "Mettre à niveau le salon..."
 
 #: src/settings/RoomAdvancedPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt "The person that created a room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Creators"
-msgstr "Créateur"
+msgstr "Créateurs de salons"
 
 #: src/settings/RoomAdvancedPage.qml:103
 #, kde-format

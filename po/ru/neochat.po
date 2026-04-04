@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-02 00:43+0000\n"
-"PO-Revision-Date: 2026-03-16 15:55+0300\n"
-"Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
-"Language-Team: Basealt Translation Team\n"
+"PO-Revision-Date: 2026-04-03 22:05+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -1418,12 +1418,10 @@ msgid "Set Power Level"
 msgstr "Установить уровень возможностей"
 
 #: src/app/qml/UserDetailDialog.qml:407
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Timeline"
+#, kde-format
 msgctxt "@title The user's timezone"
 msgid "Timezone"
-msgstr "Хронология"
+msgstr "Часовой пояс"
 
 #: src/app/qml/UserDetailDialog.qml:434
 #, kde-format
@@ -2246,13 +2244,11 @@ msgid "Room Id: %1"
 msgstr "Идентификатор комнаты: %1"
 
 #: src/devtools/RoomData.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt ""
 "@option:check Toggle for whether this room is considered a direct chat or not"
 msgid "Direct Chat"
-msgstr "Начать чат"
+msgstr "Личный чат"
 
 #: src/devtools/RoomData.qml:60
 #, kde-format
@@ -3525,7 +3521,7 @@ msgstr "Свои эмодзи"
 #, kde-format
 msgctxt "@item:inlistbox Prefer not to say which timezone im in"
 msgid "Prefer not to say"
-msgstr ""
+msgstr "Не указывать часовой пояс"
 
 #: src/libneochat/models/userlistmodel.cpp:102
 #, kde-format
@@ -3906,110 +3902,102 @@ msgid "The passwords do not match."
 msgstr "Пароли не совпадают."
 
 #: src/login/registration.cpp:393
-#, fuzzy, kde-format
-#| msgid "No server."
+#, kde-format
 msgctxt "@info"
 msgid "No server."
 msgstr "Сервер отсутствует."
 
 #: src/login/registration.cpp:395
-#, fuzzy, kde-format
-#| msgid "Checking Server availability."
+#, kde-format
 msgctxt "@info"
 msgid "Checking Server availability."
 msgstr "Проверка доступности сервера."
 
 #: src/login/registration.cpp:397
-#, fuzzy, kde-format
-#| msgid "This is not a valid server."
+#, kde-format
 msgctxt "@info"
 msgid "This is not a valid server."
 msgstr "Этот сервер является некорректным."
 
 #: src/login/registration.cpp:399
-#, fuzzy, kde-format
-#| msgid "Registration for this server is disabled."
+#, kde-format
 msgctxt "@info"
 msgid "Registration for this server is disabled."
-msgstr "Для этого сервера отключена регистрация."
+msgstr "На этом сервере отключена регистрация."
 
 #: src/login/registration.cpp:401
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Registration for this server requires a registration token."
-msgstr "Для этого сервера отключена регистрация."
+msgstr "Для регистрации на этом сервере требуется токен регистрации."
 
 #: src/login/registration.cpp:403
 #, kde-format
 msgctxt "@info"
 msgid "This server cannot prevalidate registration tokens."
 msgstr ""
+"На этом сервере не выполняется предварительная проверка регистрационных "
+"токенов."
 
 #: src/login/registration.cpp:405
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "This is not a valid registration token."
-msgstr "Этот сервер является некорректным."
+msgstr "Указан недопустимый регистрационный токен."
 
 #: src/login/registration.cpp:407
-#, fuzzy, kde-format
-#| msgid "No username."
+#, kde-format
 msgctxt "@info"
 msgid "No username."
 msgstr "Имя пользователя отсутствует."
 
 #: src/login/registration.cpp:409
-#, fuzzy, kde-format
-#| msgid "Checking username availability."
+#, kde-format
 msgctxt "@info"
 msgid "Checking username availability."
 msgstr "Проверка доступности имени пользователя."
 
 #: src/login/registration.cpp:411
-#, fuzzy, kde-format
-#| msgid "This username is not available."
+#, kde-format
 msgctxt "@info"
 msgid "This username is not available."
 msgstr "Это имя пользователя недоступно."
 
 #: src/login/registration.cpp:413
-#, fuzzy, kde-format
-#| msgid "Continue"
+#, kde-format
 msgctxt "@info"
 msgid "Continue"
 msgstr "Продолжить"
 
 #: src/login/registration.cpp:415
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgctxt "@info"
 msgid "Working"
-msgstr "Работает"
+msgstr "Выполняется"
 
 #: src/login/registration.cpp:417
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Checking registration token."
-msgstr "Этот сервер является некорректным."
+msgstr "Проверка маркера регистрации."
 
 #: src/login/registration.cpp:419
-#, fuzzy, kde-format
-#| msgid "Continue the login process in your browser."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for login confirmation in your browser."
-msgstr "Продолжите процесс вход в браузере."
+msgstr "Ожидается подтверждение входа в браузере."
 
 #: src/login/RegistrationToken.qml:20
 #, kde-format
 msgctxt "@label"
 msgid "Registration Token:"
-msgstr ""
+msgstr "Маркер регистрации:"
 
 #: src/login/RegistrationToken.qml:23
 #, kde-format
 msgctxt "@info"
 msgid "Invalid registration token"
-msgstr ""
+msgstr "Недопустимый маркер регистрации"
 
 #: src/login/Sso.qml:29
 #, kde-format
@@ -4624,16 +4612,13 @@ msgid "Find messages…"
 msgstr "Поиск сообщений…"
 
 #: src/roominfo/RoomSearchPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter text to start searching for users"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching %1's messages"
-msgstr "Введите текст, чтобы начать поиск пользователей"
+msgstr "Введите текст, чтобы начать поиск сообщений пользователя «%1»"
 
 #: src/roominfo/RoomSearchPage.qml:59
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching"
 msgstr "Введите текст для начала поиска"
@@ -5090,12 +5075,10 @@ msgid "Copy user ID to clipboard"
 msgstr "Копировать идентификатор пользователя"
 
 #: src/settings/AccountEditorPage.qml:142
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Timeline"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Timezone:"
-msgstr "Хронология"
+msgstr "Часовой пояс:"
 
 #: src/settings/AccountEditorPage.qml:160
 #, kde-format
@@ -5165,9 +5148,7 @@ msgid "Account Management"
 msgstr "Управление учётной записью"
 
 #: src/settings/AccountEditorPage.qml:268
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Manage Account"
+#, kde-format
 msgctxt "@info"
 msgid "Manage Account"
 msgstr "Управление учётной записью"
@@ -6365,12 +6346,10 @@ msgid "Send typing notifications"
 msgstr "Отправлять уведомления о наборе текста"
 
 #: src/settings/NeoChatSecurityPage.qml:76
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Send reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Send read receipts"
-msgstr "Отправлять реакции"
+msgstr "Отправлять подтверждения прочтения"
 
 #: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
@@ -6783,12 +6762,10 @@ msgid "Upgrade Room…"
 msgstr "Обновить комнату…"
 
 #: src/settings/RoomAdvancedPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt "The person that created a room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Creators"
-msgstr "Создатель"
+msgstr "Создатели комнаты"
 
 #: src/settings/RoomAdvancedPage.qml:103
 #, kde-format
