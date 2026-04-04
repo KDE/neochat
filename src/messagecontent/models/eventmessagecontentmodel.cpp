@@ -222,11 +222,11 @@ Blocks::BlockPtr EventMessageContentModel::unavailableBlock() const
         disabledTextColor = u"#000000"_s;
     }
 
-    return std::make_unique<Blocks::Block>(
+    return Blocks::makeBlock<Blocks::TextBlock>(
         Blocks::Text,
-        u"<span style=\"color:%1\">"_s.arg(disabledTextColor)
-            + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user") + u"</span>"_s,
-        QVariantMap());
+        QTextDocumentFragment::fromHtml(
+            u"<span style=\"color:%1\">"_s.arg(disabledTextColor)
+            + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user") + u"</span>"_s));
 }
 
 void EventMessageContentModel::resetModel()
@@ -242,14 +242,14 @@ void EventMessageContentModel::resetModel()
 
     const auto event = m_room->getEvent(m_eventId);
     if (event.first == nullptr) {
-        m_components.push_back(std::make_unique<Blocks::Block>(Blocks::Loading,
-                                                               m_isReply ? i18nc("@info", "Loading reply…") : i18nc("@info Loading this message", "Loading…"),
-                                                               QVariantMap()));
+        m_components.push_back(Blocks::makeBlock<Blocks::TextBlock>(
+            Blocks::Loading,
+            QTextDocumentFragment::fromPlainText(m_isReply ? i18nc("@info", "Loading reply…") : i18nc("@info Loading this message", "Loading…"))));
         endResetModel();
         return;
     }
 
-    m_components.push_back(std::make_unique<Blocks::Block>(Blocks::Author, QString(), QVariantMap()));
+    m_components.push_back(Blocks::makeBlock<Blocks::Block>(Blocks::Author));
 
     auto components = messageContentComponents();
     m_components.insert(m_components.end(), std::make_move_iterator(components.begin()), std::make_move_iterator(components.end()));
@@ -297,7 +297,7 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
     Blocks::BlockPtrs newComponents;
 
     if (isEditing) {
-        newComponents.push_back(std::make_unique<Blocks::Block>(Blocks::ChatBar, QString(), QVariantMap()));
+        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(Blocks::ChatBar));
     } else {
         auto typeComponents = componentsForType(Blocks::typeForEvent(*event.first, m_isReply));
         newComponents.insert(newComponents.end(), std::make_move_iterator(typeComponents.begin()), std::make_move_iterator(typeComponents.end()));
@@ -307,13 +307,13 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
     if (roomMessageEvent
         && ((roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId())
             || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents.push_back(std::make_unique<Blocks::Block>(Blocks::Separator, QString(), QVariantMap()));
-        newComponents.push_back(std::make_unique<Blocks::Block>(Blocks::ThreadBody, u"Thread Body"_s, QVariantMap()));
+        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(Blocks::Separator));
+        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(Blocks::ThreadBody));
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents.push_back(std::make_unique<Blocks::Block>(Blocks::ChatBar, QString(), QVariantMap()));
+        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(Blocks::ChatBar));
     }
 
     return newComponents;
@@ -348,10 +348,6 @@ Blocks::BlockPtrs EventMessageContentModel::componentsForType(Blocks::Type type)
     Blocks::BlockPtrs components;
 
     switch (type) {
-    case Blocks::Verification: {
-        components.push_back(std::make_unique<Blocks::Block>(Blocks::Verification, QString(), QVariantMap()));
-        return components;
-    }
     case Blocks::Text: {
         return TextHandler().textComponents(EventHandler::rawMessageBody(*event),
                                             EventHandler::messageBodyInputFormat(*event),
@@ -360,7 +356,7 @@ Blocks::BlockPtrs EventMessageContentModel::componentsForType(Blocks::Type type)
                                             roomMessageEvent ? roomMessageEvent->isReplaced() : false);
     }
     case Blocks::File: {
-        components.push_back(std::make_unique<Blocks::Block>(Blocks::File, QString(), EventHandler::mediaInfo(m_room, event)));
+        components.push_back(EventHandler::fileBlockForEvent(m_room, event));
         auto body = EventHandler::rawMessageBody(*event);
         if (!body.isEmpty()) {
             auto textComponents = TextHandler().textComponents(body,
@@ -375,7 +371,7 @@ Blocks::BlockPtrs EventMessageContentModel::componentsForType(Blocks::Type type)
     case Blocks::Image:
     case Blocks::Audio:
     case Blocks::Video: {
-        components.push_back(std::make_unique<Blocks::Block>(type, EventHandler::richBody(m_room, event), EventHandler::mediaInfo(m_room, event)));
+        components.push_back(EventHandler::fileBlockForEvent(m_room, event));
 
         if (!event->is<StickerEvent>() && roomMessageEvent) {
             const auto fileContent = roomMessageEvent->get<EventContent::FileContentBase>();
@@ -396,16 +392,13 @@ Blocks::BlockPtrs EventMessageContentModel::componentsForType(Blocks::Type type)
         return components;
     }
     case Blocks::Location:
-        components.push_back(std::make_unique<Blocks::Block>(type,
-                                                             EventHandler::plainBody(m_room, event),
-                                                             QVariantMap{
-                                                                 {u"latitude"_s, EventHandler::latitude(event)},
-                                                                 {u"longitude"_s, EventHandler::longitude(event)},
-                                                                 {u"asset"_s, EventHandler::locationAssetType(event)},
-                                                             }));
+        components.push_back(Blocks::makeBlock<Blocks::LocationBlock>(type,
+                                                                      EventHandler::latitude(event),
+                                                                      EventHandler::longitude(event),
+                                                                      EventHandler::locationAssetType(event)));
         return components;
     default:
-        components.push_back(std::make_unique<Blocks::Block>(type, QString(), QVariantMap()));
+        components.push_back(Blocks::makeBlock<Blocks::Block>(type));
         return components;
     }
 }
@@ -466,7 +459,7 @@ void EventMessageContentModel::updateReactionModel()
 
     if (m_reactionModel && m_components.back()->type != Blocks::Reaction) {
         beginInsertRows({}, rowCount(), rowCount());
-        m_components.push_back(std::make_unique<Blocks::Block>(Blocks::Reaction, QString(), QVariantMap()));
+        m_components.push_back(Blocks::makeBlock<Blocks::Block>(Blocks::Reaction));
         endInsertRows();
     } else if (rowCount() > 0 && m_components.back()->type == Blocks::Reaction) {
         beginRemoveRows({}, rowCount() - 1, rowCount() - 1);

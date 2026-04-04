@@ -377,13 +377,14 @@ Blocks::BlockPtr TextHandler::nextBlock(const QString &string,
         content = handleRecieveRichText(inputFormat, room, event, false, isEdited, spoilerRevealed);
     }
 
+    bool hasSpoiler = false;
     if (content.contains(u"data-mx-spoiler"_s)) {
-        attributes[u"hasSpoiler"_s] = true;
+        hasSpoiler = true;
     }
-    return std::make_unique<Blocks::TextBlock>(blockType,
-                                               blockType == Blocks::Code ? QTextDocumentFragment::fromPlainText(content)
-                                                                         : QTextDocumentFragment::fromHtml(content),
-                                               attributes);
+    return Blocks::makeBlock<Blocks::TextBlock>(blockType,
+                                                blockType == Blocks::Code ? QTextDocumentFragment::fromPlainText(content)
+                                                                          : QTextDocumentFragment::fromHtml(content),
+                                                hasSpoiler);
 }
 
 QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
@@ -628,7 +629,8 @@ Blocks::BlockPtrs TextHandler::textComponents(QString string,
     Blocks::BlockPtrs components;
 
     if (string.trimmed().isEmpty()) {
-        components.push_back(std::make_unique<Blocks::Block>(Blocks::Text, i18n("<i>This event does not have any content.</i>"), QVariantMap()));
+        components.push_back(
+            Blocks::makeBlock<Blocks::TextBlock>(Blocks::Text, QTextDocumentFragment::fromHtml(i18n("<i>This event does not have any content.</i>"))));
         return components;
     }
 
@@ -647,17 +649,19 @@ Blocks::BlockPtrs TextHandler::textComponents(QString string,
 
         if (event != nullptr && room != nullptr) {
             if (auto e = eventCast<const Quotient::RoomMessageEvent>(event); e && e->msgtype() == Quotient::MessageEventType::Emote && components.size() == 1) {
-                if (components[0]->type == Blocks::Text) {
-                    components[0]->display = emoteString(room, event) + components[0]->display;
+                if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(components[0].get())) {
+                    textBlock->item()->initialFragment() =
+                        QTextDocumentFragment::fromHtml(emoteString(room, event) + textBlock->item()->initialFragment().toHtml());
                 } else {
-                    components.insert(components.begin(), std::make_unique<Blocks::Block>(Blocks::Text, emoteString(room, event), QVariantMap()));
+                    components.insert(components.begin(),
+                                      Blocks::makeBlock<Blocks::TextBlock>(Blocks::Text, QTextDocumentFragment::fromHtml(emoteString(room, event))));
                 }
             }
         }
     }
 
     if (isEdited && components.back()->type != Blocks::Text && components.back()->type != Blocks::Quote) {
-        components.push_back(std::make_unique<Blocks::Block>(Blocks::Text, editString(), QVariantMap()));
+        components.push_back(Blocks::makeBlock<Blocks::TextBlock>(Blocks::Text, QTextDocumentFragment::fromHtml(editString())));
     }
 
     return components;

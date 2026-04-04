@@ -11,6 +11,7 @@ target_sources(LibNeoChat PRIVATE
     chatbarcache.cpp
     block.cpp
     blockcache.cpp
+    fileinfo.h
     chatkeyhelper.cpp
     chatmarkdownhelper.cpp
     chattextitemhelper.cpp

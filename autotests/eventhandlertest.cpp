@@ -14,6 +14,8 @@
 #include <qcbormap.h>
 #include <qtestcase.h>
 
+#include "block.h"
+#include "enums/blocktype.h"
 #include "linkpreviewer.h"
 #include "models/reactionmodel.h"
 #include "neochatroom.h"
@@ -232,31 +234,31 @@ void EventHandlerTest::nullSubtitle()
 void EventHandlerTest::mediaInfo()
 {
     auto event = room->messageEvents().at(4).get();
-    auto mediaInfo = EventHandler::mediaInfo(room, event);
-    auto thumbnailInfo = mediaInfo["tempInfo"_L1].toMap();
+    auto fileBlock = EventHandler::fileBlockForEvent(room, event);
+    auto videoBlock = dynamic_cast<Blocks::VideoBlock *>(fileBlock.get());
 
-    QCOMPARE(mediaInfo["source"_L1], room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/1234567"_L1)));
-    QCOMPARE(mediaInfo["mimeType"_L1], u"video/mp4"_s);
-    QCOMPARE(mediaInfo["mimeIcon"_L1], u"video-mp4"_s);
-    QCOMPARE(mediaInfo["size"_L1], 62650636);
-    QCOMPARE(mediaInfo["duration"_L1], 10);
-    QCOMPARE(mediaInfo["width"_L1], 1920);
-    QCOMPARE(mediaInfo["height"_L1], 1080);
-    QCOMPARE(thumbnailInfo["source"_L1], room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/2234567"_L1)));
-    QCOMPARE(thumbnailInfo["mimeType"_L1], u"image/jpeg"_s);
-    QCOMPARE(thumbnailInfo["mimeIcon"_L1], u"image-jpeg"_s);
-    QCOMPARE(thumbnailInfo["size"_L1], 382249);
-    QCOMPARE(thumbnailInfo["width"_L1], 800);
-    QCOMPARE(thumbnailInfo["height"_L1], 450);
+    QCOMPARE(videoBlock->source, room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/1234567"_L1)));
+    QCOMPARE(videoBlock->info.mimeType.name(), u"video/mp4"_s);
+    QCOMPARE(videoBlock->info.mimeType.iconName(), u"video-mp4"_s);
+    QCOMPARE(videoBlock->info.size, 62650636);
+    QCOMPARE(videoBlock->info.duration, 10);
+    QCOMPARE(videoBlock->info.pixelSize.width(), 1920);
+    QCOMPARE(videoBlock->info.pixelSize.height(), 1080);
+    QCOMPARE(videoBlock->thumbnailSource, room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/2234567"_L1)));
+    QCOMPARE(videoBlock->thumbnailInfo.mimeType.name(), u"image/jpeg"_s);
+    QCOMPARE(videoBlock->thumbnailInfo.mimeType.iconName(), u"image-jpeg"_s);
+    QCOMPARE(videoBlock->thumbnailInfo.size, 382249);
+    QCOMPARE(videoBlock->thumbnailInfo.pixelSize.width(), 800);
+    QCOMPARE(videoBlock->thumbnailInfo.pixelSize.height(), 450);
 }
 
 void EventHandlerTest::nullMediaInfo()
 {
     QTest::ignoreMessage(QtWarningMsg, "mediaInfo called with room set to nullptr.");
-    QCOMPARE(EventHandler::mediaInfo(nullptr, nullptr), QVariantMap());
+    QCOMPARE(EventHandler::fileBlockForEvent(nullptr, nullptr)->type, Blocks::Other);
 
     QTest::ignoreMessage(QtWarningMsg, "mediaInfo called with event set to nullptr.");
-    QCOMPARE(EventHandler::mediaInfo(room, nullptr), QVariantMap());
+    QCOMPARE(EventHandler::fileBlockForEvent(room, nullptr)->type, Blocks::Other);
 }
 
 void EventHandlerTest::replyAuthor()

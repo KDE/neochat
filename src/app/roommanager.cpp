@@ -4,6 +4,7 @@
 
 #include "roommanager.h"
 
+#include "block.h"
 #include "blockcache.h"
 #include "chatbarcache.h"
 #include "chatmarkdownhelper.h"
@@ -322,6 +323,14 @@ void RoomManager::viewEventMenu(QObject *parent,
         return;
     }
 
+    QString mimeType;
+    {
+        const auto block = EventHandler::fileBlockForEvent(room, event);
+        if (const auto fileBlock = dynamic_cast<Blocks::FileBlock *>(block.get())) {
+            mimeType = fileBlock->info.mimeType.name();
+        }
+    }
+
     Q_EMIT showDelegateMenu(parent,
                             room,
                             event->id(),
@@ -329,7 +338,7 @@ void RoomManager::viewEventMenu(QObject *parent,
                             Blocks::typeForEvent(*event),
                             EventHandler::plainBody(room, event),
                             EventHandler::richBody(room, event),
-                            EventHandler::mediaInfo(room, event)["mimeType"_L1].toString(),
+                            mimeType,
                             room->fileTransferInfo(event->id()),
                             selectedText,
                             hoveredLink,

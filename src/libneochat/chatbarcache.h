@@ -8,6 +8,7 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
+#include "block.h"
 #include "blockcache.h"
 
 namespace Quotient

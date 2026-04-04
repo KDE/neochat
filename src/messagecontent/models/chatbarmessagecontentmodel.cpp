@@ -4,20 +4,23 @@
 #include "chatbarmessagecontentmodel.h"
 
 #include <QMimeData>
+#include <QMovie>
 #include <QTextDocumentFragment>
 #include <QTimer>
 
 #include <KUrlMimeData>
 #include <Kirigami/Platform/PlatformTheme>
-#include <qcontainerfwd.h>
 
+#include "block.h"
 #include "blockcache.h"
 #include "chatbarcache.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
 #include "chattextitemhelper.h"
+#include "enums/blocktype.h"
 #include "enums/chatbartype.h"
 #include "enums/richformat.h"
+#include "fileinfo.h"
 #include "messagecontentmodel.h"
 #include "neochatroom.h"
 
@@ -118,11 +121,9 @@ void ChatBarMessageContentModel::initializeModel(const QString &initialText)
     updateReplyModel();
 
     beginInsertRows({}, rowCount(), rowCount());
-    const auto textItem = new ChatTextItemHelper(this);
-    textItem->setInitialFragment(QTextDocumentFragment::fromPlainText(initialText));
-    connectTextItem(textItem);
-    m_components.push_back(
-        std::make_unique<Blocks::Block>(Blocks::Text, QString(), QVariantMap{{TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItem)}}));
+    auto textBlock = std::make_unique<Blocks::TextBlock>(Blocks::Text, QTextDocumentFragment::fromPlainText(initialText));
+    connectTextItem(textBlock->item());
+    m_components.push_back(std::move(textBlock));
     endInsertRows();
 
     m_currentFocusComponent = QPersistentModelIndex(index(0));
@@ -213,7 +214,9 @@ void ChatBarMessageContentModel::initializeEdit()
         }
         cursor.movePosition(QTextCursor::End);
         cursor.select(QTextCursor::Document);
-        insertComponent(0, Blocks::Text, {}, cursor.selection());
+        auto textBlock = std::make_unique<Blocks::TextBlock>(Blocks::Text, cursor.selection());
+        connectTextItem(textBlock->item());
+        insertComponent(0, std::move(textBlock));
         return;
     }
 
@@ -226,17 +229,13 @@ void ChatBarMessageContentModel::initializeEdit()
 
     beginResetModel();
     std::ranges::for_each(m_components, [this](const Blocks::BlockPtr &component) {
-        if (Blocks::isTextType(component->type)) {
-            const auto textItemWrapper = new ChatTextItemHelper(this);
-            const auto initialFragment = component->type == Blocks::Code ? QTextDocumentFragment::fromPlainText(component->display)
-                                                                         : QTextDocumentFragment::fromHtml(component->display);
-            textItemWrapper->setInitialFragment(initialFragment);
-            if (component->type == Blocks::Quote) {
-                textItemWrapper->setFixedChars(u"“"_s, u"”"_s);
-            }
-
-            component->attributes.insert(TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItemWrapper));
-            connectTextItem(textItemWrapper);
+        if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(component.get())) {
+            connectTextItem(textBlock->item());
+            return;
+        }
+        if (const auto codeBlock = dynamic_cast<Blocks::CodeBlock *>(component.get())) {
+            connectTextItem(codeBlock->item());
+            return;
         }
     });
     endResetModel();
@@ -282,7 +281,7 @@ void ChatBarMessageContentModel::connectKeyHelper()
     connect(m_keyHelper, &ChatKeyHelper::unhandledDelete, this, [this]() {
         const auto currentRow = m_currentFocusComponent.row();
         if (currentRow < (int)m_components.size() - 1) {
-            if (const auto nextTextItem = textItemForComponent(*m_components[currentRow])) {
+            if (const auto nextTextItem = textItemForComponent(m_components[currentRow].get())) {
                 focusedTextItem()->insertFragment(nextTextItem->takeFirstBlock(), ChatTextItemHelper::Cursor, true);
             }
         }
@@ -295,13 +294,13 @@ void ChatBarMessageContentModel::connectKeyHelper()
                 removeAttachment();
                 return;
             }
-            if (const auto previousTextItem = textItemForComponent(*m_components.at(previousRow))) {
+            if (const auto previousTextItem = textItemForComponent(m_components.at(previousRow).get())) {
                 previousTextItem->insertFragment(focusedTextItem()->takeFirstBlock(), ChatTextItemHelper::End, true);
                 return;
             }
         }
         if (m_components[currentRow]->type == Blocks::Code || m_components[currentRow]->type == Blocks::Quote) {
-            insertComponentAtCursor(Blocks::Text);
+            insertBlockAtCursor(Blocks::Text);
         }
     });
     connect(m_keyHelper, &ChatKeyHelper::unhandledReturn, this, [this](bool isCompleting) {
@@ -397,17 +396,20 @@ void ChatBarMessageContentModel::connectTextItem(ChatTextItemHelper *chattextite
     connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::handleTyping);
 }
 
-ChatTextItemHelper *ChatBarMessageContentModel::textItemForComponent(const Blocks::Block &component) const
+ChatTextItemHelper *ChatBarMessageContentModel::textItemForComponent(Blocks::Block *component) const
 {
-    if (const auto textItem = qvariant_cast<ChatTextItemHelper *>(component.attributes[TextItemKey])) {
-        return textItem;
+    if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(component)) {
+        return textBlock->item();
+    }
+    if (const auto codeBlock = dynamic_cast<Blocks::CodeBlock *>(component)) {
+        return codeBlock->item();
     }
     return nullptr;
 }
 
 ChatTextItemHelper *ChatBarMessageContentModel::textItemForIndex(const QModelIndex &index) const
 {
-    return textItemForComponent(*m_components[index.row()]);
+    return textItemForComponent(m_components[index.row()].get());
 }
 
 QModelIndex ChatBarMessageContentModel::indexForTextItem(ChatTextItemHelper *textItem) const
@@ -431,7 +433,7 @@ bool ChatBarMessageContentModel::hasRichFormatting() const
         if (component->type != Blocks::Text) {
             return true;
         }
-        if (const auto textItem = textItemForComponent(*component)) {
+        if (const auto textItem = textItemForComponent(component.get())) {
             if (textItem->hasRichFormatting()) {
                 return true;
             }
@@ -453,7 +455,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
 
     QString plainText;
     for (const auto &component : std::as_const(m_components)) {
-        if (const auto textItem = textItemForComponent(*component)) {
+        if (const auto textItem = textItemForComponent(component.get())) {
             plainText += u"%1%2"_s.arg(plainText.isEmpty() ? u""_s : u"\n"_s, textItem->plainText());
         }
     }
@@ -461,8 +463,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     clearModel();
     initializeModel(plainText);
 
-    auto it = insertComponent(m_components.front()->type == Blocks::Reply ? 1 : 0, Blocks::typeForPath(path), attributesForFile(path));
-    it->get()->display = path.fileName();
+    auto it = insertComponent(m_components.front()->type == Blocks::Reply ? 1 : 0, blockForFile(path));
     Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {BlockRole});
     Q_EMIT hasAttachmentChanged();
 }
@@ -480,37 +481,44 @@ void ChatBarMessageContentModel::drop(QList<QUrl> u, const QString &transferPort
     }
 }
 
-QVariantMap ChatBarMessageContentModel::attributesForFile(const QUrl &path)
+Blocks::BlockPtr ChatBarMessageContentModel::blockForFile(const QUrl &path)
 {
     QFileInfo fileInfo(path.isLocalFile() ? path.toLocalFile() : path.toString());
     auto mime = QMimeDatabase().mimeTypeForUrl(path);
-    return {
-        {"filename"_L1, path.fileName()},
-        {"source"_L1, path},
-        {"animated"_L1, false},
-        {"mimeIcon"_L1, mime.iconName()},
-        {"size"_L1, fileInfo.size()},
-    };
+
+    if (mime.name().contains(u"image"_s)) {
+        Blocks::ImageInfo imageInfo;
+        imageInfo.mimeType = mime;
+        imageInfo.size = fileInfo.size();
+        imageInfo.pixelSize = QImage(path.isLocalFile() ? path.toLocalFile() : path.toString()).size();
+
+        // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
+        imageInfo.isAnimated = QMovie::supportedFormats().contains(mime.preferredSuffix().toUtf8());
+        return Blocks::makeBlock<Blocks::ImageBlock>(Blocks::Image, path, path.fileName(), imageInfo, QUrl(), Blocks::ImageInfo());
+    }
+    if (mime.name().contains(u"video"_s)) {
+        Blocks::VideoInfo videoInfo;
+        videoInfo.mimeType = mime;
+        videoInfo.size = fileInfo.size();
+        return Blocks::makeBlock<Blocks::VideoBlock>(Blocks::Video, path, path.fileName(), videoInfo, QUrl(), Blocks::ImageInfo());
+    }
+    if (mime.name().contains(u"audio"_s)) {
+        Blocks::AudioInfo audioInfo;
+        audioInfo.mimeType = mime;
+        audioInfo.size = fileInfo.size();
+        return Blocks::makeBlock<Blocks::AudioBlock>(Blocks::Audio, path, path.fileName(), audioInfo);
+    }
+    return Blocks::makeBlock<Blocks::Block>(Blocks::Other);
 }
 
-Blocks::BlockPtrsIt ChatBarMessageContentModel::insertComponent(int row, Blocks::Type type, QVariantMap attributes, const QTextDocumentFragment &intialFragment)
+Blocks::BlockPtrsIt ChatBarMessageContentModel::insertComponent(int row, Blocks::BlockPtr block)
 {
     if (row < 0 || row > rowCount()) {
         return m_components.end();
     }
 
-    if (Blocks::isTextType(type)) {
-        const auto textItemWrapper = new ChatTextItemHelper(this);
-        textItemWrapper->setInitialFragment(intialFragment);
-        if (type == Blocks::Quote) {
-            textItemWrapper->setFixedChars(u"“"_s, u"”"_s);
-        }
-
-        attributes.insert(TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItemWrapper));
-        connectTextItem(textItemWrapper);
-    }
     beginInsertRows({}, row, row);
-    const auto it = m_components.insert(m_components.begin() + row, std::make_unique<Blocks::Block>(type, QString(), attributes));
+    const auto it = m_components.insert(m_components.begin() + row, std::move(block));
     endInsertRows();
     Q_EMIT hasRichFormattingChanged();
 
@@ -521,20 +529,20 @@ void ChatBarMessageContentModel::insertStyleAtCursor(RichFormat::Format style)
 {
     switch (style) {
     case RichFormat::Paragraph:
-        insertComponentAtCursor(Blocks::Text);
+        insertBlockAtCursor(Blocks::Text);
         return;
     case RichFormat::Code:
-        insertComponentAtCursor(Blocks::Code);
+        insertBlockAtCursor(Blocks::Code);
         return;
     case RichFormat::Quote:
-        insertComponentAtCursor(Blocks::Quote);
+        insertBlockAtCursor(Blocks::Quote);
         return;
     default:
         return;
     }
 }
 
-void ChatBarMessageContentModel::insertComponentAtCursor(Blocks::Type type)
+void ChatBarMessageContentModel::insertBlockAtCursor(Blocks::Type type)
 {
     if (m_components[m_currentFocusComponent.row()]->type == type) {
         if ((type == Blocks::Text || type == Blocks::Quote) && focusedTextItem()) {
@@ -558,9 +566,9 @@ void ChatBarMessageContentModel::insertComponentAtCursor(Blocks::Type type)
         removeComponent(insertRow, true);
     }
 
-    const auto insertIt = insertComponent(insertRow, type);
+    const auto insertIt = insertComponent(insertRow, makeEmptyTextBlock(type));
     if (insertIt != m_components.end()) {
-        if (const auto insertTextItem = textItemForComponent(**insertIt)) {
+        if (const auto insertTextItem = textItemForComponent(insertIt->get())) {
             insertTextItem->insertFragment(midFragment);
         }
         m_currentFocusComponent = QPersistentModelIndex(index(insertIt - m_components.begin()));
@@ -568,12 +576,25 @@ void ChatBarMessageContentModel::insertComponentAtCursor(Blocks::Type type)
     }
 
     if (afterFragment) {
-        const auto afterIt = insertComponent(insertRow + 1, currentType);
+        const auto afterIt = insertComponent(insertRow + 1, makeEmptyTextBlock(currentType));
         if (afterIt != m_components.end()) {
-            if (const auto afterTextItem = textItemForComponent(**afterIt)) {
+            if (const auto afterTextItem = textItemForComponent(afterIt->get())) {
                 afterTextItem->insertFragment(*afterFragment);
             }
         }
+    }
+}
+
+Blocks::BlockPtr ChatBarMessageContentModel::makeEmptyTextBlock(Blocks::Type type)
+{
+    switch (type) {
+    case Blocks::Text:
+    case Blocks::Quote:
+        return Blocks::makeBlock<Blocks::TextBlock>(type, QTextDocumentFragment());
+    case Blocks::Code:
+        return Blocks::makeBlock<Blocks::CodeBlock>(type, QTextDocumentFragment(), QString());
+    default:
+        return Blocks::makeBlock<Blocks::Block>(Blocks::Other);
     }
 }
 
@@ -646,9 +667,7 @@ Blocks::BlockPtrsIt ChatBarMessageContentModel::removeComponent(Blocks::BlockPtr
     }
 
     if (const auto textItem = textItemForIndex(index(row))) {
-        m_components[row]->attributes.remove(TextItemKey);
         textItem->disconnect(this);
-        textItem->deleteLater();
     }
     it = m_components.erase(it);
     endRemoveRows();
@@ -671,11 +690,28 @@ void ChatBarMessageContentModel::insertComponentFromCache(Blocks::CacheItem *ite
     if (!Blocks::isTextType(item->type) && !Blocks::isFileType(item->type)) {
         return;
     }
-    if (const auto fileCacheItem = dynamic_cast<const Blocks::FileCacheItem *>(item)) {
-        insertComponent(rowCount(), fileCacheItem->type, attributesForFile(fileCacheItem->source));
-    }
-    if (const auto textCacheItem = dynamic_cast<const Blocks::TextCacheItem *>(item)) {
-        insertComponent(rowCount(), textCacheItem->type, {}, textCacheItem->content);
+
+    switch (item->type) {
+    case Blocks::Text:
+    case Blocks::Quote:
+        insertComponent(rowCount(), Blocks::makeBlock<Blocks::TextBlock>(dynamic_cast<Blocks::TextCacheItem *>(item)));
+        break;
+    case Blocks::Code:
+        insertComponent(rowCount(), Blocks::makeBlock<Blocks::CodeBlock>(dynamic_cast<Blocks::CodeCacheItem *>(item)));
+        break;
+    case Blocks::File:
+        insertComponent(rowCount(), Blocks::makeBlock<Blocks::FileBlock>(dynamic_cast<Blocks::FileCacheItem *>(item)));
+        break;
+    case Blocks::Image:
+        insertComponent(rowCount(), Blocks::makeBlock<Blocks::ImageBlock>(dynamic_cast<Blocks::ImageCacheItem *>(item)));
+        break;
+    case Blocks::Video:
+        insertComponent(rowCount(), Blocks::makeBlock<Blocks::VideoBlock>(dynamic_cast<Blocks::VideoCacheItem *>(item)));
+        break;
+    case Blocks::Audio:
+        insertComponent(rowCount(), Blocks::makeBlock<Blocks::AudioBlock>(dynamic_cast<Blocks::AudioCacheItem *>(item)));
+    default:
+        break;
     }
 }
 
@@ -686,7 +722,7 @@ void ChatBarMessageContentModel::handleBlockTransition(bool up)
     const auto atEdge = up ? currentRow <= 0 : currentRow >= rowCount() - 1;
     const auto notText = focusType() != Blocks::Text;
     if (atEdge && notText) {
-        insertComponent(insertRow, Blocks::Text);
+        insertComponent(insertRow, makeEmptyTextBlock(Blocks::Text));
         setFocusRow(insertRow);
         return;
     }
@@ -697,7 +733,7 @@ void ChatBarMessageContentModel::handleBlockTransition(bool up)
     const auto nextRow = currentRow + (up ? -1 : 1);
     const auto nextNotText = m_components[nextRow]->type != Blocks::Text;
     if (notText && nextNotText) {
-        insertComponent(insertRow, Blocks::Text);
+        insertComponent(insertRow, makeEmptyTextBlock(Blocks::Text));
         setFocusRow(insertRow);
         return;
     }
@@ -715,8 +751,11 @@ void ChatBarMessageContentModel::updateCache() const
         return;
     }
 
-    m_room->cacheForType(m_type)->cache().clear();
-    m_room->cacheForType(m_type)->cache().fill(m_components);
+    auto &cache = m_room->cacheForType(m_type)->cache();
+    cache.clear();
+    std::ranges::for_each(m_components, [&cache](const Blocks::BlockPtr &component) {
+        cache.append(component->toCacheItem());
+    });
 }
 
 void ChatBarMessageContentModel::resetModel()
@@ -751,7 +790,7 @@ bool ChatBarMessageContentModel::hasAnyContent() const
     }
 
     // There's usually at a minimum a TextComponent, we need to check if it's empty.
-    if (const auto textItem = textItemForComponent(*m_components.front())) {
+    if (const auto textItem = textItemForComponent(m_components.front().get())) {
         if (textItem->isEmpty()) {
             return false;
         }
@@ -774,7 +813,7 @@ void ChatBarMessageContentModel::clearModel()
 
     beginResetModel();
     for (const auto &component : m_components) {
-        if (const auto textItem = textItemForComponent(*component)) {
+        if (const auto textItem = textItemForComponent(component.get())) {
             textItem->disconnect(this);
             textItem->deleteLater();
         }

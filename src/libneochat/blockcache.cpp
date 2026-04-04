@@ -6,6 +6,7 @@
 #include <QRegularExpression>
 
 #include "chattextitemhelper.h"
+#include "fileinfo.h"
 
 using namespace Blocks;
 
@@ -32,11 +33,6 @@ inline QString formatQuote(const QString &input)
         stringOut += u"> "_s + string;
     }
     return stringOut;
-}
-
-inline QString formatCode(const QString &input)
-{
-    return u"```\n%1\n```"_s.arg(input).replace(u"\n\n"_s, u"\n"_s);
 }
 
 inline QString trimmedTrailing(QString string)
@@ -74,9 +70,10 @@ QString CacheItem::toString() const
     return {};
 }
 
-TextCacheItem::TextCacheItem(Type type, const QTextDocumentFragment &content)
+TextCacheItem::TextCacheItem(Type type, const QTextDocumentFragment &content, bool hasSpoiler)
     : CacheItem(type)
     , content(content)
+    , hasSpoiler(hasSpoiler)
 {
 }
 
@@ -103,9 +100,6 @@ QString TextCacheItem::toString() const
         }
         return trimNewline(plainText);
     }
-    if (type == Code) {
-        return formatCode(trimNewline(content.toPlainText()));
-    }
 
     QString textOut;
     auto doc = QTextDocument();
@@ -126,15 +120,74 @@ QString TextCacheItem::toString() const
     }
 
     textOut = trimNewline(textOut).trimmed();
-    if (type == Quote) {
-        textOut = formatQuote(textOut);
-    }
-    return textOut;
+    return type == Quote ? formatQuote(textOut) : textOut;
 }
 
-FileCacheItem::FileCacheItem(Type type, const QUrl &source)
+CodeCacheItem::CodeCacheItem(Type type, const QTextDocumentFragment &content, const QString &language)
+    : TextCacheItem(type, content)
+    , language(language)
+{
+}
+
+QString CodeCacheItem::toString() const
+{
+    const auto trimmedContent = trimNewline(content.toPlainText());
+    return u"```%2\n%1\n```"_s.arg(trimmedContent, language).replace(u"\n\n"_s, u"\n"_s);
+}
+
+UrlCacheItem::UrlCacheItem(Type type, const QUrl &source)
     : CacheItem(type)
     , source(source)
+{
+}
+
+FileCacheItem::FileCacheItem(Type type, const QUrl &source, const QString &filename, const FileInfo &info)
+    : UrlCacheItem(type, source)
+    , filename(filename)
+    , info(info)
+{
+}
+
+ImageCacheItem::ImageCacheItem(Type type,
+                               const QUrl &source,
+                               const QString &filename,
+                               const ImageInfo &info,
+                               const QUrl &thumbnailSource,
+                               const ImageInfo &thumbnailInfo)
+    : UrlCacheItem(type, source)
+    , filename(filename)
+    , info(info)
+    , thumbnailSource(thumbnailSource)
+    , thumbnailInfo(thumbnailInfo)
+{
+}
+
+VideoCacheItem::VideoCacheItem(Type type,
+                               const QUrl &source,
+                               const QString &filename,
+                               const VideoInfo &info,
+                               const QUrl &thumbnailSource,
+                               const ImageInfo &thumbnailInfo)
+    : UrlCacheItem(type, source)
+    , filename(filename)
+    , info(info)
+    , thumbnailSource(thumbnailSource)
+    , thumbnailInfo(thumbnailInfo)
+{
+}
+
+AudioCacheItem::AudioCacheItem(Type type, const QUrl &source, const QString &filename, const AudioInfo &info)
+    : UrlCacheItem(type, source)
+    , filename(filename)
+    , info(info)
+{
+}
+
+LocationCacheItem::LocationCacheItem(Type type, qreal latitude, qreal longitude, const QString &asset)
+    : CacheItem(type)
+    , latitude(latitude)
+    , longitude(longitude)
+    , asset(asset)
 {
 }
 
@@ -187,30 +240,14 @@ const CacheItem *Cache::at(qsizetype i) const
     return m_items.at(i).get();
 }
 
-void Cache::prepend(std::unique_ptr<CacheItem> item)
+void Cache::prepend(CacheItemPtr item)
 {
     m_items.insert(m_items.begin(), std::move(item));
 }
 
-void Cache::append(std::unique_ptr<CacheItem> item)
+void Cache::append(CacheItemPtr item)
 {
     m_items.push_back(std::move(item));
-}
-
-void Cache::fill(const BlockPtrs &components)
-{
-    std::ranges::for_each(components, [this](const BlockPtr &component) {
-        if (isTextType(component->type)) {
-            const auto textItem = component->attributes["chatTextItemHelper"_L1].value<ChatTextItemHelper *>();
-            if (!textItem) {
-                return;
-            }
-            m_items.push_back(std::make_unique<TextCacheItem>(component->type, textItem->toFragment()));
-        }
-        if (isFileType(component->type)) {
-            m_items.push_back(std::make_unique<FileCacheItem>(component->type, component->attributes["source"_L1].toUrl()));
-        }
-    });
 }
 
 void Cache::removeAt(qsizetype i)

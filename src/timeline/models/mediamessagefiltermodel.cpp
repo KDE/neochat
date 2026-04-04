@@ -7,7 +7,6 @@
 #include <Quotient/room.h>
 
 #include "messagefiltermodel.h"
-#include "neochatdatetime.h"
 #include "timelinemessagemodel.h"
 
 using namespace Qt::StringLiterals;
@@ -23,70 +22,7 @@ MediaMessageFilterModel::MediaMessageFilterModel(QObject *parent, MessageFilterM
 
 bool MediaMessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
-    const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
-
-    if (index.data(TimelineMessageModel::MediaInfoRole).toMap()["mimeType"_L1].toString().contains("image"_L1)
-        || index.data(TimelineMessageModel::MediaInfoRole).toMap()["mimeType"_L1].toString().contains("video"_L1)) {
-        return true;
-    }
-    return false;
-}
-
-QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
-{
-    // We need to catch this one and return true if the next media object was
-    // on a different day.
-    if (role == TimelineMessageModel::ShowSectionRole) {
-        const auto day = mapToSource(index).data(TimelineMessageModel::DateTimeRole).value<NeoChatDateTime>().dateTime().toLocalTime().date();
-        const auto previousEventDay =
-            mapToSource(this->index(index.row() + 1, 0)).data(TimelineMessageModel::DateTimeRole).value<NeoChatDateTime>().dateTime().toLocalTime().date();
-        return day != previousEventDay;
-    }
-
-    QVariantMap mediaInfo = mapToSource(index).data(TimelineMessageModel::MediaInfoRole).toMap();
-
-    if (role == TempSourceRole) {
-        return mediaInfo[u"tempInfo"_s].toMap()[u"source"_s].toUrl();
-    }
-    if (role == CaptionRole) {
-        return mapToSource(index).data(Qt::DisplayRole);
-    }
-    if (role == SourceWidthRole) {
-        return mediaInfo[u"width"_s].toFloat();
-    }
-    if (role == SourceHeightRole) {
-        return mediaInfo[u"height"_s].toFloat();
-    }
-
-    bool isVideo = mediaInfo[u"mimeType"_s].toString().contains("video"_L1);
-
-    if (role == TypeRole) {
-        return (isVideo) ? MediaType::Video : MediaType::Image;
-    }
-    if (role == SourceRole) {
-        if (isVideo) {
-            auto progressInfo = mapToSource(index).data(TimelineMessageModel::ProgressInfoRole).value<Quotient::FileTransferInfo>();
-            if (progressInfo.completed()) {
-                return mapToSource(index).data(TimelineMessageModel::ProgressInfoRole).value<Quotient::FileTransferInfo>().localPath;
-            }
-        } else {
-            return mediaInfo[u"source"_s].toUrl();
-        }
-    }
-
-    return sourceModel()->data(mapToSource(index), role);
-}
-
-QHash<int, QByteArray> MediaMessageFilterModel::roleNames() const
-{
-    auto roles = sourceModel() ? sourceModel()->roleNames() : QHash<int, QByteArray>();
-    roles[SourceRole] = "source";
-    roles[TempSourceRole] = "tempSource";
-    roles[TypeRole] = "type";
-    roles[CaptionRole] = "caption";
-    roles[SourceWidthRole] = "sourceWidth";
-    roles[SourceHeightRole] = "sourceHeight";
-    return roles;
+    return sourceModel()->index(sourceRow, 0, sourceParent).data(TimelineMessageModel::IsMediaRole).toBool();
 }
 
 const Quotient::RoomEvent *MediaMessageFilterModel::findEvent(const QString &eventId) const

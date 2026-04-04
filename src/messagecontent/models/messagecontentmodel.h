@@ -3,9 +3,11 @@
 
 #pragma once
 
+#include "fileinfo.h"
 #include <QAbstractListModel>
 #include <QImageReader>
 #include <QQmlEngine>
+#include <qtextdocumentfragment.h>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
@@ -191,7 +193,7 @@ private:
     std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_fileFunction = [this](Blocks::BlockPtrsIt it) {
         if (m_itineraryModel && m_itineraryModel->rowCount() > 0) {
             beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-            it = m_components.insert(it + 1, std::make_unique<Blocks::Block>(Blocks::Itinerary, QString(), QVariantMap()));
+            it = m_components.insert(it + 1, Blocks::makeBlock<Blocks::Block>(Blocks::Itinerary));
             endInsertRows();
             return it;
         } else if (m_emptyItinerary) {
@@ -212,10 +214,11 @@ private:
                 }
 
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                it = m_components.insert(it + 1,
-                                         std::make_unique<Blocks::Block>(Blocks::Code,
-                                                                         QString::fromStdString(file.readAll().toStdString()),
-                                                                         QVariantMap{{u"class"_s, definitionForFile.name()}}));
+                it = m_components.insert(
+                    it + 1,
+                    Blocks::makeBlock<Blocks::CodeBlock>(Blocks::Code,
+                                                         QTextDocumentFragment::fromPlainText(QString::fromStdString(file.readAll().toStdString())),
+                                                         definitionForFile.name()));
                 endInsertRows();
                 return it;
             }
@@ -224,20 +227,32 @@ private:
             if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
                 QImageReader reader(fileTransferInfo.localPath.path());
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                it = m_components.insert(it + 1, std::make_unique<Blocks::Block>(Blocks::Pdf, QString(), QVariantMap{{u"size"_s, reader.size()}}));
+                Blocks::ImageInfo info;
+                info.pixelSize = reader.size();
+                it = m_components.insert(it + 1,
+                                         Blocks::makeBlock<Blocks::ImageBlock>(Blocks::Pdf,
+                                                                               fileTransferInfo.localPath,
+                                                                               fileTransferInfo.localPath.fileName(),
+                                                                               info,
+                                                                               QUrl(),
+                                                                               Blocks::ImageInfo()));
                 endInsertRows();
             }
         }
         return ++it;
     };
     std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_linkPreviewAddFunction = [this](Blocks::BlockPtrsIt it) {
-        if (!m_room->urlPreviewEnabled()) {
+        if (!m_room->urlPreviewEnabled() || it->get()->type != Blocks::Text || it->get()->type != Blocks::Quote) {
+            return it;
+        }
+        const auto block = dynamic_cast<Blocks::TextBlock *>(it->get());
+        if (!block) {
             return it;
         }
 
         bool previewAdded = false;
-        if (LinkPreviewer::hasPreviewableLinks(it->get()->display)) {
-            const auto links = LinkPreviewer::linkPreviews(it->get()->display);
+        if (LinkPreviewer::hasPreviewableLinks(block->item()->markdownText())) {
+            const auto links = LinkPreviewer::linkPreviews(block->item()->markdownText());
             for (qsizetype j = 0; j < links.size(); ++j) {
                 auto linkPreview = linkPreviewComponent(links[j]);
                 if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview->isEmpty()) {

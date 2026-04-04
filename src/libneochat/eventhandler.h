@@ -7,6 +7,8 @@
 #include <QString>
 #include <Quotient/events/eventcontent.h>
 
+#include "block.h"
+#include "fileinfo.h"
 #include "neochatdatetime.h"
 
 namespace Quotient
@@ -162,6 +164,8 @@ public:
      */
     static QString subtitleText(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
+    static bool isMediaMessage(const Quotient::RoomEvent *event);
+
     /**
      * @brief Return the media info for the event.
      *
@@ -178,7 +182,7 @@ public:
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
      *  - isSticker - Whether the image is a sticker or not
      */
-    static QVariantMap mediaInfo(const NeoChatRoom *room, const Quotient::RoomEvent *event);
+    static Blocks::BlockPtr fileBlockForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
      * @brief Get the author of the event replied to in context of the room.
@@ -220,11 +224,10 @@ private:
     static QString getBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines);
     static QString getMessageBody(const NeoChatRoom *room, const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines);
 
-    static QVariantMap getMediaInfoForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event);
-    QVariantMap static getMediaInfoFromFileInfo(const NeoChatRoom *room,
-                                                const Quotient::EventContent::FileContentBase *fileContent,
-                                                const QString &eventId,
-                                                bool isThumbnail = false,
-                                                bool isSticker = false);
-    static QVariantMap getMediaInfoFromTumbnail(const NeoChatRoom *room, const Quotient::EventContent::Thumbnail &thumbnail, const QString &eventId);
+    static Blocks::BlockPtr fileBlockFromFileContent(const NeoChatRoom *room,
+                                                     const Quotient::EventContent::FileContentBase *fileContent,
+                                                     const QString &eventId,
+                                                     const QString &filename,
+                                                     bool isSticker = false);
+    static Blocks::ImageInfo getTumbnailInfo(const Quotient::EventContent::Thumbnail &thumbnail);
 };

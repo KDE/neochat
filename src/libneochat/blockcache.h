@@ -6,8 +6,8 @@
 #include <QList>
 #include <QTextDocumentFragment>
 
-#include "block.h"
 #include "enums/blocktype.h"
+#include "fileinfo.h"
 
 namespace Blocks
 {
@@ -44,11 +44,44 @@ public:
 class TextCacheItem : public CacheItem
 {
 public:
-    TextCacheItem(Type type, const QTextDocumentFragment &content);
+    TextCacheItem(Type type, const QTextDocumentFragment &content, bool hasSpoiler = {});
 
     QTextDocumentFragment content;
+    bool hasSpoiler;
 
     QString toString() const override;
+};
+
+/**
+ * @class TextCacheItem
+ *
+ * A structure to define a text item stored in a Blocks::Cache.
+ *
+ * @sa Blocks::Cache
+ */
+class CodeCacheItem : public TextCacheItem
+{
+public:
+    CodeCacheItem(Type type, const QTextDocumentFragment &content, const QString &language = {});
+
+    QString language;
+
+    QString toString() const override;
+};
+
+/**
+ * @class UrlCacheItem
+ *
+ * A structure to define a url based item stored in a Blocks::Cache.
+ *
+ * @sa Blocks::Cache
+ */
+class UrlCacheItem : public CacheItem
+{
+public:
+    UrlCacheItem(Type type, const QUrl &source);
+
+    QUrl source;
 };
 
 /**
@@ -58,12 +91,92 @@ public:
  *
  * @sa Blocks::Cache
  */
-class FileCacheItem : public CacheItem
+class FileCacheItem : public UrlCacheItem
 {
 public:
-    FileCacheItem(Type type, const QUrl &source);
+    FileCacheItem(Type type, const QUrl &source, const QString &filename, const FileInfo &info);
 
-    QUrl source;
+    QString filename;
+    FileInfo info;
+};
+
+/**
+ * @class ImageCacheItem
+ *
+ * A structure to define a image item stored in a Blocks::Cache.
+ *
+ * @sa Blocks::Cache
+ */
+class ImageCacheItem : public UrlCacheItem
+{
+public:
+    ImageCacheItem(Type type,
+                   const QUrl &source,
+                   const QString &filename,
+                   const ImageInfo &info,
+                   const QUrl &thumbnailSource = {},
+                   const ImageInfo &thumbnailInfo = {});
+
+    QString filename;
+    ImageInfo info;
+    QUrl thumbnailSource;
+    ImageInfo thumbnailInfo;
+};
+
+/**
+ * @class VideoCacheItem
+ *
+ * A structure to define a video item stored in a Blocks::Cache.
+ *
+ * @sa Blocks::Cache
+ */
+class VideoCacheItem : public UrlCacheItem
+{
+public:
+    VideoCacheItem(Type type,
+                   const QUrl &source,
+                   const QString &filename,
+                   const VideoInfo &info,
+                   const QUrl &thumbnailSource = {},
+                   const ImageInfo &thumbnailInfo = {});
+
+    QString filename;
+    VideoInfo info;
+    QUrl thumbnailSource;
+    ImageInfo thumbnailInfo;
+};
+
+/**
+ * @class AudioCacheItem
+ *
+ * A structure to define a audio item stored in a Blocks::Cache.
+ *
+ * @sa Blocks::Cache
+ */
+class AudioCacheItem : public UrlCacheItem
+{
+public:
+    AudioCacheItem(Type type, const QUrl &source, const QString &filename, const AudioInfo &info);
+
+    QString filename;
+    AudioInfo info;
+};
+
+/**
+ * @class LocationCacheItem
+ *
+ * A structure to define a location item stored in a Blocks::Cache.
+ *
+ * @sa Blocks::Cache
+ */
+class LocationCacheItem : public CacheItem
+{
+public:
+    LocationCacheItem(Type type, qreal latitude, qreal longitude, const QString &asset);
+
+    qreal latitude;
+    qreal longitude;
+    QString asset;
 };
 
 /**
@@ -80,6 +193,8 @@ public:
 
     QString id;
 };
+
+using CacheItemPtr = std::unique_ptr<CacheItem>;
 
 /**
  * @class Cache
@@ -126,21 +241,14 @@ public:
      *
      * @sa CacheItem
      */
-    void prepend(std::unique_ptr<CacheItem> item);
+    void prepend(CacheItemPtr item);
 
     /**
      * @brief Append the given CacheItem to the cache.
      *
      * @sa CacheItem
      */
-    void append(std::unique_ptr<CacheItem> item);
-
-    /**
-     * @brief Fill the cache from a list of Blocks.
-     *
-     * @sa Block
-     */
-    void fill(const BlockPtrs &components);
+    void append(CacheItemPtr item);
 
     /**
      * @brief Remove the CacheItem at the given index from the cache.

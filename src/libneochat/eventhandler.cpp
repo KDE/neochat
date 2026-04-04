@@ -10,22 +10,27 @@
 
 #include <Quotient/events/encryptionevent.h>
 #include <Quotient/events/event.h>
+#include <Quotient/events/eventcontent.h>
 #include <Quotient/events/reactionevent.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roomavatarevent.h>
 #include <Quotient/events/roomcanonicalaliasevent.h>
 #include <Quotient/events/roomevent.h>
 #include <Quotient/events/roommemberevent.h>
+#include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 #include <Quotient/events/simplestateevents.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/quotient_common.h>
 #include <Quotient/roommember.h>
 
+#include "block.h"
+#include "blocktype.h"
 #include "eventhandler_logging.h"
 #include "events/locationbeaconevent.h"
 #include "events/pollevent.h"
 #include "events/widgetevent.h"
+#include "fileinfo.h"
 #include "neochatroom.h"
 #include "texthandler.h"
 #include "utils.h"
@@ -684,7 +689,21 @@ QString EventHandler::subtitleText(const NeoChatRoom *room, const Quotient::Room
     return singleLineAuthorDisplayname(room, event) + (event->isStateEvent() ? u" "_s : u": "_s) + plainBody(room, event, true);
 }
 
-QVariantMap EventHandler::mediaInfo(const NeoChatRoom *room, const Quotient::RoomEvent *event)
+bool EventHandler::isMediaMessage(const Quotient::RoomEvent *event)
+{
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "mediaInfo called with event set to nullptr.";
+        return {};
+    }
+    if (!event->is<RoomMessageEvent>()) {
+        return false;
+    }
+    auto roomMessageEvent = eventCast<const RoomMessageEvent>(event);
+    return roomMessageEvent->has<EventContent::ImageContent>() || roomMessageEvent->has<EventContent::VideoContent>()
+        || roomMessageEvent->has<EventContent::AudioContent>();
+}
+
+Blocks::BlockPtr EventHandler::fileBlockForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
     if (room == nullptr) {
         qCWarning(EventHandling) << "mediaInfo called with room set to nullptr.";
@@ -694,11 +713,7 @@ QVariantMap EventHandler::mediaInfo(const NeoChatRoom *room, const Quotient::Roo
         qCWarning(EventHandling) << "mediaInfo called with event set to nullptr.";
         return {};
     }
-    return getMediaInfoForEvent(room, event);
-}
 
-QVariantMap EventHandler::getMediaInfoForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event)
-{
     QString eventId = event->id();
 
     // Get the file info for the event.
@@ -709,140 +724,104 @@ QVariantMap EventHandler::getMediaInfoForEvent(const NeoChatRoom *room, const Qu
         }
 
         const auto content = roomMessageEvent->get<EventContent::FileContentBase>();
-        QVariantMap mediaInfo = getMediaInfoFromFileInfo(room, content.get(), eventId, false, false);
         // if filename isn't specifically given, it is in body
         // https://spec.matrix.org/latest/client-server-api/#mfile
-        mediaInfo["filename"_L1] = content->commonInfo().originalName.isEmpty() ? roomMessageEvent->plainBody() : content->commonInfo().originalName;
-
-        return mediaInfo;
+        const auto filename = content->commonInfo().originalName.isEmpty() ? roomMessageEvent->plainBody() : content->commonInfo().originalName;
+        return fileBlockFromFileContent(room, content.get(), eventId, filename, false);
     } else if (event->is<StickerEvent>()) {
         auto stickerEvent = eventCast<const StickerEvent>(event);
         auto content = &stickerEvent->image();
 
-        return getMediaInfoFromFileInfo(room, content, eventId, false, true);
+        return fileBlockFromFileContent(room, content, eventId, {}, true);
     } else {
         return {};
     }
 }
 
-QVariantMap EventHandler::getMediaInfoFromFileInfo(const NeoChatRoom *room,
-                                                   const Quotient::EventContent::FileContentBase *fileContent,
-                                                   const QString &eventId,
-                                                   bool isThumbnail,
-                                                   bool isSticker)
+Blocks::BlockPtr EventHandler::fileBlockFromFileContent(const NeoChatRoom *room,
+                                                        const Quotient::EventContent::FileContentBase *fileContent,
+                                                        const QString &eventId,
+                                                        const QString &filename,
+                                                        bool isSticker)
 {
-    QVariantMap mediaInfo;
-
     // Get the mxc URL for the media.
-    if (!fileContent->url().isValid() || fileContent->url().scheme() != u"mxc"_s || eventId.isEmpty()) {
-        mediaInfo["source"_L1] = QUrl();
-    } else {
+    QUrl source;
+    if (fileContent->url().isValid() && fileContent->url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
         QUrl source = room->makeMediaUrl(eventId, fileContent->url());
-
-        if (source.isValid()) {
-            mediaInfo["source"_L1] = source;
-        } else {
-            mediaInfo["source"_L1] = QUrl();
+        if (!source.isValid()) {
+            source = QUrl();
         }
     }
 
-    auto mimeType = fileContent->type();
-    // Add the MIME type for the media if available.
-    mediaInfo["mimeType"_L1] = mimeType.name();
-
-    // Add the MIME type icon if available.
-    mediaInfo["mimeIcon"_L1] = mimeType.iconName();
-
-    // Add media size if available.
-    mediaInfo["size"_L1] = fileContent->commonInfo().payloadSize;
-
-    mediaInfo["isSticker"_L1] = isSticker;
+    const auto mimeType = fileContent->type();
 
     // Add parameter depending on media type.
     if (mimeType.name().contains(u"image"_s)) {
         if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileContent)) {
-            mediaInfo["width"_L1] = castInfo->imageSize.width();
-            mediaInfo["height"_L1] = castInfo->imageSize.height();
+            Blocks::ImageInfo imageInfo;
+            imageInfo.mimeType = mimeType;
+            imageInfo.size = castInfo->payloadSize;
+            imageInfo.pixelSize = castInfo->imageSize;
 
             // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
-            mediaInfo["animated"_L1] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
+            imageInfo.isAnimated = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
+            imageInfo.isSticker = isSticker;
 
-            QVariantMap tempInfo;
-            auto thumbnailInfo = getMediaInfoFromTumbnail(room, castInfo->thumbnail, eventId);
-            if (thumbnailInfo["source"_L1].toUrl().scheme() == "mxc"_L1) {
-                tempInfo = thumbnailInfo;
+            QUrl thumbnailSource;
+            const auto thumbnail = castInfo->thumbnail;
+            if (thumbnail.url().isValid() && thumbnail.url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
+                thumbnailSource = room->makeMediaUrl(eventId, thumbnail.url());
             } else {
                 QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
-                if (blurhash.isEmpty()) {
-                    tempInfo["source"_L1] = QUrl();
-                } else {
-                    tempInfo["source"_L1] = QUrl("image://blurhash/"_L1 + blurhash);
+                if (!blurhash.isEmpty()) {
+                    thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
                 }
             }
-            mediaInfo["tempInfo"_L1] = tempInfo;
+            const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
+            return Blocks::makeBlock<Blocks::ImageBlock>(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo);
         }
     }
     if (mimeType.name().contains(u"video"_s)) {
         if (auto castInfo = static_cast<const EventContent::VideoContent *>(fileContent)) {
-            mediaInfo["width"_L1] = castInfo->imageSize.width();
-            mediaInfo["height"_L1] = castInfo->imageSize.height();
-            mediaInfo["duration"_L1] = castInfo->duration;
+            Blocks::VideoInfo videoInfo;
+            videoInfo.mimeType = mimeType;
+            videoInfo.size = castInfo->payloadSize;
+            videoInfo.pixelSize = castInfo->imageSize;
+            videoInfo.duration = castInfo->duration;
 
-            if (!isThumbnail) {
-                QVariantMap tempInfo;
-                auto thumbnailInfo = getMediaInfoFromTumbnail(room, castInfo->thumbnail, eventId);
-                if (thumbnailInfo["source"_L1].toUrl().scheme() == "mxc"_L1) {
-                    tempInfo = thumbnailInfo;
-                } else {
-                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
-                    if (blurhash.isEmpty()) {
-                        tempInfo["source"_L1] = QUrl();
-                    } else {
-                        tempInfo["source"_L1] = QUrl("image://blurhash/"_L1 + blurhash);
-                    }
+            QUrl thumbnailSource;
+            const auto thumbnail = castInfo->thumbnail;
+            if (thumbnail.url().isValid() && thumbnail.url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
+                thumbnailSource = room->makeMediaUrl(eventId, thumbnail.url());
+            } else {
+                QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
+                if (!blurhash.isEmpty()) {
+                    thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
                 }
-                mediaInfo["tempInfo"_L1] = tempInfo;
             }
+            const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
+            return Blocks::makeBlock<Blocks::VideoBlock>(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo);
         }
     }
     if (mimeType.name().contains(u"audio"_s)) {
         if (auto castInfo = static_cast<const EventContent::AudioContent *>(fileContent)) {
-            mediaInfo["duration"_L1] = castInfo->duration;
+            Blocks::AudioInfo audioInfo;
+            audioInfo.mimeType = mimeType;
+            audioInfo.size = castInfo->payloadSize;
+            audioInfo.duration = castInfo->duration;
+            return Blocks::makeBlock<Blocks::AudioBlock>(Blocks::Audio, source, filename, audioInfo);
         }
     }
 
-    return mediaInfo;
+    return Blocks::makeBlock<Blocks::Block>(Blocks::Other);
 }
 
-QVariantMap EventHandler::getMediaInfoFromTumbnail(const NeoChatRoom *room, const Quotient::EventContent::Thumbnail &thumbnail, const QString &eventId)
+Blocks::ImageInfo EventHandler::getTumbnailInfo(const Quotient::EventContent::Thumbnail &thumbnail)
 {
-    QVariantMap thumbnailInfo;
-
-    if (!thumbnail.url().isValid() || thumbnail.url().scheme() != u"mxc"_s || eventId.isEmpty()) {
-        thumbnailInfo["source"_L1] = QUrl();
-    } else {
-        QUrl source = room->makeMediaUrl(eventId, thumbnail.url());
-
-        if (source.isValid()) {
-            thumbnailInfo["source"_L1] = source;
-        } else {
-            thumbnailInfo["source"_L1] = QUrl();
-        }
-    }
-
-    auto mimeType = thumbnail.mimeType;
-    // Add the MIME type for the media if available.
-    thumbnailInfo["mimeType"_L1] = mimeType.name();
-
-    // Add the MIME type icon if available.
-    thumbnailInfo["mimeIcon"_L1] = mimeType.iconName();
-
-    // Add media size if available.
-    thumbnailInfo["size"_L1] = thumbnail.payloadSize;
-
-    thumbnailInfo["width"_L1] = thumbnail.imageSize.width();
-    thumbnailInfo["height"_L1] = thumbnail.imageSize.height();
-
+    Blocks::ImageInfo thumbnailInfo;
+    thumbnailInfo.mimeType = thumbnail.mimeType;
+    thumbnailInfo.size = thumbnail.payloadSize;
+    thumbnailInfo.pixelSize = thumbnail.imageSize;
     return thumbnailInfo;
 }
 

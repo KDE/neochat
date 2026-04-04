@@ -93,7 +93,7 @@ Item {
                 Component {
                     id: imageEditorPage
                     ImageEditorPage {
-                        imagePath: root.block.attributes.source
+                        imagePath: root.block.source
                     }
                 }
 
@@ -140,7 +140,7 @@ Item {
 
             Image {
                 anchors.fill: parent
-                source: root?.block.attributes.tempInfo?.source ?? ""
+                source: root?.block.thumbnailSource
             }
         }
 
@@ -151,9 +151,9 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
 
-            active: !root.block.attributes.animated && !_private.hideImage
+            active: !root.block.info.isAnimated && !_private.hideImage
             sourceComponent: Image {
-                source: root.block.attributes.source
+                source: root.block.source
                 sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
                 sourceSize.height: mediaSizeHelper.currentSize.height * Screen.devicePixelRatio
 
@@ -169,9 +169,9 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
 
-            active: (root?.block.attributes.animated ?? false) && !_private.hideImage
+            active: (root?.block.info.isAnimated ?? false) && !_private.hideImage
             sourceComponent: AnimatedImage {
-                source: root.block.attributes.source
+                source: root.block.source
 
                 fillMode: Image.PreserveAspectFit
                 autoTransform: true
@@ -199,20 +199,20 @@ Item {
             gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
             onTapped: {
                 root.QQC2.ToolTip.hide();
-                if (root.block.attributes.animated) {
+                if (root.block.info.isAnimated) {
                     _private.imageItem.paused = true;
                 }
                 if (root.Message.timeline) {
                     root.Message.timeline.interactive = false;
                 }
-                if (!root.block.attributes.isSticker && !root.editable && !_private.hideImage) {
+                if (!root.block.info.isSticker && !root.editable && !_private.hideImage) {
                     RoomManager.maximizeMedia(root.eventId);
                 }
             }
         }
     }
 
-    QQC2.ToolTip.text: root.block.display
+    QQC2.ToolTip.text: root.block.filename
     QQC2.ToolTip.visible: hoverHandler.hovered
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
@@ -238,13 +238,13 @@ Item {
         id: mediaSizeHelper
         contentMaxWidth: root.Message.maxContentWidth
         contentMaxHeight: root.contentMaxHeight ?? -1
-        mediaWidth: root?.block.attributes.isSticker ? 256 : (root?.block.attributes.width ?? 0)
-        mediaHeight: root?.block.attributes.isSticker ? 256 : (root?.block.attributes.height ?? 0)
+        mediaWidth: root?.block.info.isSticker ? 256 : (root?.block.info.width ?? 0)
+        mediaHeight: root?.block.info.isSticker ? 256 : (root?.block.info.height ?? 0)
     }
 
     QtObject {
         id: _private
-        readonly property var imageItem: root.block.attributes.animated ? animatedImageLoader.item : imageLoader.item
+        readonly property var imageItem: root.block.info.isAnimated ? animatedImageLoader.item : imageLoader.item
 
         // The space available for the component after taking away the border
         readonly property real downloaded: root.fileTransferInfo && root.fileTransferInfo.completed

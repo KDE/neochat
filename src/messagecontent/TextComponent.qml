@@ -62,7 +62,7 @@ TextEdit {
     /**
      * @brief Whether the message contains a spoiler
      */
-    readonly property var hasSpoiler: root.block.attributes?.hasSpoiler ?? false
+    readonly property var hasSpoiler: root.block?.hasSpoiler ?? false
 
     /**
      * @brief Whether this message is replying to another.
@@ -80,8 +80,6 @@ TextEdit {
         Message.contentModel.setFocusRow(index, true)
     }
 
-    ListView.onReused: Qt.binding(() => !hasSpoiler.test(block.display))
-
     topPadding: 0
     bottomPadding: 0
     leftPadding: 0
@@ -91,10 +89,10 @@ TextEdit {
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor
     font {
-        pointSize: !root.isReply && QmlUtils.isEmoji(block.display)
+        pointSize: !root.isReply && QmlUtils.isEmoji(text)
                    ? Kirigami.Theme.defaultFont.pointSize * 4 * NeoChatConfig.fontScale
                    : Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
-        family: QmlUtils.isEmoji(block.display) ? 'emoji' : Kirigami.Theme.defaultFont.family
+        family: QmlUtils.isEmoji(text) ? 'emoji' : Kirigami.Theme.defaultFont.family
     }
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: !root.editable
@@ -143,13 +141,13 @@ TextEdit {
         color: Kirigami.Theme.disabledTextColor
         horizontalAlignment: root.horizontalAlignment
         verticalAlignment: root.verticalAlignment
-        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && root.item.isEmpty  && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
+        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && (root.block?.item.isEmpty ?? true)  && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
         elide: Text.ElideRight
         wrapMode: Text.WordWrap
     }
 
     HoverHandler {
-        cursorShape: root.hoveredLink || (!(root.block.attributes?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
+        cursorShape: root.hoveredLink || (!(root.block?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
     }
     TapHandler {
         enabled: !root.hoveredLink && root.hasSpoiler

@@ -76,7 +76,7 @@ public:
         SpecialMarksRole, /**< Whether the event is hidden or not. */
         ProgressInfoRole, /**< Progress info when downloading files. */
         GenericDisplayRole, /**< A generic string based upon the message type. */
-        MediaInfoRole, /**< The media info for the event. */
+        IsMediaRole, /**< Whether the event is a media event. */
 
         ContentModelRole, /**< The MessageContentModel for the event. */
 

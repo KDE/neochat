@@ -34,39 +34,12 @@ public:
     };
     Q_ENUM(MediaType)
 
-    /**
-     * @brief Defines the model roles.
-     */
-    enum Roles {
-        SourceRole = MessageFilterModel::LastRole + 1, /**< The mxc source URL for the item. */
-        TempSourceRole, /**< Source for the temporary content (either blurhash or mxc URL). */
-        TypeRole, /**< The type of the media (image or video). */
-        CaptionRole, /**< The caption for the item. */
-        SourceWidthRole, /**< The width of the source item. */
-        SourceHeightRole, /**< The height of the source item. */
-    };
-    Q_ENUM(Roles)
-
     explicit MediaMessageFilterModel(QObject *parent = nullptr, MessageFilterModel *sourceMediaModel = nullptr);
 
     /**
      * @brief Custom filter to show only image and video messages.
      */
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
-
-    /**
-     * @brief Get the given role value at the given index.
-     *
-     * @sa QSortFilterProxyModel::data
-     */
-    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-
-    /**
-     * @brief Returns a mapping from Role enum values to role names.
-     *
-     * @sa Roles, QAbstractProxyModel::roleNames()
-     */
-    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     /**
      * @brief Finds the event of the given event ID in the model, returning nullptr if no matches were found.
