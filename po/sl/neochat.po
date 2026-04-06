@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-02 00:43+0000\n"
+"POT-Creation-Date: 2026-04-06 00:43+0000\n"
 "PO-Revision-Date: 2026-04-02 06:40+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1706,13 +1706,23 @@ msgstr "Prikaži"
 msgid "Quit"
 msgstr "Zapusti"
 
-#: src/chatbar/ChatBar.qml:87 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:98 src/timeline/TimelineView.qml:363
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 tipka"
+msgstr[1] "%2 tipka"
+msgstr[2] "%2 tipkata"
+msgstr[3] "%2 tipkajo"
+
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Tipka enter začenja novo vrstico"
 
-#: src/chatbar/ChatBar.qml:87 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -7859,16 +7869,6 @@ msgstr "Skoči na nedavno sporočilo"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Povleci predmete sem, da jih delite z drugimi"
-
-#: src/timeline/TimelineView.qml:362
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 tipka"
-msgstr[1] "%2 tipka"
-msgstr[2] "%2 tipkata"
-msgstr[3] "%2 tipkajo"
 
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-02 00:43+0000\n"
+"POT-Creation-Date: 2026-04-06 00:43+0000\n"
 "PO-Revision-Date: 2026-04-02 11:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1719,13 +1719,21 @@ msgstr "Mostrar"
 msgid "Quit"
 msgstr "Salir"
 
-#: src/chatbar/ChatBar.qml:87 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:98 src/timeline/TimelineView.qml:363
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 está escribiendo"
+msgstr[1] "%2 están escribiendo"
+
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Intro inicia una nueva línea"
 
-#: src/chatbar/ChatBar.qml:87 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -7875,11 +7883,3 @@ msgstr "Saltar al último mensaje"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Arrastre elementos aquí para compartirlos"
-
-#: src/timeline/TimelineView.qml:362
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 está escribiendo"
-msgstr[1] "%2 están escribiendo"

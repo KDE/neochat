@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-02 00:43+0000\n"
+"POT-Creation-Date: 2026-04-06 00:43+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1846,13 +1846,21 @@ msgstr "दर्शयतु"
 msgid "Quit"
 msgstr "परिजहातु"
 
-#: src/chatbar/ChatBar.qml:87 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:98 src/timeline/TimelineView.qml:363
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 टङ्कयति"
+msgstr[1] "%2 टङ्कयन्ति"
+
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:87 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, fuzzy, kde-format
 #| msgid "%1 sent a message"
 msgctxt "As in enter starts send the chat message"
@@ -8395,14 +8403,6 @@ msgstr "नवीनतमसन्देशं प्रति कूदन्�
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "अत्र वस्तूनि कर्षयन्तु तान् साझां कर्तुं"
-
-#: src/timeline/TimelineView.qml:362
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 टङ्कयति"
-msgstr[1] "%2 टङ्कयन्ति"
 
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "

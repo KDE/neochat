@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-02 00:43+0000\n"
+"POT-Creation-Date: 2026-04-06 00:43+0000\n"
 "PO-Revision-Date: 2026-03-16 08:14+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1716,13 +1716,21 @@ msgstr "Mostra"
 msgid "Quit"
 msgstr "Esci"
 
-#: src/chatbar/ChatBar.qml:87 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:98 src/timeline/TimelineView.qml:363
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 sta scrivendo"
+msgstr[1] "%2 stanno scrivendo"
+
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Invio inizia una nuova riga"
 
-#: src/chatbar/ChatBar.qml:87 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -7917,14 +7925,6 @@ msgstr "Salta all'ultimo messaggio"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Trascina qui gli elementi per condividerli"
-
-#: src/timeline/TimelineView.qml:362
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 sta scrivendo"
-msgstr[1] "%2 stanno scrivendo"
 
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "
