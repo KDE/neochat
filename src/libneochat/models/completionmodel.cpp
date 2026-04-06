@@ -199,43 +199,52 @@ void CompletionModel::updateCompletion()
     cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
     const auto fullText = cursor.selectedText();
 
-    // Don't start filtering users until they type one more character, because this can load a lot of users for big rooms.
-    if (text.startsWith(QLatin1Char('@')) && text.size() > 1) {
-        m_filterModel->setSourceModel(m_userListModel);
-        m_filterModel->setFilterRole(UserListModel::UserIdRole);
-        m_filterModel->setSecondaryFilterRole(UserListModel::DisplayNameRole);
-        m_filterModel->setFullText(fullText);
-        m_filterModel->setFilterText(text);
-        m_autoCompletionType = User;
-        m_filterModel->invalidate();
-    } else if (text.startsWith(QLatin1Char('/'))) {
-        m_filterModel->setSourceModel(&ActionsModel::instance());
-        m_filterModel->setFilterRole(ActionsModel::Prefix);
-        m_filterModel->setSecondaryFilterRole(-1);
-        m_filterModel->setFullText(fullText);
-        m_filterModel->setFilterText(text.mid(1));
-        m_autoCompletionType = Command;
-        m_filterModel->invalidate();
-    } else if (text.startsWith(QLatin1Char('#'))) {
-        m_autoCompletionType = Room;
-        m_filterModel->setSourceModel(m_roomListModel);
-        m_filterModel->setFilterRole(RoomListModel::CanonicalAliasRole);
-        m_filterModel->setSecondaryFilterRole(RoomListModel::DisplayNameRole);
-        m_filterModel->setFullText(fullText);
-        m_filterModel->setFilterText(text);
-        m_filterModel->invalidate();
-    } else if (text.startsWith(QLatin1Char(':')) && text.size() > 1 && !text[1].isUpper()
-               && (fullText.indexOf(QLatin1Char(':'), 1) == -1
-                   || (fullText.indexOf(QLatin1Char(' ')) != -1 && fullText.indexOf(QLatin1Char(':'), 1) > fullText.indexOf(QLatin1Char(' '), 1)))) {
-        m_filterModel->setSourceModel(m_emojiModel);
-        m_autoCompletionType = Emoji;
-        m_filterModel->setFilterRole(CustomEmojiModel::Name);
-        m_filterModel->setSecondaryFilterRole(EmojiModel::DescriptionRole);
-        m_filterModel->setFullText(fullText);
-        m_filterModel->setFilterText(text);
-        m_filterModel->invalidate();
-    } else {
-        m_autoCompletionType = None;
+    m_autoCompletionType = None;
+
+    // Don't start filtering anything until they type one more character, because this can load a lot of users, rooms or emojis.
+    if (text.size() > 1) {
+        if (text.startsWith(QLatin1Char('@'))) {
+            // Users
+            m_filterModel->setSourceModel(m_userListModel);
+            m_filterModel->setFilterRole(UserListModel::UserIdRole);
+            m_filterModel->setSecondaryFilterRole(UserListModel::DisplayNameRole);
+            m_filterModel->setFullText(fullText);
+            m_filterModel->setFilterText(text);
+            m_autoCompletionType = User;
+            m_filterModel->invalidate();
+        } else if (text.startsWith(QLatin1Char('/'))) {
+            // Commands
+            m_filterModel->setSourceModel(&ActionsModel::instance());
+            m_filterModel->setFilterRole(ActionsModel::Prefix);
+            m_filterModel->setSecondaryFilterRole(-1);
+            m_filterModel->setFullText(fullText);
+            m_filterModel->setFilterText(text.mid(1));
+            m_autoCompletionType = Command;
+            m_filterModel->invalidate();
+        } else if (text.startsWith(QLatin1Char('#'))) {
+            // Rooms
+            m_autoCompletionType = Room;
+            m_filterModel->setSourceModel(m_roomListModel);
+            m_filterModel->setFilterRole(RoomListModel::CanonicalAliasRole);
+            m_filterModel->setSecondaryFilterRole(RoomListModel::DisplayNameRole);
+            m_filterModel->setFullText(fullText);
+            m_filterModel->setFilterText(text);
+            m_filterModel->invalidate();
+        } else if (text.startsWith(QLatin1Char(':')) && !text[1].isUpper()) {
+            // Emojis
+            const qsizetype locationOfEndColon = fullText.indexOf(QLatin1Char(':'), 1);
+            const qsizetype locationOfSpace = fullText.indexOf(QLatin1Char(' '));
+
+            if (locationOfEndColon == -1 || locationOfEndColon + 1 == fullText.size() || (locationOfSpace != -1 && locationOfEndColon > locationOfSpace)) {
+                m_filterModel->setSourceModel(m_emojiModel);
+                m_autoCompletionType = Emoji;
+                m_filterModel->setFilterRole(CustomEmojiModel::Name);
+                m_filterModel->setSecondaryFilterRole(EmojiModel::DescriptionRole);
+                m_filterModel->setFullText(fullText);
+                m_filterModel->setFilterText(text);
+                m_filterModel->invalidate();
+            }
+        }
     }
     beginResetModel();
     endResetModel();
