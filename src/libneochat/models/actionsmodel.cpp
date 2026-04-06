@@ -10,7 +10,6 @@
 #include "utils.h"
 #include <Quotient/events/eventcontent.h>
 #include <Quotient/events/roommemberevent.h>
-#include <Quotient/events/roompowerlevelsevent.h>
 #include <Quotient/user.h>
 
 #include <KLocalizedString>
@@ -382,15 +381,11 @@ QList<ActionsModel::Action> actions{
                                          i18nc("<user> is already banned from this room.", "%1 is already banned from this room.", text));
                 return QString();
             }
-            auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
-            if (!plEvent) {
-                return QString();
-            }
-            if (plEvent->ban() > plEvent->powerLevelForUser(room->localMember().id())) {
+            if (!room->canSendState(u"ban"_s)) {
                 Q_EMIT room->showMessage(MessageType::Error, i18n("You are not allowed to ban users from this room."));
                 return QString();
             }
-            if (plEvent->powerLevelForUser(room->localMember().id()) <= plEvent->powerLevelForUser(parts[0])) {
+            if (!room->isLowerEffectivePowerLevelThanLocalUser(parts[0])) {
                 Q_EMIT room->showMessage(
                     MessageType::Error,
                     i18nc("You are not allowed to ban <username> from this room.", "You are not allowed to ban %1 from this room.", parts[0]));
@@ -412,11 +407,7 @@ QList<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
-            auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
-            if (!plEvent) {
-                return QString();
-            }
-            if (plEvent->ban() > plEvent->powerLevelForUser(room->localMember().id())) {
+            if (!room->canSendState(u"ban"_s)) {
                 Q_EMIT room->showMessage(MessageType::Error, i18n("You are not allowed to unban users from this room."));
                 return QString();
             }
@@ -452,16 +443,11 @@ QList<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("<username> is not in this room", "%1 is not in this room.", parts[0]));
                 return QString();
             }
-            auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
-            if (!plEvent) {
-                return QString();
-            }
-            auto kick = plEvent->kick();
-            if (plEvent->powerLevelForUser(room->localMember().id()) < kick) {
+            if (!room->canSendState(u"kick"_s)) {
                 Q_EMIT room->showMessage(MessageType::Error, i18n("You are not allowed to kick users from this room."));
                 return QString();
             }
-            if (plEvent->powerLevelForUser(room->localMember().id()) <= plEvent->powerLevelForUser(parts[0])) {
+            if (!room->isLowerEffectivePowerLevelThanLocalUser(parts[0])) {
                 Q_EMIT room->showMessage(
                     MessageType::Error,
                     i18nc("You are not allowed to kick <username> from this room", "You are not allowed to kick %1 from this room.", parts[0]));
