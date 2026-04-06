@@ -2026,4 +2026,18 @@ QList<QString> NeoChatRoom::allowIds() const
 }
 #endif
 
+bool NeoChatRoom::isLowerEffectivePowerLevelThanLocalUser(const QString &userId) const
+{
+    if (isCreator(localMember().id()) && !isCreator(userId)) {
+        return true;
+    }
+
+    const auto powerLevelsEvent = currentState().get<RoomPowerLevelsEvent>();
+    if (!powerLevelsEvent) {
+        return false;
+    }
+
+    return powerLevelsEvent->powerLevelForUser(userId) < powerLevelsEvent->powerLevelForUser(localMember().id());
+}
+
 #include "moc_neochatroom.cpp"

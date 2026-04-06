@@ -713,6 +713,12 @@ public:
     [[nodiscard]] QString joinRuleString() const;
 
     /**
+     * @brief Whether the user has a lower powerlevel than the local user.
+     * Also returns true if the local user is a creator and the other user is not.
+     */
+    [[nodiscard]] bool isLowerEffectivePowerLevelThanLocalUser(const QString &userId) const;
+
+    /**
      * @brief Set the join rule for the room.
      *
      * Will fail if the user doesn't have the required privileges.
