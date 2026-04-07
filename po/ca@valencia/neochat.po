@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-06 00:43+0000\n"
+"POT-Creation-Date: 2026-04-07 00:44+0000\n"
 "PO-Revision-Date: 2026-04-02 10:31+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -163,7 +163,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Obri NeoChat en esta sala"
 
-#: src/app/notificationsmanager.cpp:236 src/timeline/QuickActions.qml:75
+#: src/app/notificationsmanager.cpp:236 src/timeline/QuickActions.qml:74
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
@@ -1757,19 +1757,19 @@ msgctxt "@info"
 msgid "No emojis"
 msgstr "Sense emoji"
 
-#: src/chatbar/EmojiPicker.qml:56
+#: src/chatbar/EmojiPicker.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Emojis"
 msgstr "Emoji"
 
-#: src/chatbar/EmojiPicker.qml:63
+#: src/chatbar/EmojiPicker.qml:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Adhesius"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:204
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:230
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
@@ -3463,68 +3463,68 @@ msgstr "%1 fou expulsat d'esta sala."
 msgid "Removes the user from the room"
 msgstr "Elimina l'usuari d'esta sala"
 
-#: src/libneochat/models/emojimodel.cpp:159
-#: src/libneochat/models/emojimodel.cpp:217
+#: src/libneochat/models/emojimodel.cpp:158
+#: src/libneochat/models/emojimodel.cpp:216
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Historial"
 
-#: src/libneochat/models/emojimodel.cpp:164
+#: src/libneochat/models/emojimodel.cpp:163
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Somriures"
 
-#: src/libneochat/models/emojimodel.cpp:169
+#: src/libneochat/models/emojimodel.cpp:168
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Gent"
 
-#: src/libneochat/models/emojimodel.cpp:174
+#: src/libneochat/models/emojimodel.cpp:173
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Natura"
 
-#: src/libneochat/models/emojimodel.cpp:179
+#: src/libneochat/models/emojimodel.cpp:178
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Menjar"
 
-#: src/libneochat/models/emojimodel.cpp:184
+#: src/libneochat/models/emojimodel.cpp:183
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Activitats"
 
-#: src/libneochat/models/emojimodel.cpp:189
+#: src/libneochat/models/emojimodel.cpp:188
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Viatges"
 
-#: src/libneochat/models/emojimodel.cpp:194
+#: src/libneochat/models/emojimodel.cpp:193
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Objectes"
 
-#: src/libneochat/models/emojimodel.cpp:199
+#: src/libneochat/models/emojimodel.cpp:198
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Símbols"
 
-#: src/libneochat/models/emojimodel.cpp:204
+#: src/libneochat/models/emojimodel.cpp:203
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Banderes"
 
-#: src/libneochat/models/emojimodel.cpp:223
+#: src/libneochat/models/emojimodel.cpp:222
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -4213,19 +4213,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Envia a KDE Itinerary"
 
-#: src/messagecontent/LinkPreviewComponent.qml:140
+#: src/messagecontent/LinkPreviewComponent.qml:141
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Elimina la vista prèvia"
 
-#: src/messagecontent/LinkPreviewComponent.qml:158
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
 msgstr "Encull la vista prèvia"
 
-#: src/messagecontent/LinkPreviewComponent.qml:158
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
 msgstr "Expandix la vista prèvia"
@@ -7571,226 +7571,234 @@ msgctxt "@action:button"
 msgid "Leave this Space…"
 msgstr "Ix d'este espai…"
 
-#: src/timeline/DelegateContextMenu.qml:168
+#: src/timeline/DelegateContextMenu.qml:152
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Pick Room"
+msgctxt "@info:tooltip Pick specific emoji for a reaction"
+msgid "Pick Reaction"
+msgstr "Tria la sala"
+
+#: src/timeline/DelegateContextMenu.qml:194
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Respon"
 
-#: src/timeline/DelegateContextMenu.qml:190
+#: src/timeline/DelegateContextMenu.qml:216
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Resposta al fil"
 
-#: src/timeline/DelegateContextMenu.qml:216
+#: src/timeline/DelegateContextMenu.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Elimina…"
 
-#: src/timeline/DelegateContextMenu.qml:221
-#: src/timeline/DelegateContextMenu.qml:228
+#: src/timeline/DelegateContextMenu.qml:247
+#: src/timeline/DelegateContextMenu.qml:254
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Eliminació de missatge"
 
-#: src/timeline/DelegateContextMenu.qml:222
+#: src/timeline/DelegateContextMenu.qml:248
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "Indiqueu de manera opcional un motiu per a eliminar este missatge"
 
-#: src/timeline/DelegateContextMenu.qml:223
+#: src/timeline/DelegateContextMenu.qml:249
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/timeline/DelegateContextMenu.qml:244
+#: src/timeline/DelegateContextMenu.qml:270
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Reenvia…"
 
-#: src/timeline/DelegateContextMenu.qml:250
+#: src/timeline/DelegateContextMenu.qml:276
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Reenviament de missatge"
 
-#: src/timeline/DelegateContextMenu.qml:264
+#: src/timeline/DelegateContextMenu.qml:290
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Obri la imatge"
 
-#: src/timeline/DelegateContextMenu.qml:266
+#: src/timeline/DelegateContextMenu.qml:292
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "Obri l'àudio"
 
-#: src/timeline/DelegateContextMenu.qml:268
+#: src/timeline/DelegateContextMenu.qml:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "Obri el vídeo"
 
-#: src/timeline/DelegateContextMenu.qml:270
+#: src/timeline/DelegateContextMenu.qml:296
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Obri el fitxer"
 
-#: src/timeline/DelegateContextMenu.qml:283
+#: src/timeline/DelegateContextMenu.qml:309
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Guarda la imatge…"
 
-#: src/timeline/DelegateContextMenu.qml:285
+#: src/timeline/DelegateContextMenu.qml:311
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "Guarda l'àudio…"
 
-#: src/timeline/DelegateContextMenu.qml:287
+#: src/timeline/DelegateContextMenu.qml:313
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "Guarda el vídeo…"
 
-#: src/timeline/DelegateContextMenu.qml:289
+#: src/timeline/DelegateContextMenu.qml:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "Guarda el fitxer…"
 
-#: src/timeline/DelegateContextMenu.qml:304
+#: src/timeline/DelegateContextMenu.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Copia la imatge"
 
-#: src/timeline/DelegateContextMenu.qml:306
+#: src/timeline/DelegateContextMenu.qml:332
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Copia l'àudio"
 
-#: src/timeline/DelegateContextMenu.qml:308
+#: src/timeline/DelegateContextMenu.qml:334
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Copia el vídeo"
 
-#: src/timeline/DelegateContextMenu.qml:310
+#: src/timeline/DelegateContextMenu.qml:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Copia el fitxer"
 
-#: src/timeline/DelegateContextMenu.qml:320
+#: src/timeline/DelegateContextMenu.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Copia l'adreça de l'enllaç"
 
-#: src/timeline/DelegateContextMenu.qml:328
+#: src/timeline/DelegateContextMenu.qml:354
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Copia el text"
 
-#: src/timeline/DelegateContextMenu.qml:334
+#: src/timeline/DelegateContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Copia l'enllaç del missatge"
 
-#: src/timeline/DelegateContextMenu.qml:342
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Informa…"
 
-#: src/timeline/DelegateContextMenu.qml:347
+#: src/timeline/DelegateContextMenu.qml:373
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Informa un missatge"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:374
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Indiqueu de manera opcional un motiu per a informar d'este missatge"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:376
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Informa"
 
-#: src/timeline/DelegateContextMenu.qml:354
+#: src/timeline/DelegateContextMenu.qml:380
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:392
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Busca «%1»"
 
-#: src/timeline/DelegateContextMenu.qml:389
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Configura les dreceres web…"
 
-#: src/timeline/DelegateContextMenu.qml:397
+#: src/timeline/DelegateContextMenu.qml:423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Llig text en veu alta"
 
-#: src/timeline/DelegateContextMenu.qml:400
+#: src/timeline/DelegateContextMenu.qml:426
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 ha dit %2"
 
-#: src/timeline/DelegateContextMenu.qml:420
+#: src/timeline/DelegateContextMenu.qml:446
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Deixa de fixar"
 
-#: src/timeline/DelegateContextMenu.qml:420
+#: src/timeline/DelegateContextMenu.qml:446
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Fixa"
 
-#: src/timeline/DelegateContextMenu.qml:430
+#: src/timeline/DelegateContextMenu.qml:456
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Desseleciona el missatge"
 
-#: src/timeline/DelegateContextMenu.qml:430
+#: src/timeline/DelegateContextMenu.qml:456
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Tria el missatge"
 
-#: src/timeline/DelegateContextMenu.qml:443
+#: src/timeline/DelegateContextMenu.qml:469
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7830,7 +7838,7 @@ msgstr "Vegeu els missatges més antics…"
 msgid "React"
 msgstr "Reacciona"
 
-#: src/timeline/QuickActions.qml:90
+#: src/timeline/QuickActions.qml:89
 #, kde-format
 msgid "Message menu"
 msgstr "Menú de missatge"

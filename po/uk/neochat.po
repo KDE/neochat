@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-06 00:43+0000\n"
+"POT-Creation-Date: 2026-04-07 00:44+0000\n"
 "PO-Revision-Date: 2026-04-02 09:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -164,7 +164,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
-#: src/app/notificationsmanager.cpp:236 src/timeline/QuickActions.qml:75
+#: src/app/notificationsmanager.cpp:236 src/timeline/QuickActions.qml:74
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
@@ -1754,19 +1754,19 @@ msgctxt "@info"
 msgid "No emojis"
 msgstr "Без емодзі"
 
-#: src/chatbar/EmojiPicker.qml:56
+#: src/chatbar/EmojiPicker.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Emojis"
 msgstr "Емоційки"
 
-#: src/chatbar/EmojiPicker.qml:63
+#: src/chatbar/EmojiPicker.qml:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Наліпки"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:204
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:230
 #, kde-format
 msgid "Edit"
 msgstr "Змінити"
@@ -3457,68 +3457,68 @@ msgstr "%1 було викинуто з цієї кімнати."
 msgid "Removes the user from the room"
 msgstr "Вилучає користувача з кімнати"
 
-#: src/libneochat/models/emojimodel.cpp:159
-#: src/libneochat/models/emojimodel.cpp:217
+#: src/libneochat/models/emojimodel.cpp:158
+#: src/libneochat/models/emojimodel.cpp:216
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Журнал"
 
-#: src/libneochat/models/emojimodel.cpp:164
+#: src/libneochat/models/emojimodel.cpp:163
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Смайл"
 
-#: src/libneochat/models/emojimodel.cpp:169
+#: src/libneochat/models/emojimodel.cpp:168
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Люди"
 
-#: src/libneochat/models/emojimodel.cpp:174
+#: src/libneochat/models/emojimodel.cpp:173
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Природа"
 
-#: src/libneochat/models/emojimodel.cpp:179
+#: src/libneochat/models/emojimodel.cpp:178
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Їжа"
 
-#: src/libneochat/models/emojimodel.cpp:184
+#: src/libneochat/models/emojimodel.cpp:183
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Діяльність"
 
-#: src/libneochat/models/emojimodel.cpp:189
+#: src/libneochat/models/emojimodel.cpp:188
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Подорожі"
 
-#: src/libneochat/models/emojimodel.cpp:194
+#: src/libneochat/models/emojimodel.cpp:193
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Об'єкти"
 
-#: src/libneochat/models/emojimodel.cpp:199
+#: src/libneochat/models/emojimodel.cpp:198
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Символи"
 
-#: src/libneochat/models/emojimodel.cpp:204
+#: src/libneochat/models/emojimodel.cpp:203
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Прапорці"
 
-#: src/libneochat/models/emojimodel.cpp:223
+#: src/libneochat/models/emojimodel.cpp:222
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -4208,19 +4208,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Надіслати до KDE Itinerary"
 
-#: src/messagecontent/LinkPreviewComponent.qml:140
+#: src/messagecontent/LinkPreviewComponent.qml:141
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Вилучити попередній перегляд"
 
-#: src/messagecontent/LinkPreviewComponent.qml:158
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
 msgstr "Стиснути попередній перегляд"
 
-#: src/messagecontent/LinkPreviewComponent.qml:158
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
 msgstr "Розгорнути попередній перегляд"
@@ -7587,226 +7587,234 @@ msgctxt "@action:button"
 msgid "Leave this Space…"
 msgstr "Полишити цей простір…"
 
-#: src/timeline/DelegateContextMenu.qml:168
+#: src/timeline/DelegateContextMenu.qml:152
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Pick Room"
+msgctxt "@info:tooltip Pick specific emoji for a reaction"
+msgid "Pick Reaction"
+msgstr "Вибрати кімнату"
+
+#: src/timeline/DelegateContextMenu.qml:194
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Відповісти"
 
-#: src/timeline/DelegateContextMenu.qml:190
+#: src/timeline/DelegateContextMenu.qml:216
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
 
-#: src/timeline/DelegateContextMenu.qml:216
+#: src/timeline/DelegateContextMenu.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Вилучити…"
 
-#: src/timeline/DelegateContextMenu.qml:221
-#: src/timeline/DelegateContextMenu.qml:228
+#: src/timeline/DelegateContextMenu.qml:247
+#: src/timeline/DelegateContextMenu.qml:254
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Вилучити повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:222
+#: src/timeline/DelegateContextMenu.qml:248
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "Необов'язково, вкажіть причину вилучення цього повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:223
+#: src/timeline/DelegateContextMenu.qml:249
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/timeline/DelegateContextMenu.qml:244
+#: src/timeline/DelegateContextMenu.qml:270
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Спрямувати…"
 
-#: src/timeline/DelegateContextMenu.qml:250
+#: src/timeline/DelegateContextMenu.qml:276
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Спрямувати повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:264
+#: src/timeline/DelegateContextMenu.qml:290
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Відкрити зображення"
 
-#: src/timeline/DelegateContextMenu.qml:266
+#: src/timeline/DelegateContextMenu.qml:292
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "Відкрити звукові дані"
 
-#: src/timeline/DelegateContextMenu.qml:268
+#: src/timeline/DelegateContextMenu.qml:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "Відкрити відео"
 
-#: src/timeline/DelegateContextMenu.qml:270
+#: src/timeline/DelegateContextMenu.qml:296
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Відкрити файл"
 
-#: src/timeline/DelegateContextMenu.qml:283
+#: src/timeline/DelegateContextMenu.qml:309
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Зберегти зображення…"
 
-#: src/timeline/DelegateContextMenu.qml:285
+#: src/timeline/DelegateContextMenu.qml:311
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "Зберегти звукові дані…"
 
-#: src/timeline/DelegateContextMenu.qml:287
+#: src/timeline/DelegateContextMenu.qml:313
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "Зберегти відеодані…"
 
-#: src/timeline/DelegateContextMenu.qml:289
+#: src/timeline/DelegateContextMenu.qml:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "Зберегти файл…"
 
-#: src/timeline/DelegateContextMenu.qml:304
+#: src/timeline/DelegateContextMenu.qml:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Копіювати зображення"
 
-#: src/timeline/DelegateContextMenu.qml:306
+#: src/timeline/DelegateContextMenu.qml:332
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Копіювати звукові дані"
 
-#: src/timeline/DelegateContextMenu.qml:308
+#: src/timeline/DelegateContextMenu.qml:334
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Копіювати відеодані"
 
-#: src/timeline/DelegateContextMenu.qml:310
+#: src/timeline/DelegateContextMenu.qml:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Копіювати файл"
 
-#: src/timeline/DelegateContextMenu.qml:320
+#: src/timeline/DelegateContextMenu.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Скопіювати адресу посилання"
 
-#: src/timeline/DelegateContextMenu.qml:328
+#: src/timeline/DelegateContextMenu.qml:354
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Копіювати текст"
 
-#: src/timeline/DelegateContextMenu.qml:334
+#: src/timeline/DelegateContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Копіювати посилання на повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:342
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Поскаржитися…"
 
-#: src/timeline/DelegateContextMenu.qml:347
+#: src/timeline/DelegateContextMenu.qml:373
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:374
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Необов'язково, вкажіть причину скарги щодо цього повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:376
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Поскаржитися"
 
-#: src/timeline/DelegateContextMenu.qml:354
+#: src/timeline/DelegateContextMenu.qml:380
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:392
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Пошук «%1»"
 
-#: src/timeline/DelegateContextMenu.qml:389
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Налаштувати вебскорочення…"
 
-#: src/timeline/DelegateContextMenu.qml:397
+#: src/timeline/DelegateContextMenu.qml:423
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Читати текст уголос"
 
-#: src/timeline/DelegateContextMenu.qml:400
+#: src/timeline/DelegateContextMenu.qml:426
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 вимовлено %2"
 
-#: src/timeline/DelegateContextMenu.qml:420
+#: src/timeline/DelegateContextMenu.qml:446
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Відшпилити"
 
-#: src/timeline/DelegateContextMenu.qml:420
+#: src/timeline/DelegateContextMenu.qml:446
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Пришпилити"
 
-#: src/timeline/DelegateContextMenu.qml:430
+#: src/timeline/DelegateContextMenu.qml:456
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Скасувати позначення повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:430
+#: src/timeline/DelegateContextMenu.qml:456
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Позначити повідомлення"
 
-#: src/timeline/DelegateContextMenu.qml:443
+#: src/timeline/DelegateContextMenu.qml:469
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7848,7 +7856,7 @@ msgstr "Переглянути старі повідомлення…"
 msgid "React"
 msgstr "Реагувати"
 
-#: src/timeline/QuickActions.qml:90
+#: src/timeline/QuickActions.qml:89
 #, kde-format
 msgid "Message menu"
 msgstr "Меню повідомлення"
