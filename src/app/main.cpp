@@ -132,13 +132,11 @@ int main(int argc, char *argv[])
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
 
     QGuiApplication::setOrganizationName("KDE"_L1);
+    QGuiApplication::setDesktopFileName(u"org.kde.neochat"_s);
 
-    KAboutData about(u"neochat"_s,
-                     i18n("NeoChat"),
-                     QStringLiteral(NEOCHAT_VERSION_STRING),
-                     i18n("Chat on Matrix"),
-                     KAboutLicense::GPL_V3,
-                     i18n("© 2018-2020 Black Hat, 2020-2025 KDE Community"));
+    auto about = KAboutData::fromAppStreamForApplication();
+    about.setVersion(QByteArrayLiteral(NEOCHAT_VERSION_STRING));
+    ;
     about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), u"carl@carlschwan.eu"_s, u"https://carlschwan.eu"_s, QUrl(u"https://carlschwan.eu/avatar.png"_s));
     about.addAuthor(i18n("Tobias Fella"), i18n("Maintainer"), u"tobias.fella@kde.org"_s, u"https://tobiasfella.de"_s);
     about.addAuthor(i18n("James Graham"), i18n("Maintainer"), u"james.h.graham@protonmail.com"_s);
@@ -150,7 +148,6 @@ int main(int argc, char *argv[])
     about.addCredit(i18n("Black Hat"), i18n("Original author of Spectral"), u"bhat@encom.eu.org"_s);
     about.addCredit(i18n("Alexey Rusakov"), i18n("Maintainer of libQuotient"), u"Kitsune-Ral@users.sf.net"_s);
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
-    about.setOrganizationDomain("kde.org");
 
     about.addComponent(u"libQuotient"_s,
                        i18n("A Qt library to write cross-platform clients for Matrix"),
