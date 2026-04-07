@@ -7,6 +7,8 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.kemoji
+
 import org.kde.neochat
 
 ColumnLayout {
@@ -17,29 +19,16 @@ ColumnLayout {
      */
     property NeoChatRoom currentRoom
 
-    property bool includeCustom: false
     property bool showStickers: true
 
-    readonly property var currentEmojiModel: {
-        if (includeCustom) {
-            EmojiModel.categoriesWithCustom;
-        } else {
-            EmojiModel.categories;
-        }
-    }
-
-    readonly property int categoryIconSize: Math.round(Kirigami.Units.gridUnit * 2.5)
-    readonly property var currentCategory: currentEmojiModel[categories.currentIndex].category
-    readonly property alias categoryCount: categories.count
-    property int selectedType: 0
+    readonly property int scrollBarWidth: grid.QQC2.ScrollBar.vertical.width
+    readonly property int cellWidth: emojiGrid.cellWidth
 
     signal chosen(string emoji)
 
     onActiveFocusChanged: if (activeFocus) {
         searchField.forceActiveFocus();
     }
-
-    spacing: 0
 
     Kirigami.NavigationTabBar {
         id: types
@@ -65,11 +54,15 @@ ColumnLayout {
         ]
     }
 
+    Kirigami.Separator {
+        Layout.fillWidth: true
+    }
+
     QQC2.ScrollView {
         Layout.fillWidth: true
-        Layout.preferredHeight: root.categoryIconSize + QQC2.ScrollBar.horizontal.height
+        Layout.preferredHeight: Kirigami.Units.gridUnit * 2 + QQC2.ScrollBar.horizontal.height
         QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
-        visible: categories.count !== 0
+        Layout.alignment: Qt.AlignVCenter
 
         ListView {
             id: categories
@@ -92,10 +85,17 @@ ColumnLayout {
             Keys.forwardTo: searchField
             interactive: width !== contentWidth
 
-            model: root.selectedType === 0 ? root.currentEmojiModel : stickerPackModel
-            Component.onCompleted: categories.forceActiveFocus()
-
-            delegate: root.selectedType === 0 ? emojiDelegate : stickerDelegate
+            model: Dict.categories
+            delegate: QQC2.ToolButton {
+                required property var modelData
+                display: QQC2.Button.IconOnly
+                action: CategoryAction {
+                    category: modelData
+                }
+                QQC2.ToolTip.text: action.text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
         }
     }
 
@@ -117,85 +117,19 @@ ColumnLayout {
         focusSequence: ""
     }
 
-    EmojiGrid {
-        id: emojiGrid
-        // Make stickers bigger to be more visible, to match their bigger relative size in chat
-        targetIconSize: root.selectedType === 1 ? 75 : root.categoryIconSize
-        model: root.selectedType === 1 ? emoticonFilterModel : searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
+    QQC2.ScrollView {
+        id: grid
         Layout.fillWidth: true
         Layout.fillHeight: true
-        withCustom: root.includeCustom
-        onChosen: unicode => root.chosen(unicode)
-        header: categories
-        Keys.forwardTo: searchField
-        stickers: root.selectedType === 1
-        onStickerChosen: index => stickerModel.postSticker(emoticonFilterModel.mapToSource(emoticonFilterModel.index(index, 0)).row)
-    }
+        EmojiGrid {
+            id: emojiGrid
 
-    ImagePacksModel {
-        id: stickerPackModel
-        room: root.currentRoom
-        showStickers: true
-        showEmoticons: false
-    }
-
-    StickerModel {
-        id: stickerModel
-        model: stickerPackModel
-        packIndex: 0
-        room: root.currentRoom
-    }
-
-    EmoticonFilterModel {
-        id: emoticonFilterModel
-        sourceModel: stickerModel
-        showStickers: true
-    }
-
-    Component {
-        id: emojiDelegate
-        Kirigami.NavigationTabButton {
-            required property string emoji
-            required property int index
-            required property string name
-            width: root.categoryIconSize
-            height: width
-            checked: categories.currentIndex === index
-            text: emoji
-            QQC2.ToolTip.text: name
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            QQC2.ToolTip.visible: hovered
-            onClicked: {
-                categories.currentIndex = index;
-                categories.focus = true;
-            }
+            emojiPixelSize: Kirigami.Units.iconSizes.medium
+            clip: true
+            // onChosen: unicode => root.chosen(unicode)
         }
     }
 
-    Component {
-        id: stickerDelegate
-        Kirigami.NavigationTabButton {
-            id: sticker
-            required property string name
-            required property int index
-            required property string emoji
-            width: root.categoryIconSize
-            height: width
-            checked: stickerModel.packIndex === index
-            padding: Kirigami.Units.largeSpacing
-
-            contentItem: Image {
-                source: sticker.emoji
-                fillMode: Image.PreserveAspectFit
-                sourceSize.width: width
-                sourceSize.height: height
-            }
-            QQC2.ToolTip.text: name
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            QQC2.ToolTip.visible: hovered && !!name
-            onClicked: stickerModel.packIndex = index
-        }
-    }
 
     function clearSearchField() {
         searchField.text = "";

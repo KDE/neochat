@@ -82,7 +82,6 @@ Kirigami.ApplicationWindow {
     }
 
     onConnectionChanged: {
-        CustomEmojiModel.connection = root.connection;
         SpaceHierarchyCache.connection = root.connection;
         NeoChatSettingsView.connection = root.connection;
         if (ShareHandler.text && root.connection) {
@@ -179,7 +178,6 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        CustomEmojiModel.connection = root.connection;
         SpaceHierarchyCache.connection = root.connection;
         RoomSettingsView.window = root;
         NeoChatSettingsView.window = root;

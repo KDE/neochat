@@ -14,7 +14,6 @@
 
 #include "block.h"
 #include "blocktype.h"
-#include "models/customemojimodel.h"
 #include "utils.h"
 
 using namespace Qt::StringLiterals;
@@ -73,7 +72,8 @@ void TextHandler::cleanHtml(QString &string)
         switch (nextTokenType) {
         case Text:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
-            nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
+            // TODO
+            // nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
             break;
         case TextCode:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);

@@ -19,7 +19,6 @@ target_sources(LibNeoChat PRIVATE
     chattextitemhelper.cpp
     clipboard.cpp
     delegatesizehelper.cpp
-    emojitones.cpp
     eventhandler.cpp
     filetransferpseudojob.cpp
     filetype.cpp
@@ -48,8 +47,6 @@ target_sources(LibNeoChat PRIVATE
     jobs/neochatreportroomjob.cpp
     jobs/neochatreportuserjob.cpp
     jobs/neochatauthmetadatajob.cpp
-    models/customemojimodel.cpp
-    models/emojimodel.cpp
     models/imagepacksmodel.cpp
     models/itinerarymodel.cpp
     models/livelocationsmodel.cpp

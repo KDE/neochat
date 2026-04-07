@@ -16,7 +16,6 @@ QQC2.Popup {
      */
     property NeoChatRoom currentRoom
 
-    property bool includeCustom: false
     property bool closeOnChosen: true
     property bool showStickers: true
 
@@ -64,12 +63,11 @@ QQC2.Popup {
     padding: 2
 
     implicitHeight: Kirigami.Units.gridUnit * 20 + 2 * padding
-    width: Math.min(contentItem.categoryIconSize * 11 + 2 * padding, QQC2.ApplicationWindow.window?.width)
+    width: Math.min(emojiPicker.cellWidth * 8 + emojiPicker.scrollBarWidth + leftPadding + rightPadding + 8, QQC2.ApplicationWindow.window?.width)
     contentItem: EmojiPicker {
         id: emojiPicker
         height: 400
         currentRoom: root.currentRoom
-        includeCustom: root.includeCustom
         showStickers: root.showStickers
         onChosen: emoji => {
             root.chosen(emoji);

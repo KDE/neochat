@@ -17,10 +17,8 @@
 #include "enums/roomsortparameter.h"
 #include "models/accountemoticonmodel.h"
 #include "models/commonroomsmodel.h"
-#include "models/customemojimodel.h"
 #include "models/devicesmodel.h"
 #include "models/devicesproxymodel.h"
-#include "models/emojimodel.h"
 #include "models/emoticonfiltermodel.h"
 #include "models/eventmessagecontentmodel.h"
 #include "models/imagepacksmodel.h"
@@ -109,8 +107,6 @@ private Q_SLOTS:
     void testNotificationsModel();
     void testLocationsModel();
     void testServerListModel();
-    void testEmojiModel();
-    void testCustomEmojiModel();
     void testPushRuleModel();
     void testActionsModel();
     void testDevicesModel();
@@ -444,19 +440,6 @@ void ModelTest::testServerListModel()
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
-}
-
-void ModelTest::testEmojiModel()
-{
-    auto tester = new QAbstractItemModelTester(&EmojiModel::instance(), &EmojiModel::instance());
-    tester->setUseFetchMore(true);
-}
-
-void ModelTest::testCustomEmojiModel()
-{
-    auto tester = new QAbstractItemModelTester(&CustomEmojiModel::instance(), &CustomEmojiModel::instance());
-    tester->setUseFetchMore(true);
-    CustomEmojiModel::instance().setConnection(connection);
 }
 
 void ModelTest::testPushRuleModel()
