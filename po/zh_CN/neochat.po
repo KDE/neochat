@@ -97,7 +97,7 @@ msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 "KDE China (中国), Guo Yunhe (郭云鹤), Yang Boyuan (杨博远), Coelacanthus, "
-"Tyson Tan (钛山), Gary Wang, Zhangzhi Hu"
+"Tyson Tan (钛山), Gary Wang, Zhangzhi Hu, notify-ctrl"
 
 #: src/app/main.cpp:152
 #, kde-format
@@ -105,7 +105,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "kde-china@kde.org, i@guoyunhe.me, 073plan@gmail.com, coelacanthus@kde.org, "
-"tds00@qq.com, git@blumia.net, integral@member.fsf.org"
+"tds00@qq.com, git@blumia.net, integral@member.fsf.org, notify-ctrl@qq.com"
 
 #: src/app/main.cpp:156
 #, kde-format
@@ -276,7 +276,7 @@ msgstr "请同意另一设备上的验证请求，然后继续。"
 #, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
-msgstr ""
+msgstr "支持"
 
 #: src/app/qml/AccountMenu.qml:103
 #, kde-format
@@ -600,7 +600,7 @@ msgstr "查看 %1 的个人资料"
 #, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "屏蔽 %1 并拒绝邀请"
+msgstr "忽略 %1 并拒绝邀请"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -878,14 +878,14 @@ msgstr "插入链接"
 #, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
-msgstr ""
+msgstr "未找到聊天室"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
 #: src/rooms/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
-msgstr ""
+msgstr "探索"
 
 #: src/app/qml/ReasonDialog.qml:33
 #, kde-kuit-format
@@ -936,7 +936,7 @@ msgstr "开始 Jitsi 会议…"
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr ""
+msgstr "您无权发起 Jitsi 会议"
 
 #: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:182
 #: src/roominfo/RoomInformation.qml:109
@@ -949,14 +949,14 @@ msgstr "搜索"
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
-msgstr ""
+msgstr "该聊天室包含您所在家服务器的官方消息。"
 
 #: src/app/qml/RoomPage.qml:215 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr ""
+msgstr "置顶消息"
 
 #: src/app/qml/RoomPage.qml:237
 #, kde-format
@@ -968,19 +968,19 @@ msgstr "已选择消息：%1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
-msgstr ""
+msgstr "复制对话"
 
 #: src/app/qml/RoomPage.qml:245
 #, kde-format
 msgctxt "@info"
 msgid "Conversation copied to clipboard"
-msgstr ""
+msgstr "对话已复制到剪贴板"
 
 #: src/app/qml/RoomPage.qml:249
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Messages"
-msgstr ""
+msgstr "删除消息"
 
 #: src/app/qml/RoomPage.qml:255 src/app/qml/RoomPage.qml:262
 #: src/app/qml/UserDetailDialog.qml:331
@@ -993,7 +993,7 @@ msgstr "移除消息"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
-msgstr ""
+msgstr "（可选）请给出删除消息的理由"
 
 #: src/app/qml/RoomPage.qml:257 src/app/qml/UserDetailDialog.qml:333
 #, kde-format
@@ -1005,13 +1005,13 @@ msgstr "移除"
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
-msgstr ""
+msgstr "欢迎使用 NeoChat"
 
 #: src/app/qml/RoomPage.qml:340
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
-msgstr ""
+msgstr "选择或加入一个房间以开始"
 
 #: src/app/qml/RoomPage.qml:376
 #, kde-format
@@ -1029,7 +1029,7 @@ msgstr "消息来源"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "已读"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1053,7 +1053,7 @@ msgstr "添加新服务器"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove server"
-msgstr ""
+msgstr "删除服务器"
 
 #: src/app/qml/ServerComboBox.qml:114
 #, kde-format
@@ -1077,13 +1077,13 @@ msgstr "该服务器无法解析或已添加"
 #, kde-format
 msgctxt "@label"
 msgid "Server URL:"
-msgstr ""
+msgstr "服务器 URL："
 
 #: src/app/qml/ServerComboBox.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "OK"
-msgstr ""
+msgstr "确认"
 
 #: src/app/qml/ShareAction.qml:24 src/settings/ThreePIdCard.qml:64
 #, kde-format
@@ -1113,37 +1113,37 @@ msgstr "此图像的分享 URL 为 <a href='%1'>%1</a>"
 #, kde-format
 msgctxt "@title Support information"
 msgid "Support"
-msgstr ""
+msgstr "支持"
 
 #: src/app/qml/SupportDialog.qml:35
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
 msgid "Official support resources provided by %1:"
-msgstr ""
+msgstr "由 %1 提供的官方支持资源："
 
 #: src/app/qml/SupportDialog.qml:36
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
 msgid "%1 has no support resources."
-msgstr ""
+msgstr "%1 没有支持资源。"
 
 #: src/app/qml/SupportDialog.qml:49
 #, kde-format
 msgctxt "@action:button Open support webpage"
 msgid "Open Support"
-msgstr ""
+msgstr "打开支持网站"
 
 #: src/app/qml/SupportDialog.qml:84
 #, kde-format
 msgctxt "@info:label Adminstrator contact"
 msgid "Admin"
-msgstr ""
+msgstr "最高管理员"
 
 #: src/app/qml/SupportDialog.qml:86
 #, kde-format
 msgctxt "@info:label Security contact"
 msgid "Security"
-msgstr ""
+msgstr "安全性"
 
 #: src/app/qml/SupportDialog.qml:106
 #, kde-format
@@ -1239,111 +1239,111 @@ msgstr "账户详情"
 #, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr ""
+msgstr "发送消息"
 
 #: src/app/qml/UserDetailDialog.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr ""
+msgstr "取消忽略"
 
 #: src/app/qml/UserDetailDialog.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
-msgstr ""
+msgstr "忽略"
 
 #: src/app/qml/UserDetailDialog.qml:168
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
-msgstr ""
+msgstr "复制链接"
 
 #: src/app/qml/UserDetailDialog.qml:174
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr ""
+msgstr "搜索消息…"
 
 #: src/app/qml/UserDetailDialog.qml:188
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
-msgstr ""
+msgstr "举报…"
 
 #: src/app/qml/UserDetailDialog.qml:194
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
-msgstr ""
+msgstr "举报用户"
 
 #: src/app/qml/UserDetailDialog.qml:195
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this user"
-msgstr ""
+msgstr "（可选）请给出举报用户的理由"
 
 #: src/app/qml/UserDetailDialog.qml:197
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
-msgstr ""
+msgstr "举报"
 
 #: src/app/qml/UserDetailDialog.qml:201
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
-msgstr ""
+msgstr "举报用户"
 
 #: src/app/qml/UserDetailDialog.qml:212
 #, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
-msgstr ""
+msgstr "查看主要个人资料"
 
 #: src/app/qml/UserDetailDialog.qml:222
 #, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
-msgstr ""
+msgstr "查看房间资料"
 
 #: src/app/qml/UserDetailDialog.qml:233
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr ""
+msgstr "管理"
 
 #: src/app/qml/UserDetailDialog.qml:258
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr ""
+msgstr "踢出…"
 
 #: src/app/qml/UserDetailDialog.qml:262 src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr ""
+msgstr "踢出用户"
 
 #: src/app/qml/UserDetailDialog.qml:263
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for kicking this user"
-msgstr ""
+msgstr "（可选）请给出踢出用户的理由"
 
 #: src/app/qml/UserDetailDialog.qml:264
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr ""
+msgstr "踢出"
 
 #: src/app/qml/UserDetailDialog.qml:286
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "封禁…"
 
 #: src/app/qml/UserDetailDialog.qml:291 src/app/qml/UserDetailDialog.qml:298
 #, kde-format
@@ -1355,7 +1355,7 @@ msgstr "封禁用户"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for banning this user"
-msgstr ""
+msgstr "（可选）请给出封禁用户的理由"
 
 #: src/app/qml/UserDetailDialog.qml:293
 #, kde-format
@@ -1367,19 +1367,19 @@ msgstr "封禁"
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "解封"
 
 #: src/app/qml/UserDetailDialog.qml:326
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr ""
+msgstr "移除消息…"
 
 #: src/app/qml/UserDetailDialog.qml:332
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
-msgstr ""
+msgstr "（可选）请给出移除用户近期消息的理由"
 
 #: src/app/qml/UserDetailDialog.qml:338
 #, kde-format
@@ -1391,26 +1391,26 @@ msgstr "移除消息"
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr ""
+msgstr "权力等级"
 
 #: src/app/qml/UserDetailDialog.qml:375
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr ""
+msgstr "设置用户权力等级"
 
 #: src/app/qml/UserDetailDialog.qml:402
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr ""
+msgstr "共同聊天室"
 
 #: src/app/qml/UserDetailDialog.qml:424
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
-msgstr ""
+msgstr "没有共同的聊天室"
 
 #: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
@@ -1425,13 +1425,13 @@ msgstr[0] "以及其他 %1 个："
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr ""
+msgstr "私密笔记"
 
 #: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "仅自己可见"
 
 #: src/app/qml/UserMenu.qml:68
 #, kde-format
@@ -1569,14 +1569,14 @@ msgstr ""
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
-msgstr ""
+msgstr "由于所验证的用户并非预期对象，会话验证被取消。"
 
 #: src/app/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
-msgstr ""
+msgstr "由于所验证的用户并非预期对象，远端取消了会话验证。"
 
 #: src/app/qml/VerificationCanceled.qml:62
 #, kde-format
@@ -1630,17 +1630,17 @@ msgstr "由于未知错误，会话验证被取消。"
 #, kde-format
 msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: src/app/roommanager.cpp:241
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr ""
+msgstr "格式非法或空的 Matrix ID<br />%1 不是正确的 Matrix 标识符"
 
 #: src/app/roommanager.cpp:443
 #, kde-format
 msgid "Failed to join %1:<br />%2"
-msgstr ""
+msgstr "加入 %1 失败：<br />%2"
 
 #: src/app/roommanager.cpp:467
 #, kde-format
@@ -1666,18 +1666,18 @@ msgstr "退出"
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
-msgstr ""
+msgstr "按回车键创建新的一行"
 
 #: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
-msgstr ""
+msgstr "按回车键发送消息"
 
 #: src/chatbar/ChatBarCore.qml:92
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "表情和贴纸"
 
 #: src/chatbar/EmojiGrid.qml:90
 #, kde-format
@@ -1766,19 +1766,19 @@ msgstr "镜像"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr ""
+msgstr "插入链接"
 
 #: src/chatbar/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "链接文本："
 
 #: src/chatbar/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "链接 URL："
 
 #: src/chatbar/LocationChooser.qml:20
 #, kde-format
@@ -1794,7 +1794,7 @@ msgstr "发送此位置"
 #, kde-format
 msgctxt "@action:intoolbar Re-center the map onto the set location"
 msgid "Re-Center"
-msgstr ""
+msgstr "重新居中"
 
 #: src/chatbar/LocationChooser.qml:39
 #, kde-format
@@ -1812,49 +1812,49 @@ msgstr "创建投票"
 #, kde-format
 msgctxt "@label"
 msgid "Poll type:"
-msgstr ""
+msgstr "投票类型："
 
 #: src/chatbar/NewPollDialog.qml:40
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Open poll"
-msgstr ""
+msgstr "开放式投票"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Closed poll"
-msgstr ""
+msgstr "封闭式投票"
 
 #: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "投票人在投出票后立刻看到投票结果"
 
 #: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "仅在投票结束后才揭晓结果"
 
 #: src/chatbar/NewPollDialog.qml:50
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
-msgstr ""
+msgstr "问题："
 
 #: src/chatbar/NewPollDialog.qml:93
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr ""
+msgstr "选项 %1："
 
 #: src/chatbar/NewPollDialog.qml:109
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
-msgstr ""
+msgstr "请输入选项"
 
 #: src/chatbar/NewPollDialog.qml:113
 #, kde-format
@@ -1878,55 +1878,55 @@ msgstr "发送"
 #, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr ""
+msgstr "下划线"
 
 #: src/chatbar/RichEditBar.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
-msgstr ""
+msgstr "格式化文本"
 
 #: src/chatbar/RichEditBar.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Text Style"
-msgstr ""
+msgstr "文本样式"
 
 #: src/chatbar/RichEditBar.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit link"
-msgstr ""
+msgstr "编辑链接"
 
 #: src/chatbar/RichEditBar.qml:262 src/chatbar/RichEditBar.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
-msgstr ""
+msgstr "无序列表"
 
 #: src/chatbar/RichEditBar.qml:278 src/chatbar/RichEditBar.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
-msgstr ""
+msgstr "有序列表"
 
 #: src/chatbar/RichEditBar.qml:295 src/chatbar/RichEditBar.qml:357
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "提升列表级别"
 
 #: src/chatbar/RichEditBar.qml:310 src/chatbar/RichEditBar.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "降低列表级别"
 
 #: src/chatbar/RichEditBar.qml:327
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
-msgstr ""
+msgstr "列表样式"
 
 #: src/chatbar/SendBar.qml:54
 #, kde-format
@@ -1942,7 +1942,7 @@ msgstr "附件只允许纯文本标题，富文本格式将被移除"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
-msgstr ""
+msgstr "添加到消息"
 
 #: src/chatbar/SendBar.qml:118 src/chatbar/SendBar.qml:149
 #, kde-format
@@ -1966,19 +1966,19 @@ msgstr "创建投票"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
-msgstr ""
+msgstr "发送语音消息"
 
 #: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
-msgstr ""
+msgstr "隐藏富文本控制符"
 
 #: src/chatbar/SendBar.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
-msgstr ""
+msgstr "显示富文本控制符"
 
 #: src/chatbar/SendBar.qml:213
 #, kde-format
@@ -1996,43 +1996,43 @@ msgstr "取消"
 #, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr ""
+msgstr "插入表"
 
 #: src/chatbar/TableDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "行数："
 
 #: src/chatbar/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "列数："
 
 #: src/chatbar/VoiceMessageDialog.qml:31
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Record Voice Message"
-msgstr ""
+msgstr "录制语音消息"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
 #, kde-format
 msgctxt "@action:button Stop audio recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "停止录制"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
 #, kde-format
 msgctxt "@action:button Start audio recording"
 msgid "Start Recording"
-msgstr ""
+msgstr "开始录制"
 
 #: src/chatbar/VoiceMessageDialog.qml:48
 #, kde-format
 msgctxt "@info Duration being the length of an audio recording"
 msgid "Duration: %1"
-msgstr ""
+msgstr "时长：%1"
 
 #: src/chatbar/VoiceMessageDialog.qml:54
 #, kde-format
@@ -2040,13 +2040,13 @@ msgctxt "@info"
 msgid ""
 "Voice message recording requires a newer Qt version than is currently "
 "installed on this system."
-msgstr ""
+msgstr "录制语音消息需要您安装更高版本的Qt库。"
 
 #: src/chatbar/VoiceMessageDialog.qml:61
 #, kde-format
 msgctxt "@action:button Send the voice message"
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 #: src/devtools/AccountData.qml:22
 #, kde-format
@@ -2171,13 +2171,13 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "通话"
 
 #: src/devtools/FeatureFlagPage.qml:36
 #, kde-format
 msgctxt "@option:check Enable the rich text chat bar"
 msgid "Rich Chat Bar"
-msgstr ""
+msgstr "富文本聊天栏"
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -2195,7 +2195,7 @@ msgstr "未选择聊天室"
 #, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr ""
+msgstr "点击选择聊天室"
 
 #: src/devtools/RoomData.qml:33
 #, kde-format
@@ -2223,13 +2223,13 @@ msgstr "聊天室状态"
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] ""
+msgstr[0] "此类型的 %1 个事件"
 
 #: src/devtools/RoomData.qml:93
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
-msgstr ""
+msgstr "事件信息"
 
 #: src/devtools/ServerData.qml:19
 #, kde-format
@@ -2257,18 +2257,18 @@ msgctxt ""
 "The name of one instance of a state of configuration. Unless you really know "
 "what you're doing, best leave this untranslated."
 msgid "State Keys"
-msgstr ""
+msgstr "状态的键"
 
 #: src/libneochat/accountmanager.cpp:124
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr ""
+msgstr "未找到访问令牌：也许已被删除？"
 
 #: src/libneochat/accountmanager.cpp:128
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr ""
+msgstr "访问密钥链被拒绝：请允许 NeoChat 读取访问令牌"
 
 #: src/libneochat/accountmanager.cpp:131
 #, kde-format
@@ -2276,11 +2276,13 @@ msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
+"没有可用的密钥链：请安装一个密钥链，例如 Linux 平台上的 KDE 密码库（KWallet）"
+"或 GNOME 钥匙圈（GNOME keyring）"
 
 #: src/libneochat/accountmanager.cpp:134
 #, kde-format
 msgid "Unable to read access token: %1"
-msgstr ""
+msgstr "无法读取访问令牌：%1"
 
 #: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
@@ -2316,7 +2318,7 @@ msgstr "空间"
 #, kde-format
 msgctxt "@info Meaning: official information messages from your server"
 msgid "Server Notices"
-msgstr ""
+msgstr "服务器通知"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -2326,18 +2328,18 @@ msgstr "成员"
 #: src/libneochat/enums/powerlevel.cpp:12
 #, kde-format
 msgid "Moderator"
-msgstr ""
+msgstr "管理员"
 
 #: src/libneochat/enums/powerlevel.cpp:14
 #, kde-format
 msgid "Admin"
-msgstr "管理员"
+msgstr "最高管理员"
 
 #: src/libneochat/enums/powerlevel.cpp:16
 #, kde-format
 msgctxt "The person that owns a room"
 msgid "Owner"
-msgstr ""
+msgstr "所有者"
 
 #: src/libneochat/enums/powerlevel.cpp:18
 #, kde-format
@@ -2348,7 +2350,7 @@ msgstr "创建人"
 #: src/libneochat/enums/powerlevel.cpp:20
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "禁言"
 
 #: src/libneochat/enums/powerlevel.cpp:22
 #, kde-format
@@ -2369,62 +2371,62 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "As in the default paragraph text style in the chat bar"
 msgid "Paragraph Style"
-msgstr ""
+msgstr "段落样式"
 
 #: src/libneochat/enums/richformat.cpp:21
 #, kde-format
 msgctxt "As in heading level 1 text style in the chat bar"
 msgid "Heading 1"
-msgstr ""
+msgstr "1 级标题"
 
 #: src/libneochat/enums/richformat.cpp:24
 #, kde-format
 msgctxt "As in heading level 2 text style in the chat bar"
 msgid "Heading 2"
-msgstr ""
+msgstr "2 级标题"
 
 #: src/libneochat/enums/richformat.cpp:27
 #, kde-format
 msgctxt "As in heading level 3 text style in the chat bar"
 msgid "Heading 3"
-msgstr ""
+msgstr "3 级标题"
 
 #: src/libneochat/enums/richformat.cpp:30
 #, kde-format
 msgctxt "As in heading level 4 text style in the chat bar"
 msgid "Heading 4"
-msgstr ""
+msgstr "4 级标题"
 
 #: src/libneochat/enums/richformat.cpp:33
 #, kde-format
 msgctxt "As in heading level 5 text style in the chat bar"
 msgid "Heading 5"
-msgstr ""
+msgstr "5 级标题"
 
 #: src/libneochat/enums/richformat.cpp:36
 #, kde-format
 msgctxt "As in heading level 6 text style in the chat bar"
 msgid "Heading 6"
-msgstr ""
+msgstr "6 级标题"
 
 #: src/libneochat/enums/richformat.cpp:39
 #, kde-format
 msgctxt "As in code text style in the chat bar"
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 #: src/libneochat/enums/richformat.cpp:43
 #, kde-format
 msgctxt ""
 "As in the default paragraph text style inside a quote block in the chat bar"
 msgid "Quote Paragraph Style"
-msgstr ""
+msgstr "引用段落样式"
 
 #: src/libneochat/enums/richformat.cpp:46
 #, kde-format
 msgctxt "As in quote text style in the chat bar"
 msgid "Quote"
-msgstr ""
+msgstr "引用"
 
 #: src/libneochat/enums/roomsortparameter.h:53
 #, kde-format
@@ -2620,12 +2622,12 @@ msgstr "离开聊天室"
 #: src/libneochat/eventhandler.cpp:373
 #, kde-format
 msgid "has removed %1 from the room: %2"
-msgstr ""
+msgstr "从聊天室移除了 %1 : %2"
 
 #: src/libneochat/eventhandler.cpp:375
 #, kde-format
 msgid "has removed %1 from the room"
-msgstr ""
+msgstr "从聊天室中移除了 %1"
 
 #: src/libneochat/eventhandler.cpp:379
 #, kde-format
@@ -2740,19 +2742,19 @@ msgstr "配置了小部件 %1"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "离开了通话"
 
 #: src/libneochat/eventhandler.cpp:441
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "加入了通话"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
 msgctxt "[User] configured an extension"
 msgid "configured an extension"
-msgstr ""
+msgstr "配置了扩展"
 
 #: src/libneochat/eventhandler.cpp:447
 #, kde-format
@@ -2768,13 +2770,13 @@ msgstr "更新了 %1 的状态为 %2"
 #, kde-format
 msgctxt "@info In room list"
 msgid "Encrypted event"
-msgstr ""
+msgstr "加密的事件"
 
 #: src/libneochat/eventhandler.cpp:457
 #, kde-format
 msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
-msgstr ""
+msgstr "回应了 %1"
 
 #: src/libneochat/eventhandler.cpp:459 src/libneochat/eventhandler.cpp:668
 #, kde-format
@@ -2960,22 +2962,22 @@ msgstr "%1 清除了话题"
 #: src/libneochat/eventhandler.cpp:623
 #, kde-format
 msgid "%1 set the topic"
-msgstr ""
+msgstr "%1 设置了话题"
 
 #: src/libneochat/eventhandler.cpp:626
 #, kde-format
 msgid "%1 changed the room avatar"
-msgstr ""
+msgstr "%1 更改了聊天室头像"
 
 #: src/libneochat/eventhandler.cpp:629
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
-msgstr ""
+msgstr "%1 激活了端到端加密"
 
 #: src/libneochat/eventhandler.cpp:632
 #, kde-format
 msgid "%1 upgraded the room version"
-msgstr ""
+msgstr "%1 升级了聊天室版本"
 
 #: src/libneochat/eventhandler.cpp:632
 #, kde-format
@@ -2986,60 +2988,60 @@ msgstr "%1 创建了聊天室"
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
-msgstr ""
+msgstr "%1 更改了此聊天室的权力等级"
 
 #: src/libneochat/eventhandler.cpp:638
 #, kde-format
 msgid "%1 sent a live location beacon"
-msgstr ""
+msgstr "%1 发送了一个实时位置信标"
 
 #: src/libneochat/eventhandler.cpp:641
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
-msgstr ""
+msgstr "%1 更改了此聊天室的服务器访问控制列表"
 
 #: src/libneochat/eventhandler.cpp:645
 #, kde-format
 msgid "%1 added a widget"
-msgstr ""
+msgstr "%1 添加了小部件"
 
 #: src/libneochat/eventhandler.cpp:648
 #, kde-format
 msgid "%1 removed a widget"
-msgstr ""
+msgstr "%1 移除了小部件"
 
 #: src/libneochat/eventhandler.cpp:650
 #, kde-format
 msgid "%1 configured a widget"
-msgstr ""
+msgstr "%1 配置了小部件"
 
 #: src/libneochat/eventhandler.cpp:655
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr ""
+msgstr "%1 离开了通话"
 
 #: src/libneochat/eventhandler.cpp:657
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr ""
+msgstr "%1 加入了通话"
 
 #: src/libneochat/eventhandler.cpp:661
 #, kde-format
 msgctxt "[User] configured an extension"
 msgid "%1 configured an extension"
-msgstr ""
+msgstr "%1 配置了扩展"
 
 #: src/libneochat/eventhandler.cpp:663
 #, kde-format
 msgid "%1 updated the state"
-msgstr ""
+msgstr "%1 更新了状态"
 
 #: src/libneochat/eventhandler.cpp:666
 #, kde-format
 msgid "%1 started a poll"
-msgstr ""
+msgstr "%1 发起了投票"
 
 #: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
@@ -3179,7 +3181,7 @@ msgstr "%1 已在此聊天室。"
 #, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr ""
+msgstr "%1 被邀请加入此聊天室。"
 
 #: src/libneochat/models/actionsmodel.cpp:208
 #: src/libneochat/models/actionsmodel.cpp:328
@@ -3469,13 +3471,13 @@ msgstr "创建人"
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr ""
+msgstr "文件过大，无法下载。<br />请联系您的 Matrix 服务器管理员。"
 
 #: src/libneochat/neochatconnection.cpp:340
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
-msgstr ""
+msgstr "未配置身份服务器"
 
 #: src/libneochat/neochatconnection.cpp:371
 #, kde-format
@@ -3556,7 +3558,7 @@ msgstr "地址："
 #, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
-msgstr ""
+msgstr "new-room"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:22
 #, kde-format
@@ -3568,7 +3570,7 @@ msgstr "创建空间"
 #, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
-msgstr ""
+msgstr "创建"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:51
 #, kde-format
@@ -3580,7 +3582,7 @@ msgstr "名称："
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
-msgstr ""
+msgstr "新的空间"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:64
 #: src/spaces/SelectExistingRoomDialog.qml:147
@@ -3595,7 +3597,7 @@ msgstr "将父空间设为官方"
 #, kde-format
 msgctxt "@action:title Explore public rooms and spaces"
 msgid "Explore"
-msgstr ""
+msgstr "探索"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:73
 #, kde-format
@@ -3606,12 +3608,12 @@ msgstr "仅显示空间"
 #: src/libneochat/qml/ExploreRoomsPage.qml:107
 #, kde-format
 msgid "Enter a Room Manually"
-msgstr ""
+msgstr "手动加入房间"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr ""
+msgstr "当您已经知道房间的地址或别名，且其未在此显示时"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:128
 #, kde-format
@@ -3628,7 +3630,7 @@ msgstr "未找到公共聊天室"
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms"
-msgstr ""
+msgstr "没有公共房间"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:75
 #: src/timeline/TimelineEndDelegate.qml:69
@@ -3977,7 +3979,7 @@ msgstr "此消息已加密，但发送者尚未与此设备共享密钥。"
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
-msgstr ""
+msgstr "拉取更多事件"
 
 #: src/messagecontent/FileComponent.qml:87
 #: src/messagecontent/FileComponent.qml:164
@@ -4020,7 +4022,7 @@ msgstr "删除附件"
 #, kde-format
 msgctxt "flight departure, %1 is airport, %2 is time"
 msgid "Departure from %1"
-msgstr ""
+msgstr "从 %1 出发的时间"
 
 #: src/messagecontent/FlightReservationComponent.qml:90
 #, kde-format
@@ -4031,12 +4033,12 @@ msgstr "到达时间为 %1"
 #: src/messagecontent/HotelReservationComponent.qml:65
 #, kde-format
 msgid "Check-in time: %1"
-msgstr ""
+msgstr "入住时间：%1"
 
 #: src/messagecontent/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
-msgstr ""
+msgstr "退房时间：%1"
 
 #: src/messagecontent/ImageComponent.qml:79
 #: src/messagecontent/VideoComponent.qml:150
@@ -4049,7 +4051,7 @@ msgstr "隐藏图像"
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: src/messagecontent/ImageComponent.qml:194
 #, kde-format
@@ -4061,7 +4063,7 @@ msgstr "显示图像"
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "发送到 KDE 行程"
 
 #: src/messagecontent/LinkPreviewComponent.qml:140
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
@@ -4107,7 +4109,7 @@ msgstr "在外部打开"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
-msgstr ""
+msgstr "全屏显示"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:226
 #, kde-format
@@ -4115,25 +4117,25 @@ msgctxt "@info"
 msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
-msgstr ""
+msgstr "该消息未找到，或者您无权查看它，又或者是由被忽略的用户发送的。"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:245
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
-msgstr ""
+msgstr "正在加载回复…"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:97
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr ""
+msgstr "无法下载文件。"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:100
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr ""
+msgstr "无法下载文件：<br />%1"
 
 #: src/messagecontent/models/reactionmodel.cpp:69
 #, kde-format
@@ -4160,7 +4162,7 @@ msgstr[0] "%2 回应了 %3"
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
+msgstr[0] "已有 %1 票"
 
 #: src/messagecontent/PollComponent.qml:138
 #, kde-format
@@ -4179,7 +4181,7 @@ msgstr "(已结束)"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "投票已结束。最多得票：%1"
 
 #: src/messagecontent/ReactionComponent.qml:88
 #, kde-format
@@ -4221,19 +4223,19 @@ msgstr "发送一条消息..."
 #, kde-format
 msgctxt "As in no suggestion for spellcheck to fix spelling"
 msgid "No Suggestions for \"%1\""
-msgstr ""
+msgstr "没有关于“%1”的建议"
 
 #: src/messagecontent/TextComponentEditMenu.qml:107
 #, kde-format
 msgctxt "As in add the word %1 to spellcheck dictionary"
 msgid "Add \"%1\" to Dictionary"
-msgstr ""
+msgstr "添加“%1”到词典"
 
 #: src/messagecontent/TextComponentEditMenu.qml:119
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
-msgstr ""
+msgstr "忽略"
 
 #: src/messagecontent/TextComponentEditMenu.qml:132
 #, kde-format
@@ -4251,44 +4253,44 @@ msgstr "撤销"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: src/messagecontent/TextComponentEditMenu.qml:171
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
-msgstr ""
+msgstr "剪切"
 
 #: src/messagecontent/TextComponentEditMenu.qml:184
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
-msgstr ""
+msgstr "复制"
 
 #: src/messagecontent/TextComponentEditMenu.qml:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
-msgstr ""
+msgstr "粘贴"
 
 #: src/messagecontent/TextComponentEditMenu.qml:210
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: src/messagecontent/TextComponentEditMenu.qml:224
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
-msgstr ""
+msgstr "全选"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
 #, kde-format
 msgctxt "Short for train platform"
 msgid "Pl. %1"
-msgstr ""
+msgstr "车站：%1"
 
 #: src/messagecontent/VideoComponent.qml:178
 #, kde-format
@@ -4299,7 +4301,7 @@ msgstr "视频"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
-msgstr ""
+msgstr "显示视频"
 
 #: src/messagecontent/VideoComponent.qml:258
 #, kde-format
@@ -4317,14 +4319,14 @@ msgstr "位置"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No shared locations"
-msgstr ""
+msgstr "没有共享的位置"
 
 #: src/roominfo/LocationsPage.qml:71
 #, kde-format
 msgctxt ""
 "@info 'Send a Location' should share the same name as the chat bar button"
 msgid "Share a location by using 'Send a Location' in the chat bar."
-msgstr ""
+msgstr "在聊天栏使用“发送位置”以共享位置。"
 
 #: src/roominfo/RoomDrawer.qml:122 src/roominfo/RoomDrawerPage.qml:51
 #, kde-format
@@ -4358,7 +4360,7 @@ msgstr "聊天室信息"
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
-msgstr ""
+msgstr "动作"
 
 #: src/roominfo/RoomInformation.qml:100
 #, kde-format
@@ -4370,49 +4372,49 @@ msgstr "搜索消息"
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
-msgstr ""
+msgstr "验证用户"
 
 #: src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
-msgstr ""
+msgstr "扩展"
 
 #: src/roominfo/RoomInformation.qml:134
 #, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
-msgstr ""
+msgstr "扩展"
 
 #: src/roominfo/RoomInformation.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr ""
+msgstr "共享的位置"
 
 #: src/roominfo/RoomInformation.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
-msgstr ""
+msgstr "置顶消息"
 
 #: src/roominfo/RoomInformation.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr ""
+msgstr "检视房间数据"
 
 #: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
-msgstr ""
+msgstr "离开空间…"
 
 #: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
-msgstr ""
+msgstr "离开聊天室…"
 
 #: src/roominfo/RoomInformation.qml:210
 #, kde-format
@@ -4452,7 +4454,7 @@ msgstr "聊天室媒体"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr ""
+msgstr "暂无置顶信息"
 
 #: src/roominfo/RoomSearchPage.qml:36
 #, kde-format
@@ -4468,7 +4470,7 @@ msgstr "查找消息..."
 #: src/roominfo/RoomSearchPage.qml:49
 #, kde-format
 msgid "Enter text to start searching"
-msgstr ""
+msgstr "请输入文本以开始搜索"
 
 #: src/roominfo/RoomSearchPage.qml:50
 #, kde-format
@@ -4478,37 +4480,37 @@ msgstr "未找到消息"
 #: src/roominfo/RoomSearchPage.qml:52
 #, kde-format
 msgid "Cannot search in encrypted rooms"
-msgstr ""
+msgstr "无法在加密房间中搜索"
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
 msgctxt "@title"
 msgid "Extensions"
-msgstr ""
+msgstr "扩展"
 
 #: src/roominfo/WidgetsPage.qml:28
 #, kde-format
 msgctxt "@placeholder"
 msgid "No extensions"
-msgstr ""
+msgstr "没有扩展"
 
 #: src/roominfo/WidgetsPage.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
-msgstr ""
+msgstr "移除小部件"
 
 #: src/rooms/ExploreComponent.qml:36
 #, kde-format
 msgctxt "@title Home space"
 msgid "Home"
-msgstr ""
+msgstr "主页"
 
 #: src/rooms/ExploreComponent.qml:38
 #, kde-format
 msgctxt "@title"
 msgid "Direct Messages"
-msgstr ""
+msgstr "私聊"
 
 #: src/rooms/ExploreComponent.qml:42
 #, kde-format
@@ -4520,7 +4522,7 @@ msgstr "聊天室"
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
-msgstr ""
+msgstr "搜索聊天室"
 
 #: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
 #, kde-format
@@ -4532,13 +4534,13 @@ msgstr "打开设置"
 #, kde-format
 msgctxt "@action:button The 'normal' view of NeoChat including the room list"
 msgid "Home"
-msgstr ""
+msgstr "主页"
 
 #: src/rooms/ExploreComponentMobile.qml:41
 #, kde-format
 msgctxt "@action:button View all notifications for this account"
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: src/rooms/ExploreComponentMobile.qml:57
 #, kde-format
@@ -4739,7 +4741,7 @@ msgstr "搜索聊天室"
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
-msgstr ""
+msgstr "在好友目录中搜索"
 
 #: src/rooms/RoomTreeSection.qml:73
 #, kde-format
@@ -4764,14 +4766,14 @@ msgstr[0] ""
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
-msgstr ""
+msgstr "主页"
 
 #: src/rooms/SpaceDrawer.qml:110
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
 msgid_plural "Direct Messages (%1 notifications)"
-msgstr[0] ""
+msgstr[0] "私聊（%1 个通知）"
 
 #: src/rooms/SpaceDrawer.qml:113
 #, kde-format
@@ -4807,7 +4809,7 @@ msgstr "新建空间…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark Space as Read"
-msgstr ""
+msgstr "将空间标为已读"
 
 #: src/rooms/SpaceListContextMenu.qml:57
 #, kde-format
@@ -4819,7 +4821,7 @@ msgstr "查看空间"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr ""
+msgstr "复制空间地址"
 
 #: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:134
 #, kde-format
@@ -4832,44 +4834,44 @@ msgstr "空间设置"
 msgctxt ""
 "@action:button 'Report' as in 'Report this space to the administrators'"
 msgid "Report…"
-msgstr ""
+msgstr "举报…"
 
 #: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:115
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Space"
-msgstr ""
+msgstr "举报空间"
 
 #: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:116
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this space"
-msgstr ""
+msgstr "（可选）请给出举报空间的理由"
 
 #: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:118
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this space to the administrators'"
 msgid "Report"
-msgstr ""
+msgstr "举报"
 
 #: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Report Space"
-msgstr ""
+msgstr "举报空间"
 
 #: src/rooms/SpaceListContextMenu.qml:107
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
-msgstr ""
+msgstr "离开空间…"
 
 #: src/rooms/UserInfo.qml:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr ""
+msgstr "管理账户"
 
 #: src/rooms/UserInfo.qml:95
 #, kde-format
@@ -5600,13 +5602,13 @@ msgstr "删除身份服务器"
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "屏蔽的用户"
+msgstr "忽略的用户"
 
 #: src/settings/IgnoredUsersDialog.qml:27
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "没有已屏蔽用户"
+msgstr "没有已忽略用户"
 
 #: src/settings/IgnoredUsersDialog.qml:59
 #, kde-format
@@ -5702,13 +5704,13 @@ msgstr "成员"
 #, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
-msgstr ""
+msgstr "特权成员"
 
 #: src/settings/Members.qml:169
 #, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr ""
+msgstr "未找到用户。"
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5719,12 +5721,12 @@ msgstr "加载中…"
 #: src/settings/models/permissionsmodel.cpp:61
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr ""
+msgstr "默认权力等级"
 
 #: src/settings/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr ""
+msgstr "可设置聊天室状态的默认权力等级"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5749,17 +5751,17 @@ msgstr "封禁用户"
 #: src/settings/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
-msgstr ""
+msgstr "移除其他用户发送的消息"
 
 #: src/settings/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Send reactions"
-msgstr ""
+msgstr "发送反应"
 
 #: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
-msgstr ""
+msgstr "移除自己发送的消息"
 
 #: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
@@ -5799,7 +5801,7 @@ msgstr "更改聊天室历史可见性"
 #: src/settings/models/permissionsmodel.cpp:77
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr ""
+msgstr "置顶与取消置顶"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5824,39 +5826,39 @@ msgstr "设置此聊天室的父空间"
 #: src/settings/models/permissionsmodel.cpp:82
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr ""
+msgstr "发送实时位置更新"
 
 #: src/settings/models/permissionsmodel.cpp:83
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr ""
+msgstr "发起投票"
 
 #: src/settings/models/permissionsmodel.cpp:84
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr ""
+msgstr "参与投票"
 
 #: src/settings/models/permissionsmodel.cpp:85
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr ""
+msgstr "关闭投票"
 
 #: src/settings/models/permissionsmodel.cpp:90
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
-msgstr ""
+msgstr "此为新加入聊天室的用户的权力等级。"
 
 #: src/settings/models/permissionsmodel.cpp:91
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
-msgstr ""
+msgstr "用于所有的与状态有关的、且没有自己条目的事件。"
 
 #: src/settings/models/permissionsmodel.cpp:92
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
-msgstr ""
+msgstr "用于所有的与消息有关的、且没有自己条目的事件。"
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -5906,7 +5908,7 @@ msgstr "提及聊天室的消息"
 #: src/settings/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
-msgstr ""
+msgstr "含有我的 Matrix ID 本地部分的消息"
 
 #: src/settings/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
@@ -5933,7 +5935,7 @@ msgstr "常规"
 #, kde-format
 msgctxt "@title:group"
 msgid "General Settings"
-msgstr ""
+msgstr "通用设置"
 
 #: src/settings/NeoChatGeneralPage.qml:29
 #, kde-format
@@ -5959,25 +5961,25 @@ msgstr "在“主页”选项卡中显示所有房间"
 #, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
-msgstr ""
+msgstr "聊天室列表排序方式"
 
 #: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
-msgstr ""
+msgstr "排序聊天室时，不将隐藏事件视为近期活动。"
 
 #: src/settings/NeoChatGeneralPage.qml:101
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr ""
+msgstr "重要性"
 
 #: src/settings/NeoChatGeneralPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr ""
+msgstr "带未读通知的聊天室将优先显示。"
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -5989,13 +5991,13 @@ msgstr "字母顺序"
 #, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr ""
+msgstr "最新事件"
 
 #: src/settings/NeoChatGeneralPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr ""
+msgstr "有最新事件的聊天室将优先显示。"
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
@@ -6058,7 +6060,7 @@ msgstr "显示已被删除的消息"
 #: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgid "Show state events"
-msgstr ""
+msgstr "显示状态事件"
 
 #: src/settings/NeoChatGeneralPage.qml:218
 #, kde-format
@@ -6099,7 +6101,7 @@ msgstr "启用开发者工具"
 #: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
 msgid "Open Developer Tools"
-msgstr ""
+msgstr "打开开发者工具"
 
 #: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
@@ -6110,25 +6112,25 @@ msgstr "开发者工具"
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
-msgstr ""
+msgstr "默认设置"
 
 #: src/settings/NeoChatGeneralPage.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
-msgstr ""
+msgstr "重置所有配置值为默认值…"
 
 #: src/settings/NeoChatGeneralPage.qml:320
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
-msgstr ""
+msgstr "重置配置"
 
 #: src/settings/NeoChatGeneralPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
-msgstr ""
+msgstr "您真的想要重置所有配置为默认值吗？"
 
 #: src/settings/NeoChatSecurityPage.qml:20
 #, kde-format
@@ -6140,7 +6142,7 @@ msgstr "安全"
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignored Users"
-msgstr "屏蔽的用户"
+msgstr "忽略的用户"
 
 #: src/settings/NeoChatSecurityPage.qml:43
 #, kde-format
@@ -6325,7 +6327,7 @@ msgstr "通知"
 #, kde-format
 msgctxt "@title"
 msgid "Security & Safety"
-msgstr ""
+msgstr "安全"
 
 #: src/settings/NeoChatSettingsView.qml:64
 #, kde-format
@@ -6362,7 +6364,7 @@ msgstr "关于 NeoChat"
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: src/settings/NeoChatSettingsView.qml:115
 #, kde-format
@@ -6383,7 +6385,7 @@ msgstr "系统默认"
 #: src/settings/NetworkProxyPage.qml:37
 #, kde-format
 msgid "No Proxy"
-msgstr ""
+msgstr "不使用代理服务器"
 
 #: src/settings/NetworkProxyPage.qml:49
 #, kde-format
@@ -6465,7 +6467,7 @@ msgstr "删除关键词"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Enter password"
-msgstr ""
+msgstr "输入密码"
 
 #: src/settings/PasswordSheet.qml:30
 #, kde-format
@@ -6477,19 +6479,19 @@ msgstr "密码："
 #, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr ""
+msgstr "权力等级"
 
 #: src/settings/Permissions.qml:75
 #, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr ""
+msgstr "消息"
 
 #: src/settings/Permissions.qml:114
 #, kde-format
 msgctxt "@title"
 msgid "Moderation"
-msgstr ""
+msgstr "管理"
 
 #: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
 #: src/settings/RoomSettingsView.qml:37
@@ -6502,13 +6504,13 @@ msgstr "常规"
 #, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr ""
+msgstr "其他事件"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
-msgstr ""
+msgstr "事件类型…"
 
 #: src/settings/Permissions.qml:276
 #, kde-format
@@ -6536,19 +6538,19 @@ msgstr "确认"
 #, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr ""
+msgstr "发送通知设置"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
 msgctxt "As in the default notification setting"
 msgid "Default Settings"
-msgstr ""
+msgstr "默认设置"
 
 #: src/settings/RoomAdvancedPage.qml:20
 #, kde-format
 msgctxt "@window:title"
 msgid "Advanced"
-msgstr ""
+msgstr "高级设置"
 
 #: src/settings/RoomAdvancedPage.qml:27
 #, kde-format
@@ -6566,13 +6568,13 @@ msgstr "复制聊天室 ID 到剪贴板"
 #, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
-msgstr ""
+msgstr "聊天室版本"
 
 #: src/settings/RoomAdvancedPage.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr ""
+msgstr "升级聊天室…"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
@@ -6656,7 +6658,7 @@ msgstr "添加新别名"
 #, kde-format
 msgctxt "@title"
 msgid "Link Previews"
-msgstr ""
+msgstr "链接预览"
 
 #: src/settings/RoomGeneralPage.qml:201
 #, kde-format
@@ -6664,31 +6666,31 @@ msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
-msgstr ""
+msgstr "链接预览功能已在外观设置中被全局关闭。"
 
 #: src/settings/RoomGeneralPage.qml:206
 #, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 #: src/settings/RoomGeneralPage.qml:218
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews for this room"
-msgstr ""
+msgstr "为此聊天室启用链接预览"
 
 #: src/settings/RoomGeneralPage.qml:220
 #, kde-format
 msgctxt "@info"
 msgid "Link previews were enabled by default by the room admins."
-msgstr ""
+msgstr "聊天室管理员默认启用了链接预览。"
 
 #: src/settings/RoomGeneralPage.qml:220
 #, kde-format
 msgctxt "@info"
 msgid "Link previews were disabled by default by the room admins."
-msgstr ""
+msgstr "聊天室管理员默认禁用了链接预览。"
 
 #: src/settings/RoomGeneralPage.qml:225
 #, kde-format
@@ -7192,49 +7194,49 @@ msgstr "后退"
 #, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr ""
+msgstr "移除子项"
 
 #: src/spaces/RemoveChildDialog.qml:39
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
-msgstr ""
+msgstr "子项目 %1 将从空间 %2 移除"
 
 #: src/spaces/RemoveChildDialog.qml:46
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr ""
+msgstr "当前空间是该聊天室的官方父空间，需要清除吗？"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
 #, kde-format
 msgctxt "@title"
 msgid "Select Existing Room"
-msgstr ""
+msgstr "选择已有聊天室"
 
 #: src/spaces/SelectExistingRoomDialog.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick Room"
-msgstr ""
+msgstr "选择聊天室"
 
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #, kde-format
 msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
-msgstr ""
+msgstr "探索"
 
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgctxt "@info:description"
 msgid "You have the required privilege level in the child to set this state"
-msgstr ""
+msgstr "您在子项中有足够的权限级别，可以设置该状态"
 
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
-msgstr ""
+msgstr "您在子项中的权限级别不足，无法设置该状态"
 
 #: src/spaces/SelectExistingRoomDialog.qml:171
 #, kde-format
@@ -7242,14 +7244,14 @@ msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr ""
+msgstr "将该空间设为规范父空间"
 
 #: src/spaces/SelectExistingRoomDialog.qml:172
 #, kde-format
 msgctxt "@info:description"
 msgid ""
 "The canonical parent is the default one if a room has multiple parent spaces."
-msgstr ""
+msgstr "若房间属于多个空间，则规范父空间将是默认选择"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
@@ -7261,7 +7263,7 @@ msgstr "建议"
 msgctxt "number of room members"
 msgid "%1 member - "
 msgid_plural "%1 members - "
-msgstr[0] ""
+msgstr[0] "%1 位成员 - "
 
 #: src/spaces/SpaceHierarchyDelegate.qml:103
 #, kde-format
@@ -7280,55 +7282,55 @@ msgstr "添加新房间"
 #, kde-format
 msgctxt "@button"
 msgid "Remove…"
-msgstr ""
+msgstr "移除…"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Don't Suggest"
-msgstr ""
+msgstr "不推荐"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
-msgstr ""
+msgstr "设为推荐"
 
 #: src/spaces/SpaceHomePage.qml:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Room…"
-msgstr ""
+msgstr "新建聊天室…"
 
 #: src/spaces/SpaceHomePage.qml:40
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
-msgstr ""
+msgstr "新建空间…"
 
 #: src/spaces/SpaceHomePage.qml:46
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
-msgstr ""
+msgstr "现有的房间…"
 
 #: src/spaces/SpaceHomePage.qml:81
 #, kde-format
 msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
-msgstr ""
+msgstr "邀请加入空间…"
 
 #: src/spaces/SpaceHomePage.qml:93
 #, kde-format
 msgctxt "@button"
 msgid "Add to Space…"
-msgstr ""
+msgstr "添加到空间…"
 
 #: src/spaces/SpaceHomePage.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this Space…"
-msgstr ""
+msgstr "离开此空间"
 
 #: src/timeline/DelegateContextMenu.qml:163
 #, kde-format
@@ -7340,13 +7342,13 @@ msgstr "回复"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
-msgstr ""
+msgstr "主题内回复"
 
 #: src/timeline/DelegateContextMenu.qml:211
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
-msgstr ""
+msgstr "移除…"
 
 #: src/timeline/DelegateContextMenu.qml:216
 #: src/timeline/DelegateContextMenu.qml:223
@@ -7359,7 +7361,7 @@ msgstr "移除消息"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
-msgstr ""
+msgstr "（可选）请给出移除消息的理由"
 
 #: src/timeline/DelegateContextMenu.qml:218
 #, kde-format
@@ -7371,7 +7373,7 @@ msgstr "移除"
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr ""
+msgstr "转发…"
 
 #: src/timeline/DelegateContextMenu.qml:245
 #, kde-format
@@ -7383,19 +7385,19 @@ msgstr "转发消息"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr ""
+msgstr "打开图片"
 
 #: src/timeline/DelegateContextMenu.qml:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
-msgstr ""
+msgstr "打开音频"
 
 #: src/timeline/DelegateContextMenu.qml:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
-msgstr ""
+msgstr "打开视频"
 
 #: src/timeline/DelegateContextMenu.qml:265
 #, kde-format
@@ -7407,74 +7409,74 @@ msgstr "打开文件"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr ""
+msgstr "保存图像..."
 
 #: src/timeline/DelegateContextMenu.qml:280
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
-msgstr ""
+msgstr "保存音频…"
 
 #: src/timeline/DelegateContextMenu.qml:282
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
-msgstr ""
+msgstr "保存视频…"
 
 #: src/timeline/DelegateContextMenu.qml:284
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
-msgstr ""
+msgstr "保存文件…"
 
 #: src/timeline/DelegateContextMenu.qml:299
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr ""
+msgstr "复制图片"
 
 #: src/timeline/DelegateContextMenu.qml:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
-msgstr ""
+msgstr "复制音频"
 
 #: src/timeline/DelegateContextMenu.qml:303
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
-msgstr ""
+msgstr "复制视频"
 
 #: src/timeline/DelegateContextMenu.qml:305
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
-msgstr ""
+msgstr "复制文件"
 
 #: src/timeline/DelegateContextMenu.qml:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
-msgstr ""
+msgstr "复制链接地址"
 
 #: src/timeline/DelegateContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr ""
+msgstr "复制文本"
 
 #: src/timeline/DelegateContextMenu.qml:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr ""
+msgstr "复制消息链接"
 
 #: src/timeline/DelegateContextMenu.qml:337
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
-msgstr ""
+msgstr "举报…"
 
 #: src/timeline/DelegateContextMenu.qml:342
 #, kde-format
@@ -7486,7 +7488,7 @@ msgstr "举报消息"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
-msgstr ""
+msgstr "（可选）请给出举报消息的理由"
 
 #: src/timeline/DelegateContextMenu.qml:345
 #, kde-format
@@ -7511,43 +7513,43 @@ msgstr "搜索 '%1'"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
-msgstr ""
+msgstr "配置网页搜索缩略词…"
 
 #: src/timeline/DelegateContextMenu.qml:392
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "朗读文本"
 
 #: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 说：%2"
 
 #: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
-msgstr ""
+msgstr "取消置顶"
 
 #: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
-msgstr ""
+msgstr "置顶"
 
 #: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
-msgstr ""
+msgstr "取消选中消息"
 
 #: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
-msgstr ""
+msgstr "选择消息"
 
 #: src/timeline/DelegateContextMenu.qml:435
 #, kde-format
@@ -7565,7 +7567,7 @@ msgstr[0] "%1 位用户："
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
-msgstr ""
+msgstr "未知成员"
 
 #: src/timeline/models/readmarkermodel.cpp:122
 #, kde-format
@@ -7591,7 +7593,7 @@ msgstr "回应"
 #: src/timeline/QuickActions.qml:90
 #, kde-format
 msgid "Message menu"
-msgstr ""
+msgstr "消息菜单"
 
 #: src/timeline/ReadMarkerDelegate.qml:67
 #, kde-format
@@ -7603,7 +7605,7 @@ msgstr "上次查看：%1"
 #, kde-format
 msgctxt "@action:button Mark all messages up to now as read"
 msgid "Mark as Read"
-msgstr ""
+msgstr "标为已读"
 
 #: src/timeline/SuccessorDelegate.qml:26
 #, kde-format
@@ -7620,7 +7622,7 @@ msgstr "查看新聊天室..."
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
-msgstr ""
+msgstr "这是聊天的开始。在此之前没有更多的历史消息。"
 
 #: src/timeline/TimelineView.qml:240 src/timeline/TimelineView.qml:266
 #, kde-format
@@ -7632,13 +7634,13 @@ msgstr "跳转到第一条未读消息"
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
-msgstr ""
+msgstr "跳转到最早加载的消息"
 
 #: src/timeline/TimelineView.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
-msgstr ""
+msgstr "跳转到下一个未读高亮"
 
 #: src/timeline/TimelineView.qml:297
 #, kde-format
