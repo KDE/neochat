@@ -18,10 +18,8 @@
 #include "models/commonroomsmodel.h"
 #include "models/completionmodel.h"
 #include "models/completionproxymodel.h"
-#include "models/customemojimodel.h"
 #include "models/devicesmodel.h"
 #include "models/devicesproxymodel.h"
-#include "models/emojimodel.h"
 #include "models/emoticonfiltermodel.h"
 #include "models/eventmessagecontentmodel.h"
 #include "models/imagepacksmodel.h"
@@ -110,8 +108,6 @@ private Q_SLOTS:
     void testNotificationsModel();
     void testLocationsModel();
     void testServerListModel();
-    void testEmojiModel();
-    void testCustomEmojiModel();
     void testPushRuleModel();
     void testActionsModel();
     void testDevicesModel();
@@ -447,19 +443,6 @@ void ModelTest::testServerListModel()
     model->setConnection(connection);
 }
 
-void ModelTest::testEmojiModel()
-{
-    auto tester = new QAbstractItemModelTester(&EmojiModel::instance(), &EmojiModel::instance());
-    tester->setUseFetchMore(true);
-}
-
-void ModelTest::testCustomEmojiModel()
-{
-    auto tester = new QAbstractItemModelTester(&CustomEmojiModel::instance(), &CustomEmojiModel::instance());
-    tester->setUseFetchMore(true);
-    CustomEmojiModel::instance().setConnection(connection);
-}
-
 void ModelTest::testPushRuleModel()
 {
     auto model = new PushRuleModel(this);
@@ -614,7 +597,6 @@ void ModelTest::testCompletionProxyModel()
     auto model = new CompletionProxyModel(this);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    model->setSourceModel(&EmojiModel::instance());
 }
 
 QTEST_MAIN(ModelTest)

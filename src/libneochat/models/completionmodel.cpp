@@ -11,8 +11,8 @@
 #include "chattextitemhelper.h"
 #include "completionproxymodel.h"
 #include "models/actionsmodel.h"
-#include "models/customemojimodel.h"
-#include "models/emojimodel.h"
+// #include "models/customemojimodel.h"
+// #include "models/emojimodel.h"
 #include "models/roomlistmodel.h"
 #include "userfiltermodel.h"
 #include "userlistmodel.h"
@@ -23,8 +23,8 @@ CompletionModel::CompletionModel(QObject *parent)
     , m_filterModel(new CompletionProxyModel(this))
     , m_emojiModel(new QConcatenateTablesProxyModel(this))
 {
-    m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
-    m_emojiModel->addSourceModel(&EmojiModel::instance());
+    // m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
+    // m_emojiModel->addSourceModel(&EmojiModel::instance());
 }
 
 ChatTextItemHelper *CompletionModel::textItem() const
@@ -147,20 +147,20 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
             return u"https://matrix.to/#/%1"_s.arg(m_filterModel->data(filterIndex, RoomListModel::CanonicalAliasRole).toString());
         }
     }
-    if (m_autoCompletionType == Emoji) {
-        if (role == DisplayNameRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
-        }
-        if (role == IconNameRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::MxcUrl);
-        }
-        if (role == ReplacedTextRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
-        }
-        if (role == SubtitleRole) {
-            return m_filterModel->data(filterIndex, EmojiModel::DescriptionRole);
-        }
-    }
+    // if (m_autoCompletionType == Emoji) {
+    //     if (role == DisplayNameRole) {
+    //         return m_filterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
+    //     }
+    //     if (role == IconNameRole) {
+    //         return m_filterModel->data(filterIndex, CustomEmojiModel::MxcUrl);
+    //     }
+    //     if (role == ReplacedTextRole) {
+    //         return m_filterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
+    //     }
+    //     if (role == SubtitleRole) {
+    //         return m_filterModel->data(filterIndex, EmojiModel::DescriptionRole);
+    //     }
+    // }
 
     return {};
 }
@@ -224,7 +224,7 @@ void CompletionModel::updateCompletion()
         m_filterModel->setFullText(fullText);
         m_filterModel->setFilterText(text);
         m_filterModel->invalidate();
-    } else if (text.startsWith(QLatin1Char(':')) && text.size() > 1 && !text[1].isUpper()
+    } /*else if (text.startsWith(QLatin1Char(':')) && text.size() > 1 && !text[1].isUpper()
                && (fullText.indexOf(QLatin1Char(':'), 1) == -1
                    || (fullText.indexOf(QLatin1Char(' ')) != -1 && fullText.indexOf(QLatin1Char(':'), 1) > fullText.indexOf(QLatin1Char(' '), 1)))) {
         m_filterModel->setSourceModel(m_emojiModel);
@@ -234,7 +234,8 @@ void CompletionModel::updateCompletion()
         m_filterModel->setFullText(fullText);
         m_filterModel->setFilterText(text);
         m_filterModel->invalidate();
-    } else {
+    }*/
+    else {
         m_autoCompletionType = None;
     }
     beginResetModel();
