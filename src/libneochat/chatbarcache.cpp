@@ -239,6 +239,7 @@ void ChatBarCache::postMessage()
 
     const auto result = ActionsModel::handleAction(m_room, this);
     if (!result.second.has_value()) {
+        clearCache();
         return;
     }
 
