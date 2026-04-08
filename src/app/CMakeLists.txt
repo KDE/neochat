@@ -235,6 +235,7 @@ if(ANDROID)
     target_link_libraries(neochat PUBLIC Qt::Svg OpenSSL::SSL)
     kirigami_package_breeze_icons(ICONS
         "arrow-down-symbolic"
+        "arrow-down"
         "arrow-up-symbolic"
         "arrow-up-double-symbolic"
         "arrow-left-symbolic"
