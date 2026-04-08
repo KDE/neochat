@@ -16,11 +16,6 @@ Kirigami.SearchDialog {
     required property NeoChatConnection connection
     required property Kirigami.ApplicationWindow window
 
-    Shortcut {
-        sequence: "Ctrl+K"
-        onActivated: if (root.connection) root.open()
-    }
-
     onAccepted: if (currentItem) {
         (root.currentItem as RoomDelegate).clicked();
     }

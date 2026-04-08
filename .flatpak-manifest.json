@@ -55,6 +55,19 @@
             ]
         },
         {
+            "name": "kirigami-app-components",
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kirigami-app-components.git"
+                }
+            ]
+        },
+        {
             "name": "kquickimageeditor",
             "config-opts": [
                 "-DBUILD_WITH_QT6=ON",
