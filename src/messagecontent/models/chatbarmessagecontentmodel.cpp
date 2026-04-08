@@ -490,7 +490,7 @@ QVariantMap ChatBarMessageContentModel::attributesForFile(const QUrl &path)
         {"filename"_L1, path.fileName()},
         {"source"_L1, path},
         {"animated"_L1, false},
-        {"mimeIcon"_L1, mime.name()},
+        {"mimeIcon"_L1, mime.iconName()},
         {"size"_L1, fileInfo.size()},
     };
 }
