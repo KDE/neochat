@@ -45,6 +45,19 @@
             ]
         },
         {
+            "name": "kirigami-app-components",
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kirigami-app-components.git"
+                }
+            ]
+        },
+        {
             "name": "opencv",
             "config-opts": [
                 "-DBUILD_TESTS=OFF",

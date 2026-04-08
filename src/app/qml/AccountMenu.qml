@@ -9,6 +9,7 @@ import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.kirigami.actioncollection as AC
 
 import org.kde.neochat
 import org.kde.neochat.settings
@@ -100,9 +101,8 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Switch Account")
-        icon.name: "system-switch-user"
-        shortcut: "Ctrl+U"
+        AC.ActionCollection.collection: "org.kde.neochat"
+        AC.ActionCollection.action: "open_accountswitcher"
         onTriggered: (Qt.createComponent("org.kde.neochat", "AccountSwitchDialog").createObject(QQC2.Overlay.overlay, {
             connection: root.connection
         }) as Kirigami.Dialog).open();

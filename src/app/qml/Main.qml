@@ -5,6 +5,7 @@
 import QtQuick
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigami.actioncollection as AC
 import org.kde.config as KConfig
 
 import org.kde.neochat
@@ -22,6 +23,22 @@ Kirigami.ApplicationWindow {
     readonly property QuickSwitcher quickSwitcher: QuickSwitcher {
         connection: root.connection
         window: root
+    }
+
+
+    ActionCollectionManager {
+        pageRow: root.pageRow
+    }
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.neochat"
+        AC.ActionCollection.action: "open_quickswitcher"
+        onTriggered: if (root.connection) quickSwitcher.open()
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.globalactions"
+        AC.ActionCollection.action: "KeyBindings"
+        onTriggered: NeoChatSettingsView.openWithInitialProperties("keyboardShortcuts")
     }
 
     title: {
@@ -236,30 +253,34 @@ Kirigami.ApplicationWindow {
 
             connection: root.connection
 
-            Shortcut {
-                sequences: ["Ctrl+PgUp", "Ctrl+Backtab", "Alt+Up"]
-                onActivated: {
+            Kirigami.Action {
+                AC.ActionCollection.collection: "org.kde.neochat"
+                AC.ActionCollection.action: "go_previous_room"
+                onTriggered: {
                     roomList.goToPreviousRoom();
                 }
             }
 
-            Shortcut {
-                sequences: ["Ctrl+PgDown", "Ctrl+Tab", "Alt+Down"]
-                onActivated: {
+            Kirigami.Action {
+                AC.ActionCollection.collection: "org.kde.neochat"
+                AC.ActionCollection.action: "go_next_room"
+                onTriggered: {
                     roomList.goToNextRoom();
                 }
             }
 
-            Shortcut {
-                sequence: "Alt+Shift+Up"
-                onActivated: {
+            Kirigami.Action {
+                AC.ActionCollection.collection: "org.kde.neochat"
+                AC.ActionCollection.action: "go_previous_unread_room"
+                onTriggered: {
                     roomList.goToPreviousUnreadRoom();
                 }
             }
 
-            Shortcut {
-                sequence: "Alt+Shift+Down"
-                onActivated: {
+            Kirigami.Action {
+                AC.ActionCollection.collection: "org.kde.neochat"
+                AC.ActionCollection.action: "go_next_unread_room"
+                onTriggered: {
                     roomList.goToNextUnreadRoom();
                 }
             }

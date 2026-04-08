@@ -101,7 +101,7 @@ KirigamiSettings.ConfigurationView {
             moduleId: "keyboardShortcuts"
             text: i18n("Keyboard Shortcuts")
             icon.name: "input-keyboard-symbolic"
-            page: () => Qt.createComponent("org.kde.neochat.settings", "KeyboardShortcutsPage")
+            page: () => Qt.createComponent("org.kde.kirigami.actioncollection", "ShortcutsEditor")
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutNeochat"
