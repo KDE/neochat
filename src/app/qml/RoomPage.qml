@@ -10,6 +10,7 @@ import QtQuick.Window
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigami.actioncollection as AC
 
 import org.kde.neochat
 
@@ -135,7 +136,8 @@ Kirigami.Page {
 
     Kirigami.Action {
         enabled: root.currentRoom && !root.currentRoom.isSpace
-        shortcut: "Ctrl+F"
+        AC.ActionCollection.collection: "org.kde.neochat"
+        AC.ActionCollection.action: "search_messages"
         onTriggered: {
             ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
                 room: root.currentRoom
