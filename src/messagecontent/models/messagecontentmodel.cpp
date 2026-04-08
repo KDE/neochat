@@ -339,6 +339,9 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
         return MessageComponent{MessageComponentType::LinkPreview, QString(), {{"link"_L1, link}}};
     }
     connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
+        if (!m_room) {
+            return;
+        }
         const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
 
         if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
