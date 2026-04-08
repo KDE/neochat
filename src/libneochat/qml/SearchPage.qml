@@ -214,7 +214,7 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             id: noSearchMessage
             icon.name: "search"
-            anchors.centerIn: parent
+            anchors.fill: parent
             visible: searchField.text.length === 0 && listView.count === 0 && !root.model.searching && customPlaceholder.text.length === 0
             helpfulAction: root.noSearchHelpfulAction
         }
@@ -222,20 +222,20 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             id: noResultMessage
             icon.name: "search"
-            anchors.centerIn: parent
+            anchors.fill: parent
             visible: searchField.text.length > 0 && listView.count === 0 && (!root.model.searching && !searchTimer.running) && customPlaceholder.text.length === 0
             helpfulAction: root.noResultHelpfulAction
         }
 
         Kirigami.PlaceholderMessage {
             id: customPlaceholder
-            anchors.centerIn: parent
+            anchors.fill: parent
             visible: listView.count === 0 && !root.model.searching && text.length > 0
             icon.name: root.customPlaceholderIcon
         }
 
         Kirigami.LoadingPlaceholder {
-            anchors.centerIn: parent
+            anchors.fill: parent
             visible: listView.count === 0 && (root.model.searching || searchTimer.running)
         }
 
