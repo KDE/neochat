@@ -25,7 +25,7 @@ Kirigami.Dialog {
     standardButtons: QQC2.Dialog.Cancel
 
     onAccepted: {
-        root.connection.createRoom(roomNameField.text, "", root.parentId, false);
+        root.connection.createRoom(roomNameField.text, "", root.parentId, false, privateTypeDelegate.checked, roomAddressField.text);
         root.newChild(roomNameField.text);
     }
 
@@ -34,9 +34,6 @@ Kirigami.Dialog {
             icon.name: "list-add-symbolic"
             text: i18nc("@action:button Create new room", "Create")
             enabled: roomNameField.text.length > 0
-
-            onClicked: root.accept()
-
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
     }
