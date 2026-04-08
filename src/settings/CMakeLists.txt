@@ -50,7 +50,6 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         RoomSortParameterDialog.qml
         RoomProfile.qml
         RoomAdvancedPage.qml
-        KeyboardShortcutsPage.qml
         Members.qml
     SOURCES
         colorschemer.cpp
