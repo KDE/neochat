@@ -7,6 +7,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigami.actioncollection as AC
 
 import org.kde.neochat
 
@@ -15,11 +16,6 @@ Kirigami.SearchDialog {
 
     required property NeoChatConnection connection
     required property Kirigami.ApplicationWindow window
-
-    Shortcut {
-        sequence: "Ctrl+K"
-        onActivated: if (root.connection) root.open()
-    }
 
     onAccepted: if (currentItem) {
         (root.currentItem as RoomDelegate).clicked();
