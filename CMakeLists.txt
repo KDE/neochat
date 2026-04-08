@@ -66,7 +66,7 @@ if (QT_KNOWN_POLICY_QTP0004)
 qt_policy(SET QTP0004 NEW)
 endif ()
 
-find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons ItemModels ColorScheme IconThemes Crash)
+find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons ItemModels ColorScheme IconThemes Crash KirigamiAppComponents)
 set_package_properties(KF6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"

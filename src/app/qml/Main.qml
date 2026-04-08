@@ -5,6 +5,7 @@
 import QtQuick
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigami.actioncollection as AC
 import org.kde.config as KConfig
 
 import org.kde.neochat
@@ -20,6 +21,84 @@ Kirigami.ApplicationWindow {
     readonly property QuickSwitcher quickSwitcher: QuickSwitcher {
         connection: root.connection
         window: root
+    }
+
+
+    ActionCollectionManager {
+        pageRow: root.pageStack
+    }
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.neochat"
+        AC.ActionCollection.action: "open_quickswitcher"
+        onTriggered: if (root.connection) quickSwitcher.open()
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.globalactions"
+        AC.ActionCollection.action: "Donate"
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.action: "ReportBug"
+        AC.ActionCollection.collection: "org.kde.globalactions"
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.action: "FindAction"
+        AC.ActionCollection.collection: "org.kde.globalactions"
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.globalactions"
+        AC.ActionCollection.action: "KeyBindings"
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.neochat"
+        AC.ActionCollection.action: "go_previous_room"
+        onTriggered: {
+            roomList.goToPreviousRoom();
+        }
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.neochat"
+        AC.ActionCollection.action: "go_next_room"
+        onTriggered: {
+            roomList.goToNextRoom();
+        }
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.neochat"
+        AC.ActionCollection.action: "go_previous_unread_room"
+        onTriggered: {
+            roomList.goToPreviousUnreadRoom();
+        }
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.collection: "org.kde.neochat"
+        AC.ActionCollection.action: "go_next_unread_room"
+        onTriggered: {
+            roomList.goToNextUnreadRoom();
+        }
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.action: "Preferences"
+        AC.ActionCollection.collection: "org.kde.globalactions"
+        onTriggered: NeoChatSettingsView.open()
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.action: "AboutApp"
+        AC.ActionCollection.collection: "org.kde.globalactions"
+    }
+
+    Kirigami.Action {
+        AC.ActionCollection.action: "AboutKDE"
+        AC.ActionCollection.collection: "org.kde.globalactions"
     }
 
     title: {
@@ -239,34 +318,6 @@ Kirigami.ApplicationWindow {
         onSearch: root.quickSwitcher.open()
 
         connection: root.connection
-
-        Shortcut {
-            sequences: ["Ctrl+PgUp", "Ctrl+Backtab", "Alt+Up"]
-            onActivated: {
-                roomList.goToPreviousRoom();
-            }
-        }
-
-        Shortcut {
-            sequences: ["Ctrl+PgDown", "Ctrl+Tab", "Alt+Down"]
-            onActivated: {
-                roomList.goToNextRoom();
-            }
-        }
-
-        Shortcut {
-            sequence: "Alt+Shift+Up"
-            onActivated: {
-                roomList.goToPreviousUnreadRoom();
-            }
-        }
-
-        Shortcut {
-            sequence: "Alt+Shift+Down"
-            onActivated: {
-                roomList.goToNextUnreadRoom();
-            }
-        }
     }
 
     Connections {
