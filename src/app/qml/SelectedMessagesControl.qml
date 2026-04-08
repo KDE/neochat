@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
+import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 
@@ -30,7 +31,8 @@ Kirigami.InlineMessage {
             icon.name: "edit-copy"
             onTriggered: {
                 Clipboard.saveText(root.messageModel.getFormattedSelectedMessages())
-                showPassiveNotification(i18nc("@info", "Conversation copied to clipboard"));
+                let window = (root.QQC2.ApplicationWindow.window as Main)
+                window.showPassiveNotification(i18nc("@info", "Conversation copied to clipboard"));
             }
         },
         Kirigami.Action {
@@ -39,7 +41,7 @@ Kirigami.InlineMessage {
             icon.color: Kirigami.Theme.negativeTextColor
             enabled: root.messageModel?.canDeleteSelectedMessages
             onTriggered: {
-                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                     title: i18nc("@title:dialog", "Remove Messages"),
                     placeholder: i18nc("@info:placeholder", "Optionally give a reason for removing these messages"),
                     actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),

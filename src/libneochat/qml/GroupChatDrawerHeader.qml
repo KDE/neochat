@@ -45,7 +45,7 @@ ColumnLayout {
             source: root.room ? root.room.avatarMediaUrl : ""
 
             Rectangle {
-                visible: room.usesEncryption
+                visible: root.room.usesEncryption
                 color: Kirigami.Theme.backgroundColor
 
                 width: Kirigami.Units.gridUnit
@@ -103,7 +103,7 @@ ColumnLayout {
                     title: root.room ? root.room.displayName : "",
                     subtitle: root.room ? root.room.id : "",
                     avatarSource: root.room ? root.room.avatarMediaUrl : ""
-                });
+                }) as QrCodeMaximizeComponent;
                 map.open();
             }
 

@@ -170,6 +170,7 @@ DelegateChooser {
         roleValue: Blocks.Verification
         delegate: MimeComponent {
             mimeIconSource: "security-high"
+            required property var model
             label: i18n("%1 started a user verification", model.author.htmlSafeDisplayName)
         }
     }
