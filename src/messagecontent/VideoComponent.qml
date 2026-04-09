@@ -210,7 +210,7 @@ Video {
         anchors.fill: parent
 
         visible: false
-        color: "#BB000000"
+        color: "#BBBBBB"
 
         QQC2.Button {
             anchors.centerIn: parent
