@@ -26,9 +26,9 @@ class NeoChatDateTime
     Q_PROPERTY(QDateTime dateTime READ dateTime CONSTANT)
 
     /**
-     * @brief The time formatted as "hh:mm".
+     * @brief The time formatted as per QLocale::ShortFormat for your locale.
      */
-    Q_PROPERTY(QString hourMinuteString READ hourMinuteString CONSTANT)
+    Q_PROPERTY(QString shortTime READ shortTime CONSTANT)
 
     /**
      * @brief The date and time formatted as per QLocale::ShortFormat for your locale.
@@ -100,7 +100,7 @@ public:
 
     QDateTime dateTime() const;
 
-    QString hourMinuteString() const;
+    QString shortTime() const;
     QString shortDateTime() const;
     QString longDateTime() const;
     QString relativeDate() const;
