@@ -31,9 +31,9 @@ class ProfileFieldsHelper : public QObject
     Q_PROPERTY(QString userId READ userId WRITE setUserId NOTIFY userIdChanged REQUIRED)
 
     /**
-     * @brief The timezone field of the user.
+     * @brief A displayable local time field of the user.
      */
-    Q_PROPERTY(QString timezone READ timezone NOTIFY timezoneChanged)
+    Q_PROPERTY(QString localTime READ localTime NOTIFY localTimeChanged)
 
     /**
      * @brief If the fields are loading.
@@ -47,14 +47,14 @@ public:
     [[nodiscard]] QString userId() const;
     void setUserId(const QString &id);
 
-    [[nodiscard]] QString timezone() const;
+    [[nodiscard]] QString localTime() const;
 
     [[nodiscard]] bool loading() const;
 
 Q_SIGNALS:
     void connectionChanged();
     void userIdChanged();
-    void timezoneChanged();
+    void localTimeChanged();
     void loadingChanged();
 
 private:

@@ -5,7 +5,7 @@
 #include "jobs/neochatprofilefieldjobs.h"
 #include "neochatconnection.h"
 
-#include <Quotient/csapi/profile.h>
+#include <KLocalizedString>
 
 using namespace Quotient;
 
@@ -37,12 +37,22 @@ void ProfileFieldsHelper::setUserId(const QString &id)
     }
 }
 
-QString ProfileFieldsHelper::timezone() const
+QString ProfileFieldsHelper::localTime() const
 {
     if (m_timezone.isEmpty()) {
         return {};
     }
-    return QTimeZone(m_timezone.toUtf8()).displayName(QTimeZone::GenericTime);
+    const QTimeZone timeZone(m_timezone.toUtf8());
+    const QString localTime = QDateTime::currentDateTime(timeZone).time().toString(QLocale::system().timeFormat(QLocale::ShortFormat));
+
+    QTimeZone::TimeType timeType = QTimeZone::StandardTime;
+    if (timeZone.hasDaylightTime() && timeZone.isDaylightTime(QDateTime::currentDateTime(timeZone))) {
+        timeType = QTimeZone::DaylightTime;
+    }
+
+    const QString timeZoneName = timeZone.displayName(timeType);
+
+    return i18nc("@info:label Local time (timezone offset)", "%1 (%2)", localTime, timeZoneName);
 }
 
 bool ProfileFieldsHelper::loading() const
@@ -67,7 +77,7 @@ void ProfileFieldsHelper::load()
         .then(
             [this](const auto &job) {
                 m_timezone = job->value();
-                Q_EMIT timezoneChanged();
+                Q_EMIT localTimeChanged();
                 m_fetchedTimezone = true;
                 checkIfFinished();
             },
