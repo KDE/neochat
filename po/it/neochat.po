@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-07 00:44+0000\n"
-"PO-Revision-Date: 2026-03-16 08:14+0100\n"
+"POT-Creation-Date: 2026-04-09 00:44+0000\n"
+"PO-Revision-Date: 2026-04-07 14:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -992,45 +992,45 @@ msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
 msgstr "Visto da"
 
-#: src/app/qml/SelectedMessagesControl.qml:25
+#: src/app/qml/SelectedMessagesControl.qml:26
 #, kde-format
 msgctxt "@info"
 msgid "Selected Messages: %1"
 msgstr "Messaggi selezionati: %1"
 
-#: src/app/qml/SelectedMessagesControl.qml:29
+#: src/app/qml/SelectedMessagesControl.qml:30
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
 msgstr "Copia conversazione"
 
-#: src/app/qml/SelectedMessagesControl.qml:33
+#: src/app/qml/SelectedMessagesControl.qml:35
 #, kde-format
 msgctxt "@info"
 msgid "Conversation copied to clipboard"
 msgstr "Conversazione copiata negli appunti"
 
-#: src/app/qml/SelectedMessagesControl.qml:37
+#: src/app/qml/SelectedMessagesControl.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Messages"
 msgstr "Elimina messaggi"
 
-#: src/app/qml/SelectedMessagesControl.qml:43
-#: src/app/qml/SelectedMessagesControl.qml:49
+#: src/app/qml/SelectedMessagesControl.qml:45
+#: src/app/qml/SelectedMessagesControl.qml:51
 #: src/app/qml/UserDetailDialog.qml:336
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Rimuovi i messaggi"
 
-#: src/app/qml/SelectedMessagesControl.qml:44
+#: src/app/qml/SelectedMessagesControl.qml:46
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
 msgstr "Facoltativamente, indica un motivo per la rimozione di questi messaggi"
 
-#: src/app/qml/SelectedMessagesControl.qml:45
+#: src/app/qml/SelectedMessagesControl.qml:47
 #: src/app/qml/UserDetailDialog.qml:338
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
@@ -1411,12 +1411,10 @@ msgid "Set Power Level"
 msgstr "Imposta il livello di potere"
 
 #: src/app/qml/UserDetailDialog.qml:407
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Timeline"
+#, kde-format
 msgctxt "@title The user's timezone"
 msgid "Timezone"
-msgstr "Linea temporale"
+msgstr "Fuso orario"
 
 #: src/app/qml/UserDetailDialog.qml:434
 #, kde-format
@@ -2272,13 +2270,11 @@ msgid "Room Id: %1"
 msgstr "ID stanza: %1"
 
 #: src/devtools/RoomData.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt ""
 "@option:check Toggle for whether this room is considered a direct chat or not"
 msgid "Direct Chat"
-msgstr "Avvia chat"
+msgstr "Chat diretta"
 
 #: src/devtools/RoomData.qml:60
 #, kde-format
@@ -3546,7 +3542,7 @@ msgstr "I propri emoji"
 #, kde-format
 msgctxt "@item:inlistbox Prefer not to say which timezone im in"
 msgid "Prefer not to say"
-msgstr ""
+msgstr "Preferisco non dirlo"
 
 #: src/libneochat/models/userlistmodel.cpp:102
 #, kde-format
@@ -3569,12 +3565,12 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nessun server delle identità configurato"
 
-#: src/libneochat/neochatconnection.cpp:376
+#: src/libneochat/neochatconnection.cpp:389
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creazione della stanza non riuscita: %1"
 
-#: src/libneochat/neochatconnection.cpp:405
+#: src/libneochat/neochatconnection.cpp:418
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
@@ -3602,49 +3598,49 @@ msgctxt "@action:button Create new room"
 msgid "Create"
 msgstr "Crea"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:51
+#: src/libneochat/qml/CreateRoomDialog.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
 msgstr "Privato"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:52
+#: src/libneochat/qml/CreateRoomDialog.qml:49
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
 msgstr "È possibile entrare in questa stanza solo tramite invito."
 
-#: src/libneochat/qml/CreateRoomDialog.qml:58
+#: src/libneochat/qml/CreateRoomDialog.qml:55
 #, kde-format
 msgctxt "@info:label"
 msgid "Public"
 msgstr "Pubblica"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:59
+#: src/libneochat/qml/CreateRoomDialog.qml:56
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
 msgstr "Chiunque può trovare e unirsi a questa stanza."
 
-#: src/libneochat/qml/CreateRoomDialog.qml:66
+#: src/libneochat/qml/CreateRoomDialog.qml:63
 #, kde-format
 msgctxt "@info:label Name of the room"
 msgid "Name:"
 msgstr "Nome:"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:67
+#: src/libneochat/qml/CreateRoomDialog.qml:64
 #, kde-format
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
 msgstr "Nuova stanza"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:72
+#: src/libneochat/qml/CreateRoomDialog.qml:69
 #, kde-format
 msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
 msgstr "Indirizzo:"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:73
+#: src/libneochat/qml/CreateRoomDialog.qml:70
 #, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
@@ -3929,29 +3925,25 @@ msgid "The passwords do not match."
 msgstr "Le password non corrispondono."
 
 #: src/login/registration.cpp:393
-#, fuzzy, kde-format
-#| msgid "No server."
+#, kde-format
 msgctxt "@info"
 msgid "No server."
 msgstr "Nessun server."
 
 #: src/login/registration.cpp:395
-#, fuzzy, kde-format
-#| msgid "Checking Server availability."
+#, kde-format
 msgctxt "@info"
 msgid "Checking Server availability."
 msgstr "Verifica della disponibilità del server."
 
 #: src/login/registration.cpp:397
-#, fuzzy, kde-format
-#| msgid "This is not a valid server."
+#, kde-format
 msgctxt "@info"
 msgid "This is not a valid server."
 msgstr "Questo non è un server valido."
 
 #: src/login/registration.cpp:399
-#, fuzzy, kde-format
-#| msgid "Registration for this server is disabled."
+#, kde-format
 msgctxt "@info"
 msgid "Registration for this server is disabled."
 msgstr "La registrazione per questo server è disabilitata."
@@ -3975,54 +3967,46 @@ msgid "This is not a valid registration token."
 msgstr "Questo non è un token di registrazione valido."
 
 #: src/login/registration.cpp:407
-#, fuzzy, kde-format
-#| msgid "No username."
+#, kde-format
 msgctxt "@info"
 msgid "No username."
 msgstr "Nessun nome utente."
 
 #: src/login/registration.cpp:409
-#, fuzzy, kde-format
-#| msgid "Checking username availability."
+#, kde-format
 msgctxt "@info"
 msgid "Checking username availability."
 msgstr "Verifica della disponibilità del nome utente."
 
 #: src/login/registration.cpp:411
-#, fuzzy, kde-format
-#| msgid "This username is not available."
+#, kde-format
 msgctxt "@info"
 msgid "This username is not available."
 msgstr "Il nome utente non è disponibile."
 
 #: src/login/registration.cpp:413
-#, fuzzy, kde-format
-#| msgid "Continue"
+#, kde-format
 msgctxt "@info"
 msgid "Continue"
 msgstr "Continua"
 
 #: src/login/registration.cpp:415
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgctxt "@info"
 msgid "Working"
 msgstr "Attivo"
 
 #: src/login/registration.cpp:417
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid registration token"
+#, kde-format
 msgctxt "@info"
 msgid "Checking registration token."
-msgstr "Token di registrazione non valido"
+msgstr "Controllo del token di registrazione."
 
 #: src/login/registration.cpp:419
-#, fuzzy, kde-format
-#| msgid "Continue the login process in your browser."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for login confirmation in your browser."
-msgstr "Continua la procedura di accesso nel tuo browser."
+msgstr "In attesa della conferma di accesso nel browser."
 
 #: src/login/RegistrationToken.qml:20
 #, kde-format
@@ -4111,7 +4095,7 @@ msgctxt "@action:button"
 msgid "Go Back"
 msgstr "Vai indietro"
 
-#: src/messagecontent/BaseBlockChooser.qml:173
+#: src/messagecontent/BaseBlockChooser.qml:174
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 ha iniziato una verifica utente"
@@ -4639,16 +4623,13 @@ msgid "Find messages…"
 msgstr "Trova messaggi..."
 
 #: src/roominfo/RoomSearchPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter text to start searching for users"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching %1's messages"
-msgstr "Digita del testo per iniziare la ricerca degli utenti"
+msgstr "Digita del testo per iniziare la ricerca dei messaggi di %1"
 
 #: src/roominfo/RoomSearchPage.qml:59
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching"
 msgstr "Digita del testo per iniziare la ricerca"
@@ -5104,12 +5085,10 @@ msgid "Copy user ID to clipboard"
 msgstr "Copia l'ID utente negli appunti"
 
 #: src/settings/AccountEditorPage.qml:142
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Timeline"
+#, kde-format
 msgctxt "@label:combobox"
 msgid "Timezone:"
-msgstr "Linea temporale"
+msgstr "Fuso orario:"
 
 #: src/settings/AccountEditorPage.qml:160
 #, kde-format
@@ -5179,9 +5158,7 @@ msgid "Account Management"
 msgstr "Gestione degli account"
 
 #: src/settings/AccountEditorPage.qml:268
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Manage Account"
+#, kde-format
 msgctxt "@info"
 msgid "Manage Account"
 msgstr "Gestisci account"
@@ -6382,12 +6359,10 @@ msgid "Send typing notifications"
 msgstr "Invia le notifiche di digitazione"
 
 #: src/settings/NeoChatSecurityPage.qml:76
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Send reactions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Send read receipts"
-msgstr "Invia le reazioni"
+msgstr "Invia le conferme di lettura"
 
 #: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
@@ -6798,12 +6773,10 @@ msgid "Upgrade Room…"
 msgstr "Aggiorna stanza…"
 
 #: src/settings/RoomAdvancedPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt "The person that created a room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Creators"
-msgstr "Creatore"
+msgstr "Creatori della stanza"
 
 #: src/settings/RoomAdvancedPage.qml:103
 #, kde-format
@@ -7600,12 +7573,10 @@ msgid "Leave this Space…"
 msgstr "Abbandona questo spazio…"
 
 #: src/timeline/DelegateContextMenu.qml:152
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Pick Room"
+#, kde-format
 msgctxt "@info:tooltip Pick specific emoji for a reaction"
 msgid "Pick Reaction"
-msgstr "Scegli la stanza"
+msgstr "Scegli la reazione"
 
 #: src/timeline/DelegateContextMenu.qml:194
 #, kde-format
