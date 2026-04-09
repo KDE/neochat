@@ -406,7 +406,7 @@ Kirigami.Dialog {
         Kirigami.Heading {
             text: i18nc("@title The user's timezone", "Timezone")
             level: 2
-            visible: root.connection.supportsProfileFields ? root.profileFieldsHelper.loading || root.profileFieldsHelper.timezone.length > 0 : false
+            visible: root.connection.supportsProfileFields ? root.profileFieldsHelper.loading || root.profileFieldsHelper.localTime.length > 0 : false
 
             Layout.topMargin: Kirigami.Units.largeSpacing
         }
@@ -423,8 +423,8 @@ Kirigami.Dialog {
 
             Kirigami.Chip {
                 id: timezoneChip
-                visible: !root.profileFieldsHelper.loading && root.profileFieldsHelper.timezone.length > 0
-                text: root.profileFieldsHelper.timezone
+                visible: !root.profileFieldsHelper.loading && root.profileFieldsHelper.localTime.length > 0
+                text: root.profileFieldsHelper.localTime
                 closable: false
                 checkable: false
             }
