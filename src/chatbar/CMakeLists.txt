@@ -26,6 +26,8 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
     SOURCES
         chatbuttonhelper.cpp
         styledelegatehelper.cpp
+    IMPORTS
+        org.kde.kemoji
 )
 
 target_include_directories(Chatbar PRIVATE ${CMAKE_BINARY_DIR})

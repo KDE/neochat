@@ -128,6 +128,7 @@ ecm_find_qmlmodule(org.kde.quickcharts 1.0)
 ecm_find_qmlmodule(QtLocation)
 ecm_find_qmlmodule(org.kde.prison)
 ecm_find_qmlmodule(org.kde.sonnet 1.0)
+ecm_find_qmlmodule(org.kde.kemoji 1.0)
 
 find_package(KQuickImageEditor COMPONENTS)
 set_package_properties(KQuickImageEditor PROPERTIES
