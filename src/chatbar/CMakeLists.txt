@@ -31,6 +31,8 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         completionlist.cpp
         completionproxymodel.cpp
         styledelegatehelper.cpp
+    IMPORTS
+        org.kde.kemoji
 )
 
 ecm_qt_declare_logging_category(LibNeoChat
