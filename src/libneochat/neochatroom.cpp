@@ -1181,7 +1181,18 @@ void NeoChatRoom::loadPinnedMessage()
                     event = std::move(decryptedMessage);
                 }
             }
-            m_pinnedMessage = EventHandler::richBody(this, event.get());
+            QString body = EventHandler::richBody(this, event.get());
+
+            // Cut off body at the first newline or break
+            const auto indexOfFirstNewline = body.indexOf(QLatin1Char('\n'));
+            const auto indexOfFirstBreak = body.indexOf(QLatin1String("<br>"));
+            const auto index = std::min(indexOfFirstBreak, indexOfFirstNewline);
+
+            if (index != -1) {
+                body.resize(index);
+            }
+
+            m_pinnedMessage = body;
             Q_EMIT pinnedMessageChanged();
         });
     }
