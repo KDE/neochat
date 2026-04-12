@@ -328,7 +328,13 @@ if(ANDROID)
         "user-symbolic"
         "mark-location-symbolic"
         "amarok_playcount"
-
+        "dialog-messages"
+        "link-symbolic"
+        "search-symbolic"
+        "audio-speakers-symbolic"
+        "window-unpin-symbolic"
+        "edit-select-all-symbolic"
+        "mail-unread-symbolic"
         ${KIRIGAMI_ADDONS_ICONS}
     )
     ecm_add_android_apk(neochat-app ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
