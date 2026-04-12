@@ -2040,4 +2040,14 @@ bool NeoChatRoom::isLowerEffectivePowerLevelThanLocalUser(const QString &userId)
     return powerLevelsEvent->powerLevelForUser(userId) < powerLevelsEvent->powerLevelForUser(localMember().id());
 }
 
+QString NeoChatRoom::forwardMessage(NeoChatRoom *targetRoom, const QString &eventId)
+{
+    const RoomEvent *event = findEvent(eventId);
+    if (!event) {
+        return {};
+    }
+
+    return targetRoom->postJson(event->matrixType(), event->contentJson());
+}
+
 #include "moc_neochatroom.cpp"

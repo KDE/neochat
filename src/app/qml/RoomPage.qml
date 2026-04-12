@@ -372,7 +372,7 @@ Kirigami.Page {
 
         property DelegateContextMenu currentMenu: null
 
-        function onShowDelegateMenu(parent: QtObject, room: NeoChatRoom, eventId: string, author, blockType, plainText: string, richText: string, mimeType: string, progressInfo, selectedText: string, hoveredLink: string, messageModel) {
+        function onShowDelegateMenu(parent: QtObject, room: NeoChatRoom, eventId: string, author, blockType, plainText: string, richText: string, mimeType: string, matrixType: string, progressInfo, selectedText: string, hoveredLink: string, messageModel) {
             if (currentMenu) {
                 return;
             }
@@ -382,6 +382,7 @@ Kirigami.Page {
                 eventId: eventId,
                 plainText: plainText,
                 mimeType: mimeType,
+                matrixType: matrixType,
                 progressInfo: progressInfo,
                 blockType: blockType,
                 selectedText,

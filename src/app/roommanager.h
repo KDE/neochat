@@ -321,6 +321,7 @@ Q_SIGNALS:
                           const QString &plainText,
                           const QString &richtText,
                           const QString &mimeType,
+                          const QString &eventMatrixType,
                           const Quotient::FileTransferInfo &progressInfo,
                           const QString &selectedText,
                           const QString &hoveredLink,
