@@ -2108,4 +2108,14 @@ QList<QString> NeoChatRoom::allowIds() const
 }
 #endif
 
+QString NeoChatRoom::forwardMessage(NeoChatRoom *targetRoom, const QString &eventId)
+{
+    const RoomEvent *event = findEvent(eventId);
+    if (!event) {
+        return {};
+    }
+
+    return targetRoom->postJson(event->matrixType(), event->contentJson());
+}
+
 #include "moc_neochatroom.cpp"

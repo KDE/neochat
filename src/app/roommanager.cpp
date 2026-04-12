@@ -325,6 +325,7 @@ void RoomManager::viewEventMenu(QObject *parent, const RoomEvent *event, NeoChat
                             EventHandler::plainBody(room, event),
                             EventHandler::richBody(room, event),
                             EventHandler::mediaInfo(room, event)["mimeType"_L1].toString(),
+                            event->matrixType(),
                             room->fileTransferInfo(event->id()),
                             selectedText,
                             hoveredLink);

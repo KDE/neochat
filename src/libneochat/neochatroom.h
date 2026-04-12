@@ -769,6 +769,11 @@ public:
     QList<QString> allowIds() const;
 #endif
 
+    /**
+     * @brief A helper method that allowed cross-posting a message to another room by its event id.
+     */
+    Q_INVOKABLE QString forwardMessage(NeoChatRoom *targetRoom, const QString &eventId);
+
 private:
     bool m_visible = false;
 

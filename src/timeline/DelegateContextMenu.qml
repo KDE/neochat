@@ -91,6 +91,11 @@ KirigamiComponents.ConvergentContextMenu {
     property string mimeType
 
     /**
+     * @brief The "matrix type" of the event.
+     */
+    property string matrixType
+
+    /**
      * @brief Whether the event has file-based content. This includes images, videos, and other files
      */
     readonly property bool hasFileContent: mimeType.length > 0
@@ -235,7 +240,9 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        visible: root.messageComponentType !== MessageComponentType.Other
+        readonly property var disallowedMatrixTypes: ["org.matrix.msc3381.poll.start", "org.matrix.msc3381.poll.end"]
+
+        visible: root.messageComponentType !== MessageComponentType.Other && !disallowedMatrixTypes.includes(root.matrixType)
         text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
         icon.name: "mail-forward-symbolic"
         onTriggered: {
@@ -246,7 +253,7 @@ KirigamiComponents.ConvergentContextMenu {
                 width: Kirigami.Units.gridUnit * 25
             });
             page.chosen.connect(function (targetRoomId) {
-                root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText.length > 0 ? root.htmlText : root.plainText);
+                root.room.forwardMessage(root.connection.room(targetRoomId), root.eventId);
                 page.closeDialog();
             });
         }
