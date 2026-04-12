@@ -338,6 +338,13 @@ if(ANDROID)
         "input-keyboard-symbolic"
         "cloud-upload"
         "emblem-shared-symbolic"
+        "dialog-messages"
+        "link-symbolic"
+        "search-symbolic"
+        "audio-speakers-symbolic"
+        "window-unpin-symbolic"
+        "edit-select-all-symbolic"
+        "mail-unread-symbolic"
 
         ${KIRIGAMI_ADDONS_ICONS}
     )
