@@ -67,8 +67,8 @@ Components.AlbumMaximizeComponent {
         ShareAction {
             id: shareAction
             inputData: {
-                urls: [filename]
-                mimeType: [attachmentMimetype]
+                "urls": [filename],
+                "mimeType": [attachmentMimetype]
             }
             visible: Qt.platform.os !== "android"
             room: root.currentRoom
