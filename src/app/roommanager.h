@@ -314,7 +314,7 @@ Q_SIGNALS:
                           const NeochatRoomMember *author,
                           MessageComponentType::Type messageComponentType,
                           const QString &plainText,
-                          const QString &richtText,
+                          const QString &richText,
                           const QString &mimeType,
                           const QString &eventMatrixType,
                           const Quotient::FileTransferInfo &progressInfo,

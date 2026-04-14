@@ -4,6 +4,7 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
+import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 
@@ -22,7 +23,7 @@ SearchPage {
     modelDelegate: RoomDelegate {
         onClicked: {
             root.chosen(currentRoom.id);
-            root.closeDialog();
+            root.Kirigami.PageStack.closeDialog();
         }
         connection: root.connection
         openOnClick: false
