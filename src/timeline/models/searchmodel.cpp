@@ -17,30 +17,17 @@ QString SearchModel::searchText() const
 
 void SearchModel::setSearchText(const QString &searchText)
 {
+    if (m_searchText == searchText) {
+        return;
+    }
     m_searchText = searchText;
     Q_EMIT searchTextChanged();
 }
 
-void SearchModel::search()
+void SearchModel::runSearch(const QString &batch)
 {
     if (!m_room) {
         qWarning() << "SearchModel: No room";
-        return;
-    }
-
-    if (m_job) {
-        m_job->abandon();
-        m_job = nullptr;
-    }
-
-    // early-return case: the user sets the text to nothing, and we simply clear the results
-    if (m_searchText.isEmpty()) {
-        clearEventObjects();
-
-        beginResetModel();
-        m_nextBatch.clear();
-        m_results.clear();
-        endResetModel();
         return;
     }
 
@@ -67,11 +54,9 @@ void SearchModel::search()
         .groupings = std::nullopt,
     };
 
-    auto job = m_room->connection()->callApi<SearchJob>(SearchJob::Categories{criteria}, m_nextBatch);
+    auto job = m_room->connection()->callApi<SearchJob>(SearchJob::Categories{criteria}, batch);
     m_job = job;
     connect(job, &BaseJob::finished, this, [this, job] {
-        clearEventObjects();
-
         auto results = job->searchCategories().roomEvents;
         if (results.has_value()) {
             beginInsertRows({}, rowCount({}), rowCount({}) + int(results->results.size()) - 1);
@@ -92,10 +77,31 @@ void SearchModel::search()
     });
 }
 
+void SearchModel::search()
+{
+    clearEventObjects();
+
+    beginResetModel();
+    m_results.clear();
+    m_nextBatch.clear();
+    endResetModel();
+
+    if (m_job) {
+        m_job->abandon();
+        m_job = nullptr;
+    }
+
+    if (m_searchText.isEmpty()) {
+        return;
+    }
+
+    runSearch();
+}
+
 void SearchModel::fetchMore(const QModelIndex &parent)
 {
     Q_UNUSED(parent)
-    search();
+    runSearch(m_nextBatch);
 }
 
 bool SearchModel::canFetchMore(const QModelIndex &parent) const

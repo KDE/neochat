@@ -76,6 +76,8 @@ Q_SIGNALS:
 private:
     std::optional<std::reference_wrapper<const Quotient::RoomEvent>> getEventForIndex(QModelIndex index) const override;
 
+    void runSearch(const QString &batch = {});
+
     void setSearching(bool searching);
 
     QString m_searchText;
