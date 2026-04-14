@@ -117,7 +117,7 @@ KirigamiComponents.ConvergentContextMenu {
             Repeater {
                 model: EmojiModel.quickReactions
                 delegate: Delegates.RoundedItemDelegate {
-                    id: emojiDelegate
+                    id: qrEmojiDelegate
 
                     required property string shortName
                     required property string unicode
@@ -131,12 +131,12 @@ KirigamiComponents.ConvergentContextMenu {
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                     contentItem: Kirigami.Heading {
-                        id: emojiText
+                        id: qrEmojiText
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
 
                         font.family: "emoji"
-                        text: emojiDelegate.unicode
+                        text: qrEmojiDelegate.unicode
                     }
 
                     onClicked: {
@@ -285,7 +285,6 @@ KirigamiComponents.ConvergentContextMenu {
             });
             page.chosen.connect(function (targetRoomId) {
                 root.room.forwardMessage(root.connection.room(targetRoomId), root.eventId);
-                page.closeDialog();
             });
         }
     }

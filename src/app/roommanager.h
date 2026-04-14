@@ -319,7 +319,7 @@ Q_SIGNALS:
                           const NeochatRoomMember *author,
                           Blocks::Type blockType,
                           const QString &plainText,
-                          const QString &richtText,
+                          const QString &richText,
                           const QString &mimeType,
                           const QString &eventMatrixType,
                           const Quotient::FileTransferInfo &progressInfo,
