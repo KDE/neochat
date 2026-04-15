@@ -199,9 +199,11 @@ void PublicRoomListModel::next(int limit)
         if (job->status() == BaseJob::Success) {
             nextBatch = job->nextBatch();
 
-            this->beginInsertRows({}, rooms.count(), rooms.count() + job->chunk().count() - 1);
-            rooms.append(job->chunk());
-            this->endInsertRows();
+            if (!job->chunk().isEmpty()) {
+                this->beginInsertRows({}, rooms.count(), rooms.count() + job->chunk().count() - 1);
+                rooms.append(job->chunk());
+                this->endInsertRows();
+            }
         } else if (job->error() == BaseJob::ContentAccessError && !m_searchText.isEmpty()) {
             m_redirectedText = job->jsonData()[u"error"_s].toString();
             Q_EMIT redirectedChanged();
