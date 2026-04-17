@@ -698,6 +698,7 @@ QString TextHandler::unescapeHtml(QString stringIn)
     stringIn.replace(u"&amp;"_s, u"&"_s);
     stringIn.replace(u"&quot;"_s, u"\""_s);
     stringIn.replace(u"&#x27;"_s, u"'"_s);
+    stringIn.replace(u"&nbsp;"_s, u" "_s);
     return stringIn;
 }
 
