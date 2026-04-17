@@ -650,6 +650,10 @@ void TextHandlerTest::componentOutput_data()
                    u"# main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}"_s,
                    QVariantMap{{u"class"_s, u"qml"_s}}},
                MessageComponent{MessageComponentType::Text, u"Sure you can, it's still local to the same file where you defined the id"_s, {}}};
+    QTest::newRow("code with non-breaking space") << u"<pre><code class=\"language-html\">&nbsp;&nbsp;&nbsp;&nbsp;Ideally Indented Code\n</code></pre>"_s
+                                                  << QList<MessageComponent>{MessageComponent{MessageComponentType::Code,
+                                                                                              u"    Ideally Indented Code"_s,
+                                                                                              QVariantMap{{u"class"_s, u"html"_s}}}};
 }
 
 void TextHandlerTest::componentOutput()
