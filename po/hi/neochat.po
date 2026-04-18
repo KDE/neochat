@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-14 00:43+0000\n"
+"POT-Creation-Date: 2026-04-18 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -341,7 +341,7 @@ msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "चैट शुरू करें"
 
-#: src/app/qml/ChooseRoomDialog.qml:13
+#: src/app/qml/ChooseRoomDialog.qml:14
 #, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
@@ -1827,18 +1827,18 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत या रिक्त मैट्रिक्स आईडी<br /> %1 सही मैट्रिक्स पहचानकर्ता नहीं है"
 
-#: src/app/roommanager.cpp:449
+#: src/app/roommanager.cpp:450
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "कमरे में शामिल होने में विफल<br /> %1"
 
-#: src/app/roommanager.cpp:473
+#: src/app/roommanager.cpp:474
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "आपने '%1' में शामिल होने का अनुरोध किया"
 
-#: src/app/roommanager.cpp:477
+#: src/app/roommanager.cpp:478
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "कमरे में शामिल होने का अनुरोध विफल<br /> %1"
@@ -1908,7 +1908,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "स्टिकर"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:230
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:235
 #, kde-format
 msgid "Edit"
 msgstr "संपादन करना"
@@ -8063,7 +8063,7 @@ msgctxt "@action:button"
 msgid "Leave this Space…"
 msgstr "यह स्थान छोड़ दें"
 
-#: src/timeline/DelegateContextMenu.qml:152
+#: src/timeline/DelegateContextMenu.qml:157
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Pick room"
@@ -8071,21 +8071,21 @@ msgctxt "@info:tooltip Pick specific emoji for a reaction"
 msgid "Pick Reaction"
 msgstr "कमरा चुनें"
 
-#: src/timeline/DelegateContextMenu.qml:194
+#: src/timeline/DelegateContextMenu.qml:199
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "जवाब"
 
-#: src/timeline/DelegateContextMenu.qml:216
+#: src/timeline/DelegateContextMenu.qml:221
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "थ्रेड में उत्तर दें"
 
-#: src/timeline/DelegateContextMenu.qml:242
+#: src/timeline/DelegateContextMenu.qml:247
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Remove"
@@ -8093,14 +8093,14 @@ msgctxt "@action:button"
 msgid "Remove…"
 msgstr "निकालना"
 
-#: src/timeline/DelegateContextMenu.qml:247
-#: src/timeline/DelegateContextMenu.qml:254
+#: src/timeline/DelegateContextMenu.qml:252
+#: src/timeline/DelegateContextMenu.qml:259
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "संदेश हटाएँ"
 
-#: src/timeline/DelegateContextMenu.qml:248
+#: src/timeline/DelegateContextMenu.qml:253
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for removing this message"
@@ -8108,31 +8108,31 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "इस संदेश को हटाने का कारण"
 
-#: src/timeline/DelegateContextMenu.qml:249
+#: src/timeline/DelegateContextMenu.qml:254
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "निकालना"
 
-#: src/timeline/DelegateContextMenu.qml:270
+#: src/timeline/DelegateContextMenu.qml:277
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "आगे…"
 
-#: src/timeline/DelegateContextMenu.qml:276
+#: src/timeline/DelegateContextMenu.qml:283
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "अग्रेषित संदेश"
 
-#: src/timeline/DelegateContextMenu.qml:290
+#: src/timeline/DelegateContextMenu.qml:296
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "छवि खोलें"
 
-#: src/timeline/DelegateContextMenu.qml:292
+#: src/timeline/DelegateContextMenu.qml:298
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -8142,7 +8142,7 @@ msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "खुली फाइल"
 
-#: src/timeline/DelegateContextMenu.qml:294
+#: src/timeline/DelegateContextMenu.qml:300
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -8152,7 +8152,7 @@ msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "खुली फाइल"
 
-#: src/timeline/DelegateContextMenu.qml:296
+#: src/timeline/DelegateContextMenu.qml:302
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -8162,13 +8162,13 @@ msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "खुली फाइल"
 
-#: src/timeline/DelegateContextMenu.qml:309
+#: src/timeline/DelegateContextMenu.qml:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "चित्र को सेव करें…"
 
-#: src/timeline/DelegateContextMenu.qml:311
+#: src/timeline/DelegateContextMenu.qml:317
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save Image…"
@@ -8176,7 +8176,7 @@ msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "चित्र को सेव करें…"
 
-#: src/timeline/DelegateContextMenu.qml:313
+#: src/timeline/DelegateContextMenu.qml:319
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save Image…"
@@ -8184,7 +8184,7 @@ msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "चित्र को सेव करें…"
 
-#: src/timeline/DelegateContextMenu.qml:315
+#: src/timeline/DelegateContextMenu.qml:321
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save Image…"
@@ -8192,20 +8192,20 @@ msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "चित्र को सेव करें…"
 
-#: src/timeline/DelegateContextMenu.qml:330
+#: src/timeline/DelegateContextMenu.qml:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "नकल छवि"
 
-#: src/timeline/DelegateContextMenu.qml:332
+#: src/timeline/DelegateContextMenu.qml:338
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "लिंक की प्रतिलिपि करें"
 
-#: src/timeline/DelegateContextMenu.qml:334
+#: src/timeline/DelegateContextMenu.qml:340
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Video"
@@ -8213,32 +8213,32 @@ msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "वीडियो दिखाएं"
 
-#: src/timeline/DelegateContextMenu.qml:336
+#: src/timeline/DelegateContextMenu.qml:342
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "लिंक की प्रतिलिपि करें"
 
-#: src/timeline/DelegateContextMenu.qml:346
+#: src/timeline/DelegateContextMenu.qml:352
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "लिंक पता कॉपी करें"
 
-#: src/timeline/DelegateContextMenu.qml:354
+#: src/timeline/DelegateContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "पाठ कॉपी करें"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "संदेश लिंक कॉपी करें"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:374
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -8248,13 +8248,13 @@ msgctxt ""
 msgid "Report…"
 msgstr "प्रतिवेदन"
 
-#: src/timeline/DelegateContextMenu.qml:373
+#: src/timeline/DelegateContextMenu.qml:379
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "संदेश की रिपोर्ट करें"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:380
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -8262,72 +8262,72 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "इस संदेश की रिपोर्ट करने का कारण"
 
-#: src/timeline/DelegateContextMenu.qml:376
+#: src/timeline/DelegateContextMenu.qml:382
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "प्रतिवेदन"
 
-#: src/timeline/DelegateContextMenu.qml:380
+#: src/timeline/DelegateContextMenu.qml:386
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "संदेश की रिपोर्ट करें"
 
-#: src/timeline/DelegateContextMenu.qml:392
+#: src/timeline/DelegateContextMenu.qml:398
 #, fuzzy, kde-format
 #| msgid "Search for '%1'"
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "'%1' को खोजें"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:421
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "वेब शॉर्टकट कॉन्फ़िगर करें..."
 
-#: src/timeline/DelegateContextMenu.qml:423
+#: src/timeline/DelegateContextMenu.qml:429
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:426
+#: src/timeline/DelegateContextMenu.qml:432
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:446
+#: src/timeline/DelegateContextMenu.qml:452
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:446
+#: src/timeline/DelegateContextMenu.qml:452
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:456
+#: src/timeline/DelegateContextMenu.qml:462
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "संदेश खोजें…"
 
-#: src/timeline/DelegateContextMenu.qml:456
+#: src/timeline/DelegateContextMenu.qml:462
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "संदेश खोजें…"
 
-#: src/timeline/DelegateContextMenu.qml:469
+#: src/timeline/DelegateContextMenu.qml:475
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
