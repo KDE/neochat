@@ -119,10 +119,11 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_TESTING=OFF
+      - -DQuotient_INSTALL_TESTS=OFF
       - -DQuotient_ENABLE_E2EE=ON
-      - -DBUILD_WITH_QT6=ON
-
+      - -DQT_MAJOR_VERSION=6
+    build-environment:
+      - CMAKE_PREFIX_PATH: $CRAFT_STAGE\\;/snap/kde-qt6-core24-sdk/current\\;/snap/kf6-core24-sdk/current/usr
   kquickimageeditor:
     source: https://invent.kde.org/libraries/kquickimageeditor.git
     source-tag: 'v0.3.0'
@@ -166,6 +167,17 @@ parts:
       - kde-qt6-core24-sdk/latest/stable
       - kf6-core24-sdk/latest/stable
     build-packages:
+      - libpulse0
+      - libxml2-dev
+      - gettext
+      - doxygen
+      - graphviz
+      - libxml2-utils
+      - docbook-xml
+      - docbook-xsl
+      - libglx-dev
+      - libgl-dev
+      - libglvnd-dev
       - cmark
       - libcmark-dev
       - libsqlite3-dev
