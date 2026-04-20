@@ -38,11 +38,6 @@ static const QStringList blockTags = {u"blockquote"_s, u"p"_s, u"ul"_s, u"ol"_s,
 
 static const QString customEmojiStyle = u"vertical-align:bottom"_s;
 
-QString TextHandler::data() const
-{
-    return m_data;
-}
-
 void TextHandler::setData(const QString &string)
 {
     m_data = string;

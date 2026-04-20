@@ -40,13 +40,6 @@ public:
     Q_ENUM(Type)
 
     /**
-     * @brief Get the string being handled.
-     *
-     * Setting new data resets the TextHandler.
-     */
-    QString data() const;
-
-    /**
      * @brief Set the string being handled.
      *
      * @note The TextHandler doesn't modify the input data variable so the unhandled
