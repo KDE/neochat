@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-21 00:45+0000\n"
 "PO-Revision-Date: 2026-04-07 13:26+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -1833,70 +1833,76 @@ msgid "Create Poll"
 msgstr "יצירת סקר"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, kde-format
-msgctxt "@label"
-msgid "Poll type:"
-msgstr "סוג סקר:"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Menu"
+msgctxt "@label The type of poll to create"
+msgid "Show Results:"
+msgstr "הצגת תפריט"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Open poll"
-msgstr "פתיחת סקר"
+#, fuzzy, kde-format
+#| msgctxt "@placeholder"
+#| msgid "Enter option"
+msgctxt "@item:inlistbox Show results after a user votes"
+msgid "After Voting"
+msgstr "נא למלא אפשרות"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
-msgctxt "@item:inlistbox"
-msgid "Closed poll"
-msgstr "סקר סגור"
+msgctxt "@item:inlistbox Show results after the poll ends"
+msgid "After Poll Ends"
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
+#: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
-msgid "Voters can see the result as soon as they have voted"
-msgstr "מצביעים יכולים לצפות בתוצאות מיד לאחר הצבעתם"
+msgid "Votes are not anonymous and will be visible to everyone in the room."
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
-#, kde-format
-msgctxt "@info"
-msgid "Results are revealed only after the poll has closed"
-msgstr "התוצאות תיחשפנה רק לאחר סגירת ההצבעה לסקר"
-
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:61
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "שאלה:"
 
-#: src/chatbar/NewPollDialog.qml:93
+#: src/chatbar/NewPollDialog.qml:62
+#, kde-format
+msgctxt "@info:placeholder Example poll question"
+msgid "What's your favorite food?"
+msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:108
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "אפשרות %1:"
 
-#: src/chatbar/NewPollDialog.qml:109
+#: src/chatbar/NewPollDialog.qml:124
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "נא למלא אפשרות"
 
-#: src/chatbar/NewPollDialog.qml:113
+#: src/chatbar/NewPollDialog.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "הסרת אפשרות"
 
-#: src/chatbar/NewPollDialog.qml:136
-#, kde-format
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "הוספת אפשרות"
-
-#: src/chatbar/NewPollDialog.qml:145
+#: src/chatbar/NewPollDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "שליחה"
+
+#: src/chatbar/NewPollDialog.qml:157
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add option"
+msgctxt "@action:button Add new poll option"
+msgid "Add Option"
+msgstr "הוספת אפשרות"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, kde-format
@@ -3728,7 +3734,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "חיפוש"
 
-#: src/libneochat/texthandler.cpp:625
+#: src/libneochat/texthandler.cpp:620
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>לאירוע הזה אין תוכן.</i>"
@@ -7805,6 +7811,26 @@ msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "נא לגרור לכאן פריטים כדי לשתף אותם"
 
+#~ msgctxt "@label"
+#~ msgid "Poll type:"
+#~ msgstr "סוג סקר:"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Open poll"
+#~ msgstr "פתיחת סקר"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Closed poll"
+#~ msgstr "סקר סגור"
+
+#~ msgctxt "@info"
+#~ msgid "Voters can see the result as soon as they have voted"
+#~ msgstr "מצביעים יכולים לצפות בתוצאות מיד לאחר הצבעתם"
+
+#~ msgctxt "@info"
+#~ msgid "Results are revealed only after the poll has closed"
+#~ msgstr "התוצאות תיחשפנה רק לאחר סגירת ההצבעה לסקר"
+
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "
 #~ "party ID"
@@ -7940,10 +7966,6 @@ msgstr "נא לגרור לכאן פריטים כדי לשתף אותם"
 #~ msgctxt "@placeholder"
 #~ msgid "This room does not use any extensions"
 #~ msgstr "החדר הזה לא משתמש באף הרחבה"
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Menu"
-#~ msgstr "הצגת תפריט"
 
 #~ msgid "Create a Room"
 #~ msgstr "יצירת חדר"

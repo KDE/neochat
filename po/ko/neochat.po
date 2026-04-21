@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-21 00:45+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1944,70 +1944,76 @@ msgid "Create Poll"
 msgstr "투표 만들기"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, kde-format
-msgctxt "@label"
-msgid "Poll type:"
-msgstr "투표 형식:"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Menu"
+msgctxt "@label The type of poll to create"
+msgid "Show Results:"
+msgstr "메뉴 표시"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Open poll"
-msgstr "개방형 투표"
+#, fuzzy, kde-format
+#| msgctxt "@placeholder"
+#| msgid "Enter option"
+msgctxt "@item:inlistbox Show results after a user votes"
+msgid "After Voting"
+msgstr "옵션 입력"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
-msgctxt "@item:inlistbox"
-msgid "Closed poll"
-msgstr "폐쇄형 투표"
+msgctxt "@item:inlistbox Show results after the poll ends"
+msgid "After Poll Ends"
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
+#: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
-msgid "Voters can see the result as soon as they have voted"
-msgstr "투표자가 투표에 참가한 직후 결과를 볼 수 있음"
+msgid "Votes are not anonymous and will be visible to everyone in the room."
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
-#, kde-format
-msgctxt "@info"
-msgid "Results are revealed only after the poll has closed"
-msgstr "투표가 완료된 후에만 결과가 표시됨"
-
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:61
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "질문:"
 
-#: src/chatbar/NewPollDialog.qml:93
+#: src/chatbar/NewPollDialog.qml:62
+#, kde-format
+msgctxt "@info:placeholder Example poll question"
+msgid "What's your favorite food?"
+msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:108
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "옵션 %1:"
 
-#: src/chatbar/NewPollDialog.qml:109
+#: src/chatbar/NewPollDialog.qml:124
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "옵션 입력"
 
-#: src/chatbar/NewPollDialog.qml:113
+#: src/chatbar/NewPollDialog.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "옵션 삭제"
 
-#: src/chatbar/NewPollDialog.qml:136
-#, kde-format
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "옵션 추가"
-
-#: src/chatbar/NewPollDialog.qml:145
+#: src/chatbar/NewPollDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "보내기"
+
+#: src/chatbar/NewPollDialog.qml:157
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add option"
+msgctxt "@action:button Add new poll option"
+msgid "Add Option"
+msgstr "옵션 추가"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, fuzzy, kde-format
@@ -3877,7 +3883,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "검색"
 
-#: src/libneochat/texthandler.cpp:625
+#: src/libneochat/texthandler.cpp:620
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>이벤트에 내용이 없습니다.</i>"
@@ -8174,6 +8180,26 @@ msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "공유할 항목을 여기에 드래그"
 
+#~ msgctxt "@label"
+#~ msgid "Poll type:"
+#~ msgstr "투표 형식:"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Open poll"
+#~ msgstr "개방형 투표"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Closed poll"
+#~ msgstr "폐쇄형 투표"
+
+#~ msgctxt "@info"
+#~ msgid "Voters can see the result as soon as they have voted"
+#~ msgstr "투표자가 투표에 참가한 직후 결과를 볼 수 있음"
+
+#~ msgctxt "@info"
+#~ msgid "Results are revealed only after the poll has closed"
+#~ msgstr "투표가 완료된 후에만 결과가 표시됨"
+
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "
 #~ "party ID"
@@ -8308,10 +8334,6 @@ msgstr "공유할 항목을 여기에 드래그"
 #~ msgctxt "@placeholder"
 #~ msgid "This room does not use any extensions"
 #~ msgstr "이 대화방에서 다른 대화가 진행 중입니다."
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Menu"
-#~ msgstr "메뉴 표시"
 
 #~ msgid "Create a Room"
 #~ msgstr "대화방 만들기"

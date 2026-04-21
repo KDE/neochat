@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-21 00:45+0000\n"
 "PO-Revision-Date: 2026-04-07 05:39+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1849,70 +1849,76 @@ msgid "Create Poll"
 msgstr "გამოკითხვის შექმნა"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, kde-format
-msgctxt "@label"
-msgid "Poll type:"
-msgstr "გამოკითხვის ტიპი:"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Menu"
+msgctxt "@label The type of poll to create"
+msgid "Show Results:"
+msgstr "მენიუს ჩვენება"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Open poll"
-msgstr "გამოკითხვის გახსნა"
+#, fuzzy, kde-format
+#| msgctxt "@placeholder"
+#| msgid "Enter option"
+msgctxt "@item:inlistbox Show results after a user votes"
+msgid "After Voting"
+msgstr "შეიყვანეთ არჩევანი"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
-msgctxt "@item:inlistbox"
-msgid "Closed poll"
-msgstr "დახურული გამოკითხვა"
+msgctxt "@item:inlistbox Show results after the poll ends"
+msgid "After Poll Ends"
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
+#: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
-msgid "Voters can see the result as soon as they have voted"
-msgstr "გამოკითხვის მონაწილეებს შედეგების ნახვა ხმის მიცემისთანავე შეუძლიათ"
+msgid "Votes are not anonymous and will be visible to everyone in the room."
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
-#, kde-format
-msgctxt "@info"
-msgid "Results are revealed only after the poll has closed"
-msgstr "შედეგები, მხოლოდ, გამოკითხვის დასრულების შემდეგ გამოჩნდება"
-
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:61
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "კითხვა:"
 
-#: src/chatbar/NewPollDialog.qml:93
+#: src/chatbar/NewPollDialog.qml:62
+#, kde-format
+msgctxt "@info:placeholder Example poll question"
+msgid "What's your favorite food?"
+msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:108
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "არჩევანი %1:"
 
-#: src/chatbar/NewPollDialog.qml:109
+#: src/chatbar/NewPollDialog.qml:124
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "შეიყვანეთ არჩევანი"
 
-#: src/chatbar/NewPollDialog.qml:113
+#: src/chatbar/NewPollDialog.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "არჩევნის წაშლა"
 
-#: src/chatbar/NewPollDialog.qml:136
-#, kde-format
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "არჩევნის დამატება"
-
-#: src/chatbar/NewPollDialog.qml:145
+#: src/chatbar/NewPollDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "გაგზავნა"
+
+#: src/chatbar/NewPollDialog.qml:157
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add option"
+msgctxt "@action:button Add new poll option"
+msgid "Add Option"
+msgstr "არჩევნის დამატება"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, kde-format
@@ -3751,7 +3757,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "ძებნა"
 
-#: src/libneochat/texthandler.cpp:625
+#: src/libneochat/texthandler.cpp:620
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>ამ მოვლენას შემცველობა არ გააჩნია.</i>"
@@ -7853,6 +7859,26 @@ msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "გადმოათრიეთ საგნები აქ, მათ გასაზიარებლად"
 
+#~ msgctxt "@label"
+#~ msgid "Poll type:"
+#~ msgstr "გამოკითხვის ტიპი:"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Open poll"
+#~ msgstr "გამოკითხვის გახსნა"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Closed poll"
+#~ msgstr "დახურული გამოკითხვა"
+
+#~ msgctxt "@info"
+#~ msgid "Voters can see the result as soon as they have voted"
+#~ msgstr "გამოკითხვის მონაწილეებს შედეგების ნახვა ხმის მიცემისთანავე შეუძლიათ"
+
+#~ msgctxt "@info"
+#~ msgid "Results are revealed only after the poll has closed"
+#~ msgstr "შედეგები, მხოლოდ, გამოკითხვის დასრულების შემდეგ გამოჩნდება"
+
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "
 #~ "party ID"
@@ -7993,10 +8019,6 @@ msgstr "გადმოათრიეთ საგნები აქ, მა�
 #~ msgctxt "@placeholder"
 #~ msgid "This room does not use any extensions"
 #~ msgstr "ეს ოთახი გაფართოებებს არ იყენებს"
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Menu"
-#~ msgstr "მენიუს ჩვენება"
 
 #~ msgid "Create a Room"
 #~ msgstr "ახალი ოთახის შექმნა"

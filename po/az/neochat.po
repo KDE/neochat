@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-21 00:45+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1998,80 +1998,77 @@ msgid "Create Poll"
 msgstr "Otaq yaratmaq"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, kde-format
-msgctxt "@label"
-msgid "Poll type:"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@label The type of poll to create"
+msgid "Show Results:"
+msgstr "Bu istifadəçini əngəlləmək"
 
 #: src/chatbar/NewPollDialog.qml:40
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
-msgctxt "@item:inlistbox"
-msgid "Open poll"
-msgstr "Faylı Açın"
+#| msgid "activated End-to-End Encryption"
+msgctxt "@item:inlistbox Show results after a user votes"
+msgid "After Voting"
+msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
 #: src/chatbar/NewPollDialog.qml:41
-#, fuzzy, kde-format
-#| msgid "Close"
-msgctxt "@item:inlistbox"
-msgid "Closed poll"
-msgstr "Bağlamaq"
-
-#: src/chatbar/NewPollDialog.qml:46
 #, kde-format
-msgctxt "@info"
-msgid "Voters can see the result as soon as they have voted"
+msgctxt "@item:inlistbox Show results after the poll ends"
+msgid "After Poll Ends"
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
+#: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
-msgid "Results are revealed only after the poll has closed"
+msgid "Votes are not anonymous and will be visible to everyone in the room."
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:61
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "@label"
 msgid "Question:"
 msgstr "Dəvət göndərmək"
 
-#: src/chatbar/NewPollDialog.qml:93
+#: src/chatbar/NewPollDialog.qml:62
+#, kde-format
+msgctxt "@info:placeholder Example poll question"
+msgid "What's your favorite food?"
+msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:108
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "Seçimlər:"
 
-#: src/chatbar/NewPollDialog.qml:109
+#: src/chatbar/NewPollDialog.qml:124
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/chatbar/NewPollDialog.qml:113
+#: src/chatbar/NewPollDialog.qml:128
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/chatbar/NewPollDialog.qml:136
-#, fuzzy, kde-format
-#| msgid "Add to dictionary"
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "Sözlüyə əlavə edin"
-
-#: src/chatbar/NewPollDialog.qml:145
+#: src/chatbar/NewPollDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:157
+#, fuzzy, kde-format
+#| msgid "Add to dictionary"
+msgctxt "@action:button Add new poll option"
+msgid "Add Option"
+msgstr "Sözlüyə əlavə edin"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, fuzzy, kde-format
@@ -4138,7 +4135,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr ""
 
-#: src/libneochat/texthandler.cpp:625
+#: src/libneochat/texthandler.cpp:620
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -8706,6 +8703,21 @@ msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Elementi paylaşmaq üçün buraya atın"
 
+#, fuzzy
+#~| msgctxt ""
+#~| "tooltip for a button on a message; offers ability to open its downloaded "
+#~| "file with an appropriate application"
+#~| msgid "Open File"
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Open poll"
+#~ msgstr "Faylı Açın"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Closed poll"
+#~ msgstr "Bağlamaq"
+
 #~ msgid "Label:"
 #~ msgstr "Yarlıq:"
 
@@ -8800,12 +8812,6 @@ msgstr "Elementi paylaşmaq üçün buraya atın"
 #~ msgctxt "@placeholder"
 #~ msgid "This room does not use any extensions"
 #~ msgstr "Bu otaqda başqa bir söhbət davam edir"
-
-#, fuzzy
-#~| msgid "Ban this user"
-#~ msgctxt "@action:button"
-#~ msgid "Show Menu"
-#~ msgstr "Bu istifadəçini əngəlləmək"
 
 #~ msgid "Create a Room"
 #~ msgstr "Otaq yaratmaq"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-21 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -2019,54 +2019,53 @@ msgid "Create Poll"
 msgstr "जगह बनाना"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, kde-format
-msgctxt "@label"
-msgid "Poll type:"
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Menu"
+msgctxt "@label The type of poll to create"
+msgid "Show Results:"
+msgstr "मेनू दिखाओ"
 
 #: src/chatbar/NewPollDialog.qml:40
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
-msgctxt "@item:inlistbox"
-msgid "Open poll"
-msgstr "खुली फाइल"
+#| msgctxt "@title:group"
+#| msgid "Encryption"
+msgctxt "@item:inlistbox Show results after a user votes"
+msgid "After Voting"
+msgstr "कूटलेखन"
 
 #: src/chatbar/NewPollDialog.qml:41
-#, fuzzy, kde-format
-#| msgid "Close"
-msgctxt "@item:inlistbox"
-msgid "Closed poll"
-msgstr "बंद करना"
-
-#: src/chatbar/NewPollDialog.qml:46
 #, kde-format
-msgctxt "@info"
-msgid "Voters can see the result as soon as they have voted"
+msgctxt "@item:inlistbox Show results after the poll ends"
+msgid "After Poll Ends"
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
+#: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
-msgid "Results are revealed only after the poll has closed"
+msgid "Votes are not anonymous and will be visible to everyone in the room."
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:61
 #, fuzzy, kde-format
 #| msgid "Description:"
 msgctxt "@label"
 msgid "Question:"
 msgstr "विवरण:"
 
-#: src/chatbar/NewPollDialog.qml:93
+#: src/chatbar/NewPollDialog.qml:62
+#, kde-format
+msgctxt "@info:placeholder Example poll question"
+msgid "What's your favorite food?"
+msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:108
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:109
+#: src/chatbar/NewPollDialog.qml:124
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "Encryption"
@@ -2074,25 +2073,25 @@ msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "कूटलेखन"
 
-#: src/chatbar/NewPollDialog.qml:113
+#: src/chatbar/NewPollDialog.qml:128
 #, fuzzy, kde-format
 #| msgid "Remove parent"
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "पैरेंट को हटाएँ"
 
-#: src/chatbar/NewPollDialog.qml:136
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "इमोजी जोड़ें"
-
-#: src/chatbar/NewPollDialog.qml:145
+#: src/chatbar/NewPollDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:157
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@action:button Add new poll option"
+msgid "Add Option"
+msgstr "इमोजी जोड़ें"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, fuzzy, kde-format
@@ -3991,7 +3990,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "खोज"
 
-#: src/libneochat/texthandler.cpp:625
+#: src/libneochat/texthandler.cpp:620
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -8439,6 +8438,21 @@ msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "आइटम को साझा करने के लिए उन्हें यहां खींचें"
 
+#, fuzzy
+#~| msgctxt ""
+#~| "tooltip for a button on a message; offers ability to open its downloaded "
+#~| "file with an appropriate application"
+#~| msgid "Open File"
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Open poll"
+#~ msgstr "खुली फाइल"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Closed poll"
+#~ msgstr "बंद करना"
+
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "
 #~ "party ID"
@@ -8573,10 +8587,6 @@ msgstr "आइटम को साझा करने के लिए उन्
 #~ msgctxt "@placeholder"
 #~ msgid "This room does not use any extensions"
 #~ msgstr "इस कमरे में एक और बातचीत जारी है।"
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Menu"
-#~ msgstr "मेनू दिखाओ"
 
 #~ msgid "Create a Room"
 #~ msgstr "एक कमरा बनाएँ"

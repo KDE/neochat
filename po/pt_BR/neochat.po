@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-21 00:45+0000\n"
 "PO-Revision-Date: 2026-04-07 01:07-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1874,70 +1874,76 @@ msgid "Create Poll"
 msgstr "Criar uma enquete"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, kde-format
-msgctxt "@label"
-msgid "Poll type:"
-msgstr "Tipo de enquete:"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Menu"
+msgctxt "@label The type of poll to create"
+msgid "Show Results:"
+msgstr "Mostrar menu"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Open poll"
-msgstr "Enquete aberta"
+#, fuzzy, kde-format
+#| msgctxt "@placeholder"
+#| msgid "Enter option"
+msgctxt "@item:inlistbox Show results after a user votes"
+msgid "After Voting"
+msgstr "Inserir opção"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
-msgctxt "@item:inlistbox"
-msgid "Closed poll"
-msgstr "Enquete fechada"
+msgctxt "@item:inlistbox Show results after the poll ends"
+msgid "After Poll Ends"
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
+#: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
-msgid "Voters can see the result as soon as they have voted"
-msgstr "Os votantes podem ver o resultado assim que votarem"
+msgid "Votes are not anonymous and will be visible to everyone in the room."
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
-#, kde-format
-msgctxt "@info"
-msgid "Results are revealed only after the poll has closed"
-msgstr "Os resultados são revelados somente após a enquete terminar"
-
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:61
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "Pergunta:"
 
-#: src/chatbar/NewPollDialog.qml:93
+#: src/chatbar/NewPollDialog.qml:62
+#, kde-format
+msgctxt "@info:placeholder Example poll question"
+msgid "What's your favorite food?"
+msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:108
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "Opção %1:"
 
-#: src/chatbar/NewPollDialog.qml:109
+#: src/chatbar/NewPollDialog.qml:124
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "Inserir opção"
 
-#: src/chatbar/NewPollDialog.qml:113
+#: src/chatbar/NewPollDialog.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "Remover opção"
 
-#: src/chatbar/NewPollDialog.qml:136
-#, kde-format
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "Adicionar opção"
-
-#: src/chatbar/NewPollDialog.qml:145
+#: src/chatbar/NewPollDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "Enviar"
+
+#: src/chatbar/NewPollDialog.qml:157
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add option"
+msgctxt "@action:button Add new poll option"
+msgid "Add Option"
+msgstr "Adicionar opção"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, kde-format
@@ -3775,7 +3781,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Pesquisar"
 
-#: src/libneochat/texthandler.cpp:625
+#: src/libneochat/texthandler.cpp:620
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>Este evento não possui nenhum conteúdo.</i>"
@@ -7885,6 +7891,26 @@ msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Arraste itens aqui para compartilhar"
 
+#~ msgctxt "@label"
+#~ msgid "Poll type:"
+#~ msgstr "Tipo de enquete:"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Open poll"
+#~ msgstr "Enquete aberta"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Closed poll"
+#~ msgstr "Enquete fechada"
+
+#~ msgctxt "@info"
+#~ msgid "Voters can see the result as soon as they have voted"
+#~ msgstr "Os votantes podem ver o resultado assim que votarem"
+
+#~ msgctxt "@info"
+#~ msgid "Results are revealed only after the poll has closed"
+#~ msgstr "Os resultados são revelados somente após a enquete terminar"
+
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "
 #~ "party ID"
@@ -8028,10 +8054,6 @@ msgstr "Arraste itens aqui para compartilhar"
 #~ msgctxt "@placeholder"
 #~ msgid "This room does not use any extensions"
 #~ msgstr "Esta sala Não usa nenhuma extensão."
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Menu"
-#~ msgstr "Mostrar menu"
 
 #~ msgid "Create a Room"
 #~ msgstr "Criar uma sala"

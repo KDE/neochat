@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-18 00:45+0000\n"
+"POT-Creation-Date: 2026-04-21 00:45+0000\n"
 "PO-Revision-Date: 2026-04-09 11:20+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1840,70 +1840,76 @@ msgid "Create Poll"
 msgstr "أنشئ استفتاء"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, kde-format
-msgctxt "@label"
-msgid "Poll type:"
-msgstr "نوع الاستفتاء:"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Menu"
+msgctxt "@label The type of poll to create"
+msgid "Show Results:"
+msgstr "أظهر القائمة"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Open poll"
-msgstr "افتح استفتاء"
+#, fuzzy, kde-format
+#| msgctxt "@placeholder"
+#| msgid "Enter option"
+msgctxt "@item:inlistbox Show results after a user votes"
+msgid "After Voting"
+msgstr "أدخل خيارًا"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
-msgctxt "@item:inlistbox"
-msgid "Closed poll"
-msgstr "استفتاء مغلق"
+msgctxt "@item:inlistbox Show results after the poll ends"
+msgid "After Poll Ends"
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
+#: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
-msgid "Voters can see the result as soon as they have voted"
-msgstr "يمكن للمصوتين رؤية النتيجة بمجرد التصويت"
+msgid "Votes are not anonymous and will be visible to everyone in the room."
+msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:46
-#, kde-format
-msgctxt "@info"
-msgid "Results are revealed only after the poll has closed"
-msgstr "لا تظهر النتائج إلا بعد إغلاق الاستفتاء"
-
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:61
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "السؤال:"
 
-#: src/chatbar/NewPollDialog.qml:93
+#: src/chatbar/NewPollDialog.qml:62
+#, kde-format
+msgctxt "@info:placeholder Example poll question"
+msgid "What's your favorite food?"
+msgstr ""
+
+#: src/chatbar/NewPollDialog.qml:108
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "الخيار %1:"
 
-#: src/chatbar/NewPollDialog.qml:109
+#: src/chatbar/NewPollDialog.qml:124
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "أدخل خيارًا"
 
-#: src/chatbar/NewPollDialog.qml:113
+#: src/chatbar/NewPollDialog.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "أزل الخيار"
 
-#: src/chatbar/NewPollDialog.qml:136
-#, kde-format
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "أضف خيارًا"
-
-#: src/chatbar/NewPollDialog.qml:145
+#: src/chatbar/NewPollDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "أرسل"
+
+#: src/chatbar/NewPollDialog.qml:157
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add option"
+msgctxt "@action:button Add new poll option"
+msgid "Add Option"
+msgstr "أضف خيارًا"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, kde-format
@@ -3741,7 +3747,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "ابحث"
 
-#: src/libneochat/texthandler.cpp:625
+#: src/libneochat/texthandler.cpp:620
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>هذا الحدث لا يحتوي على أي محتوى.</i>"
@@ -7841,6 +7847,26 @@ msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "اسحب عناصر هنا لتشاركهم"
 
+#~ msgctxt "@label"
+#~ msgid "Poll type:"
+#~ msgstr "نوع الاستفتاء:"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Open poll"
+#~ msgstr "افتح استفتاء"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Closed poll"
+#~ msgstr "استفتاء مغلق"
+
+#~ msgctxt "@info"
+#~ msgid "Voters can see the result as soon as they have voted"
+#~ msgstr "يمكن للمصوتين رؤية النتيجة بمجرد التصويت"
+
+#~ msgctxt "@info"
+#~ msgid "Results are revealed only after the poll has closed"
+#~ msgstr "لا تظهر النتائج إلا بعد إغلاق الاستفتاء"
+
 #~ msgctxt ""
 #~ "@option:check Enable the matrix feature to add a phone number as a third "
 #~ "party ID"
@@ -7982,10 +8008,6 @@ msgstr "اسحب عناصر هنا لتشاركهم"
 #~ msgctxt "@placeholder"
 #~ msgid "This room does not use any extensions"
 #~ msgstr "هذه الغرفة لا تستخدم أي امتداد."
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Menu"
-#~ msgstr "أظهر القائمة"
 
 #~ msgid "Create a Room"
 #~ msgstr "أنشئ غرفة"
