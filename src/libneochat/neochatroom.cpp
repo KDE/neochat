@@ -1171,20 +1171,26 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
 void NeoChatRoom::loadPinnedMessage()
 {
     const auto events = pinnedEventIds();
-    if (!events.isEmpty()) {
-        const QString &mostRecentEventId = events.last();
-        connection()->callApi<GetOneRoomEventJob>(id(), mostRecentEventId).then([this](const auto &job) {
-            auto event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
-            if (auto encEv = eventCast<EncryptedEvent>(event.get())) {
-                auto decryptedMessage = decryptMessage(*encEv);
-                if (decryptedMessage) {
-                    event = std::move(decryptedMessage);
-                }
-            }
-            m_pinnedMessage = EventHandler::richBody(this, event.get());
+    if (events.isEmpty()) {
+        if (!m_pinnedMessage.isEmpty()) {
+            m_pinnedMessage.clear();
             Q_EMIT pinnedMessageChanged();
-        });
+        }
+        return;
     }
+
+    const QString &mostRecentEventId = events.last();
+    connection()->callApi<GetOneRoomEventJob>(id(), mostRecentEventId).then([this](const auto &job) {
+        auto event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
+        if (auto encEv = eventCast<EncryptedEvent>(event.get())) {
+            auto decryptedMessage = decryptMessage(*encEv);
+            if (decryptedMessage) {
+                event = std::move(decryptedMessage);
+            }
+        }
+        m_pinnedMessage = EventHandler::richBody(this, event.get());
+        Q_EMIT pinnedMessageChanged();
+    });
 }
 
 void NeoChatRoom::updatePushNotificationState(QString type)
