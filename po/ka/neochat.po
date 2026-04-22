@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-21 00:45+0000\n"
-"PO-Revision-Date: 2026-04-07 05:39+0200\n"
+"POT-Creation-Date: 2026-04-22 00:45+0000\n"
+"PO-Revision-Date: 2026-04-21 05:30+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1849,32 +1849,28 @@ msgid "Create Poll"
 msgstr "გამოკითხვის შექმნა"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Menu"
+#, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr "მენიუს ჩვენება"
+msgstr "შედეგების ჩვენება:"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "შეიყვანეთ არჩევანი"
+msgstr "ხმის მიცემის შემდეგ"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "გამოკითხვის დასრულების შემდეგ"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
-msgstr ""
+msgstr "ხმები ანონიმური არაა და ხილული იქნება ყველასთვის, ვინც ოთახშია."
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1886,7 +1882,7 @@ msgstr "კითხვა:"
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "რომელია თქვენი საყვარელი საჭმელი?"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1913,9 +1909,7 @@ msgid "Send"
 msgstr "გაგზავნა"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
 msgstr "არჩევნის დამატება"
@@ -3563,6 +3557,13 @@ msgstr "ანგარიში წარმატებით გაიგზ�
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "გან: %1, გრძ: %2"
+
+#: src/libneochat/profilefieldshelper.cpp:55
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt "@info:label Local time (timezone offset)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:22
 #, kde-format

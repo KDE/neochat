@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2020-2026 Freek de Kruijf <freekdekruijf@kde.nl>
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-21 00:45+0000\n"
-"PO-Revision-Date: 2026-04-07 11:37+0200\n"
+"POT-Creation-Date: 2026-04-22 00:45+0000\n"
+"PO-Revision-Date: 2026-04-21 11:33+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -1872,32 +1872,30 @@ msgid "Create Poll"
 msgstr "Opiniepeiling aanmaken"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Menu"
+#, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr "Menu tonen"
+msgstr "Resultaten tonen:"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "Optie invoeren"
+msgstr "Na stemmen"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "Nadat opiniepeiling eindigt"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
 msgstr ""
+"De stemmen zijn niet anoniem en zullen voor iedereen in de room zichtbaar "
+"zijn."
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1909,7 +1907,7 @@ msgstr "Vraag:"
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "Wat is uw favoriete gerecht?"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1936,9 +1934,7 @@ msgid "Send"
 msgstr "Verzenden"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
 msgstr "Optie toevoegen"
@@ -3585,6 +3581,13 @@ msgstr "Rapport met succes verzonden."
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Bte: %1, Lte: %2"
+
+#: src/libneochat/profilefieldshelper.cpp:55
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt "@info:label Local time (timezone offset)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:22
 #, kde-format

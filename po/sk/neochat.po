@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-21 00:45+0000\n"
+"POT-Creation-Date: 2026-04-22 00:45+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -1857,30 +1857,28 @@ msgid "Create Poll"
 msgstr "Vytvoriť miestnosť"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr "Zobraziť ponuku"
+msgstr "Zobraziť výsledky:"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "Šifrovanie"
+msgstr "Po hlasovaní"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "Po skončení ankety"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
-msgstr ""
+msgstr "Hlasy nie sú anonymné a budú viditeľné pre každého v miestnosti."
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1892,7 +1890,7 @@ msgstr "Popis:"
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "Aké je vaše obľúbené jedlo?"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1919,12 +1917,10 @@ msgid "Send"
 msgstr "Odoslať"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
-msgstr "Pridať do slovníka"
+msgstr "Pridať možnosť"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, kde-format
@@ -3567,6 +3563,13 @@ msgstr "Heslo úspešne zmenené"
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
+
+#: src/libneochat/profilefieldshelper.cpp:55
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt "@info:label Local time (timezone offset)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:22
 #, kde-format

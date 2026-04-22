@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the neochat package.
 # Automatically generated, 2020.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2020-2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-21 00:45+0000\n"
-"PO-Revision-Date: 2026-04-07 12:01+0100\n"
+"POT-Creation-Date: 2026-04-22 00:45+0000\n"
+"PO-Revision-Date: 2026-04-22 00:40+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -1879,27 +1879,25 @@ msgstr "Crear encuesta"
 #, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr ""
+msgstr "Mostrar resultado:"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "Introduzca opción"
+msgstr "Tras votar"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "Tras finalizar la encuesta"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
-msgstr ""
+msgstr "Los votos no son anónimos y serán visibles para todos en la sala."
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1911,7 +1909,7 @@ msgstr "Pregunta:"
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "¿Cuál es tu comida favorita?"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1938,9 +1936,7 @@ msgid "Send"
 msgstr "Enviar"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
 msgstr "Añadir opción"
@@ -3590,6 +3586,13 @@ msgstr "La denuncia se ha enviado correctamente."
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
+
+#: src/libneochat/profilefieldshelper.cpp:55
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt "@info:label Local time (timezone offset)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:22
 #, kde-format
@@ -7893,23 +7896,3 @@ msgstr "Saltar al último mensaje"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Arrastre elementos aquí para compartirlos"
-
-#~ msgctxt "@label"
-#~ msgid "Poll type:"
-#~ msgstr "Tipo de encuesta:"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Open poll"
-#~ msgstr "Encuesta abierta"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Closed poll"
-#~ msgstr "Encuesta cerrada"
-
-#~ msgctxt "@info"
-#~ msgid "Voters can see the result as soon as they have voted"
-#~ msgstr "Los votantes pueden ver el resultado tras votar"
-
-#~ msgctxt "@info"
-#~ msgid "Results are revealed only after the poll has closed"
-#~ msgstr "El resultado se muestra solo cuando se ha cerrado la encuesta"
