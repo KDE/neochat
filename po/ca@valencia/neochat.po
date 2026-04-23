@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:45+0000\n"
-"PO-Revision-Date: 2026-04-07 08:29+0200\n"
+"PO-Revision-Date: 2026-04-22 08:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -1880,27 +1880,25 @@ msgstr "Creació de votació"
 #, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr ""
+msgstr "Mostra els resultats:"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "Introduïu una opció"
+msgstr "Després de votar"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "Després d'acabar la votació"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
-msgstr ""
+msgstr "Els vots no són anònims i seran visibles a tothom de la sala."
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1912,7 +1910,7 @@ msgstr "Pregunta:"
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "Quin és el menjar preferit?"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1939,12 +1937,10 @@ msgid "Send"
 msgstr "Envia"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
-msgstr "Afig una opció"
+msgstr "Afig opció"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, kde-format
@@ -3595,8 +3591,7 @@ msgid "Lat: %1, Lon: %2"
 msgstr "Lat.: %1, lon.: %2"
 
 #: src/libneochat/profilefieldshelper.cpp:55
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "@info:label Local time (timezone offset)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7912,23 +7907,3 @@ msgstr "Ves fins a l'últim missatge"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Arrossegueu ací els elements per a compartir"
-
-#~ msgctxt "@label"
-#~ msgid "Poll type:"
-#~ msgstr "Tipus de votació:"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Open poll"
-#~ msgstr "Votació oberta"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Closed poll"
-#~ msgstr "Votació tancada"
-
-#~ msgctxt "@info"
-#~ msgid "Voters can see the result as soon as they have voted"
-#~ msgstr "Els votants poden veure el resultat tan prompte com hagen votat"
-
-#~ msgctxt "@info"
-#~ msgid "Results are revealed only after the poll has closed"
-#~ msgstr "Els resultats només es mostren una vegada s'haja tancat la votació"
