@@ -32,6 +32,8 @@ Delegates.RoundedItemDelegate {
     readonly property bool hasNotableNotifications: contextNotificationCount > 0
     readonly property bool hasUnreadMessages: notificationCount > 0
 
+    property Component leading: null
+
     dropAreaHovered: dropArea.containsDrag
     font.weight: root.hasUnreadMessages ? Font.Bold : Font.Normal
 
@@ -79,6 +81,14 @@ Delegates.RoundedItemDelegate {
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.largeSpacing
+
+        Loader {
+            id: loader
+            visible: active
+            active: root.leading !== null
+            sourceComponent: root.leading
+            Layout.alignment: Qt.AlignVCenter
+        }
 
         AvatarNotification {
             source: root.avatar

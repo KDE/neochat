@@ -345,7 +345,8 @@ Kirigami.ApplicationWindow {
             title: i18nc("@title", "Share"),
             width: Kirigami.Units.gridUnit * 25
         })
-        dialog.chosen.connect(function(targetRoomId) {
+        dialog.chosen.connect(function(targetRoomIds) {
+            let targetRoomId = targetRoomIds[0];
             RoomManager.resolveResource(targetRoomId)
             ShareHandler.room = targetRoomId
         })

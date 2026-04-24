@@ -278,13 +278,19 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "mail-forward-symbolic"
         onTriggered: {
             let page = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
-                connection: root.connection
+                connection: root.connection,
+                multiple: true,
+                actionText: i18nc("@action:button As in 'Forward this message'", "Forward"),
+                icon: "mail-forward-symbolic",
             }, {
                 title: i18nc("@title", "Forward Message"),
                 width: Kirigami.Units.gridUnit * 25
             });
-            page.chosen.connect(function (targetRoomId) {
-                root.room.forwardMessage(root.connection.room(targetRoomId), root.eventId);
+            page.chosen.connect(function (targetRoomIds) {
+                targetRoomIds.forEach(targetRoomId => {
+                    root.room.forwardMessage(root.connection.room(targetRoomId), root.eventId);
+                })
+                RoomManager.resolveResource(targetRoomIds[0]);
             });
         }
     }

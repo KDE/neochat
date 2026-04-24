@@ -33,7 +33,7 @@ ColumnLayout {
                     title: i18nc("@title:dialog", "Choose Room"),
                     width: Kirigami.Units.gridUnit * 24
                 });
-                dialog.chosen.connect(id => root.room = root.connection.room(id))
+                dialog.chosen.connect(ids => root.room = root.connection.room(ids[0]))
             }
         }
         FormCard.FormDelegateSeparator {}
