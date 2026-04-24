@@ -95,7 +95,7 @@ Item {
 
             TypingPane {
                 id: typingPane
-                labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.currentRoom.otherMembersTyping.length, root.currentRoom.otherMembersTyping.map(member => member.displayName).join(", ")) : ""
+                room: root.currentRoom
                 drawBackground: false
                 visible: root.currentRoom && root.currentRoom.otherMembersTyping.length > 0
 

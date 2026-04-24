@@ -11,10 +11,24 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
+
 Loader {
     id: root
 
-    property string labelText: ""
+    required property NeoChatRoom room
+    readonly property string labelText: {
+        if (!visible) {
+            return "";
+        }
+
+        // When there's five or more people typing, shorten the label as appending everyone's names is going to be too much.
+        if (root.room.otherMembersTyping.length > 4) {
+            return i18ncp("Number of users typing in the room", "1 user is typing", "%1 users are typing", root.room.otherMembersTyping.length);
+        }
+
+        return i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.room.otherMembersTyping.length, root.room.otherMembersTyping.map(member => member.displayName).join(", "));
+    }
     property bool drawBackground: true
 
     active: visible

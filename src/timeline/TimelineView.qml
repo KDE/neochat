@@ -360,7 +360,7 @@ QQC2.ScrollView {
                 Layout.maximumWidth: typingPaneSizeHelper.availableWidth
                 TypingPane {
                     id: typingPane
-                    labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", _private.room.otherMembersTyping.length, _private.room.otherMembersTyping.map(member => member.displayName).join(", ")) : ""
+                    room: _private.room
                 }
             }
 
