@@ -290,7 +290,9 @@ KirigamiComponents.ConvergentContextMenu {
                 targetRoomIds.forEach(targetRoomId => {
                     root.room.forwardMessage(root.connection.room(targetRoomId), root.eventId);
                 })
-                RoomManager.resolveResource(targetRoomIds[0]);
+                if (targetRoomIds.length === 1) {
+                    RoomManager.resolveResource(targetRoomIds[0]);
+                }
             });
         }
     }
