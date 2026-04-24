@@ -110,7 +110,7 @@ Video {
         },
         State {
             name: "stopped"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages) && root.error === MediaPlayer.NoError
             PropertyChanges {
                 videoControls.stateVisible: true
                 mediaThumbnail.visible: true
@@ -128,6 +128,13 @@ Video {
                 mediaThumbnail.visible: false
                 videoControls.visible: false
                 hidden.visible: true
+            }
+        },
+        State {
+            name: "error"
+            when: root.error !== MediaPlayer.NoError
+            PropertyChanges {
+                errorLabel.visible: true
             }
         }
     ]
@@ -176,6 +183,26 @@ Video {
         visible: false
         color: "white"
         text: i18n("Video")
+        font.pixelSize: 16
+
+        padding: 8
+
+        background: Rectangle {
+            radius: Kirigami.Units.smallSpacing
+            color: "black"
+            opacity: 0.3
+        }
+    }
+
+    QQC2.Label {
+        id: errorLabel
+        anchors.centerIn: parent
+        width: Math.min(root.width - Kirigami.Units.largeSpacing * 4, implicitWidth)
+
+        visible: false
+        color: "white"
+        text: root.errorString
+        wrapMode: Text.WordWrap
         font.pixelSize: 16
 
         padding: 8
