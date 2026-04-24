@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:45+0000\n"
-"PO-Revision-Date: 2026-04-07 13:26+0300\n"
+"PO-Revision-Date: 2026-04-23 08:22+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1833,32 +1833,28 @@ msgid "Create Poll"
 msgstr "יצירת סקר"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Menu"
+#, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr "הצגת תפריט"
+msgstr "הצגת תוצאות:"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "נא למלא אפשרות"
+msgstr "לאחר ההצרה"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "לאחר סיום הסקר"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
-msgstr ""
+msgstr "ההצבעות אינן אלמוניות ותהיינה גלויות לכל מי שבחדר."
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1870,7 +1866,7 @@ msgstr "שאלה:"
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "מה המאכל האהוב עליך?"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1897,9 +1893,7 @@ msgid "Send"
 msgstr "שליחה"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
 msgstr "הוספת אפשרות"
@@ -3542,8 +3536,7 @@ msgid "Lat: %1, Lon: %2"
 msgstr "רוחב: %1, אורך: %2"
 
 #: src/libneochat/profilefieldshelper.cpp:55
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "@info:label Local time (timezone offset)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
