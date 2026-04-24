@@ -85,6 +85,7 @@ Item {
         }
         RowLayout {
             Layout.fillWidth: true
+            Layout.maximumWidth: chatBarSizeHelper.availableWidth // Ensure our labels below are elided properly
 
             visible: !Kirigami.Settings.isMobile
 
