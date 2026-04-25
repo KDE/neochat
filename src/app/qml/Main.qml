@@ -348,7 +348,6 @@ Kirigami.ApplicationWindow {
         dialog.chosen.connect(function(targetRoomId) {
             RoomManager.resolveResource(targetRoomId)
             ShareHandler.room = targetRoomId
-            dialog.closeDialog()
         })
     }
     function showUserDetail(user, room) {

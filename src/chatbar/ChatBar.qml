@@ -36,8 +36,7 @@ Item {
 
     onCurrentRoomChanged: {
         if (ShareHandler.text.length > 0 && ShareHandler.room === root.currentRoom.id) {
-            contentModel.focusedTextItem.
-            textField.text = ShareHandler.text;
+            core.model.focusedTextItem.textItem.text = ShareHandler.text;
             ShareHandler.text = "";
             ShareHandler.room = "";
         }
@@ -53,7 +52,7 @@ Item {
         target: ShareHandler
         function onRoomChanged(): void {
             if (ShareHandler.text.length > 0 && ShareHandler.room === root.currentRoom.id) {
-                textField.text = ShareHandler.text;
+                core.model.focusedTextItem.textItem.text = ShareHandler.text;
                 ShareHandler.text = "";
                 ShareHandler.room = "";
             }
@@ -121,8 +120,8 @@ Item {
         endBreakpoint: Kirigami.Units.gridUnit * 66
         startPercentWidth: 100
         endPercentWidth: NeoChatConfig.compactLayout ? 100 : 85
-        leftPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : 0 
-        rightPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : 0 
+        leftPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : 0
+        rightPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : 0
         maxWidth: NeoChatConfig.compactLayout ? root.width - Kirigami.Units.largeSpacing * 2 : Kirigami.Units.gridUnit * 60
     }
 }
