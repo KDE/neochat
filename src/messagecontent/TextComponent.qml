@@ -39,23 +39,17 @@ TextEdit {
     required property NeochatRoomMember author
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
+    required property TextBlock block
+    onBlockChanged: if (block) {
+        block.item.textItem = root;
+    }
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
-
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
-    readonly property ChatTextItemHelper chatTextItemHelper: componentAttributes?.chatTextItemHelper ?? null
-    onChatTextItemHelperChanged: if (chatTextItemHelper) {
-        chatTextItemHelper.textItem = root;
-    }
 
     /**
      * @brief Whether the component is currently focussed.
@@ -68,7 +62,7 @@ TextEdit {
     /**
      * @brief Whether the message contains a spoiler
      */
-    readonly property var hasSpoiler: root.componentAttributes?.hasSpoiler ?? false
+    readonly property var hasSpoiler: root.block?.hasSpoiler ?? false
 
     /**
      * @brief Whether this message is replying to another.
@@ -86,24 +80,14 @@ TextEdit {
         Message.contentModel.setFocusRow(index, true)
     }
 
-    ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
-
     topPadding: 0
     bottomPadding: 0
     leftPadding: 0
     rightPadding: 0
 
-    text: root.editable ? "" : display
-
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor
-    font {
-        pointSize: !root.isReply && QmlUtils.isEmoji(display)
-                   ? Kirigami.Theme.defaultFont.pointSize * 4 * NeoChatConfig.fontScale
-                   : Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
-        family: QmlUtils.isEmoji(display) ? 'emoji' : Kirigami.Theme.defaultFont.family
-    }
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: !root.editable
     wrapMode: Text.Wrap
@@ -151,13 +135,13 @@ TextEdit {
         color: Kirigami.Theme.disabledTextColor
         horizontalAlignment: root.horizontalAlignment
         verticalAlignment: root.verticalAlignment
-        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && root.chatTextItemHelper.isEmpty  && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
+        visible: root.editable && root.index === (root.Message.contentModel?.hasAttachment ? 1 : 0) && (root.Message.contentModel?.rowCount() ?? 0) <= 1 && (root.block?.item.isEmpty ?? true)  && !root.preeditText && (!root.activeFocus || root.horizontalAlignment !== Qt.AlignHCenter)
         elide: Text.ElideRight
         wrapMode: Text.WordWrap
     }
 
     HoverHandler {
-        cursorShape: root.hoveredLink || (!(root.componentAttributes?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
+        cursorShape: root.hoveredLink || (!(root.block?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
     }
     TapHandler {
         enabled: !root.hoveredLink && root.hasSpoiler

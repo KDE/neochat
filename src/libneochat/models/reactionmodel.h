@@ -14,7 +14,6 @@ namespace Quotient
 class RoomMessageEvent;
 }
 
-class MessageContentModel;
 class NeoChatRoom;
 
 /**
@@ -47,7 +46,7 @@ public:
         HasLocalMember, /**< Whether the local member is in the list of authors. */
     };
 
-    explicit ReactionModel(MessageContentModel *parent, const QString &eventId, NeoChatRoom *room);
+    explicit ReactionModel(QObject *parent, const QString &eventId, NeoChatRoom *room);
 
     /**
      * @brief Get the given role value at the given index.
@@ -69,12 +68,6 @@ public:
      * @sa Roles, QAbstractItemModel::roleNames()
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
-
-Q_SIGNALS:
-    /**
-     * @brief The reactions in the model have been updated.
-     */
-    void reactionsUpdated();
 
 private:
     QPointer<NeoChatRoom> m_room;

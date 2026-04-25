@@ -9,7 +9,9 @@ target_sources(LibNeoChat PRIVATE
     neochatroommember.cpp
     accountmanager.cpp
     chatbarcache.cpp
+    block.cpp
     blockcache.cpp
+    fileinfo.h
     chatkeyhelper.cpp
     chatmarkdownhelper.cpp
     chattextitemhelper.cpp
@@ -53,6 +55,7 @@ target_sources(LibNeoChat PRIVATE
     models/imagepacksmodel.cpp
     models/livelocationsmodel.cpp
     models/locationsmodel.cpp
+    models/reactionmodel.cpp
     models/roomlistmodel.cpp
     models/stickermodel.cpp
     models/userfiltermodel.cpp

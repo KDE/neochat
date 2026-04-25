@@ -24,6 +24,7 @@ QML_ELEMENT
 enum Type {
     Author, /**< The message sender and time. */
     Text, /**< A text message. */
+    Emoji, /**< A text message made of only emojis. */
     Image, /**< A message that is an image. */
     Audio, /**< A message that is an audio recording. */
     Video, /**< A message that is a video. */

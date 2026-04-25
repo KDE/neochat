@@ -11,9 +11,13 @@
 
 #include <KLocalizedString>
 #include <Kirigami/Platform/PlatformTheme>
+#include <iterator>
+#include <memory>
 
+#include "block.h"
 #include "chatbarcache.h"
 #include "contentprovider.h"
+#include "enums/blocktype.h"
 #include "eventhandler.h"
 #include "models/reactionmodel.h"
 #include "neochatdatetime.h"
@@ -209,7 +213,7 @@ void EventMessageContentModel::getEvent()
     m_room->downloadEventFromServer(m_eventId);
 }
 
-Blocks::Block EventMessageContentModel::unavailableBlock() const
+Blocks::Block *EventMessageContentModel::unavailableBlock() const
 {
     const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
 
@@ -220,12 +224,12 @@ Blocks::Block EventMessageContentModel::unavailableBlock() const
         disabledTextColor = u"#000000"_s;
     }
 
-    return Blocks::Block{
-        .type = Blocks::Text,
-        .display = u"<span style=\"color:%1\">"_s.arg(disabledTextColor)
-            + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user") + u"</span>"_s,
-        .attributes = {},
-    };
+    return Blocks::makeBlock<Blocks::TextBlock>(
+        this,
+        Blocks::Text,
+        QTextDocumentFragment::fromHtml(
+            u"<span style=\"color:%1\">"_s.arg(disabledTextColor)
+            + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user") + u"</span>"_s));
 }
 
 void EventMessageContentModel::resetModel()
@@ -234,21 +238,22 @@ void EventMessageContentModel::resetModel()
     m_components.clear();
 
     if (m_room->connection()->isIgnored(authorId()) || m_currentState == UnAvailable) {
-        m_components += unavailableBlock();
+        m_components.push_back(unavailableBlock());
         endResetModel();
         return;
     }
 
     const auto event = m_room->getEvent(m_eventId);
     if (event.first == nullptr) {
-        m_components += Blocks::Block{Blocks::Loading, m_isReply ? i18nc("@info", "Loading reply…") : i18nc("@info Loading this message", "Loading…"), {}};
+        m_components.push_back(Blocks::makeBlock<Blocks::BasicTextBlock>(this, Blocks::Loading, m_isReply ? i18nc("@info", "Loading reply…") : i18nc("@info Loading this message", "Loading…")));
         endResetModel();
         return;
     }
 
-    m_components += Blocks::Block{Blocks::Author, {}, {}};
+    m_components.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::Author));
 
-    m_components += messageContentComponents();
+    auto components = messageContentComponents();
+    m_components.insert(m_components.end(), std::make_move_iterator(components.begin()), std::make_move_iterator(components.end()));
     endResetModel();
 
     updateReplyModel();
@@ -262,17 +267,18 @@ void EventMessageContentModel::resetModel()
 
 void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
 {
-    const auto startRow = m_components[0].type == Blocks::Author ? 1 : 0;
+    const auto startIt = m_components.begin() + (m_components[0]->type() == Blocks::Author ? 1 : 0);
+    const auto startRow = std::distance(m_components.begin(), startIt);
     beginRemoveRows({}, startRow, rowCount() - 1);
-    m_components.remove(startRow, rowCount() - startRow);
+    m_components.erase(startIt, m_components.end());
     endRemoveRows();
 
-    const auto newComponents = messageContentComponents(isEditing, isThreading);
+    auto newComponents = messageContentComponents(isEditing, isThreading);
     if (newComponents.size() == 0) {
         return;
     }
     beginInsertRows({}, startRow, startRow + newComponents.size() - 1);
-    m_components += newComponents;
+    m_components.insert(startIt, std::make_move_iterator(newComponents.begin()), std::make_move_iterator(newComponents.end()));
     endInsertRows();
 
     updateReplyModel();
@@ -282,32 +288,33 @@ void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
     Q_EMIT componentsUpdated();
 }
 
-QList<Blocks::Block> EventMessageContentModel::messageContentComponents(bool isEditing, bool isThreading)
+Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEditing, bool isThreading)
 {
     const auto event = m_room->getEvent(m_eventId);
     if (event.first == nullptr) {
         return {};
     }
 
-    QList<Blocks::Block> newComponents;
+    Blocks::BlockPtrs newComponents;
 
     if (isEditing) {
-        newComponents += Blocks::Block{Blocks::ChatBar, QString(), {}};
+        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::ChatBar));
     } else {
-        newComponents.append(componentsForType(Blocks::typeForEvent(*event.first, m_isReply)));
+        auto typeComponents = componentsForType(Blocks::typeForEvent(*event.first, m_isReply));
+        newComponents.insert(newComponents.end(), std::make_move_iterator(typeComponents.begin()), std::make_move_iterator(typeComponents.end()));
     }
 
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
     if (roomMessageEvent
         && ((roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId())
             || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents += Blocks::Block{Blocks::Separator, {}, {}};
-        newComponents += Blocks::Block{Blocks::ThreadBody, u"Thread Body"_s, {}};
+        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::Separator));
+        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::ThreadBody));
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents += Blocks::Block{Blocks::ChatBar, QString(), {}};
+        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::ChatBar));
     }
 
     return newComponents;
@@ -332,42 +339,44 @@ std::optional<QString> EventMessageContentModel::getReplyEventId()
     return roomMessageEvent->isReply() ? std::make_optional(roomMessageEvent->replyEventId()) : std::nullopt;
 }
 
-QList<Blocks::Block> EventMessageContentModel::componentsForType(Blocks::Type type)
+Blocks::BlockPtrs EventMessageContentModel::componentsForType(Blocks::Type type)
 {
     const auto [event, _] = m_room->getEvent(m_eventId);
     if (event == nullptr) {
         return {};
     }
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+    Blocks::BlockPtrs components;
 
     switch (type) {
-    case Blocks::Verification: {
-        return {Blocks::Block{Blocks::Verification, QString(), {}}};
-    }
     case Blocks::Text: {
         return TextHandler().textComponents(EventHandler::rawMessageBody(*event),
                                             EventHandler::messageBodyInputFormat(*event),
                                             m_room,
                                             event,
-                                            roomMessageEvent ? roomMessageEvent->isReplaced() : false);
+                                            roomMessageEvent ? roomMessageEvent->isReplaced() : false,
+                                            false,
+                                            this);
     }
     case Blocks::File: {
-        QList<Blocks::Block> components;
-        components += Blocks::Block{Blocks::File, {}, EventHandler::mediaInfo(m_room, event)};
+        components.push_back(EventHandler::blockForMediaEvent(m_room, event, this));
         auto body = EventHandler::rawMessageBody(*event);
         if (!body.isEmpty()) {
-            components += TextHandler().textComponents(body,
-                                                       EventHandler::messageBodyInputFormat(*event),
-                                                       m_room,
-                                                       event,
-                                                       roomMessageEvent ? roomMessageEvent->isReplaced() : false);
+            auto textComponents = TextHandler().textComponents(body,
+                                                               EventHandler::messageBodyInputFormat(*event),
+                                                               m_room,
+                                                               event,
+                                                               roomMessageEvent ? roomMessageEvent->isReplaced() : false,
+                                                               false,
+                                                               this);
+            components.insert(components.end(), std::make_move_iterator(textComponents.begin()), std::make_move_iterator(textComponents.end()));
         }
         return components;
     }
     case Blocks::Image:
     case Blocks::Audio:
     case Blocks::Video: {
-        QList<Blocks::Block> components = {Blocks::Block{type, EventHandler::richBody(m_room, event), EventHandler::mediaInfo(m_room, event)}};
+        components.push_back(EventHandler::blockForMediaEvent(m_room, event, this));
 
         if (!event->is<StickerEvent>() && roomMessageEvent) {
             const auto fileContent = roomMessageEvent->get<EventContent::FileContentBase>();
@@ -376,26 +385,30 @@ QList<Blocks::Block> EventMessageContentModel::componentsForType(Blocks::Type ty
                 const auto body = EventHandler::rawMessageBody(*roomMessageEvent);
                 // Do not attach the description to the image, if it's the same as the original filename.
                 if (fileInfo.originalName != body) {
-                    components += TextHandler().textComponents(body,
-                                                               EventHandler::messageBodyInputFormat(*roomMessageEvent),
-                                                               m_room,
-                                                               roomMessageEvent,
-                                                               roomMessageEvent->isReplaced());
+                    auto textComponents = TextHandler().textComponents(body,
+                                                                       EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                                                       m_room,
+                                                                       roomMessageEvent,
+                                                                       roomMessageEvent->isReplaced(),
+                                                                       false,
+                                                                       this);
+                    components.insert(components.end(), std::make_move_iterator(textComponents.begin()), std::make_move_iterator(textComponents.end()));
                 }
             }
         }
         return components;
     }
     case Blocks::Location:
-        return {Blocks::Block{type,
-                              EventHandler::plainBody(m_room, event),
-                              {
-                                  {u"latitude"_s, EventHandler::latitude(event)},
-                                  {u"longitude"_s, EventHandler::longitude(event)},
-                                  {u"asset"_s, EventHandler::locationAssetType(event)},
-                              }}};
+        components.push_back(Blocks::makeBlock<Blocks::LocationBlock>(this,
+                                                                      type,
+                                                                      EventHandler::latitude(event),
+                                                                      EventHandler::longitude(event),
+                                                                      EventHandler::locationAssetType(event)));
+        components.push_back(Blocks::makeBlock<Blocks::TextBlock>(this, Blocks::Text, QTextDocumentFragment::fromPlainText(EventHandler::plainBody(m_room, event))));
+        return components;
     default:
-        return {Blocks::Block{type, QString(), {}}};
+        components.push_back(Blocks::makeBlock<Blocks::Block>(this, type));
+        return components;
     }
 }
 
@@ -438,28 +451,29 @@ void EventMessageContentModel::updateItineraryModel()
 
 void EventMessageContentModel::updateReactionModel()
 {
-    if (m_reactionModel && m_reactionModel->rowCount() > 0) {
-        return;
+    if (hasComponentType(Blocks::Reaction)) {
+        bool hasReactions = false;
+        forEachComponentOfType(Blocks::Reaction, [&hasReactions](Blocks::BlockPtrsIt it) {
+            if (const auto reactionBlock = dynamic_cast<Blocks::ReactionBlock *>(*it)) {
+                hasReactions = reactionBlock->model()->rowCount() > 0;
+            }
+            return ++it;
+        });
+        if (hasReactions) {
+            return;
+        }
     }
 
-    if (m_reactionModel == nullptr) {
-        m_reactionModel = new ReactionModel(this, m_eventId, m_room);
-        connect(m_reactionModel, &ReactionModel::reactionsUpdated, this, &EventMessageContentModel::updateReactionModel);
-    }
-
-    if (m_reactionModel->rowCount() <= 0) {
-        m_reactionModel->disconnect(this);
-        m_reactionModel->deleteLater();
-        m_reactionModel = nullptr;
-    }
-
-    if (m_reactionModel && m_components.last().type != Blocks::Reaction) {
+    if (m_components.back()->type() != Blocks::Reaction) {
         beginInsertRows({}, rowCount(), rowCount());
-        m_components += Blocks::Block{Blocks::Reaction, QString(), {}};
+        auto reactionBlock = Blocks::makeBlockOfType<Blocks::ReactionBlock>(this, Blocks::Reaction, m_room, m_eventId);
+        if (reactionBlock->model()->rowCount() > 0) {
+            m_components.push_back(reactionBlock);
+        }
         endInsertRows();
-    } else if (rowCount() > 0 && m_components.last().type == Blocks::Reaction) {
+    } else if (rowCount() > 0 && m_components.back()->type() == Blocks::Reaction) {
         beginRemoveRows({}, rowCount() - 1, rowCount() - 1);
-        m_components.removeLast();
+        m_components.erase(--m_components.end());
         endRemoveRows();
     }
 }

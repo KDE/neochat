@@ -52,6 +52,22 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.Text
         delegate: TextComponent {
+            font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
+
+            onSelectedTextChanged: root.selectedTextChanged(selectedText)
+            onHoveredLinkChanged: root.hoveredLinkChanged(hoveredLink)
+        }
+    }
+
+    DelegateChoice {
+        roleValue: Blocks.Emoji
+        delegate: TextComponent {
+            id: emojiComponent
+            font {
+                pointSize: !emojiComponent.isReply ? Kirigami.Theme.defaultFont.pointSize * 4 * NeoChatConfig.fontScale : Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
+                family: 'emoji'
+            }
+
             onSelectedTextChanged: root.selectedTextChanged(selectedText)
             onHoveredLinkChanged: root.hoveredLinkChanged(hoveredLink)
         }

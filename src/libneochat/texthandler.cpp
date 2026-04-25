@@ -17,6 +17,7 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
+#include "block.h"
 #include "blocktype.h"
 #include "models/customemojimodel.h"
 #include "utils.h"
@@ -340,13 +341,14 @@ int TextHandler::nextBlockPos(const QString &string)
     return closeTagPos + closeTag.size();
 }
 
-Blocks::Block TextHandler::nextBlock(const QString &string,
-                                     int nextBlockPos,
-                                     Qt::TextFormat inputFormat,
-                                     const NeoChatRoom *room,
-                                     const Quotient::RoomEvent *event,
-                                     bool isEdited,
-                                     bool spoilerRevealed)
+Blocks::Block *TextHandler::nextBlock(const QString &string,
+                                        int nextBlockPos,
+                                        Qt::TextFormat inputFormat,
+                                        const NeoChatRoom *room,
+                                        const Quotient::RoomEvent *event,
+                                        bool isEdited,
+                                        bool spoilerRevealed,
+                                        QObject *parent)
 {
     if (string.isEmpty()) {
         return {};
@@ -371,10 +373,11 @@ Blocks::Block TextHandler::nextBlock(const QString &string,
         content = handleRecieveRichText(inputFormat, room, event, false, isEdited, spoilerRevealed);
     }
 
-    if (content.contains(u"data-mx-spoiler"_s)) {
-        attributes[u"hasSpoiler"_s] = true;
+    auto hasSpoiler = content.contains(u"data-mx-spoiler"_s);
+    if (blockType == Blocks::Code) {
+        return Blocks::makeBlock<Blocks::CodeBlock>(parent, blockType, QTextDocumentFragment::fromPlainText(content), attributes["class"_L1].toString());
     }
-    return Blocks::Block{blockType, content, attributes};
+    return Blocks::makeBlock<Blocks::TextBlock>(parent, blockType, QTextDocumentFragment::fromHtml(content), hasSpoiler);
 }
 
 QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
@@ -609,26 +612,29 @@ QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagStr
     return attributes;
 }
 
-QList<Blocks::Block> TextHandler::textComponents(QString string,
-                                                 Qt::TextFormat inputFormat,
-                                                 const NeoChatRoom *room,
-                                                 const Quotient::RoomEvent *event,
-                                                 bool isEdited,
-                                                 bool spoilerRevealed)
+Blocks::BlockPtrs TextHandler::textComponents(QString string,
+                                              Qt::TextFormat inputFormat,
+                                              const NeoChatRoom *room,
+                                              const Quotient::RoomEvent *event,
+                                              bool isEdited,
+                                              bool spoilerRevealed,
+                                              QObject *parent)
 {
+    Blocks::BlockPtrs components;
+
     if (string.trimmed().isEmpty()) {
-        return {Blocks::Block{Blocks::Text, i18n("<i>This event does not have any content.</i>"), {}}};
+        components.push_back(
+            Blocks::makeBlock<Blocks::TextBlock>(parent, Blocks::Text, QTextDocumentFragment::fromHtml(i18n("<i>This event does not have any content.</i>"))));
+        return components;
     }
 
     // Strip mx-reply if present.
     string.remove(TextRegex::removeRichReply);
 
-    QList<Blocks::Block> components;
     while (!string.isEmpty()) {
         const auto nextBlockPos = this->nextBlockPos(string);
-        const auto nextBlock =
-            this->nextBlock(string, nextBlockPos, inputFormat, room, event, nextBlockPos == string.size() ? isEdited : false, spoilerRevealed);
-        components += nextBlock;
+        components.push_back(
+            nextBlock(string, nextBlockPos, inputFormat, room, event, nextBlockPos == string.size() ? isEdited : false, spoilerRevealed, parent));
         string.remove(0, nextBlockPos);
 
         if (string.startsWith(u"\n"_s)) {
@@ -638,17 +644,26 @@ QList<Blocks::Block> TextHandler::textComponents(QString string,
 
         if (event != nullptr && room != nullptr) {
             if (auto e = eventCast<const Quotient::RoomMessageEvent>(event); e && e->msgtype() == Quotient::MessageEventType::Emote && components.size() == 1) {
-                if (components[0].type == Blocks::Text) {
-                    components[0].display = emoteString(room, event) + components[0].display;
+                if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(components[0])) {
+                    textBlock->item()->initialFragment() =
+                        QTextDocumentFragment::fromHtml(emoteString(room, event) + textBlock->item()->initialFragment().toHtml());
                 } else {
-                    components.prepend(Blocks::Block{Blocks::Text, emoteString(room, event), {}});
+                    components.insert(components.begin(),
+                                      Blocks::makeBlock<Blocks::TextBlock>(parent, Blocks::Text, QTextDocumentFragment::fromHtml(emoteString(room, event))));
                 }
             }
         }
     }
 
-    if (isEdited && components.last().type != Blocks::Text && components.last().type != Blocks::Quote) {
-        components += Blocks::Block{Blocks::Text, editString(), {}};
+    if (isEdited && components.back()->type() != Blocks::Text && components.back()->type() != Blocks::Quote) {
+        components.push_back(Blocks::makeBlock<Blocks::TextBlock>(parent, Blocks::Text, QTextDocumentFragment::fromHtml(editString())));
+    }
+
+    if (components.size() == 1 && components[0]->type() == Blocks::Text) {
+        const auto textBlock = dynamic_cast<Blocks::TextBlock *>(components[0]);
+        if (textBlock && Utils::isEmoji(textBlock->item()->initialFragment().toRawText())) {
+            textBlock->setType(Blocks::Emoji);
+        }
     }
 
     return components;
@@ -870,7 +885,7 @@ QString TextHandler::convertCodeLanguageString(const QString &languageString)
 
 QString TextHandler::updateSpoilerText(QObject *object, QString string, bool spoilerRevealed)
 {
-    auto it = QRegularExpression(u"<span[^>]*data-mx-spoiler[^>]*style=\"color: (.*?); background: (.*?);\">"_s).globalMatch(string);
+    auto it = QRegularExpression(u"<span[^>]*style=\"[^>]*color:\\s*(.*?);[^>]*background-color:\\s*(.*?);[^>]*\">"_s).globalMatch(string);
     Kirigami::Platform::PlatformTheme *theme =
         static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
     int offset = 0;

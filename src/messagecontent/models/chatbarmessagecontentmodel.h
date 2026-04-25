@@ -6,6 +6,7 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include "block.h"
 #include "blockcache.h"
 #include "chatbarcache.h"
 #include "chatkeyhelper.h"
@@ -101,8 +102,6 @@ public:
 
     Q_INVOKABLE void insertStyleAtCursor(RichFormat::Format style);
 
-    Q_INVOKABLE void insertComponentAtCursor(Blocks::Type type);
-
     bool hasRichFormatting() const;
     bool hasAttachment() const;
     Q_INVOKABLE void addAttachment(const QUrl &path);
@@ -150,7 +149,7 @@ private:
     void emitFocusChangeSignals();
 
     void connectTextItem(ChatTextItemHelper *chattextitemhelper);
-    ChatTextItemHelper *textItemForComponent(const Blocks::Block &component) const;
+    ChatTextItemHelper *textItemForComponent(Blocks::Block *component) const;
     ChatTextItemHelper *textItemForIndex(const QModelIndex &index) const;
     QModelIndex indexForTextItem(ChatTextItemHelper *textItem) const;
 
@@ -158,10 +157,12 @@ private:
     QPointer<ChatKeyHelper> m_keyHelper;
     void connectKeyHelper();
 
-    QVariantMap attributesForFile(const QUrl &path);
+    Blocks::Block *blockForFile(const QUrl &path);
 
-    ComponentIt insertComponent(int row, Blocks::Type type, QVariantMap attributes = {}, const QTextDocumentFragment &intialFragment = {});
-    ComponentIt removeComponent(ComponentIt it);
+    void insertBlockAtCursor(Blocks::Type type);
+    Blocks::Block *makeEmptyTextBlock(Blocks::Type type);
+    Blocks::BlockPtrsIt insertComponent(int row, Blocks::Block *block);
+    Blocks::BlockPtrsIt removeComponent(Blocks::BlockPtrsIt it);
     void removeComponent(ChatTextItemHelper *textItem);
 
     void insertComponentFromCache(Blocks::CacheItem *item);

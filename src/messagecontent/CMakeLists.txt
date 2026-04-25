@@ -52,7 +52,6 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         models/linemodel.cpp
         models/messagecontentmodel.cpp
         models/pollanswermodel.cpp
-        models/reactionmodel.cpp
         models/threadmodel.cpp
         models/eventmessagecontentmodel.cpp
     RESOURCES

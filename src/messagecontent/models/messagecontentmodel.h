@@ -6,7 +6,7 @@
 #include <QAbstractListModel>
 #include <QImageReader>
 #include <QQmlEngine>
-#include <optional>
+#include <QTextDocumentFragment>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
@@ -15,6 +15,7 @@
 
 #include "block.h"
 #include "enums/blocktype.h"
+#include "fileinfo.h"
 #include "filetype.h"
 #include "linkpreviewer.h"
 #include "models/itinerarymodel.h"
@@ -54,9 +55,8 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        DisplayRole = Qt::DisplayRole, /**< The display text for the message. */
         ComponentTypeRole = Qt::UserRole, /**< The type of component to visualise the message. */
-        ComponentAttributesRole, /**< The attributes of the component. */
+        BlockRole, /**< The Blocks::Block for the delegate. */
         EventIdRole, /**< The matrix event ID of the event. */
         DateTimeRole, /**< The timestamp for when the event was sent (as a NeoChatDateTime). */
         AuthorRole, /**< The author of the event. */
@@ -64,12 +64,11 @@ public:
         ItineraryModelRole, /**< The itinerary model for a file. */
         PollHandlerRole, /**< The PollHandler for the event, if any. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
-        ReactionModelRole, /**< Reaction model for this event. */
         ThreadRootRole, /**< The thread root event ID for the event. */
         LinkPreviewerRole, /**< The link preview details. */
         ChatBarCacheRole, /**< The ChatBarCache to use. */
         EditableRole, /**< Whether the component can be edited. */
-        CurrentFocusRole, /**< Whteher the delegate should have focus. */
+        CurrentFocusRole, /**< Whether the delegate should have focus. */
     };
     Q_ENUM(Roles)
 
@@ -162,13 +161,11 @@ protected:
      */
     virtual QString threadRootId() const;
 
-    using ComponentIt = QList<Blocks::Block>::iterator;
-
-    QList<Blocks::Block> m_components;
+    Blocks::BlockPtrs m_components;
     bool hasComponentType(Blocks::Type type) const;
     bool hasComponentType(const QList<Blocks::Type> &types) const;
-    void forEachComponentOfType(Blocks::Type type, std::function<ComponentIt(ComponentIt)> function);
-    void forEachComponentOfType(QList<Blocks::Type> types, std::function<ComponentIt(ComponentIt)> function);
+    void forEachComponentOfType(Blocks::Type type, std::function<Blocks::BlockPtrsIt(Blocks::BlockPtrsIt)> function);
+    void forEachComponentOfType(QList<Blocks::Type> types, std::function<Blocks::BlockPtrsIt(Blocks::BlockPtrsIt)> function);
 
     /**
      * @brief The ID for the event that the message is replying to, if any.
@@ -178,7 +175,6 @@ protected:
     virtual std::optional<QString> getReplyEventId();
     void updateReplyModel();
     QPointer<MessageContentModel> m_replyModel;
-    QPointer<ReactionModel> m_reactionModel = nullptr;
     QPointer<ItineraryModel> m_itineraryModel = nullptr;
     bool m_emptyItinerary = false;
 
@@ -188,14 +184,14 @@ protected:
 private:
     void initializeModel();
 
-    std::function<ComponentIt(const ComponentIt &)> m_fileInfoFunction = [this](ComponentIt it) {
+    std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_fileInfoFunction = [this](Blocks::BlockPtrsIt it) {
         Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {MessageContentModel::FileTransferInfoRole});
         return ++it;
     };
-    std::function<ComponentIt(const ComponentIt &)> m_fileFunction = [this](ComponentIt it) {
+    std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_fileFunction = [this](Blocks::BlockPtrsIt it) {
         if (m_itineraryModel && m_itineraryModel->rowCount() > 0) {
             beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-            it = m_components.insert(it + 1, Blocks::Block{Blocks::Itinerary, QString(), {}});
+            it = m_components.insert(it + 1, Blocks::makeBlock<Blocks::Block>(this, Blocks::Itinerary));
             endInsertRows();
             return it;
         } else if (m_emptyItinerary) {
@@ -218,7 +214,9 @@ private:
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
                 it = m_components.insert(
                     it + 1,
-                    Blocks::Block{Blocks::Code, QString::fromStdString(file.readAll().toStdString()), {{u"class"_s, definitionForFile.name()}}});
+                    Blocks::makeBlock<Blocks::CodeBlock>(this, Blocks::Code,
+                                                         QTextDocumentFragment::fromPlainText(QString::fromStdString(file.readAll().toStdString())),
+                                                         definitionForFile.name()));
                 endInsertRows();
                 return it;
             }
@@ -227,26 +225,40 @@ private:
             if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
                 QImageReader reader(fileTransferInfo.localPath.path());
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                it = m_components.insert(it + 1, Blocks::Block{Blocks::Pdf, QString(), {{u"size"_s, reader.size()}}});
+                Blocks::ImageInfo info;
+                info.pixelSize = reader.size();
+                it = m_components.insert(it + 1,
+                                         Blocks::makeBlock<Blocks::ImageBlock>(this,
+                                                                               Blocks::Pdf,
+                                                                               fileTransferInfo.localPath,
+                                                                               fileTransferInfo.localPath.fileName(),
+                                                                               info,
+                                                                               QUrl(),
+                                                                               Blocks::ImageInfo()));
                 endInsertRows();
             }
         }
         return ++it;
     };
-    std::function<ComponentIt(const ComponentIt &)> m_linkPreviewAddFunction = [this](ComponentIt it) {
-        if (!m_room->urlPreviewEnabled()) {
-            return it;
+    std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_linkPreviewAddFunction = [this](Blocks::BlockPtrsIt it) {
+        if (!m_room->urlPreviewEnabled() || (*it)->type() != Blocks::Text || (*it)->type() != Blocks::Quote) {
+            return ++it;
+        }
+        const auto block = dynamic_cast<Blocks::TextBlock *>(*it);
+        if (!block) {
+            return ++it;
         }
 
         bool previewAdded = false;
-        if (LinkPreviewer::hasPreviewableLinks(it->display)) {
-            const auto links = LinkPreviewer::linkPreviews(it->display);
+        if (LinkPreviewer::hasPreviewableLinks(block->item()->markdownText())) {
+            const auto links = LinkPreviewer::linkPreviews(block->item()->markdownText());
             for (qsizetype j = 0; j < links.size(); ++j) {
-                const auto linkPreview = linkPreviewComponent(links[j]);
-                if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview.isEmpty()) {
-                    const auto insertRow = std::distance(m_components.begin(), it) + 1;
+                auto linkPreview = linkPreviewComponent(links[j]);
+                if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview->isEmpty()) {
+                    const auto insertIt = it + 1;
+                    const auto insertRow = std::distance(m_components.begin(), insertIt);
                     beginInsertRows({}, insertRow, insertRow);
-                    it = m_components.insert(insertRow, linkPreview);
+                    it = m_components.insert(insertIt, std::move(linkPreview));
                     previewAdded = true;
                     endInsertRows();
                 }
@@ -254,7 +266,7 @@ private:
         }
         return previewAdded ? it : ++it;
     };
-    std::function<ComponentIt(const ComponentIt &)> m_linkPreviewRemoveFunction = [this](ComponentIt it) {
+    std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_linkPreviewRemoveFunction = [this](Blocks::BlockPtrsIt it) {
         if (m_room->urlPreviewEnabled()) {
             return it;
         }
@@ -265,7 +277,7 @@ private:
     };
 
     QList<QUrl> m_removedLinkPreviews;
-    Blocks::Block linkPreviewComponent(const QUrl &link);
+    Blocks::Block *linkPreviewComponent(const QUrl &link);
 
     void updateSpoilers();
     void updateSpoiler(const QModelIndex &index);

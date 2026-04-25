@@ -19,7 +19,6 @@
 #include "eventhandler.h"
 #include "events/pollevent.h"
 #include "models/eventmessagecontentmodel.h"
-#include "models/reactionmodel.h"
 #include "neochatdatetime.h"
 #include "neochatroommember.h"
 
@@ -307,8 +306,8 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         return row < static_cast<int>(eventRoom->pendingEvents().size());
     }
 
-    if (role == MediaInfoRole) {
-        return EventHandler::mediaInfo(eventRoom, &event.value().get());
+    if (role == IsMediaRole) {
+        return EventHandler::isMediaMessage(&event.value().get());
     }
 
     if (role == IsEditableRole) {
@@ -357,7 +356,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[GenericDisplayRole] = "genericDisplay";
     roles[IsPendingRole] = "isPending";
     roles[ContentModelRole] = "contentModel";
-    roles[MediaInfoRole] = "mediaInfo";
+    roles[IsMediaRole] = "isMedia";
     roles[IsEditableRole] = "isEditable";
     roles[ShowAuthorRole] = "showAuthor";
     roles[EventTypeRole] = "eventType";

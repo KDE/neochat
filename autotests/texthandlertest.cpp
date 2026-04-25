@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QTest>
+#include <QTextDocumentFragment>
 
 #include "texthandler.h"
 
@@ -11,6 +12,7 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
+#include "block.h"
 #include "enums/blocktype.h"
 #include "models/customemojimodel.h"
 #include "neochatconnection.h"
@@ -616,46 +618,79 @@ void TextHandlerTest::receiveRichColor()
 void TextHandlerTest::componentOutput_data()
 {
     QTest::addColumn<QString>("testInputString");
-    QTest::addColumn<QList<Blocks::Block>>("testOutputComponents");
+    QTest::addColumn<std::vector<Blocks::Block *>>("testOutputComponents");
 
     QTest::newRow("multiple paragraphs") << u"<p>Text</p>\n<p>Text</p>"_s
-                                         << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}}, Blocks::Block{Blocks::Text, u"Text"_s, {}}};
+                                         << std::vector<Blocks::Block *>{
+                                                new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this),
+                                                new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this)};
     QTest::newRow("code") << u"<p>Text</p>\n<pre><code class=\"language-html\">Some code\n</code></pre>"_s
-                          << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}},
-                                                  Blocks::Block{Blocks::Code, u"Some code"_s, QVariantMap{{u"class"_s, u"html"_s}}}};
+                          << std::vector<Blocks::Block *>{new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this),
+                                                    new Blocks::CodeBlock(Blocks::Code, QTextDocumentFragment::fromPlainText(u"Some code"_s), u"html"_s, this)};
     QTest::newRow("quote") << u"<p>Text</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>"_s
-                           << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}}, Blocks::Block{Blocks::Quote, u"“blockquote”"_s, {}}};
-    QTest::newRow("multiple paragraph quote") << u"<blockquote>\n<p>blockquote</p>\n<p>next paragraph</p>\n</blockquote>"_s
-                                              << QList<Blocks::Block>{Blocks::Block{Blocks::Quote, u"<p>“blockquote</p>\n<p>next paragraph”</p>"_s, {}}};
+                           << std::vector<Blocks::Block *>{new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this),
+                                                     new Blocks::TextBlock(Blocks::Quote, QTextDocumentFragment::fromPlainText(u"“blockquote”"_s), {}, this)};
+    QTest::newRow("multiple paragraph quote")
+        << u"<blockquote>\n<p>blockquote</p>\n<p>next paragraph</p>\n</blockquote>"_s
+        << std::vector<Blocks::Block *>{
+               new Blocks::TextBlock(Blocks::Quote, QTextDocumentFragment::fromPlainText(u"<p>“blockquote</p>\n<p>next paragraph”</p>"_s), {}, this)};
     QTest::newRow("no tag first paragraph") << u"Text\n<p>Text</p>"_s
-                                            << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}}, Blocks::Block{Blocks::Text, u"Text"_s, {}}};
+                                            << std::vector<Blocks::Block *>{
+                                                   new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this),
+                                                   new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this)};
     QTest::newRow("no tag last paragraph") << u"<p>Text</p>\nText"_s
-                                           << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"Text"_s, {}}, Blocks::Block{Blocks::Text, u"Text"_s, {}}};
+                                           << std::vector<Blocks::Block *>{
+                                                  new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this),
+                                                  new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this)};
     QTest::newRow("inline code") << u"<p><code>https://kde.org</code></p>\n<p>Text</p>"_s
-                                 << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"<code>https://kde.org</code>"_s, {}},
-                                                         Blocks::Block{Blocks::Text, u"Text"_s, {}}};
-    QTest::newRow("inline code single block") << u"<code>https://kde.org</code>"_s
-                                              << QList<Blocks::Block>{Blocks::Block{Blocks::Text, u"<code>https://kde.org</code>"_s, {}}};
+                                 << std::vector<Blocks::Block *>{
+                                        new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromHtml(u"<code>https://kde.org</code>"_s), {}, this),
+                                        new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Text"_s), {}, this)};
+    QTest::newRow("inline code single block")
+        << u"<code>https://kde.org</code>"_s
+        << std::vector<Blocks::Block *>{new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromHtml(u"<code>https://kde.org</code>"_s), {}, this)};
     QTest::newRow("long start tag")
         << u"Ah, you mean something like<br/><pre data-md=\"```\"><code class=\"language-qml\"># main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}\n</code></pre>Sure you can, it's still local to the same file where you defined the id"_s
-        << QList<Blocks::Block>{
-               Blocks::Block{Blocks::Text, u"Ah, you mean something like<br/>"_s, {}},
-               Blocks::Block{Blocks::Code,
-                             u"# main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}"_s,
-                             QVariantMap{{u"class"_s, u"qml"_s}}},
-               Blocks::Block{Blocks::Text, u"Sure you can, it's still local to the same file where you defined the id"_s, {}}};
+        << std::vector<Blocks::Block *>{
+               new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"Ah, you mean something like<br/>"_s), {}, this),
+               new Blocks::CodeBlock(
+                   Blocks::Code,
+                   QTextDocumentFragment::fromPlainText(
+                       u"# main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}"_s),
+                   u"qml"_s,
+                   this),
+               new Blocks::TextBlock(Blocks::Text,
+                                     QTextDocumentFragment::fromPlainText(u"Sure you can, it's still local to the same file where you defined the id"_s),
+                                     {},
+                                     this)};
     QTest::newRow("code with non-breaking space") << u"<pre><code class=\"language-html\">&nbsp;&nbsp;&nbsp;&nbsp;Ideally Indented Code\n</code></pre>"_s
-                                                  << QList<Blocks::Block>{
-                                                         Blocks::Block{Blocks::Code, u"    Ideally Indented Code"_s, QVariantMap{{u"class"_s, u"html"_s}}}};
+        << std::vector<Blocks::Block *>{
+            new Blocks::CodeBlock(
+                Blocks::Code,
+                QTextDocumentFragment::fromPlainText(u"    Ideally Indented Code"_s),
+                u"html"_s,
+                this)};
 }
 
 void TextHandlerTest::componentOutput()
 {
     QFETCH(QString, testInputString);
-    QFETCH(QList<Blocks::Block>, testOutputComponents);
+    QFETCH(std::vector<Blocks::Block *>, testOutputComponents);
 
     TextHandler testTextHandler;
-    QCOMPARE(testTextHandler.textComponents(testInputString), testOutputComponents);
+    bool same = true;
+    const auto components = testTextHandler.textComponents(testInputString, Qt::RichText, nullptr, nullptr, false, false, this);
+    if (components.size() != testOutputComponents.size()) {
+        same = false;
+    }
+    if (same) {
+        for (int i = 0; i < (int)components.size(); ++i) {
+            if (*components[i] != *testOutputComponents[i]) {
+                same = false;
+            }
+        }
+    }
+    QCOMPARE(same, true);
 }
 
 void TextHandlerTest::updateSpoiler_data()
@@ -665,17 +700,17 @@ void TextHandlerTest::updateSpoiler_data()
     QTest::addColumn<bool>("spoilerRevealed");
 
     auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
-    QTest::newRow("same length") << u"<span data-mx-spoiler style=\"color: #123456; background: #123456;\">Test<span>"_s
-                                 << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">Test<span>"_s.arg(
+    QTest::newRow("same length") << u"<span data-mx-spoiler style=\"color: #123456; background-color: #123456;\">Test<span>"_s
+                                 << u"<span data-mx-spoiler style=\"color: transparent; background-color: %1;\">Test<span>"_s.arg(
                                         theme->alternateBackgroundColor().name())
                                  << false;
-    QTest::newRow("different length") << u"<span data-mx-spoiler style=\"color: short; background: looooooooooong;\">Test<span>"_s
-                                      << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">Test<span>"_s.arg(
+    QTest::newRow("different length") << u"<span data-mx-spoiler style=\"color: short; background-color: looooooooooong;\">Test<span>"_s
+                                      << u"<span data-mx-spoiler style=\"color: transparent; background-color: %1;\">Test<span>"_s.arg(
                                              theme->alternateBackgroundColor().name())
                                       << false;
     QTest::newRow("spoiler revealed")
-        << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">Test<span>"_s.arg(theme->alternateBackgroundColor().name())
-        << u"<span data-mx-spoiler style=\"color: %1; background: %2;\">Test<span>"_s.arg(theme->textColor().name(), theme->alternateBackgroundColor().name())
+        << u"<span data-mx-spoiler style=\"color: transparent; background-color: %1;\">Test<span>"_s.arg(theme->alternateBackgroundColor().name())
+        << u"<span data-mx-spoiler style=\"color: %1; background-color: %2;\">Test<span>"_s.arg(theme->textColor().name(), theme->alternateBackgroundColor().name())
         << true;
 }
 

@@ -8,6 +8,7 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
+#include "block.h"
 #include "blockcache.h"
 
 namespace Quotient
@@ -137,7 +138,7 @@ public:
     bool relationAuthorIsPresent() const;
 
     QString relationMessage() const;
-    QList<Blocks::Block> relationComponents() const;
+    Blocks::BlockPtrs relationComponents(QObject *parent = nullptr) const;
 
     bool isThreaded() const;
     QString threadId() const;

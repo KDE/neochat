@@ -68,6 +68,7 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+
     /**
      * @brief Finds the event of the given event ID in the model, returning nullptr if no matches were found.
      */

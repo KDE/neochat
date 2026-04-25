@@ -9,12 +9,11 @@
 
 #include <KLocalizedString>
 
-#include "models/messagecontentmodel.h"
 #include "neochatroom.h"
 
 using namespace Qt::StringLiterals;
 
-ReactionModel::ReactionModel(MessageContentModel *parent, const QString &eventId, NeoChatRoom *room)
+ReactionModel::ReactionModel(QObject *parent, const QString &eventId, NeoChatRoom *room)
     : QAbstractListModel(parent)
     , m_room(room)
     , m_eventId(eventId)

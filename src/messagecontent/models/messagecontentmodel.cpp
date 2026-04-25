@@ -7,6 +7,7 @@
 
 #include <KLocalizedString>
 
+#include "block.h"
 #include "chatbarcache.h"
 #include "contentprovider.h"
 #include "messagecontentlogging.h"
@@ -44,7 +45,7 @@ void MessageContentModel::initializeModel()
         } else {
             forEachComponentOfType({Blocks::LinkPreview, Blocks::LinkPreviewLoad}, m_linkPreviewRemoveFunction);
         }
-        m_components.squeeze();
+        m_components.shrink_to_fit();
     });
     connect(this, &MessageContentModel::itineraryUpdated, this, [this]() {
         if (hasComponentType(Blocks::File)) {
@@ -146,16 +147,13 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const auto component = m_components[index.row()];
+    const auto &component = m_components[index.row()];
 
-    if (role == DisplayRole) {
-        return component.display;
-    }
     if (role == ComponentTypeRole) {
-        return component.type;
+        return component->type();
     }
-    if (role == ComponentAttributesRole) {
-        return component.attributes;
+    if (role == BlockRole) {
+        return component->toVariant();
     }
     if (role == EventIdRole) {
         return eventId();
@@ -178,16 +176,13 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);
     }
-    if (role == ReactionModelRole) {
-        return QVariant::fromValue<ReactionModel *>(m_reactionModel);
-    }
     if (role == ThreadRootRole) {
         return threadRootId();
     }
     if (role == LinkPreviewerRole) {
-        if (component.type == Blocks::LinkPreview) {
-            return QVariant::fromValue<LinkPreviewer *>(
-                dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(component.attributes["link"_L1].toUrl()));
+        const auto linkBlock = dynamic_cast<Blocks::UrlBlock *>(component);
+        if (linkBlock && linkBlock->type() == Blocks::LinkPreview) {
+            return QVariant::fromValue<LinkPreviewer *>(dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(linkBlock->source()));
         } else {
             return QVariant::fromValue<LinkPreviewer *>(emptyLinkPreview);
         }
@@ -222,9 +217,8 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
 QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
 {
     QHash<int, QByteArray> roles;
-    roles[MessageContentModel::DisplayRole] = "display";
     roles[MessageContentModel::ComponentTypeRole] = "componentType";
-    roles[MessageContentModel::ComponentAttributesRole] = "componentAttributes";
+    roles[MessageContentModel::BlockRole] = "block";
     roles[MessageContentModel::EventIdRole] = "eventId";
     roles[MessageContentModel::DateTimeRole] = "dateTime";
     roles[MessageContentModel::AuthorRole] = "author";
@@ -232,7 +226,6 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::ItineraryModelRole] = "itineraryModel";
     roles[MessageContentModel::PollHandlerRole] = "pollHandler";
     roles[MessageContentModel::ReplyContentModelRole] = "replyContentModel";
-    roles[MessageContentModel::ReactionModelRole] = "reactionModel";
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
     roles[MessageContentModel::LinkPreviewerRole] = "linkPreviewer";
     roles[MessageContentModel::ChatBarCacheRole] = "chatBarCache";
@@ -245,8 +238,8 @@ bool MessageContentModel::hasComponentType(Blocks::Type type) const
 {
     return std::find_if(m_components.cbegin(),
                         m_components.cend(),
-                        [type](const Blocks::Block &component) {
-                            return component.type == type;
+                        [type](Blocks::Block *component) {
+                            return component->type() == type;
                         })
         != m_components.cend();
 }
@@ -258,21 +251,20 @@ bool MessageContentModel::hasComponentType(const QList<Blocks::Type> &types) con
     });
 }
 
-void MessageContentModel::forEachComponentOfType(Blocks::Type type, std::function<MessageContentModel::ComponentIt(MessageContentModel::ComponentIt)> function)
+void MessageContentModel::forEachComponentOfType(Blocks::Type type, std::function<Blocks::BlockPtrsIt(Blocks::BlockPtrsIt)> function)
 {
     auto it = m_components.begin();
     while ((it = std::find_if(it,
                               m_components.end(),
-                              [type](const Blocks::Block &component) {
-                                  return component.type == type;
+                              [type](const Blocks::Block *component) {
+                                  return component->type() == type;
                               }))
            != m_components.end()) {
         it = function(it);
     }
 }
 
-void MessageContentModel::forEachComponentOfType(QList<Blocks::Type> types,
-                                                 std::function<MessageContentModel::ComponentIt(MessageContentModel::ComponentIt)> function)
+void MessageContentModel::forEachComponentOfType(QList<Blocks::Type> types, std::function<Blocks::BlockPtrsIt(Blocks::BlockPtrsIt)> function)
 {
     for (const auto &type : types) {
         forEachComponentOfType(type, function);
@@ -293,7 +285,7 @@ void MessageContentModel::updateReplyModel()
             m_replyModel->deleteLater();
         }
         if (hasComponentType(Blocks::Reply)) {
-            forEachComponentOfType(Blocks::Reply, [this](ComponentIt it) {
+            forEachComponentOfType(Blocks::Reply, [this](Blocks::BlockPtrsIt it) {
                 beginRemoveRows({}, std::distance(m_components.begin(), it), std::distance(m_components.begin(), it));
                 it = m_components.erase(it);
                 endRemoveRows();
@@ -308,15 +300,16 @@ void MessageContentModel::updateReplyModel()
     }
 
     if (!hasComponentType(Blocks::Reply)) {
-        int insertRow = 0;
-        if (m_components.first().type == Blocks::Author) {
-            insertRow = 1;
+        auto insertIt = m_components.begin();
+        if (m_components.front()->type() == Blocks::Author) {
+            insertIt += 1;
         }
+        const auto insertRow = std::distance(m_components.begin(), insertIt);
         beginInsertRows({}, insertRow, insertRow);
-        m_components.insert(insertRow, Blocks::Block{Blocks::Reply, QString(), {}});
+        m_components.insert(insertIt, Blocks::makeBlock<Blocks::ReplyBlock>(this, Blocks::Reply, *eventId));
         endInsertRows();
     } else {
-        forEachComponentOfType(Blocks::Reply, [this](ComponentIt it) {
+        forEachComponentOfType(Blocks::Reply, [this](Blocks::BlockPtrsIt it) {
             const auto replyIndex = index(std::distance(m_components.begin(), it));
             dataChanged(replyIndex, replyIndex, {ReplyContentModelRole});
             return ++it;
@@ -324,14 +317,14 @@ void MessageContentModel::updateReplyModel()
     }
 }
 
-Blocks::Block MessageContentModel::linkPreviewComponent(const QUrl &link)
+Blocks::Block *MessageContentModel::linkPreviewComponent(const QUrl &link)
 {
     const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
     if (linkPreviewer == nullptr) {
         return {};
     }
     if (linkPreviewer->loaded()) {
-        return Blocks::Block{Blocks::LinkPreview, QString(), {{"link"_L1, link}}};
+        return Blocks::makeBlock<Blocks::UrlBlock>(this, Blocks::LinkPreview, link);
     }
     connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
         if (!m_room) {
@@ -341,13 +334,14 @@ Blocks::Block MessageContentModel::linkPreviewComponent(const QUrl &link)
 
         if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
             QList<int> linkPreviewsToClose;
-            forEachComponentOfType(Blocks::LinkPreviewLoad, [this, link, linkPreviewer, &linkPreviewsToClose](ComponentIt it) {
-                if (it->attributes["link"_L1].toUrl() == link) {
+            forEachComponentOfType(Blocks::LinkPreviewLoad, [this, link, linkPreviewer, &linkPreviewsToClose](Blocks::BlockPtrsIt it) {
+                const auto previewBlock = dynamic_cast<Blocks::UrlBlock *>(*it);
+                if (previewBlock && previewBlock->source() == link) {
                     if (linkPreviewer->empty()) {
                         // Hide the link preview, lest it be confusingly displayed with nothing in it!
                         linkPreviewsToClose.push_back(it - m_components.begin());
                     } else {
-                        it->type = Blocks::LinkPreview;
+                        (*it)->setType(Blocks::LinkPreview);
                         Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
                     }
                 }
@@ -360,22 +354,24 @@ Blocks::Block MessageContentModel::linkPreviewComponent(const QUrl &link)
             }
         }
     });
-    return Blocks::Block{Blocks::LinkPreviewLoad, QString(), {{"link"_L1, link}}};
+    return Blocks::makeBlock<Blocks::UrlBlock>(this, Blocks::LinkPreviewLoad, link);
 }
 
 void MessageContentModel::closeLinkPreview(int row)
 {
-    if (row < 0 || row >= m_components.size()) {
+    if (row < 0 || row >= (int)m_components.size()) {
         qCWarning(MessageContent) << __FUNCTION__ << "called with invalid row" << row << m_components.size();
         return;
     }
 
-    if (m_components[row].type == Blocks::LinkPreview || m_components[row].type == Blocks::LinkPreviewLoad) {
-        beginRemoveRows({}, row, row);
-        m_removedLinkPreviews += m_components[row].attributes["link"_L1].toUrl();
-        m_components.remove(row);
-        m_components.squeeze();
-        endRemoveRows();
+    if (m_components[row]->type() == Blocks::LinkPreview || m_components[row]->type() == Blocks::LinkPreviewLoad) {
+        if (const auto previewBlock = dynamic_cast<Blocks::UrlBlock *>(m_components[row])) {
+            beginRemoveRows({}, row, row);
+            m_removedLinkPreviews += previewBlock->source();
+            m_components.erase(m_components.begin() + row);
+            m_components.shrink_to_fit();
+            endRemoveRows();
+        }
     }
 }
 
@@ -394,9 +390,23 @@ void MessageContentModel::updateSpoiler(const QModelIndex &index)
         return;
     }
 
-    const auto spoilerRevealed = m_components[row].attributes.value("spoilerRevealed"_L1, false).toBool();
-    m_components[row].display = TextHandler::updateSpoilerText(this, m_components[row].display, spoilerRevealed);
-    Q_EMIT dataChanged(index, index, {DisplayRole});
+    const auto textBlock = dynamic_cast<Blocks::TextBlock *>(m_components[row]);
+    if (!textBlock) {
+        return;
+    }
+    const auto item = textBlock->item();
+    if (!item) {
+        return;
+    }
+    const auto doc = item->document();
+    if (!doc) {
+        return;
+    }
+
+    const auto newText = TextHandler::updateSpoilerText(this, doc->toHtml(), textBlock->spoilerRevealed());
+    doc->clear();
+    doc->setHtml(newText);
+    Q_EMIT dataChanged(index, index, {BlockRole});
 }
 
 void MessageContentModel::toggleSpoiler(QModelIndex index)
@@ -406,12 +416,13 @@ void MessageContentModel::toggleSpoiler(QModelIndex index)
         qCWarning(MessageContent) << __FUNCTION__ << "called with invalid row" << row << m_components.size();
         return;
     }
-    if (m_components[row].type != Blocks::Text) {
+    const auto textBlock = dynamic_cast<Blocks::TextBlock *>(m_components[row]);
+    if (!textBlock) {
         return;
     }
-    const auto spoilerRevealed = !m_components[row].attributes.value("spoilerRevealed"_L1, false).toBool();
-    m_components[row].attributes["spoilerRevealed"_L1] = spoilerRevealed;
-    Q_EMIT dataChanged(index, index, {ComponentAttributesRole});
+
+    textBlock->setSpoilerRevealed(!textBlock->spoilerRevealed());
+    Q_EMIT dataChanged(index, index, {BlockRole});
     updateSpoiler(index);
 }
 

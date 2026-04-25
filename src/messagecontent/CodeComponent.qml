@@ -38,23 +38,17 @@ QQC2.Control {
     required property neoChatDateTime dateTime
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
+    required property CodeBlock block
+    onBlockChanged: if (block) {
+        block.item.textItem = codeText;
+    }
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
-
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
-    readonly property ChatTextItemHelper chatTextItemHelper: componentAttributes?.chatTextItemHelper ?? null
-    onChatTextItemHelperChanged: if (chatTextItemHelper) {
-        chatTextItemHelper.textItem = codeText;
-    }
 
     /**
      * @brief Whether the component is currently focussed.
@@ -103,7 +97,6 @@ QQC2.Control {
             bottomPadding: Kirigami.Units.smallSpacing
             leftPadding: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing * 2
 
-            text: root.editable ? "" : root.display
             readOnly: !root.editable
             textFormat: TextEdit.PlainText
             wrapMode: TextEdit.Wrap
@@ -120,7 +113,7 @@ QQC2.Control {
             onSelectedTextChanged: root.selectedTextChanged(selectedText)
 
             SyntaxHighlighter {
-                property string definitionName: Repository.definitionForName(root.componentAttributes.class).name
+                property string definitionName: Repository.definitionForName(root.block.language).name
                 textEdit: definitionName == "None" ? null : codeText
                 definition: definitionName
             }
@@ -190,7 +183,7 @@ QQC2.Control {
             text: i18n("Copy to clipboard")
             display: QQC2.AbstractButton.IconOnly
 
-            onClicked: Clipboard.saveText(root.display);
+            onClicked: Clipboard.saveText(codeText.text);
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
@@ -202,7 +195,7 @@ QQC2.Control {
             text: i18nc("@action:button", "Maximize")
             display: QQC2.AbstractButton.IconOnly
 
-            onClicked: RoomManager.maximizeCode(root.author, root.dateTime, root.display, root.componentAttributes.class);
+            onClicked: RoomManager.maximizeCode(root.author, root.dateTime, codeText.text, root.block.language);
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered

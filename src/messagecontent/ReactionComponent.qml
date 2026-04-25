@@ -22,7 +22,7 @@ Flow {
     /**
      * @brief The reaction model to get the reactions from.
      */
-    required property ReactionModel reactionModel
+    required property ReactionBlock block
 
     // HACK: We do not set Layout properties here, see BUG 504344 for the crash it caused.
 
@@ -31,7 +31,7 @@ Flow {
     Repeater {
         id: reactionRepeater
 
-        model: root.reactionModel
+        model: root.block.model
 
         delegate: QQC2.AbstractButton {
             id: reactionDelegate

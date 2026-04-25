@@ -96,6 +96,7 @@ bool Blocks::isTextType(const Blocks::Type &type)
 {
     static const QList<Type> textTypes = {
         Text,
+        Emoji,
         Code,
         Quote,
     };

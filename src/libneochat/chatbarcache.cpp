@@ -40,7 +40,7 @@ QString ChatBarCache::sendText() const
 {
     const auto cacheText = m_cache.toString();
     if (cacheText.isEmpty() && Blocks::isFileType(m_cache.at(0)->type)) {
-        QUrl url(dynamic_cast<const Blocks::FileCacheItem *>(m_cache.at(0))->source);
+        QUrl url(dynamic_cast<const Blocks::UrlCacheItem *>(m_cache.at(0))->source);
         auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
         return path.mid(path.lastIndexOf(u'/') + 1);
     }
@@ -139,7 +139,7 @@ QString ChatBarCache::relationMessage() const
     return {};
 }
 
-QList<Blocks::Block> ChatBarCache::relationComponents() const
+Blocks::BlockPtrs ChatBarCache::relationComponents(QObject *parent) const
 {
     if (!m_room) {
         qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
@@ -149,7 +149,7 @@ QList<Blocks::Block> ChatBarCache::relationComponents() const
         return {};
     }
     if (auto [event, _] = m_room->getEvent(m_relationId); event != nullptr) {
-        return TextHandler().textComponents(EventHandler::rawMessageBody(*event), EventHandler::messageBodyInputFormat(*event), m_room, event);
+        return TextHandler().textComponents(EventHandler::rawMessageBody(*event), EventHandler::messageBodyInputFormat(*event), m_room, event, parent);
     }
     return {};
 }
@@ -210,7 +210,7 @@ void ChatBarCache::postMessage()
     }
 
     if (Blocks::isFileType(m_cache.at(0)->type)) {
-        const auto fileCacheItem = dynamic_cast<const Blocks::FileCacheItem *>(m_cache.at(0));
+        const auto fileCacheItem = dynamic_cast<const Blocks::UrlCacheItem *>(m_cache.at(0));
         m_room->uploadFile(fileCacheItem->source, sendText(), relatesTo);
         clearCache();
         return;

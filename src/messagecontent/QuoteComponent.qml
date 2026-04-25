@@ -32,23 +32,17 @@ QQC2.TextArea {
     required property NeochatRoomMember author
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
+    required property TextBlock block
+    onBlockChanged: if (block) {
+        block.item.textItem = root;
+    }
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
-
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
-    readonly property ChatTextItemHelper chatTextItemHelper: componentAttributes?.chatTextItemHelper ?? null
-    onChatTextItemHelperChanged: if (chatTextItemHelper) {
-        chatTextItemHelper.textItem = root;
-    }
 
     /**
      * @brief Whether the component is currently focussed.
@@ -68,7 +62,6 @@ QQC2.TextArea {
     topPadding: Kirigami.Units.smallSpacing
     bottomPadding: Kirigami.Units.smallSpacing
 
-    text: root.editable ? "" : root.display
     selectByMouse: true
     readOnly: !root.editable
     textFormat: TextEdit.RichText

@@ -23,14 +23,9 @@ ColumnLayout {
     required property string eventId
 
     /**
-     * @brief The display text of the message.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property string display
-
-    /**
-     * @brief The attributes of the component.
-     */
-    required property var componentAttributes
+    required property LocationBlock block
 
     required property int index
 
@@ -78,14 +73,5 @@ ColumnLayout {
     Component {
         id: fullScreenMap
         FullScreenMap {}
-    }
-
-    TextComponent {
-        display: root.display
-        visible: root.display !== ""
-        componentAttributes: root.componentAttributes
-        index: root.index
-        eventId: root.eventId
-        author: root.author
     }
 }

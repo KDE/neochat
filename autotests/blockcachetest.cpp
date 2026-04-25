@@ -54,9 +54,13 @@ void BlockCacheTest::toStringTest()
     QFETCH(QString, outputstring);
 
     Cache cache;
-    cache.append(
-        std::make_unique<TextCacheItem>(itemType,
-                                        isPlain ? QTextDocumentFragment::fromPlainText(inputString) : QTextDocumentFragment::fromMarkdown(inputString)));
+    if (itemType == Blocks::Code) {
+        cache.append(std::make_unique<CodeCacheItem>(itemType, QTextDocumentFragment::fromPlainText(inputString)));
+    } else {
+        cache.append(
+            std::make_unique<TextCacheItem>(itemType,
+                                            isPlain ? QTextDocumentFragment::fromPlainText(inputString) : QTextDocumentFragment::fromMarkdown(inputString)));
+    }
     QCOMPARE(cache.toString(), outputstring);
 }
 
