@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:45+0000\n"
+"POT-Creation-Date: 2026-04-26 00:43+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -1828,18 +1828,18 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Misformita aŭ malplena Matrix-id<br />%1 ne estas ĝusta Matrico-identigilo"
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:467
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Malsukcesis aliĝi al ĉambro<br />%1"
 
-#: src/app/roommanager.cpp:474
+#: src/app/roommanager.cpp:491
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vi petis aliĝi al '%1'"
 
-#: src/app/roommanager.cpp:478
+#: src/app/roommanager.cpp:495
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Malsukcesis peti aliĝon al ĉambro<br />%1"
@@ -2770,271 +2770,271 @@ msgctxt "@info"
 msgid "Rooms with newer events are higher"
 msgstr "Ĉambroj kun la pli novaj mesaĝoj estas pli altaj"
 
-#: src/libneochat/eventhandler.cpp:201 src/libneochat/eventhandler.cpp:279
-#: src/libneochat/eventhandler.cpp:511
+#: src/libneochat/eventhandler.cpp:206 src/libneochat/eventhandler.cpp:284
+#: src/libneochat/eventhandler.cpp:516
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Tiu ĉi mesaĝo estis forigita]</i>"
 
-#: src/libneochat/eventhandler.cpp:201 src/libneochat/eventhandler.cpp:279
+#: src/libneochat/eventhandler.cpp:206 src/libneochat/eventhandler.cpp:284
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Ĉi tiu mesaĝo estis forigita: %1]</i>"
 
-#: src/libneochat/eventhandler.cpp:313
+#: src/libneochat/eventhandler.cpp:318
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "reinvitis %1 al la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:315
+#: src/libneochat/eventhandler.cpp:320
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/libneochat/eventhandler.cpp:324
+#: src/libneochat/eventhandler.cpp:329
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "aliĝis al la ĉambro (ripeta)"
 
-#: src/libneochat/eventhandler.cpp:326
+#: src/libneochat/eventhandler.cpp:331
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "invitis %1 al la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:326
+#: src/libneochat/eventhandler.cpp:331
 #, kde-format
 msgid "joined the room"
 msgstr "aliĝis al la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:330
+#: src/libneochat/eventhandler.cpp:335
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/libneochat/eventhandler.cpp:337
+#: src/libneochat/eventhandler.cpp:342
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "forigis ilian montran nomon"
 
-#: src/libneochat/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:345
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "ŝanĝis ilian montran nomon al %1"
 
-#: src/libneochat/eventhandler.cpp:346
+#: src/libneochat/eventhandler.cpp:351
 #, kde-format
 msgid " and "
 msgstr "kaj"
 
-#: src/libneochat/eventhandler.cpp:349
+#: src/libneochat/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "malbaris ilian avataron"
 
-#: src/libneochat/eventhandler.cpp:351
+#: src/libneochat/eventhandler.cpp:356
 #, kde-format
 msgid "set an avatar"
 msgstr "starigi avataron"
 
-#: src/libneochat/eventhandler.cpp:353
+#: src/libneochat/eventhandler.cpp:358
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "ĝisdatigis sian avataron"
 
-#: src/libneochat/eventhandler.cpp:357
+#: src/libneochat/eventhandler.cpp:362
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "ŝanĝis nenion"
 
-#: src/libneochat/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "retiris la inviton de %1"
 
-#: src/libneochat/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "rejected the invitation"
 msgstr "malakceptis la inviton"
 
-#: src/libneochat/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:372
 #, kde-format
 msgid "unbanned %1"
 msgstr "nemalpermesita %1"
 
-#: src/libneochat/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:372
 #, kde-format
 msgid "self-unbanned"
 msgstr "mem-malpermesita"
 
-#: src/libneochat/eventhandler.cpp:370
+#: src/libneochat/eventhandler.cpp:375
 #, kde-format
 msgid "left the room"
 msgstr "forlasis la ĉambron"
 
-#: src/libneochat/eventhandler.cpp:373
+#: src/libneochat/eventhandler.cpp:378
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "has removed %1 from the room: %2"
 msgstr "malpermesite %1 el la ĉambro: %2"
 
-#: src/libneochat/eventhandler.cpp:375
+#: src/libneochat/eventhandler.cpp:380
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room"
 msgid "has removed %1 from the room"
 msgstr "malpermesis %1 el la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:379
+#: src/libneochat/eventhandler.cpp:384
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "malpermesis %1 el la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:386
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "malpermesite %1 el la ĉambro: %2"
 
-#: src/libneochat/eventhandler.cpp:384
+#: src/libneochat/eventhandler.cpp:389
 #, kde-format
 msgid "self-banned from the room"
 msgstr "mem-malpermesita el la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:388
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "requested an invite"
 msgstr "petis inviton"
 
-#: src/libneochat/eventhandler.cpp:388
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "petis inviton kun kialo: %1"
 
-#: src/libneochat/eventhandler.cpp:392
+#: src/libneochat/eventhandler.cpp:397
 #, kde-format
 msgid "made something unknown"
 msgstr "faris ion nekonatan"
 
-#: src/libneochat/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:400
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "malbaris la ĉefan kaŝnomon de la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:400
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "agordi la ĉefan kaŝnomon de la ĉambro al: %1"
 
-#: src/libneochat/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:403
 #, kde-format
 msgid "cleared the room name"
 msgstr "malbaris la ĉambronomon"
 
-#: src/libneochat/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:403
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "agordi la ĉambronomon al: %1"
 
-#: src/libneochat/eventhandler.cpp:401
+#: src/libneochat/eventhandler.cpp:406
 #, kde-format
 msgid "cleared the topic"
 msgstr "malbaris la temon"
 
-#: src/libneochat/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:407
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "agordi la temon al: %1"
 
-#: src/libneochat/eventhandler.cpp:408
+#: src/libneochat/eventhandler.cpp:413
 #, kde-format
 msgid "changed the room avatar"
 msgstr "ŝanĝis la ĉambroavataron"
 
-#: src/libneochat/eventhandler.cpp:411
+#: src/libneochat/eventhandler.cpp:416
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "aktivigita Fin-al-Fina Ĉifrado"
 
-#: src/libneochat/eventhandler.cpp:415
+#: src/libneochat/eventhandler.cpp:420
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "ĝisdatigis la ĉambron al versio %1"
 
-#: src/libneochat/eventhandler.cpp:416
+#: src/libneochat/eventhandler.cpp:421
 #, kde-format
 msgid "created the room, version %1"
 msgstr "kreis la ĉambron, versio %1"
 
-#: src/libneochat/eventhandler.cpp:419
+#: src/libneochat/eventhandler.cpp:424
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "ŝanĝis la potenconivelojn por ĉi tiu ĉambro"
 
-#: src/libneochat/eventhandler.cpp:425
+#: src/libneochat/eventhandler.cpp:430
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "ŝanĝis la servilajn alirkontrollistojn por ĉi tiu ĉambro"
 
-#: src/libneochat/eventhandler.cpp:429
+#: src/libneochat/eventhandler.cpp:434
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "aldonis %1 fenestraĵo"
 
-#: src/libneochat/eventhandler.cpp:432
+#: src/libneochat/eventhandler.cpp:437
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "forigis %1 fenestraĵo"
 
-#: src/libneochat/eventhandler.cpp:434
+#: src/libneochat/eventhandler.cpp:439
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "agordis %1 fenestraĵo"
 
-#: src/libneochat/eventhandler.cpp:439
+#: src/libneochat/eventhandler.cpp:444
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:441
+#: src/libneochat/eventhandler.cpp:446
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:445
+#: src/libneochat/eventhandler.cpp:450
 #, fuzzy, kde-format
 #| msgid "%1 configured a widget"
 msgctxt "[User] configured an extension"
 msgid "configured an extension"
 msgstr "%1 agordis fenestraĵon"
 
-#: src/libneochat/eventhandler.cpp:447
+#: src/libneochat/eventhandler.cpp:452
 #, kde-format
 msgid "updated %1 state"
 msgstr "ĝisdatigita %1 stato"
 
-#: src/libneochat/eventhandler.cpp:448
+#: src/libneochat/eventhandler.cpp:453
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "ĝisdatigis %1 staton por %2"
 
-#: src/libneochat/eventhandler.cpp:454
+#: src/libneochat/eventhandler.cpp:459
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@info In room list"
 msgid "Encrypted event"
 msgstr "Ĉifrita Mesaĝo"
 
-#: src/libneochat/eventhandler.cpp:457
+#: src/libneochat/eventhandler.cpp:462
 #, fuzzy, kde-format
 #| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 #| msgid "%2 reacted with %3"
@@ -3043,270 +3043,270 @@ msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
 msgstr "%2 redaktis kun %3"
 
-#: src/libneochat/eventhandler.cpp:459 src/libneochat/eventhandler.cpp:668
+#: src/libneochat/eventhandler.cpp:464 src/libneochat/eventhandler.cpp:673
 #, kde-format
 msgid "Unknown event"
 msgstr "Nekonata evento"
 
-#: src/libneochat/eventhandler.cpp:474
+#: src/libneochat/eventhandler.cpp:479
 #, kde-format
 msgid "a file"
 msgstr "dosiero"
 
-#: src/libneochat/eventhandler.cpp:520
+#: src/libneochat/eventhandler.cpp:525
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 sendis mesaĝon"
 
-#: src/libneochat/eventhandler.cpp:523
+#: src/libneochat/eventhandler.cpp:528
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 sendis glumarkon"
 
-#: src/libneochat/eventhandler.cpp:529
+#: src/libneochat/eventhandler.cpp:534
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 reinvitis iun al la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:535
+#: src/libneochat/eventhandler.cpp:540
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 aliĝis al la ĉambro (ripete)"
 
-#: src/libneochat/eventhandler.cpp:537
+#: src/libneochat/eventhandler.cpp:542
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 invitis iun al la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:538
+#: src/libneochat/eventhandler.cpp:543
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 aliĝis al la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:564
+#: src/libneochat/eventhandler.cpp:569
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 metis ekrannomon kaj metis avataron"
 
-#: src/libneochat/eventhandler.cpp:566
+#: src/libneochat/eventhandler.cpp:571
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 metis ekrannomon kaj ĝisdatigis sian avataron"
 
-#: src/libneochat/eventhandler.cpp:568
+#: src/libneochat/eventhandler.cpp:573
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 metis ekrannomon kaj malbaris sian avataron"
 
-#: src/libneochat/eventhandler.cpp:570
+#: src/libneochat/eventhandler.cpp:575
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 metis ekrannomon por ĉi tiu ĉambro"
 
-#: src/libneochat/eventhandler.cpp:573
+#: src/libneochat/eventhandler.cpp:578
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 ŝanĝis sian montran nomon kaj metis avataron"
 
-#: src/libneochat/eventhandler.cpp:575
+#: src/libneochat/eventhandler.cpp:580
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 ŝanĝis sian montran nomon kaj ĝisdatigis sian avataron"
 
-#: src/libneochat/eventhandler.cpp:577
+#: src/libneochat/eventhandler.cpp:582
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 ŝanĝis sian montran nomon kaj viŝis sian avataron"
 
-#: src/libneochat/eventhandler.cpp:579
+#: src/libneochat/eventhandler.cpp:584
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 ŝanĝis sian montran nomon"
 
-#: src/libneochat/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 forigis sian montran nomon kaj metis avataron"
 
-#: src/libneochat/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:589
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 forigis sian montran nomon kaj ĝisdatigis sian avataron"
 
-#: src/libneochat/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:591
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 forigis sian montran nomon kaj viŝis sian avataron"
 
-#: src/libneochat/eventhandler.cpp:588
+#: src/libneochat/eventhandler.cpp:593
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 forigis sian montran nomon"
 
-#: src/libneochat/eventhandler.cpp:591
+#: src/libneochat/eventhandler.cpp:596
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 ŝanĝis nenion"
 
-#: src/libneochat/eventhandler.cpp:595
+#: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 retiris inviton de uzanto"
 
-#: src/libneochat/eventhandler.cpp:596
+#: src/libneochat/eventhandler.cpp:601
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 malakceptis la inviton"
 
-#: src/libneochat/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 malforbaris uzanton"
 
-#: src/libneochat/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 mem-malforbariĝis"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:607
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 eligis uzanton el la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:607
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 forlasis la ĉambron"
 
-#: src/libneochat/eventhandler.cpp:605
+#: src/libneochat/eventhandler.cpp:610
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 forbaris uzanton de la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:612
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 mem-forbaris el la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:610
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 petis inviton"
 
-#: src/libneochat/eventhandler.cpp:614
+#: src/libneochat/eventhandler.cpp:619
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 faris ion nekonatan"
 
-#: src/libneochat/eventhandler.cpp:617
+#: src/libneochat/eventhandler.cpp:622
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 viŝis la ĉefan kaŝnomon de la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:617
+#: src/libneochat/eventhandler.cpp:622
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 metis la ĉefan kaŝnomon de la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:620
+#: src/libneochat/eventhandler.cpp:625
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 viŝis la ĉambronomon"
 
-#: src/libneochat/eventhandler.cpp:620
+#: src/libneochat/eventhandler.cpp:625
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 metis la nomon de la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:623
+#: src/libneochat/eventhandler.cpp:628
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 viŝis la temon"
 
-#: src/libneochat/eventhandler.cpp:623
+#: src/libneochat/eventhandler.cpp:628
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 metis la temon"
 
-#: src/libneochat/eventhandler.cpp:626
+#: src/libneochat/eventhandler.cpp:631
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 ŝanĝis la ĉambroavataron"
 
-#: src/libneochat/eventhandler.cpp:629
+#: src/libneochat/eventhandler.cpp:634
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 aktivigis Fin-al-Finan Ĉifradon"
 
-#: src/libneochat/eventhandler.cpp:632
+#: src/libneochat/eventhandler.cpp:637
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 ĝisdatigis la ĉambroversion"
 
-#: src/libneochat/eventhandler.cpp:632
+#: src/libneochat/eventhandler.cpp:637
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 kreis la ĉambron"
 
-#: src/libneochat/eventhandler.cpp:635
+#: src/libneochat/eventhandler.cpp:640
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 ŝanĝis la potenconivelojn por ĉi tiu ĉambro"
 
-#: src/libneochat/eventhandler.cpp:638
+#: src/libneochat/eventhandler.cpp:643
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 sendis vivan lokosignalon"
 
-#: src/libneochat/eventhandler.cpp:641
+#: src/libneochat/eventhandler.cpp:646
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 ŝanĝis la servilajn alirkontrollistojn por ĉi tiu ĉambro"
 
-#: src/libneochat/eventhandler.cpp:645
+#: src/libneochat/eventhandler.cpp:650
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 aldonis fenestraĵon"
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:653
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 forigis fenestraĵon"
 
-#: src/libneochat/eventhandler.cpp:650
+#: src/libneochat/eventhandler.cpp:655
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 agordis fenestraĵon"
 
-#: src/libneochat/eventhandler.cpp:655
+#: src/libneochat/eventhandler.cpp:660
 #, fuzzy, kde-format
 #| msgid "%1 left the room"
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "%1 forlasis la ĉambron"
 
-#: src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:662
 #, fuzzy, kde-format
 #| msgid "%1 joined the room"
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "%1 aliĝis al la ĉambro"
 
-#: src/libneochat/eventhandler.cpp:661
+#: src/libneochat/eventhandler.cpp:666
 #, fuzzy, kde-format
 #| msgid "%1 configured a widget"
 msgctxt "[User] configured an extension"
 msgid "%1 configured an extension"
 msgstr "%1 agordis fenestraĵon"
 
-#: src/libneochat/eventhandler.cpp:663
+#: src/libneochat/eventhandler.cpp:668
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 ĝisdatigis la staton"
 
-#: src/libneochat/eventhandler.cpp:666
+#: src/libneochat/eventhandler.cpp:671
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 komencis balotadon"
@@ -3728,6 +3728,28 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Propraj Emoĝioj"
 
+#: src/libneochat/models/reactionmodel.cpp:68
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " kaj "
+
+#: src/libneochat/models/reactionmodel.cpp:75
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " kaj %1 alia"
+msgstr[1] " kaj %1 aliaj"
+
+#: src/libneochat/models/reactionmodel.cpp:79
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 redaktis kun %3"
+msgstr[1] "%2 redaktis kun %3"
+
 #: src/libneochat/models/timezonemodel.cpp:21
 #, kde-format
 msgctxt "@item:inlistbox Prefer not to say which timezone im in"
@@ -3998,7 +4020,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Serĉi"
 
-#: src/libneochat/texthandler.cpp:620
+#: src/libneochat/texthandler.cpp:627
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -4326,18 +4348,18 @@ msgctxt "@action:button"
 msgid "Go Back"
 msgstr "Reen"
 
-#: src/messagecontent/BaseBlockChooser.qml:174
+#: src/messagecontent/BaseBlockChooser.qml:190
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 komencis uzant-konfirmon"
 
-#: src/messagecontent/CodeComponent.qml:190
+#: src/messagecontent/CodeComponent.qml:183
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Kopii al tondujo"
 
-#: src/messagecontent/CodeComponent.qml:202
-#: src/messagecontent/VideoComponent.qml:341
+#: src/messagecontent/CodeComponent.qml:195
+#: src/messagecontent/VideoComponent.qml:336
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4389,7 +4411,7 @@ msgid "Stop Download"
 msgstr "Ĉesi Elŝuton"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:119
+#: src/messagecontent/ImageComponent.qml:114
 #, fuzzy, kde-format
 #| msgid "Remove parent"
 msgctxt "@action:button"
@@ -4418,22 +4440,22 @@ msgstr "Enregistriĝotempo: %1"
 msgid "Check-out time: %1"
 msgstr "Tempo de eliro: %1"
 
-#: src/messagecontent/ImageComponent.qml:79
-#: src/messagecontent/VideoComponent.qml:150
+#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/VideoComponent.qml:145
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Agordi Bildon"
 
-#: src/messagecontent/ImageComponent.qml:95
+#: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Redakti"
 
-#: src/messagecontent/ImageComponent.qml:194
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4472,21 +4494,21 @@ msgstr "Ŝargante respondon"
 msgid "Loading URL preview"
 msgstr "Ŝargante antaŭrigardon de URL"
 
-#: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
+#: src/messagecontent/LoadComponent.qml:33
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:248
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "Ŝargante…"
 
-#: src/messagecontent/LocationComponent.qml:88
+#: src/messagecontent/LocationComponent.qml:83
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Malfermi Ekstere"
 
-#: src/messagecontent/LocationComponent.qml:101
+#: src/messagecontent/LocationComponent.qml:96
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Enter Full Screen"
@@ -4494,7 +4516,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Eniri Plenan Ekranon"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:226
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4504,47 +4526,25 @@ msgstr ""
 "Ĉi tiu mesaĝo aŭ ne estis trovita, vi ne havas permeson vidi ĝin, aŭ ĝi "
 "estis sendita de ignorita uzanto"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:248
 #, fuzzy, kde-format
 #| msgid "Loading reply"
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Ŝargante respondon"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:93
+#: src/messagecontent/models/messagecontentmodel.cpp:94
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:96
+#: src/messagecontent/models/messagecontentmodel.cpp:97
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "Malsukcesis aliĝi al ĉambro<br />%1"
-
-#: src/messagecontent/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " kaj "
-
-#: src/messagecontent/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " kaj %1 alia"
-msgstr[1] " kaj %1 aliaj"
-
-#: src/messagecontent/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 redaktis kun %3"
-msgstr[1] "%2 redaktis kun %3"
 
 #: src/messagecontent/PollComponent.qml:122
 #, kde-format
@@ -4594,21 +4594,21 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Nuligi respondon"
 
-#: src/messagecontent/TextComponent.qml:144
+#: src/messagecontent/TextComponent.qml:128
 #, fuzzy, kde-format
 #| msgid "Set an attachment caption…"
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Agordi kunsendaĵan apudskribon…"
 
-#: src/messagecontent/TextComponent.qml:146
+#: src/messagecontent/TextComponent.qml:130
 #, fuzzy, kde-format
 #| msgid "Send an encrypted message…"
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Sendi ĉifritan mesaĝon…"
 
-#: src/messagecontent/TextComponent.qml:148
+#: src/messagecontent/TextComponent.qml:132
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@placeholder"
@@ -4705,18 +4705,18 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:173
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:217
+#: src/messagecontent/VideoComponent.qml:212
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Montri Video"
 
-#: src/messagecontent/VideoComponent.qml:258
+#: src/messagecontent/VideoComponent.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"

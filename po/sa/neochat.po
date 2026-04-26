@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:45+0000\n"
+"POT-Creation-Date: 2026-04-26 00:43+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1820,18 +1820,18 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत अथवा रिक्त Matrix id<br /> %1 सम्यक् Matrix-परिचयः नास्ति"
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:467
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "कक्षं सम्मिलितुं असफलः अभवत्<br /> %1"
 
-#: src/app/roommanager.cpp:474
+#: src/app/roommanager.cpp:491
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "भवान् '%1' इत्यत्र सम्मिलितुं प्रार्थितवान्।"
 
-#: src/app/roommanager.cpp:478
+#: src/app/roommanager.cpp:495
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "सम्मिलितकक्षस्य अनुरोधं कर्तुं असफलः<br /> %1"
@@ -2760,271 +2760,271 @@ msgctxt "@info"
 msgid "Rooms with newer events are higher"
 msgstr "नवीनतरसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
 
-#: src/libneochat/eventhandler.cpp:201 src/libneochat/eventhandler.cpp:279
-#: src/libneochat/eventhandler.cpp:511
+#: src/libneochat/eventhandler.cpp:206 src/libneochat/eventhandler.cpp:284
+#: src/libneochat/eventhandler.cpp:516
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[एषः सन्देशः लोपितः] ।</i>"
 
-#: src/libneochat/eventhandler.cpp:201 src/libneochat/eventhandler.cpp:279
+#: src/libneochat/eventhandler.cpp:206 src/libneochat/eventhandler.cpp:284
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[एषः सन्देशः अपाकृतः: %1] ।</i>"
 
-#: src/libneochat/eventhandler.cpp:313
+#: src/libneochat/eventhandler.cpp:318
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 पुनः कक्षं प्रति आमन्त्रितवान्"
 
-#: src/libneochat/eventhandler.cpp:315
+#: src/libneochat/eventhandler.cpp:320
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/libneochat/eventhandler.cpp:324
+#: src/libneochat/eventhandler.cpp:329
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "कक्षे सम्मिलितः (पुनः)"
 
-#: src/libneochat/eventhandler.cpp:326
+#: src/libneochat/eventhandler.cpp:331
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 कक्षं प्रति आमन्त्रितवान्"
 
-#: src/libneochat/eventhandler.cpp:326
+#: src/libneochat/eventhandler.cpp:331
 #, kde-format
 msgid "joined the room"
 msgstr "कक्षे सम्मिलितः"
 
-#: src/libneochat/eventhandler.cpp:330
+#: src/libneochat/eventhandler.cpp:335
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/libneochat/eventhandler.cpp:337
+#: src/libneochat/eventhandler.cpp:342
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "तेषां प्रदर्शननाम स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:345
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "तेषां प्रदर्शननाम %1 इति परिवर्तितवान्"
 
-#: src/libneochat/eventhandler.cpp:346
+#: src/libneochat/eventhandler.cpp:351
 #, kde-format
 msgid " and "
 msgstr " तथा "
 
-#: src/libneochat/eventhandler.cpp:349
+#: src/libneochat/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "तेषां अवतारं स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:351
+#: src/libneochat/eventhandler.cpp:356
 #, kde-format
 msgid "set an avatar"
 msgstr "अवतारं स्थापयतु"
 
-#: src/libneochat/eventhandler.cpp:353
+#: src/libneochat/eventhandler.cpp:358
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "तेषां अवतारं अद्यतनं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:357
+#: src/libneochat/eventhandler.cpp:362
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "किमपि न परिवर्तयति स्म"
 
-#: src/libneochat/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "%1 इत्यस्य आमन्त्रणं निवृत्तम्"
 
-#: src/libneochat/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "rejected the invitation"
 msgstr "निमन्त्रणं अङ्गीकृतवान्"
 
-#: src/libneochat/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:372
 #, kde-format
 msgid "unbanned %1"
 msgstr "अप्रतिबन्धित %1"
 
-#: src/libneochat/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:372
 #, kde-format
 msgid "self-unbanned"
 msgstr "स्वयम् अप्रतिबन्धितम्"
 
-#: src/libneochat/eventhandler.cpp:370
+#: src/libneochat/eventhandler.cpp:375
 #, kde-format
 msgid "left the room"
 msgstr "कक्षं त्यक्तवान्"
 
-#: src/libneochat/eventhandler.cpp:373
+#: src/libneochat/eventhandler.cpp:378
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "has removed %1 from the room: %2"
 msgstr "कक्षतः %1 प्रतिबन्धितः: %2"
 
-#: src/libneochat/eventhandler.cpp:375
+#: src/libneochat/eventhandler.cpp:380
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room"
 msgid "has removed %1 from the room"
 msgstr "कक्षतः %1 प्रतिबन्धितवान्"
 
-#: src/libneochat/eventhandler.cpp:379
+#: src/libneochat/eventhandler.cpp:384
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "कक्षतः %1 प्रतिबन्धितवान्"
 
-#: src/libneochat/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:386
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "कक्षतः %1 प्रतिबन्धितः: %2"
 
-#: src/libneochat/eventhandler.cpp:384
+#: src/libneochat/eventhandler.cpp:389
 #, kde-format
 msgid "self-banned from the room"
 msgstr "कक्षतः स्वयमेव प्रतिबन्धितः"
 
-#: src/libneochat/eventhandler.cpp:388
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "requested an invite"
 msgstr "आमन्त्रणं याचितवान्"
 
-#: src/libneochat/eventhandler.cpp:388
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "कारणेन सह आमन्त्रणं प्रार्थितवान्: %1"
 
-#: src/libneochat/eventhandler.cpp:392
+#: src/libneochat/eventhandler.cpp:397
 #, kde-format
 msgid "made something unknown"
 msgstr "किमपि अज्ञातं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:400
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "कक्षं मुख्यं उपनाम स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:400
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "कक्षस्य मुख्यं उपनाम: %1 इति सेट् कुर्वन्तु"
 
-#: src/libneochat/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:403
 #, kde-format
 msgid "cleared the room name"
 msgstr "कक्षस्य नाम स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:403
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "कक्षनाम : %1 इति सेट् कुर्वन्तु"
 
-#: src/libneochat/eventhandler.cpp:401
+#: src/libneochat/eventhandler.cpp:406
 #, kde-format
 msgid "cleared the topic"
 msgstr "विषयं स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:407
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "विषयं सेट् कुर्वन्तु: %1"
 
-#: src/libneochat/eventhandler.cpp:408
+#: src/libneochat/eventhandler.cpp:413
 #, kde-format
 msgid "changed the room avatar"
 msgstr "कक्षस्य अवतारं परिवर्तयति स्म"
 
-#: src/libneochat/eventhandler.cpp:411
+#: src/libneochat/eventhandler.cpp:416
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "सक्रियः End-to-End Encryption इति"
 
-#: src/libneochat/eventhandler.cpp:415
+#: src/libneochat/eventhandler.cpp:420
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "कक्षं %1 संस्करणं प्रति उन्नयनं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:416
+#: src/libneochat/eventhandler.cpp:421
 #, kde-format
 msgid "created the room, version %1"
 msgstr "कक्षं निर्मितवान्, संस्करणं %1"
 
-#: src/libneochat/eventhandler.cpp:419
+#: src/libneochat/eventhandler.cpp:424
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "अस्य कक्षस्य शक्तिस्तरं परिवर्तयति स्म"
 
-#: src/libneochat/eventhandler.cpp:425
+#: src/libneochat/eventhandler.cpp:430
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "अस्य कक्षस्य सर्वर-प्रवेश-नियन्त्रण-सूचिकाः परिवर्तिताः"
 
-#: src/libneochat/eventhandler.cpp:429
+#: src/libneochat/eventhandler.cpp:434
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "%1 विजेट् योजितम्"
 
-#: src/libneochat/eventhandler.cpp:432
+#: src/libneochat/eventhandler.cpp:437
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "%1 विजेट् निष्कासितम्"
 
-#: src/libneochat/eventhandler.cpp:434
+#: src/libneochat/eventhandler.cpp:439
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "%1 विजेट् विन्यस्तम्"
 
-#: src/libneochat/eventhandler.cpp:439
+#: src/libneochat/eventhandler.cpp:444
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:441
+#: src/libneochat/eventhandler.cpp:446
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:445
+#: src/libneochat/eventhandler.cpp:450
 #, fuzzy, kde-format
 #| msgid "%1 configured a widget"
 msgctxt "[User] configured an extension"
 msgid "configured an extension"
 msgstr "%1 इत्यनेन विजेट् विन्यस्तम्"
 
-#: src/libneochat/eventhandler.cpp:447
+#: src/libneochat/eventhandler.cpp:452
 #, kde-format
 msgid "updated %1 state"
 msgstr "अद्यतनं %1 अवस्था"
 
-#: src/libneochat/eventhandler.cpp:448
+#: src/libneochat/eventhandler.cpp:453
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2 कृते %1 अवस्था अद्यतनं कृतम्"
 
-#: src/libneochat/eventhandler.cpp:454
+#: src/libneochat/eventhandler.cpp:459
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@info In room list"
 msgid "Encrypted event"
 msgstr "एन्क्रिप्टेड् सन्देशः"
 
-#: src/libneochat/eventhandler.cpp:457
+#: src/libneochat/eventhandler.cpp:462
 #, fuzzy, kde-format
 #| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 #| msgid "%2 reacted with %3"
@@ -3033,270 +3033,270 @@ msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
 msgstr "%2 %3 इत्यनेन सह प्रतिक्रियां कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:459 src/libneochat/eventhandler.cpp:668
+#: src/libneochat/eventhandler.cpp:464 src/libneochat/eventhandler.cpp:673
 #, kde-format
 msgid "Unknown event"
 msgstr "अज्ञात घटना"
 
-#: src/libneochat/eventhandler.cpp:474
+#: src/libneochat/eventhandler.cpp:479
 #, kde-format
 msgid "a file"
 msgstr "a file"
 
-#: src/libneochat/eventhandler.cpp:520
+#: src/libneochat/eventhandler.cpp:525
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 सन्देशं प्रेषितवान्"
 
-#: src/libneochat/eventhandler.cpp:523
+#: src/libneochat/eventhandler.cpp:528
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 इत्यनेन स्टिकरं प्रेषितम्"
 
-#: src/libneochat/eventhandler.cpp:529
+#: src/libneochat/eventhandler.cpp:534
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 कञ्चित् पुनः कक्षं प्रति आमन्त्रितवान्"
 
-#: src/libneochat/eventhandler.cpp:535
+#: src/libneochat/eventhandler.cpp:540
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 कक्षे सम्मिलितः (पुनः)"
 
-#: src/libneochat/eventhandler.cpp:537
+#: src/libneochat/eventhandler.cpp:542
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 कञ्चित् कक्षं प्रति आमन्त्रितवान्"
 
-#: src/libneochat/eventhandler.cpp:538
+#: src/libneochat/eventhandler.cpp:543
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 कक्षे सम्मिलितः"
 
-#: src/libneochat/eventhandler.cpp:564
+#: src/libneochat/eventhandler.cpp:569
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 प्रदर्शननाम सेट् कृत्वा अवतारं सेट् कुर्वन्तु"
 
-#: src/libneochat/eventhandler.cpp:566
+#: src/libneochat/eventhandler.cpp:571
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 प्रदर्शननाम सेट् कृत्वा तेषां अवतारं अद्यतनं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:568
+#: src/libneochat/eventhandler.cpp:573
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 प्रदर्शननाम स्थापयित्वा तेषां अवतारं स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:570
+#: src/libneochat/eventhandler.cpp:575
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 अस्य कक्षस्य कृते प्रदर्शननाम सेट् कुर्वन्तु"
 
-#: src/libneochat/eventhandler.cpp:573
+#: src/libneochat/eventhandler.cpp:578
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 इत्यनेन तेषां प्रदर्शननाम परिवर्त्य अवतारं सेट् कृतम्"
 
-#: src/libneochat/eventhandler.cpp:575
+#: src/libneochat/eventhandler.cpp:580
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 इत्यनेन स्वस्य प्रदर्शननाम परिवर्त्य स्वस्य अवतारं अद्यतनं कृतम्"
 
-#: src/libneochat/eventhandler.cpp:577
+#: src/libneochat/eventhandler.cpp:582
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 इत्यनेन तेषां प्रदर्शननाम परिवर्त्य स्वस्य अवतारं स्वच्छं कृतम्"
 
-#: src/libneochat/eventhandler.cpp:579
+#: src/libneochat/eventhandler.cpp:584
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 इत्यनेन तेषां प्रदर्शननाम परिवर्तितम्"
 
-#: src/libneochat/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 इत्यनेन तेषां प्रदर्शननाम स्वच्छं कृत्वा अवतारं सेट् कृतम्"
 
-#: src/libneochat/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:589
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 इत्यनेन तेषां प्रदर्शननाम स्वच्छं कृत्वा तेषां अवतारं अद्यतनं कृतम्"
 
-#: src/libneochat/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:591
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 इत्यनेन तेषां प्रदर्शननाम स्वच्छं कृत्वा तेषां अवतारं स्वच्छं कृतम्"
 
-#: src/libneochat/eventhandler.cpp:588
+#: src/libneochat/eventhandler.cpp:593
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 इत्यनेन तेषां प्रदर्शननाम स्वच्छं कृतम्"
 
-#: src/libneochat/eventhandler.cpp:591
+#: src/libneochat/eventhandler.cpp:596
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 इत्यनेन किमपि परिवर्तनं न कृतम्"
 
-#: src/libneochat/eventhandler.cpp:595
+#: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 इत्यनेन उपयोक्तुः आमन्त्रणं निवृत्तम्"
 
-#: src/libneochat/eventhandler.cpp:596
+#: src/libneochat/eventhandler.cpp:601
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 आमन्त्रणं अङ्गीकृतवान्"
 
-#: src/libneochat/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 एकं उपयोक्तारं अप्रतिबन्धितवान्"
 
-#: src/libneochat/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 स्वयम् अप्रतिबन्धितम्"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:607
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 एकं उपयोक्तारं कक्षात् बहिः स्थापयति"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:607
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 कक्षं त्यक्तवान्"
 
-#: src/libneochat/eventhandler.cpp:605
+#: src/libneochat/eventhandler.cpp:610
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 इत्यनेन कक्ष्यायाः उपयोक्तारं प्रतिबन्धितम्"
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:612
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 कक्षात् स्वयमेव प्रतिबन्धितः"
 
-#: src/libneochat/eventhandler.cpp:610
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 इत्यनेन आमन्त्रणं प्रार्थितम्"
 
-#: src/libneochat/eventhandler.cpp:614
+#: src/libneochat/eventhandler.cpp:619
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 किमपि अज्ञातं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:617
+#: src/libneochat/eventhandler.cpp:622
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 कक्षस्य मुख्यं उपनाम स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:617
+#: src/libneochat/eventhandler.cpp:622
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 कक्षस्य मुख्यं उपनाम सेट् कुर्वन्तु"
 
-#: src/libneochat/eventhandler.cpp:620
+#: src/libneochat/eventhandler.cpp:625
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 कक्षनाम स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:620
+#: src/libneochat/eventhandler.cpp:625
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 कक्षनाम सेट् कुर्वन्तु"
 
-#: src/libneochat/eventhandler.cpp:623
+#: src/libneochat/eventhandler.cpp:628
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 विषयं स्वच्छं कृतवान्"
 
-#: src/libneochat/eventhandler.cpp:623
+#: src/libneochat/eventhandler.cpp:628
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 विषयं सेट् कुर्वन्तु"
 
-#: src/libneochat/eventhandler.cpp:626
+#: src/libneochat/eventhandler.cpp:631
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 इत्यनेन कक्षस्य अवतारं परिवर्तितम्"
 
-#: src/libneochat/eventhandler.cpp:629
+#: src/libneochat/eventhandler.cpp:634
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 इत्यनेन अन्त्यतः अन्त्यपर्यन्तं एन्क्रिप्शनं सक्रियम्"
 
-#: src/libneochat/eventhandler.cpp:632
+#: src/libneochat/eventhandler.cpp:637
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 इत्यनेन कक्षसंस्करणं उन्नयनं कृतम्"
 
-#: src/libneochat/eventhandler.cpp:632
+#: src/libneochat/eventhandler.cpp:637
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 इत्यनेन कक्षः निर्मितः"
 
-#: src/libneochat/eventhandler.cpp:635
+#: src/libneochat/eventhandler.cpp:640
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 इत्यनेन अस्य कक्षस्य शक्तिस्तराः परिवर्तिताः"
 
-#: src/libneochat/eventhandler.cpp:638
+#: src/libneochat/eventhandler.cpp:643
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 इत्यनेन लाइव् स्थानबीकन् प्रेषितम्"
 
-#: src/libneochat/eventhandler.cpp:641
+#: src/libneochat/eventhandler.cpp:646
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 इत्यनेन अस्य कक्षस्य सर्वर-प्रवेश-नियन्त्रण-सूचीः परिवर्तिताः"
 
-#: src/libneochat/eventhandler.cpp:645
+#: src/libneochat/eventhandler.cpp:650
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 इत्यनेन विजेट् योजितम्"
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:653
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 इत्यनेन एकं विजेट् निष्कासितम्"
 
-#: src/libneochat/eventhandler.cpp:650
+#: src/libneochat/eventhandler.cpp:655
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 इत्यनेन विजेट् विन्यस्तम्"
 
-#: src/libneochat/eventhandler.cpp:655
+#: src/libneochat/eventhandler.cpp:660
 #, fuzzy, kde-format
 #| msgid "%1 left the room"
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "%1 कक्षं त्यक्तवान्"
 
-#: src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:662
 #, fuzzy, kde-format
 #| msgid "%1 joined the room"
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "%1 कक्षे सम्मिलितः"
 
-#: src/libneochat/eventhandler.cpp:661
+#: src/libneochat/eventhandler.cpp:666
 #, fuzzy, kde-format
 #| msgid "%1 configured a widget"
 msgctxt "[User] configured an extension"
 msgid "%1 configured an extension"
 msgstr "%1 इत्यनेन विजेट् विन्यस्तम्"
 
-#: src/libneochat/eventhandler.cpp:663
+#: src/libneochat/eventhandler.cpp:668
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 इत्यनेन राज्यं अद्यतनं कृतम्"
 
-#: src/libneochat/eventhandler.cpp:666
+#: src/libneochat/eventhandler.cpp:671
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 इत्यनेन मतदानम् आरब्धम्"
@@ -3718,6 +3718,28 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "स्वकीय इमोजी"
 
+#: src/libneochat/models/reactionmodel.cpp:68
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " तथा "
+
+#: src/libneochat/models/reactionmodel.cpp:75
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " तथा %1 अन्यः"
+msgstr[1] " तथा %1 अन्ये"
+
+#: src/libneochat/models/reactionmodel.cpp:79
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 %3 इत्यनेन सह प्रतिक्रियां कृतवान्"
+msgstr[1] "%2 %3 इत्यनेन सह प्रतिक्रियां कृतवान्"
+
 #: src/libneochat/models/timezonemodel.cpp:21
 #, kde-format
 msgctxt "@item:inlistbox Prefer not to say which timezone im in"
@@ -3987,7 +4009,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "अन्वेषण"
 
-#: src/libneochat/texthandler.cpp:620
+#: src/libneochat/texthandler.cpp:627
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -4314,18 +4336,18 @@ msgctxt "@action:button"
 msgid "Go Back"
 msgstr "पृष्ठभागः"
 
-#: src/messagecontent/BaseBlockChooser.qml:174
+#: src/messagecontent/BaseBlockChooser.qml:190
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 इत्यनेन उपयोक्तृसत्यापनम् आरब्धम्"
 
-#: src/messagecontent/CodeComponent.qml:190
+#: src/messagecontent/CodeComponent.qml:183
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "क्लिप्बोर्ड् प्रति प्रतिलिख्यताम्"
 
-#: src/messagecontent/CodeComponent.qml:202
-#: src/messagecontent/VideoComponent.qml:341
+#: src/messagecontent/CodeComponent.qml:195
+#: src/messagecontent/VideoComponent.qml:336
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4375,7 +4397,7 @@ msgid "Stop Download"
 msgstr "डाउनलोड् स्थगयन्तु"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:119
+#: src/messagecontent/ImageComponent.qml:114
 #, fuzzy, kde-format
 #| msgid "Remove parent"
 msgctxt "@action:button"
@@ -4404,22 +4426,22 @@ msgstr "चेक-इन समयः %1"
 msgid "Check-out time: %1"
 msgstr "चेक-आउट् समयः %1"
 
-#: src/messagecontent/ImageComponent.qml:79
-#: src/messagecontent/VideoComponent.qml:150
+#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/VideoComponent.qml:145
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "चित्रं सेट् कुर्वन्तु"
 
-#: src/messagecontent/ImageComponent.qml:95
+#: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "सम्पादन"
 
-#: src/messagecontent/ImageComponent.qml:194
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4458,21 +4480,21 @@ msgstr "उत्तरं लोडयति"
 msgid "Loading URL preview"
 msgstr "URL पूर्वावलोकनं लोड् भवति"
 
-#: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
+#: src/messagecontent/LoadComponent.qml:33
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:248
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "लोडिंग..."
 
-#: src/messagecontent/LocationComponent.qml:88
+#: src/messagecontent/LocationComponent.qml:83
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "बाह्यरूपेण उद्घाटयतु"
 
-#: src/messagecontent/LocationComponent.qml:101
+#: src/messagecontent/LocationComponent.qml:96
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Enter Full Screen"
@@ -4480,7 +4502,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Full Screen इति प्रविष्टं कुर्वन्तु"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:226
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4489,47 +4511,25 @@ msgid ""
 msgstr ""
 "एषः सन्देशः न प्राप्तः, भवतः द्रष्टुं अनुमतिः नास्ति, अथवा उपेक्षितेन उपयोक्त्रा प्रेषितः"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:248
 #, fuzzy, kde-format
 #| msgid "Loading reply"
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "उत्तरं लोडयति"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:93
+#: src/messagecontent/models/messagecontentmodel.cpp:94
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:96
+#: src/messagecontent/models/messagecontentmodel.cpp:97
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "कक्षं सम्मिलितुं असफलः अभवत्<br /> %1"
-
-#: src/messagecontent/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " तथा "
-
-#: src/messagecontent/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " तथा %1 अन्यः"
-msgstr[1] " तथा %1 अन्ये"
-
-#: src/messagecontent/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 %3 इत्यनेन सह प्रतिक्रियां कृतवान्"
-msgstr[1] "%2 %3 इत्यनेन सह प्रतिक्रियां कृतवान्"
 
 #: src/messagecontent/PollComponent.qml:122
 #, kde-format
@@ -4580,21 +4580,21 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "उत्तरं रद्दं कुर्वन्तु"
 
-#: src/messagecontent/TextComponent.qml:144
+#: src/messagecontent/TextComponent.qml:128
 #, fuzzy, kde-format
 #| msgid "Set an attachment caption…"
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "एकं संलग्नकं शीर्षकं सेट् कुर्वन्तु..."
 
-#: src/messagecontent/TextComponent.qml:146
+#: src/messagecontent/TextComponent.qml:130
 #, fuzzy, kde-format
 #| msgid "Send an encrypted message…"
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "एन्क्रिप्टेड् सन्देशं प्रेषयन्तु..."
 
-#: src/messagecontent/TextComponent.qml:148
+#: src/messagecontent/TextComponent.qml:132
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@placeholder"
@@ -4691,18 +4691,18 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "प्ल. %1"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:173
 #, kde-format
 msgid "Video"
 msgstr "विडिओ"
 
-#: src/messagecontent/VideoComponent.qml:217
+#: src/messagecontent/VideoComponent.qml:212
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "विडियो दर्शयतु"
 
-#: src/messagecontent/VideoComponent.qml:258
+#: src/messagecontent/VideoComponent.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
