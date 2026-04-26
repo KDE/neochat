@@ -30,11 +30,6 @@ Item {
     required property ImageBlock block
 
     /**
-     * @brief FileTransferInfo for any downloading files.
-     */
-    required property var fileTransferInfo
-
-    /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
@@ -216,24 +211,6 @@ Item {
     QQC2.ToolTip.visible: hoverHandler.hovered
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
-
-
-    function downloadAndOpen() {
-        if (_private.downloaded) {
-            openSavedFile();
-        } else {
-            root.openOnFinished = true;
-            Message.room.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + Message.room.fileNameToDownload(root.eventId));
-        }
-    }
-
-    function openSavedFile() {
-        if (UrlHelper.openUrl(root.fileTransferInfo.localPath))
-            return;
-        if (UrlHelper.openUrl(root.fileTransferInfo.localDir))
-            return;
-    }
-
     MediaSizeHelper {
         id: mediaSizeHelper
         contentMaxWidth: root.Message.maxContentWidth
@@ -245,9 +222,6 @@ Item {
     QtObject {
         id: _private
         readonly property var imageItem: root.block.info.isAnimated ? animatedImageLoader.item : imageLoader.item
-
-        // The space available for the component after taking away the border
-        readonly property real downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
 
         property bool hideImage: NeoChatConfig.hideImages && !Controller.isImageShown(root.eventId)
     }

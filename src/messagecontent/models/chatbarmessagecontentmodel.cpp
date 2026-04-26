@@ -224,10 +224,6 @@ void ChatBarMessageContentModel::initializeEdit()
 
     beginResetModel();
     std::ranges::for_each(m_components, [this](Blocks::Block *component) {
-        if (const auto codeBlock = dynamic_cast<Blocks::CodeBlock *>(component)) {
-            connectTextItem(codeBlock->item());
-            return;
-        }
         if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(component)) {
             connectTextItem(textBlock->item());
             return;
@@ -393,9 +389,6 @@ void ChatBarMessageContentModel::connectTextItem(ChatTextItemHelper *chattextite
 
 ChatTextItemHelper *ChatBarMessageContentModel::textItemForComponent(Blocks::Block *component) const
 {
-    if (const auto codeBlock = dynamic_cast<Blocks::CodeBlock *>(component)) {
-        return codeBlock->item();
-    }
     if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(component)) {
         return textBlock->item();
     }
