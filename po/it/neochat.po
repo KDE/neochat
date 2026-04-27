@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:43+0000\n"
+"POT-Creation-Date: 2026-04-27 00:43+0000\n"
 "PO-Revision-Date: 2026-04-07 14:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -632,53 +632,85 @@ msgstr "Accedi alla stanza"
 msgid "Session Verification"
 msgstr "Verifica della sessione"
 
-#: src/app/qml/KeyVerificationDialog.qml:101
+#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/OlmKeyVerificationDialog.qml:101
 #, kde-format
 msgid "Accept"
 msgstr "Accetta"
 
-#: src/app/qml/KeyVerificationDialog.qml:107
+#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/OlmKeyVerificationDialog.qml:107
 #, kde-format
 msgid "Decline"
 msgstr "Rifiuta"
 
-#: src/app/qml/KeyVerificationDialog.qml:151
+#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/OlmKeyVerificationDialog.qml:151
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "In attesa che il dispositivo accetti la verifica."
 
-#: src/app/qml/KeyVerificationDialog.qml:153
+#: src/app/qml/KeyVerificationDialog.qml:170
+#: src/app/qml/OlmKeyVerificationDialog.qml:153
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Richiesta di verifica della chiave in entrata dal dispositivo **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:155
+#: src/app/qml/KeyVerificationDialog.qml:172
+#, fuzzy, kde-format
+#| msgid "Incoming key verification request from device **%1**"
+msgid "Incoming key verification request from **%1**"
+msgstr "Richiesta di verifica della chiave in entrata dal dispositivo **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:176
+#: src/app/qml/OlmKeyVerificationDialog.qml:155
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "In attesa che l'altra parte ci invii le chiavi."
 
-#: src/app/qml/KeyVerificationDialog.qml:157
+#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/OlmKeyVerificationDialog.qml:157
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "In attesa che l'altra parte confermi le nostre chiavi."
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:180
+#: src/app/qml/OlmKeyVerificationDialog.qml:159
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "In attesa che l'altra parte verifichi."
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
+#: src/app/qml/KeyVerificationDialog.qml:194
+#: src/app/qml/OlmKeyVerificationDialog.qml:161
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Dispositivo **%1** verificato correttamente"
 
-#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:196
+#, fuzzy, kde-format
+#| msgid "Successfully verified device **%1**"
+msgctxt "@info"
+msgid "Successfully verified **%1**"
+msgstr "Dispositivo **%1** verificato correttamente"
+
+#: src/app/qml/KeyVerificationDialog.qml:190
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to confirm our keys."
+msgctxt "@info"
+msgid "Waiting for remote party to confirm verification"
+msgstr "In attesa che l'altra parte confermi le nostre chiavi."
+
+#: src/app/qml/KeyVerificationDialog.qml:216
+#: src/app/qml/OlmKeyVerificationDialog.qml:178
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Scegli un metodo di verifica per continuare"
 
-#: src/app/qml/KeyVerificationDialog.qml:182
+#: src/app/qml/KeyVerificationDialog.qml:220
+#: src/app/qml/OlmKeyVerificationDialog.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -827,6 +859,12 @@ msgstr "Caricamento…"
 #, kde-format
 msgid "No Notifications"
 msgstr "Nessuna notifica"
+
+#: src/app/qml/OlmKeyVerificationDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Session Verification"
+msgid "Session Verifications"
+msgstr "Verifica della sessione"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format

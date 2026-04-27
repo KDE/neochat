@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:43+0000\n"
+"POT-Creation-Date: 2026-04-27 00:43+0000\n"
 "PO-Revision-Date: 2026-04-23 18:54+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -633,53 +633,85 @@ msgstr "Neem deel aan een chatroom"
 msgid "Session Verification"
 msgstr "Verificatie van sessie"
 
-#: src/app/qml/KeyVerificationDialog.qml:101
+#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/OlmKeyVerificationDialog.qml:101
 #, kde-format
 msgid "Accept"
 msgstr "Accepteren"
 
-#: src/app/qml/KeyVerificationDialog.qml:107
+#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/OlmKeyVerificationDialog.qml:107
 #, kde-format
 msgid "Decline"
 msgstr "Afwijzen"
 
-#: src/app/qml/KeyVerificationDialog.qml:151
+#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/OlmKeyVerificationDialog.qml:151
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Wacht op apparaat om verificatie te accepteren."
 
-#: src/app/qml/KeyVerificationDialog.qml:153
+#: src/app/qml/KeyVerificationDialog.qml:170
+#: src/app/qml/OlmKeyVerificationDialog.qml:153
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Inkomend verzoek voor verificatie van sleutel van apparaat **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:155
+#: src/app/qml/KeyVerificationDialog.qml:172
+#, fuzzy, kde-format
+#| msgid "Incoming key verification request from device **%1**"
+msgid "Incoming key verification request from **%1**"
+msgstr "Inkomend verzoek voor verificatie van sleutel van apparaat **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:176
+#: src/app/qml/OlmKeyVerificationDialog.qml:155
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "Wacht op andere partij om ons sleutels te sturen."
 
-#: src/app/qml/KeyVerificationDialog.qml:157
+#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/OlmKeyVerificationDialog.qml:157
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "Wacht op andere partij om onze sleutels te bevestigen."
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:180
+#: src/app/qml/OlmKeyVerificationDialog.qml:159
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Wacht op andere partij om te verifiëren."
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
+#: src/app/qml/KeyVerificationDialog.qml:194
+#: src/app/qml/OlmKeyVerificationDialog.qml:161
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Apparaat **%1** is met succes geverifieerd"
 
-#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:196
+#, fuzzy, kde-format
+#| msgid "Successfully verified device **%1**"
+msgctxt "@info"
+msgid "Successfully verified **%1**"
+msgstr "Apparaat **%1** is met succes geverifieerd"
+
+#: src/app/qml/KeyVerificationDialog.qml:190
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to confirm our keys."
+msgctxt "@info"
+msgid "Waiting for remote party to confirm verification"
+msgstr "Wacht op andere partij om onze sleutels te bevestigen."
+
+#: src/app/qml/KeyVerificationDialog.qml:216
+#: src/app/qml/OlmKeyVerificationDialog.qml:178
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Een verificatiemethode kiezen om door te gaan"
 
-#: src/app/qml/KeyVerificationDialog.qml:182
+#: src/app/qml/KeyVerificationDialog.qml:220
+#: src/app/qml/OlmKeyVerificationDialog.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -831,6 +863,12 @@ msgstr "Laden…"
 #, kde-format
 msgid "No Notifications"
 msgstr "Geen meldingen"
+
+#: src/app/qml/OlmKeyVerificationDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Session Verification"
+msgid "Session Verifications"
+msgstr "Verificatie van sessie"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format

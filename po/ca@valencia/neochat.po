@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:43+0000\n"
+"POT-Creation-Date: 2026-04-27 00:43+0000\n"
 "PO-Revision-Date: 2026-04-22 08:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -637,53 +637,85 @@ msgstr "Unix-te a la sala"
 msgid "Session Verification"
 msgstr "Verificació de la sessió"
 
-#: src/app/qml/KeyVerificationDialog.qml:101
+#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/OlmKeyVerificationDialog.qml:101
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/app/qml/KeyVerificationDialog.qml:107
+#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/OlmKeyVerificationDialog.qml:107
 #, kde-format
 msgid "Decline"
 msgstr "Declina"
 
-#: src/app/qml/KeyVerificationDialog.qml:151
+#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/OlmKeyVerificationDialog.qml:151
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "S'està esperant que el dispositiu accepte la verificació."
 
-#: src/app/qml/KeyVerificationDialog.qml:153
+#: src/app/qml/KeyVerificationDialog.qml:170
+#: src/app/qml/OlmKeyVerificationDialog.qml:153
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Sol·licitud entrant de verificació de clau des del dispositiu **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:155
+#: src/app/qml/KeyVerificationDialog.qml:172
+#, fuzzy, kde-format
+#| msgid "Incoming key verification request from device **%1**"
+msgid "Incoming key verification request from **%1**"
+msgstr "Sol·licitud entrant de verificació de clau des del dispositiu **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:176
+#: src/app/qml/OlmKeyVerificationDialog.qml:155
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "S'està esperant que l'altra part vos envie les claus."
 
-#: src/app/qml/KeyVerificationDialog.qml:157
+#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/OlmKeyVerificationDialog.qml:157
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "S'està esperant que l'altra part confirme les nostres claus."
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:180
+#: src/app/qml/OlmKeyVerificationDialog.qml:159
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "S'està esperant la verificació de l'altra part."
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
+#: src/app/qml/KeyVerificationDialog.qml:194
+#: src/app/qml/OlmKeyVerificationDialog.qml:161
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Dispositiu **%1** verificat correctament"
 
-#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:196
+#, fuzzy, kde-format
+#| msgid "Successfully verified device **%1**"
+msgctxt "@info"
+msgid "Successfully verified **%1**"
+msgstr "Dispositiu **%1** verificat correctament"
+
+#: src/app/qml/KeyVerificationDialog.qml:190
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to confirm our keys."
+msgctxt "@info"
+msgid "Waiting for remote party to confirm verification"
+msgstr "S'està esperant que l'altra part confirme les nostres claus."
+
+#: src/app/qml/KeyVerificationDialog.qml:216
+#: src/app/qml/OlmKeyVerificationDialog.qml:178
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Trieu un mètode de verificació per a continuar"
 
-#: src/app/qml/KeyVerificationDialog.qml:182
+#: src/app/qml/KeyVerificationDialog.qml:220
+#: src/app/qml/OlmKeyVerificationDialog.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -833,6 +865,12 @@ msgstr "S'està carregant…"
 #, kde-format
 msgid "No Notifications"
 msgstr "Sense notificacions"
+
+#: src/app/qml/OlmKeyVerificationDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Session Verification"
+msgid "Session Verifications"
+msgstr "Verificació de la sessió"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format

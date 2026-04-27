@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-26 00:43+0000\n"
+"POT-Creation-Date: 2026-04-27 00:43+0000\n"
 "PO-Revision-Date: 2026-04-22 08:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -636,53 +636,85 @@ msgstr "Увійти в кімнату"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/app/qml/KeyVerificationDialog.qml:101
+#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/OlmKeyVerificationDialog.qml:101
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
 
-#: src/app/qml/KeyVerificationDialog.qml:107
+#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/OlmKeyVerificationDialog.qml:107
 #, kde-format
 msgid "Decline"
 msgstr "Відхилити"
 
-#: src/app/qml/KeyVerificationDialog.qml:151
+#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/OlmKeyVerificationDialog.qml:151
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Очікуємо на прийняття пристроєм підтвердження."
 
-#: src/app/qml/KeyVerificationDialog.qml:153
+#: src/app/qml/KeyVerificationDialog.qml:170
+#: src/app/qml/OlmKeyVerificationDialog.qml:153
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Вхідний запит щодо перевірки ключа від пристрою **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:155
+#: src/app/qml/KeyVerificationDialog.qml:172
+#, fuzzy, kde-format
+#| msgid "Incoming key verification request from device **%1**"
+msgid "Incoming key verification request from **%1**"
+msgstr "Вхідний запит щодо перевірки ключа від пристрою **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:176
+#: src/app/qml/OlmKeyVerificationDialog.qml:155
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "Очікування на надсилання нам ключів з іншого боку"
 
-#: src/app/qml/KeyVerificationDialog.qml:157
+#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/OlmKeyVerificationDialog.qml:157
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "Очікування на підтвердження наших ключів з іншого боку."
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:180
+#: src/app/qml/OlmKeyVerificationDialog.qml:159
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Очікування на перевірку з іншого боку"
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
+#: src/app/qml/KeyVerificationDialog.qml:194
+#: src/app/qml/OlmKeyVerificationDialog.qml:161
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Успішно перевірено пристрій **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:196
+#, fuzzy, kde-format
+#| msgid "Successfully verified device **%1**"
+msgctxt "@info"
+msgid "Successfully verified **%1**"
+msgstr "Успішно перевірено пристрій **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:190
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to confirm our keys."
+msgctxt "@info"
+msgid "Waiting for remote party to confirm verification"
+msgstr "Очікування на підтвердження наших ключів з іншого боку."
+
+#: src/app/qml/KeyVerificationDialog.qml:216
+#: src/app/qml/OlmKeyVerificationDialog.qml:178
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Виберіть спосіб перевірки, щоб продовжити"
 
-#: src/app/qml/KeyVerificationDialog.qml:182
+#: src/app/qml/KeyVerificationDialog.qml:220
+#: src/app/qml/OlmKeyVerificationDialog.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -833,6 +865,12 @@ msgstr "Завантаження…"
 #, kde-format
 msgid "No Notifications"
 msgstr "Немає сповіщень"
+
+#: src/app/qml/OlmKeyVerificationDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Session Verification"
+msgid "Session Verifications"
+msgstr "Перевірка сеансу"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format
