@@ -226,7 +226,6 @@ void ChatBarMessageContentModel::initializeEdit()
     std::ranges::for_each(m_components, [this](Blocks::Block *component) {
         if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(component)) {
             connectTextItem(textBlock->item());
-            return;
         }
     });
     endResetModel();
@@ -507,6 +506,10 @@ Blocks::BlockPtrsIt ChatBarMessageContentModel::insertComponent(int row, Blocks:
 {
     if (row < 0 || row > rowCount()) {
         return m_components.end();
+    }
+
+    if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(block)) {
+        connectTextItem(textBlock->item());
     }
 
     beginInsertRows({}, row, row);
