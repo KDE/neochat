@@ -111,6 +111,12 @@ ecm_add_test(
     TEST_NAME blockcachetest
 )
 
+ecm_add_test(
+        chatbarmessagecontentmodeltest.cpp
+        LINK_LIBRARIES neochat Qt::Test
+        TEST_NAME chatbarmessagecontentmodeltest
+)
+
 macro(add_qml_tests)
     if (WIN32)
         set(_extra_args -platform offscreen)
