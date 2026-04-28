@@ -191,7 +191,7 @@ private:
     std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_fileFunction = [this](Blocks::BlockPtrsIt it) {
         if (m_itineraryModel && m_itineraryModel->rowCount() > 0) {
             beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-            it = m_components.insert(it + 1, Blocks::makeBlock<Blocks::Block>(this, Blocks::Itinerary));
+            it = m_components.insert(it + 1, new Blocks::Block(Blocks::Itinerary, this));
             endInsertRows();
             return it;
         } else if (m_emptyItinerary) {
@@ -212,11 +212,11 @@ private:
                 }
 
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                it = m_components.insert(
-                    it + 1,
-                    Blocks::makeBlock<Blocks::CodeBlock>(this, Blocks::Code,
-                                                         QTextDocumentFragment::fromPlainText(QString::fromStdString(file.readAll().toStdString())),
-                                                         definitionForFile.name()));
+                it = m_components.insert(it + 1,
+                                         new Blocks::CodeBlock(Blocks::Code,
+                                                               QTextDocumentFragment::fromPlainText(QString::fromStdString(file.readAll().toStdString())),
+                                                               definitionForFile.name(),
+                                                               this));
                 endInsertRows();
                 return it;
             }
@@ -228,13 +228,13 @@ private:
                 Blocks::ImageInfo info;
                 info.pixelSize = reader.size();
                 it = m_components.insert(it + 1,
-                                         Blocks::makeBlock<Blocks::ImageBlock>(this,
-                                                                               Blocks::Pdf,
-                                                                               fileTransferInfo.localPath,
-                                                                               fileTransferInfo.localPath.fileName(),
-                                                                               info,
-                                                                               QUrl(),
-                                                                               Blocks::ImageInfo()));
+                                         new Blocks::ImageBlock(Blocks::Pdf,
+                                                                fileTransferInfo.localPath,
+                                                                fileTransferInfo.localPath.fileName(),
+                                                                info,
+                                                                QUrl(),
+                                                                Blocks::ImageInfo(),
+                                                                this));
                 endInsertRows();
             }
         }

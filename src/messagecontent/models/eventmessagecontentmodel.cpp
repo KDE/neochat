@@ -213,7 +213,7 @@ void EventMessageContentModel::getEvent()
     m_room->downloadEventFromServer(m_eventId);
 }
 
-Blocks::Block *EventMessageContentModel::unavailableBlock() const
+Blocks::Block *EventMessageContentModel::unavailableBlock()
 {
     const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
 
@@ -224,12 +224,13 @@ Blocks::Block *EventMessageContentModel::unavailableBlock() const
         disabledTextColor = u"#000000"_s;
     }
 
-    return Blocks::makeBlock<Blocks::TextBlock>(
-        this,
+    return new Blocks::TextBlock(
         Blocks::Text,
         QTextDocumentFragment::fromHtml(
             u"<span style=\"color:%1\">"_s.arg(disabledTextColor)
-            + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user") + u"</span>"_s));
+            + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user") + u"</span>"_s),
+        false,
+        this);
 }
 
 void EventMessageContentModel::resetModel()
@@ -245,12 +246,13 @@ void EventMessageContentModel::resetModel()
 
     const auto event = m_room->getEvent(m_eventId);
     if (event.first == nullptr) {
-        m_components.push_back(Blocks::makeBlock<Blocks::BasicTextBlock>(this, Blocks::Loading, m_isReply ? i18nc("@info", "Loading reply…") : i18nc("@info Loading this message", "Loading…")));
+        m_components.push_back(
+            new Blocks::BasicTextBlock(Blocks::Loading, m_isReply ? i18nc("@info", "Loading reply…") : i18nc("@info Loading this message", "Loading…"), this));
         endResetModel();
         return;
     }
 
-    m_components.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::Author));
+    m_components.push_back(new Blocks::Block(Blocks::Author, this));
 
     auto components = messageContentComponents();
     m_components.insert(m_components.end(), std::make_move_iterator(components.begin()), std::make_move_iterator(components.end()));
@@ -298,7 +300,7 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
     Blocks::BlockPtrs newComponents;
 
     if (isEditing) {
-        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::ChatBar));
+        newComponents.push_back(new Blocks::Block(Blocks::ChatBar, this));
     } else {
         auto typeComponents = componentsForType(Blocks::typeForEvent(*event.first, m_isReply));
         newComponents.insert(newComponents.end(), std::make_move_iterator(typeComponents.begin()), std::make_move_iterator(typeComponents.end()));
@@ -308,13 +310,13 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
     if (roomMessageEvent
         && ((roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId())
             || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::Separator));
-        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::ThreadBody));
+        newComponents.push_back(new Blocks::Block(Blocks::Separator, this));
+        newComponents.push_back(new Blocks::Block(Blocks::ThreadBody, this));
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents.push_back(Blocks::makeBlock<Blocks::Block>(this, Blocks::ChatBar));
+        newComponents.push_back(new Blocks::Block(Blocks::ChatBar, this));
     }
 
     return newComponents;
@@ -399,15 +401,12 @@ Blocks::BlockPtrs EventMessageContentModel::componentsForType(Blocks::Type type)
         return components;
     }
     case Blocks::Location:
-        components.push_back(Blocks::makeBlock<Blocks::LocationBlock>(this,
-                                                                      type,
-                                                                      EventHandler::latitude(event),
-                                                                      EventHandler::longitude(event),
-                                                                      EventHandler::locationAssetType(event)));
-        components.push_back(Blocks::makeBlock<Blocks::TextBlock>(this, Blocks::Text, QTextDocumentFragment::fromPlainText(EventHandler::plainBody(m_room, event))));
+        components.push_back(
+            new Blocks::LocationBlock(type, EventHandler::latitude(event), EventHandler::longitude(event), EventHandler::locationAssetType(event), this));
+        components.push_back(new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(EventHandler::plainBody(m_room, event)), false, this));
         return components;
     default:
-        components.push_back(Blocks::makeBlock<Blocks::Block>(this, type));
+        components.push_back(new Blocks::Block(type, this));
         return components;
     }
 }
@@ -466,7 +465,7 @@ void EventMessageContentModel::updateReactionModel()
 
     if (m_components.back()->type() != Blocks::Reaction) {
         beginInsertRows({}, rowCount(), rowCount());
-        auto reactionBlock = Blocks::makeBlockOfType<Blocks::ReactionBlock>(this, Blocks::Reaction, m_room, m_eventId);
+        auto reactionBlock = new Blocks::ReactionBlock(Blocks::Reaction, m_room, m_eventId, this);
         if (reactionBlock->model()->rowCount() > 0) {
             m_components.push_back(reactionBlock);
         }

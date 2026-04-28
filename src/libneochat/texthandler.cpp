@@ -375,9 +375,9 @@ Blocks::Block *TextHandler::nextBlock(const QString &string,
 
     auto hasSpoiler = content.contains(u"data-mx-spoiler"_s);
     if (blockType == Blocks::Code) {
-        return Blocks::makeBlock<Blocks::CodeBlock>(parent, blockType, QTextDocumentFragment::fromPlainText(content), attributes["class"_L1].toString());
+        return new Blocks::CodeBlock(blockType, QTextDocumentFragment::fromPlainText(content), attributes["class"_L1].toString(), parent);
     }
-    return Blocks::makeBlock<Blocks::TextBlock>(parent, blockType, QTextDocumentFragment::fromHtml(content), hasSpoiler);
+    return new Blocks::TextBlock(blockType, QTextDocumentFragment::fromHtml(content), hasSpoiler, parent);
 }
 
 QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
@@ -624,7 +624,7 @@ Blocks::BlockPtrs TextHandler::textComponents(QString string,
 
     if (string.trimmed().isEmpty()) {
         components.push_back(
-            Blocks::makeBlock<Blocks::TextBlock>(parent, Blocks::Text, QTextDocumentFragment::fromHtml(i18n("<i>This event does not have any content.</i>"))));
+            new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromHtml(i18n("<i>This event does not have any content.</i>")), false, parent));
         return components;
     }
 
@@ -649,14 +649,14 @@ Blocks::BlockPtrs TextHandler::textComponents(QString string,
                         QTextDocumentFragment::fromHtml(emoteString(room, event) + textBlock->item()->initialFragment().toHtml());
                 } else {
                     components.insert(components.begin(),
-                                      Blocks::makeBlock<Blocks::TextBlock>(parent, Blocks::Text, QTextDocumentFragment::fromHtml(emoteString(room, event))));
+                                      new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromHtml(emoteString(room, event)), false, parent));
                 }
             }
         }
     }
 
     if (isEdited && components.back()->type() != Blocks::Text && components.back()->type() != Blocks::Quote) {
-        components.push_back(Blocks::makeBlock<Blocks::TextBlock>(parent, Blocks::Text, QTextDocumentFragment::fromHtml(editString())));
+        components.push_back(new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromHtml(editString()), false, parent));
     }
 
     if (components.size() == 1 && components[0]->type() == Blocks::Text) {

@@ -38,8 +38,8 @@ class Block : public QObject
     Q_PROPERTY(Blocks::Type type READ type WRITE setType NOTIFY typeChanged)
 
 public:
-    Block(Type type, QObject *parent = nullptr);
-    Block(CacheItem *item, QObject *parent = nullptr);
+    Block(Type type, QObject *parent);
+    Block(CacheItem *item, QObject *parent);
 
     [[nodiscard]] Type type() const;
     void setType(Type type);
@@ -80,8 +80,8 @@ class BasicTextBlock : public Block
     Q_PROPERTY(QString display READ display CONSTANT)
 
 public:
-    BasicTextBlock(Type type, const QString &display, QObject *parent = nullptr);
-    BasicTextBlock(BasicTextCacheItem *item, QObject *parent = nullptr);
+    BasicTextBlock(Type type, const QString &display, QObject *parent);
+    BasicTextBlock(BasicTextCacheItem *item, QObject *parent);
 
     [[nodiscard]] QString display() const;
 
@@ -122,8 +122,8 @@ class TextBlock : public Block
     Q_PROPERTY(bool spoilerRevealed READ spoilerRevealed WRITE setSpoilerRevealed NOTIFY spoilerRevealedChanged)
 
 public:
-    TextBlock(Type type, const QTextDocumentFragment &content, bool hasSpoiler = false, QObject *parent = nullptr);
-    TextBlock(TextCacheItem *item, QObject *parent = nullptr);
+    TextBlock(Type type, const QTextDocumentFragment &content, bool hasSpoiler, QObject *parent);
+    TextBlock(TextCacheItem *item, QObject *parent);
 
     ChatTextItemHelper *item() const;
 
@@ -161,8 +161,8 @@ class CodeBlock : public TextBlock
     Q_PROPERTY(QString language READ language CONSTANT)
 
 public:
-    CodeBlock(Type type, const QTextDocumentFragment &content, const QString &language, QObject *parent = nullptr);
-    CodeBlock(CodeCacheItem *item, QObject *parent = nullptr);
+    CodeBlock(Type type, const QTextDocumentFragment &content, const QString &language, QObject *parent);
+    CodeBlock(CodeCacheItem *item, QObject *parent);
 
     [[nodiscard]] QString language() const;
 
@@ -189,8 +189,8 @@ class UrlBlock : public Block
     Q_PROPERTY(QUrl source READ source CONSTANT)
 
 public:
-    UrlBlock(Type type, const QUrl &source, QObject *parent = nullptr);
-    UrlBlock(UrlCacheItem *item, QObject *parent = nullptr);
+    UrlBlock(Type type, const QUrl &source, QObject *parent);
+    UrlBlock(UrlCacheItem *item, QObject *parent);
 
     [[nodiscard]] QUrl source() const;
 
@@ -224,8 +224,8 @@ class FileBlock : public UrlBlock
     Q_PROPERTY(FileInfo info READ info CONSTANT)
 
 public:
-    FileBlock(Type type, const QUrl &source, const QString &filename, const FileInfo &info, QObject *parent = nullptr);
-    FileBlock(FileCacheItem *item, QObject *parent = nullptr);
+    FileBlock(Type type, const QUrl &source, const QString &filename, const FileInfo &info, QObject *parent);
+    FileBlock(FileCacheItem *item, QObject *parent);
 
     QString filename() const;
     const FileInfo &info() const;
@@ -277,10 +277,10 @@ public:
                const QUrl &source,
                const QString &filename,
                const ImageInfo &info,
-               const QUrl &thumbnailSource = {},
-               const ImageInfo &thumbnailInfo = {},
-               QObject *parent = nullptr);
-    ImageBlock(ImageCacheItem *item, QObject *parent = nullptr);
+               const QUrl &thumbnailSource,
+               const ImageInfo &thumbnailInfo,
+               QObject *parent);
+    ImageBlock(ImageCacheItem *item, QObject *parent);
 
     QString filename() const;
     const ImageInfo &info() const;
@@ -336,10 +336,10 @@ public:
                const QUrl &source,
                const QString &filename,
                const VideoInfo &info,
-               const QUrl &thumbnailSource = {},
-               const ImageInfo &thumbnailInfo = {},
-               QObject *parent = nullptr);
-    VideoBlock(VideoCacheItem *item, QObject *parent = nullptr);
+               const QUrl &thumbnailSource,
+               const ImageInfo &thumbnailInfo,
+               QObject *parent);
+    VideoBlock(VideoCacheItem *item, QObject *parent);
 
     QString filename() const;
     const VideoInfo &info() const;
@@ -379,8 +379,8 @@ class AudioBlock : public UrlBlock
     Q_PROPERTY(AudioInfo info READ info CONSTANT)
 
 public:
-    AudioBlock(Type type, const QUrl &source, const QString &filename, const AudioInfo &info, QObject *parent = nullptr);
-    AudioBlock(AudioCacheItem *item, QObject *parent = nullptr);
+    AudioBlock(Type type, const QUrl &source, const QString &filename, const AudioInfo &info, QObject *parent);
+    AudioBlock(AudioCacheItem *item, QObject *parent);
 
     QString filename() const;
     const AudioInfo &info() const;
@@ -419,8 +419,8 @@ class LocationBlock : public Block
     Q_PROPERTY(QString asset READ asset CONSTANT)
 
 public:
-    LocationBlock(Type type, qreal latitude, qreal longitude, const QString &asset, QObject *parent = nullptr);
-    LocationBlock(LocationCacheItem *item, QObject *parent = nullptr);
+    LocationBlock(Type type, qreal latitude, qreal longitude, const QString &asset, QObject *parent);
+    LocationBlock(LocationCacheItem *item, QObject *parent);
 
     qreal latitude() const;
     qreal longitude() const;
@@ -451,8 +451,8 @@ class ReplyBlock : public Block
     Q_PROPERTY(QString id READ id CONSTANT)
 
 public:
-    ReplyBlock(Type type, const QString &id, QObject *parent = nullptr);
-    ReplyBlock(ReplyCacheItem *item, QObject *parent = nullptr);
+    ReplyBlock(Type type, const QString &id, QObject *parent);
+    ReplyBlock(ReplyCacheItem *item, QObject *parent);
 
     QString id() const;
 
@@ -481,7 +481,7 @@ class ReactionBlock : public Block
     Q_PROPERTY(ReactionModel *model READ model CONSTANT)
 
 public:
-    ReactionBlock(Type type, NeoChatRoom *room, const QString &eventId, QObject *parent = nullptr);
+    ReactionBlock(Type type, NeoChatRoom *room, const QString &eventId, QObject *parent);
 
     ReactionModel *model() const;
 
@@ -491,22 +491,4 @@ private:
 
 using BlockPtrs = std::vector<Blocks::Block *>;
 using BlockPtrsIt = BlockPtrs::iterator;
-
-template<typename BlockT>
-concept BlockClass = std::derived_from<BlockT, Block>;
-
-template<typename ParentT>
-concept BlockParent = std::derived_from<ParentT, QObject>;
-
-template<BlockClass BlockT, BlockParent ParentT, typename... ArgTs>
-Blocks::Block *makeBlock(ParentT *parent, ArgTs &&...args)
-{
-    return new BlockT(std::forward<ArgTs>(args)..., parent);
-}
-
-template<BlockClass BlockT, BlockParent ParentT, typename... ArgTs>
-BlockT *makeBlockOfType(ParentT *parent, ArgTs &&...args)
-{
-    return new BlockT(std::forward<ArgTs>(args)..., parent);
-}
 }

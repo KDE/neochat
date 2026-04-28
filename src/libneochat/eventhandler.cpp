@@ -778,7 +778,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
                 }
             }
             const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
-            return Blocks::makeBlock<Blocks::ImageBlock>(parent, Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo);
+            return new Blocks::ImageBlock(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo, parent);
         }
     }
     if (mimeType.name().contains(u"video"_s)) {
@@ -800,7 +800,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
                 }
             }
             const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
-            return Blocks::makeBlock<Blocks::VideoBlock>(parent, Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo);
+            return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, parent);
         }
     }
     if (mimeType.name().contains(u"audio"_s)) {
@@ -809,14 +809,14 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
             audioInfo.mimeType = mimeType;
             audioInfo.size = castInfo->payloadSize;
             audioInfo.duration = castInfo->duration;
-            return Blocks::makeBlock<Blocks::AudioBlock>(parent, Blocks::Audio, source, filename, audioInfo);
+            return new Blocks::AudioBlock(Blocks::Audio, source, filename, audioInfo, parent);
         }
     }
 
     Blocks::FileInfo info;
     info.mimeType = mimeType;
     info.size = fileContent->commonInfo().payloadSize;
-    return Blocks::makeBlock<Blocks::FileBlock>(parent, Blocks::File, source, filename, info);
+    return new Blocks::FileBlock(Blocks::File, source, filename, info, parent);
 }
 
 Blocks::ImageInfo EventHandler::getTumbnailInfo(const Quotient::EventContent::Thumbnail &thumbnail)

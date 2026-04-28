@@ -306,7 +306,7 @@ void MessageContentModel::updateReplyModel()
         }
         const auto insertRow = std::distance(m_components.begin(), insertIt);
         beginInsertRows({}, insertRow, insertRow);
-        m_components.insert(insertIt, Blocks::makeBlock<Blocks::ReplyBlock>(this, Blocks::Reply, *eventId));
+        m_components.insert(insertIt, new Blocks::ReplyBlock(Blocks::Reply, *eventId, this));
         endInsertRows();
     } else {
         forEachComponentOfType(Blocks::Reply, [this](Blocks::BlockPtrsIt it) {
@@ -324,7 +324,7 @@ Blocks::Block *MessageContentModel::linkPreviewComponent(const QUrl &link)
         return {};
     }
     if (linkPreviewer->loaded()) {
-        return Blocks::makeBlock<Blocks::UrlBlock>(this, Blocks::LinkPreview, link);
+        return new Blocks::UrlBlock(Blocks::LinkPreview, link, this);
     }
     connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
         if (!m_room) {
@@ -354,7 +354,7 @@ Blocks::Block *MessageContentModel::linkPreviewComponent(const QUrl &link)
             }
         }
     });
-    return Blocks::makeBlock<Blocks::UrlBlock>(this, Blocks::LinkPreviewLoad, link);
+    return new Blocks::UrlBlock(Blocks::LinkPreviewLoad, link, this);
 }
 
 void MessageContentModel::closeLinkPreview(int row)

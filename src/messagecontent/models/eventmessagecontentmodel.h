@@ -59,7 +59,7 @@ private:
     void initializeEvent();
     void getEvent();
 
-    Blocks::Block *unavailableBlock() const;
+    Blocks::Block *unavailableBlock();
     void resetModel();
     void resetContent(bool isEditing = false, bool isThreading = false);
     Blocks::BlockPtrs messageContentComponents(bool isEditing = false, bool isThreading = false);

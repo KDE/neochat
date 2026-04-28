@@ -116,7 +116,7 @@ void ChatBarMessageContentModel::initializeModel(const QString &initialText)
     updateReplyModel();
 
     beginInsertRows({}, rowCount(), rowCount());
-    auto textBlock = Blocks::makeBlockOfType<Blocks::TextBlock>(this, Blocks::Text, QTextDocumentFragment::fromPlainText(initialText));
+    auto textBlock = new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(initialText), false, this);
     connectTextItem(textBlock->item());
     m_components.push_back(std::move(textBlock));
     endInsertRows();
@@ -209,7 +209,7 @@ void ChatBarMessageContentModel::initializeEdit()
         }
         cursor.movePosition(QTextCursor::End);
         cursor.select(QTextCursor::Document);
-        auto textBlock = Blocks::makeBlockOfType<Blocks::TextBlock>(this, Blocks::Text, cursor.selection());
+        auto textBlock = new Blocks::TextBlock(Blocks::Text, cursor.selection(), false, this);
         connectTextItem(textBlock->item());
         insertComponent(0, std::move(textBlock));
         return;
@@ -481,25 +481,25 @@ Blocks::Block *ChatBarMessageContentModel::blockForFile(const QUrl &path)
 
         // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
         imageInfo.isAnimated = QMovie::supportedFormats().contains(mime.preferredSuffix().toUtf8());
-        return Blocks::makeBlock<Blocks::ImageBlock>(this, Blocks::Image, path, path.fileName(), imageInfo, QUrl(), Blocks::ImageInfo());
+        return new Blocks::ImageBlock(Blocks::Image, path, path.fileName(), imageInfo, QUrl(), Blocks::ImageInfo(), this);
     }
     if (mime.name().contains(u"video"_s)) {
         Blocks::VideoInfo videoInfo;
         videoInfo.mimeType = mime;
         videoInfo.size = fileInfo.size();
-        return Blocks::makeBlock<Blocks::VideoBlock>(this, Blocks::Video, path, path.fileName(), videoInfo, QUrl(), Blocks::ImageInfo());
+        return new Blocks::VideoBlock(Blocks::Video, path, path.fileName(), videoInfo, QUrl(), Blocks::ImageInfo(), this);
     }
     if (mime.name().contains(u"audio"_s)) {
         Blocks::AudioInfo audioInfo;
         audioInfo.mimeType = mime;
         audioInfo.size = fileInfo.size();
-        return Blocks::makeBlock<Blocks::AudioBlock>(this, Blocks::Audio, path, path.fileName(), audioInfo);
+        return new Blocks::AudioBlock(Blocks::Audio, path, path.fileName(), audioInfo, this);
     }
 
     Blocks::FileInfo info;
     info.mimeType = mime;
     info.size = fileInfo.size();
-    return Blocks::makeBlock<Blocks::FileBlock>(this, Blocks::File, path, path.fileName(), info);
+    return new Blocks::FileBlock(Blocks::File, path, path.fileName(), info, this);
 }
 
 Blocks::BlockPtrsIt ChatBarMessageContentModel::insertComponent(int row, Blocks::Block *block)
@@ -585,17 +585,17 @@ Blocks::Block *ChatBarMessageContentModel::makeEmptyTextBlock(Blocks::Type type)
     switch (type) {
     case Blocks::Text:
     case Blocks::Quote: {
-        auto block = Blocks::makeBlockOfType<Blocks::TextBlock>(this, type, QTextDocumentFragment());
+        auto block = new Blocks::TextBlock(type, QTextDocumentFragment(), false, this);
         connectTextItem(block->item());
         return block;
     }
     case Blocks::Code: {
-        auto block = Blocks::makeBlockOfType<Blocks::CodeBlock>(this, type, QTextDocumentFragment(), QString());
+        auto block = new Blocks::CodeBlock(type, QTextDocumentFragment(), QString(), this);
         connectTextItem(block->item());
         return block;
     }
     default:
-        return Blocks::makeBlock<Blocks::Block>(this, Blocks::Other);
+        return new Blocks::Block(Blocks::Other, this);
     }
 }
 
@@ -695,22 +695,22 @@ void ChatBarMessageContentModel::insertComponentFromCache(Blocks::CacheItem *ite
     switch (item->type) {
     case Blocks::Text:
     case Blocks::Quote:
-        insertComponent(rowCount(), Blocks::makeBlock<Blocks::TextBlock>(this, dynamic_cast<Blocks::TextCacheItem *>(item)));
+        insertComponent(rowCount(), new Blocks::TextBlock(dynamic_cast<Blocks::TextCacheItem *>(item), this));
         break;
     case Blocks::Code:
-        insertComponent(rowCount(), Blocks::makeBlock<Blocks::CodeBlock>(this, dynamic_cast<Blocks::CodeCacheItem *>(item)));
+        insertComponent(rowCount(), new Blocks::CodeBlock(dynamic_cast<Blocks::CodeCacheItem *>(item), this));
         break;
     case Blocks::File:
-        insertComponent(rowCount(), Blocks::makeBlock<Blocks::FileBlock>(this, dynamic_cast<Blocks::FileCacheItem *>(item)));
+        insertComponent(rowCount(), new Blocks::FileBlock(dynamic_cast<Blocks::FileCacheItem *>(item), this));
         break;
     case Blocks::Image:
-        insertComponent(rowCount(), Blocks::makeBlock<Blocks::ImageBlock>(this, dynamic_cast<Blocks::ImageCacheItem *>(item)));
+        insertComponent(rowCount(), new Blocks::ImageBlock(dynamic_cast<Blocks::ImageCacheItem *>(item), this));
         break;
     case Blocks::Video:
-        insertComponent(rowCount(), Blocks::makeBlock<Blocks::VideoBlock>(this, dynamic_cast<Blocks::VideoCacheItem *>(item)));
+        insertComponent(rowCount(), new Blocks::VideoBlock(dynamic_cast<Blocks::VideoCacheItem *>(item), this));
         break;
     case Blocks::Audio:
-        insertComponent(rowCount(), Blocks::makeBlock<Blocks::AudioBlock>(this, dynamic_cast<Blocks::AudioCacheItem *>(item)));
+        insertComponent(rowCount(), new Blocks::AudioBlock(dynamic_cast<Blocks::AudioCacheItem *>(item), this));
     default:
         break;
     }
