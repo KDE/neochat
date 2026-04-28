@@ -30,7 +30,7 @@ class ChatBarCacheTest : public QObject
 private:
     Connection *connection = nullptr;
     NeoChatRoom *room = nullptr;
-    Server server;
+    Server &server = *Server::instance();
     QString eventId;
 
 private Q_SLOTS:

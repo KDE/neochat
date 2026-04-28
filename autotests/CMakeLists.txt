@@ -3,11 +3,28 @@
 
 enable_testing()
 
-add_library(neochat_server STATIC server.cpp)
+qt_add_library(neochat_server STATIC server.cpp)
 
 target_link_libraries(neochat_server PUBLIC Qt::HttpServer QuotientQt6)
 
 add_definitions(-DDATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data" )
+
+ecm_add_qml_module(neochat_server URI org.kde.neochat.server GENERATE_PLUGIN_SOURCE)
+
+macro(add_qml_tests)
+    if (WIN32)
+        set(_extra_args -platform offscreen)
+    endif()
+
+    foreach(test ${ARGV})
+        add_test(NAME ${test}
+                COMMAND qmltest
+                ${_extra_args}
+                -input ${test}
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        )
+    endforeach()
+endmacro()
 
 ecm_add_test(
     neochatroomtest.cpp
@@ -139,6 +156,10 @@ target_link_libraries(qmltest
     Qt6::QuickTest
     LibNeoChat
     LibNeoChatplugin
+    neochat_server
+    neochat
+    neochatplugin
+    neochat_serverplugin
 )
 
 add_qml_tests(
@@ -146,3 +167,5 @@ add_qml_tests(
     chatmarkdownhelpertest.qml
     chatkeyhelpertest.qml
 )
+
+add_qml_tests(chatbar_qml.qml)

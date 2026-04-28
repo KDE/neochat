@@ -27,7 +27,7 @@ class ServerNoticesTest : public QObject
 
 private:
     NeoChatConnection *connection = nullptr;
-    Server server;
+    Server &server = *Server::instance();
 
 private Q_SLOTS:
     void initTestCase();

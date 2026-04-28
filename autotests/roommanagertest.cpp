@@ -23,7 +23,7 @@ private:
     NeoChatConnection *connection = nullptr;
     NeoChatRoom *room = nullptr;
 
-    Server server;
+    Server &server = *Server::instance();
 
 private Q_SLOTS:
     void initTestCase();

@@ -141,6 +141,7 @@ QString Server::createRoom(const QString &matrixId)
         .tags = {},
     };
     m_state += changes;
+    qWarning() << "Creating room";
     return roomId;
 }
 

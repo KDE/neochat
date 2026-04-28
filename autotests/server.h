@@ -5,6 +5,8 @@
 #include <QHttpServer>
 #include <QJsonObject>
 #include <QSslServer>
+#include <QtQml/QQmlEngine>
+#include <QtQmlIntegration/qqmlintegration.h>
 
 struct Changes {
     struct NewRoom {
@@ -48,9 +50,20 @@ struct RoomData {
 class Server : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
 public:
-    Server();
+    static Server *instance()
+    {
+        static Server _instance;
+        return &_instance;
+    }
+    static Server *create(QQmlEngine *, QJSEngine *)
+    {
+        QQmlEngine::setObjectOwnership(instance(), QQmlEngine::CppOwnership);
+        return instance();
+    }
 
     void start();
 
@@ -58,7 +71,7 @@ public:
      * Create a room and place the user with id matrixId in it.
      * Returns the room's id
      */
-    QString createRoom(const QString &matrixId);
+    Q_INVOKABLE QString createRoom(const QString &matrixId);
 
     void inviteUser(const QString &roomId, const QString &matrixId);
     void banUser(const QString &roomId, const QString &matrixId);
@@ -75,6 +88,7 @@ private:
     QHttpServer m_server;
     QSslServer m_sslServer;
 
+    Server();
     void sync(const QHttpServerRequest &request, QHttpServerResponder &responder);
 
     QList<Changes> m_state;

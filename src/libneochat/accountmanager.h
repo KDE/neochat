@@ -12,6 +12,10 @@
 class AccountManager : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
+
+    Q_PROPERTY(NeoChatConnection *activeConnection READ activeConnection NOTIFY activeConnectionChanged)
 
 public:
     explicit AccountManager(bool testMode = false, QObject *parent = nullptr);

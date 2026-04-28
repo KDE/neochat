@@ -29,7 +29,7 @@ private:
 
     void expectMessage(const QString &actionName, const QString &args, MessageType::Type type, const QString &message);
 
-    Server server;
+    Server &server = *Server::instance();
 
 private Q_SLOTS:
     void initTestCase();

@@ -73,7 +73,7 @@ private:
 
     QString eventId;
 
-    Server server;
+    Server &server = *Server::instance();
 
 private Q_SLOTS:
     void initTestCase();

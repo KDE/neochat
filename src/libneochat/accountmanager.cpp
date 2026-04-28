@@ -29,6 +29,7 @@ AccountManager::AccountManager(bool testMode, QObject *parent)
         connection->assumeIdentity(u"@user:localhost:1234"_s, u"device_1234"_s, u"token_1234"_s);
         m_accountRegistry->add(connection);
         connection->syncLoop();
+        setActiveConnection(connection);
     }
 }
 
