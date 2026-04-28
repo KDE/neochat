@@ -432,7 +432,8 @@ msgstr "Použiť"
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
-"Confirm the emoji below are displayed on both devices, in rovnaký order."
+"Potvrďte, že nižšie uvedené emoji sú zobrazené na oboch zariadeniach v "
+"rovnakom poradí."
 
 #: src/app/qml/EmojiSas.qml:44
 #, kde-format
@@ -610,8 +611,8 @@ msgid ""
 "You can reject invitations from unknown users under the <interface>Security "
 "& Safety</interface> settings."
 msgstr ""
-"Môžete reject invitations from unknown users under the <interface>Security & "
-"Safety</interface> settings."
+"Pozvánky od neznámych používateľov môžete odmietnuť v nastaveniach "
+"<interface>Security & Safety</interface>."
 
 #: src/app/qml/JoinRoomDialog.qml:28
 #, kde-format
@@ -655,10 +656,9 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "Incoming key verification request from device **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:172
-#, fuzzy, kde-format
-#| msgid "Incoming key verification request from device **%1**"
+#, kde-format
 msgid "Incoming key verification request from **%1**"
-msgstr "Incoming key verification request from device **%1**"
+msgstr "Prichádzajúca požiadavka na overenie kľúča od **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:176
 #: src/app/qml/OlmKeyVerificationDialog.qml:155
@@ -687,18 +687,16 @@ msgstr "Successfully verified device **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/KeyVerificationDialog.qml:196
-#, fuzzy, kde-format
-#| msgid "Successfully verified device **%1**"
+#, kde-format
 msgctxt "@info"
 msgid "Successfully verified **%1**"
-msgstr "Successfully verified device **%1**"
+msgstr "Úspešne overené **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:190
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to confirm our keys."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
-msgstr "Waiting for other party to confirm our keys."
+msgstr "Čaká sa na vzdialenú stranu, aby potvrdila overenie"
 
 #: src/app/qml/KeyVerificationDialog.qml:216
 #: src/app/qml/OlmKeyVerificationDialog.qml:178
@@ -859,10 +857,9 @@ msgid "No Notifications"
 msgstr "Zobraziť upozornenia"
 
 #: src/app/qml/OlmKeyVerificationDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Session Verification"
+#, kde-format
 msgid "Session Verifications"
-msgstr "Zobraziť upozornenia"
+msgstr "Overenia relácie"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format
@@ -1600,8 +1597,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
-"The session verification was canceled because NeoChat is unschopný handle "
-"this verification method."
+"Overenie relácie bolo zrušené, pretože NeoChat nedokáže spracovať túto "
+"metódu overenia."
 
 #: src/app/qml/VerificationCanceled.qml:52
 #, kde-format
@@ -1609,8 +1606,8 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
-"The remote party canceled the session verification because it is unschopný "
-"handle this verification method."
+"Vzdialená strana zrušila overenie relácie, pretože nedokáže spracovať túto "
+"metódu overenia."
 
 #: src/app/qml/VerificationCanceled.qml:54
 #, kde-format
@@ -3446,7 +3443,7 @@ msgstr "Ignorovať tohto používateľa"
 #: src/libneochat/models/actionsmodel.cpp:439
 #, kde-format
 msgid "You cannot kick yourself from the room."
-msgstr "Môžetenot kick yourself from the room."
+msgstr "Nemôžete sa sami vyhodiť z miestnosti."
 
 #: src/libneochat/models/actionsmodel.cpp:443
 #, kde-format
@@ -4084,9 +4081,7 @@ msgstr "Terms & Conditions"
 msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
-msgstr ""
-"By continuing with the registration, you agree to nasledujúce terms and "
-"conditions:"
+msgstr "Pokračovaním v registrácii súhlasíte s nasledujúcimi podmienkami:"
 
 #: src/login/Username.qml:20
 #, kde-format
@@ -5702,8 +5697,9 @@ msgid ""
 "These are the default notification settings for all rooms. You can customize "
 "notifications per-room in the room list or room settings."
 msgstr ""
-"These are the default notification settings for all rooms. Môžete customize "
-"notifications per-room in the room list or room settings."
+"Toto sú predvolené nastavenia upozornení pre všetky miestnosti. Upozornenia "
+"pre jednotlivé miestnosti môžete prispôsobiť v zozname miestností alebo v "
+"nastaveniach miestnosti."
 
 #: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
@@ -6044,15 +6040,15 @@ msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
 msgstr ""
-"Toto je používaný na all state-type events that do not have their own entry."
+"Toto sa používa pre všetky udalosti typu stav, ktoré nemajú vlastnú položku."
 
 #: src/settings/models/permissionsmodel.cpp:92
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
 msgstr ""
-"Toto je používaný na all message-type events that do not have their own "
-"entry."
+"Toto sa používa pre všetky udalosti typu správa, ktoré nemajú vlastnú "
+"položku."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6387,8 +6383,8 @@ msgid ""
 "When this option is enabled, images and videos are only shown after a button "
 "is clicked."
 msgstr ""
-"When táto voľba is enabled, images and videos are only shown after a button "
-"is clicked."
+"Keď je táto voľba povolená, obrázky a videá sa zobrazia až po kliknutí na "
+"tlačidlo."
 
 #: src/settings/NeoChatSecurityPage.qml:106
 #, kde-format
@@ -6999,8 +6995,8 @@ msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
-"Potrebujete to upgrade this room to a newer version to enschopnýto "
-"nastavenie."
+"Aby ste povolili toto nastavenie, musíte upgradovať túto miestnosť na novšiu "
+"verziu."
 
 #: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:49
 #, kde-format
@@ -7435,7 +7431,8 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
-"Aktuálny space is the official parent of this room, should this be cleared?"
+"Aktuálny priestor je oficiálnym nadrazeným prvkom tejto miestnosti. Má sa to "
+"vymazať?"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
 #, kde-format
@@ -7866,8 +7863,8 @@ msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
 msgstr ""
-"Toto je the beginning of the chat. Existujú no historical messages beyond "
-"this point."
+"Toto je začiatok rozhovoru. Za týmto bodom neexistujú žiadne historické "
+"správy."
 
 #: src/timeline/TimelineView.qml:242 src/timeline/TimelineView.qml:268
 #, kde-format
