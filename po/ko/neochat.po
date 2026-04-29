@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-27 00:43+0000\n"
+"POT-Creation-Date: 2026-04-29 00:45+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -326,11 +326,25 @@ msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "대화 시작"
 
-#: src/app/qml/ChooseRoomDialog.qml:14
+#: src/app/qml/ChooseRoomDialog.qml:17
 #, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
 msgstr "대화방 선택"
+
+#: src/app/qml/ChooseRoomDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Select All"
+msgctxt "@action"
+msgid "Select"
+msgstr "모두 선택"
+
+#: src/app/qml/ChooseRoomDialog.qml:84 src/app/qml/ReasonDialog.qml:72
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "취소"
 
 #: src/app/qml/CodeMaximizeComponent.qml:39
 #, kde-format
@@ -960,12 +974,6 @@ msgid ""
 "This report will <strong>only</strong> be sent to the administrators of "
 "<link>%1</link> (your server)."
 msgstr ""
-
-#: src/app/qml/ReasonDialog.qml:72
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "취소"
 
 #: src/app/qml/RecommendedSpaceDialog.qml:23
 #, kde-format
@@ -1821,20 +1829,20 @@ msgstr "표시"
 msgid "Quit"
 msgstr "끝내기"
 
-#: src/chatbar/ChatBar.qml:98 src/timeline/TimelineView.qml:363
+#: src/chatbar/ChatBar.qml:97 src/timeline/TimelineView.qml:363
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
 
-#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
 #, fuzzy, kde-format
 #| msgid "%1 sent a message"
 msgctxt "As in enter starts send the chat message"
@@ -4336,7 +4344,7 @@ msgid "Stop Download"
 msgstr "다운로드 정지"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:109
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Remove parent"
@@ -4366,21 +4374,21 @@ msgstr "체크인 시간: %1"
 msgid "Check-out time: %1"
 msgstr "체크아웃 시간: %1"
 
-#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/ImageComponent.qml:69
 #: src/messagecontent/VideoComponent.qml:145
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "그림 숨기기"
 
-#: src/messagecontent/ImageComponent.qml:90
+#: src/messagecontent/ImageComponent.qml:85
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "편집"
 
-#: src/messagecontent/ImageComponent.qml:189
+#: src/messagecontent/ImageComponent.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -5059,12 +5067,12 @@ msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "대화방 떠나기…"
 
-#: src/rooms/RoomDelegate.qml:118
+#: src/rooms/RoomDelegate.qml:128
 #, kde-format
 msgid "Muted room"
 msgstr "대화방 음소거됨"
 
-#: src/rooms/RoomDelegate.qml:149
+#: src/rooms/RoomDelegate.qml:159
 #, kde-format
 msgid "Configure room"
 msgstr "대화방 설정"
@@ -7936,115 +7944,123 @@ msgid "Forward…"
 msgstr "전달…"
 
 #: src/timeline/DelegateContextMenu.qml:283
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu As in 'Forward this message'"
+#| msgid "Forward…"
+msgctxt "@action:button As in 'Forward this message'"
+msgid "Forward"
+msgstr "전달…"
+
+#: src/timeline/DelegateContextMenu.qml:286
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "메시지 전달"
 
-#: src/timeline/DelegateContextMenu.qml:296
+#: src/timeline/DelegateContextMenu.qml:304
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "그림 열기"
 
-#: src/timeline/DelegateContextMenu.qml:298
+#: src/timeline/DelegateContextMenu.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "오디오 열기"
 
-#: src/timeline/DelegateContextMenu.qml:300
+#: src/timeline/DelegateContextMenu.qml:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "동영상 열기"
 
-#: src/timeline/DelegateContextMenu.qml:302
+#: src/timeline/DelegateContextMenu.qml:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "파일 열기"
 
-#: src/timeline/DelegateContextMenu.qml:315
+#: src/timeline/DelegateContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "그림 저장…"
 
-#: src/timeline/DelegateContextMenu.qml:317
+#: src/timeline/DelegateContextMenu.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "오디오 저장…"
 
-#: src/timeline/DelegateContextMenu.qml:319
+#: src/timeline/DelegateContextMenu.qml:327
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "동영상 저장…"
 
-#: src/timeline/DelegateContextMenu.qml:321
+#: src/timeline/DelegateContextMenu.qml:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "파일 저장…"
 
-#: src/timeline/DelegateContextMenu.qml:336
+#: src/timeline/DelegateContextMenu.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "그림 복사"
 
-#: src/timeline/DelegateContextMenu.qml:338
+#: src/timeline/DelegateContextMenu.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "오디오 복사"
 
-#: src/timeline/DelegateContextMenu.qml:340
+#: src/timeline/DelegateContextMenu.qml:348
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "동영상 복사"
 
-#: src/timeline/DelegateContextMenu.qml:342
+#: src/timeline/DelegateContextMenu.qml:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "파일 복사"
 
-#: src/timeline/DelegateContextMenu.qml:352
+#: src/timeline/DelegateContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "링크 주소 복사"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "텍스트 복사"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "메시지 링크 복사"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:382
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "신고…"
 
-#: src/timeline/DelegateContextMenu.qml:379
+#: src/timeline/DelegateContextMenu.qml:387
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "메시지 신고"
 
-#: src/timeline/DelegateContextMenu.qml:380
+#: src/timeline/DelegateContextMenu.qml:388
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -8052,56 +8068,56 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "이 메시지를 신고하는 이유"
 
-#: src/timeline/DelegateContextMenu.qml:382
+#: src/timeline/DelegateContextMenu.qml:390
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "신고"
 
-#: src/timeline/DelegateContextMenu.qml:386
+#: src/timeline/DelegateContextMenu.qml:394
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "메시지 신고"
 
-#: src/timeline/DelegateContextMenu.qml:398
+#: src/timeline/DelegateContextMenu.qml:406
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "'%1' 검색"
 
-#: src/timeline/DelegateContextMenu.qml:421
+#: src/timeline/DelegateContextMenu.qml:429
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "웹 바로 가기 설정…"
 
-#: src/timeline/DelegateContextMenu.qml:429
+#: src/timeline/DelegateContextMenu.qml:437
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "텍스트 말하기"
 
-#: src/timeline/DelegateContextMenu.qml:432
+#: src/timeline/DelegateContextMenu.qml:440
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 님이 한 말: %2"
 
-#: src/timeline/DelegateContextMenu.qml:452
+#: src/timeline/DelegateContextMenu.qml:460
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "고정 해제"
 
-#: src/timeline/DelegateContextMenu.qml:452
+#: src/timeline/DelegateContextMenu.qml:460
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "고정"
 
-#: src/timeline/DelegateContextMenu.qml:462
+#: src/timeline/DelegateContextMenu.qml:470
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -8109,7 +8125,7 @@ msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "고정된 메시지"
 
-#: src/timeline/DelegateContextMenu.qml:462
+#: src/timeline/DelegateContextMenu.qml:470
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -8117,7 +8133,7 @@ msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "고정된 메시지"
 
-#: src/timeline/DelegateContextMenu.qml:475
+#: src/timeline/DelegateContextMenu.qml:483
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"

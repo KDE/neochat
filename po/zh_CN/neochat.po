@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-27 00:43+0000\n"
+"POT-Creation-Date: 2026-04-29 00:45+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -326,11 +326,25 @@ msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "开始聊天"
 
-#: src/app/qml/ChooseRoomDialog.qml:14
+#: src/app/qml/ChooseRoomDialog.qml:17
 #, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
 msgstr "选择聊天室"
+
+#: src/app/qml/ChooseRoomDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Select All"
+msgctxt "@action"
+msgid "Select"
+msgstr "全选"
+
+#: src/app/qml/ChooseRoomDialog.qml:84 src/app/qml/ReasonDialog.qml:72
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "取消"
 
 #: src/app/qml/CodeMaximizeComponent.qml:39
 #, kde-format
@@ -933,12 +947,6 @@ msgid ""
 "<link>%1</link> (your server)."
 msgstr ""
 "举报内容<strong>仅</strong>会发送给 <link>%1</link>（您的服务器）的管理员。"
-
-#: src/app/qml/ReasonDialog.qml:72
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "取消"
 
 #: src/app/qml/RecommendedSpaceDialog.qml:23
 #, kde-format
@@ -1708,20 +1716,20 @@ msgstr "显示"
 msgid "Quit"
 msgstr "退出"
 
-#: src/chatbar/ChatBar.qml:98 src/timeline/TimelineView.qml:363
+#: src/chatbar/ChatBar.qml:97 src/timeline/TimelineView.qml:363
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
 
-#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "按回车键创建新的一行"
 
-#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -4147,7 +4155,7 @@ msgid "Stop Download"
 msgstr "停止下载"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4175,20 +4183,20 @@ msgstr "入住时间：%1"
 msgid "Check-out time: %1"
 msgstr "退房时间：%1"
 
-#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/ImageComponent.qml:69
 #: src/messagecontent/VideoComponent.qml:145
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "隐藏图像"
 
-#: src/messagecontent/ImageComponent.qml:90
+#: src/messagecontent/ImageComponent.qml:85
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "编辑"
 
-#: src/messagecontent/ImageComponent.qml:189
+#: src/messagecontent/ImageComponent.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4806,12 +4814,12 @@ msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "离开聊天室…"
 
-#: src/rooms/RoomDelegate.qml:118
+#: src/rooms/RoomDelegate.qml:128
 #, kde-format
 msgid "Muted room"
 msgstr "已静音的聊天室"
 
-#: src/rooms/RoomDelegate.qml:149
+#: src/rooms/RoomDelegate.qml:159
 #, kde-format
 msgid "Configure room"
 msgstr "配置聊天室"
@@ -7512,182 +7520,190 @@ msgid "Forward…"
 msgstr "转发…"
 
 #: src/timeline/DelegateContextMenu.qml:283
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu As in 'Forward this message'"
+#| msgid "Forward…"
+msgctxt "@action:button As in 'Forward this message'"
+msgid "Forward"
+msgstr "转发…"
+
+#: src/timeline/DelegateContextMenu.qml:286
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "转发消息"
 
-#: src/timeline/DelegateContextMenu.qml:296
+#: src/timeline/DelegateContextMenu.qml:304
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "打开图片"
 
-#: src/timeline/DelegateContextMenu.qml:298
+#: src/timeline/DelegateContextMenu.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "打开音频"
 
-#: src/timeline/DelegateContextMenu.qml:300
+#: src/timeline/DelegateContextMenu.qml:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "打开视频"
 
-#: src/timeline/DelegateContextMenu.qml:302
+#: src/timeline/DelegateContextMenu.qml:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "打开文件"
 
-#: src/timeline/DelegateContextMenu.qml:315
+#: src/timeline/DelegateContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "保存图像..."
 
-#: src/timeline/DelegateContextMenu.qml:317
+#: src/timeline/DelegateContextMenu.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "保存音频…"
 
-#: src/timeline/DelegateContextMenu.qml:319
+#: src/timeline/DelegateContextMenu.qml:327
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "保存视频…"
 
-#: src/timeline/DelegateContextMenu.qml:321
+#: src/timeline/DelegateContextMenu.qml:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "保存文件…"
 
-#: src/timeline/DelegateContextMenu.qml:336
+#: src/timeline/DelegateContextMenu.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "复制图片"
 
-#: src/timeline/DelegateContextMenu.qml:338
+#: src/timeline/DelegateContextMenu.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "复制音频"
 
-#: src/timeline/DelegateContextMenu.qml:340
+#: src/timeline/DelegateContextMenu.qml:348
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "复制视频"
 
-#: src/timeline/DelegateContextMenu.qml:342
+#: src/timeline/DelegateContextMenu.qml:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "复制文件"
 
-#: src/timeline/DelegateContextMenu.qml:352
+#: src/timeline/DelegateContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "复制链接地址"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "复制文本"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "复制消息链接"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:382
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "举报…"
 
-#: src/timeline/DelegateContextMenu.qml:379
+#: src/timeline/DelegateContextMenu.qml:387
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "举报消息"
 
-#: src/timeline/DelegateContextMenu.qml:380
+#: src/timeline/DelegateContextMenu.qml:388
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "（可选）请给出举报消息的理由"
 
-#: src/timeline/DelegateContextMenu.qml:382
+#: src/timeline/DelegateContextMenu.qml:390
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "举报"
 
-#: src/timeline/DelegateContextMenu.qml:386
+#: src/timeline/DelegateContextMenu.qml:394
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "举报消息"
 
-#: src/timeline/DelegateContextMenu.qml:398
+#: src/timeline/DelegateContextMenu.qml:406
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "搜索 '%1'"
 
-#: src/timeline/DelegateContextMenu.qml:421
+#: src/timeline/DelegateContextMenu.qml:429
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "配置网页搜索缩略词…"
 
-#: src/timeline/DelegateContextMenu.qml:429
+#: src/timeline/DelegateContextMenu.qml:437
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "朗读文本"
 
-#: src/timeline/DelegateContextMenu.qml:432
+#: src/timeline/DelegateContextMenu.qml:440
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 说：%2"
 
-#: src/timeline/DelegateContextMenu.qml:452
+#: src/timeline/DelegateContextMenu.qml:460
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "取消置顶"
 
-#: src/timeline/DelegateContextMenu.qml:452
+#: src/timeline/DelegateContextMenu.qml:460
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "置顶"
 
-#: src/timeline/DelegateContextMenu.qml:462
+#: src/timeline/DelegateContextMenu.qml:470
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "取消选中消息"
 
-#: src/timeline/DelegateContextMenu.qml:462
+#: src/timeline/DelegateContextMenu.qml:470
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "选择消息"
 
-#: src/timeline/DelegateContextMenu.qml:475
+#: src/timeline/DelegateContextMenu.qml:483
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"

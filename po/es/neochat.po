@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-27 00:43+0000\n"
-"PO-Revision-Date: 2026-04-22 11:50+0100\n"
+"POT-Creation-Date: 2026-04-29 00:45+0000\n"
+"PO-Revision-Date: 2026-04-27 11:03+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -327,11 +327,25 @@ msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Iniciar chat"
 
-#: src/app/qml/ChooseRoomDialog.qml:14
+#: src/app/qml/ChooseRoomDialog.qml:17
 #, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Escoger una sala"
+
+#: src/app/qml/ChooseRoomDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Select All"
+msgctxt "@action"
+msgid "Select"
+msgstr "Seleccionar todo"
+
+#: src/app/qml/ChooseRoomDialog.qml:84 src/app/qml/ReasonDialog.qml:72
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Cancelar"
 
 #: src/app/qml/CodeMaximizeComponent.qml:39
 #, kde-format
@@ -661,10 +675,9 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "Solicitud de verificación de clave entrante del dispositivo **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:172
-#, fuzzy, kde-format
-#| msgid "Incoming key verification request from device **%1**"
+#, kde-format
 msgid "Incoming key verification request from **%1**"
-msgstr "Solicitud de verificación de clave entrante del dispositivo **%1**"
+msgstr "Solicitud de verificación de clave entrante de **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:176
 #: src/app/qml/OlmKeyVerificationDialog.qml:155
@@ -693,18 +706,16 @@ msgstr "El dispositivo **%1** se ha verificado correctamente"
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/KeyVerificationDialog.qml:196
-#, fuzzy, kde-format
-#| msgid "Successfully verified device **%1**"
+#, kde-format
 msgctxt "@info"
 msgid "Successfully verified **%1**"
-msgstr "El dispositivo **%1** se ha verificado correctamente"
+msgstr "**%1** se ha verificado correctamente"
 
 #: src/app/qml/KeyVerificationDialog.qml:190
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to confirm our keys."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
-msgstr "Esperando que la otra parte confirme nuestras claves."
+msgstr "Esperando que la parte remota confirme la verificación"
 
 #: src/app/qml/KeyVerificationDialog.qml:216
 #: src/app/qml/OlmKeyVerificationDialog.qml:178
@@ -866,10 +877,9 @@ msgid "No Notifications"
 msgstr "No hay notificaciones"
 
 #: src/app/qml/OlmKeyVerificationDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Session Verification"
+#, kde-format
 msgid "Session Verifications"
-msgstr "Verificación de la sesión"
+msgstr "Verificaciones de la sesión"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format
@@ -942,12 +952,6 @@ msgid ""
 msgstr ""
 "Este informe <strong>solo</strong> se enviará a los administradores de <link>"
 "%1</link> (su servidor)."
-
-#: src/app/qml/ReasonDialog.qml:72
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Cancelar"
 
 #: src/app/qml/RecommendedSpaceDialog.qml:23
 #, kde-format
@@ -1757,7 +1761,7 @@ msgstr "Mostrar"
 msgid "Quit"
 msgstr "Salir"
 
-#: src/chatbar/ChatBar.qml:98 src/timeline/TimelineView.qml:363
+#: src/chatbar/ChatBar.qml:97 src/timeline/TimelineView.qml:363
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1765,13 +1769,13 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
 
-#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Intro inicia una nueva línea"
 
-#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -4222,7 +4226,7 @@ msgid "Stop Download"
 msgstr "Detener descarga"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4250,20 +4254,20 @@ msgstr "Hora de entrada: %1"
 msgid "Check-out time: %1"
 msgstr "Hora de salida: %1"
 
-#: src/messagecontent/ImageComponent.qml:74
+#: src/messagecontent/ImageComponent.qml:69
 #: src/messagecontent/VideoComponent.qml:145
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Ocultar imagen"
 
-#: src/messagecontent/ImageComponent.qml:90
+#: src/messagecontent/ImageComponent.qml:85
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Editar"
 
-#: src/messagecontent/ImageComponent.qml:189
+#: src/messagecontent/ImageComponent.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4888,12 +4892,12 @@ msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "Salir de la sala…"
 
-#: src/rooms/RoomDelegate.qml:118
+#: src/rooms/RoomDelegate.qml:128
 #, kde-format
 msgid "Muted room"
 msgstr "Sala silenciada"
 
-#: src/rooms/RoomDelegate.qml:149
+#: src/rooms/RoomDelegate.qml:159
 #, kde-format
 msgid "Configure room"
 msgstr "Configurar la sala"
@@ -7653,182 +7657,190 @@ msgid "Forward…"
 msgstr "Reenviar…"
 
 #: src/timeline/DelegateContextMenu.qml:283
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu As in 'Forward this message'"
+#| msgid "Forward…"
+msgctxt "@action:button As in 'Forward this message'"
+msgid "Forward"
+msgstr "Reenviar…"
+
+#: src/timeline/DelegateContextMenu.qml:286
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Reenviar mensaje"
 
-#: src/timeline/DelegateContextMenu.qml:296
+#: src/timeline/DelegateContextMenu.qml:304
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Abrir imagen"
 
-#: src/timeline/DelegateContextMenu.qml:298
+#: src/timeline/DelegateContextMenu.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "Abrir sonido"
 
-#: src/timeline/DelegateContextMenu.qml:300
+#: src/timeline/DelegateContextMenu.qml:308
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "Abrir vídeo"
 
-#: src/timeline/DelegateContextMenu.qml:302
+#: src/timeline/DelegateContextMenu.qml:310
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Abrir archivo"
 
-#: src/timeline/DelegateContextMenu.qml:315
+#: src/timeline/DelegateContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Guardar imagen…"
 
-#: src/timeline/DelegateContextMenu.qml:317
+#: src/timeline/DelegateContextMenu.qml:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "Guardar sonido…"
 
-#: src/timeline/DelegateContextMenu.qml:319
+#: src/timeline/DelegateContextMenu.qml:327
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "Guardar vídeo…"
 
-#: src/timeline/DelegateContextMenu.qml:321
+#: src/timeline/DelegateContextMenu.qml:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "Guardar archivo…"
 
-#: src/timeline/DelegateContextMenu.qml:336
+#: src/timeline/DelegateContextMenu.qml:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Copiar imagen"
 
-#: src/timeline/DelegateContextMenu.qml:338
+#: src/timeline/DelegateContextMenu.qml:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Copiar sonido"
 
-#: src/timeline/DelegateContextMenu.qml:340
+#: src/timeline/DelegateContextMenu.qml:348
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Copiar vídeo"
 
-#: src/timeline/DelegateContextMenu.qml:342
+#: src/timeline/DelegateContextMenu.qml:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Copiar archivo"
 
-#: src/timeline/DelegateContextMenu.qml:352
+#: src/timeline/DelegateContextMenu.qml:360
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Copiar dirección del enlace"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Copiar texto"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Copiar enlace del mensaje"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:382
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Denunciar…"
 
-#: src/timeline/DelegateContextMenu.qml:379
+#: src/timeline/DelegateContextMenu.qml:387
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Denunciar mensaje"
 
-#: src/timeline/DelegateContextMenu.qml:380
+#: src/timeline/DelegateContextMenu.qml:388
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Proporcione un motivo para denunciar este mensaje (opcional)"
 
-#: src/timeline/DelegateContextMenu.qml:382
+#: src/timeline/DelegateContextMenu.qml:390
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Denunciar"
 
-#: src/timeline/DelegateContextMenu.qml:386
+#: src/timeline/DelegateContextMenu.qml:394
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Denunciar mensaje"
 
-#: src/timeline/DelegateContextMenu.qml:398
+#: src/timeline/DelegateContextMenu.qml:406
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Buscar «%1»"
 
-#: src/timeline/DelegateContextMenu.qml:421
+#: src/timeline/DelegateContextMenu.qml:429
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Configurar atajos web…"
 
-#: src/timeline/DelegateContextMenu.qml:429
+#: src/timeline/DelegateContextMenu.qml:437
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Leer texto en voz alta"
 
-#: src/timeline/DelegateContextMenu.qml:432
+#: src/timeline/DelegateContextMenu.qml:440
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 dijo %2"
 
-#: src/timeline/DelegateContextMenu.qml:452
+#: src/timeline/DelegateContextMenu.qml:460
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "No fijar"
 
-#: src/timeline/DelegateContextMenu.qml:452
+#: src/timeline/DelegateContextMenu.qml:460
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Fijar"
 
-#: src/timeline/DelegateContextMenu.qml:462
+#: src/timeline/DelegateContextMenu.qml:470
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Deseleccionar mensaje"
 
-#: src/timeline/DelegateContextMenu.qml:462
+#: src/timeline/DelegateContextMenu.qml:470
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Seleccionar mensaje"
 
-#: src/timeline/DelegateContextMenu.qml:475
+#: src/timeline/DelegateContextMenu.qml:483
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
