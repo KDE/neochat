@@ -114,7 +114,7 @@ TextEdit {
 
         interval: 1000
 
-        onTriggered: spellcheckHighlighterInstantiator.object.highlighter.active = true
+        onTriggered: spellcheckHighlighterInstantiator.object.highlighter.active = spellcheckHighlighterInstantiator.object.settings.checkerEnabledByDefault
     }
 
     QQC2.Label {
@@ -178,7 +178,6 @@ TextEdit {
         QtObject {
             readonly property Sonnet.Settings settings: Sonnet.Settings {}
             readonly property Sonnet.SpellcheckHighlighter highlighter: Sonnet.SpellcheckHighlighter {
-                active: settings.checkerEnabledByDefault
                 document: root.textDocument
                 cursorPosition: root.cursorPosition
                 selectionStart: root.selectionStart
