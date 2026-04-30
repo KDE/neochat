@@ -56,6 +56,7 @@ QQC2.ItemDelegate {
     }
 
     background: Rectangle {
+        Kirigami.Theme.colorSet: Kirigami.Theme.ColorSet.View
         color: root.checked ? Kirigami.Theme.highlightColor : Kirigami.Theme.backgroundColor
         radius: Kirigami.Units.cornerRadius
 
