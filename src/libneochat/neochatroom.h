@@ -733,7 +733,7 @@ public:
      */
     Q_INVOKABLE void setJoinRuleString(const QString &joinRule, const QList<QString> &allowedSpaces = {});
 
-#if Quotient_VERSION_MAJOR < 10
+#if Quotient_VERSION_MINOR < 10
     QList<QString> allowIds() const;
 #endif
 
