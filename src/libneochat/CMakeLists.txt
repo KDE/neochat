@@ -59,7 +59,7 @@ target_sources(LibNeoChat PRIVATE
     models/widgetmodel.h
 )
 
-if (${QuotientQt6_VERSION_MAJOR} LESS 10)
+if (${QuotientQt6_VERSION_MINOR} LESS 10)
     target_sources(LibNeoChat PRIVATE
             events/joinrulesevent.cpp
             events/joinrulesevent.h
