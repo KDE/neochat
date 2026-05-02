@@ -327,7 +327,8 @@ void RoomManager::viewEventMenu(QObject *parent,
         const auto block = EventHandler::blockForMediaEvent(room, event);
         if (const auto fileBlock = dynamic_cast<Blocks::FileBlock *>(block)) {
             mimeType = fileBlock->info().mimeType.name();
-        } else if (const auto imageBlock = dynamic_cast<Blocks::ImageBlock *>(block)) {
+        } else if (const auto imageBlock = dynamic_cast<Blocks::ImageBlock *>(block);
+                   imageBlock && !imageBlock->info().isSticker) { // Stickers can't be downloaded
             mimeType = imageBlock->info().mimeType.name();
         } else if (const auto videoBlock = dynamic_cast<Blocks::VideoBlock *>(block)) {
             mimeType = videoBlock->info().mimeType.name();
