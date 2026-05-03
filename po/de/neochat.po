@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2026-03-10 23:12+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1222,7 +1222,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Per E-Mail kontaktieren (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1748,18 +1748,18 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Ungültige oder leere Matrix-Kennung<br />%1 ist keine korrekte Matrix-Kennung"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Raum kann nicht betreten werden<br />%1"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to request joining room<br />%1"
@@ -6551,14 +6551,6 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Die Verschlüsselungsschlüssel aus einer Sicherungskopie importieren."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Verschlüsselte Sicherungskopie öffnen"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -8013,6 +8005,13 @@ msgstr "Zur neuesten Nachricht springen"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Elemente hierher ziehen, um sie zu teilen"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Open Secret Backup"
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Verschlüsselte Sicherungskopie öffnen"
 
 #~ msgctxt "@label"
 #~ msgid "Poll type:"

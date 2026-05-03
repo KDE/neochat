@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -1294,7 +1294,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1874,18 +1874,18 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Misformita aŭ malplena Matrix-id<br />%1 ne estas ĝusta Matrico-identigilo"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Malsukcesis aliĝi al ĉambro<br />%1"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vi petis aliĝi al '%1'"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Malsukcesis peti aliĝon al ĉambro<br />%1"
@@ -6930,14 +6930,6 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Enporti ĉifradajn ŝlosilojn el sekurkopio."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Malfermi Sekretan Sekurkopion"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -8495,6 +8487,13 @@ msgstr "Salti al la plej nova mesaĝo"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Treni erojn ĉi tien por dividi ilin"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Open Secret Backup"
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Malfermi Sekretan Sekurkopion"
 
 #, fuzzy
 #~| msgid "Poll type:"

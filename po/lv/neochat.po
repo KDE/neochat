@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -1238,7 +1238,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1809,17 +1809,17 @@ msgstr ""
 "Nepareizi formatēts vai tukšs „Matrix“ identifikators<br /> „%1“ nav pareizs "
 "„Matrix“ identifikators"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Neizdevās pievienoties „%1“<br />%2"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Jūsu lūdzāt pievienoties „%1“"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Neizdevās lūgt pievienoties istabai<br />%1"
@@ -6739,14 +6739,6 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Importēt šifrēšanas atslēgas no dublējuma."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Atvērt slepeno rezervi"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -8235,6 +8227,13 @@ msgstr "Iet uz pēdējo ziņu"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Velciet vienumus te, lai tos kopīgotu"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Open Secret Backup"
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Atvērt slepeno rezervi"
 
 #~ msgctxt "@label"
 #~ msgid "Poll type:"

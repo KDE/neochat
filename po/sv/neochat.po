@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2025-10-22 20:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1241,7 +1241,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1821,17 +1821,17 @@ msgstr ""
 "Felaktig eller tom Matris-identifierare<br />%1 är inte en korrekt Matrix-"
 "identifierare"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Misslyckades gå med i %1:<br />%2"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du frågade om att gå med i '%1'"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Misslyckades fråga om att gå med i rum<br />%1"
@@ -6779,14 +6779,6 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Importera krypteringsnycklar från en säkerhetskopia."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Öppna hemlig säkerhetskopia"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -8281,6 +8273,13 @@ msgstr "Gå till sista meddelandet"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Dra objekt hit för att dela dem"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Open Secret Backup"
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Öppna hemlig säkerhetskopia"
 
 #~ msgctxt "@label"
 #~ msgid "Poll type:"

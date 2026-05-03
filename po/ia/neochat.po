@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2026-04-29 12:02+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1208,7 +1208,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Contacta via e-posta (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1731,17 +1731,17 @@ msgstr ""
 "Id de Matrix malformate o vacue<br />%1 non es un correcte identificator de "
 "Matrix"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Falleva a unir %1<br />%2"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Tu requireva unir a '%1'"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Il falleva a requirer unir sala<br />%1"
@@ -6486,12 +6486,6 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Importa  o disbloca Claves de Cryptation ab altere dispositivos."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Gere copia de securitate (retrocopia) secrete"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -7938,6 +7932,10 @@ msgstr "Salta al ultime message"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Trahe elementos hic per compartir los"
+
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Gere copia de securitate (retrocopia) secrete"
 
 #~ msgctxt "@label"
 #~ msgid "Poll type:"

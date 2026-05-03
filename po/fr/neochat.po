@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2026-04-30 07:55+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -1213,7 +1213,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Contact par courriel (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1739,17 +1739,17 @@ msgstr ""
 "Identifiant Matrix mal-formé ou vide<br />%1 n'est pas un identifiant Matrix "
 "correct."
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Impossible de rejoindre %1<br />%2"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vous avez demandé à rejoindre « %1 »"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Échec de la demande pour rejoindre le salon<br />%1"
@@ -6533,12 +6533,6 @@ msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Importer ou déverrouiller les clés de chiffrement à partir d'une archive."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Gérer l'archive secrète"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -7995,6 +7989,10 @@ msgstr "Aller au message le plus ancien"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Faites glisser les éléments ici pour les partager"
+
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Gérer l'archive secrète"
 
 #~ msgctxt "@label"
 #~ msgid "Poll type:"

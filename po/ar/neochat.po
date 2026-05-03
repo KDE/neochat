@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2026-04-30 09:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1200,7 +1200,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "تواصل عبر البريد الإلكتروني (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1695,17 +1695,17 @@ msgstr "تمّ"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "معرف ماتركس مشوه أو فارغ<br />معرف ماتركس %1 غير صحيح"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "أخفق في الانضمام إلى %1:<br />%2"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "طلبت الانضمام إلى '%1'"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "فشل في طلب الانضمام لغرفة<br />%1"
@@ -6456,12 +6456,6 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "استورد أو ألغ قفل مفاتيح التعمية من أجهزة أخرى."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "أدر النسخ الاحتياطي الآمن"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -7892,6 +7886,10 @@ msgstr "اقفز إلى أحدث رسالة"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "اسحب عناصر هنا لتشاركهم"
+
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "أدر النسخ الاحتياطي الآمن"
 
 #~ msgctxt "@label"
 #~ msgid "Poll type:"

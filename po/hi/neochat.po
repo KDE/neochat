@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1299,7 +1299,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1873,18 +1873,18 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत या रिक्त मैट्रिक्स आईडी<br /> %1 सही मैट्रिक्स पहचानकर्ता नहीं है"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "कमरे में शामिल होने में विफल<br /> %1"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "आपने '%1' में शामिल होने का अनुरोध किया"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "कमरे में शामिल होने का अनुरोध विफल<br /> %1"
@@ -6933,14 +6933,6 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "बैकअप से एन्क्रिप्शन कुंजी आयात करें."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "गुप्त बैकअप खोलें"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -8498,6 +8490,13 @@ msgstr "नवीनतम संदेश पर जाएं"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "आइटम को साझा करने के लिए उन्हें यहां खींचें"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Open Secret Backup"
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "गुप्त बैकअप खोलें"
 
 #, fuzzy
 #~| msgctxt ""

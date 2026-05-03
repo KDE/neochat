@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
 "PO-Revision-Date: 2026-04-30 13:42+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -1199,7 +1199,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "יצירת קשר דרך דוא״ל (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1689,17 +1689,17 @@ msgstr "בוצע"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "מזהה Matrix שגוי או ריק<br />%1 אינו מזהה נכון של Matrix"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "נכשלה ההצטרפות אל %1:<br />%2"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "ביקשת להצטרף אל ‚%1’"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "נכשלה הבקשה להצטרף לחדר<br />%1"
@@ -6426,12 +6426,6 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "ייבוא או שחרור נעילת מפתחות הצפנה ממכשירים אחרים."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "ניהול גיבוי סודי"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -7856,6 +7850,10 @@ msgstr "דילוג להודעה החדשה ביותר"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "נא לגרור לכאן פריטים כדי לשתף אותם"
+
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "ניהול גיבוי סודי"
 
 #~ msgctxt "@label"
 #~ msgid "Poll type:"

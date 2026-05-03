@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-01 00:44+0000\n"
-"PO-Revision-Date: 2026-04-29 14:41+0300\n"
+"POT-Creation-Date: 2026-05-03 00:43+0000\n"
+"PO-Revision-Date: 2026-05-02 19:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1204,7 +1204,7 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "E-posta ile iletişime geç (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
@@ -1719,17 +1719,17 @@ msgstr ""
 "Hatalı oluşturulmuş veya boş Matrik kimliği.<br />%1, doğru bir Matrix "
 "tanımlayıcısı değil"
 
-#: src/app/roommanager.cpp:467
+#: src/app/roommanager.cpp:468
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Katılınılamadı: %1<br />%2"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:492
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "“%1” odasına katılmak istediniz"
 
-#: src/app/roommanager.cpp:495
+#: src/app/roommanager.cpp:496
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Odaya katılma istenemedi<br />%1"
@@ -3260,7 +3260,7 @@ msgstr "“%1”, bir Matrix kimliği gibi görünmüyor."
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "%1, halihazırda bu odaya davet edildi"
+msgstr "%1, hâlihazırda bu odaya davet edildi"
 
 #: src/libneochat/models/actionsmodel.cpp:191
 #, kde-format
@@ -3271,13 +3271,13 @@ msgstr "%1, bu odadan yasaklı."
 #: src/libneochat/models/actionsmodel.cpp:195
 #, kde-format
 msgid "You are already in this room."
-msgstr "Halihazırda bu odadasınız."
+msgstr "Hâlihazırda bu odadasınız."
 
 #: src/libneochat/models/actionsmodel.cpp:199
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "%1, halihazırda bu odada."
+msgstr "%1, hâlihazırda bu odada."
 
 #: src/libneochat/models/actionsmodel.cpp:203
 #, kde-format
@@ -3331,7 +3331,7 @@ msgstr "Verilen odaya katılmayı ister"
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr "Halihazırda %1 odasındasınız."
+msgstr "Hâlihazırda %1 odasındasınız."
 
 #: src/libneochat/models/actionsmodel.cpp:271
 #: src/libneochat/models/actionsmodel.cpp:278
@@ -3362,7 +3362,7 @@ msgstr "Bu odada görüntülenen adınızı değiştirir"
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
-msgstr "%1, halihazırda yok sayılıyor."
+msgstr "%1, hâlihazırda yok sayılıyor."
 
 #: src/libneochat/models/actionsmodel.cpp:322
 #, kde-format
@@ -3402,7 +3402,7 @@ msgstr "Bu iletiye verilmiş metinle tepki ver"
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr "%1, halihazırda bu odadan yasaklı."
+msgstr "%1, hâlihazırda bu odadan yasaklı."
 
 #: src/libneochat/models/actionsmodel.cpp:385
 #, kde-format
@@ -3729,7 +3729,7 @@ msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
 "official parent."
 msgid "Make this parent official"
-msgstr "Bu üst ögeyi resmi yap"
+msgstr "Bu üst ögeyi resmî yap"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
 #, kde-format
@@ -3752,7 +3752,7 @@ msgstr "Elle Bir Oda Gir"
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
 msgstr ""
-"Bir odanın adresini veya armasını halihazırda biliyorsanız ve burada "
+"Bir odanın adresini veya armasını hâlihazırda biliyorsanız ve burada "
 "gösterilmiyorsa."
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:128
@@ -3813,7 +3813,7 @@ msgstr "Bu Kullanıcıyı Davet Et"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
-msgstr "Kullanıcı halihazırda üye veya davet edilmiş"
+msgstr "Kullanıcı hâlihazırda üye veya davet edilmiş"
 
 #: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
@@ -3922,7 +3922,7 @@ msgstr "Sürdür"
 #: src/login/Login.qml:39
 #, kde-format
 msgid "Already logged in"
-msgstr "Halihazırda oturum açıldı"
+msgstr "Hâlihazırda oturum açıldı"
 
 #: src/login/LoginMethod.qml:20
 #, kde-format
@@ -5775,7 +5775,7 @@ msgstr "Girilen URL geçerli bir kimlik sunucusu değil"
 #: src/settings/IdentityServerDelegate.qml:75
 #, kde-format
 msgid "The entered url is already configured as your identity server"
-msgstr "Girilen URL halihazırda kimlik sunucunuz olarak yapılandırılmış"
+msgstr "Girilen URL hâlihazırda kimlik sunucunuz olarak yapılandırılmış"
 
 #: src/settings/IdentityServerDelegate.qml:98
 #, kde-format
@@ -5973,7 +5973,7 @@ msgstr "Oda avatarını değiştir"
 #: src/settings/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
-msgstr "Odanın resmi armasını değiştir"
+msgstr "Odanın resmî armasını değiştir"
 
 #: src/settings/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
@@ -6466,12 +6466,6 @@ msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Başka aygıtlardan şifreleme anahtarları içe aktarın veya kilitlerini açın."
 
-#: src/settings/NeoChatSecurityPage.qml:156
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Giz Yedeğini Yönet"
-
 #: src/settings/NeoChatSecurityPage.qml:165
 #, kde-format
 msgctxt "@action:button"
@@ -6947,7 +6941,7 @@ msgstr "Bu odanın resmî üst alanı yok."
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
-msgstr "Yeni Resmi Üst Alan Ekle"
+msgstr "Yeni Resmî Üst Alan Ekle"
 
 #: src/settings/RoomGeneralPage.qml:315
 #, kde-format
@@ -7248,7 +7242,7 @@ msgstr "Eklenecek Parametre Seç"
 #, kde-format
 msgctxt "@title"
 msgid "Select new official parent"
-msgstr "Yeni Resmi Üst Öge Seç"
+msgstr "Yeni Resmî Üst Öge Seç"
 
 #: src/settings/SelectParentDialog.qml:41
 #, kde-format
@@ -7287,7 +7281,7 @@ msgstr "Bu eylemi tamamlamak için yeterli izin düzeyine sahip değilsiniz"
 #: src/settings/SelectParentDialog.qml:160
 #, kde-format
 msgid "Make this space the canonical parent"
-msgstr "Bu alanı resmi üst öge yap"
+msgstr "Bu alanı resmî üst öge yap"
 
 #: src/settings/SelectParentDialog.qml:170
 #, kde-format
@@ -7438,7 +7432,7 @@ msgstr "%1 alt ögesi %2 alanından kaldırılacak"
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr "Geçerli alan, bu odanın resmi üst ögesi, bu da temizlenmeli mi?"
+msgstr "Geçerli alan, bu odanın resmî üst ögesi, bu da temizlenmeli mi?"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
 #, kde-format
@@ -7477,7 +7471,7 @@ msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr "Bu alanı resmi üst öge yap"
+msgstr "Bu alanı resmî üst öge yap"
 
 #: src/spaces/SelectExistingRoomDialog.qml:172
 #, kde-format
@@ -7904,6 +7898,10 @@ msgstr "En Son İletiye Atla"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Onları paylaşmak için ögeleri buraya sürükleyin"
+
+#~ msgctxt "@title:window"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Giz Yedeğini Yönet"
 
 #~ msgctxt "@label"
 #~ msgid "Poll type:"
