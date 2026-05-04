@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2020-2026 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-03 00:43+0000\n"
-"PO-Revision-Date: 2026-04-07 14:11+0200\n"
+"PO-Revision-Date: 2026-04-30 09:22+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -330,12 +330,10 @@ msgid "Choose a Room"
 msgstr "Scegli una stanza"
 
 #: src/app/qml/ChooseRoomDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
-msgstr "Seleziona tutto"
+msgstr "Seleziona"
 
 #: src/app/qml/ChooseRoomDialog.qml:84 src/app/qml/ReasonDialog.qml:72
 #, kde-format
@@ -671,10 +669,9 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "Richiesta di verifica della chiave in entrata dal dispositivo **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:172
-#, fuzzy, kde-format
-#| msgid "Incoming key verification request from device **%1**"
+#, kde-format
 msgid "Incoming key verification request from **%1**"
-msgstr "Richiesta di verifica della chiave in entrata dal dispositivo **%1**"
+msgstr "Richiesta di verifica della chiave in arrivo da **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:176
 #: src/app/qml/OlmKeyVerificationDialog.qml:155
@@ -703,18 +700,16 @@ msgstr "Dispositivo **%1** verificato correttamente"
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/KeyVerificationDialog.qml:196
-#, fuzzy, kde-format
-#| msgid "Successfully verified device **%1**"
+#, kde-format
 msgctxt "@info"
 msgid "Successfully verified **%1**"
-msgstr "Dispositivo **%1** verificato correttamente"
+msgstr "**%1** verificato correttamente"
 
 #: src/app/qml/KeyVerificationDialog.qml:190
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to confirm our keys."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
-msgstr "In attesa che l'altra parte confermi le nostre chiavi."
+msgstr "In attesa della conferma di verifica da parte della parte remota."
 
 #: src/app/qml/KeyVerificationDialog.qml:216
 #: src/app/qml/OlmKeyVerificationDialog.qml:178
@@ -875,10 +870,9 @@ msgid "No Notifications"
 msgstr "Nessuna notifica"
 
 #: src/app/qml/OlmKeyVerificationDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Session Verification"
+#, kde-format
 msgid "Session Verifications"
-msgstr "Verifica della sessione"
+msgstr "Verifiche delle sessioni"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format
@@ -1917,32 +1911,29 @@ msgid "Create Poll"
 msgstr "Crea sondaggio"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Menu"
+#, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr "Mostra il menu"
+msgstr "Mostra i risultati:"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "Inserisci opzione"
+msgstr "Dopo aver votato"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "Dopo la fine del sondaggio"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
 msgstr ""
+"I voti non sono anonimi e saranno visibili a tutti i presenti nella stanza."
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1954,7 +1945,7 @@ msgstr "Domanda:"
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "Qual è il tuo cibo preferito?"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1981,9 +1972,7 @@ msgid "Send"
 msgstr "Invia"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
 msgstr "Aggiungi opzione"
@@ -3661,8 +3650,7 @@ msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
 #: src/libneochat/profilefieldshelper.cpp:55
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "@info:label Local time (timezone offset)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7676,12 +7664,10 @@ msgid "Forward…"
 msgstr "Inoltra…"
 
 #: src/timeline/DelegateContextMenu.qml:283
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward…"
+#, kde-format
 msgctxt "@action:button As in 'Forward this message'"
 msgid "Forward"
-msgstr "Inoltra…"
+msgstr "Inoltra"
 
 #: src/timeline/DelegateContextMenu.qml:286
 #, kde-format
