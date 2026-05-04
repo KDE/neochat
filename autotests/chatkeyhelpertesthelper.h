@@ -32,6 +32,7 @@ public:
     {
         return m_keyHelper->textItem();
     }
+
     void setTextItem(ChatTextItemHelper *textItem)
     {
         if (textItem == m_keyHelper->textItem()) {
@@ -44,6 +45,23 @@ public:
     ChatKeyHelper *keyHelper() const
     {
         return m_keyHelper;
+    }
+
+    Q_INVOKABLE void insertLink(const QString &linkUrl, const QString &linkText)
+    {
+        if (!m_keyHelper || !m_keyHelper->textItem()) {
+            return;
+        }
+        auto cursor = m_keyHelper->textItem()->textCursor();
+        if (cursor.isNull()) {
+            return;
+        }
+        const auto originalFormat = cursor.charFormat();
+        auto format = cursor.charFormat();
+        format.setAnchor(true);
+        format.setAnchorHref(linkUrl);
+        cursor.insertText(linkText, format);
+        cursor.insertText(u" "_s, originalFormat);
     }
 
 Q_SIGNALS:

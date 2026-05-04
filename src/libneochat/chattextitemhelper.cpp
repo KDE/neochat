@@ -349,8 +349,9 @@ QTextCursor ChatTextItemHelper::textCursor() const
 
     QTextCursor cursor = QTextCursor(document());
     if (selectionStart() != selectionEnd()) {
-        cursor.setPosition(selectionStart());
-        cursor.setPosition(selectionEnd(), QTextCursor::KeepAnchor);
+        bool cursorAtEnd = cursorPosition() == selectionEnd();
+        cursor.setPosition(cursorAtEnd ? selectionStart() : selectionEnd());
+        cursor.setPosition(cursorAtEnd ? selectionEnd() : selectionStart(), QTextCursor::KeepAnchor);
     } else {
         cursor.setPosition(*cursorPosition());
     }

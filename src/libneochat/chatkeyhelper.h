@@ -151,9 +151,9 @@ private:
 
     bool pasteImage();
 
-    bool selectLeft(QTextCursor &cursor, Qt::KeyboardModifiers modifiers = Qt::NoModifier);
+    bool selectLeft(QTextCursor &cursor);
 
-    bool selectRight(QTextCursor &cursor, Qt::KeyboardModifiers modifiers = Qt::NoModifier);
+    bool selectRight(QTextCursor &cursor);
 
     bool nextWordLeft(QTextCursor &cursor, Qt::KeyboardModifiers modifiers = Qt::NoModifier);
 
