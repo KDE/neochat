@@ -50,6 +50,8 @@ private Q_SLOTS:
     void sendCustomEmojiCode();
     void sendCustomTags_data();
     void sendCustomTags();
+    void sendItalic_data();
+    void sendItalic();
 
     void receiveSpacelessSelfClosingTag();
     void receiveStripReply();
@@ -339,6 +341,33 @@ void TextHandlerTest::sendCustomTags_data()
 }
 
 void TextHandlerTest::sendCustomTags()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
+}
+
+void TextHandlerTest::sendItalic_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("usual case") << u"_going fast_"_s << u"<u>going fast</u>"_s;
+    QTest::newRow("unusual underscores that aren't underlines") << u"XDG_DATA_DIRS"_s << u"XDG_DATA_DIRS"_s;
+    QTest::newRow("one underscore") << u"a_a"_s << u"a_a"_s;
+    QTest::newRow("surrounding underscores") << u"_XDG_DATA_DIRS_"_s << u"<u>XDG_DATA_DIRS</u>"_s;
+    QTest::newRow("surrounding underline and underscores") << u"~~_XDG_DATA_DIRSXDG_DATA_DIRS_~~"_s << u"<del><u>XDG_DATA_DIRSXDG_DATA_DIRS</u></del>"_s;
+    QTest::newRow("inline code")
+        << u"my `m_dataBuffer` is really good because in `XDG_DATA_DIRS` it's not considered _unless_ it's a _XDG_DATA_DIRS_"_s
+        << u"my <code>m_dataBuffer</code> is really good because in <code>XDG_DATA_DIRS</code> it's not considered <u>unless</u> it's a <u>XDG_DATA_DIRS</u>"_s;
+    QTest::newRow("codeblock") << u"```m_dataBuffer XDG_DATA_DIR```"_s << u"<code>m_dataBuffer XDG_DATA_DIR</code>"_s;
+}
+
+void TextHandlerTest::sendItalic()
 {
     QFETCH(QString, testInputString);
     QFETCH(QString, testOutputString);
