@@ -145,6 +145,9 @@ private:
     QString unescapeHtml(QString stringIn);
     QString linkifyUrls(QString stringIn);
     QString customMarkdownToHtml(const QString &stringIn);
+    QString fixupUnderlineSyntax(const QString &stringIn);
+    void processWithinHTML(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
+    void processWithinMarkdown(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
 
     QString editString() const;
     QString emoteString(const NeoChatRoom *room = nullptr, const Quotient::RoomEvent *event = nullptr) const;
