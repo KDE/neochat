@@ -1,0 +1,21 @@
+diff --git a/Quotient/crypto-sdk/src/lib.rs b/Quotient/crypto-sdk/src/lib.rs
+index 461a111e..ae2255ec 100644
+--- a/Quotient/crypto-sdk/src/lib.rs
++++ b/Quotient/crypto-sdk/src/lib.rs
+@@ -4,6 +4,7 @@ use matrix_sdk_common::ruma::{DeviceId, UserId};
+ use matrix_sdk_crypto::OlmMachine;
+ use matrix_sdk_sqlite::SqliteCryptoStore;
+ use std::{mem::ManuallyDrop, path::Path};
++use matrix_sdk_crypto::store::CryptoStore;
+ 
+ mod cryptomachine;
+ mod encryption_info;
+@@ -69,6 +70,8 @@ fn init(
+             }
+         };
+ 
++        println!("Database: {}", store.get_inbound_group_sessions().await.unwrap().len());
++
+         let account = if account_pickle.is_empty() {
+             None
+         } else {
