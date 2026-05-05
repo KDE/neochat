@@ -82,6 +82,16 @@ Item {
             Message.room: root.currentRoom
             room: root.currentRoom
             maxAvailableWidth: chatBarSizeHelper.availableWidth
+            visible: !root.currentRoom.readOnly
+        }
+        QQC2.Label {
+            visible: root.currentRoom.readOnly
+            text: i18nc("@info:label", "You do not have permission to send messages to this room.")
+            color: Kirigami.Theme.disabledTextColor
+            elide: Text.ElideRight
+
+            Layout.fillWidth: true
+            Layout.preferredWidth: chatBarSizeHelper.availableWidth
         }
         RowLayout {
             Layout.fillWidth: true
@@ -101,11 +111,13 @@ Item {
 
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignLeft
+                Layout.preferredHeight: fontMetrics.height // Prevent layout shifts with the typing indicator loading/unloading
             }
             QQC2.Label {
                 text: NeoChatConfig.sendMessageWith === 1 ? i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : i18nc("As in enter starts send the chat message", "Enter sends the message")
                 horizontalAlignment: Text.AlignRight
                 font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale * 0.75
+                visible: !root.currentRoom.readOnly
 
                 Layout.alignment: Qt.AlignRight
                 Layout.fillWidth: !typingPane.visible
