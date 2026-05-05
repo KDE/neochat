@@ -41,6 +41,11 @@ ColumnLayout {
         audio.play();
     }
 
+    /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
     MediaPlayer {
         id: audio
         onErrorOccurred: (error, errorString) => console.warn("Audio playback error:" + error + errorString)
@@ -107,6 +112,7 @@ ColumnLayout {
 
         QQC2.ToolButton {
             id: playButton
+            enabled: !root.editable // Only allow previewing audio that isn't being edited or waiting to be sent
         }
 
         ColumnLayout {
