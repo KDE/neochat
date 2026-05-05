@@ -58,6 +58,11 @@ Video {
      */
     property bool playOnFinished: false
 
+    /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
     Layout.preferredWidth: mediaSizeHelper.currentSize.width
     Layout.preferredHeight: mediaSizeHelper.currentSize.height
 
@@ -383,6 +388,7 @@ Video {
     TapHandler {
         acceptedButtons: Qt.LeftButton
         gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
+        enabled: !root.editable // Only allow previewing videos that aren't being edited or waiting to be sent
         onTapped: if (root.fileTransferInfo.completed) {
             if (root.playbackState == MediaPlayer.PlayingState) {
                 root.pause();
@@ -402,7 +408,7 @@ Video {
         mediaHeight: root.componentAttributes.height
     }
 
-    function downloadAndPlay() {
+    function downloadAndPlay(): void {
         if (root.downloaded) {
             playSavedFile();
         } else {
@@ -411,7 +417,7 @@ Video {
         }
     }
 
-    function playSavedFile() {
+    function playSavedFile(): void {
         root.stop();
         MediaManager.startPlayback();
         root.play();
