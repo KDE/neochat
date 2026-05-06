@@ -82,7 +82,7 @@ static const QRegularExpression blockQuote{u"<blockquote>\n?(?:<p>)?(.*?)(?:</p>
 static const QRegularExpression strikethrough{u"<del>(.*?)</del>"_s, QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression mxcImage{uR"AAA(<img(.*?)src="mxc:\/\/(.*?)\/(.*?)"(.*?)>)AAA"_s};
 static const QRegularExpression plainUrl(
-    uR"(<a.*?<\/a>(*SKIP)(*F)|\b((www\.(?!\.)(?!(\w|\.|-)+@)|(https?|ftp):(//)?\w|(magnet|matrix):)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^?&!,.\s<>'"\]):])))"_s,
+    uR"(<a.*?<\/a>(*SKIP)(*F)|\b((www\.(?!\.)(?!(\w|\.|-)+@)|(https?|ftp):(//)?\w|(magnet|matrix):)(&(?![lg]t;)|[^&\s<>"])+(&(?![lg]t;)|[^?&!,.\s<>"\]):])))"_s,
     QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
 static const QRegularExpression url(uR"(\b((www\.(?!\.)(?!(\w|\.|-)+@)|https?:(//)?\w)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^&!,.\s<>'"\]):])))"_s,
                                     QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
