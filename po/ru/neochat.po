@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-03 00:43+0000\n"
+"POT-Creation-Date: 2026-05-06 00:45+0000\n"
 "PO-Revision-Date: 2026-04-03 22:05+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1743,23 +1743,13 @@ msgstr "Показать"
 msgid "Quit"
 msgstr "Выход"
 
-#: src/chatbar/ChatBar.qml:97 src/timeline/TimelineView.qml:363
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 набирают сообщение"
-msgstr[1] "%2 набирают сообщение"
-msgstr[2] "%2 набирают сообщение"
-msgstr[3] "%2 набирает сообщение"
-
-#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Клавиша Enter начинает новую строку"
 
-#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -7966,6 +7956,29 @@ msgstr "Перейти к последнему сообщению"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Чтобы опубликовать файлы, перетащите их сюда"
+
+#: src/timeline/TypingPane.qml:27
+#, fuzzy, kde-format
+#| msgctxt "Message displayed when some users are typing"
+#| msgid "%2 is typing"
+#| msgid_plural "%2 are typing"
+msgctxt "Number of users typing in the room"
+msgid "1 user is typing"
+msgid_plural "%1 users are typing"
+msgstr[0] "%2 набирают сообщение"
+msgstr[1] "%2 набирают сообщение"
+msgstr[2] "%2 набирают сообщение"
+msgstr[3] "%2 набирает сообщение"
+
+#: src/timeline/TypingPane.qml:30
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 набирают сообщение"
+msgstr[1] "%2 набирают сообщение"
+msgstr[2] "%2 набирают сообщение"
+msgstr[3] "%2 набирает сообщение"
 
 #~ msgctxt "@title:window"
 #~ msgid "Manage Secret Backup"

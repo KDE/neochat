@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-03 00:43+0000\n"
+"POT-Creation-Date: 2026-05-06 00:45+0000\n"
 "PO-Revision-Date: 2026-04-29 05:43+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1732,21 +1732,13 @@ msgstr "ჩვენება"
 msgid "Quit"
 msgstr "დატოვება"
 
-#: src/chatbar/ChatBar.qml:97 src/timeline/TimelineView.qml:363
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 კრეფს"
-msgstr[1] "%2 კრეფს"
-
-#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Enter იწყებს ახალ ხაზს"
 
-#: src/chatbar/ChatBar.qml:105 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -7898,6 +7890,25 @@ msgstr "უახლეს შეტყობინებებზე გად�
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "გადმოათრიეთ საგნები აქ, მათ გასაზიარებლად"
+
+#: src/timeline/TypingPane.qml:27
+#, fuzzy, kde-format
+#| msgctxt "Message displayed when some users are typing"
+#| msgid "%2 is typing"
+#| msgid_plural "%2 are typing"
+msgctxt "Number of users typing in the room"
+msgid "1 user is typing"
+msgid_plural "%1 users are typing"
+msgstr[0] "%2 კრეფს"
+msgstr[1] "%2 კრეფს"
+
+#: src/timeline/TypingPane.qml:30
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 კრეფს"
+msgstr[1] "%2 კრეფს"
 
 #~ msgctxt "@title:window"
 #~ msgid "Manage Secret Backup"
