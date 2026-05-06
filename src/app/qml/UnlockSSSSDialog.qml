@@ -42,6 +42,13 @@ FormCard.FormCardPage {
             banner.type = Kirigami.MessageType.Positive
             banner.visible = true
         }
+
+        function onBackupFinished(result: int): void {
+            banner.type = result === NeoChatConnection.Success ? Kirigami.MessageType.Positive : Kirigami.MessageType.Error
+            banner.text = result === NeoChatConnection.Success ? i18nc("@info", "Loaded keys from backup") : i18nc("@info", "Failed to load keys from backup")
+            banner.visible = true;
+            root.processing = false;
+        }
     }
 
     FormCard.FormHeader {
@@ -96,6 +103,23 @@ FormCard.FormCardPage {
             }
         }
     }
+
+    FormCard.FormHeader {
+        title: i18nc("@title", "Decryption Key Backup")
+        visible: Controller.libquotientMinorVersion > 9
+    }
+    FormCard.FormCard {
+        visible: Controller.libquotientMinorVersion > 9
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "Load Decryption Keys from Backup")
+            enabled: Controller.activeConnection.isBackupDecryptionKeyAvailable() && !root.processing
+            onClicked: {
+                Controller.activeConnection.importFromBackup()
+                root.processing = true;
+            }
+        }
+    }
+
 
     property OpenFileDialog openFileDialog: OpenFileDialog {
         id: openFileDialog
