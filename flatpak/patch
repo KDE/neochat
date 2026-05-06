@@ -1,16 +1,16 @@
 diff --git a/Quotient/crypto-sdk/src/lib.rs b/Quotient/crypto-sdk/src/lib.rs
-index 461a111e..ae2255ec 100644
+index 79f0fb9d..1c8e6c62 100644
 --- a/Quotient/crypto-sdk/src/lib.rs
 +++ b/Quotient/crypto-sdk/src/lib.rs
-@@ -4,6 +4,7 @@ use matrix_sdk_common::ruma::{DeviceId, UserId};
- use matrix_sdk_crypto::OlmMachine;
+@@ -5,6 +5,7 @@ use matrix_sdk_crypto::OlmMachine;
  use matrix_sdk_sqlite::SqliteCryptoStore;
  use std::{mem::ManuallyDrop, path::Path};
+ use tracing_subscriber::{EnvFilter, fmt, prelude::*};
 +use matrix_sdk_crypto::store::CryptoStore;
  
  mod cryptomachine;
  mod encryption_info;
-@@ -69,6 +70,8 @@ fn init(
+@@ -73,6 +74,8 @@ fn init(
              }
          };
  
