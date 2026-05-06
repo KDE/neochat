@@ -53,6 +53,7 @@ QString TextHandler::handleSendText()
 {
     m_pos = 0;
     m_dataBuffer = fixupUnderlineSyntax(m_data);
+    escapeURLs(m_dataBuffer);
     m_dataBuffer = markdownToHTML(m_dataBuffer);
     m_dataBuffer = customMarkdownToHtml(m_dataBuffer);
 
@@ -930,6 +931,28 @@ void TextHandler::processWithinMarkdown(QString &buffer, const QString &syntax, 
         // Not technically needed in most cases since we replaced the original tag, but needed for code blocks
         // which still have the characters.
         lastPos = nextPos + syntax.length();
+    }
+}
+
+void TextHandler::escapeURLs(QString &stringIn)
+{
+    // Some URLs get mangled by CMark such as
+    // https://bugs.kde.org/buglist.cgi?bug_status=__open__&component=general&list_id=3150863&product=plasma-systemmonitor because of the __ that turns into
+    // <strong>. We can avoid this by escaping it ourselves before giving it to CMark.
+
+    QRegularExpressionMatch match;
+    int start = 0;
+    for (int index = 0; index != -1; index = stringIn.indexOf(TextRegex::url, start, &match)) {
+        int skip = 0;
+        if (match.captured(0).size() > 0) {
+            QString replacement = match.captured(0);
+            replacement.replace(QLatin1String("__"), QLatin1String("\\_\\_"));
+
+            stringIn = stringIn.replace(index, match.captured(0).size(), replacement);
+            skip += match.capturedLength(0);
+        }
+        start = index + skip;
+        match = {};
     }
 }
 

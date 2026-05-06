@@ -153,6 +153,7 @@ private:
     QString fixupUnderlineSyntax(const QString &stringIn);
     void processWithinHTML(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
     void processWithinMarkdown(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
+    void escapeURLs(QString &stringIn);
 
     QString editString() const;
     QString emoteString(const NeoChatRoom *room = nullptr, const Quotient::RoomEvent *event = nullptr) const;

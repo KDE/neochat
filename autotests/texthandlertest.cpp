@@ -52,6 +52,8 @@ private Q_SLOTS:
     void sendCustomTags();
     void sendItalic_data();
     void sendItalic();
+    void sendPlainLink_data();
+    void sendPlainLink();
 
     void receiveSpacelessSelfClosingTag();
     void receiveStripReply();
@@ -368,6 +370,28 @@ void TextHandlerTest::sendItalic_data()
 }
 
 void TextHandlerTest::sendItalic()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
+}
+
+void TextHandlerTest::sendPlainLink_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("simple") << u"https://kde.org/"_s << u"https://kde.org/"_s;
+    QTest::newRow("double underscore")
+        << u"https://bugs.kde.org/buglist.cgi?bug_status=__open__&amp;component=general&amp;list_id=3150863&amp;product=plasma-systemmonitor"_s
+        << u"https://bugs.kde.org/buglist.cgi?bug_status=__open__&amp;component=general&amp;list_id=3150863&amp;product=plasma-systemmonitor"_s;
+}
+
+void TextHandlerTest::sendPlainLink()
 {
     QFETCH(QString, testInputString);
     QFETCH(QString, testOutputString);
