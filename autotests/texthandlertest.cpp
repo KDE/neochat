@@ -593,6 +593,11 @@ void TextHandlerTest::receiveRichPlainUrl_data()
         << u"<b><a href=\"https://matrix.to/#/@user:kde.org\" style=\"text-decoration: none;\">@user:kde.org</a></b> <b><a href=\"https://matrix.to/#/@user:kde.org\" style=\"text-decoration: none;\">Link already rich</a></b>"_s;
     QTest::addRow("mxid with prefix") << u"a @user:kde.org b"_s
                                       << u"a <b><a href=\"https://matrix.to/#/@user:kde.org\" style=\"text-decoration: none;\">@user:kde.org</a></b> b"_s;
+
+    // Another real case where our old URL regex failed to consider a valid and common symbol.
+    QTest::addRow("link 3")
+        << u"https://community.kde.org/Infrastructure/GitLab#Testing_someone_else's_merge_request"_s
+        << u"<a href=\"https://community.kde.org/Infrastructure/GitLab#Testing_someone_else's_merge_request\" style=\"text-decoration: none;\">https://community.kde.org/Infrastructure/GitLab#Testing_someone_else's_merge_request</a>"_s;
 }
 
 /**
