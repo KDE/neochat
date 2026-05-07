@@ -89,31 +89,28 @@ RowLayout {
             window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow
         }
     }
-    
-    QQC2.ToolButton {
-        display: QQC2.Button.IconOnly
-        text: i18n("View notifications")
-        icon.name: "notifications"
-        onClicked: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
-            connection: root.connection
-        }, {
-            title: i18nc("@title", "Notifications"),
-            modality: Qt.NonModal
-        })
 
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    }
-    
-    QQC2.ToolButton {
-        display: QQC2.Button.IconOnly
-        text: i18nc("@action:button", "Open Settings")
-        icon.name: "settings-configure-symbolic"
-        onClicked: NeoChatSettingsView.open()
+    Kirigami.ActionToolBar {
+        Layout.fillWidth: true
 
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        actions: [
+            Kirigami.Action {
+                text: i18nc("@action:button", "View Notifications")
+                icon.name: "notifications"
+
+                onTriggered: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "NotificationsView"), {
+                    connection: root.connection
+                }, {
+                    title: i18nc("@title", "Notifications"),
+                    modality: Qt.NonModal
+                })
+            },
+            Kirigami.Action {
+                text: i18nc("@action:button", "Open Settings")
+                icon.name: "settings-configure-symbolic"
+
+                onTriggered: NeoChatSettingsView.open()
+            }
+        ]
     }
 }

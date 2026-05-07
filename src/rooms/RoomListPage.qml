@@ -204,7 +204,7 @@ Kirigami.Page {
                     DelegateChoice {
                         roleValue: "addDirect"
                         delegate: Delegates.RoundedItemDelegate {
-                            text: i18nc("@action:button", "Find your friends")
+                            text: root.collapsed && !Kirigami.Settings.isMobile ? "" : i18nc("@action:button", "Find your friends")
                             icon.name: "list-add-user"
                             icon.width: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
                             icon.height: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
