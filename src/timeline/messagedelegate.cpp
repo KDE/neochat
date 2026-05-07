@@ -517,7 +517,8 @@ void MessageDelegateBase::updateQuickAction()
             }
 
             if (const auto quickActionObject = qobject_cast<QQuickItem *>(incubator->object())) {
-                if (!m_compactMode) {
+                // hover state may have changed during incubation, only set the item if we're still hovered and not in compact mode
+                if (m_hovered && !m_compactMode) {
                     m_quickActionItem = quickActionObject;
                     connect(m_quickActionItem, SIGNAL(reactingChanged()), this, SLOT(updateQuickAction()));
                 } else {
