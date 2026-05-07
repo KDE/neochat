@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 00:45+0000\n"
-"PO-Revision-Date: 2026-04-29 08:35+0300\n"
+"POT-Creation-Date: 2026-05-07 00:44+0000\n"
+"PO-Revision-Date: 2026-05-06 10:50+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -233,52 +233,46 @@ msgstr "Сканувати QR-код"
 #: src/app/qml/AccountMenu.qml:44
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Edit This Account"
-msgstr "Редагувати цей обліковий запис"
-
-#: src/app/qml/AccountMenu.qml:50
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Параметри сповіщення"
 
-#: src/app/qml/AccountMenu.qml:58
+#: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Відкрити інструменти розробника"
 
-#: src/app/qml/AccountMenu.qml:64 src/roominfo/RoomInformation.qml:188
+#: src/app/qml/AccountMenu.qml:58 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
-#: src/app/qml/AccountMenu.qml:71
+#: src/app/qml/AccountMenu.qml:65
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Перевірити цей пристрій"
 
-#: src/app/qml/AccountMenu.qml:77 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:71 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Надіслано запит щодо перевірки"
 
-#: src/app/qml/AccountMenu.qml:78 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:72 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Далі, вам слід прийняти запит щодо перевірки на іншому пристрої."
 
-#: src/app/qml/AccountMenu.qml:89
+#: src/app/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Підтримка"
 
-#: src/app/qml/AccountMenu.qml:103
+#: src/app/qml/AccountMenu.qml:97
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
@@ -988,7 +982,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "У вас недостатні права доступу для започатковування зустрічей Jitsi"
 
-#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:187
+#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:196
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
@@ -1067,7 +1061,7 @@ msgstr "Вилучити повідомлення"
 
 #: src/app/qml/SelectedMessagesControl.qml:45
 #: src/app/qml/SelectedMessagesControl.qml:51
-#: src/app/qml/UserDetailDialog.qml:336
+#: src/app/qml/UserDetailDialog.qml:345
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
@@ -1080,7 +1074,7 @@ msgid "Optionally give a reason for removing these messages"
 msgstr "Необов'язково, вкажіть причину вилучення цих повідомлень"
 
 #: src/app/qml/SelectedMessagesControl.qml:47
-#: src/app/qml/UserDetailDialog.qml:338
+#: src/app/qml/UserDetailDialog.qml:347
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
@@ -1299,140 +1293,147 @@ msgid "Message"
 msgstr "Повідомлення"
 
 #: src/app/qml/UserDetailDialog.qml:165
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "@action:intoolbar Edit This Account"
+msgid "Edit"
+msgstr "Змінити"
+
+#: src/app/qml/UserDetailDialog.qml:173
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "Скасувати ігнорування"
 
-#: src/app/qml/UserDetailDialog.qml:165
+#: src/app/qml/UserDetailDialog.qml:173
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ігнорувати…"
 
-#: src/app/qml/UserDetailDialog.qml:173
+#: src/app/qml/UserDetailDialog.qml:182
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Копіювати посилання"
 
-#: src/app/qml/UserDetailDialog.qml:179
+#: src/app/qml/UserDetailDialog.qml:188
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "Шукати повідомлення…"
 
-#: src/app/qml/UserDetailDialog.qml:193
+#: src/app/qml/UserDetailDialog.qml:202
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Поскаржитися…"
 
-#: src/app/qml/UserDetailDialog.qml:199
+#: src/app/qml/UserDetailDialog.qml:208
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Скарга на користувача"
 
-#: src/app/qml/UserDetailDialog.qml:200
+#: src/app/qml/UserDetailDialog.qml:209
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this user"
 msgstr "Необов'язково, вкажіть причину скарги щодо цього користувача"
 
-#: src/app/qml/UserDetailDialog.qml:202
+#: src/app/qml/UserDetailDialog.qml:211
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Поскаржитися"
 
-#: src/app/qml/UserDetailDialog.qml:206
+#: src/app/qml/UserDetailDialog.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "Скарга на користувача"
 
-#: src/app/qml/UserDetailDialog.qml:217
+#: src/app/qml/UserDetailDialog.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "Переглянути основний профіль"
 
-#: src/app/qml/UserDetailDialog.qml:227
+#: src/app/qml/UserDetailDialog.qml:236
 #, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "Переглянути профіль кімнати"
 
-#: src/app/qml/UserDetailDialog.qml:238
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Модерація"
 
-#: src/app/qml/UserDetailDialog.qml:263
+#: src/app/qml/UserDetailDialog.qml:272
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Викинути…"
 
-#: src/app/qml/UserDetailDialog.qml:267 src/app/qml/UserDetailDialog.qml:274
+#: src/app/qml/UserDetailDialog.qml:276 src/app/qml/UserDetailDialog.qml:283
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Викидання користувача"
 
-#: src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:277
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for kicking this user"
 msgstr "Необов'язково, вкажіть причину викидання цього користувача"
 
-#: src/app/qml/UserDetailDialog.qml:269
+#: src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Викинути"
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:300
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "Заблокувати…"
 
-#: src/app/qml/UserDetailDialog.qml:296 src/app/qml/UserDetailDialog.qml:303
+#: src/app/qml/UserDetailDialog.qml:305 src/app/qml/UserDetailDialog.qml:312
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Блокування користувача"
 
-#: src/app/qml/UserDetailDialog.qml:297
+#: src/app/qml/UserDetailDialog.qml:306
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for banning this user"
 msgstr "Необов'язково, вкажіть причину блокування цього користувача"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:307
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Заблокувати"
 
-#: src/app/qml/UserDetailDialog.qml:320
+#: src/app/qml/UserDetailDialog.qml:329
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "Розблокувати"
 
-#: src/app/qml/UserDetailDialog.qml:331
+#: src/app/qml/UserDetailDialog.qml:340
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Вилучити повідомлення…"
 
-#: src/app/qml/UserDetailDialog.qml:337
+#: src/app/qml/UserDetailDialog.qml:346
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
@@ -1440,44 +1441,44 @@ msgstr ""
 "Необов'язково, вкажіть причину вилучення нещодавніх повідомлень цього "
 "користувача"
 
-#: src/app/qml/UserDetailDialog.qml:343
+#: src/app/qml/UserDetailDialog.qml:352
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Вилучення повідомлень"
 
-#: src/app/qml/UserDetailDialog.qml:356
+#: src/app/qml/UserDetailDialog.qml:365
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
 msgstr "Рівень повноважень"
 
-#: src/app/qml/UserDetailDialog.qml:380
+#: src/app/qml/UserDetailDialog.qml:389
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Встановити рівень можливостей користувача"
 
-#: src/app/qml/UserDetailDialog.qml:407
+#: src/app/qml/UserDetailDialog.qml:416
 #, kde-format
 msgctxt "@title The user's timezone"
 msgid "Timezone"
 msgstr "Часовий пояс"
 
-#: src/app/qml/UserDetailDialog.qml:434
+#: src/app/qml/UserDetailDialog.qml:443
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Взаємні кімнати"
 
-#: src/app/qml/UserDetailDialog.qml:456
+#: src/app/qml/UserDetailDialog.qml:465
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
 msgstr "Немає спільних кімнат"
 
-#: src/app/qml/UserDetailDialog.qml:491
+#: src/app/qml/UserDetailDialog.qml:500
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1489,13 +1490,13 @@ msgstr[1] "і ще %1…"
 msgstr[2] "і ще %1…"
 msgstr[3] "і ще %1…"
 
-#: src/app/qml/UserDetailDialog.qml:498
+#: src/app/qml/UserDetailDialog.qml:507
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Конфіденційна нотатка"
 
-#: src/app/qml/UserDetailDialog.qml:510
+#: src/app/qml/UserDetailDialog.qml:519
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1755,13 +1756,21 @@ msgstr "Показати"
 msgid "Quit"
 msgstr "Вийти"
 
-#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:89
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "You do not have permissions to start Jitsi meetings"
+msgctxt "@info:label"
+msgid "You do not have permission to send messages to this room."
+msgstr "У вас недостатні права доступу для започатковування зустрічей Jitsi"
+
+#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Клавіша Enter починає новий рядок"
 
-#: src/chatbar/ChatBar.qml:106 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -3630,12 +3639,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/libneochat/neochatroom.cpp:1254
+#: src/libneochat/neochatroom.cpp:1267
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
+#: src/libneochat/neochatroom.cpp:1633 src/libneochat/neochatroom.cpp:1641
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3842,7 +3851,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Шукати"
 
-#: src/libneochat/texthandler.cpp:627
+#: src/libneochat/texthandler.cpp:629
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>Ця подія не має жодного вмісту.</i>"
@@ -4166,7 +4175,7 @@ msgid "Copy to clipboard"
 msgstr "Скопіювати до буфера"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:336
+#: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4247,7 +4256,7 @@ msgid "Check-out time: %1"
 msgstr "Час перевірки на виході: %1"
 
 #: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:145
+#: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -4486,18 +4495,18 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Пл. %1"
 
-#: src/messagecontent/VideoComponent.qml:173
+#: src/messagecontent/VideoComponent.qml:178
 #, kde-format
 msgid "Video"
 msgstr "Відео"
 
-#: src/messagecontent/VideoComponent.qml:212
+#: src/messagecontent/VideoComponent.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Показати відео"
 
-#: src/messagecontent/VideoComponent.qml:253
+#: src/messagecontent/VideoComponent.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -5097,148 +5106,194 @@ msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Редагування облікового запису"
 
-#: src/settings/AccountEditorPage.qml:66
+#: src/settings/AccountEditorPage.qml:36
+#, fuzzy, kde-format
+#| msgid "Show avatar update events"
+msgctxt "@info"
+msgid "New avatar could not be set."
+msgstr "Показувати події з оновлення аватарів"
+
+#: src/settings/AccountEditorPage.qml:73
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Revert changes"
+msgctxt "@action:button"
+msgid "Reset Changes"
+msgstr "Скасувати зміни"
+
+#: src/settings/AccountEditorPage.qml:79
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Save changes to user"
+msgid "Save"
+msgstr "Зберегти"
+
+#: src/settings/AccountEditorPage.qml:92
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Settings"
+msgctxt "@title:dialog Apply unsaved settings"
+msgid "Apply Settings"
+msgstr "Відкрити налаштування"
+
+#: src/settings/AccountEditorPage.qml:93
+#, kde-format
+msgctxt "@info"
+msgid ""
+"There are unsaved changes to user information. Apply the changes or discard "
+"them?"
+msgstr ""
+
+#: src/settings/AccountEditorPage.qml:99
+#, fuzzy, kde-format
+#| msgid "Apply"
+msgctxt "@action:button As in 'Remove this device'"
+msgid "Apply"
+msgstr "Застосувати"
+
+#: src/settings/AccountEditorPage.qml:111
+#, kde-format
+msgctxt "@action:button As in 'Remove this device'"
+msgid "Reset"
+msgstr ""
+
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgid "Upload new avatar"
 msgstr "Вивантажити новий аватар"
 
-#: src/settings/AccountEditorPage.qml:83
+#: src/settings/AccountEditorPage.qml:184
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Вилучити поточний аватар"
 
-#: src/settings/AccountEditorPage.qml:106
+#: src/settings/AccountEditorPage.qml:207
 #, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Відомості про користувача"
 
-#: src/settings/AccountEditorPage.qml:111
+#: src/settings/AccountEditorPage.qml:212
 #, kde-format
 msgid "Display Name:"
 msgstr "Екранне ім'я:"
 
-#: src/settings/AccountEditorPage.qml:117
+#: src/settings/AccountEditorPage.qml:217
 #, kde-format
 msgctxt "@info:label"
 msgid "User ID"
 msgstr "Ідентифікатор користувача"
 
-#: src/settings/AccountEditorPage.qml:121
+#: src/settings/AccountEditorPage.qml:221
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
 msgstr "Копіювати ідентифікатор користувача до буфера обміну"
 
-#: src/settings/AccountEditorPage.qml:142
+#: src/settings/AccountEditorPage.qml:242
 #, kde-format
 msgctxt "@label:combobox"
 msgid "Timezone:"
 msgstr "Часовий пояс:"
 
-#: src/settings/AccountEditorPage.qml:160
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "Показати QR-код"
-
-#: src/settings/AccountEditorPage.qml:175
-#: src/settings/AccountEditorPage.qml:233
-#: src/settings/EmoticonEditorPage.qml:111
-#, kde-format
-msgid "Save"
-msgstr "Зберегти"
-
-#: src/settings/AccountEditorPage.qml:192
+#: src/settings/AccountEditorPage.qml:262
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Пароль"
 
-#: src/settings/AccountEditorPage.qml:199
+#: src/settings/AccountEditorPage.qml:269
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "На вашому сервері не передбачено підтримки зміни вашого пароля"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Поточний пароль:"
 
-#: src/settings/AccountEditorPage.qml:213
+#: src/settings/AccountEditorPage.qml:283
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Новий пароль:"
 
-#: src/settings/AccountEditorPage.qml:220
-#, kde-format
+#: src/settings/AccountEditorPage.qml:290
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Confirm new Password:"
 msgctxt "@label:textbox"
-msgid "Confirm new Password:"
+msgid "Confirm New Password:"
 msgstr "Підтвердження нового пароля:"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:295
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Паролі не збігаються"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:303
+#: src/settings/EmoticonEditorPage.qml:111
+#, kde-format
+msgid "Save"
+msgstr "Зберегти"
+
+#: src/settings/AccountEditorPage.qml:316
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Адреси ел. пошти"
 
-#: src/settings/AccountEditorPage.qml:252
+#: src/settings/AccountEditorPage.qml:322
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Сервер профілів"
 
-#: src/settings/AccountEditorPage.qml:262
+#: src/settings/AccountEditorPage.qml:332
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Керування обліковими записами"
 
-#: src/settings/AccountEditorPage.qml:268
+#: src/settings/AccountEditorPage.qml:338
 #, kde-format
 msgctxt "@info"
 msgid "Manage Account"
 msgstr "Керування обліковим записом"
 
-#: src/settings/AccountEditorPage.qml:277
+#: src/settings/AccountEditorPage.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Деактивувати обліковий запис…"
 
-#: src/settings/AccountEditorPage.qml:291
+#: src/settings/AccountEditorPage.qml:361
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Інформація про сервер"
 
-#: src/settings/AccountEditorPage.qml:295
+#: src/settings/AccountEditorPage.qml:365
 #, kde-format
 msgid "Homeserver url"
 msgstr "Адреса домашнього сервера"
 
-#: src/settings/AccountEditorPage.qml:321
+#: src/settings/AccountEditorPage.qml:391
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Пароль успішно змінено"
 
-#: src/settings/AccountEditorPage.qml:324
+#: src/settings/AccountEditorPage.qml:394
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Некоректний пароль"
 
-#: src/settings/AccountEditorPage.qml:327
+#: src/settings/AccountEditorPage.qml:397
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -7956,17 +8011,14 @@ msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
 #: src/timeline/TypingPane.qml:27
-#, fuzzy, kde-format
-#| msgctxt "Message displayed when some users are typing"
-#| msgid "%2 is typing"
-#| msgid_plural "%2 are typing"
+#, kde-format
 msgctxt "Number of users typing in the room"
 msgid "1 user is typing"
 msgid_plural "%1 users are typing"
-msgstr[0] "%2 вводять текст…"
-msgstr[1] "%2 вводять текст…"
-msgstr[2] "%2 вводять текст…"
-msgstr[3] "%2 вводить текст…"
+msgstr[0] "%1 користувач вводить текст"
+msgstr[1] "%1 користувачі вводять текст"
+msgstr[2] "%1 користувачів вводять текст"
+msgstr[3] "%1 користувач вводить текст"
 
 #: src/timeline/TypingPane.qml:30
 #, kde-format
@@ -7977,6 +8029,14 @@ msgstr[0] "%2 вводять текст…"
 msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Edit This Account"
+#~ msgstr "Редагувати цей обліковий запис"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show QR Code"
+#~ msgstr "Показати QR-код"
 
 #~ msgctxt "@title:window"
 #~ msgid "Manage Secret Backup"
