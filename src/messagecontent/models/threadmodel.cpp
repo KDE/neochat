@@ -96,9 +96,6 @@ void ThreadModel::fetchMoreEvents(int max)
             if (!newNextBatch.isEmpty() && *m_nextBatch != newNextBatch) {
                 *m_nextBatch = newNextBatch;
             } else {
-                // Insert the thread root at the end.
-                beginInsertRows({}, rowCount(), rowCount());
-                endInsertRows();
                 m_nextBatch.reset();
             }
 
@@ -133,9 +130,6 @@ void ThreadModel::addModels()
         }
     }
     addSourceModel(m_threadChatBarModel);
-
-    beginResetModel();
-    endResetModel();
 }
 
 void ThreadModel::clearModels()
