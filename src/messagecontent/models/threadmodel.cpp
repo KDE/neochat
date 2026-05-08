@@ -25,6 +25,9 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     Q_ASSERT(!m_threadRootId.isEmpty());
     Q_ASSERT(room);
 
+    // HACK: Always keep at least one source model in the concatenate model to work around assert
+    addSourceModel(m_threadFetchModel);
+
     connect(room, &Quotient::Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
         if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
             if (roomEvent->isThreaded() && roomEvent->threadRootEventId() == m_threadRootId) {
@@ -119,9 +122,7 @@ void ThreadModel::addNewEvent(const Quotient::RoomEvent *event)
 
 void ThreadModel::addModels()
 {
-    if (!sourceModels().isEmpty()) {
-        clearModels();
-    }
+    clearModels();
 
     addSourceModel(m_threadFetchModel);
     for (const auto &event : std::ranges::reverse_view(m_events)) {
@@ -134,8 +135,14 @@ void ThreadModel::addModels()
 
 void ThreadModel::clearModels()
 {
-    for (const auto &sourceModel : sourceModels()) {
-        removeSourceModel(sourceModel);
+    for (const auto &model : m_events) {
+        const auto contentModel = ContentProvider::self().contentModelForEvent(m_room, model);
+        if (sourceModels().contains(contentModel)) {
+            removeSourceModel(contentModel);
+        }
+    }
+    if (sourceModels().contains(m_threadChatBarModel)) {
+        removeSourceModel(m_threadChatBarModel);
     }
 }
 
