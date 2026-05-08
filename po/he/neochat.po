@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-07 00:44+0000\n"
-"PO-Revision-Date: 2026-05-06 21:21+0300\n"
+"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"PO-Revision-Date: 2026-05-07 08:45+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -844,7 +844,7 @@ msgid "Edit state"
 msgstr "עריכת מצב"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1279,8 +1279,7 @@ msgid "Message"
 msgstr "הודעה"
 
 #: src/app/qml/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:intoolbar Edit This Account"
 msgid "Edit"
 msgstr "עריכה"
@@ -1716,12 +1715,10 @@ msgid "Quit"
 msgstr "יציאה"
 
 #: src/chatbar/ChatBar.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "אין לך הרשאות להתחיל פגישות Jitsi"
+msgstr "אין לך הרשאות לשלוח הודעות לחדר הזה."
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
 #, kde-format
@@ -4679,7 +4676,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "חיפוש בין החדרים"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5034,9 +5031,11 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "ניהול חשבון"
 
-#: src/rooms/UserInfo.qml:95
-#, kde-format
-msgid "View notifications"
+#: src/rooms/UserInfo.qml:98
+#, fuzzy, kde-format
+#| msgid "View notifications"
+msgctxt "@action:button"
+msgid "View Notifications"
 msgstr "הצגת התראות"
 
 #: src/settings/AccountEditorPage.qml:20
@@ -5046,34 +5045,28 @@ msgid "Edit Account"
 msgstr "עריכת חשבון"
 
 #: src/settings/AccountEditorPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr "הצגת אירועי עדכון תמונה ייצוגית"
+msgstr "לא ניתן להגדיר תמונה ייצוגית חדשה."
 
 #: src/settings/AccountEditorPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert changes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Changes"
-msgstr "הסגת השינויים"
+msgstr "איפוס השינויים"
 
 #: src/settings/AccountEditorPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save changes to user"
 msgid "Save"
 msgstr "שמירה"
 
 #: src/settings/AccountEditorPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:dialog Apply unsaved settings"
 msgid "Apply Settings"
-msgstr "פתיחת ההגדרות"
+msgstr "החלת הגדרות"
 
 #: src/settings/AccountEditorPage.qml:93
 #, kde-format
@@ -5081,11 +5074,10 @@ msgctxt "@info"
 msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
-msgstr ""
+msgstr "בוצעו שינויים בפרטי המשתמש שלא נשמרו. להחיל או לסלק אותם?"
 
 #: src/settings/AccountEditorPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
 msgstr "החלה"
@@ -5094,7 +5086,7 @@ msgstr "החלה"
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Reset"
-msgstr ""
+msgstr "איפוס"
 
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
@@ -5160,9 +5152,7 @@ msgid "New Password:"
 msgstr "הסיסמה החדשה:"
 
 #: src/settings/AccountEditorPage.qml:290
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm New Password:"
 msgstr "אימות הסיסמה החדשה:"
@@ -5171,7 +5161,7 @@ msgstr "אימות הסיסמה החדשה:"
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
-msgstr "הססמאות אינן תואמות"
+msgstr "הסיסמאות אינן תואמות"
 
 #: src/settings/AccountEditorPage.qml:303
 #: src/settings/EmoticonEditorPage.qml:111

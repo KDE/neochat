@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-07 00:44+0000\n"
-"PO-Revision-Date: 2026-05-06 13:14+0300\n"
+"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"PO-Revision-Date: 2026-05-07 14:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -847,7 +847,7 @@ msgid "Edit state"
 msgstr "Durumu Düzenle"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1286,8 +1286,7 @@ msgid "Message"
 msgstr "İleti"
 
 #: src/app/qml/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:intoolbar Edit This Account"
 msgid "Edit"
 msgstr "Düzenle"
@@ -1746,12 +1745,10 @@ msgid "Quit"
 msgstr "Çık"
 
 #: src/chatbar/ChatBar.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "Jitsi toplantıları başlatmak için izniniz yok"
+msgstr "Bu odada ileti göndermek için izniniz yok."
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
 #, kde-format
@@ -4711,7 +4708,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Odalar ara"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5064,9 +5061,11 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Hesabı yönet"
 
-#: src/rooms/UserInfo.qml:95
-#, kde-format
-msgid "View notifications"
+#: src/rooms/UserInfo.qml:98
+#, fuzzy, kde-format
+#| msgid "View notifications"
+msgctxt "@action:button"
+msgid "View Notifications"
 msgstr "Bildirimleri görüntüle"
 
 #: src/settings/AccountEditorPage.qml:20
@@ -5076,34 +5075,28 @@ msgid "Edit Account"
 msgstr "Hesabı Düzenle"
 
 #: src/settings/AccountEditorPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr "Avatar güncelleme olaylarını göster"
+msgstr "Yeni avatar ayarlanamadı."
 
 #: src/settings/AccountEditorPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert changes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Changes"
-msgstr "Değişiklikleri Geri Al"
+msgstr "Değişiklikleri Sıfırla"
 
 #: src/settings/AccountEditorPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save changes to user"
 msgid "Save"
 msgstr "Kaydet"
 
 #: src/settings/AccountEditorPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:dialog Apply unsaved settings"
 msgid "Apply Settings"
-msgstr "Ayarları aç"
+msgstr "Ayarları Uygula"
 
 #: src/settings/AccountEditorPage.qml:93
 #, kde-format
@@ -5112,10 +5105,11 @@ msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
 msgstr ""
+"Kullanıcı bilgisinde kaydedilmemiş değişiklikler var; bunlar kaydedilsin mi "
+"yoksa atılsın mı?"
 
 #: src/settings/AccountEditorPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
 msgstr "Uygula"
@@ -5124,7 +5118,7 @@ msgstr "Uygula"
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Reset"
-msgstr ""
+msgstr "Sıfırla"
 
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
@@ -5190,9 +5184,7 @@ msgid "New Password:"
 msgstr "Yeni parola:"
 
 #: src/settings/AccountEditorPage.qml:290
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm New Password:"
 msgstr "Yeni parolayı onayla:"

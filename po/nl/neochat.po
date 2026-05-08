@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-07 00:44+0000\n"
-"PO-Revision-Date: 2026-05-06 16:57+0200\n"
+"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"PO-Revision-Date: 2026-05-07 17:31+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -850,7 +850,7 @@ msgid "Edit state"
 msgstr "Status bewerken"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1289,8 +1289,7 @@ msgid "Message"
 msgstr "Bericht"
 
 #: src/app/qml/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:intoolbar Edit This Account"
 msgid "Edit"
 msgstr "Bewerken"
@@ -1757,12 +1756,10 @@ msgid "Quit"
 msgstr "Afsluiten"
 
 #: src/chatbar/ChatBar.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "U hebt niet de rechten om Jitsi vergaderingen te starten"
+msgstr "U hebt geen rechten om berichten naar deze room te zenden."
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
 #, kde-format
@@ -4728,7 +4725,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Rooms doorzoeken"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5081,9 +5078,11 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Account beheren"
 
-#: src/rooms/UserInfo.qml:95
-#, kde-format
-msgid "View notifications"
+#: src/rooms/UserInfo.qml:98
+#, fuzzy, kde-format
+#| msgid "View notifications"
+msgctxt "@action:button"
+msgid "View Notifications"
 msgstr "Meldingen bekijken"
 
 #: src/settings/AccountEditorPage.qml:20
@@ -5093,34 +5092,28 @@ msgid "Edit Account"
 msgstr "Account bewerken"
 
 #: src/settings/AccountEditorPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr "Gebeurtenissen met bijwerken van avatar tonen"
+msgstr "Nieuwe avatar kon niet ingesteld worden."
 
 #: src/settings/AccountEditorPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert changes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Changes"
-msgstr "Wijzigingen ongedaan maken"
+msgstr "Wijzigingen resetten"
 
 #: src/settings/AccountEditorPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save changes to user"
 msgid "Save"
 msgstr "Opslaan"
 
 #: src/settings/AccountEditorPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:dialog Apply unsaved settings"
 msgid "Apply Settings"
-msgstr "Instellingen openen"
+msgstr "Instellingen toepassen"
 
 #: src/settings/AccountEditorPage.qml:93
 #, kde-format
@@ -5129,10 +5122,11 @@ msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
 msgstr ""
+"Er zijn niet opgeslagen wijzigingen aan gebruikersinformatie. De wijzigingen "
+"toepassen of verwerpen?"
 
 #: src/settings/AccountEditorPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
 msgstr "Toepassen"
@@ -5141,7 +5135,7 @@ msgstr "Toepassen"
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
@@ -5207,9 +5201,7 @@ msgid "New Password:"
 msgstr "Nieuw wachtwoord:"
 
 #: src/settings/AccountEditorPage.qml:290
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm New Password:"
 msgstr "Nieuw wachtwoord bevestigen:"

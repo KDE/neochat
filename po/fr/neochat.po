@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-07 00:44+0000\n"
+"POT-Creation-Date: 2026-05-08 00:44+0000\n"
 "PO-Revision-Date: 2026-04-30 07:55+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -855,7 +855,7 @@ msgid "Edit state"
 msgstr "Modifier l'état"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -4747,7 +4747,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Rechercher des salons"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5100,9 +5100,11 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Gérer le compte"
 
-#: src/rooms/UserInfo.qml:95
-#, kde-format
-msgid "View notifications"
+#: src/rooms/UserInfo.qml:98
+#, fuzzy, kde-format
+#| msgid "View notifications"
+msgctxt "@action:button"
+msgid "View Notifications"
 msgstr "Afficher les notifications"
 
 #: src/settings/AccountEditorPage.qml:20
