@@ -173,11 +173,10 @@ void ThreadModel::closeLinkPreview(int row)
     }
 }
 
-ThreadFetchModel::ThreadFetchModel(QObject *parent)
-    : QAbstractListModel(parent)
+ThreadFetchModel::ThreadFetchModel(ThreadModel *threadModel)
+    : QAbstractListModel(threadModel)
 {
-    const auto threadModel = dynamic_cast<ThreadModel *>(parent);
-    Q_ASSERT(threadModel != nullptr);
+    Q_ASSERT(threadModel);
     connect(threadModel, &ThreadModel::moreEventsAvailableChanged, this, [this]() {
         beginResetModel();
         endResetModel();
@@ -214,10 +213,11 @@ QHash<int, QByteArray> ThreadFetchModel::roleNames() const
     };
 }
 
-ThreadChatBarModel::ThreadChatBarModel(QObject *parent, NeoChatRoom *room)
-    : QAbstractListModel(parent)
+ThreadChatBarModel::ThreadChatBarModel(ThreadModel *threadModel, NeoChatRoom *room)
+    : QAbstractListModel(threadModel)
     , m_room(room)
 {
+    Q_ASSERT(threadModel);
     if (m_room != nullptr) {
         connect(m_room->threadCache(), &ChatBarCache::threadIdChanged, this, [this](const QString &oldThreadId, const QString &newThreadId) {
             const auto threadModel = dynamic_cast<ThreadModel *>(this->parent());

@@ -19,6 +19,7 @@
 #include "messagecontentmodel.h"
 
 class NeoChatRoom;
+class ThreadModel;
 
 /**
  * @class ThreadFetchModel
@@ -42,7 +43,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit ThreadFetchModel(QObject *parent);
+    explicit ThreadFetchModel(ThreadModel *threadModel);
 
     /**
      * @brief Get the given role value at the given index.
@@ -90,7 +91,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit ThreadChatBarModel(QObject *parent, NeoChatRoom *room);
+    explicit ThreadChatBarModel(ThreadModel *threadModel, NeoChatRoom *room);
 
     /**
      * @brief Get the given role value at the given index.
