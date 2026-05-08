@@ -157,7 +157,7 @@ public:
     /**
      * @brief Create new space.
      */
-    Q_INVOKABLE void createSpace(const QString &name, const QString &topic, const QString &parent = {}, bool setChildParent = false);
+    Q_INVOKABLE void createSpace(const QString &name, const QString &topic, const QString &parent = {});
 
     /**
      * @brief Send /forget to the server and delete room locally.

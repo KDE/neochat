@@ -27,7 +27,7 @@ Kirigami.Dialog {
     Component.onCompleted: roomNameField.forceActiveFocus()
 
     onAccepted: {
-        root.connection.createSpace(roomNameField.text, "", root.parentId, newOfficialCheck.checked);
+        root.connection.createSpace(roomNameField.text, "", root.parentId);
         root.newChild(roomNameField.text);
     }
 
@@ -50,19 +50,6 @@ Kirigami.Dialog {
             id: roomNameField
             label: i18nc("@info:label Name of the space", "Name:")
             placeholderText: i18nc("@info:placeholder", "New Space")
-        }
-
-        FormCard.FormDelegateSeparator {
-            above: roomNameField
-            below: newOfficialCheck
-            visible: newOfficialCheck.visible
-        }
-
-        FormCard.FormCheckDelegate {
-            id: newOfficialCheck
-            visible: root.parentId.length > 0
-            text: i18nc("@option:check As in make the space from which this dialog was created an official parent.", "Make this parent official")
-            checked: true
         }
     }
 }

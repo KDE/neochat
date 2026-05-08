@@ -385,7 +385,7 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
             });
 }
 
-void NeoChatConnection::createSpace(const QString &name, const QString &topic, const QString &parent, bool setChildParent)
+void NeoChatConnection::createSpace(const QString &name, const QString &topic, const QString &parent)
 {
     QList<CreateRoomJob::StateEvent> initialStateEvents;
     if (!parent.isEmpty()) {
@@ -401,8 +401,8 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
 
     Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, initialStateEvents, {}, QJsonObject{{"type"_L1, "m.space"_L1}})
         .then(
-            [parent, setChildParent, this](const auto &job) {
-                if (parent.isEmpty() || !setChildParent) {
+            [parent, this](const auto &job) {
+                if (parent.isEmpty()) {
                     return;
                 }
                 if (auto parentRoom = room(parent)) {
