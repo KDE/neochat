@@ -7,6 +7,7 @@
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/basejob.h>
 #include <memory>
+#include <ranges>
 
 #include "chatbarcache.h"
 #include "contentprovider.h"
@@ -52,8 +53,8 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
 
 void ThreadModel::checkPending()
 {
-    for (auto i = m_room->pendingEvents().rbegin(); i != m_room->pendingEvents().rend(); i++) {
-        if (const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(i->event());
+    for (const auto &event : std::ranges::reverse_view(m_room->pendingEvents())) {
+        if (const auto &roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.event());
             roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() == m_threadRootId) {
             addNewEvent(roomMessageEvent);
         }
@@ -84,8 +85,8 @@ void ThreadModel::fetchMoreEvents(int max)
         Q_EMIT moreEventsAvailableChanged();
         connect(m_currentJob, &Quotient::BaseJob::success, this, [this]() {
             auto newEvents = m_currentJob->chunk();
-            for (auto &event : newEvents) {
-                if (std::find(m_events.begin(), m_events.end(), event->id()) == m_events.end()) {
+            for (const auto &event : newEvents) {
+                if (std::ranges::find(m_events, event->id()) == m_events.end()) {
                     m_events.push_back(event->id());
                 }
             }
@@ -111,7 +112,7 @@ void ThreadModel::addNewEvent(const Quotient::RoomEvent *event)
     if (eventId.isEmpty()) {
         eventId = event->transactionId();
     }
-    if (std::find(m_events.begin(), m_events.end(), eventId) == m_events.end()) {
+    if (std::ranges::find(m_events, eventId) == m_events.end()) {
         m_events.push_front(eventId);
     }
 }
@@ -123,9 +124,8 @@ void ThreadModel::addModels()
     }
 
     addSourceModel(m_threadFetchModel);
-    for (auto it = m_events.crbegin(); it != m_events.crend(); ++it) {
-        const auto contentModel = ContentProvider::self().contentModelForEvent(m_room, *it);
-        if (contentModel != nullptr) {
+    for (const auto &event : std::ranges::reverse_view(m_events)) {
+        if (const auto contentModel = ContentProvider::self().contentModelForEvent(m_room, event)) {
             addSourceModel(contentModel);
         }
     }
@@ -134,14 +134,9 @@ void ThreadModel::addModels()
 
 void ThreadModel::clearModels()
 {
-    removeSourceModel(m_threadFetchModel);
-    for (const auto &model : m_events) {
-        const auto contentModel = ContentProvider::self().contentModelForEvent(m_room, model);
-        if (sourceModels().contains(contentModel)) {
-            removeSourceModel(contentModel);
-        }
+    for (const auto &sourceModel : sourceModels()) {
+        removeSourceModel(sourceModel);
     }
-    removeSourceModel(m_threadChatBarModel);
 }
 
 void ThreadModel::closeLinkPreview(int row)
