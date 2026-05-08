@@ -44,16 +44,13 @@ void SpaceChildrenModel::setSpace(NeoChatRoom *space)
         return;
     }
 
-    auto connection = m_space->connection();
-    connect(connection, &NeoChatConnection::loadedRoomState, this, [this](Quotient::Room *room) {
+    connect(m_space->connection(), &NeoChatConnection::loadedRoomState, this, [this](Quotient::Room *room) {
         if (m_pendingChildren.contains(room->name())) {
             m_pendingChildren.removeAll(room->name());
             refreshModel();
         }
     });
-    connect(m_space, &Quotient::Room::changed, this, [this]() {
-        refreshModel();
-    });
+    connect(m_space, &Quotient::Room::changed, this, &SpaceChildrenModel::refreshModel);
 }
 
 bool SpaceChildrenModel::loading() const
@@ -63,7 +60,7 @@ bool SpaceChildrenModel::loading() const
 
 void SpaceChildrenModel::refreshModel()
 {
-    for (auto job : m_currentJobs) {
+    for (const auto &job : m_currentJobs) {
         if (job) {
             job->abandon();
         }
@@ -86,16 +83,15 @@ void SpaceChildrenModel::refreshModel()
     m_rootItem =
         new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()), nullptr, m_space->id(), m_space->displayName(), m_space->canonicalAlias());
     endResetModel();
-    auto job = m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), std::nullopt, std::nullopt, 1);
-    m_currentJobs.append(job);
-    connect(job, &Quotient::BaseJob::success, this, [this, job]() {
-        insertChildren(job->rooms());
-    });
+    m_currentJobs.append(
+        m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), std::nullopt, std::nullopt, 1).then([this](const auto &job) {
+            insertChildren(job->rooms());
+        }));
 }
 
 void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJob::SpaceHierarchyRoomsChunk> children, const QModelIndex &parent)
 {
-    SpaceTreeItem *parentItem = getItem(parent);
+    const auto parentItem = getItem(parent);
 
     if (children[0].roomId == m_space->id() || children[0].roomId == parentItem->id()) {
         parentItem->setChildStates(std::move(children[0].childrenState));
@@ -110,12 +106,12 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
     }
 
     beginInsertRows(parent, parentItem->childCount(), parentItem->childCount() + children.size() - 1);
-    for (unsigned long i = 0; i < children.size(); ++i) {
-        if (children[i].roomId == m_space->id() || children[i].roomId == parentItem->id()) {
+    for (auto &child : children) {
+        if (child.roomId == m_space->id() || child.roomId == parentItem->id()) {
             continue;
         } else {
             int insertRow = parentItem->childCount();
-            if (const auto room = m_space->connection()->room(children[i].roomId)) {
+            if (const auto room = m_space->connection()->room(child.roomId)) {
                 const auto predecessorId = room->predecessorId();
                 if (!predecessorId.isEmpty()) {
                     m_replacedRooms += predecessorId;
@@ -125,30 +121,29 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
                     m_replacedRooms += successorId;
                 }
                 if (dynamic_cast<NeoChatRoom *>(room)->isSpace()) {
-                    connect(room, &Quotient::Room::changed, this, [this]() {
-                        refreshModel();
-                    });
+                    connect(room, &Quotient::Room::changed, this, &SpaceChildrenModel::refreshModel);
                 }
             }
-            if (children[i].childrenState.size() > 0) {
-                auto job = m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(children[i].roomId, std::nullopt, std::nullopt, 1);
-                m_currentJobs.append(job);
-                connect(job, &Quotient::BaseJob::success, this, [this, parent, insertRow, job]() {
-                    insertChildren(job->rooms(), index(insertRow, 0, parent));
-                });
+            if (child.childrenState.size() > 0) {
+                m_currentJobs.append(m_space->connection()
+                                         ->callApi<Quotient::GetSpaceHierarchyJob>(child.roomId, std::nullopt, std::nullopt, 1)
+                                         .then([this, parent, insertRow](const auto &job) {
+                                             insertChildren(job->rooms(), index(insertRow, 0, parent));
+                                         }));
             }
+
             parentItem->insertChild(std::make_unique<SpaceTreeItem>(dynamic_cast<NeoChatConnection *>(m_space->connection()),
                                                                     parentItem,
-                                                                    children[i].roomId,
-                                                                    children[i].name,
-                                                                    children[i].canonicalAlias,
-                                                                    children[i].topic,
-                                                                    children[i].numJoinedMembers,
-                                                                    children[i].avatarUrl,
-                                                                    children[i].guestCanJoin,
-                                                                    children[i].worldReadable,
-                                                                    children[i].roomType == u"m.space"_s,
-                                                                    std::move(children[i].childrenState)));
+                                                                    child.roomId,
+                                                                    child.name,
+                                                                    child.canonicalAlias,
+                                                                    child.topic,
+                                                                    child.numJoinedMembers,
+                                                                    child.avatarUrl,
+                                                                    child.guestCanJoin,
+                                                                    child.worldReadable,
+                                                                    child.roomType == u"m.space"_s,
+                                                                    std::move(child.childrenState)));
         }
     }
     endInsertRows();
@@ -156,34 +151,27 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
 
 SpaceTreeItem *SpaceChildrenModel::getItem(const QModelIndex &index) const
 {
-    if (index.isValid()) {
-        SpaceTreeItem *item = static_cast<SpaceTreeItem *>(index.internalPointer());
-        if (item) {
-            return item;
-        }
+    if (!index.isValid()) {
+        return m_rootItem;
     }
-    return m_rootItem;
+    return static_cast<SpaceTreeItem *>(index.internalPointer());
 }
 
 QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
-        return QVariant();
+        return {};
     }
 
-    SpaceTreeItem *child = getItem(index);
+    const auto &child = getItem(index);
     if (role == DisplayNameRole) {
         if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(child->id()))) {
             return room->displayName();
         }
-
-        auto displayName = child->name();
-        if (!displayName.isEmpty()) {
+        if (const auto &displayName = child->name(); !displayName.isEmpty()) {
             return displayName;
         }
-
-        displayName = child->canonicalAlias();
-        if (!displayName.isEmpty()) {
+        if (const auto &displayName = child->canonicalAlias(); !displayName.isEmpty()) {
             return displayName;
         }
 
@@ -227,13 +215,12 @@ QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
     }
     if (role == ParentDisplayNameRole) {
         const auto parent = child->parentItem();
-        auto displayName = parent->name();
-        if (!displayName.isEmpty()) {
+
+        if (const auto displayName = parent->name(); !displayName.isEmpty()) {
             return displayName;
         }
 
-        displayName = parent->canonicalAlias();
-        if (!displayName.isEmpty()) {
+        if (const auto displayName = parent->canonicalAlias(); !displayName.isEmpty()) {
             return displayName;
         }
 
@@ -285,32 +272,31 @@ QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
 QModelIndex SpaceChildrenModel::index(int row, int column, const QModelIndex &parent) const
 {
     if (!hasIndex(row, column, parent)) {
-        return QModelIndex();
+        return {};
     }
 
-    SpaceTreeItem *parentItem = getItem(parent);
+    const auto parentItem = getItem(parent);
     if (!parentItem) {
-        return QModelIndex();
+        return {};
     }
 
-    SpaceTreeItem *childItem = parentItem->child(row);
-    if (childItem) {
+    if (const auto childItem = parentItem->child(row)) {
         return createIndex(row, column, childItem);
     }
-    return QModelIndex();
+    return {};
 }
 
 QModelIndex SpaceChildrenModel::parent(const QModelIndex &index) const
 {
     if (!index.isValid()) {
-        return QModelIndex();
+        return {};
     }
 
     SpaceTreeItem *childItem = static_cast<SpaceTreeItem *>(index.internalPointer());
     SpaceTreeItem *parentItem = childItem->parentItem();
 
     if (parentItem == m_rootItem) {
-        return QModelIndex();
+        return {};
     }
 
     return createIndex(parentItem->row(), 0, parentItem);
@@ -340,29 +326,27 @@ int SpaceChildrenModel::columnCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> SpaceChildrenModel::roleNames() const
 {
-    QHash<int, QByteArray> roles;
-
-    roles[DisplayNameRole] = "displayName";
-    roles[AvatarUrlRole] = "avatarUrl";
-    roles[TopicRole] = "topic";
-    roles[RoomIDRole] = "roomId";
-    roles[MemberCountRole] = "memberCount";
-    roles[AllowGuestsRole] = "allowGuests";
-    roles[WorldReadableRole] = "worldReadable";
-    roles[IsJoinedRole] = "isJoined";
-    roles[AliasRole] = "alias";
-    roles[IsSpaceRole] = "isSpace";
-    roles[IsSuggestedRole] = "isSuggested";
-    roles[CanAddChildrenRole] = "canAddChildren";
-    roles[ParentDisplayNameRole] = "parentDisplayName";
-    roles[CanSetParentRole] = "canSetParent";
-    roles[IsDeclaredParentRole] = "isDeclaredParent";
-    roles[CanRemove] = "canRemove";
-    roles[ParentRoomRole] = "parentRoom";
-    roles[OrderRole] = "order";
-    roles[ChildTimestampRole] = "childTimestamp";
-
-    return roles;
+    return {{
+        {DisplayNameRole, "displayName"},
+        {AvatarUrlRole, "avatarUrl"},
+        {TopicRole, "topic"},
+        {RoomIDRole, "roomId"},
+        {MemberCountRole, "memberCount"},
+        {AllowGuestsRole, "allowGuests"},
+        {WorldReadableRole, "worldReadable"},
+        {IsJoinedRole, "isJoined"},
+        {AliasRole, "alias"},
+        {IsSpaceRole, "isSpace"},
+        {IsSuggestedRole, "isSuggested"},
+        {CanAddChildrenRole, "canAddChildren"},
+        {ParentDisplayNameRole, "parentDisplayName"},
+        {CanSetParentRole, "canSetParent"},
+        {IsDeclaredParentRole, "isDeclaredParent"},
+        {CanRemove, "canRemove"},
+        {ParentRoomRole, "parentRoom"},
+        {OrderRole, "order"},
+        {ChildTimestampRole, "childTimestamp"},
+    }};
 }
 
 bool SpaceChildrenModel::isRoomReplaced(const QString &roomId) const

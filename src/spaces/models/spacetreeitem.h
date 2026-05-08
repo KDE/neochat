@@ -143,7 +143,7 @@ public:
      *
      * Overwrites existing states. Calling with no input will clear the existing states.
      */
-    void setChildStates(Quotient::StateEvents childStates = {});
+    void setChildStates(Quotient::StateEvents childStates);
 
     /**
      * @brief Whether the room is suggested in the parent space.
