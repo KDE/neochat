@@ -137,8 +137,8 @@ Q_SIGNALS:
     void spoilerRevealedChanged();
 
 private:
-    ChatTextItemHelper *m_item;
-    bool m_hasSpoiler;
+    ChatTextItemHelper *m_item = nullptr;
+    bool m_hasSpoiler = false;
     bool m_spoilerRevealed = false;
 };
 
@@ -429,8 +429,8 @@ public:
     [[nodiscard]] CacheItemPtr toCacheItem() const override;
 
 private:
-    qreal m_latitude;
-    qreal m_longitude;
+    qreal m_latitude = 0.0;
+    qreal m_longitude = 0.0;
     QString m_asset;
 };
 
