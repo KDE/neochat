@@ -158,12 +158,7 @@ public:
     /**
      * @brief Create new room for a group chat.
      */
-    Q_INVOKABLE void createRoom(const QString &name,
-                                const QString &topic,
-                                const QString &parent = {},
-                                bool setChildParent = false,
-                                bool isPrivate = true,
-                                const QString &address = {});
+    Q_INVOKABLE void createRoom(const QString &name, const QString &topic, const QString &parent = {}, bool isPrivate = true, const QString &address = {});
 
     /**
      * @brief Create new space.
