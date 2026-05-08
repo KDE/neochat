@@ -36,7 +36,6 @@ RowLayout {
 
         onClicked: accountMenu.popup(QQC2.Overlay.overlay)
 
-        Layout.fillWidth: true
         Layout.fillHeight: true
 
         QQC2.ToolTip.visible: hovered
@@ -92,11 +91,15 @@ RowLayout {
 
     Kirigami.ActionToolBar {
         Layout.fillWidth: true
+        alignment: Qt.AlignRight
+        position: QQC2.ToolBar.Footer
 
         actions: [
             Kirigami.Action {
                 text: i18nc("@action:button", "View Notifications")
                 icon.name: "notifications"
+
+                displayHint: root.collapsed ? Kirigami.DisplayHint.AlwaysHide : Kirigami.DisplayHint.IconOnly
 
                 onTriggered: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "NotificationsView"), {
                     connection: root.connection
@@ -108,6 +111,8 @@ RowLayout {
             Kirigami.Action {
                 text: i18nc("@action:button", "Open Settings")
                 icon.name: "settings-configure-symbolic"
+
+                displayHint: root.collapsed ? Kirigami.DisplayHint.AlwaysHide : Kirigami.DisplayHint.IconOnly
 
                 onTriggered: NeoChatSettingsView.open()
             }
