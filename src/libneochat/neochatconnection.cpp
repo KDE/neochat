@@ -348,12 +348,7 @@ QString NeoChatConnection::identityServerUIString() const
     return identityServer().toString();
 }
 
-void NeoChatConnection::createRoom(const QString &name,
-                                   const QString &topic,
-                                   const QString &parent,
-                                   bool setChildParent,
-                                   bool isPrivate,
-                                   const QString &address)
+void NeoChatConnection::createRoom(const QString &name, const QString &topic, const QString &parent, bool isPrivate, const QString &address)
 {
     QList<CreateRoomJob::StateEvent> initialStateEvents;
     if (!parent.isEmpty()) {
@@ -377,8 +372,8 @@ void NeoChatConnection::createRoom(const QString &name,
                            {},
                            initialStateEvents)
         .then(
-            [parent, setChildParent, this](const auto &job) {
-                if (parent.isEmpty() || !setChildParent) {
+            [parent, this](const auto &job) {
+                if (parent.isEmpty()) {
                     return;
                 }
                 if (auto parentRoom = room(parent)) {

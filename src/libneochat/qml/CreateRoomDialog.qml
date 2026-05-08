@@ -25,7 +25,7 @@ Kirigami.Dialog {
     standardButtons: QQC2.Dialog.Cancel
 
     onAccepted: {
-        root.connection.createRoom(roomNameField.text, "", root.parentId, false, privateTypeDelegate.checked, roomAddressField.text);
+        root.connection.createRoom(roomNameField.text, "", root.parentId, privateTypeDelegate.checked, roomAddressField.text);
         root.newChild(roomNameField.text);
     }
 
