@@ -464,12 +464,12 @@ void EventMessageContentModel::updateReactionModel()
     }
 
     if (m_components.back()->type() != Blocks::Reaction) {
-        beginInsertRows({}, rowCount(), rowCount());
         auto reactionBlock = new Blocks::ReactionBlock(Blocks::Reaction, m_room, m_eventId, this);
         if (reactionBlock->model()->rowCount() > 0) {
+            beginInsertRows({}, rowCount(), rowCount());
             m_components.push_back(reactionBlock);
+            endInsertRows();
         }
-        endInsertRows();
     } else if (rowCount() > 0 && m_components.back()->type() == Blocks::Reaction) {
         beginRemoveRows({}, rowCount() - 1, rowCount() - 1);
         m_components.erase(--m_components.end());
