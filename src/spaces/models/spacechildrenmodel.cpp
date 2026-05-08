@@ -104,9 +104,13 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
 
     // If this is the first set of children added to the root item then we need to
     // set it so that we are no longer loading.
-    if (rowCount(QModelIndex()) == 0 && !children.empty()) {
+    if (rowCount(QModelIndex()) == 0) {
         m_loading = false;
         Q_EMIT loadingChanged();
+    }
+
+    if (children.empty()) {
+        return;
     }
 
     beginInsertRows(parent, parentItem->childCount(), parentItem->childCount() + children.size() - 1);
