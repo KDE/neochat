@@ -130,9 +130,11 @@ NeoChatRoom::NeoChatRoom(Connection *c, QString roomId, JoinState joinState)
         this,
         &Room::baseStateLoaded,
         this,
-        [this]() {
+        [this, connection] {
             updatePushNotificationState(u"m.push_rules"_s);
-            loadPinnedMessage();
+
+            // We need to wait until encryption is set up, otherwise the event isn't decrypted.
+            connect(connection, &Connection::ready, this, &NeoChatRoom::loadPinnedMessage, Qt::SingleShotConnection);
 
             Q_EMIT canEncryptRoomChanged();
             Q_EMIT inviteTimestampChanged();
