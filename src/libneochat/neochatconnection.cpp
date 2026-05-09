@@ -609,7 +609,7 @@ bool NeoChatConnection::enablePushNotifications() const
 
 bool NeoChatConnection::isVerifiedSession() const
 {
-    // HACK: Show/hide the "Verify This Device" warning until sync is done, which can happen quite late in the process.
+    // HACK: Wait to hide the "Verify This Device" warning until sync is done, which can happen quite late in the process.
     if (!m_syncDone) {
         return true;
     }

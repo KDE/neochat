@@ -59,6 +59,18 @@ KirigamiSettings.ConfigurationView {
             visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
+            moduleId: "devices"
+            text: i18n("Devices")
+            icon.name: "computer-symbolic"
+            page: () => Qt.createComponent("org.kde.neochat.settings", "DevicesPage")
+            initialProperties: () => {
+                return {
+                    connection: root.connection
+                };
+            }
+            visible: root.connection !== null
+        },
+        KirigamiSettings.ConfigurationModule {
             id: accountsModule
             moduleId: "accounts"
             text: i18n("Accounts")
@@ -84,18 +96,6 @@ KirigamiSettings.ConfigurationView {
             text: i18n("Network Proxy")
             icon.name: "network-connect-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "NetworkProxyPage")
-        },
-        KirigamiSettings.ConfigurationModule {
-            moduleId: "devices"
-            text: i18n("Devices")
-            icon.name: "computer-symbolic"
-            page: () => Qt.createComponent("org.kde.neochat.settings", "DevicesPage")
-            initialProperties: () => {
-                return {
-                    connection: root.connection
-                };
-            }
-            visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "keyboardShortcuts"

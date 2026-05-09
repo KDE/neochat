@@ -34,7 +34,12 @@ FormCard.FormCardPage {
         showVerifyButton: false
         devicesModel: root.devicesModel
 
+        FormCard.FormDelegateSeparator {
+            visible: verifyThisDeviceDelegate.visible
+        }
         FormCard.FormButtonDelegate {
+            id: verifyThisDeviceDelegate
+
             icon.name: !root.connection.isVerifiedSession ? "security-low" : "security-high"
             text: i18nc("@action:button", "Verify This Device")
             description: !root.connection.isVerifiedSession ? i18nc("@info:description", "This device is marked as insecure until it's verified by another device. It's recommended to verify as soon as possible.")

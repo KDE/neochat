@@ -33,9 +33,7 @@ FormCard.FormCardPage {
             id: ignoredUsersDelegate
             text: i18nc("@action:button", "Ignored Users")
             icon.name: "im-invisible-user"
-            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(ignoredUsersDialogComponent, {}, {
-                title: i18nc("@title:window", "Ignored Users")
-            });
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(ignoredUsersDialogComponent);
         }
     }
 
@@ -152,8 +150,8 @@ FormCard.FormCardPage {
             text: i18nc("@action:inmenu", "Manage Key Storage")
             description: i18nc("@info", "Import or unlock encryption keys from other devices.")
             icon.name: "unlock"
-            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
-                title: i18nc("@title:window", "Manage Key Storage")
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {
+                connection: root.connection
             })
         }
         FormCard.FormDelegateSeparator {
@@ -166,10 +164,8 @@ FormCard.FormCardPage {
             description: i18nc("@info", "Import encryption keys from a backup file.")
             icon.name: "document-import"
             onClicked: {
-                let dialog = root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "ImportKeysDialog"), {
+                let dialog = root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent("org.kde.neochat.settings", "ImportKeysDialog"), {
                     connection: root.connection
-                }, {
-                    title: i18nc("@title", "Import Keys"),
                 });
                 dialog.success.connect(() => {
                     banner.text = i18nc("@info", "Keys imported successfully");
@@ -189,10 +185,8 @@ FormCard.FormCardPage {
             description: i18nc("@info", "Export this device's encryption keys to a file.")
             icon.name: "document-export"
             onClicked: {
-                root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "ExportKeysDialog"), {
+                root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent("org.kde.neochat.settings", "ExportKeysDialog"), {
                     connection: root.connection
-                }, {
-                    title: i18nc("@title", "Export Keys")
                 });
                 banner.visible = false;
             }

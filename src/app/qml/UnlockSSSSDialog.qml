@@ -12,6 +12,7 @@ FormCard.FormCardPage {
     id: root
 
     property bool processing: false
+    required property NeoChatConnection connection
 
     title: i18nc("@title:window", "Manage Key Storage")
 
@@ -28,7 +29,7 @@ FormCard.FormCardPage {
     }
 
     Connections {
-        target: Controller.activeConnection
+        target: root.connection
         function onKeyBackupError(): void {
             securityKeyField.clear()
             root.processing = false
@@ -52,9 +53,23 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Unlock using Recovery Key")
+        title: i18nc("@title", "Unlock by Verifying Session")
+        visible: !root.connection.isVerifiedSession // If you've already verified there is nothing to...verify
     }
     FormCard.FormCard {
+        visible: !root.connection.isVerifiedSession
+        FormCard.FormTextDelegate {
+            description: i18nc("@info:description", "It's recommended to verify this session from another device, if possible. You can do so under the Devices page.")
+        }
+    }
+
+    FormCard.FormHeader {
+        title: i18nc("@title", "Unlock using Recovery Key")
+        visible: !root.connection.isVerifiedSession // If you've already verified there is nothing to unlock
+    }
+    FormCard.FormCard {
+        visible: !root.connection.isVerifiedSession
+
         FormCard.FormTextDelegate {
             description: i18nc("@info", "If you have a recovery key (also known as a “security key” or “backup passphrase”), enter it below or upload it as a file.")
         }
@@ -62,6 +77,10 @@ FormCard.FormCardPage {
             id: securityKeyField
             label: i18nc("@label:textbox", "Recovery Key:")
             echoMode: TextInput.Password
+        }
+        FormCard.FormDelegateSeparator {
+            above: securityKeyField
+            below: uploadSecurityKeyButton
         }
         FormCard.FormButtonDelegate {
             id: uploadSecurityKeyButton
@@ -73,6 +92,10 @@ FormCard.FormCardPage {
                 openFileDialog.open()
             }
         }
+        FormCard.FormDelegateSeparator {
+            above: uploadSecurityKeyButton
+            below: unlockSecurityKeyButton
+        }
         FormCard.FormButtonDelegate {
             id: unlockSecurityKeyButton
             text: i18nc("@action:button", "Unlock")
@@ -80,48 +103,55 @@ FormCard.FormCardPage {
             enabled: securityKeyField.text.length > 0 && !root.processing
             onClicked: {
                 root.processing = true
-                Controller.activeConnection.unlockSSSS(securityKeyField.text)
+                root.connection.unlockSSSS(securityKeyField.text)
             }
         }
     }
 
     FormCard.FormHeader {
         title: i18nc("@title", "Unlock from Cross-Signing")
+        visible: root.connection.isVerifiedSession // This is only functional when verified
     }
     FormCard.FormCard {
+        visible: root.connection.isVerifiedSession
+
         FormCard.FormTextDelegate {
+            id: crossSigningText
             description: i18nc("@info", "If you have previously verified this device, you request encryption keys from other verified devices.")
+        }
+        FormCard.FormDelegateSeparator {
+            above: crossSigningText
+            below: unlockCrossSigningButton
         }
         FormCard.FormButtonDelegate {
             id: unlockCrossSigningButton
             icon.name: "emblem-shared-symbolic"
             text: i18nc("@action:button", "Request From Other Devices")
-            enabled: !root.processing
+            enabled: !root.processing && root.connection.isVerifiedSession
             onClicked: {
                 root.processing = true
-                Controller.activeConnection.unlockSSSS("")
+                root.connection.unlockSSSS("")
             }
         }
     }
 
     FormCard.FormHeader {
         title: i18nc("@title", "Decryption Key Backup")
-        visible: Controller.libquotientMinorVersion > 9
+        visible: Controller.libquotientMinorVersion > 9 && root.connection.isVerifiedSession // This is only functional when verified
     }
     FormCard.FormCard {
-        visible: Controller.libquotientMinorVersion > 9
+        visible: Controller.libquotientMinorVersion > 9 && root.connection.isVerifiedSession
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Load Decryption Keys from Backup")
-            enabled: Controller.activeConnection.isBackupDecryptionKeyAvailable() && !root.processing
+            enabled: root.connection.isBackupDecryptionKeyAvailable() && !root.processing
             onClicked: {
-                Controller.activeConnection.importFromBackup()
+                root.connection.importFromBackup()
                 root.processing = true;
             }
         }
     }
 
-
-    property OpenFileDialog openFileDialog: OpenFileDialog {
+    readonly property OpenFileDialog openFileDialog: OpenFileDialog {
         id: openFileDialog
         onChosen: path => securityKeyField.text = Controller.loadFileContent(path)
     }
