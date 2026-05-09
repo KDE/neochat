@@ -145,7 +145,10 @@ void NotificationsManager::processNotificationJob(const QPointer<NeoChatConnecti
 
         QImage avatar_image;
         if (!sender.avatarUrl().isEmpty()) {
-            avatar_image = room->member(sender.id()).avatar(128, 128, {});
+            const auto member = room->member(sender.id());
+            if (!member.avatarUrl().isEmpty()) {
+                avatar_image = member.avatar(128, 128, {});
+            }
         } else {
             avatar_image = room->avatar(128);
         }
