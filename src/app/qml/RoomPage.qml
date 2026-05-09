@@ -165,7 +165,7 @@ Kirigami.Page {
 
         spacing: 0
 
-        readonly property bool shouldShowPins: root.currentRoom?.pinnedMessage.length > 0 && !Kirigami.Settings.isMobile
+        readonly property bool shouldShowPins: root.currentRoom?.pinnedMessage.length > 0 && !Kirigami.Settings.isMobile && !selectedMessagesControl.visible && !banner.visible
 
         QQC2.Control {
             id: pinControl
@@ -224,6 +224,8 @@ Kirigami.Page {
         }
 
         SelectedMessagesControl {
+            id: selectedMessagesControl
+
             Layout.fillWidth: true
             // root.messageFilterModel.sourceModel is root.timelineModel
             messageModel: root.timelineModel.timelineMessageModel
