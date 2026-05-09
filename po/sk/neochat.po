@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -845,7 +845,7 @@ msgid "Edit state"
 msgstr "Upraviť stav:"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1216,11 +1216,23 @@ msgstr "Šifrovacie kľúče boli obnovené."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
 #, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:48
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:55
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr "Unlock using Recovery Key"
 
-#: src/app/qml/UnlockSSSSDialog.qml:52
+#: src/app/qml/UnlockSSSSDialog.qml:59
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1230,31 +1242,31 @@ msgstr ""
 "Ak have a recovery key (also known as a “security key” or “backup "
 "passphrase”), enter it below or upload it as a file."
 
-#: src/app/qml/UnlockSSSSDialog.qml:56
+#: src/app/qml/UnlockSSSSDialog.qml:63
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "Obnovovací kľúč:"
 
-#: src/app/qml/UnlockSSSSDialog.qml:61
+#: src/app/qml/UnlockSSSSDialog.qml:68
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Nahrať zo súboru"
 
-#: src/app/qml/UnlockSSSSDialog.qml:71
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Odomknúť"
 
-#: src/app/qml/UnlockSSSSDialog.qml:82
+#: src/app/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Odomknúť pomocou krížového podpisovania"
 
-#: src/app/qml/UnlockSSSSDialog.qml:86
+#: src/app/qml/UnlockSSSSDialog.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1264,11 +1276,25 @@ msgstr ""
 "Ak have previously verified this device, you request encryption keys from "
 "other verified devices."
 
-#: src/app/qml/UnlockSSSSDialog.qml:91
+#: src/app/qml/UnlockSSSSDialog.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Požiadať z iných zariadení"
+
+#: src/app/qml/UnlockSSSSDialog.qml:108
+#, fuzzy, kde-format
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "aktivoval End-to-End šifrovanie"
+
+#: src/app/qml/UnlockSSSSDialog.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup file."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Importovať šifrovacie kľúče zo záložného súboru."
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -1283,8 +1309,7 @@ msgid "Message"
 msgstr "Správa"
 
 #: src/app/qml/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:intoolbar Edit This Account"
 msgid "Edit"
 msgstr "Upraviť"
@@ -1734,12 +1759,10 @@ msgid "Quit"
 msgstr "Ukončiť"
 
 #: src/chatbar/ChatBar.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "Nemáte oprávnenie spúšťať stretnutia Jitsi"
+msgstr "Nemáte oprávnenie odosielať správy do tejto miestnosti."
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
 #, kde-format
@@ -3600,12 +3623,12 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nie je nakonfigurovaný žiadný server identity"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:384
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/libneochat/neochatconnection.cpp:418
+#: src/libneochat/neochatconnection.cpp:413
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie priestoru zlyhalo: „%1\""
@@ -4142,7 +4165,7 @@ msgid "Copy to clipboard"
 msgstr "Kopírovať do schránky"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:341
+#: src/messagecontent/VideoComponent.qml:368
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4222,7 +4245,7 @@ msgid "Check-out time: %1"
 msgstr "Check-out time: %1"
 
 #: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:150
+#: src/messagecontent/VideoComponent.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -4459,18 +4482,18 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:185
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:217
+#: src/messagecontent/VideoComponent.qml:244
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Zobraziť video"
 
-#: src/messagecontent/VideoComponent.qml:258
+#: src/messagecontent/VideoComponent.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4700,7 +4723,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Hľadať"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5048,15 +5071,14 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "Zobraziť zdroj"
 
-#: src/rooms/UserInfo.qml:43
+#: src/rooms/UserInfo.qml:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Spravovať konto"
 
-#: src/rooms/UserInfo.qml:98
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#: src/rooms/UserInfo.qml:99
+#, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
 msgstr "Zobraziť upozornenia"
@@ -5068,34 +5090,28 @@ msgid "Edit Account"
 msgstr "Upraviť účet"
 
 #: src/settings/AccountEditorPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr "Zobraziť udalosti aktualizácie avatara"
+msgstr "Nový avatar sa nepodarilo nastaviť."
 
 #: src/settings/AccountEditorPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert changes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Changes"
-msgstr "Vrátiť zmeny"
+msgstr "Obnoviť zmeny"
 
 #: src/settings/AccountEditorPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save changes to user"
 msgid "Save"
 msgstr "Uložiť"
 
 #: src/settings/AccountEditorPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:dialog Apply unsaved settings"
 msgid "Apply Settings"
-msgstr "Otvoriť nastavenia"
+msgstr "Použiť nastavenia"
 
 #: src/settings/AccountEditorPage.qml:93
 #, kde-format
@@ -5104,10 +5120,11 @@ msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
 msgstr ""
+"Existujú neuložené zmeny v informáciách o používateľovi. Použiť zmeny alebo "
+"ich zahodiť?"
 
 #: src/settings/AccountEditorPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
 msgstr "Použiť"
@@ -5116,7 +5133,7 @@ msgstr "Použiť"
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Reset"
-msgstr ""
+msgstr "Obnoviť"
 
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
@@ -5182,9 +5199,7 @@ msgid "New Password:"
 msgstr "Nové heslo:"
 
 #: src/settings/AccountEditorPage.qml:290
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm New Password:"
 msgstr "Potvrdiť nové heslo:"
@@ -7948,16 +7963,13 @@ msgid "Drag items here to share them"
 msgstr "Presuňte položky sem na zdieľanie"
 
 #: src/timeline/TypingPane.qml:27
-#, fuzzy, kde-format
-#| msgctxt "Message displayed when some users are typing"
-#| msgid "%2 is typing"
-#| msgid_plural "%2 are typing"
+#, kde-format
 msgctxt "Number of users typing in the room"
 msgid "1 user is typing"
 msgid_plural "%1 users are typing"
-msgstr[0] "%2 píše"
-msgstr[1] "%2 píšu"
-msgstr[2] "%2 píšu"
+msgstr[0] "1 používateľ píše"
+msgstr[1] "%1 používatelia píšu"
+msgstr[2] "%1 používateľov píše"
 
 #: src/timeline/TypingPane.qml:30
 #, kde-format
@@ -8558,11 +8570,6 @@ msgstr[2] "%2 píšu"
 #, fuzzy
 #~ msgid "Device id"
 #~ msgstr "Zariadenia"
-
-#, fuzzy
-#~ msgctxt "@title"
-#~ msgid "Encryption Keys"
-#~ msgstr "aktivoval End-to-End šifrovanie"
 
 #, fuzzy
 #~ msgctxt "@action:button"

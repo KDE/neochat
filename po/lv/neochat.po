@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -869,7 +869,7 @@ msgid "Edit state"
 msgstr "Rediģēt statusu"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1253,6 +1253,18 @@ msgid "Encryption keys restored."
 msgstr "Šifrēšanas atslēgas ir atjaunotas."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:48
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:55
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Unlock using Passphrase"
@@ -1260,7 +1272,7 @@ msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr "Atbloķēt, izmantojot paroli"
 
-#: src/app/qml/UnlockSSSSDialog.qml:52
+#: src/app/qml/UnlockSSSSDialog.qml:59
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid ""
@@ -1274,7 +1286,7 @@ msgstr ""
 "Ja šim kontam jums ir drošības atslēgta, ievadiet to te vai augšupielādējiet "
 "kā datni."
 
-#: src/app/qml/UnlockSSSSDialog.qml:56
+#: src/app/qml/UnlockSSSSDialog.qml:63
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Security Key:"
@@ -1282,7 +1294,7 @@ msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "Drošības atslēga:"
 
-#: src/app/qml/UnlockSSSSDialog.qml:61
+#: src/app/qml/UnlockSSSSDialog.qml:68
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Upload from File"
@@ -1290,19 +1302,19 @@ msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Augšupielāde no datnes"
 
-#: src/app/qml/UnlockSSSSDialog.qml:71
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Atbloķēt"
 
-#: src/app/qml/UnlockSSSSDialog.qml:82
+#: src/app/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Atbloķēt ar krusta parakstīšanu"
 
-#: src/app/qml/UnlockSSSSDialog.qml:86
+#: src/app/qml/UnlockSSSSDialog.qml:93
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid ""
@@ -1316,13 +1328,29 @@ msgstr ""
 "Ja iepriekš verificējāt šo ierīci, varat mēģināt ielādēt rezerves atslēgu no "
 "otras ierīces, spiežot uz pogas zemāk."
 
-#: src/app/qml/UnlockSSSSDialog.qml:91
+#: src/app/qml/UnlockSSSSDialog.qml:98
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Request from other Devices"
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Pieprasījums no citas ierīces"
+
+#: src/app/qml/UnlockSSSSDialog.qml:108
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Open Key Backup"
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Atvērt atslēgas rezervi"
+
+#: src/app/qml/UnlockSSSSDialog.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Importēt šifrēšanas atslēgas no dublējuma."
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3742,12 +3770,12 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Identitātes serveris nav konfigurēts"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:384
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Istabas izveide neizdevās: %1"
 
-#: src/libneochat/neochatconnection.cpp:418
+#: src/libneochat/neochatconnection.cpp:413
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
@@ -4301,7 +4329,7 @@ msgid "Copy to clipboard"
 msgstr "Kopēt starpliktuvē"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:341
+#: src/messagecontent/VideoComponent.qml:368
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4382,7 +4410,7 @@ msgid "Check-out time: %1"
 msgstr "Izrakstīšanās laiks: %1"
 
 #: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:150
+#: src/messagecontent/VideoComponent.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -4638,18 +4666,18 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:185
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:217
+#: src/messagecontent/VideoComponent.qml:244
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Rādīt video"
 
-#: src/messagecontent/VideoComponent.qml:258
+#: src/messagecontent/VideoComponent.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4890,7 +4918,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Meklēt istabas"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5280,13 +5308,13 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "Pamest telpu…"
 
-#: src/rooms/UserInfo.qml:43
+#: src/rooms/UserInfo.qml:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Pārvaldīt kontu"
 
-#: src/rooms/UserInfo.qml:98
+#: src/rooms/UserInfo.qml:99
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@action:button"
@@ -8442,10 +8470,6 @@ msgstr[2] "%2 raksta"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Devices"
 #~ msgstr "Ierīces"
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Key Backup"
-#~ msgstr "Atvērt atslēgas rezervi"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Logout…"

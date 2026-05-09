@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
-"PO-Revision-Date: 2026-05-07 09:53+0200\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
+"PO-Revision-Date: 2026-05-08 09:36+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -851,7 +851,7 @@ msgid "Edit state"
 msgstr "Edita l'estat"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1224,11 +1224,23 @@ msgstr "S'han restaurat les claus d'encriptatge."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
 #, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:48
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:55
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr "Desbloqueja usant la clau de recuperació"
 
-#: src/app/qml/UnlockSSSSDialog.qml:52
+#: src/app/qml/UnlockSSSSDialog.qml:59
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1239,31 +1251,31 @@ msgstr ""
 "frase de pas de còpia de seguretat), introduïu-la a continuació o carregueu-"
 "la com a fitxer."
 
-#: src/app/qml/UnlockSSSSDialog.qml:56
+#: src/app/qml/UnlockSSSSDialog.qml:63
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "Clau de recuperació:"
 
-#: src/app/qml/UnlockSSSSDialog.qml:61
+#: src/app/qml/UnlockSSSSDialog.qml:68
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Carrega des d'un fitxer"
 
-#: src/app/qml/UnlockSSSSDialog.qml:71
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Desbloqueja"
 
-#: src/app/qml/UnlockSSSSDialog.qml:82
+#: src/app/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Desbloqueja a partir d'una signatura creuada"
 
-#: src/app/qml/UnlockSSSSDialog.qml:86
+#: src/app/qml/UnlockSSSSDialog.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1273,11 +1285,28 @@ msgstr ""
 "Si heu verificat prèviament aquest dispositiu, sol·liciteu les claus "
 "d'encriptatge des d'altres dispositius verificats."
 
-#: src/app/qml/UnlockSSSSDialog.qml:91
+#: src/app/qml/UnlockSSSSDialog.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Sol·licita des d'altres dispositius"
+
+#: src/app/qml/UnlockSSSSDialog.qml:108
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Open Key Backup"
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Obre una còpia de seguretat de la clau"
+
+#: src/app/qml/UnlockSSSSDialog.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup file."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr ""
+"Importa les claus d'encriptatge a partir d'un fitxer de còpia de seguretat."
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3626,12 +3655,12 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr "No s'ha configurat cap servidor d'identitats"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:384
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ha fallat la creació de la sala: %1"
 
-#: src/libneochat/neochatconnection.cpp:418
+#: src/libneochat/neochatconnection.cpp:413
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ha fallat la creació de l'espai: %1"
@@ -4171,7 +4200,7 @@ msgid "Copy to clipboard"
 msgstr "Copia al porta-retalls"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:341
+#: src/messagecontent/VideoComponent.qml:368
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4252,7 +4281,7 @@ msgid "Check-out time: %1"
 msgstr "Hora de sortida: %1"
 
 #: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:150
+#: src/messagecontent/VideoComponent.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -4488,18 +4517,18 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "An. %1"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:185
 #, kde-format
 msgid "Video"
 msgstr "Vídeo"
 
-#: src/messagecontent/VideoComponent.qml:217
+#: src/messagecontent/VideoComponent.qml:244
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Mostra el vídeo"
 
-#: src/messagecontent/VideoComponent.qml:258
+#: src/messagecontent/VideoComponent.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4729,7 +4758,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Cerca sales"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5076,15 +5105,14 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "Surt de l'espai…"
 
-#: src/rooms/UserInfo.qml:43
+#: src/rooms/UserInfo.qml:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Gestiona el compte"
 
-#: src/rooms/UserInfo.qml:98
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#: src/rooms/UserInfo.qml:99
+#, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
 msgstr "Visualitza les notificacions"
@@ -8153,10 +8181,6 @@ msgstr[1] "%2 estan escrivint"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Devices"
 #~ msgstr "Dispositius"
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Key Backup"
-#~ msgstr "Obre una còpia de seguretat de la clau"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Logout…"

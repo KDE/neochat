@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -905,7 +905,7 @@ msgid "Edit state"
 msgstr "सम्पादन अवस्था"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1313,6 +1313,18 @@ msgid "Encryption keys restored."
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:48
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:55
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Unlock using Passphrase"
@@ -1320,7 +1332,7 @@ msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr "Passphrase इत्यस्य उपयोगेन अनलॉक् कुर्वन्तु"
 
-#: src/app/qml/UnlockSSSSDialog.qml:52
+#: src/app/qml/UnlockSSSSDialog.qml:59
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid ""
@@ -1334,7 +1346,7 @@ msgstr ""
 "यदि भवतां समीपे अस्य खातेः सुरक्षाकुंजी अस्ति तर्हि अधः प्रविशतु अथवा सञ्चिकारूपेण अपलोड् "
 "कुर्वन्तु ।"
 
-#: src/app/qml/UnlockSSSSDialog.qml:56
+#: src/app/qml/UnlockSSSSDialog.qml:63
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Security Key:"
@@ -1342,7 +1354,7 @@ msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "सुरक्षाकुंजी :"
 
-#: src/app/qml/UnlockSSSSDialog.qml:61
+#: src/app/qml/UnlockSSSSDialog.qml:68
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Upload from File"
@@ -1350,19 +1362,19 @@ msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "सञ्चिकातः अपलोड् कुर्वन्तु"
 
-#: src/app/qml/UnlockSSSSDialog.qml:71
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "अनलॉक"
 
-#: src/app/qml/UnlockSSSSDialog.qml:82
+#: src/app/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "क्रॉस्-साइनिंग् इत्यस्मात् अनलॉक् कुर्वन्तु"
 
-#: src/app/qml/UnlockSSSSDialog.qml:86
+#: src/app/qml/UnlockSSSSDialog.qml:93
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid ""
@@ -1376,13 +1388,29 @@ msgstr ""
 "यदि भवान् पूर्वं एतत् यन्त्रं सत्यापितवान् तर्हि अधोलिखितं बटनं नुत्वा अन्येभ्यः उपकरणेभ्यः बैकअप "
 "कीलं लोड् कर्तुं प्रयतितुं शक्नोति ।"
 
-#: src/app/qml/UnlockSSSSDialog.qml:91
+#: src/app/qml/UnlockSSSSDialog.qml:98
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Request from other Devices"
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "अन्येभ्यः उपकरणेभ्यः अनुरोधः"
+
+#: src/app/qml/UnlockSSSSDialog.qml:108
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Open Key Backup"
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "कील बैकअप उद्घाटयन्तु"
+
+#: src/app/qml/UnlockSSSSDialog.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "बैकअपतः एन्क्रिप्शन कीलानि आयातयन्तु ।"
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3813,12 +3841,12 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोऽपि परिचयसर्वरः विन्यस्तः नास्ति"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:384
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्षनिर्माणं विफलम्: %1"
 
-#: src/libneochat/neochatconnection.cpp:418
+#: src/libneochat/neochatconnection.cpp:413
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
@@ -4392,7 +4420,7 @@ msgid "Copy to clipboard"
 msgstr "क्लिप्बोर्ड् प्रति प्रतिलिख्यताम्"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:341
+#: src/messagecontent/VideoComponent.qml:368
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4472,7 +4500,7 @@ msgid "Check-out time: %1"
 msgstr "चेक-आउट् समयः %1"
 
 #: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:150
+#: src/messagecontent/VideoComponent.qml:157
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
@@ -4736,18 +4764,18 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "प्ल. %1"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:185
 #, kde-format
 msgid "Video"
 msgstr "विडिओ"
 
-#: src/messagecontent/VideoComponent.qml:217
+#: src/messagecontent/VideoComponent.qml:244
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "विडियो दर्शयतु"
 
-#: src/messagecontent/VideoComponent.qml:258
+#: src/messagecontent/VideoComponent.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -5006,7 +5034,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
 #, fuzzy, kde-format
 #| msgid "Open Settings"
 msgctxt "@action:button"
@@ -5418,14 +5446,14 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "अवकाशं त्यजतु"
 
-#: src/rooms/UserInfo.qml:43
+#: src/rooms/UserInfo.qml:42
 #, fuzzy, kde-format
 #| msgid "Deactivate Account"
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "खातं निष्क्रियं कुर्वन्तु"
 
-#: src/rooms/UserInfo.qml:98
+#: src/rooms/UserInfo.qml:99
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@action:button"
@@ -8670,10 +8698,6 @@ msgstr[1] "%2 टङ्कयन्ति"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Devices"
 #~ msgstr "यन्त्राणि"
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Key Backup"
-#~ msgstr "कील बैकअप उद्घाटयन्तु"
 
 #, fuzzy
 #~| msgid "Logout"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
-"PO-Revision-Date: 2026-05-06 11:23+0200\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
+"PO-Revision-Date: 2026-05-08 12:05+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -851,7 +851,7 @@ msgid "Edit state"
 msgstr "Edita Stato"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1222,11 +1222,23 @@ msgstr "Claves de Cryptation restabilite."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
 #, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:48
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:55
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr "Disbloca usante clave de Recuperation"
 
-#: src/app/qml/UnlockSSSSDialog.qml:52
+#: src/app/qml/UnlockSSSSDialog.qml:59
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1236,31 +1248,31 @@ msgstr ""
 "Si tu ha un clave de recuperation(anque cognoscite como \"clave de securitate"
 "\" o \"phrase de reserva\"), inserta lo  a basso o incarga lo  como un file."
 
-#: src/app/qml/UnlockSSSSDialog.qml:56
+#: src/app/qml/UnlockSSSSDialog.qml:63
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "Clave de Recuperation:"
 
-#: src/app/qml/UnlockSSSSDialog.qml:61
+#: src/app/qml/UnlockSSSSDialog.qml:68
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Incarga ex file"
 
-#: src/app/qml/UnlockSSSSDialog.qml:71
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Disbloca"
 
-#: src/app/qml/UnlockSSSSDialog.qml:82
+#: src/app/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Incarga ex Trans-signar (Cross-signing)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:86
+#: src/app/qml/UnlockSSSSDialog.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1270,11 +1282,27 @@ msgstr ""
 "Si tu ha previemente verificate iste dispositivo, tu demandavale claves de "
 "cryptation ex alteres dispositivos verificate."
 
-#: src/app/qml/UnlockSSSSDialog.qml:91
+#: src/app/qml/UnlockSSSSDialog.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Requesta ex altere Dispositivos"
+
+#: src/app/qml/UnlockSSSSDialog.qml:108
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Open Key Backup"
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Aperi copia secrete de clave"
+
+#: src/app/qml/UnlockSSSSDialog.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup file."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Importa Claves de Cryptation ab un file de retrocopia."
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -1289,8 +1317,7 @@ msgid "Message"
 msgstr "Message"
 
 #: src/app/qml/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:intoolbar Edit This Account"
 msgid "Edit"
 msgstr "Modifica"
@@ -1758,12 +1785,10 @@ msgid "Quit"
 msgstr "Quita"
 
 #: src/chatbar/ChatBar.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "Tu non ha le privilegios pro initiar incontros de jitsi"
+msgstr "Tu non ha permission de inviar messages a iste sala."
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
 #, kde-format
@@ -3623,12 +3648,12 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nulle servitor de identitate configurate"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:384
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creation de sala falleva: \"%1\""
 
-#: src/libneochat/neochatconnection.cpp:418
+#: src/libneochat/neochatconnection.cpp:413
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creation de spatio falleva: \"%1\""
@@ -4169,7 +4194,7 @@ msgid "Copy to clipboard"
 msgstr "Copia in area de transferentia"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:341
+#: src/messagecontent/VideoComponent.qml:368
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4250,7 +4275,7 @@ msgid "Check-out time: %1"
 msgstr "Tempore de Check-Out: %1"
 
 #: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:150
+#: src/messagecontent/VideoComponent.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -4485,18 +4510,18 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:185
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:217
+#: src/messagecontent/VideoComponent.qml:244
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Monstra Video"
 
-#: src/messagecontent/VideoComponent.qml:258
+#: src/messagecontent/VideoComponent.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4726,7 +4751,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Cerca Salas"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5072,15 +5097,14 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "Lassa Spatio..."
 
-#: src/rooms/UserInfo.qml:43
+#: src/rooms/UserInfo.qml:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Gere conto"
 
-#: src/rooms/UserInfo.qml:98
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#: src/rooms/UserInfo.qml:99
+#, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
 msgstr "Vide notificationes"
@@ -5092,34 +5116,28 @@ msgid "Edit Account"
 msgstr "Modifica conto"
 
 #: src/settings/AccountEditorPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr "Monstra eventos de actualisar de avatar"
+msgstr "Nove avatar nonpoteva esser assignate."
 
 #: src/settings/AccountEditorPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert changes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Changes"
-msgstr "Reverte modificationes"
+msgstr "Rinitialisa modificationes"
 
 #: src/settings/AccountEditorPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save changes to user"
 msgid "Save"
 msgstr "Salveguarda"
 
 #: src/settings/AccountEditorPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:dialog Apply unsaved settings"
 msgid "Apply Settings"
-msgstr "Aperi Preferentias"
+msgstr "Applica preferentias"
 
 #: src/settings/AccountEditorPage.qml:93
 #, kde-format
@@ -5128,10 +5146,11 @@ msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
 msgstr ""
+"Il ha modificationes non salveguardate al information del usator. Applicar "
+"le modificationes o discartar los?"
 
 #: src/settings/AccountEditorPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
 msgstr "Applica"
@@ -5140,7 +5159,7 @@ msgstr "Applica"
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Reset"
-msgstr ""
+msgstr "Reinitialisa"
 
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
@@ -5206,9 +5225,7 @@ msgid "New Password:"
 msgstr "Nove contrasigno:"
 
 #: src/settings/AccountEditorPage.qml:290
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm New Password:"
 msgstr "Confirma nove contrasigno:"
@@ -8155,10 +8172,6 @@ msgstr[1] "%2 es typante"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Devices"
 #~ msgstr "Dispositivos"
-
-#~ msgctxt "@title:window"
-#~ msgid "Open Key Backup"
-#~ msgstr "Aperi copia secrete de clave"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Logout…"

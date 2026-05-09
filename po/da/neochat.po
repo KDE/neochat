@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:44+0000\n"
+"POT-Creation-Date: 2026-05-09 00:43+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -904,7 +904,7 @@ msgid "Edit state"
 msgstr "Send besked"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:104 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title"
@@ -1296,11 +1296,23 @@ msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
 #, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:48
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:55
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:52
+#: src/app/qml/UnlockSSSSDialog.qml:59
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1308,31 +1320,31 @@ msgid ""
 "passphrase”), enter it below or upload it as a file."
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:56
+#: src/app/qml/UnlockSSSSDialog.qml:63
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:61
+#: src/app/qml/UnlockSSSSDialog.qml:68
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:71
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:82
+#: src/app/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:86
+#: src/app/qml/UnlockSSSSDialog.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1340,10 +1352,22 @@ msgid ""
 "from other verified devices."
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:91
+#: src/app/qml/UnlockSSSSDialog.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:108
+#, kde-format
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:114
+#, kde-format
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
 msgstr ""
 
 #: src/app/qml/UserDetailDialog.qml:56
@@ -3754,13 +3778,13 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:384
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Room creation failed: %1"
 msgstr "Login mislykkedes"
 
-#: src/libneochat/neochatconnection.cpp:418
+#: src/libneochat/neochatconnection.cpp:413
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Space creation failed: %1"
@@ -4326,7 +4350,7 @@ msgid "Copy to clipboard"
 msgstr ""
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:341
+#: src/messagecontent/VideoComponent.qml:368
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4406,7 +4430,7 @@ msgid "Check-out time: %1"
 msgstr ""
 
 #: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:150
+#: src/messagecontent/VideoComponent.qml:157
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
@@ -4656,19 +4680,19 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr ""
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:185
 #, kde-format
 msgid "Video"
 msgstr ""
 
-#: src/messagecontent/VideoComponent.qml:217
+#: src/messagecontent/VideoComponent.qml:244
 #, fuzzy, kde-format
 #| msgid "Username"
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Brugernavn"
 
-#: src/messagecontent/VideoComponent.qml:258
+#: src/messagecontent/VideoComponent.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4925,7 +4949,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Lydløs"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:109
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@action:button"
@@ -5308,14 +5332,14 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "Se kildetekst"
 
-#: src/rooms/UserInfo.qml:43
+#: src/rooms/UserInfo.qml:42
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Redigér konto"
 
-#: src/rooms/UserInfo.qml:98
+#: src/rooms/UserInfo.qml:99
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@action:button"
