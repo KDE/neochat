@@ -101,7 +101,7 @@ RowLayout {
 
                 displayHint: root.collapsed ? Kirigami.DisplayHint.AlwaysHide : Kirigami.DisplayHint.IconOnly
 
-                onTriggered: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "NotificationsView"), {
+                onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "NotificationsView"), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Notifications"),
