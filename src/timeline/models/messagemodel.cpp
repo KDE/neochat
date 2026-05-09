@@ -685,6 +685,25 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
     }
 }
 
+NeoChatRoom *MessageModel::roomForEvent(const QString &eventId) const
+{
+    const auto idx = indexForEventId(eventId);
+    if (!idx.isValid()) {
+        qWarning() << "Event not in model:" << eventId;
+        return nullptr;
+    }
+
+    const auto event = getEventForIndex(idx);
+    NeoChatRoom *eventRoom = m_room;
+    if (const auto roomId = event.value().get().roomId(); roomId != eventRoom->id()) {
+        if (const auto room = dynamic_cast<NeoChatRoom *>(m_room->connection()->room(roomId))) {
+            eventRoom = room;
+        }
+    }
+
+    return eventRoom;
+}
+
 void MessageModel::moveReadMarker(const QString &toEventId)
 {
     const auto timelineIt = m_room->findInTimeline(toEventId);
@@ -771,6 +790,21 @@ bool MessageModel::event(QEvent *event)
 void MessageModel::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)
 {
     MessageModel::m_hiddenFilter = hiddenFilter;
+}
+
+void MessageModel::hideMedia(const QString &eventId)
+{
+    ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)->hideMedia();
+}
+
+void MessageModel::showMedia(const QString &eventId)
+{
+    ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)->showMedia();
+}
+
+bool MessageModel::isMediaHidden(const QString &eventId)
+{
+    return ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)->isMediaHidden();
 }
 
 #include "moc_messagemodel.cpp"

@@ -145,6 +145,21 @@ void MediaMessageFilterModel::toggleMessageSelection(const QString &eventId)
     static_cast<MessageFilterModel *>(sourceModel())->toggleMessageSelection(eventId);
 }
 
+void MediaMessageFilterModel::hideMedia(const QString &eventId)
+{
+    static_cast<MessageFilterModel *>(sourceModel())->showMedia(eventId);
+}
+
+void MediaMessageFilterModel::showMedia(const QString &eventId)
+{
+    static_cast<MessageFilterModel *>(sourceModel())->hideMedia(eventId);
+}
+
+bool MediaMessageFilterModel::isMediaHidden(const QString &eventId)
+{
+    return static_cast<MessageFilterModel *>(sourceModel())->isMediaHidden(eventId);
+}
+
 int MediaMessageFilterModel::getRowForEventId(const QString &eventId) const
 {
     for (auto i = 0; i < rowCount(); i++) {

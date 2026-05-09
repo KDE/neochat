@@ -192,6 +192,36 @@ void MessageFilterModel::toggleMessageSelection(const QString &eventId)
     messageModel->toggleMessageSelection(eventId);
 }
 
+void MessageFilterModel::hideMedia(const QString &eventId)
+{
+    const auto [messageModel, _] = this->messageModel();
+    if (!messageModel) {
+        return;
+    }
+
+    messageModel->hideMedia(eventId);
+}
+
+void MessageFilterModel::showMedia(const QString &eventId)
+{
+    const auto [messageModel, _] = this->messageModel();
+    if (!messageModel) {
+        return;
+    }
+
+    messageModel->showMedia(eventId);
+}
+
+bool MessageFilterModel::isMediaHidden(const QString &eventId)
+{
+    const auto [messageModel, _] = this->messageModel();
+    if (!messageModel) {
+        return false;
+    }
+
+    return messageModel->isMediaHidden(eventId);
+}
+
 bool MessageFilterModel::showAuthor(QModelIndex index) const
 {
     for (auto r = index.row() + 1; r < rowCount(); ++r) {

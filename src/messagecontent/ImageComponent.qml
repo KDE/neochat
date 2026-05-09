@@ -46,6 +46,11 @@ Item {
      */
     property int rightAnchorMargin: 0
 
+    /**
+     * @brief Whether the media should be hidden.
+     */
+    required property bool mediaHidden
+
     Layout.fillWidth: true
     implicitWidth: container.implicitWidth
     implicitHeight: container.implicitHeight
@@ -64,15 +69,12 @@ Item {
             z: 10
 
             QQC2.Button {
-                visible: !_private.hideImage && !root.editable
+                visible: !root.mediaHidden && !root.editable
                 icon.name: "view-hidden"
                 text: i18nc("@action:button", "Hide Image")
                 display: QQC2.Button.IconOnly
                 z: 10
-                onClicked: {
-                    _private.hideImage = true;
-                    Controller.markImageHidden(root.eventId)
-                }
+                onClicked: Message.contentModel?.hideMedia()
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
@@ -118,7 +120,7 @@ Item {
         Rectangle {
             anchors.fill: parent
 
-            visible: (_private.imageItem?.status !== Image.Ready ?? true) || _private.hideImage
+            visible: (_private.imageItem?.status !== Image.Ready ?? true) || root.mediaHidden
 
             color: "#BB000000"
 
@@ -126,7 +128,7 @@ Item {
                 anchors.centerIn: parent
 
                 width: parent.width * 0.8
-                visible: !_private.hideImage
+                visible: !root.mediaHidden
 
                 from: 0
                 to: 1.0
@@ -146,7 +148,7 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
 
-            active: !root.block.info.isAnimated && !_private.hideImage
+            active: !root.block.info.isAnimated && !root.mediaHidden
             sourceComponent: Image {
                 source: root.block.source
                 sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
@@ -164,7 +166,7 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
 
-            active: (root?.block.info.isAnimated ?? false) && !_private.hideImage
+            active: (root?.block.info.isAnimated ?? false) && !root.mediaHidden
             sourceComponent: AnimatedImage {
                 source: root.block.source
 
@@ -182,11 +184,8 @@ Item {
         QQC2.Button {
             anchors.centerIn: parent
             text: i18nc("@action:button", "Show Image")
-            visible: _private.hideImage
-            onClicked: {
-                _private.hideImage = false;
-                Controller.markImageShown(root.eventId);
-            }
+            visible: root.mediaHidden
+            onClicked: Message.contentModel?.showMedia()
         }
 
         TapHandler {
@@ -200,7 +199,7 @@ Item {
                 if (root.Message.timeline) {
                     root.Message.timeline.interactive = false;
                 }
-                if (!root.block.info.isSticker && !root.editable && !_private.hideImage) {
+                if (!root.block.info.isSticker && !root.editable && !root.mediaHidden) {
                     RoomManager.maximizeMedia(root.eventId);
                 }
             }
@@ -222,7 +221,5 @@ Item {
     QtObject {
         id: _private
         readonly property var imageItem: root.block.info.isAnimated ? animatedImageLoader.item : imageLoader.item
-
-        property bool hideImage: NeoChatConfig.hideImages && !Controller.isImageShown(root.eventId)
     }
 }

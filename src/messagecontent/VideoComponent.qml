@@ -58,22 +58,22 @@ Video {
      */
     required property bool editable
 
+    /**
+     * @brief Whether the media should be hidden.
+     */
+    required property bool mediaHidden
+
     Layout.preferredWidth: mediaSizeHelper.currentSize.width
     Layout.preferredHeight: mediaSizeHelper.currentSize.height
 
     fillMode: VideoOutput.PreserveAspectFit
 
     Component.onDestruction: root.stop()
-    Component.onCompleted: {
-        if (NeoChatConfig.hideImages && !Controller.isImageShown(root.eventId)) {
-            root.state = "hidden";
-        }
-    }
 
     states: [
         State {
             name: "notDownloaded"
-            when: !root.fileTransferInfo.completed && !root.fileTransferInfo.active
+            when: !root.fileTransferInfo.completed && !root.fileTransferInfo.active && !root.mediaHidden
             PropertyChanges {
                 videoLabel.visible: true
                 mediaThumbnail.visible: true
@@ -81,7 +81,7 @@ Video {
         },
         State {
             name: "downloading"
-            when: root.fileTransferInfo.active && !root.fileTransferInfo.completed && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
+            when: root.fileTransferInfo.active && !root.fileTransferInfo.completed && !root.mediaHidden
             PropertyChanges {
                 downloadBar.visible: true
                 mediaThumbnail.visible: true
@@ -89,7 +89,7 @@ Video {
         },
         State {
             name: "paused"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState && !root.mediaHidden
             PropertyChanges {
                 videoControls.stateVisible: true
                 playButton.icon.name: "media-playback-start"
@@ -101,7 +101,7 @@ Video {
         },
         State {
             name: "playing"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState && !root.mediaHidden
             PropertyChanges {
                 videoControls.stateVisible: true
                 playButton.icon.name: "media-playback-pause"
@@ -110,7 +110,7 @@ Video {
         },
         State {
             name: "stopped"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages) && root.error === MediaPlayer.NoError
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && !root.mediaHidden && root.error === MediaPlayer.NoError
             PropertyChanges {
                 videoControls.stateVisible: true
                 mediaThumbnail.visible: true
@@ -124,6 +124,7 @@ Video {
         },
         State {
             name: "hidden"
+            when: root.mediaHidden
             PropertyChanges {
                 mediaThumbnail.visible: false
                 videoControls.visible: false
@@ -154,13 +155,10 @@ Video {
         anchors.margins: Kirigami.Units.smallSpacing
         visible: root.state !== "hidden"
         icon.name: "view-hidden"
-        text: i18nc("@action:button", "Hide Image")
+        text: i18nc("@action:button", "Hide Video")
         display: QQC2.Button.IconOnly
         z: 10
-        onClicked: {
-            root.state = "hidden"
-            Controller.markImageHidden(root.eventId)
-        }
+        onClicked: Message.contentModel?.hideMedia()
 
         QQC2.ToolTip.text: text
         QQC2.ToolTip.visible: hovered
@@ -242,10 +240,7 @@ Video {
         QQC2.Button {
             anchors.centerIn: parent
             text: i18nc("@action:button", "Show Video")
-            onClicked: {
-                root.state = "notDownloaded";
-                Controller.markImageShown(root.eventId);
-            }
+            onClicked: Message.contentModel?.showMedia()
         }
     }
 

@@ -30,6 +30,7 @@ private Q_SLOTS:
     void initTestCase();
 
     void missingEvent();
+    void hideMedia();
 };
 
 void MessageContentModelTest::initTestCase()
@@ -58,6 +59,25 @@ void MessageContentModelTest::missingEvent()
     QCOMPARE(model1.data(model1.index(1), MessageContentModel::ComponentTypeRole), Blocks::Text);
     QCOMPARE(model1.data(model1.index(1), MessageContentModel::BlockRole).value<Blocks::TextBlock *>()->item()->initialFragment().toPlainText(),
              u"This is an example\ntext message"_s);
+}
+
+void MessageContentModelTest::hideMedia()
+{
+    auto room = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s);
+    auto model1 = EventMessageContentModel(room, u"$153456789:example.org"_s);
+
+    room->syncNewEvents(u"test-min-sync.json"_s);
+    QCOMPARE(model1.rowCount(), 2);
+
+    // Should be false in this case because that's the default without config
+    QCOMPARE(model1.data(model1.index(0), MessageContentModel::MediaHiddenRole), false);
+    QCOMPARE(model1.isMediaHidden(), false);
+
+    model1.hideMedia();
+    QCOMPARE(model1.data(model1.index(0), MessageContentModel::MediaHiddenRole), true);
+
+    model1.showMedia();
+    QCOMPARE(model1.data(model1.index(0), MessageContentModel::MediaHiddenRole), false);
 }
 
 QTEST_MAIN(MessageContentModelTest)

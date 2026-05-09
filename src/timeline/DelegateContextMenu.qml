@@ -338,6 +338,34 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
+        visible: (root.blockType === Blocks.Image || root.blockType === Blocks.Video) && !root.messageModel?.isMediaHidden(root.eventId)
+        text: {
+            if (root.blockType === Blocks.Image) {
+                return i18nc("@action:inmenu", "Hide Image");
+            } else if (root.blockType === Blocks.Video) {
+                return i18nc("@action:inmenu", "Hide Video");
+            }
+        }
+        icon.name: "view-visible-off-symbolic"
+
+        onTriggered: root.messageModel?.hideMedia(root.eventId)
+    }
+
+    Kirigami.Action {
+        visible: (root.blockType === Blocks.Image || root.blockType === Blocks.Video) && root.messageModel?.isMediaHidden(root.eventId)
+        text: {
+            if (root.blockType === Blocks.Image) {
+                return i18nc("@action:inmenu", "Show Image");
+            } else if (root.blockType === Blocks.Video) {
+                return i18nc("@action:inmenu", "Show Video");
+            }
+        }
+        icon.name: "view-visible-symbolic"
+
+        onTriggered: root.messageModel?.showMedia(root.eventId)
+    }
+
+    Kirigami.Action {
         visible: root.hasFileContent
         text: {
             if (root.blockType === Blocks.Image) {

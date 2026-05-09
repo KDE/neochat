@@ -17,6 +17,14 @@
 
 using namespace Quotient;
 
+std::function<void(const QString &, bool)> MessageContentModel::m_setMediaHidden = [](const QString &, bool) {
+
+};
+
+std::function<bool(const QString &)> MessageContentModel::m_mediaShouldBeHidden = [](const QString &) -> bool {
+    return false;
+};
+
 MessageContentModel::MessageContentModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -28,6 +36,8 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &event
     , m_eventId(eventId)
 {
     connect(qGuiApp->styleHints(), &QStyleHints::colorSchemeChanged, this, &MessageContentModel::updateSpoilers);
+
+    m_mediaHidden = m_mediaShouldBeHidden(m_eventId);
 
     setRoom(room);
     initializeModel();
@@ -199,6 +209,9 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == CurrentFocusRole) {
         return index.row() == m_currentFocusComponent.row();
     }
+    if (role == MediaHiddenRole) {
+        return m_mediaHidden;
+    }
 
     return {};
 }
@@ -231,6 +244,7 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::ChatBarCacheRole] = "chatBarCache";
     roles[MessageContentModel::EditableRole] = "editable";
     roles[MessageContentModel::CurrentFocusRole] = "currentFocus";
+    roles[MessageContentModel::MediaHiddenRole] = "mediaHidden";
     return roles;
 }
 
@@ -424,6 +438,37 @@ void MessageContentModel::toggleSpoiler(QModelIndex index)
     textBlock->setSpoilerRevealed(!textBlock->spoilerRevealed());
     Q_EMIT dataChanged(index, index, {BlockRole});
     updateSpoiler(index);
+}
+
+void MessageContentModel::hideMedia()
+{
+    m_mediaHidden = true;
+    Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {MediaHiddenRole});
+
+    m_setMediaHidden(m_eventId, true);
+}
+
+void MessageContentModel::showMedia()
+{
+    m_mediaHidden = false;
+    Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {MediaHiddenRole});
+
+    m_setMediaHidden(m_eventId, false);
+}
+
+bool MessageContentModel::isMediaHidden()
+{
+    return m_mediaHidden;
+}
+
+void MessageContentModel::setSetMediaHidden(std::function<void(const QString &, bool)> func)
+{
+    m_setMediaHidden = func;
+}
+
+void MessageContentModel::setMediaShouldBeHidden(std::function<bool(const QString &)> func)
+{
+    m_mediaShouldBeHidden = func;
 }
 
 #include "moc_messagecontentmodel.cpp"

@@ -171,6 +171,21 @@ public:
 
     static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
 
+    /**
+     * @brief Hides the media for a given event.
+     */
+    Q_INVOKABLE void hideMedia(const QString &eventId);
+
+    /**
+     * @brief Shows the media for a given event.
+     */
+    Q_INVOKABLE void showMedia(const QString &eventId);
+
+    /**
+     * @brief If the media is hidden for a given event.
+     */
+    Q_INVOKABLE bool isMediaHidden(const QString &eventId);
+
 Q_SIGNALS:
     /**
      * @brief Emitted when the room is changed.
@@ -247,6 +262,7 @@ private:
     QHash<QString, QSet<QString>> m_selectedMessageIds;
 
     void createEventObjects(const Quotient::RoomEvent *event);
+    NeoChatRoom *roomForEvent(const QString &eventId) const;
 
     static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
 };

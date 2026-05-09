@@ -21,6 +21,7 @@
 #include "general_logging.h"
 #include "mediasizehelper.h"
 #include "models/actionsmodel.h"
+#include "models/messagecontentmodel.h"
 #include "models/messagemodel.h"
 #include "models/roomlistmodel.h"
 #include "models/roomtreemodel.h"
@@ -57,6 +58,8 @@ static std::function<bool(const Quotient::RoomEvent *)> hiddenEventFilter = [](c
 
 Controller::Controller(QObject *parent)
     : QObject(parent)
+    , m_config(KSharedConfig::openStateConfig())
+    , m_mediaGroup(KConfigGroup(m_config, u"Media"_s))
 {
     Connection::setRoomType<NeoChatRoom>();
 
@@ -112,6 +115,19 @@ Controller::Controller(QObject *parent)
             return static_cast<RoomSortParameter::Parameter>(param);
         });
         RoomSortParameter::setCustomSortOrder(configParamList);
+    });
+
+    MessageContentModel::setSetMediaHidden([this](const QString &eventId, bool hidden) {
+        auto list = m_mediaGroup.readEntry(u"HiddenEvents"_s, QStringList());
+        if (hidden) {
+            list.push_back(eventId);
+        } else {
+            list.removeAll(eventId);
+        }
+        m_mediaGroup.writeEntry(u"HiddenEvents"_s, list);
+    });
+    MessageContentModel::setMediaShouldBeHidden([this](const QString &eventId) {
+        return NeoChatConfig::hideImages() || m_mediaGroup.readEntry(u"HiddenEvents"_s, QStringList()).contains(eventId);
     });
 
     ProxyController::instance().setApplicationProxy();
@@ -363,21 +379,6 @@ void Controller::revertToDefaultConfig()
     const auto config = NeoChatConfig::self();
     config->setDefaults();
     config->save();
-}
-
-bool Controller::isImageShown(const QString &eventId)
-{
-    return m_shownImages.contains(eventId);
-}
-
-void Controller::markImageShown(const QString &eventId)
-{
-    m_shownImages.append(eventId);
-}
-
-void Controller::markImageHidden(const QString &eventId)
-{
-    m_shownImages.removeAll(eventId);
 }
 
 int Controller::libquotientMinorVersion() const

@@ -69,6 +69,7 @@ public:
         ChatBarCacheRole, /**< The ChatBarCache to use. */
         EditableRole, /**< Whether the component can be edited. */
         CurrentFocusRole, /**< Whether the delegate should have focus. */
+        MediaHiddenRole, /**< Whether the media should be visible or not. */
     };
     Q_ENUM(Roles)
 
@@ -121,6 +122,24 @@ public:
      * @brief Toggle spoiler for the component at the given row.
      */
     Q_INVOKABLE void toggleSpoiler(QModelIndex index);
+
+    /**
+     * @brief Hides the media contained in this message.
+     */
+    Q_INVOKABLE void hideMedia();
+
+    /**
+     * @brief Shows the media contained in this message.
+     */
+    Q_INVOKABLE void showMedia();
+
+    /**
+     * @brief If the media is hidden for this message.
+     */
+    Q_INVOKABLE bool isMediaHidden();
+
+    static void setSetMediaHidden(std::function<void(const QString &, bool)> func);
+    static void setMediaShouldBeHidden(std::function<bool(const QString &)> func);
 
 Q_SIGNALS:
     void roomChanged(NeoChatRoom *oldRoom, NeoChatRoom *newRoom);
@@ -281,4 +300,9 @@ private:
 
     void updateSpoilers();
     void updateSpoiler(const QModelIndex &index);
+
+    bool m_mediaHidden = false;
+
+    static std::function<void(const QString &, bool)> m_setMediaHidden;
+    static std::function<bool(const QString &)> m_mediaShouldBeHidden;
 };

@@ -94,6 +94,21 @@ public:
      */
     Q_INVOKABLE void toggleMessageSelection(const QString &eventId);
 
+    /**
+     * @brief Hides the media for a given event.
+     */
+    Q_INVOKABLE void hideMedia(const QString &eventId);
+
+    /**
+     * @brief Shows the media for a given event.
+     */
+    Q_INVOKABLE void showMedia(const QString &eventId);
+
+    /**
+     * @brief If the media is hidden for a given event.
+     */
+    Q_INVOKABLE bool isMediaHidden(const QString &eventId);
+
     static void setShowAllEvents(bool enabled);
     static void setShowDeletedMessages(bool enabled);
 

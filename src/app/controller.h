@@ -9,6 +9,8 @@
 #include "accountmanager.h"
 #include "neochatconnection.h"
 #include "notificationsmanager.h"
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <Quotient/accountregistry.h>
 
 class TrayIcon;
@@ -102,10 +104,6 @@ public:
      */
     Q_INVOKABLE void revertToDefaultConfig();
 
-    Q_INVOKABLE bool isImageShown(const QString &eventId);
-    Q_INVOKABLE void markImageShown(const QString &eventId);
-    Q_INVOKABLE void markImageHidden(const QString &eventId);
-
     int libquotientMinorVersion() const;
 
 private:
@@ -121,9 +119,10 @@ private:
     QPointer<TrayIcon> m_trayIcon;
 #endif
     QString m_endpoint;
-    QStringList m_shownImages;
 
     NotificationsManager m_notificationsManager;
+    KSharedConfig::Ptr m_config;
+    KConfigGroup m_mediaGroup;
 
 private Q_SLOTS:
     void setQuitOnLastWindowClosed();
