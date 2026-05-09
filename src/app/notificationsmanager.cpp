@@ -393,7 +393,10 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
 
 QPixmap NotificationsManager::createNotificationImage(const Quotient::RoomMember &member, NeoChatRoom *room)
 {
-    QImage senderIcon = member.avatar(avatarDimension, avatarDimension, {});
+    QImage senderIcon;
+    if (!member.avatarUrl().isEmpty()) {
+        senderIcon = member.avatar(avatarDimension, avatarDimension, {});
+    }
     bool senderIconIsPlaceholder = false;
     if (senderIcon.isNull()) {
         senderIcon = createPlaceholderImage(member.displayName());
