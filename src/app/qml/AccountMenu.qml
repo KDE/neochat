@@ -60,25 +60,7 @@ KirigamiComponents.ConvergentContextMenu {
             height: Kirigami.Units.gridUnit * 42
         })
     }
-
-    Kirigami.Action {
-        text: i18nc("@action:inmenu", "Verify This Device")
-        icon.name: "security-low"
-        visible: !root.connection.isVerifiedSession
-        onTriggered: {
-            root.connection.startSelfVerification();
-            const dialog = Qt.createComponent("org.kde.kirigami", "PromptDialog").createObject(QQC2.Overlay.overlay, {
-                title: i18nc("@title", "Verification Request Sent"),
-                subtitle: i18nc("@info:label", "To proceed, accept the verification request on another device."),
-                standardButtons: Kirigami.Dialog.Ok
-            })
-            dialog.open();
-            root.connection.newKeyVerificationSession.connect(() => {
-                dialog.close();
-            });
-        }
-    }
-
+    
     Kirigami.Action {
         text: i18nc("@action:inmenu Open support dialog", "Support")
         icon.name: "help-contents-symbolic"

@@ -327,4 +327,5 @@ private:
     bool m_profileFieldsWriteable = false;
     QStringList m_allowedFields;
     QStringList m_disallowedFields;
+    bool m_syncDone = false;
 };

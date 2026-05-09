@@ -177,6 +177,15 @@ void NeoChatConnection::connectSignals()
             Q_EMIT ownSessionVerified();
         }
     });
+    connect(
+        this,
+        &Connection::syncDone,
+        this,
+        [this] {
+            m_syncDone = true;
+            Q_EMIT ownSessionVerified();
+        },
+        Qt::SingleShotConnection);
 }
 
 int NeoChatConnection::badgeNotificationCount() const
@@ -600,6 +609,11 @@ bool NeoChatConnection::enablePushNotifications() const
 
 bool NeoChatConnection::isVerifiedSession() const
 {
+    // HACK: Show/hide the "Verify This Device" warning until sync is done, which can happen quite late in the process.
+    if (!m_syncDone) {
+        return true;
+    }
+
     return isVerifiedDevice(userId(), deviceId());
 }
 

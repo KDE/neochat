@@ -96,6 +96,15 @@ RowLayout {
 
         actions: [
             Kirigami.Action {
+                text: i18nc("@action:button", "Verify This Device")
+                icon.name: "security-low"
+                visible: !root.connection.isVerifiedSession
+
+                displayHint: root.collapsed ? Kirigami.DisplayHint.AlwaysHide : Kirigami.DisplayHint.IconOnly
+
+                onTriggered: NeoChatSettingsView.open("devices")
+            },
+            Kirigami.Action {
                 text: i18nc("@action:button", "View Notifications")
                 icon.name: "notifications"
 
