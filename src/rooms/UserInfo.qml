@@ -37,6 +37,7 @@ RowLayout {
         onClicked: accountMenu.popup(QQC2.Overlay.overlay)
 
         Layout.fillHeight: true
+        Layout.fillWidth: true
 
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.text: i18nc("@info:tooltip", "Manage Account")
@@ -51,6 +52,7 @@ RowLayout {
                 Layout.preferredWidth: Kirigami.Settings.isMobile ? Kirigami.Units.iconSizes.smallMedium : Kirigami.Units.iconSizes.medium
                 Layout.preferredHeight: Kirigami.Settings.isMobile ? Kirigami.Units.iconSizes.smallMedium : Kirigami.Units.iconSizes.medium
                 Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.rightMargin: root.collapsed ? Kirigami.Units.largeSpacing : 0
 
                 // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
                 source: avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(avatarUrl) : ""
@@ -60,6 +62,7 @@ RowLayout {
             ColumnLayout {
                 Layout.fillWidth: true
                 Layout.maximumWidth: Math.round(root.width * 0.55)
+                Layout.rightMargin: Kirigami.Units.largeSpacing
                 visible: !root.collapsed
                 spacing: 0
                 QQC2.Label {
@@ -90,7 +93,8 @@ RowLayout {
     }
 
     Kirigami.ActionToolBar {
-        Layout.fillWidth: true
+        Layout.fillWidth: false
+        Layout.preferredWidth: contentItem.implicitWidth
         alignment: Qt.AlignRight
         position: QQC2.ToolBar.Footer
 
