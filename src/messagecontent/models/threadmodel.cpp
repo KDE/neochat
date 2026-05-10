@@ -124,7 +124,6 @@ void ThreadModel::addModels()
 {
     clearModels();
 
-    addSourceModel(m_threadFetchModel);
     for (const auto &event : std::ranges::reverse_view(m_events)) {
         if (const auto contentModel = ContentProvider::self().contentModelForEvent(m_room, event)) {
             addSourceModel(contentModel);
