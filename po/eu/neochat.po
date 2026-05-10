@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-09 00:43+0000\n"
+"POT-Creation-Date: 2026-05-10 00:43+0000\n"
 "PO-Revision-Date: 2026-03-21 02:14+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: src/app/controller.cpp:170
+#: src/app/controller.cpp:186
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -28,7 +28,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Mezu berrietarako jakinarazpenak jasotzea"
 
-#: src/app/controller.cpp:317
+#: src/app/controller.cpp:333
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "push jakinarazpenak jasotzea"
@@ -249,29 +249,11 @@ msgstr "Garatzailearen tresnak"
 
 #: src/app/qml/AccountMenu.qml:65
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Verify This Device"
-msgstr "Gailu hau egiaztatu"
-
-#: src/app/qml/AccountMenu.qml:71 src/settings/DevicesPage.qml:46
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr "Egiaztapen-eskaera bidali da"
-
-#: src/app/qml/AccountMenu.qml:72 src/settings/DevicesPage.qml:47
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr "Jarraitzeko, egiaztapen-eskaera beste gailu batean onartu."
-
-#: src/app/qml/AccountMenu.qml:83
-#, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Laguntza"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
@@ -853,7 +835,7 @@ msgid "Edit state"
 msgstr "Editatu egoera"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:116 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1004,25 +986,25 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Iltzatutako mezuak"
 
-#: src/app/qml/RoomPage.qml:299
+#: src/app/qml/RoomPage.qml:301
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Ongi etorri NeoChatera"
 
-#: src/app/qml/RoomPage.qml:300
+#: src/app/qml/RoomPage.qml:302
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Hasteko, hautatu edo batu gela batera"
 
-#: src/app/qml/RoomPage.qml:336
+#: src/app/qml/RoomPage.qml:338
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat lerroz kanpo dago. Mesedez, berrikusi zure sare-konexioa."
 
-#: src/app/qml/RoomPage.qml:368
+#: src/app/qml/RoomPage.qml:370
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1205,43 +1187,57 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Jarri harremanean e-posta bidez (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
+#: src/app/qml/UnlockSSSSDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
 msgstr "Kudeatu gakoen biltegiratzea"
 
-#: src/app/qml/UnlockSSSSDialog.qml:35
+#: src/app/qml/UnlockSSSSDialog.qml:36
 #, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
 msgstr "Berreskuratze-gakoa ez da zuzena."
 
-#: src/app/qml/UnlockSSSSDialog.qml:41
+#: src/app/qml/UnlockSSSSDialog.qml:42
 #, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
 msgstr "Zifratzeko gakoak lehengoratu dira."
 
-#: src/app/qml/UnlockSSSSDialog.qml:48
+#: src/app/qml/UnlockSSSSDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Loaded keys from backup"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:48
+#: src/app/qml/UnlockSSSSDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Failed to load keys from backup"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:55
+#: src/app/qml/UnlockSSSSDialog.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Unlock by Verifying Session"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:67
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr "Giltzapetik askatu berreskuratze-gakoa erabiliz"
 
-#: src/app/qml/UnlockSSSSDialog.qml:59
+#: src/app/qml/UnlockSSSSDialog.qml:74
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1251,31 +1247,31 @@ msgstr ""
 "Berreskuratze-gako bat (\"segurtasun-gako\" edo \"babes-pasaesaldi\" gisa "
 "ere ezaguna) baduzu, behean sartu edo fitxategi gisa zama-igo."
 
-#: src/app/qml/UnlockSSSSDialog.qml:63
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "Berreskuratze-gakoa:"
 
-#: src/app/qml/UnlockSSSSDialog.qml:68
+#: src/app/qml/UnlockSSSSDialog.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Zama-igo fitxategitik"
 
-#: src/app/qml/UnlockSSSSDialog.qml:78
+#: src/app/qml/UnlockSSSSDialog.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Giltzapetik askatu"
 
-#: src/app/qml/UnlockSSSSDialog.qml:89
+#: src/app/qml/UnlockSSSSDialog.qml:112
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Giltzapetik askatu sinadura-gurutzatu bidez"
 
-#: src/app/qml/UnlockSSSSDialog.qml:93
+#: src/app/qml/UnlockSSSSDialog.qml:120
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1285,13 +1281,13 @@ msgstr ""
 "Gailu hau aurrez egiaztatu baduzu, egiaztatuetako beste gailu batzuetatik "
 "zifratze-gakoak eska ditzakezu."
 
-#: src/app/qml/UnlockSSSSDialog.qml:98
+#: src/app/qml/UnlockSSSSDialog.qml:129
 #, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Eskatu beste gailuetatik"
 
-#: src/app/qml/UnlockSSSSDialog.qml:108
+#: src/app/qml/UnlockSSSSDialog.qml:139
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Open Key Backup"
@@ -1299,7 +1295,7 @@ msgctxt "@title"
 msgid "Decryption Key Backup"
 msgstr "Ireki gakoaren babeskopia"
 
-#: src/app/qml/UnlockSSSSDialog.qml:114
+#: src/app/qml/UnlockSSSSDialog.qml:145
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup file."
@@ -3657,18 +3653,18 @@ msgstr ""
 "Zama-jaisteko fitxategi handiegia.<br />Jar zaitez zure matrix "
 "zerbitzariaren administratzailearekin harremanean, laguntza lortzeko."
 
-#: src/libneochat/neochatconnection.cpp:345
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ez da nortasun zerbitzaririk konfiguratu"
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:393
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Gela sortzea huts egin du: %1"
 
-#: src/libneochat/neochatconnection.cpp:413
+#: src/libneochat/neochatconnection.cpp:422
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Espazioa sortzea huts egin du: %1"
@@ -3774,15 +3770,6 @@ msgstr "Izena:"
 msgctxt "@info:placeholder"
 msgid "New Space"
 msgstr "Espazio berria"
-
-#: src/libneochat/qml/CreateSpaceDialog.qml:64
-#: src/spaces/SelectExistingRoomDialog.qml:147
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "Egin guraso hori ofiziala"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
 #, kde-format
@@ -4223,7 +4210,7 @@ msgid "Copy to clipboard"
 msgstr "Kopiatu arbelera"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:368
+#: src/messagecontent/VideoComponent.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4274,7 +4261,7 @@ msgid "Stop Download"
 msgstr "Gelditu zama-jaistea"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:109
+#: src/messagecontent/ImageComponent.qml:114
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4302,20 +4289,19 @@ msgstr "Izen-emate ordua: %1"
 msgid "Check-out time: %1"
 msgstr "Ordaindu eta irtete ordua: %1"
 
-#: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:157
+#: src/messagecontent/ImageComponent.qml:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Ezkutatu irudia"
 
-#: src/messagecontent/ImageComponent.qml:85
+#: src/messagecontent/ImageComponent.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Editatu"
 
-#: src/messagecontent/ImageComponent.qml:184
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4389,13 +4375,13 @@ msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Erantzuna zamatzen…"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:94
+#: src/messagecontent/models/messagecontentmodel.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Fitxategia zama-jaistea huts egin du."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:97
+#: src/messagecontent/models/messagecontentmodel.cpp:107
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4538,18 +4524,26 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "%1 Na."
 
-#: src/messagecontent/VideoComponent.qml:185
+#: src/messagecontent/VideoComponent.qml:158
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Video"
+msgctxt "@action:button"
+msgid "Hide Video"
+msgstr "Ireki bideoa"
+
+#: src/messagecontent/VideoComponent.qml:183
 #, kde-format
 msgid "Video"
 msgstr "Bideoa"
 
-#: src/messagecontent/VideoComponent.qml:244
+#: src/messagecontent/VideoComponent.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Erakutsi bideoa"
 
-#: src/messagecontent/VideoComponent.qml:285
+#: src/messagecontent/VideoComponent.qml:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4782,7 +4776,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Bilatu gelak"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5135,7 +5129,13 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Kudeatu kontua"
 
-#: src/rooms/UserInfo.qml:99
+#: src/rooms/UserInfo.qml:99 src/settings/DevicesPage.qml:44
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "Egiaztatu gailu hau"
+
+#: src/rooms/UserInfo.qml:108
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@action:button"
@@ -5595,13 +5595,7 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "Gailu hau"
 
-#: src/settings/DevicesPage.qml:39
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify This Device"
-msgstr "Egiaztatu gailu hau"
-
-#: src/settings/DevicesPage.qml:40
+#: src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@info:description"
 msgid ""
@@ -5611,31 +5605,43 @@ msgstr ""
 "Gailu hau ez-seguru gisa markatuta dago beste gailu batek egiaztatzen duen "
 "arte. Ahalik azkarren egiaztatzea gomendatzen da."
 
-#: src/settings/DevicesPage.qml:41
+#: src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:description"
 msgid "This device is marked as secure."
 msgstr "Gailu hau seguru gisa markatuta dago."
 
-#: src/settings/DevicesPage.qml:58
+#: src/settings/DevicesPage.qml:51
+#, kde-format
+msgctxt "@title"
+msgid "Verification Request Sent"
+msgstr "Egiaztapen-eskaera bidali da"
+
+#: src/settings/DevicesPage.qml:52
+#, kde-format
+msgctxt "@info:label"
+msgid "To proceed, accept the verification request on another device."
+msgstr "Jarraitzeko, egiaztapen-eskaera beste gailu batean onartu."
+
+#: src/settings/DevicesPage.qml:63
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Egiaztatutako gailuak"
 
-#: src/settings/DevicesPage.qml:64
+#: src/settings/DevicesPage.qml:69
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Egiaztatu gabeko gailuak"
 
-#: src/settings/DevicesPage.qml:70
+#: src/settings/DevicesPage.qml:75
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Zifratze-euskarririk gabeko gailuak"
 
-#: src/settings/DevicesPage.qml:86
+#: src/settings/DevicesPage.qml:91
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Mesedez, saio-hasi zure kontuan izen-emandako gailuak ikusteko."
@@ -5862,7 +5868,7 @@ msgid "Add keyword"
 msgstr "Gehitu gako-hitza"
 
 #: src/settings/GlobalNotificationsPage.qml:167
-#: src/settings/NeoChatSecurityPage.qml:102
+#: src/settings/NeoChatSecurityPage.qml:100
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -5914,7 +5920,6 @@ msgid "Remove identity server"
 msgstr "Kendu nortasun-zerbitzaria"
 
 #: src/settings/IgnoredUsersDialog.qml:20
-#: src/settings/NeoChatSecurityPage.qml:37
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
@@ -6469,19 +6474,19 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Ezikusitako erabiltzaileak"
 
-#: src/settings/NeoChatSecurityPage.qml:43
+#: src/settings/NeoChatSecurityPage.qml:41
 #, kde-format
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "Mezuak"
 
-#: src/settings/NeoChatSecurityPage.qml:48
+#: src/settings/NeoChatSecurityPage.qml:46
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
 msgstr "Erakutsi esteken aurreikuspegiak"
 
-#: src/settings/NeoChatSecurityPage.qml:49
+#: src/settings/NeoChatSecurityPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid ""
@@ -6491,13 +6496,13 @@ msgstr ""
 "Hau gelako neurrira ipin dezakezu gela ezarpenetatik. Marka kenduta badago, "
 "gela guztietan esteken aurreikuspegia ezgaitzen du."
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:60
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "Bidali tekleatze-jakinarazpenak"
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:74
 #, fuzzy, kde-format
 #| msgctxt "Room permission type"
 #| msgid "Send reactions"
@@ -6505,13 +6510,13 @@ msgctxt "@option:check"
 msgid "Send read receipts"
 msgstr "Erreakzioak bidaltzea"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:89
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "Ezkutatu irudiak eta bideoak era lehenetsian"
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:90
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6521,63 +6526,63 @@ msgstr ""
 "Aukera hau gaituta dagoenean, irudiak eta bideoak erakusteko botoi bat "
 "sakatu behar da."
 
-#: src/settings/NeoChatSecurityPage.qml:106
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
 msgstr "Edonor"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:106
 #, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
 msgstr "Edonork gonbidapenak bidal diezazkizuke."
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Known users"
 msgstr "Erabiltzaile ezagunak"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
 "Zurekin gela partekatzen dutenek bakarrik bidali diezazkizukete gonbidapenak."
 
-#: src/settings/NeoChatSecurityPage.qml:114
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:125
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Zure zerbitzariak ez du ezarpen hau onartzen."
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
 msgstr "Inor ez"
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:125
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
 msgstr "Inork ezin diezazkizuke gonbidapenak bidali."
 
-#: src/settings/NeoChatSecurityPage.qml:132
+#: src/settings/NeoChatSecurityPage.qml:130
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Zifratzea"
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Berriketa berrietan zifratzea piztu"
 
-#: src/settings/NeoChatSecurityPage.qml:138
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6586,60 +6591,48 @@ msgstr ""
 "Gaituta badago, zuzeneko mezu berriak abiatzean NeoChat zifratzea erabiliko "
 "du."
 
-#: src/settings/NeoChatSecurityPage.qml:152
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr "Kudeatu gakoen biltegiratzea"
 
-#: src/settings/NeoChatSecurityPage.qml:153
+#: src/settings/NeoChatSecurityPage.qml:151
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Inportatu edo giltzapetik askatu zifratzeko gakoak beste gailu batzuetatik."
 
-#: src/settings/NeoChatSecurityPage.qml:165
+#: src/settings/NeoChatSecurityPage.qml:163
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Inportatu gakoak"
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:164
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Inportatu zifratzeko gakoak babeskopia-fitxategi batetik."
 
-#: src/settings/NeoChatSecurityPage.qml:172
-#, kde-format
-msgctxt "@title"
-msgid "Import Keys"
-msgstr "Inportatu gakoak"
-
-#: src/settings/NeoChatSecurityPage.qml:175
+#: src/settings/NeoChatSecurityPage.qml:171
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Gakoen inportatze arrakastatsua"
 
-#: src/settings/NeoChatSecurityPage.qml:188
+#: src/settings/NeoChatSecurityPage.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Esportatu gakoak"
 
-#: src/settings/NeoChatSecurityPage.qml:189
+#: src/settings/NeoChatSecurityPage.qml:185
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Esportatu gailu honetako zifratzeko gakoak fitxategi batera."
-
-#: src/settings/NeoChatSecurityPage.qml:195
-#, kde-format
-msgctxt "@title"
-msgid "Export Keys"
-msgstr "Esportatu gakoak"
 
 #: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
@@ -6662,25 +6655,25 @@ msgctxt "@title"
 msgid "Security & Safety"
 msgstr "Segurtasuna"
 
-#: src/settings/NeoChatSettingsView.qml:64
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Devices"
+msgstr "Gailuak"
+
+#: src/settings/NeoChatSettingsView.qml:76
 #, kde-format
 msgid "Accounts"
 msgstr "Kontuak"
 
-#: src/settings/NeoChatSettingsView.qml:71
+#: src/settings/NeoChatSettingsView.qml:83
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Eranskailuak eta Emojiak"
 
-#: src/settings/NeoChatSettingsView.qml:84
+#: src/settings/NeoChatSettingsView.qml:96
 #, kde-format
 msgid "Network Proxy"
 msgstr "Sareko ordezkaria"
-
-#: src/settings/NeoChatSettingsView.qml:90
-#, kde-format
-msgid "Devices"
-msgstr "Gailuak"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
@@ -7590,6 +7583,14 @@ msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
 msgstr "Esploratu"
 
+#: src/spaces/SelectExistingRoomDialog.qml:147
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "Egin guraso hori ofiziala"
+
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgctxt "@info:description"
@@ -7815,128 +7816,160 @@ msgid "Save File…"
 msgstr "Gorde fitxategia…"
 
 #: src/timeline/DelegateContextMenu.qml:344
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Hide Image"
+msgctxt "@action:inmenu"
+msgid "Hide Image"
+msgstr "Ezkutatu irudia"
+
+#: src/timeline/DelegateContextMenu.qml:346
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Video"
+msgctxt "@action:inmenu"
+msgid "Hide Video"
+msgstr "Ireki bideoa"
+
+#: src/timeline/DelegateContextMenu.qml:358
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Image"
+msgctxt "@action:inmenu"
+msgid "Show Image"
+msgstr "Erakutsi irudia"
+
+#: src/timeline/DelegateContextMenu.qml:360
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Video"
+msgctxt "@action:inmenu"
+msgid "Show Video"
+msgstr "Erakutsi bideoa"
+
+#: src/timeline/DelegateContextMenu.qml:372
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Kopiatu irudia"
 
-#: src/timeline/DelegateContextMenu.qml:346
+#: src/timeline/DelegateContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Kopiatu audioa"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Kopiatu bideoa"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:378
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Kopiatu fitxategia"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopiatu estekaren helbidea"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopiatu testua"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:402
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopiatu mezuaren esteka"
 
-#: src/timeline/DelegateContextMenu.qml:382
+#: src/timeline/DelegateContextMenu.qml:410
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Salatu…"
 
-#: src/timeline/DelegateContextMenu.qml:387
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Salatu mezua"
 
-#: src/timeline/DelegateContextMenu.qml:388
+#: src/timeline/DelegateContextMenu.qml:416
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Nahi baduzu, eman mezu hau salatzeko arrazoia"
 
-#: src/timeline/DelegateContextMenu.qml:390
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Salatu"
 
-#: src/timeline/DelegateContextMenu.qml:394
+#: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Salatu mezua"
 
-#: src/timeline/DelegateContextMenu.qml:406
+#: src/timeline/DelegateContextMenu.qml:434
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Bilatu '%1'"
 
-#: src/timeline/DelegateContextMenu.qml:429
+#: src/timeline/DelegateContextMenu.qml:457
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Konfiguratu web-lasterbideak…"
 
-#: src/timeline/DelegateContextMenu.qml:437
+#: src/timeline/DelegateContextMenu.qml:465
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Irakurri testua ozenki"
 
-#: src/timeline/DelegateContextMenu.qml:440
+#: src/timeline/DelegateContextMenu.qml:468
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1(e)k %2 esan du"
 
-#: src/timeline/DelegateContextMenu.qml:460
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Iltzagetu"
 
-#: src/timeline/DelegateContextMenu.qml:460
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Iltzatu"
 
-#: src/timeline/DelegateContextMenu.qml:470
+#: src/timeline/DelegateContextMenu.qml:498
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Desautatu mezua"
 
-#: src/timeline/DelegateContextMenu.qml:470
+#: src/timeline/DelegateContextMenu.qml:498
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Hautatu mezua"
 
-#: src/timeline/DelegateContextMenu.qml:483
+#: src/timeline/DelegateContextMenu.qml:511
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -8060,6 +8093,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 tekleatzen ari da"
 msgstr[1] "%2 tekleatzen ari dira"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Verify This Device"
+#~ msgstr "Gailu hau egiaztatu"
+
+#~ msgctxt "@title"
+#~ msgid "Import Keys"
+#~ msgstr "Inportatu gakoak"
+
+#~ msgctxt "@title"
+#~ msgid "Export Keys"
+#~ msgstr "Esportatu gakoak"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Edit This Account"

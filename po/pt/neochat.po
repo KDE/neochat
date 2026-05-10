@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-09 00:43+0000\n"
+"POT-Creation-Date: 2026-05-10 00:43+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-POFile-SpellExtra: Rusakov Quotient gif webp novaalcunha libQuotient\n"
 "X-POFile-SpellExtra: push Lat Lon\n"
 
-#: src/app/controller.cpp:170
+#: src/app/controller.cpp:186
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt ""
@@ -28,7 +28,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Enviar as notificações de escrita"
 
-#: src/app/controller.cpp:317
+#: src/app/controller.cpp:333
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -267,25 +267,6 @@ msgstr "Ferramentas de Desenvolvimento"
 
 #: src/app/qml/AccountMenu.qml:65
 #, fuzzy, kde-format
-#| msgid "Verify device"
-msgctxt "@action:inmenu"
-msgid "Verify This Device"
-msgstr "Verificar o dispositivo"
-
-#: src/app/qml/AccountMenu.qml:71 src/settings/DevicesPage.qml:46
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr ""
-
-#: src/app/qml/AccountMenu.qml:72 src/settings/DevicesPage.qml:47
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr ""
-
-#: src/app/qml/AccountMenu.qml:83
-#, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
 #| msgid "Report"
@@ -293,7 +274,7 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Comunicar"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:79
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@action:inmenu"
@@ -945,7 +926,7 @@ msgid "Edit state"
 msgstr "Editar o Autocolante"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:116 src/settings/RoomSettingsView.qml:82
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -1107,28 +1088,28 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Mensagens Directas"
 
-#: src/app/qml/RoomPage.qml:299
+#: src/app/qml/RoomPage.qml:301
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Bem-vindo ao Matrix"
 
-#: src/app/qml/RoomPage.qml:300
+#: src/app/qml/RoomPage.qml:302
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Junte-se a algumas salas para começar"
 
-#: src/app/qml/RoomPage.qml:336
+#: src/app/qml/RoomPage.qml:338
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
 
-#: src/app/qml/RoomPage.qml:368
+#: src/app/qml/RoomPage.qml:370
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1338,19 +1319,19 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
+#: src/app/qml/UnlockSSSSDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:35
+#: src/app/qml/UnlockSSSSDialog.qml:36
 #, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:41
+#: src/app/qml/UnlockSSSSDialog.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -1358,25 +1339,39 @@ msgctxt "@info:status"
 msgid "Encryption keys restored."
 msgstr "Encriptação"
 
-#: src/app/qml/UnlockSSSSDialog.qml:48
+#: src/app/qml/UnlockSSSSDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Loaded keys from backup"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:48
+#: src/app/qml/UnlockSSSSDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Failed to load keys from backup"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:55
+#: src/app/qml/UnlockSSSSDialog.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Unlock by Verifying Session"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:67
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:59
+#: src/app/qml/UnlockSSSSDialog.qml:74
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1384,32 +1379,32 @@ msgid ""
 "passphrase”), enter it below or upload it as a file."
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:63
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, fuzzy, kde-format
 #| msgid "Security"
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "Segurança"
 
-#: src/app/qml/UnlockSSSSDialog.qml:68
+#: src/app/qml/UnlockSSSSDialog.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:78
+#: src/app/qml/UnlockSSSSDialog.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:89
+#: src/app/qml/UnlockSSSSDialog.qml:112
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:93
+#: src/app/qml/UnlockSSSSDialog.qml:120
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1417,13 +1412,13 @@ msgid ""
 "from other verified devices."
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:98
+#: src/app/qml/UnlockSSSSDialog.qml:129
 #, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:108
+#: src/app/qml/UnlockSSSSDialog.qml:139
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -1431,7 +1426,7 @@ msgctxt "@title"
 msgid "Decryption Key Backup"
 msgstr "Encriptação"
 
-#: src/app/qml/UnlockSSSSDialog.qml:114
+#: src/app/qml/UnlockSSSSDialog.qml:145
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -3970,18 +3965,18 @@ msgid ""
 msgstr ""
 "Contacte o administrador do seu servidor de Matrix para obter algum suporte."
 
-#: src/libneochat/neochatconnection.cpp:345
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:393
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Não foi possível criar a sala: %1"
 
-#: src/libneochat/neochatconnection.cpp:413
+#: src/libneochat/neochatconnection.cpp:422
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Não foi possível criar o espaço: %1"
@@ -4098,16 +4093,6 @@ msgstr "Nome:"
 msgctxt "@info:placeholder"
 msgid "New Space"
 msgstr "Ver o Espaço"
-
-#: src/libneochat/qml/CreateSpaceDialog.qml:64
-#: src/spaces/SelectExistingRoomDialog.qml:147
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "Torna este nome a alcunha canónica da sala"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
 #, fuzzy, kde-format
@@ -4578,7 +4563,7 @@ msgid "Copy to clipboard"
 msgstr "Copiar o ID da sala para a área de transferência"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:368
+#: src/messagecontent/VideoComponent.qml:363
 #, fuzzy, kde-format
 #| msgid "Maximize"
 msgctxt "@action:button"
@@ -4631,7 +4616,7 @@ msgid "Stop Download"
 msgstr "Parar a Transferência"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:109
+#: src/messagecontent/ImageComponent.qml:114
 #, fuzzy, kde-format
 #| msgid "Remove Message"
 msgctxt "@action:button"
@@ -4660,22 +4645,21 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
-#: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:157
+#: src/messagecontent/ImageComponent.qml:77
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Definir uma Imagem"
 
-#: src/messagecontent/ImageComponent.qml:85
+#: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Editar"
 
-#: src/messagecontent/ImageComponent.qml:184
+#: src/messagecontent/ImageComponent.qml:189
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
@@ -4755,14 +4739,14 @@ msgctxt "@info"
 msgid "Loading reply…"
 msgstr "A carregar…"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:94
+#: src/messagecontent/models/messagecontentmodel.cpp:104
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "O ficheiro é demasiado grande para ser transferido."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:97
+#: src/messagecontent/models/messagecontentmodel.cpp:107
 #, fuzzy, kde-format
 #| msgid "Failed to join room"
 msgctxt "@info Failed to download file: [error message]"
@@ -4929,19 +4913,29 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr ""
 
-#: src/messagecontent/VideoComponent.qml:185
+#: src/messagecontent/VideoComponent.qml:158
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "Hide Video"
+msgstr "Abrir o Ficheiro"
+
+#: src/messagecontent/VideoComponent.qml:183
 #, kde-format
 msgid "Video"
 msgstr "Vídeo"
 
-#: src/messagecontent/VideoComponent.qml:244
+#: src/messagecontent/VideoComponent.qml:242
 #, fuzzy, kde-format
 #| msgid "Video"
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Vídeo"
 
-#: src/messagecontent/VideoComponent.qml:285
+#: src/messagecontent/VideoComponent.qml:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -5207,7 +5201,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Procurar"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:121
 #, fuzzy, kde-format
 #| msgid "Open Settings"
 msgctxt "@action:button"
@@ -5621,7 +5615,14 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Editar a Conta"
 
-#: src/rooms/UserInfo.qml:99
+#: src/rooms/UserInfo.qml:99 src/settings/DevicesPage.qml:44
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "Verificar o dispositivo"
+
+#: src/rooms/UserInfo.qml:108
 #, fuzzy, kde-format
 #| msgid "Mute notifications"
 msgctxt "@action:button"
@@ -6110,14 +6111,7 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "Dispositivos"
 
-#: src/settings/DevicesPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Verify device"
-msgctxt "@action:button"
-msgid "Verify This Device"
-msgstr "Verificar o dispositivo"
-
-#: src/settings/DevicesPage.qml:40
+#: src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@info:description"
 msgid ""
@@ -6125,33 +6119,45 @@ msgid ""
 "It's recommended to verify as soon as possible."
 msgstr ""
 
-#: src/settings/DevicesPage.qml:41
+#: src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:description"
 msgid "This device is marked as secure."
 msgstr ""
 
-#: src/settings/DevicesPage.qml:58
+#: src/settings/DevicesPage.qml:51
+#, kde-format
+msgctxt "@title"
+msgid "Verification Request Sent"
+msgstr ""
+
+#: src/settings/DevicesPage.qml:52
+#, kde-format
+msgctxt "@info:label"
+msgid "To proceed, accept the verification request on another device."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:63
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Verificar o dispositivo"
 
-#: src/settings/DevicesPage.qml:64
+#: src/settings/DevicesPage.qml:69
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Verificar o dispositivo"
 
-#: src/settings/DevicesPage.qml:70
+#: src/settings/DevicesPage.qml:75
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr ""
 
-#: src/settings/DevicesPage.qml:86
+#: src/settings/DevicesPage.qml:91
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
@@ -6394,7 +6400,7 @@ msgid "Add keyword"
 msgstr "Adicionar uma palavra-chave"
 
 #: src/settings/GlobalNotificationsPage.qml:167
-#: src/settings/NeoChatSecurityPage.qml:102
+#: src/settings/NeoChatSecurityPage.qml:100
 #, fuzzy, kde-format
 #| msgid "Invites"
 msgctxt "@title:group"
@@ -6452,7 +6458,6 @@ msgid "Remove identity server"
 msgstr "Remover o dispositivo"
 
 #: src/settings/IgnoredUsersDialog.qml:20
-#: src/settings/NeoChatSecurityPage.qml:37
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@title:window"
@@ -7124,21 +7129,21 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Ignorar este utilizador"
 
-#: src/settings/NeoChatSecurityPage.qml:43
+#: src/settings/NeoChatSecurityPage.qml:41
 #, fuzzy, kde-format
 #| msgid "<message>"
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "<mensagem>"
 
-#: src/settings/NeoChatSecurityPage.qml:48
+#: src/settings/NeoChatSecurityPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Shrink preview"
 msgctxt "@label:checkbox"
 msgid "Show link previews"
 msgstr "Fechar a antevisão"
 
-#: src/settings/NeoChatSecurityPage.qml:49
+#: src/settings/NeoChatSecurityPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid ""
@@ -7146,27 +7151,27 @@ msgid ""
 "link previews in every room."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:60
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "Enviar as notificações de escrita"
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:74
 #, fuzzy, kde-format
 #| msgid "Send a Location"
 msgctxt "@option:check"
 msgid "Send read receipts"
 msgstr "Enviar a Localização"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:89
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:90
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7174,13 +7179,13 @@ msgid ""
 "is clicked."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:106
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:106
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Anyone can find and join."
@@ -7188,40 +7193,40 @@ msgctxt "@info:description"
 msgid "Anyone can send you invites."
 msgstr "Qualquer pessoa poderá pesquisar e ligar-se."
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:111
 #, fuzzy, kde-format
 #| msgid "Ban users"
 msgctxt "@option:check"
 msgid "Known users"
 msgstr "Banir utilizadores"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:114
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:125
 #, fuzzy, kde-format
 #| msgid "Your server doesn't support changing your password"
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "O seu servidor não suporta a mudança da sua senha"
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:125
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:132
+#: src/settings/NeoChatSecurityPage.qml:130
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -7229,26 +7234,26 @@ msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Encriptação"
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:138
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:152
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:153
+#: src/settings/NeoChatSecurityPage.qml:151
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -7256,7 +7261,7 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Encriptação"
 
-#: src/settings/NeoChatSecurityPage.qml:165
+#: src/settings/NeoChatSecurityPage.qml:163
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -7264,7 +7269,7 @@ msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Encriptação"
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:164
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -7272,20 +7277,14 @@ msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Encriptação"
 
-#: src/settings/NeoChatSecurityPage.qml:172
-#, kde-format
-msgctxt "@title"
-msgid "Import Keys"
-msgstr ""
-
-#: src/settings/NeoChatSecurityPage.qml:175
+#: src/settings/NeoChatSecurityPage.qml:171
 #, fuzzy, kde-format
 #| msgid "Report sent successfully."
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "O relatório foi enviado com sucesso."
 
-#: src/settings/NeoChatSecurityPage.qml:188
+#: src/settings/NeoChatSecurityPage.qml:184
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -7293,19 +7292,13 @@ msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Encriptação"
 
-#: src/settings/NeoChatSecurityPage.qml:189
+#: src/settings/NeoChatSecurityPage.qml:185
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Encriptação"
-
-#: src/settings/NeoChatSecurityPage.qml:195
-#, kde-format
-msgctxt "@title"
-msgid "Export Keys"
-msgstr ""
 
 #: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
@@ -7329,25 +7322,25 @@ msgctxt "@title"
 msgid "Security & Safety"
 msgstr "Segurança"
 
-#: src/settings/NeoChatSettingsView.qml:64
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Devices"
+msgstr "Dispositivos"
+
+#: src/settings/NeoChatSettingsView.qml:76
 #, kde-format
 msgid "Accounts"
 msgstr "Contas"
 
-#: src/settings/NeoChatSettingsView.qml:71
+#: src/settings/NeoChatSettingsView.qml:83
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Autocolantes & Emojis"
 
-#: src/settings/NeoChatSettingsView.qml:84
+#: src/settings/NeoChatSettingsView.qml:96
 #, kde-format
 msgid "Network Proxy"
 msgstr "'Proxy' de Rede"
-
-#: src/settings/NeoChatSettingsView.qml:90
-#, kde-format
-msgid "Devices"
-msgstr "Dispositivos"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
@@ -8337,6 +8330,15 @@ msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
 msgstr "Explorar as salas"
 
+#: src/spaces/SelectExistingRoomDialog.qml:147
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "Torna este nome a alcunha canónica da sala"
+
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgctxt "@info:description"
@@ -8601,52 +8603,83 @@ msgstr "Definir uma Imagem"
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
-msgid "Copy Image"
+msgid "Hide Image"
 msgstr "Definir uma Imagem"
 
 #: src/timeline/DelegateContextMenu.qml:346
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Hide Video"
+msgstr "Abrir o Ficheiro"
+
+#: src/timeline/DelegateContextMenu.qml:358
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Show Image"
+msgstr "Definir uma Imagem"
+
+#: src/timeline/DelegateContextMenu.qml:360
+#, fuzzy, kde-format
+#| msgid "Video"
+msgctxt "@action:inmenu"
+msgid "Show Video"
+msgstr "Vídeo"
+
+#: src/timeline/DelegateContextMenu.qml:372
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Copy Image"
+msgstr "Definir uma Imagem"
+
+#: src/timeline/DelegateContextMenu.qml:374
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Copiar a ligação"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:376
 #, fuzzy, kde-format
 #| msgid "Video"
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Vídeo"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:378
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Copiar a ligação"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:388
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Copiar a ligação"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:396
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Copiar"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:402
 #, fuzzy, kde-format
 #| msgid "Copy Link"
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Copiar a Ligação"
 
-#: src/timeline/DelegateContextMenu.qml:382
+#: src/timeline/DelegateContextMenu.qml:410
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -8656,86 +8689,86 @@ msgctxt ""
 msgid "Report…"
 msgstr "Comunicar"
 
-#: src/timeline/DelegateContextMenu.qml:387
+#: src/timeline/DelegateContextMenu.qml:415
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Mensagem de Relatório"
 
-#: src/timeline/DelegateContextMenu.qml:388
+#: src/timeline/DelegateContextMenu.qml:416
 #, fuzzy, kde-format
 #| msgid "Reason for reporting this message"
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Razão para comunicar esta mensagem"
 
-#: src/timeline/DelegateContextMenu.qml:390
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Comunicar"
 
-#: src/timeline/DelegateContextMenu.qml:394
+#: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Comunicar a Mensagem"
 
-#: src/timeline/DelegateContextMenu.qml:406
+#: src/timeline/DelegateContextMenu.qml:434
 #, fuzzy, kde-format
 #| msgid "Search for '%1'"
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Procurar por '%1'"
 
-#: src/timeline/DelegateContextMenu.qml:429
+#: src/timeline/DelegateContextMenu.qml:457
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Configurar os Atalhos Web..."
 
-#: src/timeline/DelegateContextMenu.qml:437
+#: src/timeline/DelegateContextMenu.qml:465
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:440
+#: src/timeline/DelegateContextMenu.qml:468
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:460
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:460
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:470
+#: src/timeline/DelegateContextMenu.qml:498
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Mensagens Directas"
 
-#: src/timeline/DelegateContextMenu.qml:470
+#: src/timeline/DelegateContextMenu.qml:498
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Mensagens Directas"
 
-#: src/timeline/DelegateContextMenu.qml:483
+#: src/timeline/DelegateContextMenu.qml:511
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -8866,6 +8899,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está a escrever"
 msgstr[1] "%2 estão a escrever"
+
+#, fuzzy
+#~| msgid "Verify device"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Verify This Device"
+#~ msgstr "Verificar o dispositivo"
 
 #, fuzzy
 #~| msgid "Edit this account"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-09 00:43+0000\n"
+"POT-Creation-Date: 2026-05-10 00:43+0000\n"
 "PO-Revision-Date: 2026-05-08 13:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: src/app/controller.cpp:170
+#: src/app/controller.cpp:186
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -27,7 +27,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Yeni iletiler için bildirimler alınıyor"
 
-#: src/app/controller.cpp:317
+#: src/app/controller.cpp:333
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Anında bildirimler alınıyor"
@@ -248,29 +248,11 @@ msgstr "Geliştirici Araçları"
 
 #: src/app/qml/AccountMenu.qml:65
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Verify This Device"
-msgstr "Bu Aygıtı Doğrula"
-
-#: src/app/qml/AccountMenu.qml:71 src/settings/DevicesPage.qml:46
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr "Doğrulama İsteği Gönderildi"
-
-#: src/app/qml/AccountMenu.qml:72 src/settings/DevicesPage.qml:47
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr "Sürdürmek için doğrulama isteğini başka bir aygıtta kabul edin."
-
-#: src/app/qml/AccountMenu.qml:83
-#, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Destek"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
@@ -847,7 +829,7 @@ msgid "Edit state"
 msgstr "Durumu Düzenle"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:116 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -997,25 +979,25 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Sabitlenmiş İletiler"
 
-#: src/app/qml/RoomPage.qml:299
+#: src/app/qml/RoomPage.qml:301
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "NeoChat’e hoş geldiniz"
 
-#: src/app/qml/RoomPage.qml:300
+#: src/app/qml/RoomPage.qml:302
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Başlamak için bir oda seçin veya odaya katılın"
 
-#: src/app/qml/RoomPage.qml:336
+#: src/app/qml/RoomPage.qml:338
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat çevrim dışı. Lütfen ağ bağlantınızı denetleyin."
 
-#: src/app/qml/RoomPage.qml:368
+#: src/app/qml/RoomPage.qml:370
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1198,43 +1180,57 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "E-posta ile iletişime geç (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
+#: src/app/qml/UnlockSSSSDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
 msgstr "Anahtar Depolamasını Yönet"
 
-#: src/app/qml/UnlockSSSSDialog.qml:35
+#: src/app/qml/UnlockSSSSDialog.qml:36
 #, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
 msgstr "Kurtarma anahtarı doğru değildi."
 
-#: src/app/qml/UnlockSSSSDialog.qml:41
+#: src/app/qml/UnlockSSSSDialog.qml:42
 #, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
 msgstr "Şifreleme anahtarları geri yüklendi."
 
-#: src/app/qml/UnlockSSSSDialog.qml:48
+#: src/app/qml/UnlockSSSSDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Loaded keys from backup"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:48
+#: src/app/qml/UnlockSSSSDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Failed to load keys from backup"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:55
+#: src/app/qml/UnlockSSSSDialog.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Unlock by Verifying Session"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:67
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr "Kurtarma Anahtarı ile Kilit Aç"
 
-#: src/app/qml/UnlockSSSSDialog.qml:59
+#: src/app/qml/UnlockSSSSDialog.qml:74
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1245,31 +1241,31 @@ msgstr ""
 "“yedek anahtar parolası” olarak da bilinir) onu aşağıya girin veya bir dosya "
 "olarak yükleyin."
 
-#: src/app/qml/UnlockSSSSDialog.qml:63
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "Kurtarma anahtarı:"
 
-#: src/app/qml/UnlockSSSSDialog.qml:68
+#: src/app/qml/UnlockSSSSDialog.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Dosyadan Yükle"
 
-#: src/app/qml/UnlockSSSSDialog.qml:78
+#: src/app/qml/UnlockSSSSDialog.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Kilidi Aç"
 
-#: src/app/qml/UnlockSSSSDialog.qml:89
+#: src/app/qml/UnlockSSSSDialog.qml:112
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Çapraz İmzalama ile Kilit Aç"
 
-#: src/app/qml/UnlockSSSSDialog.qml:93
+#: src/app/qml/UnlockSSSSDialog.qml:120
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1279,13 +1275,13 @@ msgstr ""
 "Bu aygıtı daha önce doğruladıysanız başka doğrulanmış aygıtlardan şifreleme "
 "anahtarları isteyin."
 
-#: src/app/qml/UnlockSSSSDialog.qml:98
+#: src/app/qml/UnlockSSSSDialog.qml:129
 #, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Başka Aygıtlardan İste"
 
-#: src/app/qml/UnlockSSSSDialog.qml:108
+#: src/app/qml/UnlockSSSSDialog.qml:139
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Open Key Backup"
@@ -1293,7 +1289,7 @@ msgctxt "@title"
 msgid "Decryption Key Backup"
 msgstr "Anahtar Yedeğini Aç"
 
-#: src/app/qml/UnlockSSSSDialog.qml:114
+#: src/app/qml/UnlockSSSSDialog.qml:145
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup file."
@@ -3631,18 +3627,18 @@ msgstr ""
 "Dosya indirmek için pek büyük.<br />Destek için Matrix sunucusu yöneticisine "
 "ulaşın."
 
-#: src/libneochat/neochatconnection.cpp:345
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Yapılandırılmış kimlik sunucusu yok"
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:393
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Oda oluşturulamadı: %1"
 
-#: src/libneochat/neochatconnection.cpp:413
+#: src/libneochat/neochatconnection.cpp:422
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
@@ -3747,15 +3743,6 @@ msgstr "Ad:"
 msgctxt "@info:placeholder"
 msgid "New Space"
 msgstr "Yeni alan"
-
-#: src/libneochat/qml/CreateSpaceDialog.qml:64
-#: src/spaces/SelectExistingRoomDialog.qml:147
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "Bu üst ögeyi resmî yap"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
 #, kde-format
@@ -4182,7 +4169,7 @@ msgid "Copy to clipboard"
 msgstr "Panoya kopyala"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:368
+#: src/messagecontent/VideoComponent.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4232,7 +4219,7 @@ msgid "Stop Download"
 msgstr "İndirmeyi Durdur"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:109
+#: src/messagecontent/ImageComponent.qml:114
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4260,20 +4247,19 @@ msgstr "Giriş zamanı: %1"
 msgid "Check-out time: %1"
 msgstr "Çıkış zamanı: %1"
 
-#: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:157
+#: src/messagecontent/ImageComponent.qml:77
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Görseli Gizle"
 
-#: src/messagecontent/ImageComponent.qml:85
+#: src/messagecontent/ImageComponent.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: src/messagecontent/ImageComponent.qml:184
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4347,13 +4333,13 @@ msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Yanıt yükleniyor…"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:94
+#: src/messagecontent/models/messagecontentmodel.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Dosya indirilemedi."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:97
+#: src/messagecontent/models/messagecontentmodel.cpp:107
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4496,18 +4482,26 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "P %1"
 
-#: src/messagecontent/VideoComponent.qml:185
+#: src/messagecontent/VideoComponent.qml:158
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Video"
+msgctxt "@action:button"
+msgid "Hide Video"
+msgstr "Video Aç"
+
+#: src/messagecontent/VideoComponent.qml:183
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:244
+#: src/messagecontent/VideoComponent.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Videoyu Göster"
 
-#: src/messagecontent/VideoComponent.qml:285
+#: src/messagecontent/VideoComponent.qml:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4736,7 +4730,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Odalar ara"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5089,7 +5083,13 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Hesabı yönet"
 
-#: src/rooms/UserInfo.qml:99
+#: src/rooms/UserInfo.qml:99 src/settings/DevicesPage.qml:44
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "Bu Aygıtı Doğrula"
+
+#: src/rooms/UserInfo.qml:108
 #, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
@@ -5538,13 +5538,7 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "Bu Aygıt"
 
-#: src/settings/DevicesPage.qml:39
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify This Device"
-msgstr "Bu Aygıtı Doğrula"
-
-#: src/settings/DevicesPage.qml:40
+#: src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@info:description"
 msgid ""
@@ -5554,31 +5548,43 @@ msgstr ""
 "Bu aygıt, başka bir aygıt tarafından doğrulanana kadar güvenli olmayan "
 "olarak imlenmiştir. En kısa sürede doğrulama yapmanız önerilir."
 
-#: src/settings/DevicesPage.qml:41
+#: src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:description"
 msgid "This device is marked as secure."
 msgstr "Bu aygıt güvenli olarak imlenmiş."
 
-#: src/settings/DevicesPage.qml:58
+#: src/settings/DevicesPage.qml:51
+#, kde-format
+msgctxt "@title"
+msgid "Verification Request Sent"
+msgstr "Doğrulama İsteği Gönderildi"
+
+#: src/settings/DevicesPage.qml:52
+#, kde-format
+msgctxt "@info:label"
+msgid "To proceed, accept the verification request on another device."
+msgstr "Sürdürmek için doğrulama isteğini başka bir aygıtta kabul edin."
+
+#: src/settings/DevicesPage.qml:63
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Doğrulanmış Aygıtlar"
 
-#: src/settings/DevicesPage.qml:64
+#: src/settings/DevicesPage.qml:69
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Doğrulanmamış Aygıtlar"
 
-#: src/settings/DevicesPage.qml:70
+#: src/settings/DevicesPage.qml:75
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Şifreleme Desteği Olmayan Aygıtlar"
 
-#: src/settings/DevicesPage.qml:86
+#: src/settings/DevicesPage.qml:91
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Hesabınıza oturum açmış aygıtları görüntülemek için oturum açın."
@@ -5804,7 +5810,7 @@ msgid "Add keyword"
 msgstr "Anahtar sözcük ekle"
 
 #: src/settings/GlobalNotificationsPage.qml:167
-#: src/settings/NeoChatSecurityPage.qml:102
+#: src/settings/NeoChatSecurityPage.qml:100
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -5856,7 +5862,6 @@ msgid "Remove identity server"
 msgstr "Kimlik Sunucusunu Kaldır"
 
 #: src/settings/IgnoredUsersDialog.qml:20
-#: src/settings/NeoChatSecurityPage.qml:37
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
@@ -6404,19 +6409,19 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Yok Sayılan Kullanıcılar"
 
-#: src/settings/NeoChatSecurityPage.qml:43
+#: src/settings/NeoChatSecurityPage.qml:41
 #, kde-format
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "İletiler"
 
-#: src/settings/NeoChatSecurityPage.qml:48
+#: src/settings/NeoChatSecurityPage.qml:46
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
 msgstr "Bağlantı önizlemelerini göster"
 
-#: src/settings/NeoChatSecurityPage.qml:49
+#: src/settings/NeoChatSecurityPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid ""
@@ -6426,25 +6431,25 @@ msgstr ""
 "Bu ayarı oda ayarları altında oda bazında özelleştirebilirsiniz. "
 "İşaretlenmediğinde, her odada bağlantı önizlemeleri devre dışı bırakılır."
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:60
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "“Yazıyor” bildirimlerini gönder"
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:74
 #, kde-format
 msgctxt "@option:check"
 msgid "Send read receipts"
 msgstr "Okundu makbuzları gönder"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:89
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "Görselleri ve videoları öntanımlı olarak gizle"
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:90
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6454,63 +6459,63 @@ msgstr ""
 "Bu seçenek etkinleştirildiğinde, görseller ve videolar yalnızca bir düğmeye "
 "tıklandıktan sonra gösterilirler."
 
-#: src/settings/NeoChatSecurityPage.qml:106
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
 msgstr "Herkes"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:106
 #, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
 msgstr "Herkes size davet gönderebilir."
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Known users"
 msgstr "Bilinen kullanıcılar"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
 "Yalnızca bir odayı paylaştığınız kullanıcılar size davet gönderebilirler."
 
-#: src/settings/NeoChatSecurityPage.qml:114
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:125
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Sunucunuz bu ayarı desteklemiyor."
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
 msgstr "Hiç kimse"
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:125
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
 msgstr "Hiç kimse size davet gönderemez."
 
-#: src/settings/NeoChatSecurityPage.qml:132
+#: src/settings/NeoChatSecurityPage.qml:130
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Yeni sohbetlerde şifrelemeyi aç"
 
-#: src/settings/NeoChatSecurityPage.qml:138
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6519,60 +6524,48 @@ msgstr ""
 "Etkinleştirilmişse NeoChat, yeni doğrudan iletiler başlatırken şifreleme "
 "kullanır."
 
-#: src/settings/NeoChatSecurityPage.qml:152
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr "Anahtar Depolamasını Yönet"
 
-#: src/settings/NeoChatSecurityPage.qml:153
+#: src/settings/NeoChatSecurityPage.qml:151
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Başka aygıtlardan şifreleme anahtarları içe aktarın veya kilitlerini açın."
 
-#: src/settings/NeoChatSecurityPage.qml:165
+#: src/settings/NeoChatSecurityPage.qml:163
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Anahtarlar İçe Aktar"
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:164
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Bir yedek dosyasından şifreleme anahtarları içe aktarın."
 
-#: src/settings/NeoChatSecurityPage.qml:172
-#, kde-format
-msgctxt "@title"
-msgid "Import Keys"
-msgstr "Anahtarlar İçe Aktar"
-
-#: src/settings/NeoChatSecurityPage.qml:175
+#: src/settings/NeoChatSecurityPage.qml:171
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Anahtarlar başarıyla içe aktarıldı"
 
-#: src/settings/NeoChatSecurityPage.qml:188
+#: src/settings/NeoChatSecurityPage.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Anahtarları Dışa Aktar"
 
-#: src/settings/NeoChatSecurityPage.qml:189
+#: src/settings/NeoChatSecurityPage.qml:185
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Bu aygıtın şifreleme anahtarlarını bir dosyaya dışa aktarın."
-
-#: src/settings/NeoChatSecurityPage.qml:195
-#, kde-format
-msgctxt "@title"
-msgid "Export Keys"
-msgstr "Anahtarları Dışa Aktar"
 
 #: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
@@ -6595,25 +6588,25 @@ msgctxt "@title"
 msgid "Security & Safety"
 msgstr "Güvenlik"
 
-#: src/settings/NeoChatSettingsView.qml:64
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Devices"
+msgstr "Aygıtlar"
+
+#: src/settings/NeoChatSettingsView.qml:76
 #, kde-format
 msgid "Accounts"
 msgstr "Hesaplar"
 
-#: src/settings/NeoChatSettingsView.qml:71
+#: src/settings/NeoChatSettingsView.qml:83
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Çıkartmalar ve Emojiler"
 
-#: src/settings/NeoChatSettingsView.qml:84
+#: src/settings/NeoChatSettingsView.qml:96
 #, kde-format
 msgid "Network Proxy"
 msgstr "Ağ Vekili"
-
-#: src/settings/NeoChatSettingsView.qml:90
-#, kde-format
-msgid "Devices"
-msgstr "Aygıtlar"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
@@ -7518,6 +7511,14 @@ msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
 msgstr "Keşfet"
 
+#: src/spaces/SelectExistingRoomDialog.qml:147
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "Bu üst ögeyi resmî yap"
+
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgctxt "@info:description"
@@ -7738,128 +7739,160 @@ msgid "Save File…"
 msgstr "Dosyayı Kaydet…"
 
 #: src/timeline/DelegateContextMenu.qml:344
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Hide Image"
+msgctxt "@action:inmenu"
+msgid "Hide Image"
+msgstr "Görseli Gizle"
+
+#: src/timeline/DelegateContextMenu.qml:346
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Video"
+msgctxt "@action:inmenu"
+msgid "Hide Video"
+msgstr "Video Aç"
+
+#: src/timeline/DelegateContextMenu.qml:358
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Image"
+msgctxt "@action:inmenu"
+msgid "Show Image"
+msgstr "Görseli Göster"
+
+#: src/timeline/DelegateContextMenu.qml:360
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Video"
+msgctxt "@action:inmenu"
+msgid "Show Video"
+msgstr "Videoyu Göster"
+
+#: src/timeline/DelegateContextMenu.qml:372
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Görseli Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:346
+#: src/timeline/DelegateContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Sesi Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:376
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Videoyu Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:378
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Dosyayı Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Bağlantı Adresini Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Metni Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:402
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "İleti Bağlantısını Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:382
+#: src/timeline/DelegateContextMenu.qml:410
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Bildir…"
 
-#: src/timeline/DelegateContextMenu.qml:387
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: src/timeline/DelegateContextMenu.qml:388
+#: src/timeline/DelegateContextMenu.qml:416
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "İsteğe bağlı olarak bu iletiyi rapor etme gerekçenizi verin"
 
-#: src/timeline/DelegateContextMenu.qml:390
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Bildir"
 
-#: src/timeline/DelegateContextMenu.qml:394
+#: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: src/timeline/DelegateContextMenu.qml:406
+#: src/timeline/DelegateContextMenu.qml:434
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Ara: “%1”"
 
-#: src/timeline/DelegateContextMenu.qml:429
+#: src/timeline/DelegateContextMenu.qml:457
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Web Kısayollarını Yapılandır…"
 
-#: src/timeline/DelegateContextMenu.qml:437
+#: src/timeline/DelegateContextMenu.qml:465
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Metni Sesli Olarak Oku"
 
-#: src/timeline/DelegateContextMenu.qml:440
+#: src/timeline/DelegateContextMenu.qml:468
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1, %2 dedi"
 
-#: src/timeline/DelegateContextMenu.qml:460
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Sabitlemeyi Kaldır"
 
-#: src/timeline/DelegateContextMenu.qml:460
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Sabitle"
 
-#: src/timeline/DelegateContextMenu.qml:470
+#: src/timeline/DelegateContextMenu.qml:498
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "İletinin Seçimini Kaldır"
 
-#: src/timeline/DelegateContextMenu.qml:470
+#: src/timeline/DelegateContextMenu.qml:498
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "İletiyi Seç"
 
-#: src/timeline/DelegateContextMenu.qml:483
+#: src/timeline/DelegateContextMenu.qml:511
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7980,6 +8013,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 yazıyor"
 msgstr[1] "%2 yazıyor"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Verify This Device"
+#~ msgstr "Bu Aygıtı Doğrula"
+
+#~ msgctxt "@title"
+#~ msgid "Import Keys"
+#~ msgstr "Anahtarlar İçe Aktar"
+
+#~ msgctxt "@title"
+#~ msgid "Export Keys"
+#~ msgstr "Anahtarları Dışa Aktar"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Edit This Account"

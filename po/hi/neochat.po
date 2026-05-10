@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-09 00:43+0000\n"
+"POT-Creation-Date: 2026-05-10 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: src/app/controller.cpp:170
+#: src/app/controller.cpp:186
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -27,7 +27,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "नए संदेशों के लिए सूचनाएं प्राप्त करना"
 
-#: src/app/controller.cpp:317
+#: src/app/controller.cpp:333
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "पुश नोटिफिकेशन प्राप्त करना"
@@ -256,24 +256,6 @@ msgid "Developer Tools"
 msgstr "डेवलपर उपकरण"
 
 #: src/app/qml/AccountMenu.qml:65
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Verify This Device"
-msgstr "इस डिवाइस को सत्यापित करें"
-
-#: src/app/qml/AccountMenu.qml:71 src/settings/DevicesPage.qml:46
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr ""
-
-#: src/app/qml/AccountMenu.qml:72 src/settings/DevicesPage.qml:47
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr ""
-
-#: src/app/qml/AccountMenu.qml:83
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -282,7 +264,7 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "प्रतिवेदन"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:79
 #, fuzzy, kde-format
 #| msgctxt "@title: dialog to switch between logged in accounts"
 #| msgid "Switch Account"
@@ -905,7 +887,7 @@ msgid "Edit state"
 msgstr "राज्य संपादित करें"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:107 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:116 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1063,28 +1045,28 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "संदेश खोजें…"
 
-#: src/app/qml/RoomPage.qml:299
+#: src/app/qml/RoomPage.qml:301
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "नियोचैट में आपका स्वागत है"
 
-#: src/app/qml/RoomPage.qml:300
+#: src/app/qml/RoomPage.qml:302
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "आरंभ करने के लिए कोई कमरा चुनें या उसमें शामिल हों"
 
-#: src/app/qml/RoomPage.qml:336
+#: src/app/qml/RoomPage.qml:338
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "नियोचैट ऑफ़लाइन है। कृपया अपना नेटवर्क कनेक्शन जांचें।"
 
-#: src/app/qml/RoomPage.qml:368
+#: src/app/qml/RoomPage.qml:370
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1292,13 +1274,13 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:156
+#: src/app/qml/UnlockSSSSDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:35
+#: src/app/qml/UnlockSSSSDialog.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "The security phrase was not correct."
@@ -1306,25 +1288,39 @@ msgctxt "@info:status"
 msgid "The recovery key was not correct."
 msgstr "सुरक्षा वाक्यांश सही नहीं था."
 
-#: src/app/qml/UnlockSSSSDialog.qml:41
+#: src/app/qml/UnlockSSSSDialog.qml:42
 #, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:48
+#: src/app/qml/UnlockSSSSDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Loaded keys from backup"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:48
+#: src/app/qml/UnlockSSSSDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Failed to load keys from backup"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:55
+#: src/app/qml/UnlockSSSSDialog.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Unlock by Verifying Session"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:67
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Unlock using Passphrase"
@@ -1332,7 +1328,7 @@ msgctxt "@title"
 msgid "Unlock using Recovery Key"
 msgstr "पासफ़्रेज़ का उपयोग करके अनलॉक करें"
 
-#: src/app/qml/UnlockSSSSDialog.qml:59
+#: src/app/qml/UnlockSSSSDialog.qml:74
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid ""
@@ -1346,7 +1342,7 @@ msgstr ""
 "यदि आपके पास इस खाते के लिए सुरक्षा कुंजी है, तो उसे नीचे दर्ज करें या फ़ाइल के रूप में अपलोड "
 "करें."
 
-#: src/app/qml/UnlockSSSSDialog.qml:63
+#: src/app/qml/UnlockSSSSDialog.qml:78
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Security Key:"
@@ -1354,7 +1350,7 @@ msgctxt "@label:textbox"
 msgid "Recovery Key:"
 msgstr "सुरक्षा कुंजी:"
 
-#: src/app/qml/UnlockSSSSDialog.qml:68
+#: src/app/qml/UnlockSSSSDialog.qml:87
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Upload from File"
@@ -1362,19 +1358,19 @@ msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "फ़ाइल से अपलोड करें"
 
-#: src/app/qml/UnlockSSSSDialog.qml:78
+#: src/app/qml/UnlockSSSSDialog.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "अनलॉक"
 
-#: src/app/qml/UnlockSSSSDialog.qml:89
+#: src/app/qml/UnlockSSSSDialog.qml:112
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "क्रॉस-साइनिंग से अनलॉक करें"
 
-#: src/app/qml/UnlockSSSSDialog.qml:93
+#: src/app/qml/UnlockSSSSDialog.qml:120
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid ""
@@ -1388,7 +1384,7 @@ msgstr ""
 "यदि आपने पहले इस डिवाइस को सत्यापित कर लिया है, तो आप नीचे दिए गए बटन पर क्लिक करके "
 "अन्य डिवाइस से बैकअप कुंजी लोड करने का प्रयास कर सकते हैं।"
 
-#: src/app/qml/UnlockSSSSDialog.qml:98
+#: src/app/qml/UnlockSSSSDialog.qml:129
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Request from other Devices"
@@ -1396,7 +1392,7 @@ msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "अन्य डिवाइस से अनुरोध करें"
 
-#: src/app/qml/UnlockSSSSDialog.qml:108
+#: src/app/qml/UnlockSSSSDialog.qml:139
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Open Key Backup"
@@ -1404,7 +1400,7 @@ msgctxt "@title"
 msgid "Decryption Key Backup"
 msgstr "कुंजी बैकअप खोलें"
 
-#: src/app/qml/UnlockSSSSDialog.qml:114
+#: src/app/qml/UnlockSSSSDialog.qml:145
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -3844,18 +3840,18 @@ msgstr ""
 "फ़ाइल डाउनलोड करने के लिए बहुत बड़ी है.<br /> सहायता के लिए अपने मैट्रिक्स सर्वर "
 "व्यवस्थापक से संपर्क करें।"
 
-#: src/libneochat/neochatconnection.cpp:345
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोई पहचान सर्वर कॉन्फ़िगर नहीं किया गया"
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:393
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्ष निर्माण विफल: %1"
 
-#: src/libneochat/neochatconnection.cpp:413
+#: src/libneochat/neochatconnection.cpp:422
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "स्थान निर्माण विफल: %1"
@@ -3976,15 +3972,6 @@ msgstr "नाम:"
 msgctxt "@info:placeholder"
 msgid "New Space"
 msgstr "स्थान देखें"
-
-#: src/libneochat/qml/CreateSpaceDialog.qml:64
-#: src/spaces/SelectExistingRoomDialog.qml:147
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "इस अभिभावक को आधिकारिक बनाएं"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
 #, fuzzy, kde-format
@@ -4428,7 +4415,7 @@ msgid "Copy to clipboard"
 msgstr "क्लिपबोर्ड पर कॉपी करें"
 
 #: src/messagecontent/CodeComponent.qml:195
-#: src/messagecontent/VideoComponent.qml:368
+#: src/messagecontent/VideoComponent.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4478,7 +4465,7 @@ msgid "Stop Download"
 msgstr "डाउनलोड रोकें"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:109
+#: src/messagecontent/ImageComponent.qml:114
 #, fuzzy, kde-format
 #| msgid "Remove parent"
 msgctxt "@action:button"
@@ -4507,22 +4494,21 @@ msgstr "चेक-इन समय: %1"
 msgid "Check-out time: %1"
 msgstr "चेक-आउट समय: %1"
 
-#: src/messagecontent/ImageComponent.qml:69
-#: src/messagecontent/VideoComponent.qml:157
+#: src/messagecontent/ImageComponent.qml:77
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "छवि सेट करें"
 
-#: src/messagecontent/ImageComponent.qml:85
+#: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:button"
 msgid "Edit"
 msgstr "संपादन करना"
 
-#: src/messagecontent/ImageComponent.qml:184
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4600,13 +4586,13 @@ msgctxt "@info"
 msgid "Loading reply…"
 msgstr "जवाब लोड हो रहा है"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:94
+#: src/messagecontent/models/messagecontentmodel.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:97
+#: src/messagecontent/models/messagecontentmodel.cpp:107
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
@@ -4774,18 +4760,28 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "कृपया %1"
 
-#: src/messagecontent/VideoComponent.qml:185
+#: src/messagecontent/VideoComponent.qml:158
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "Hide Video"
+msgstr "खुली फाइल"
+
+#: src/messagecontent/VideoComponent.qml:183
 #, kde-format
 msgid "Video"
 msgstr "वीडियो"
 
-#: src/messagecontent/VideoComponent.qml:244
+#: src/messagecontent/VideoComponent.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "वीडियो दिखाएं"
 
-#: src/messagecontent/VideoComponent.qml:285
+#: src/messagecontent/VideoComponent.qml:280
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -5044,7 +5040,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "कमरे खोजें"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:112
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:121
 #, fuzzy, kde-format
 #| msgid "Open Settings"
 msgctxt "@action:button"
@@ -5463,7 +5459,15 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "खाता निष्क्रिय करें"
 
-#: src/rooms/UserInfo.qml:99
+#: src/rooms/UserInfo.qml:99 src/settings/DevicesPage.qml:44
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify This Device"
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "इस डिवाइस को सत्यापित करें"
+
+#: src/rooms/UserInfo.qml:108
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@action:button"
@@ -5943,15 +5947,7 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "यह डिवाइस"
 
-#: src/settings/DevicesPage.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify This Device"
-msgctxt "@action:button"
-msgid "Verify This Device"
-msgstr "इस डिवाइस को सत्यापित करें"
-
-#: src/settings/DevicesPage.qml:40
+#: src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@info:description"
 msgid ""
@@ -5959,31 +5955,43 @@ msgid ""
 "It's recommended to verify as soon as possible."
 msgstr ""
 
-#: src/settings/DevicesPage.qml:41
+#: src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:description"
 msgid "This device is marked as secure."
 msgstr ""
 
-#: src/settings/DevicesPage.qml:58
+#: src/settings/DevicesPage.qml:51
+#, kde-format
+msgctxt "@title"
+msgid "Verification Request Sent"
+msgstr ""
+
+#: src/settings/DevicesPage.qml:52
+#, kde-format
+msgctxt "@info:label"
+msgid "To proceed, accept the verification request on another device."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:63
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "सत्यापित डिवाइस"
 
-#: src/settings/DevicesPage.qml:64
+#: src/settings/DevicesPage.qml:69
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "असत्यापित डिवाइस"
 
-#: src/settings/DevicesPage.qml:70
+#: src/settings/DevicesPage.qml:75
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "एन्क्रिप्शन समर्थन के बिना डिवाइस"
 
-#: src/settings/DevicesPage.qml:86
+#: src/settings/DevicesPage.qml:91
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "कृपया अपने खाते के लिए साइन-इन डिवाइस देखने के लिए लॉगिन करें।"
@@ -6207,7 +6215,7 @@ msgid "Add keyword"
 msgstr "कीवर्ड जोड़ें"
 
 #: src/settings/GlobalNotificationsPage.qml:167
-#: src/settings/NeoChatSecurityPage.qml:102
+#: src/settings/NeoChatSecurityPage.qml:100
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6259,7 +6267,6 @@ msgid "Remove identity server"
 msgstr "पहचान सर्वर हटाएँ"
 
 #: src/settings/IgnoredUsersDialog.qml:20
-#: src/settings/NeoChatSecurityPage.qml:37
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
@@ -6872,21 +6879,21 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "अनदेखा किए गए उपयोगकर्ता"
 
-#: src/settings/NeoChatSecurityPage.qml:43
+#: src/settings/NeoChatSecurityPage.qml:41
 #, fuzzy, kde-format
 #| msgid "<message>"
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "<संदेश>"
 
-#: src/settings/NeoChatSecurityPage.qml:48
+#: src/settings/NeoChatSecurityPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Shrink preview"
 msgctxt "@label:checkbox"
 msgid "Show link previews"
 msgstr "पूर्वावलोकन सिकोड़ें"
 
-#: src/settings/NeoChatSecurityPage.qml:49
+#: src/settings/NeoChatSecurityPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid ""
@@ -6894,14 +6901,14 @@ msgid ""
 "link previews in every room."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:60
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "टाइपिंग सूचनाएं भेजें"
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:74
 #, fuzzy, kde-format
 #| msgctxt "Room permission type"
 #| msgid "Send reactions"
@@ -6909,13 +6916,13 @@ msgctxt "@option:check"
 msgid "Send read receipts"
 msgstr "प्रतिक्रियाएँ भेजें"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:89
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "डिफ़ॉल्ट रूप से छवियाँ और वीडियो छिपाएँ"
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:90
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6925,13 +6932,13 @@ msgstr ""
 "जब यह विकल्प सक्षम होता है, तो छवियाँ और वीडियो केवल बटन क्लिक करने के बाद ही दिखाए "
 "जाते हैं।"
 
-#: src/settings/NeoChatSecurityPage.qml:106
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:106
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Anyone can find and join."
@@ -6939,7 +6946,7 @@ msgctxt "@info:description"
 msgid "Anyone can send you invites."
 msgstr "कोई भी इसे ढूंढ सकता है और इसमें शामिल हो सकता है।"
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:111
 #, fuzzy, kde-format
 #| msgctxt "Room permission type"
 #| msgid "Ban users"
@@ -6947,57 +6954,57 @@ msgctxt "@option:check"
 msgid "Known users"
 msgstr "उपयोगकर्ताओं पर प्रतिबंध लगाएँ"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:114
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:125
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "आपका सर्वर इस सेटिंग का समर्थन नहीं करता है."
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:125
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:132
+#: src/settings/NeoChatSecurityPage.qml:130
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "कूटलेखन"
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:138
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:152
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:153
+#: src/settings/NeoChatSecurityPage.qml:151
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -7005,13 +7012,13 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "बैकअप से एन्क्रिप्शन कुंजी आयात करें."
 
-#: src/settings/NeoChatSecurityPage.qml:165
+#: src/settings/NeoChatSecurityPage.qml:163
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "कुंजियाँ आयात करें"
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:164
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -7019,37 +7026,25 @@ msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "बैकअप से एन्क्रिप्शन कुंजी आयात करें."
 
-#: src/settings/NeoChatSecurityPage.qml:172
-#, kde-format
-msgctxt "@title"
-msgid "Import Keys"
-msgstr "कुंजियाँ आयात करें"
-
-#: src/settings/NeoChatSecurityPage.qml:175
+#: src/settings/NeoChatSecurityPage.qml:171
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "कुंजियाँ सफलतापूर्वक आयातित की गईं"
 
-#: src/settings/NeoChatSecurityPage.qml:188
+#: src/settings/NeoChatSecurityPage.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "कुंजियाँ निर्यात करें"
 
-#: src/settings/NeoChatSecurityPage.qml:189
+#: src/settings/NeoChatSecurityPage.qml:185
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Export this device's encryption keys."
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "इस डिवाइस की एन्क्रिप्शन कुंजियाँ निर्यात करें."
-
-#: src/settings/NeoChatSecurityPage.qml:195
-#, kde-format
-msgctxt "@title"
-msgid "Export Keys"
-msgstr "कुंजियाँ निर्यात करें"
 
 #: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
@@ -7072,25 +7067,25 @@ msgctxt "@title"
 msgid "Security & Safety"
 msgstr "सुरक्षा सुरक्षा"
 
-#: src/settings/NeoChatSettingsView.qml:64
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Devices"
+msgstr "उपकरण"
+
+#: src/settings/NeoChatSettingsView.qml:76
 #, kde-format
 msgid "Accounts"
 msgstr "हिसाब किताब"
 
-#: src/settings/NeoChatSettingsView.qml:71
+#: src/settings/NeoChatSettingsView.qml:83
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "स्टिकर और इमोजी"
 
-#: src/settings/NeoChatSettingsView.qml:84
+#: src/settings/NeoChatSettingsView.qml:96
 #, kde-format
 msgid "Network Proxy"
 msgstr "नेटवर्क प्रॉक्सी"
-
-#: src/settings/NeoChatSettingsView.qml:90
-#, kde-format
-msgid "Devices"
-msgstr "उपकरण"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
@@ -8056,6 +8051,14 @@ msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
 msgstr "कमरे खोजें"
 
+#: src/spaces/SelectExistingRoomDialog.qml:147
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "इस अभिभावक को आधिकारिक बनाएं"
+
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, fuzzy, kde-format
 #| msgid "You have the required privilege level in the child to set this state"
@@ -8317,19 +8320,52 @@ msgid "Save File…"
 msgstr "चित्र को सेव करें…"
 
 #: src/timeline/DelegateContextMenu.qml:344
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Hide Image"
+msgstr "छवि सेट करें"
+
+#: src/timeline/DelegateContextMenu.qml:346
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Hide Video"
+msgstr "खुली फाइल"
+
+#: src/timeline/DelegateContextMenu.qml:358
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Image"
+msgctxt "@action:inmenu"
+msgid "Show Image"
+msgstr "छवि दिखाएं"
+
+#: src/timeline/DelegateContextMenu.qml:360
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Video"
+msgctxt "@action:inmenu"
+msgid "Show Video"
+msgstr "वीडियो दिखाएं"
+
+#: src/timeline/DelegateContextMenu.qml:372
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "नकल छवि"
 
-#: src/timeline/DelegateContextMenu.qml:346
+#: src/timeline/DelegateContextMenu.qml:374
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "लिंक की प्रतिलिपि करें"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:376
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Video"
@@ -8337,32 +8373,32 @@ msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "वीडियो दिखाएं"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:378
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "लिंक की प्रतिलिपि करें"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "लिंक पता कॉपी करें"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:396
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "पाठ कॉपी करें"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:402
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "संदेश लिंक कॉपी करें"
 
-#: src/timeline/DelegateContextMenu.qml:382
+#: src/timeline/DelegateContextMenu.qml:410
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -8372,13 +8408,13 @@ msgctxt ""
 msgid "Report…"
 msgstr "प्रतिवेदन"
 
-#: src/timeline/DelegateContextMenu.qml:387
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "संदेश की रिपोर्ट करें"
 
-#: src/timeline/DelegateContextMenu.qml:388
+#: src/timeline/DelegateContextMenu.qml:416
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -8386,72 +8422,72 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "इस संदेश की रिपोर्ट करने का कारण"
 
-#: src/timeline/DelegateContextMenu.qml:390
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "प्रतिवेदन"
 
-#: src/timeline/DelegateContextMenu.qml:394
+#: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "संदेश की रिपोर्ट करें"
 
-#: src/timeline/DelegateContextMenu.qml:406
+#: src/timeline/DelegateContextMenu.qml:434
 #, fuzzy, kde-format
 #| msgid "Search for '%1'"
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "'%1' को खोजें"
 
-#: src/timeline/DelegateContextMenu.qml:429
+#: src/timeline/DelegateContextMenu.qml:457
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "वेब शॉर्टकट कॉन्फ़िगर करें..."
 
-#: src/timeline/DelegateContextMenu.qml:437
+#: src/timeline/DelegateContextMenu.qml:465
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:440
+#: src/timeline/DelegateContextMenu.qml:468
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:460
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:460
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:470
+#: src/timeline/DelegateContextMenu.qml:498
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "संदेश खोजें…"
 
-#: src/timeline/DelegateContextMenu.qml:470
+#: src/timeline/DelegateContextMenu.qml:498
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "संदेश खोजें…"
 
-#: src/timeline/DelegateContextMenu.qml:483
+#: src/timeline/DelegateContextMenu.qml:511
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -8581,6 +8617,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टाइप कर रहे हैं"
 msgstr[1] "%2 टाइप कर रहे हैं"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Verify This Device"
+#~ msgstr "इस डिवाइस को सत्यापित करें"
+
+#~ msgctxt "@title"
+#~ msgid "Import Keys"
+#~ msgstr "कुंजियाँ आयात करें"
+
+#~ msgctxt "@title"
+#~ msgid "Export Keys"
+#~ msgstr "कुंजियाँ निर्यात करें"
 
 #, fuzzy
 #~| msgid "Edit This Account"
