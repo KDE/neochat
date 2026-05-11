@@ -36,6 +36,16 @@ ColumnLayout {
      */
     required property LocationBlock block
 
+    /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
+    /**
+     * The maximum height of the image. Can be left undefined most of the times. Passed to MediaSizeHelper::contentMaxHeight.
+     */
+    property var contentMaxHeight: editable ? Kirigami.Units.gridUnit * 8 : undefined
+
     required property int index
 
     Layout.fillWidth: true
@@ -43,9 +53,8 @@ ColumnLayout {
 
     MapView {
         id: mapView
-        Layout.fillWidth: true
-        Layout.preferredWidth: root.Message.maxContentWidth
-        Layout.preferredHeight: root.Message.maxContentWidth / 16 * 9
+        Layout.preferredWidth: root.contentMaxHeight ? (root.contentMaxHeight * (16 / 9)) : root.Message.maxContentWidth
+        Layout.preferredHeight: root.contentMaxHeight ? root.contentMaxHeight : (root.Message.maxContentWidth / (16 / 9))
 
         map.center: QtPositioning.coordinate(root.block.latitude, root.block.longitude)
         map.zoomLevel: 15

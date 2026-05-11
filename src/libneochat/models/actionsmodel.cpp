@@ -4,6 +4,7 @@
 #include "actionsmodel.h"
 
 #include "blockcache.h"
+#include "blocktype.h"
 #include "chatbarcache.h"
 #include "enums/messagetype.h"
 #include "neochatconnection.h"
@@ -553,7 +554,7 @@ bool ActionsModel::handleQuickEditAction(NeoChatRoom *room, const QString &messa
 
 std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgType>> ActionsModel::handleAction(NeoChatRoom *room, ChatBarCache *chatBarCache)
 {
-    auto sendText = chatBarCache->sendText();
+    auto sendText = chatBarCache->cache().toString();
     const auto edited = handleQuickEditAction(room, sendText);
     if (edited) {
         return std::make_pair(std::nullopt, std::nullopt);
