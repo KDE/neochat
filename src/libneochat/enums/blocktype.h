@@ -93,4 +93,11 @@ bool isTextType(const Type &type);
  * @sa Type
  */
 bool isFileType(const Type &type);
+
+/**
+ * @brief Return a list of Blocks::Type that are classed as a file type.
+ *
+ * @sa Type
+ */
+QList<Type> fileTypes();
 }

@@ -97,7 +97,6 @@ public:
     explicit ChatBarCache(NeoChatRoom *room);
 
     Blocks::Cache &cache();
-    QString sendText() const;
 
     bool isEditing() const;
     QString editId() const;

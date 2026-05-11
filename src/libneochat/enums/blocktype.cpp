@@ -11,6 +11,16 @@
 
 #include "events/pollevent.h"
 
+namespace
+{
+static const QList<Blocks::Type> fTypes = {
+    Blocks::File,
+    Blocks::Image,
+    Blocks::Video,
+    Blocks::Audio,
+};
+}
+
 Blocks::Type Blocks::typeForEvent(const Quotient::RoomEvent &event, bool isInReply)
 {
     using namespace Quotient;
@@ -105,13 +115,12 @@ bool Blocks::isTextType(const Blocks::Type &type)
 
 bool Blocks::isFileType(const Blocks::Type &type)
 {
-    static const QList<Type> fileTypes = {
-        File,
-        Image,
-        Video,
-        Audio,
-    };
-    return fileTypes.contains(type);
+    return fTypes.contains(type);
+}
+
+QList<Blocks::Type> Blocks::fileTypes()
+{
+    return fTypes;
 }
 
 #include "moc_blocktype.cpp"

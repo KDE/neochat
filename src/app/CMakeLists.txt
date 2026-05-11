@@ -41,10 +41,6 @@ qt_add_library(neochat STATIC
     supportcontroller.h
 )
 
-set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
-    QT_QML_SINGLETON_TYPE TRUE
-)
-
 if(ANDROID OR WIN32)
     set_source_files_properties(qml/ShareActionStub.qml PROPERTIES
         QT_QML_SOURCE_TYPENAME ShareAction
@@ -78,7 +74,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/MessageSourceSheet.qml
         qml/InvitationView.qml
         qml/AvatarTabButton.qml
-        qml/OsmLocationPlugin.qml
         qml/FullScreenMap.qml
         qml/ChooseRoomDialog.qml
         qml/QrCodeMaximizeComponent.qml

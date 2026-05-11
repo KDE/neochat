@@ -5,6 +5,7 @@
 
 #include <QAbstractListModel>
 #include <QQmlEngine>
+#include <qtmetamacros.h>
 
 #include "block.h"
 #include "blockcache.h"
@@ -113,6 +114,7 @@ public:
     bool hasAttachment() const;
     Q_INVOKABLE void addAttachment(const QUrl &path);
     Q_INVOKABLE void addReply(const QString &eventId, bool updateCache = true);
+    Q_INVOKABLE void addLocation(qreal latitude, qreal longitude, const QString &asset);
     Q_INVOKABLE void removeReply();
     Q_INVOKABLE void drop(QList<QUrl> urls, const QString &transferPortal);
 

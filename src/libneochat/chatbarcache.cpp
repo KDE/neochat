@@ -7,7 +7,9 @@
 
 #include <KUrlMimeData>
 
+#include <Quotient/events/eventcontent.h>
 #include <Quotient/roommember.h>
+#include <memory>
 
 #include "block.h"
 #include "blockcache.h"
@@ -34,18 +36,6 @@ ChatBarCache::ChatBarCache(NeoChatRoom *room)
 Blocks::Cache &ChatBarCache::cache()
 {
     return m_cache;
-}
-
-QString ChatBarCache::sendText() const
-{
-    const auto cacheText = m_cache.toString();
-    if (cacheText.isEmpty() && Blocks::isFileType(m_cache.at(0)->type)) {
-        QUrl url(dynamic_cast<const Blocks::UrlCacheItem *>(m_cache.at(0))->source);
-        auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
-        return path.mid(path.lastIndexOf(u'/') + 1);
-    }
-
-    return cacheText;
 }
 
 bool ChatBarCache::isEditing() const
@@ -185,19 +175,28 @@ void ChatBarCache::postMessage(const QString &threadRootId)
 
     if (Blocks::isFileType(m_cache.at(0)->type)) {
         const auto fileCacheItem = dynamic_cast<const Blocks::UrlCacheItem *>(m_cache.at(0));
-        m_room->uploadFile(fileCacheItem->source, sendText(), relatesTo);
+        m_room->uploadFile(fileCacheItem->source, m_cache.toString(), relatesTo);
         clearCache();
         return;
     }
 
-    const auto result = ActionsModel::handleAction(m_room, this);
-    if (!result.second.has_value()) {
+    if (m_cache.hasType(Blocks::Location)) {
+        int locationIndex = m_cache.at(0)->type == Blocks::Location ? 0 : 1;
+        if (const auto locationItem = m_cache.at<Blocks::LocationCacheItem>(locationIndex)) {
+            m_room->sendLocation(locationItem->latitude, locationItem->longitude, m_cache.toString());
+            clearCache();
+            return;
+        }
+    }
+
+    const auto [sendString, msgType] = ActionsModel::handleAction(m_room, this);
+    if (!msgType.has_value()) {
         clearCache();
         return;
     }
 
     TextHandler textHandler;
-    textHandler.setData(*std::get<std::optional<QString>>(result));
+    textHandler.setData(*sendString);
     const auto sendText = textHandler.handleSendText();
 
     if (sendText.length() == 0) {
@@ -206,10 +205,7 @@ void ChatBarCache::postMessage(const QString &threadRootId)
 
     auto content = std::make_unique<Quotient::EventContent::TextContent>(sendText, u"text/html"_s);
 
-    m_room->post<Quotient::RoomMessageEvent>(m_cache.toString(),
-                                           *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result),
-                                           std::move(content),
-                                           relatesTo);
+    m_room->post<Quotient::RoomMessageEvent>(m_cache.toString(), *msgType, std::move(content), relatesTo);
     clearCache();
 }
 

@@ -93,12 +93,17 @@ if (TARGET KF6::KIOWidgets)
     target_compile_definitions(LibNeoChat PUBLIC -DHAVE_KIO)
 endif()
 
+set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
+    QT_QML_SINGLETON_TYPE TRUE
+)
+
 ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.libneochat
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/libneochat
     QML_FILES
         qml/GroupChatDrawerHeader.qml
         qml/LocationMapItem.qml
+        qml/OsmLocationPlugin.qml
         qml/InviteUserPage.qml
         qml/ExploreRoomsPage.qml
         qml/SearchPage.qml
