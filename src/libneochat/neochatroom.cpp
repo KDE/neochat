@@ -1434,7 +1434,7 @@ ChatBarCache *NeoChatRoom::cacheForType(ChatBarType::Type type) const
     }
 }
 
-void NeoChatRoom::replyLastMessage()
+QString NeoChatRoom::lastMessageId()
 {
     const auto &timelineBottom = messageEvents().rbegin();
 
@@ -1460,10 +1460,10 @@ void NeoChatRoom::replyLastMessage()
                 // For any message that isn't an edit return the id of the current message
                 eventId = (*it)->id();
             }
-            mainCache()->setReplyId(eventId);
-            return;
+            return eventId;
         }
     }
+    return {};
 }
 
 void NeoChatRoom::editLastMessage()

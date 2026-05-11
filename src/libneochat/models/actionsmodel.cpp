@@ -3,6 +3,7 @@
 
 #include "actionsmodel.h"
 
+#include "blockcache.h"
 #include "chatbarcache.h"
 #include "enums/messagetype.h"
 #include "neochatconnection.h"
@@ -100,8 +101,8 @@ QList<ActionsModel::Action> actions{
             }
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
-            EventRelation relatesTo =
-                chatBarCache->isReplying() ? EventRelation::replyTo(chatBarCache->replyId()) : EventRelation::replace(chatBarCache->editId());
+            const auto replyCache = chatBarCache->cache().at<Blocks::ReplyCacheItem>(0);
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(chatBarCache->editId());
             room->post<Quotient::RoomMessageEvent>("/rainbow %1"_L1.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
@@ -118,8 +119,8 @@ QList<ActionsModel::Action> actions{
             }
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
-            EventRelation relatesTo =
-                chatBarCache->isReplying() ? EventRelation::replyTo(chatBarCache->replyId()) : EventRelation::replace(chatBarCache->editId());
+            const auto replyCache = chatBarCache->cache().at<Blocks::ReplyCacheItem>(0);
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(chatBarCache->editId());
             room->post<Quotient::RoomMessageEvent>(u"/rainbow %1"_s.arg(text), MessageEventType::Emote, std::move(content), relatesTo);
             return QString();
         },
@@ -146,8 +147,8 @@ QList<ActionsModel::Action> actions{
         [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(u"<span data-mx-spoiler>%1</span>"_s.arg(text), u"text/html"_s);
-            EventRelation relatesTo =
-                chatBarCache->isReplying() ? EventRelation::replyTo(chatBarCache->replyId()) : EventRelation::replace(chatBarCache->editId());
+            const auto replyCache = chatBarCache->cache().at<Blocks::ReplyCacheItem>(0);
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(chatBarCache->editId());
             room->post<Quotient::RoomMessageEvent>(u"/spoiler %1"_s.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
@@ -350,7 +351,8 @@ QList<ActionsModel::Action> actions{
     Action{
         u"react"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
-            if (chatBarCache->replyId().isEmpty()) {
+            const auto replyCache = chatBarCache->cache().at<Blocks::ReplyCacheItem>(0);
+            if (!replyCache) {
                 for (auto it = room->messageEvents().crbegin(); it != room->messageEvents().crend(); it++) {
                     const auto &evt = **it;
                     if (const auto event = eventCast<const RoomMessageEvent>(&evt)) {
@@ -359,7 +361,7 @@ QList<ActionsModel::Action> actions{
                     }
                 }
             }
-            room->toggleReaction(chatBarCache->replyId(), text);
+            room->toggleReaction(replyCache->id, text);
             return QString();
         },
         std::nullopt,

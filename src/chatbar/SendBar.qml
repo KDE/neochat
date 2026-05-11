@@ -30,6 +30,8 @@ RowLayout {
 
     readonly property real overflowWidth: Kirigami.Units.gridUnit * 50
 
+    signal cancel
+
     function openLocationChooser(): void {
         Qt.createComponent('org.kde.neochat.chatbar', 'LocationChooser').createObject(QQC2.ApplicationWindow.overlay, {
             room: root.room
@@ -221,11 +223,11 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: cancelButton
-        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Edit
+        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Edit || (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Thread
         display: QQC2.AbstractButton.IconOnly
         text: i18nc("@action:button", "Cancel")
         icon.name: "dialog-close"
-        onClicked: root.room.cacheForType(contentModel.type).clearRelations()
+        onClicked: root.cancel()
 
         Kirigami.Action {
             shortcut: "Escape"

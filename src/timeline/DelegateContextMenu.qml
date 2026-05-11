@@ -201,16 +201,11 @@ KirigamiComponents.ConvergentContextMenu {
         onTriggered: {
             let threadRoot = root.room.rootIdForThread(root.eventId);
             if (threadRoot.length > 0) {
-                root.room.threadCache.replyId = root.eventId;
-                root.room.threadCache.threadId = threadRoot;
-                root.room.mainCache.clearRelations();
-                root.room.editCache.clearRelations();
+                RoomManager.requestReply(ChatBarType.Thread, root.eventId, threadRoot);
                 RoomManager.requestFullScreenClose();
                 return;
             }
-            root.room.mainCache.replyId = root.eventId;
-            root.room.editCache.clearRelations();
-            root.room.threadCache.clearRelations();
+            RoomManager.requestReply(ChatBarType.Room, root.eventId, "");
             RoomManager.requestFullScreenClose();
         }
     }
@@ -221,10 +216,7 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu", "Reply in Thread")
         icon.name: "dialog-messages"
         onTriggered: {
-            root.room.threadCache.replyId = "";
-            root.room.threadCache.threadId = root.room.eventIsThreaded(root.eventId) ? root.room.rootIdForThread(root.eventId) : root.eventId;
-            root.room.mainCache.clearRelations();
-            root.room.editCache.clearRelations();
+            RoomManager.requestReply(ChatBarType.Thread, "", root.room.eventIsThreaded(root.eventId) ? root.room.rootIdForThread(root.eventId) : root.eventId);
             RoomManager.requestFullScreenClose();
         }
     }
@@ -236,8 +228,6 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "document-edit"
         onTriggered: {
             root.room.editCache.editId = root.eventId;
-            root.room.mainCache.replyId = "";
-            root.room.mainCache.threadId = "";
         }
     }
 

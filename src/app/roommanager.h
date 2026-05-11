@@ -215,6 +215,15 @@ public:
     void roomLeft(const QString &id);
 
     /**
+     * @brief Request a reply.
+     *
+     * The type can be Room or Thread depending on what is being replied to. For
+     * a room reply a replyId is expected. For a reply in a thread a threadRootId
+     * is expected with an optional replyId if replying to a message within that thread.
+     */
+    Q_INVOKABLE void requestReply(ChatBarType::Type type, const QString &replyId, const QString &threadRootId);
+
+    /**
      * @brief Show a media item maximized.
      */
     Q_INVOKABLE void maximizeMedia(const QString &eventId);
@@ -277,6 +286,15 @@ Q_SIGNALS:
      * @brief Go to the specified event in the current room.
      */
     void goToEvent(const QString &event);
+
+    /**
+     * @brief Show a reply.
+     *
+     * The type can be Room or Thread depending on what is being replied to. For
+     * a room reply a replyId is expected. For a reply in a thread a threadRootId
+     * is expected with an optional replyId if replying to a message within that thread.
+     */
+    void showReply(ChatBarType::Type type, const QString &replyId, const QString &threadRootId);
 
     /**
      * @brief Show details for the given user.

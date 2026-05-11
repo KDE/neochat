@@ -3,12 +3,15 @@
 
 #include "threadmodel.h"
 
+#include <ranges>
+
+#include <QTimer>
+
 #include <Quotient/events/event.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/basejob.h>
-#include <memory>
-#include <ranges>
 
+#include "block.h"
 #include "chatbarcache.h"
 #include "contentprovider.h"
 #include "enums/blocktype.h"
@@ -20,7 +23,7 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     , m_room(room)
     , m_threadRootId(threadRootId)
     , m_threadFetchModel(new ThreadFetchModel(this))
-    , m_threadChatBarModel(new ThreadChatBarModel(this, room))
+    , m_threadChatBarModel(new ThreadChatBarModel(this))
 {
     Q_ASSERT(!m_threadRootId.isEmpty());
     Q_ASSERT(room);
@@ -28,7 +31,7 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     // HACK: Always keep at least one source model in the concatenate model to work around assert
     addSourceModel(m_threadFetchModel);
 
-    connect(room, &Quotient::Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
+    connect(room, &Quotient::Room::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *event) {
         if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
             if (roomEvent->isThreaded() && roomEvent->threadRootEventId() == m_threadRootId) {
                 addNewEvent(event);
@@ -130,6 +133,10 @@ void ThreadModel::addModels()
         }
     }
     addSourceModel(m_threadChatBarModel);
+
+    QTimer::singleShot(0, this, [this]() {
+        m_threadChatBarModel->reset();
+    });
 }
 
 void ThreadModel::clearModels()
@@ -174,6 +181,11 @@ void ThreadModel::closeLinkPreview(int row)
     }
 }
 
+void ThreadModel::setReplying(bool replying)
+{
+    m_threadChatBarModel->setReplying(replying);
+}
+
 ThreadFetchModel::ThreadFetchModel(ThreadModel *threadModel)
     : QAbstractListModel(threadModel)
 {
@@ -214,20 +226,11 @@ QHash<int, QByteArray> ThreadFetchModel::roleNames() const
     };
 }
 
-ThreadChatBarModel::ThreadChatBarModel(ThreadModel *threadModel, NeoChatRoom *room)
+ThreadChatBarModel::ThreadChatBarModel(ThreadModel *threadModel)
     : QAbstractListModel(threadModel)
-    , m_room(room)
 {
     Q_ASSERT(threadModel);
-    if (m_room != nullptr) {
-        connect(m_room->threadCache(), &ChatBarCache::threadIdChanged, this, [this](const QString &oldThreadId, const QString &newThreadId) {
-            const auto threadModel = dynamic_cast<ThreadModel *>(this->parent());
-            if (threadModel != nullptr && (oldThreadId == threadModel->threadRootId() || newThreadId == threadModel->threadRootId())) {
-                beginResetModel();
-                endResetModel();
-            }
-        });
-    }
+    m_block = new Blocks::Block(Blocks::ReplyButton, this);
 }
 
 QVariant ThreadChatBarModel::data(const QModelIndex &idx, int role) const
@@ -241,15 +244,11 @@ QVariant ThreadChatBarModel::data(const QModelIndex &idx, int role) const
         qWarning() << "ThreadChatBarModel created with incorrect parent, a ThreadModel must be set as the parent on creation.";
         return {};
     }
-
     if (role == ComponentTypeRole) {
-        return m_room->threadCache()->threadId() == threadModel->threadRootId() ? Blocks::ChatBar : Blocks::ReplyButton;
+        return m_replying ? Blocks::ChatBar : Blocks::ReplyButton;
     }
-    if (role == ChatBarCacheRole) {
-        if (m_room == nullptr) {
-            return {};
-        }
-        return QVariant::fromValue<ChatBarCache *>(m_room->threadCache());
+    if (role == BlockRole) {
+        return m_block->toVariant();
     }
     if (role == ThreadRootRole) {
         return threadModel->threadRootId();
@@ -267,9 +266,31 @@ QHash<int, QByteArray> ThreadChatBarModel::roleNames() const
 {
     return {
         {ComponentTypeRole, "componentType"},
-        {ChatBarCacheRole, "chatBarCache"},
+        {BlockRole, "block"},
         {ThreadRootRole, "threadRoot"},
     };
+}
+
+void ThreadChatBarModel::setReplying(bool replying)
+{
+    if (replying == m_replying) {
+        return;
+    }
+    m_replying = replying;
+    m_block->deleteLater();
+    m_block = nullptr;
+    if (m_replying) {
+        m_block = new Blocks::ChatBarBlock(Blocks::ChatBar, false, dynamic_cast<ThreadModel *>(parent())->threadRootId(), this);
+    } else {
+        m_block = new Blocks::Block(Blocks::ReplyButton, this);
+    }
+    reset();
+}
+
+void ThreadChatBarModel::reset()
+{
+    beginResetModel();
+    endResetModel();
 }
 
 #include "moc_threadmodel.cpp"

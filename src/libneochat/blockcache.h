@@ -214,6 +214,9 @@ public:
 
 using CacheItemPtr = std::unique_ptr<CacheItem>;
 
+template<typename CacheItemT>
+concept CacheItemClass = std::derived_from<CacheItemT, CacheItem>;
+
 /**
  * @class Cache
  *
@@ -228,7 +231,7 @@ using CacheItemPtr = std::unique_ptr<CacheItem>;
  */
 class Cache
 {
-    using CacheItems = std::vector<std::unique_ptr<CacheItem>>;
+    using CacheItems = std::vector<CacheItemPtr>;
 
 public:
     CacheItems::iterator begin();
@@ -253,6 +256,26 @@ public:
      * @sa CacheItem
      */
     const CacheItem *at(qsizetype i) const;
+
+    /**
+     * @brief Return the CacheItem at the given index cast to the given template type.
+     *
+     * nullptr if i is not a valid index or the item cannot be cast to the given type.
+     *
+     * @sa CacheItem
+     */
+    template<CacheItemClass CacheItemT>
+    const CacheItemT *at(qsizetype i) const
+    {
+        return dynamic_cast<const CacheItemT *>(at(i));
+    }
+
+    /**
+     * @brief Whether the Cache has at least one item with the given type.
+     *
+     * @sa Type
+     */
+    bool hasType(Type type);
 
     /**
      * @brief Prepend the given CacheItem to the cache.

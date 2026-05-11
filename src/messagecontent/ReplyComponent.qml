@@ -97,7 +97,7 @@ QQC2.Control {
         display: QQC2.AbstractButton.IconOnly
         text: i18nc("@action:button", "Cancel reply")
         icon.name: "dialog-close"
-        onClicked: root.Message.room.mainCache.replyId = ""
+        onClicked: root.Message.contentModel.removeReply();
         QQC2.ToolTip.text: text
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay

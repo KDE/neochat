@@ -106,8 +106,11 @@ bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
         if (!room) {
             return false;
         }
-        room->replyLastMessage();
-        return true;
+        const auto lastId = room->lastMessageId();
+        if (!lastId.isEmpty()) {
+            Q_EMIT requestReply(lastId);
+            return true;
+        }
     }
 
     if (m_textItem->isCompleting) {

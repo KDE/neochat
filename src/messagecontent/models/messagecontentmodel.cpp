@@ -197,12 +197,6 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue<LinkPreviewer *>(emptyLinkPreview);
         }
     }
-    if (role == ChatBarCacheRole) {
-        if (m_room->threadCache()->threadId() == m_eventId) {
-            return QVariant::fromValue<ChatBarCache *>(m_room->threadCache());
-        }
-        return QVariant::fromValue<ChatBarCache *>(m_room->editCache());
-    }
     if (role == EditableRole) {
         return m_editableActive;
     }
@@ -241,7 +235,6 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::ReplyContentModelRole] = "replyContentModel";
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
     roles[MessageContentModel::LinkPreviewerRole] = "linkPreviewer";
-    roles[MessageContentModel::ChatBarCacheRole] = "chatBarCache";
     roles[MessageContentModel::EditableRole] = "editable";
     roles[MessageContentModel::CurrentFocusRole] = "currentFocus";
     roles[MessageContentModel::MediaHiddenRole] = "mediaHidden";
@@ -288,47 +281,6 @@ void MessageContentModel::forEachComponentOfType(QList<Blocks::Type> types, std:
 std::optional<QString> MessageContentModel::getReplyEventId()
 {
     return std::nullopt;
-}
-
-void MessageContentModel::updateReplyModel()
-{
-    const auto eventId = getReplyEventId();
-    if (!eventId) {
-        if (m_replyModel) {
-            m_replyModel->disconnect(this);
-            m_replyModel->deleteLater();
-        }
-        if (hasComponentType(Blocks::Reply)) {
-            forEachComponentOfType(Blocks::Reply, [this](Blocks::BlockPtrsIt it) {
-                beginRemoveRows({}, std::distance(m_components.begin(), it), std::distance(m_components.begin(), it));
-                it = m_components.erase(it);
-                endRemoveRows();
-                return it;
-            });
-        }
-        return;
-    }
-
-    if (!m_replyModel || m_replyModel->eventId() != eventId) {
-        m_replyModel = new EventMessageContentModel(m_room, *eventId, true, false, this);
-    }
-
-    if (!hasComponentType(Blocks::Reply)) {
-        auto insertIt = m_components.begin();
-        if (m_components.front()->type() == Blocks::Author) {
-            insertIt += 1;
-        }
-        const auto insertRow = std::distance(m_components.begin(), insertIt);
-        beginInsertRows({}, insertRow, insertRow);
-        m_components.insert(insertIt, new Blocks::ReplyBlock(Blocks::Reply, *eventId, this));
-        endInsertRows();
-    } else {
-        forEachComponentOfType(Blocks::Reply, [this](Blocks::BlockPtrsIt it) {
-            const auto replyIndex = index(std::distance(m_components.begin(), it));
-            dataChanged(replyIndex, replyIndex, {ReplyContentModelRole});
-            return ++it;
-        });
-    }
 }
 
 Blocks::Block *MessageContentModel::linkPreviewComponent(const QUrl &link)

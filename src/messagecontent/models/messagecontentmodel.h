@@ -66,7 +66,6 @@ public:
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
         ThreadRootRole, /**< The thread root event ID for the event. */
         LinkPreviewerRole, /**< The link preview details. */
-        ChatBarCacheRole, /**< The ChatBarCache to use. */
         EditableRole, /**< Whether the component can be edited. */
         CurrentFocusRole, /**< Whether the delegate should have focus. */
         MediaHiddenRole, /**< Whether the media should be visible or not. */
@@ -192,7 +191,6 @@ protected:
      * The default implementation returns a std::nullopt.
      */
     virtual std::optional<QString> getReplyEventId();
-    void updateReplyModel();
     QPointer<MessageContentModel> m_replyModel;
     QPointer<ItineraryModel> m_itineraryModel = nullptr;
     bool m_emptyItinerary = false;

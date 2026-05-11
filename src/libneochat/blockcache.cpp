@@ -4,6 +4,7 @@
 #include "blockcache.h"
 
 #include <QRegularExpression>
+#include <algorithm>
 
 #include "chattextitemhelper.h"
 #include "fileinfo.h"
@@ -244,6 +245,13 @@ const CacheItem *Cache::at(qsizetype i) const
         return nullptr;
     }
     return m_items.at(i).get();
+}
+
+bool Cache::hasType(Type type)
+{
+    return std::ranges::any_of(m_items, [type](const std::unique_ptr<CacheItem> &item) {
+        return item->type == type;
+    });
 }
 
 void Cache::prepend(CacheItemPtr item)

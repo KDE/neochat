@@ -36,6 +36,21 @@ public:
                                          MessageContentModel *parent = nullptr);
 
     /**
+     * @brief Reply to the message in a thread.
+     *
+     * Starts a thread if the message isn't currently threaded. Otherwise a new message
+     * will be added to an existing thread.
+     */
+    Q_INVOKABLE void replyInThread();
+
+    /**
+     * @brief Cancel a threaded reply.
+     *
+     * This removes any chat bar added to allow a threaded reply.
+     */
+    Q_INVOKABLE void cancelReplyInThread();
+
+    /**
      * @brief Returns the thread model for the given thread root event ID.
      *
      * A model is created if one doesn't exist. Will return nullptr if threadRootId

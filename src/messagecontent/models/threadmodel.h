@@ -86,12 +86,12 @@ public:
      */
     enum Roles {
         ComponentTypeRole = MessageContentModel::ComponentTypeRole, /**< The type of component to visualise the message. */
-        ChatBarCacheRole = MessageContentModel::ChatBarCacheRole, /**< The ChatBarCache to use. */
+        BlockRole = MessageContentModel::BlockRole, /**< The Blocks::Block for the delegate. */
         ThreadRootRole = MessageContentModel::ThreadRootRole, /**< The thread root event ID for the thread. */
     };
     Q_ENUM(Roles)
 
-    explicit ThreadChatBarModel(ThreadModel *threadModel, NeoChatRoom *room);
+    explicit ThreadChatBarModel(ThreadModel *parent);
 
     /**
      * @brief Get the given role value at the given index.
@@ -114,8 +114,17 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    /**
+     * @brief Set whether the thread is being replied to.
+     */
+    void setReplying(bool replying);
+
+    void reset();
+
 private:
-    QPointer<NeoChatRoom> m_room;
+    Blocks::Block *m_block;
+
+    bool m_replying = false;
 };
 
 /**
@@ -160,6 +169,11 @@ public:
      * If the given index is not a link preview component, nothing happens.
      */
     Q_INVOKABLE void closeLinkPreview(int row);
+
+    /**
+     * @brief Set whether the thread is being replied to.
+     */
+    void setReplying(bool replying);
 
 Q_SIGNALS:
     void moreEventsAvailableChanged();

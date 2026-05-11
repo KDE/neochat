@@ -48,33 +48,6 @@ QString ChatBarCache::sendText() const
     return cacheText;
 }
 
-bool ChatBarCache::isReplying() const
-{
-    return m_relationType == Reply && !m_relationId.isEmpty();
-}
-
-QString ChatBarCache::replyId() const
-{
-    if (m_relationType != Reply) {
-        return {};
-    }
-    return m_relationId;
-}
-
-void ChatBarCache::setReplyId(const QString &replyId)
-{
-    if (m_relationType == Reply && m_relationId == replyId) {
-        return;
-    }
-    const auto oldEventId = std::exchange(m_relationId, replyId);
-    if (m_relationId.isEmpty()) {
-        m_relationType = None;
-    } else {
-        m_relationType = Reply;
-    }
-    Q_EMIT relationIdChanged(oldEventId, m_relationId);
-}
-
 bool ChatBarCache::isEditing() const
 {
     return m_relationType == Edit && !m_relationId.isEmpty();
@@ -108,10 +81,19 @@ Quotient::RoomMember ChatBarCache::relationAuthor() const
         qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
         return {};
     }
-    if (m_relationId.isEmpty()) {
+    QString id;
+    if (!m_relationId.isEmpty()) {
+        id = m_relationId;
+    }
+    if (!m_cache.empty() && m_cache.at(0)->type == Blocks::Reply) {
+        if (const auto replyCacheItem = dynamic_cast<const Blocks::ReplyCacheItem *>(m_cache.at(0))) {
+            id = replyCacheItem->id;
+        }
+    }
+    if (id.isEmpty()) {
         return m_room->member({});
     }
-    const auto [event, _] = m_room->getEvent(m_relationId);
+    const auto [event, _] = m_room->getEvent(id);
     if (event != nullptr) {
         return m_room->member(event->senderId());
     }
@@ -130,10 +112,19 @@ QString ChatBarCache::relationMessage() const
         qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
         return {};
     }
-    if (m_relationId.isEmpty()) {
+    QString id;
+    if (!m_relationId.isEmpty()) {
+        id = m_relationId;
+    }
+    if (!m_cache.empty() && m_cache.at(0)->type == Blocks::Reply) {
+        if (const auto replyCacheItem = dynamic_cast<const Blocks::ReplyCacheItem *>(m_cache.at(0))) {
+            id = replyCacheItem->id;
+        }
+    }
+    if (id.isEmpty()) {
         return {};
     }
-    if (auto [event, _] = m_room->getEvent(m_relationId); event != nullptr) {
+    if (auto [event, _] = m_room->getEvent(id); event != nullptr) {
         return EventHandler::rawMessageBody(*event);
     }
     return {};
@@ -145,68 +136,51 @@ Blocks::BlockPtrs ChatBarCache::relationComponents(QObject *parent) const
         qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
         return {};
     }
-    if (m_relationId.isEmpty()) {
+    QString id;
+    if (!m_relationId.isEmpty()) {
+        id = m_relationId;
+    }
+    if (!m_cache.empty() && m_cache.at(0)->type == Blocks::Reply) {
+        if (const auto replyCacheItem = dynamic_cast<const Blocks::ReplyCacheItem *>(m_cache.at(0))) {
+            id = replyCacheItem->id;
+        }
+    }
+    if (id.isEmpty()) {
         return {};
     }
-    if (auto [event, _] = m_room->getEvent(m_relationId); event != nullptr) {
-        return TextHandler().textComponents(EventHandler::rawMessageBody(*event), EventHandler::messageBodyInputFormat(*event), m_room, event, parent);
+    if (auto [event, _] = m_room->getEvent(id); event != nullptr) {
+        return TextHandler()
+            .textComponents(EventHandler::rawMessageBody(*event), EventHandler::messageBodyInputFormat(*event), m_room, event, false, false, parent);
     }
     return {};
-}
-
-bool ChatBarCache::isThreaded() const
-{
-    return !m_threadId.isEmpty();
-}
-
-QString ChatBarCache::threadId() const
-{
-    return m_threadId;
-}
-
-void ChatBarCache::setThreadId(const QString &threadId)
-{
-    if (m_threadId == threadId) {
-        return;
-    }
-    const auto oldThreadId = std::exchange(m_threadId, threadId);
-    Q_EMIT threadIdChanged(oldThreadId, m_threadId);
 }
 
 void ChatBarCache::clearRelations()
 {
     const auto oldEventId = std::exchange(m_relationId, QString());
-    const auto oldThreadId = std::exchange(m_threadId, QString());
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
-    Q_EMIT threadIdChanged(oldThreadId, m_threadId);
 }
 
-QString ChatBarCache::savedText() const
-{
-    return m_savedText;
-}
-
-void ChatBarCache::setSavedText(const QString &savedText)
-{
-    m_savedText = savedText;
-}
-
-void ChatBarCache::postMessage()
+void ChatBarCache::postMessage(const QString &threadRootId)
 {
     if (!m_room) {
         qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
         return;
     }
 
-    bool isReply = !replyId().isEmpty();
+    bool isReply = m_cache.at(0)->type == Blocks::Reply;
+    QString replyId;
+    if (const auto replyCacheItem = dynamic_cast<const Blocks::ReplyCacheItem *>(m_cache.at(0))) {
+        replyId = replyCacheItem->id;
+    }
     std::optional<Quotient::EventRelation> relatesTo = std::nullopt;
 
-    if (!threadId().isEmpty()) {
-        relatesTo = Quotient::EventRelation::replyInThread(threadId(), !isReply, isReply ? replyId() : threadId());
+    if (!threadRootId.isEmpty()) {
+        relatesTo = Quotient::EventRelation::replyInThread(threadRootId, !isReply, isReply ? replyId : threadRootId);
     } else if (!editId().isEmpty()) {
         relatesTo = Quotient::EventRelation::replace(editId());
     } else if (isReply) {
-        relatesTo = Quotient::EventRelation::replyTo(replyId());
+        relatesTo = Quotient::EventRelation::replyTo(replyId);
     }
 
     if (Blocks::isFileType(m_cache.at(0)->type)) {
@@ -242,7 +216,6 @@ void ChatBarCache::postMessage()
 void ChatBarCache::clearCache()
 {
     m_cache.clear();
-    m_savedText = QString();
     clearRelations();
 }
 

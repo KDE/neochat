@@ -50,6 +50,16 @@ MessageDelegateBase {
      */
     required property MessageContentModel contentModel
 
+    Connections {
+        target: RoomManager
+
+        function onShowReply(type: int, eventId: string, threadRootId: string): void {
+            if (type == ChatBarType.Thread && root.contentModel && threadRootId == root.eventId) {
+                root.contentModel.replyInThread();
+            }
+        }
+    }
+
     /**
      * @brief The timestamp of the event as a neoChatDateTime.
      */

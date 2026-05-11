@@ -76,8 +76,6 @@ void ChatBarCacheTest::empty()
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
 
     QCOMPARE(chatBarCache->cache().toString(), QString());
-    QCOMPARE(chatBarCache->isReplying(), false);
-    QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
     QCOMPARE(chatBarCache->relationAuthor(), room->member(QString()));
@@ -87,12 +85,10 @@ void ChatBarCacheTest::empty()
 void ChatBarCacheTest::reply()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
+    chatBarCache->cache().append(std::make_unique<Blocks::ReplyCacheItem>(Blocks::Reply, eventId));
     chatBarCache->cache().append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
-    chatBarCache->setReplyId(eventId);
 
     QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
-    QCOMPARE(chatBarCache->isReplying(), true);
-    QCOMPARE(chatBarCache->replyId(), eventId);
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
     QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));
@@ -103,12 +99,10 @@ void ChatBarCacheTest::reply()
 void ChatBarCacheTest::replyMissingUser()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
+    chatBarCache->cache().append(std::make_unique<Blocks::ReplyCacheItem>(Blocks::Reply, eventId));
     chatBarCache->cache().append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(u"some text"_s)));
-    chatBarCache->setReplyId(eventId);
 
     QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
-    QCOMPARE(chatBarCache->isReplying(), true);
-    QCOMPARE(chatBarCache->replyId(), eventId);
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
     QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));
@@ -140,8 +134,6 @@ void ChatBarCacheTest::edit()
     chatBarCache->setEditId(eventId);
 
     QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
-    QCOMPARE(chatBarCache->isReplying(), false);
-    QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), true);
     QCOMPARE(chatBarCache->editId(), eventId);
     QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));

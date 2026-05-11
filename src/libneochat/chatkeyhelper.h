@@ -120,6 +120,11 @@ Q_SIGNALS:
     void closeCompletion();
 
     /**
+     * @brief Request that the given even be replied to.
+     */
+    void requestReply(const QString &eventId);
+
+    /**
      * @brief An image has been pasted.
      */
     void imagePasted(const QString &filePath);

@@ -31,9 +31,6 @@ Delegates.RoundedItemDelegate {
     text: i18nc("@action:button", "Reply")
 
     onClicked: {
-        Message.room.threadCache.replyId = "";
-        Message.room.threadCache.threadId = root.threadRoot;
-        Message.room.mainCache.clearRelations();
-        Message.room.editCache.clearRelations();
+        RoomManager.requestReply(ChatBarType.Thread, "", root.threadRoot);
     }
 }

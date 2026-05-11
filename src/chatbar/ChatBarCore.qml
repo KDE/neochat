@@ -21,14 +21,19 @@ QQC2.Control {
 
     property int chatBarType: LibNeoChat.ChatBarType.Room
 
+    property string threadRootId
+
     required property real maxAvailableWidth
 
     readonly property ChatBarMessageContentModel model: ChatBarMessageContentModel {
         type: root.chatBarType
+        threadRootId: root.threadRootId
         room: root.room
         sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
         sendTypingNotifications: NeoChatConfig.typingNotifications
     }
+
+    signal cancel
 
     Connections {
         target: NeoChatConfig
@@ -162,6 +167,8 @@ QQC2.Control {
                 room: root.room
                 contentModel: root.model
                 maxAvailableWidth: root.maxAvailableWidth
+
+                onCancel: root.cancel()
             }
         }
     }

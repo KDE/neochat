@@ -276,6 +276,11 @@ void RoomManager::resolveResource(Uri uri, const QString &action)
     }
 }
 
+void RoomManager::requestReply(ChatBarType::Type type, const QString &replyId, const QString &threadRootId)
+{
+    Q_EMIT showReply(type, replyId, threadRootId);
+}
+
 void RoomManager::maximizeMedia(const QString &eventId)
 {
     if (eventId.isEmpty()) {

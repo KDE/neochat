@@ -48,23 +48,6 @@ class ChatBarCache : public QObject
     QML_UNCREATABLE("")
 
     /**
-     * @brief Whether the chat bar is currently replying to a message.
-     */
-    Q_PROPERTY(bool isReplying READ isReplying NOTIFY relationIdChanged)
-
-    /**
-     * @brief The Matrix message ID of an event being replied to, if any.
-     *
-     * Will return empty if the RelationType is currently set to None or Edit.
-     *
-     * @note Replying, editing and attachments are exclusive so setting this will
-     *       clear an edit or attachment.
-     *
-     * @sa RelationType
-     */
-    Q_PROPERTY(QString replyId READ replyId WRITE setReplyId NOTIFY relationIdChanged)
-
-    /**
      * @brief Whether the chat bar is currently editing a message.
      */
     Q_PROPERTY(bool isEditing READ isEditing NOTIFY relationIdChanged)
@@ -97,16 +80,6 @@ class ChatBarCache : public QObject
      */
     Q_PROPERTY(bool relationAuthorIsPresent READ relationAuthorIsPresent NOTIFY relationAuthorIsPresentChanged)
 
-    /**
-     * @brief Whether the chat bar is replying in a thread.
-     */
-    Q_PROPERTY(bool isThreaded READ isThreaded NOTIFY threadIdChanged)
-
-    /**
-     * @brief The Matrix message ID of thread root event, if any.
-     */
-    Q_PROPERTY(QString threadId READ threadId WRITE setThreadId NOTIFY threadIdChanged)
-
 public:
     /**
      * @brief Describes the type of relation which relationId can refer to.
@@ -126,10 +99,6 @@ public:
     Blocks::Cache &cache();
     QString sendText() const;
 
-    bool isReplying() const;
-    QString replyId() const;
-    void setReplyId(const QString &replyId);
-
     bool isEditing() const;
     QString editId() const;
     void setEditId(const QString &editId);
@@ -141,8 +110,6 @@ public:
     Blocks::BlockPtrs relationComponents(QObject *parent = nullptr) const;
 
     bool isThreaded() const;
-    QString threadId() const;
-    void setThreadId(const QString &threadId);
 
     /**
      * @brief Clear all relations in the cache.
@@ -152,23 +119,12 @@ public:
     Q_INVOKABLE void clearRelations();
 
     /**
-     * @brief Get the saved chat bar text.
-     */
-    QString savedText() const;
-
-    /**
-     * @brief Save the chat bar text.
-     */
-    void setSavedText(const QString &savedText);
-
-    /**
      * @brief Post the contents of the cache as a message in the room.
      */
-    Q_INVOKABLE void postMessage();
+    Q_INVOKABLE void postMessage(const QString &threadRootId = {});
 
 Q_SIGNALS:
     void relationIdChanged(const QString &oldEventId, const QString &newEventId);
-    void threadIdChanged(const QString &oldThreadId, const QString &newThreadId);
     void mentionAdded(const QString &text, const QString &hRef);
     void relationAuthorIsPresentChanged();
 
@@ -178,8 +134,6 @@ private:
 
     QString m_relationId = QString();
     RelationType m_relationType = RelationType::None;
-    QString m_threadId = QString();
-    QString m_savedText;
 
     void clearCache();
 };

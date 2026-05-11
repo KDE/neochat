@@ -31,17 +31,25 @@ BaseBlockChooser {
     DelegateChoice {
         roleValue: Blocks.ChatBar
         delegate: ChatBarCore {
-
             /**
-             * @brief The ChatBarCache to use.
+             * @brief The Blocks::Block for the delegate.
              */
-            required property ChatBarCache chatBarCache
+            required property Block block
 
             Layout.fillWidth: true
             Layout.maximumWidth: Message.maxContentWidth
             room: Message.room
-            chatBarType: chatBarCache.isEditing ? LibNeoChat.ChatBarType.Edit : LibNeoChat.ChatBarType.Thread
+            chatBarType: block.isEditing ? LibNeoChat.ChatBarType.Edit : LibNeoChat.ChatBarType.Thread
+            threadRootId: block.threadRootId
             maxAvailableWidth: Message.maxContentWidth
+
+            onCancel: if (chatBarType == LibNeoChat.ChatBarType.Edit) {
+                Message.room.cacheForType(LibNeoChat.ChatBarType.Edit).clearRelations();
+            } else {
+                // Because we override Message with the chat bar's own model and we need the
+                // higher level event content model.
+                parent.Message.contentModel.cancelReplyInThread();
+            }
         }
     }
 }

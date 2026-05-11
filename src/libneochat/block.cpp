@@ -379,6 +379,15 @@ QString ReplyBlock::id() const
     return m_id;
 }
 
+void ReplyBlock::setId(const QString &id)
+{
+    if (id == m_id) {
+        return;
+    }
+    m_id = id;
+    Q_EMIT idChanged();
+}
+
 CacheItemPtr ReplyBlock::toCacheItem() const
 {
     return std::make_unique<ReplyCacheItem>(type(), id());
@@ -393,6 +402,23 @@ ReactionBlock::ReactionBlock(Type type, NeoChatRoom *room, const QString &eventI
 ReactionModel *ReactionBlock::model() const
 {
     return m_model;
+}
+
+ChatBarBlock::ChatBarBlock(Type type, bool isEditing, const QString &threadRootId, QObject *parent)
+    : Block(type, parent)
+    , m_isEditing(isEditing)
+    , m_threadRootId(threadRootId)
+{
+}
+
+bool ChatBarBlock::isEditing() const
+{
+    return m_isEditing;
+}
+
+QString ChatBarBlock::threadRootId() const
+{
+    return m_threadRootId;
 }
 
 #include "moc_block.cpp"

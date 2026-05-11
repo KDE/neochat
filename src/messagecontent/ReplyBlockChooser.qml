@@ -42,6 +42,18 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: Blocks.Emoji
+        delegate: TextComponent {
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.LeftButton
+                cursorShape: Qt.PointingHandCursor
+                onClicked: root.replyClicked()
+            }
+        }
+    }
+
+    DelegateChoice {
         roleValue: Blocks.Image
         delegate: ImageComponent {
             contentMaxHeight: Kirigami.Units.gridUnit * 5
@@ -53,10 +65,10 @@ DelegateChooser {
         delegate: MimeComponent {
             required property Block block
             
-            mimeIconSource: block.attributes.mimeIcon
-            size: block.attributes.size
-            duration: block.attributes.duration
-            label: block.attributes.filename
+            mimeIconSource: block.info.mimeType.iconName
+            size: block.info.size
+            duration: block.info.duration
+            label: block.filename
         }
     }
 
@@ -91,10 +103,10 @@ DelegateChooser {
         delegate: MimeComponent {
             required property Block block
 
-            mimeIconSource: block.attributes.mimeIcon
-            size: block.attributes.size
-            duration: block.attributes.duration
-            label: block.attributes.filename
+            mimeIconSource: block.info.mimeType.iconName
+            size: block.info.size
+            duration: block.info.duration
+            label: block.filename
         }
     }
 
@@ -103,9 +115,9 @@ DelegateChooser {
         delegate: MimeComponent {
             required property Block block
 
-            mimeIconSource: block.attributes.mimeIcon
-            size: block.attributes.size
-            label: block.attributes.filename
+            mimeIconSource: block.info.mimeType.iconName
+            size: block.info.size
+            label: block.filename
         }
     }
 

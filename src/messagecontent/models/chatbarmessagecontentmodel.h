@@ -32,6 +32,11 @@ class ChatBarMessageContentModel : public MessageContentModel
     Q_PROPERTY(ChatBarType::Type type READ type WRITE setType NOTIFY typeChanged)
 
     /**
+     * @brief The thread root id the chat bar is posting a message to if any.
+     */
+    Q_PROPERTY(QString threadRootId READ threadRootId WRITE setThreadRootId NOTIFY threadRootIdChanged)
+
+    /**
      * @brief The row of the model component that currently has focus.
      */
     Q_PROPERTY(int focusRow READ focusRow WRITE setFocusRow NOTIFY focusRowChanged)
@@ -93,6 +98,8 @@ public:
 
     ChatBarType::Type type() const;
     void setType(ChatBarType::Type type);
+    QString threadRootId() const override;
+    void setThreadRootId(const QString &threadRootId);
     ChatKeyHelper *keyHelper() const;
     int focusRow() const;
     Blocks::Type focusType() const;
@@ -105,6 +112,8 @@ public:
     bool hasRichFormatting() const;
     bool hasAttachment() const;
     Q_INVOKABLE void addAttachment(const QUrl &path);
+    Q_INVOKABLE void addReply(const QString &eventId, bool updateCache = true);
+    Q_INVOKABLE void removeReply();
     Q_INVOKABLE void drop(QList<QUrl> urls, const QString &transferPortal);
 
     Q_INVOKABLE void removeComponent(int row, bool removeLast = false);
@@ -127,6 +136,7 @@ public:
 
 Q_SIGNALS:
     void typeChanged(ChatBarType::Type oldType, ChatBarType::Type newType);
+    void threadRootIdChanged();
     void focusRowChanged();
     void hasRichFormattingChanged();
     void hasAttachmentChanged();
@@ -136,13 +146,12 @@ Q_SIGNALS:
 private:
     ChatBarType::Type m_type = ChatBarType::None;
     std::optional<ChatBarType::Type> unhandledTypeChange = std::nullopt;
+    QString m_threadRootId = {};
     void connectCache(ChatBarCache *oldCache = nullptr);
 
     void initializeModel(const QString &initialText = {});
     void initializeFromCache();
     void initializeEdit();
-
-    std::optional<QString> getReplyEventId() override;
 
     void setFocusIndex(const QModelIndex &index, bool mouse = false);
     void focusCurrentComponent(const QModelIndex &previousIndex, bool down);

@@ -328,6 +328,12 @@ Kirigami.Page {
         function onGoToEvent(eventId) {
             (timelineViewLoader.item as TimelineView).goToEvent(eventId);
         }
+
+        function onShowReply(type: int, eventId: string): void {
+            if (type == ChatBarType.Room && chatBarLoader.item) {
+                chatBarLoader.item.model.addReply(eventId);
+            }
+        }
     }
 
     Connections {

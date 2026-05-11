@@ -82,11 +82,6 @@ void EventMessageContentModel::initializeModel()
             resetContent(newEventId == m_eventId);
         }
     });
-    connect(m_room->threadCache(), &ChatBarCache::threadIdChanged, this, [this](const QString &oldThreadId, const QString &newThreadId) {
-        if (oldThreadId == m_eventId || newThreadId == m_eventId) {
-            resetContent(false, newThreadId == m_eventId);
-        }
-    });
     connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
         resetContent();
     });
@@ -237,6 +232,10 @@ void EventMessageContentModel::resetModel()
 {
     beginResetModel();
     m_components.clear();
+    if (m_replyModel) {
+        m_replyModel->disconnect(this);
+        m_replyModel->deleteLater();
+    }
 
     if (m_room->connection()->isIgnored(authorId()) || m_currentState == UnAvailable) {
         m_components.push_back(unavailableBlock());
@@ -258,7 +257,6 @@ void EventMessageContentModel::resetModel()
     m_components.insert(m_components.end(), std::make_move_iterator(components.begin()), std::make_move_iterator(components.end()));
     endResetModel();
 
-    updateReplyModel();
     updateReactionModel();
     updateItineraryModel();
 
@@ -274,6 +272,10 @@ void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
     beginRemoveRows({}, startRow, rowCount() - 1);
     m_components.erase(startIt, m_components.end());
     endRemoveRows();
+    if (m_replyModel) {
+        m_replyModel->disconnect(this);
+        m_replyModel->deleteLater();
+    }
 
     auto newComponents = messageContentComponents(isEditing, isThreading);
     if (newComponents.size() == 0) {
@@ -283,7 +285,6 @@ void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
     m_components.insert(startIt, std::make_move_iterator(newComponents.begin()), std::make_move_iterator(newComponents.end()));
     endInsertRows();
 
-    updateReplyModel();
     updateReactionModel();
     updateItineraryModel();
 
@@ -299,8 +300,13 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
 
     Blocks::BlockPtrs newComponents;
 
+    if (const auto replyId = getReplyEventId()) {
+        newComponents.push_back(new Blocks::ReplyBlock(Blocks::Reply, *replyId, this));
+        m_replyModel = new EventMessageContentModel(m_room, *replyId, true, false, this);
+    }
+
     if (isEditing) {
-        newComponents.push_back(new Blocks::Block(Blocks::ChatBar, this));
+        newComponents.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, true, {}, this));
     } else {
         auto typeComponents = componentsForType(Blocks::typeForEvent(*event.first, m_isReply));
         newComponents.insert(newComponents.end(), std::make_move_iterator(typeComponents.begin()), std::make_move_iterator(typeComponents.end()));
@@ -316,7 +322,7 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents.push_back(new Blocks::Block(Blocks::ChatBar, this));
+        newComponents.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, false, m_eventId, this));
     }
 
     return newComponents;
@@ -330,13 +336,6 @@ std::optional<QString> EventMessageContentModel::getReplyEventId()
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(m_room->getEvent(m_eventId).first);
     if (roomMessageEvent == nullptr) {
        return std::nullopt;
-    }
-    if (!roomMessageEvent->isReply()) {
-        if (m_replyModel) {
-            m_replyModel->disconnect(this);
-            m_replyModel->deleteLater();
-        }
-        return std::nullopt;
     }
     return roomMessageEvent->isReply() ? std::make_optional(roomMessageEvent->replyEventId()) : std::nullopt;
 }
@@ -474,6 +473,35 @@ void EventMessageContentModel::updateReactionModel()
         beginRemoveRows({}, rowCount() - 1, rowCount() - 1);
         m_components.erase(--m_components.end());
         endRemoveRows();
+    }
+}
+
+void EventMessageContentModel::replyInThread()
+{
+    if (hasComponentType(Blocks::ThreadBody)) {
+        if (const auto threadModel = modelForThread(m_eventId)) {
+            threadModel->setReplying(true);
+        }
+        return;
+    }
+    resetContent(false, true);
+}
+
+void EventMessageContentModel::cancelReplyInThread()
+{
+    if (hasComponentType(Blocks::ThreadBody)) {
+        if (const auto threadModel = modelForThread(m_eventId)) {
+            threadModel->setReplying(false);
+        }
+        return;
+    }
+    if (hasComponentType(Blocks::ChatBar)) {
+        forEachComponentOfType(Blocks::ChatBar, [this](Blocks::BlockPtrsIt it) {
+            beginRemoveRows({}, std::distance(m_components.begin(), it), std::distance(m_components.begin(), it));
+            it = m_components.erase(it);
+            endRemoveRows();
+            return it;
+        });
     }
 }
 

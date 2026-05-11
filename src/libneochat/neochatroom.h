@@ -525,11 +525,11 @@ public:
     Q_INVOKABLE ChatBarCache *cacheForType(ChatBarType::Type type) const;
 
     /**
-     * @brief Reply to the last message sent in the timeline.
+     * @brief Return the Matrix event ID of the last message in the timeline.
      *
      * @note This checks a maximum of the previous 35 message for performance reasons.
      */
-    Q_INVOKABLE void replyLastMessage();
+    QString lastMessageId();
 
     /**
      * @brief Edit the last message sent by the local user.

@@ -20,6 +20,7 @@
 #include "enums/blocktype.h"
 #include "enums/chatbartype.h"
 #include "enums/richformat.h"
+#include "eventmessagecontentmodel.h"
 #include "fileinfo.h"
 #include "messagecontentmodel.h"
 #include "neochatroom.h"
@@ -103,7 +104,6 @@ void ChatBarMessageContentModel::connectCache(ChatBarCache *oldCache)
             return;
         }
         const auto currentCache = m_room->cacheForType(m_type);
-        updateReplyModel();
         refocusCurrentComponent();
         if (currentCache->isEditing()) {
             initializeEdit();
@@ -113,8 +113,6 @@ void ChatBarMessageContentModel::connectCache(ChatBarCache *oldCache)
 
 void ChatBarMessageContentModel::initializeModel(const QString &initialText)
 {
-    updateReplyModel();
-
     beginInsertRows({}, rowCount(), rowCount());
     auto textBlock = new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(initialText), false, this);
     connectTextItem(textBlock->item());
@@ -245,6 +243,20 @@ void ChatBarMessageContentModel::setType(ChatBarType::Type type)
     Q_EMIT typeChanged(oldType, m_type);
 }
 
+QString ChatBarMessageContentModel::threadRootId() const
+{
+    return m_threadRootId;
+}
+
+void ChatBarMessageContentModel::setThreadRootId(const QString &threadRootId)
+{
+    if (threadRootId == m_threadRootId) {
+        return;
+    }
+    m_threadRootId = threadRootId;
+    Q_EMIT threadRootIdChanged();
+}
+
 ChatKeyHelper *ChatBarMessageContentModel::keyHelper() const
 {
     return m_keyHelper;
@@ -297,6 +309,9 @@ void ChatBarMessageContentModel::connectKeyHelper()
         if (!isCompleting) {
             postMessage();
         }
+    });
+    connect(m_keyHelper, &ChatKeyHelper::requestReply, this, [this](const QString &eventId) {
+        addReply(eventId);
     });
     connect(m_keyHelper, &ChatKeyHelper::imagePasted, this, [this](const QString &filePath) {
         addAttachment(QUrl(filePath));
@@ -455,6 +470,40 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     Q_EMIT hasAttachmentChanged();
 }
 
+void ChatBarMessageContentModel::addReply(const QString &eventId, bool updateCache)
+{
+    if (!m_replyModel || m_replyModel->eventId() != eventId) {
+        if (m_replyModel) {
+            m_replyModel->disconnect(this);
+            m_replyModel->deleteLater();
+        }
+        m_replyModel = new EventMessageContentModel(m_room, eventId, true, false, this);
+    }
+    if (!hasComponentType(Blocks::Reply)) {
+        insertComponent(0, new Blocks::ReplyBlock(Blocks::Reply, eventId, this));
+    } else {
+        if (const auto replyBlock = dynamic_cast<Blocks::ReplyBlock *>(m_components[0])) {
+            replyBlock->setId(eventId);
+        }
+        dataChanged(index(0), index(0), {ReplyContentModelRole});
+    }
+    if (updateCache) {
+        this->updateCache();
+    }
+    refocusCurrentComponent();
+}
+
+void ChatBarMessageContentModel::removeReply()
+{
+    if (m_components[0]->type() == Blocks::Reply) {
+        removeComponent(0);
+    }
+    if (m_replyModel) {
+        m_replyModel->disconnect(this);
+        m_replyModel->deleteLater();
+    }
+}
+
 void ChatBarMessageContentModel::drop(QList<QUrl> u, const QString &transferPortal)
 {
     QMimeData mimeData;
@@ -513,7 +562,7 @@ Blocks::BlockPtrsIt ChatBarMessageContentModel::insertComponent(int row, Blocks:
     }
 
     beginInsertRows({}, row, row);
-    const auto it = m_components.insert(m_components.begin() + row, std::move(block));
+    const auto it = m_components.insert(m_components.begin() + row, block);
     endInsertRows();
     Q_EMIT hasRichFormattingChanged();
 
@@ -688,7 +737,7 @@ void ChatBarMessageContentModel::removeComponent(ChatTextItemHelper *textItem)
 
 void ChatBarMessageContentModel::insertComponentFromCache(Blocks::CacheItem *item)
 {
-    if (!Blocks::isTextType(item->type) && !Blocks::isFileType(item->type)) {
+    if (!Blocks::isTextType(item->type) && !Blocks::isFileType(item->type) && item->type != Blocks::Reply) {
         return;
     }
 
@@ -711,6 +760,12 @@ void ChatBarMessageContentModel::insertComponentFromCache(Blocks::CacheItem *ite
         break;
     case Blocks::Audio:
         insertComponent(rowCount(), new Blocks::AudioBlock(dynamic_cast<Blocks::AudioCacheItem *>(item), this));
+        break;
+    case Blocks::Reply:
+        if (const auto replyItem = dynamic_cast<Blocks::ReplyCacheItem *>(item)) {
+            addReply(replyItem->id, false);
+        }
+        break;
     default:
         break;
     }
@@ -772,7 +827,7 @@ void ChatBarMessageContentModel::postMessage()
         return;
     }
 
-    m_room->cacheForType(m_type)->postMessage();
+    m_room->cacheForType(m_type)->postMessage(m_threadRootId);
     clearModel();
     initializeModel();
     refocusCurrentComponent();
@@ -798,14 +853,6 @@ bool ChatBarMessageContentModel::hasAnyContent() const
     }
 
     return true;
-}
-
-std::optional<QString> ChatBarMessageContentModel::getReplyEventId()
-{
-    if (!m_room) {
-        return std::nullopt;
-    }
-    return m_room->mainCache()->isReplying() ? std::make_optional(m_room->mainCache()->replyId()) : std::nullopt;
 }
 
 void ChatBarMessageContentModel::clearModel()

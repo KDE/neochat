@@ -448,15 +448,19 @@ class ReplyBlock : public Block
     /**
      * @brief The ID of the event being replied to.
      */
-    Q_PROPERTY(QString id READ id CONSTANT)
+    Q_PROPERTY(QString id READ id WRITE setId NOTIFY idChanged)
 
 public:
     ReplyBlock(Type type, const QString &id, QObject *parent);
     ReplyBlock(ReplyCacheItem *item, QObject *parent);
 
     QString id() const;
+    void setId(const QString &id);
 
     [[nodiscard]] CacheItemPtr toCacheItem() const override;
+
+Q_SIGNALS:
+    void idChanged();
 
 private:
     QString m_id;
@@ -487,6 +491,38 @@ public:
 
 private:
     ReactionModel *m_model;
+};
+
+/**
+ * @class ChatBarBlock
+ *
+ * A block to help visualize a chat bar in a message.
+ */
+class ChatBarBlock : public Block
+{
+    Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
+
+    /**
+     * @brief The model containing the list of reactions.
+     */
+    Q_PROPERTY(bool isEditing READ isEditing CONSTANT)
+
+    /**
+     * @brief The model containing the list of reactions.
+     */
+    Q_PROPERTY(QString threadRootId READ threadRootId CONSTANT)
+
+public:
+    ChatBarBlock(Type type, bool isEditing, const QString &threadRootId, QObject *parent);
+
+    [[nodiscard]] bool isEditing() const;
+    [[nodiscard]] QString threadRootId() const;
+
+private:
+    bool m_isEditing = false;
+    QString m_threadRootId = {};
 };
 
 using BlockPtrs = std::vector<Blocks::Block *>;

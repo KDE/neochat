@@ -210,7 +210,7 @@ void ModelTest::testThreadFetchModel()
 void ModelTest::testThreadChatBarModel()
 {
     auto threadModel = std::make_unique<ThreadModel>(eventId, room);
-    auto model = new ThreadChatBarModel(threadModel.get(), room);
+    auto model = new ThreadChatBarModel(threadModel.get());
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
