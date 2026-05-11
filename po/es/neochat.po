@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-10 00:43+0000\n"
-"PO-Revision-Date: 2026-05-09 17:01+0100\n"
+"POT-Creation-Date: 2026-05-11 00:43+0000\n"
+"PO-Revision-Date: 2026-05-10 12:12+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -832,7 +832,7 @@ msgid "Edit state"
 msgstr "Editar estado"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:116 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:120 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1217,7 +1217,7 @@ msgstr "La carga de claves de la copia de seguridad ha fallado"
 #, kde-format
 msgctxt "@title"
 msgid "Unlock by Verifying Session"
-msgstr ""
+msgstr "Desbloquear verificando la sesión"
 
 #: src/app/qml/UnlockSSSSDialog.qml:62
 #, kde-format
@@ -1226,6 +1226,8 @@ msgid ""
 "It's recommended to verify this session from another device, if possible. "
 "You can do so under the Devices page."
 msgstr ""
+"Se recomienda verificar esta sesión desde otro dispositivo, si es posible. "
+"Puede hacerlo en la página de «Dispositivos»."
 
 #: src/app/qml/UnlockSSSSDialog.qml:67
 #, kde-format
@@ -4496,12 +4498,10 @@ msgid "Pl. %1"
 msgstr "Andén %1"
 
 #: src/messagecontent/VideoComponent.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Video"
-msgstr "Abrir vídeo"
+msgstr "Ocultar vídeo"
 
 #: src/messagecontent/VideoComponent.qml:183
 #, kde-format
@@ -4745,7 +4745,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Buscar salas"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:121
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5090,19 +5090,19 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "Salir del espacio…"
 
-#: src/rooms/UserInfo.qml:42
+#: src/rooms/UserInfo.qml:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Gestionar la cuenta"
 
-#: src/rooms/UserInfo.qml:99 src/settings/DevicesPage.qml:44
+#: src/rooms/UserInfo.qml:103 src/settings/DevicesPage.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify This Device"
 msgstr "Verificar este dispositivo"
 
-#: src/rooms/UserInfo.qml:108
+#: src/rooms/UserInfo.qml:112
 #, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
@@ -7772,33 +7772,25 @@ msgid "Save File…"
 msgstr "Guardar archivo…"
 
 #: src/timeline/DelegateContextMenu.qml:344
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Hide Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Image"
 msgstr "Ocultar imagen"
 
 #: src/timeline/DelegateContextMenu.qml:346
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Video"
-msgstr "Abrir vídeo"
+msgstr "Ocultar vídeo"
 
 #: src/timeline/DelegateContextMenu.qml:358
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "Mostrar imagen"
 
 #: src/timeline/DelegateContextMenu.qml:360
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "Mostrar vídeo"
@@ -8046,15 +8038,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Verify This Device"
-#~ msgstr "Verificar este dispositivo"
-
-#~ msgctxt "@title"
-#~ msgid "Import Keys"
-#~ msgstr "Importar claves"
-
-#~ msgctxt "@title"
-#~ msgid "Export Keys"
-#~ msgstr "Exportar claves"

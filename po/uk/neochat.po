@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-10 00:43+0000\n"
-"PO-Revision-Date: 2026-05-09 13:26+0300\n"
+"POT-Creation-Date: 2026-05-11 00:43+0000\n"
+"PO-Revision-Date: 2026-05-10 17:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -834,7 +834,7 @@ msgid "Edit state"
 msgstr "Редагування стану"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/UserInfo.qml:116 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:120 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1222,7 +1222,7 @@ msgstr "Не вдалося завантажити ключі з резервн�
 #, kde-format
 msgctxt "@title"
 msgid "Unlock by Verifying Session"
-msgstr ""
+msgstr "Розблокування перевіркою сеансу"
 
 #: src/app/qml/UnlockSSSSDialog.qml:62
 #, kde-format
@@ -1231,6 +1231,8 @@ msgid ""
 "It's recommended to verify this session from another device, if possible. "
 "You can do so under the Devices page."
 msgstr ""
+"Рекомендуємо перевірити цей сеанс з іншого пристрою, якщо це можливо. "
+"Зробити це можна за допомогою сторінки «Пристрої»."
 
 #: src/app/qml/UnlockSSSSDialog.qml:67
 #, kde-format
@@ -4503,12 +4505,10 @@ msgid "Pl. %1"
 msgstr "Пл. %1"
 
 #: src/messagecontent/VideoComponent.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Video"
-msgstr "Відкрити відео"
+msgstr "Приховати відео"
 
 #: src/messagecontent/VideoComponent.qml:183
 #, kde-format
@@ -4754,7 +4754,7 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Шукати кімнати"
 
-#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:121
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
@@ -5104,19 +5104,19 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "Полишити простір…"
 
-#: src/rooms/UserInfo.qml:42
+#: src/rooms/UserInfo.qml:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Керування обліковим записом"
 
-#: src/rooms/UserInfo.qml:99 src/settings/DevicesPage.qml:44
+#: src/rooms/UserInfo.qml:103 src/settings/DevicesPage.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify This Device"
 msgstr "Перевірити цей пристрій"
 
-#: src/rooms/UserInfo.qml:108
+#: src/rooms/UserInfo.qml:112
 #, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
@@ -7799,33 +7799,25 @@ msgid "Save File…"
 msgstr "Зберегти файл…"
 
 #: src/timeline/DelegateContextMenu.qml:344
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Hide Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Image"
 msgstr "Приховати зображення"
 
 #: src/timeline/DelegateContextMenu.qml:346
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Video"
-msgstr "Відкрити відео"
+msgstr "Приховати відео"
 
 #: src/timeline/DelegateContextMenu.qml:358
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "Показати зображення"
 
 #: src/timeline/DelegateContextMenu.qml:360
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "Показати відео"
