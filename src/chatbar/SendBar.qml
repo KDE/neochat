@@ -33,9 +33,11 @@ RowLayout {
     signal cancel
 
     function openLocationChooser(): void {
-        Qt.createComponent('org.kde.neochat.chatbar', 'LocationChooser').createObject(QQC2.ApplicationWindow.overlay, {
-            room: root.room
-        }).open();
+        let chooser = Qt.createComponent('org.kde.neochat.chatbar', 'LocationChooser').createObject(QQC2.ApplicationWindow.overlay);
+        chooser.locationChosen.connect((latitude, longitude, asset) => {
+            root.contentModel.addLocation(latitude, longitude, asset);
+        });
+        chooser.open();
     }
 
     function openNewPollDialog(): void {

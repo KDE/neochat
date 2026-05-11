@@ -275,7 +275,14 @@ public:
      *
      * @sa Type
      */
-    bool hasType(Type type);
+    bool hasType(Type type) const;
+
+    /**
+     * @brief Whether the Cache has at least one item with any of the given types.
+     *
+     * @sa Type
+     */
+    bool hasType(const QList<Type> &types) const;
 
     /**
      * @brief Prepend the given CacheItem to the cache.

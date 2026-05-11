@@ -9,34 +9,33 @@ import org.kde.kirigamiaddons.labs.components as Components
 
 import org.kde.kirigami as Kirigami
 
-import org.kde.neochat
+import org.kde.neochat.libneochat as LibNeoChat
 
 Components.AbstractMaximizeComponent {
     id: root
 
-    required property NeoChatRoom room
-    property var location
+    signal locationChosen(latitude: real, longitude: real, asset: string)
 
     title: i18n("Choose a Location")
 
     actions: [
         Kirigami.Action {
-            icon.name: "document-send"
-            text: i18n("Send this location")
+            icon.name: "map-globe-symbolic"
+            text: i18n("Select this location")
             onTriggered: {
-                root.room.sendLocation(root.location.latitude, root.location.longitude, "");
+                root.locationChosen(mapView.locationMapItem.latitude, mapView.locationMapItem.longitude, "m.pin");
                 root.close();
             }
-            enabled: !!root.location
+            enabled: mapView.map.mapItems.length > 0
         },
         Kirigami.Action {
             text: i18nc("@action:intoolbar Re-center the map onto the set location", "Re-Center")
             icon.name: "snap-bounding-box-center-symbolic"
             onTriggered: mapView.map.fitViewportToMapItems([mapView.locationMapItem])
-            enabled: root.location !== undefined
+            enabled: mapView.map.mapItems.length > 0
         },
         Kirigami.Action {
-            text: i18nc("@action:intoolbar Determine the device's location", "Locate")
+            text: i18nc("@action:intoolbar Determine the device's location", "Set to current location")
             icon.name: "mark-location-symbolic"
             enabled: positionSource.valid
             onTriggered: positionSource.update()
@@ -52,39 +51,36 @@ Components.AbstractMaximizeComponent {
 
         onPositionChanged: {
             const coord = position.coordinate;
-            mapView.gpsMapItem.latitude = coord.latitude;
-            mapView.gpsMapItem.longitude = coord.longitude;
+            mapView.locationMapItem.latitude = coord.latitude;
+            mapView.locationMapItem.longitude = coord.longitude;
 
-            mapView.map.addMapItem(mapView.gpsMapItem);
-            mapView.map.fitViewportToMapItems([mapView.gpsMapItem])
+            if (mapView.map.mapItems.length <= 0) {
+                mapView.map.addMapItem(mapView.locationMapItem);
+            }
+            mapView.map.fitViewportToMapItems([mapView.locationMapItem])
         }
     }
 
     content: MapView {
         id: mapView
-        map.plugin: OsmLocationPlugin.plugin
+        map.plugin: LibNeoChat.OsmLocationPlugin.plugin
 
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                root.location = mapView.map.toCoordinate(Qt.point(mouseX, mouseY), false);
-                mapView.map.addMapItem(mapView.locationMapItem);
+                const location = mapView.map.toCoordinate(Qt.point(mouseX, mouseY), false);
+                mapView.locationMapItem.latitude = location.latitude;
+                mapView.locationMapItem.longitude = location.longitude;
+                if (mapView.map.mapItems.length <= 0) {
+                    mapView.map.addMapItem(mapView.locationMapItem);
+                }
             }
         }
 
-        readonly property LocationMapItem locationMapItem: LocationMapItem {
-            latitude: root.location.latitude
-            longitude: root.location.longitude
-            isLive: false
-            heading: NaN
-            asset: ""
-            author: null
-        }
-
-        readonly property LocationMapItem gpsMapItem: LocationMapItem {
+        readonly property LibNeoChat.LocationMapItem locationMapItem: LibNeoChat.LocationMapItem {
             latitude: 0.0
             longitude: 0.0
-            isLive: true
+            isLive: false
             heading: NaN
             asset: ""
             author: null

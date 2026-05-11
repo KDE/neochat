@@ -11,17 +11,27 @@
 
 #include "events/pollevent.h"
 
+namespace
+{
+static const QList<Blocks::Type> fTypes = {
+    Blocks::File,
+    Blocks::Image,
+    Blocks::Video,
+    Blocks::Audio,
+};
+}
+
 QUrl Blocks::componentForType(Type type)
 {
     switch (type) {
-    case Code:
-        return QUrl("CodeComponent.qml"_L1);
-    case Image:
-        return QUrl("ImageComponent.qml"_L1);
-    case Itinerary:
-        return QUrl("ItineraryComponent.qml"_L1);
-    default:
-        return {};
+        case Code:
+            return QUrl("CodeComponent.qml"_L1);
+        case Image:
+            return QUrl("ImageComponent.qml"_L1);
+        case Itinerary:
+            return QUrl("ItineraryComponent.qml"_L1);
+        default:
+            return {};
     }
 }
 
@@ -119,13 +129,12 @@ bool Blocks::isTextType(const Blocks::Type &type)
 
 bool Blocks::isFileType(const Blocks::Type &type)
 {
-    static const QList<Type> fileTypes = {
-        File,
-        Image,
-        Video,
-        Audio,
-    };
-    return fileTypes.contains(type);
+    return fTypes.contains(type);
+}
+
+QList<Blocks::Type> Blocks::fileTypes()
+{
+    return fTypes;
 }
 
 #include "moc_blocktype.cpp"

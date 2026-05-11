@@ -5,7 +5,10 @@
 
 #include <QRegularExpression>
 #include <algorithm>
+#include <memory>
+#include <ranges>
 
+#include "blocktype.h"
 #include "chattextitemhelper.h"
 #include "fileinfo.h"
 
@@ -247,10 +250,17 @@ const CacheItem *Cache::at(qsizetype i) const
     return m_items.at(i).get();
 }
 
-bool Cache::hasType(Type type)
+bool Cache::hasType(Type type) const
 {
     return std::ranges::any_of(m_items, [type](const std::unique_ptr<CacheItem> &item) {
         return item->type == type;
+    });
+}
+
+bool Cache::hasType(const QList<Type> &types) const
+{
+    return std::ranges::any_of(types, [this](Type type) {
+        return hasType(type);
     });
 }
 
@@ -278,11 +288,29 @@ QString Cache::toString() const
 {
     QString text;
     std::ranges::for_each(m_items, [&text](const std::unique_ptr<CacheItem> &item) {
-        if (!text.isEmpty()) {
+        const auto addString = item->toString();
+        if (!text.isEmpty() && !addString.isEmpty()) {
             text += u"\n\n"_s;
         }
-        text += item->toString();
+        text += addString;
     });
+
+    if (text.isEmpty() && hasType(fileTypes())) {
+        auto fileItems = m_items | std::views::filter([](const std::unique_ptr<CacheItem> &item) {
+                             return Blocks::isFileType(item->type);
+                         });
+        for (auto &item : fileItems) {
+            if (const auto fileItem = dynamic_cast<UrlCacheItem *>(item.get())) {
+                if (!text.isEmpty()) {
+                    text += u"\n\n"_s;
+                }
+                const auto url = fileItem->source;
+                auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
+                text += path.mid(path.lastIndexOf(u'/') + 1);
+            }
+        }
+    }
+
     return text;
 }
 

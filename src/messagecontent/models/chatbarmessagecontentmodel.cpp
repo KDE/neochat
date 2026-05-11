@@ -446,7 +446,7 @@ bool ChatBarMessageContentModel::hasRichFormatting() const
 
 bool ChatBarMessageContentModel::hasAttachment() const
 {
-    return hasComponentType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video});
+    return hasComponentType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video, Blocks::Location});
 }
 
 void ChatBarMessageContentModel::addAttachment(const QUrl &path)
@@ -491,6 +491,16 @@ void ChatBarMessageContentModel::addReply(const QString &eventId, bool updateCac
         this->updateCache();
     }
     refocusCurrentComponent();
+}
+
+void ChatBarMessageContentModel::addLocation(qreal latitude, qreal longitude, const QString &asset)
+{
+    clearModel();
+    initializeModel(u"Lat: %1, Long: %2"_s.arg(QString::number(latitude), QString::number(longitude)));
+    auto it =
+        insertComponent(m_components.front()->type() == Blocks::Reply ? 1 : 0, new Blocks::LocationBlock(Blocks::Location, latitude, longitude, asset, this));
+    Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {BlockRole});
+    Q_EMIT hasAttachmentChanged();
 }
 
 void ChatBarMessageContentModel::removeReply()
@@ -737,10 +747,6 @@ void ChatBarMessageContentModel::removeComponent(ChatTextItemHelper *textItem)
 
 void ChatBarMessageContentModel::insertComponentFromCache(Blocks::CacheItem *item)
 {
-    if (!Blocks::isTextType(item->type) && !Blocks::isFileType(item->type) && item->type != Blocks::Reply) {
-        return;
-    }
-
     switch (item->type) {
     case Blocks::Text:
     case Blocks::Quote:
@@ -760,6 +766,9 @@ void ChatBarMessageContentModel::insertComponentFromCache(Blocks::CacheItem *ite
         break;
     case Blocks::Audio:
         insertComponent(rowCount(), new Blocks::AudioBlock(dynamic_cast<Blocks::AudioCacheItem *>(item), this));
+        break;
+    case Blocks::Location:
+        insertComponent(rowCount(), new Blocks::LocationBlock(dynamic_cast<Blocks::LocationCacheItem *>(item), this));
         break;
     case Blocks::Reply:
         if (const auto replyItem = dynamic_cast<Blocks::ReplyCacheItem *>(item)) {
