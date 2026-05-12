@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-11 00:43+0000\n"
+"POT-Creation-Date: 2026-05-12 00:44+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1059,14 +1059,14 @@ msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "आरम्भार्थं कक्षं चिनोतु वा सम्मिलितं कुर्वन्तु वा"
 
-#: src/app/qml/RoomPage.qml:338
+#: src/app/qml/RoomPage.qml:344
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat अफलाइन अस्ति। कृपया स्वस्य संजालसंयोजनं पश्यन्तु।"
 
-#: src/app/qml/RoomPage.qml:370
+#: src/app/qml/RoomPage.qml:376
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1890,18 +1890,18 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत अथवा रिक्त Matrix id<br /> %1 सम्यक् Matrix-परिचयः नास्ति"
 
-#: src/app/roommanager.cpp:468
+#: src/app/roommanager.cpp:473
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "कक्षं सम्मिलितुं असफलः अभवत्<br /> %1"
 
-#: src/app/roommanager.cpp:492
+#: src/app/roommanager.cpp:497
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "भवान् '%1' इत्यत्र सम्मिलितुं प्रार्थितवान्।"
 
-#: src/app/roommanager.cpp:496
+#: src/app/roommanager.cpp:501
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "सम्मिलितकक्षस्य अनुरोधं कर्तुं असफलः<br /> %1"
@@ -1923,20 +1923,20 @@ msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "एतत् कार्यं पूर्णं कर्तुं भवतः विशेषाधिकारः नास्ति"
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
 #, fuzzy, kde-format
 #| msgid "%1 sent a message"
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "%1 सन्देशं प्रेषितवान्"
 
-#: src/chatbar/ChatBarCore.qml:92
+#: src/chatbar/ChatBarCore.qml:97
 #, fuzzy, kde-format
 #| msgid "Emojis & Stickers"
 msgid "Emojis & Stickers"
@@ -1970,7 +1970,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "स्टिकर"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:235
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:227
 #, kde-format
 msgid "Edit"
 msgstr "सम्पादन"
@@ -2212,7 +2212,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:54
+#: src/chatbar/SendBar.qml:56
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2222,61 +2222,61 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:88
+#: src/chatbar/SendBar.qml:90
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Add to message"
 msgstr "सन्देशं प्रेषयन्तु"
 
-#: src/chatbar/SendBar.qml:118 src/chatbar/SendBar.qml:149
+#: src/chatbar/SendBar.qml:120 src/chatbar/SendBar.qml:151
 #, fuzzy, kde-format
 #| msgid "Attach an image or file"
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "चित्रं वा सञ्चिकां वा संलग्नं कुर्वन्तु"
 
-#: src/chatbar/SendBar.qml:123 src/chatbar/SendBar.qml:162
+#: src/chatbar/SendBar.qml:125 src/chatbar/SendBar.qml:164
 #, fuzzy, kde-format
 #| msgid "Send a Location"
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "एकं स्थानं प्रेषयन्तु"
 
-#: src/chatbar/SendBar.qml:128 src/chatbar/SendBar.qml:174
+#: src/chatbar/SendBar.qml:130 src/chatbar/SendBar.qml:176
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "एकं कक्षं रचयन्तु"
 
-#: src/chatbar/SendBar.qml:133 src/chatbar/SendBar.qml:185
+#: src/chatbar/SendBar.qml:135 src/chatbar/SendBar.qml:187
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "सन्देशं प्रेषयन्तु..."
 
-#: src/chatbar/SendBar.qml:196
+#: src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:196
+#: src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:213
+#: src/chatbar/SendBar.qml:215
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "सन्देशं प्रेषयन्तु"
 
-#: src/chatbar/SendBar.qml:226 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:228 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -3394,317 +3394,317 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "गन्तव्य"
 
-#: src/libneochat/models/actionsmodel.cpp:30
+#: src/libneochat/models/actionsmodel.cpp:31
 #, kde-format
 msgid "Leaving this room."
 msgstr "एतत् कक्षं त्यक्त्वा।"
 
-#: src/libneochat/models/actionsmodel.cpp:39
+#: src/libneochat/models/actionsmodel.cpp:40
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "कक्षं त्यक्त्वा %1."
 
-#: src/libneochat/models/actionsmodel.cpp:42
+#: src/libneochat/models/actionsmodel.cpp:43
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "कक्षः %1 न प्राप्तः।"
 
-#: src/libneochat/models/actionsmodel.cpp:50
-#: src/libneochat/models/actionsmodel.cpp:285
+#: src/libneochat/models/actionsmodel.cpp:51
+#: src/libneochat/models/actionsmodel.cpp:286
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "न नूतनं उपनाम प्रदत्तं, परिवर्तनं न भविष्यति।"
 
-#: src/libneochat/models/actionsmodel.cpp:64
-#: src/libneochat/models/actionsmodel.cpp:73
-#: src/libneochat/models/actionsmodel.cpp:82
-#: src/libneochat/models/actionsmodel.cpp:91
-#: src/libneochat/models/actionsmodel.cpp:109
-#: src/libneochat/models/actionsmodel.cpp:127
-#: src/libneochat/models/actionsmodel.cpp:141
-#: src/libneochat/models/actionsmodel.cpp:155
-#: src/libneochat/models/actionsmodel.cpp:164
-#: src/libneochat/models/actionsmodel.cpp:173
+#: src/libneochat/models/actionsmodel.cpp:65
+#: src/libneochat/models/actionsmodel.cpp:74
+#: src/libneochat/models/actionsmodel.cpp:83
+#: src/libneochat/models/actionsmodel.cpp:92
+#: src/libneochat/models/actionsmodel.cpp:110
+#: src/libneochat/models/actionsmodel.cpp:128
+#: src/libneochat/models/actionsmodel.cpp:142
+#: src/libneochat/models/actionsmodel.cpp:156
+#: src/libneochat/models/actionsmodel.cpp:165
+#: src/libneochat/models/actionsmodel.cpp:174
 msgid "<message>"
 msgstr "<सन्देशः>"
 
-#: src/libneochat/models/actionsmodel.cpp:65
+#: src/libneochat/models/actionsmodel.cpp:66
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "साधारणपाठसन्देशस्य ̄\\_(ツ)_/ ̄ इत्यस्य पूर्ववर्तनं करोति"
 
-#: src/libneochat/models/actionsmodel.cpp:74
+#: src/libneochat/models/actionsmodel.cpp:75
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "साधारणपाठसन्देशस्य पूर्ववर्ती ( ͡° ͜ʖ ͡°) भवति"
 
-#: src/libneochat/models/actionsmodel.cpp:83
+#: src/libneochat/models/actionsmodel.cpp:84
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "साधारणपाठसन्देशस्य पूर्ववर्ती (╯°□°)╯︵ ┻━┻"
 
-#: src/libneochat/models/actionsmodel.cpp:92
+#: src/libneochat/models/actionsmodel.cpp:93
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "साधारणपाठसन्देशस्य ┬──┬ ノ( ゜-゜ノ) इत्यस्य पूर्ववर्ती भवति"
 
-#: src/libneochat/models/actionsmodel.cpp:110
+#: src/libneochat/models/actionsmodel.cpp:111
 msgid "Sends the given message colored as a rainbow"
 msgstr "दत्तं सन्देशं इन्द्रधनुषरूपेण वर्णितं प्रेषयति"
 
-#: src/libneochat/models/actionsmodel.cpp:128
+#: src/libneochat/models/actionsmodel.cpp:129
 msgid "Sends the given emote colored as a rainbow"
 msgstr "दत्तं इमोट् इन्द्रधनुष इव वर्णितं प्रेषयति"
 
-#: src/libneochat/models/actionsmodel.cpp:142
+#: src/libneochat/models/actionsmodel.cpp:143
 msgid "Sends the given message as plain text"
 msgstr "दत्तं सन्देशं साधारणपाठरूपेण प्रेषयति"
 
-#: src/libneochat/models/actionsmodel.cpp:156
+#: src/libneochat/models/actionsmodel.cpp:157
 msgid "Sends the given message as a spoiler"
 msgstr "दत्तं सन्देशं विध्वंसकरूपेण प्रेषयति"
 
-#: src/libneochat/models/actionsmodel.cpp:165
+#: src/libneochat/models/actionsmodel.cpp:166
 msgid "Sends the given emote"
 msgstr "दत्तं इमोट् प्रेषयति"
 
-#: src/libneochat/models/actionsmodel.cpp:174
+#: src/libneochat/models/actionsmodel.cpp:175
 msgid "Sends the given message as a notice"
 msgstr "दत्तं सन्देशं सूचनारूपेण प्रेषयति"
 
-#: src/libneochat/models/actionsmodel.cpp:181
-#: src/libneochat/models/actionsmodel.cpp:314
-#: src/libneochat/models/actionsmodel.cpp:335
-#: src/libneochat/models/actionsmodel.cpp:375
-#: src/libneochat/models/actionsmodel.cpp:407
-#: src/libneochat/models/actionsmodel.cpp:435
+#: src/libneochat/models/actionsmodel.cpp:182
+#: src/libneochat/models/actionsmodel.cpp:315
+#: src/libneochat/models/actionsmodel.cpp:336
+#: src/libneochat/models/actionsmodel.cpp:377
+#: src/libneochat/models/actionsmodel.cpp:409
+#: src/libneochat/models/actionsmodel.cpp:437
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "'%1' matrix id इव न दृश्यते ।"
 
-#: src/libneochat/models/actionsmodel.cpp:187
+#: src/libneochat/models/actionsmodel.cpp:188
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 अस्मिन् कक्षे पूर्वमेव आमन्त्रितः अस्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:191
+#: src/libneochat/models/actionsmodel.cpp:192
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितम् अस्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:195
+#: src/libneochat/models/actionsmodel.cpp:196
 #, kde-format
 msgid "You are already in this room."
 msgstr "त्वं पूर्वमेव अस्मिन् कक्षे असि।"
 
-#: src/libneochat/models/actionsmodel.cpp:199
+#: src/libneochat/models/actionsmodel.cpp:200
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 अस्मिन् कक्षे पूर्वमेव अस्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:203
+#: src/libneochat/models/actionsmodel.cpp:204
 #, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
 msgstr "%1 अस्मिन् कक्षे आमन्त्रितः आसीत् ।"
 
-#: src/libneochat/models/actionsmodel.cpp:207
-#: src/libneochat/models/actionsmodel.cpp:327
-#: src/libneochat/models/actionsmodel.cpp:347
-#: src/libneochat/models/actionsmodel.cpp:425
+#: src/libneochat/models/actionsmodel.cpp:208
+#: src/libneochat/models/actionsmodel.cpp:328
+#: src/libneochat/models/actionsmodel.cpp:348
+#: src/libneochat/models/actionsmodel.cpp:427
 msgid "<user id>"
 msgstr "<उपयोक्ता आईडी>"
 
-#: src/libneochat/models/actionsmodel.cpp:208
+#: src/libneochat/models/actionsmodel.cpp:209
 msgid "Invites the user to this room"
 msgstr "उपयोक्तारम् अस्मिन् कक्षे आमन्त्रयति"
 
-#: src/libneochat/models/actionsmodel.cpp:219
-#: src/libneochat/models/actionsmodel.cpp:259
+#: src/libneochat/models/actionsmodel.cpp:220
+#: src/libneochat/models/actionsmodel.cpp:260
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "संयोगकक्षः %1."
 
-#: src/libneochat/models/actionsmodel.cpp:224
-#: src/libneochat/models/actionsmodel.cpp:264
+#: src/libneochat/models/actionsmodel.cpp:225
+#: src/libneochat/models/actionsmodel.cpp:265
 msgid "<room alias or id>"
 msgstr "<कक्ष उपनाम वा id>"
 
-#: src/libneochat/models/actionsmodel.cpp:225
-#: src/libneochat/models/actionsmodel.cpp:265
+#: src/libneochat/models/actionsmodel.cpp:226
+#: src/libneochat/models/actionsmodel.cpp:266
 msgid "Joins the given room"
 msgstr "दत्तकक्षे सम्मिलितः भवति"
 
-#: src/libneochat/models/actionsmodel.cpp:237
+#: src/libneochat/models/actionsmodel.cpp:238
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "ठोकने कक्ष %1."
 
-#: src/libneochat/models/actionsmodel.cpp:248
+#: src/libneochat/models/actionsmodel.cpp:249
 msgid "<room alias or id> [<reason>]"
 msgstr "<कक्ष उपनाम वा id> [<कारण>] ।"
 
-#: src/libneochat/models/actionsmodel.cpp:249
+#: src/libneochat/models/actionsmodel.cpp:250
 msgid "Requests to join the given room"
 msgstr "दत्तकक्षे सम्मिलितुं अनुरोधं करोति"
 
-#: src/libneochat/models/actionsmodel.cpp:256
+#: src/libneochat/models/actionsmodel.cpp:257
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "भवान् पूर्वमेव %1 कक्षे अस्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:271
-#: src/libneochat/models/actionsmodel.cpp:278
+#: src/libneochat/models/actionsmodel.cpp:272
+#: src/libneochat/models/actionsmodel.cpp:279
 msgid "[<room alias or id>]"
 msgstr "[<कक्ष उपनाम वा id>] ।"
 
-#: src/libneochat/models/actionsmodel.cpp:272
-#: src/libneochat/models/actionsmodel.cpp:279
+#: src/libneochat/models/actionsmodel.cpp:273
+#: src/libneochat/models/actionsmodel.cpp:280
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "दत्तं कक्षं वा एतत् कक्षं वा त्यजति, यदि दत्तं नास्ति"
 
-#: src/libneochat/models/actionsmodel.cpp:292
-#: src/libneochat/models/actionsmodel.cpp:299
-#: src/libneochat/models/actionsmodel.cpp:306
+#: src/libneochat/models/actionsmodel.cpp:293
+#: src/libneochat/models/actionsmodel.cpp:300
+#: src/libneochat/models/actionsmodel.cpp:307
 msgid "<display name>"
 msgstr "<प्रदर्शननाम>"
 
-#: src/libneochat/models/actionsmodel.cpp:293
+#: src/libneochat/models/actionsmodel.cpp:294
 msgid "Changes your global display name"
 msgstr "भवतः वैश्विकप्रदर्शननाम परिवर्तयति"
 
-#: src/libneochat/models/actionsmodel.cpp:300
-#: src/libneochat/models/actionsmodel.cpp:307
+#: src/libneochat/models/actionsmodel.cpp:301
+#: src/libneochat/models/actionsmodel.cpp:308
 msgid "Changes your display name in this room"
 msgstr "अस्मिन् कक्षे भवतः प्रदर्शननाम परिवर्तयति"
 
-#: src/libneochat/models/actionsmodel.cpp:318
+#: src/libneochat/models/actionsmodel.cpp:319
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 पूर्वमेव उपेक्षितम् अस्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:322
+#: src/libneochat/models/actionsmodel.cpp:323
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 इदानीं उपेक्षितम् अस्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:328
+#: src/libneochat/models/actionsmodel.cpp:329
 msgid "Ignores the given user"
 msgstr "दत्तं उपयोक्तारं उपेक्षते"
 
-#: src/libneochat/models/actionsmodel.cpp:339
+#: src/libneochat/models/actionsmodel.cpp:340
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 न उपेक्षितम् ।"
 
-#: src/libneochat/models/actionsmodel.cpp:343
+#: src/libneochat/models/actionsmodel.cpp:344
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 न पुनः उपेक्षितम् ।"
 
-#: src/libneochat/models/actionsmodel.cpp:348
+#: src/libneochat/models/actionsmodel.cpp:349
 msgid "Unignores the given user"
 msgstr "दत्तस्य उपयोक्तुः अवहेलनां करोति"
 
-#: src/libneochat/models/actionsmodel.cpp:366
+#: src/libneochat/models/actionsmodel.cpp:368
 msgid "<reaction text>"
 msgstr "<प्रतिक्रिया पाठ>"
 
-#: src/libneochat/models/actionsmodel.cpp:367
+#: src/libneochat/models/actionsmodel.cpp:369
 msgid "React to the message with the given text"
 msgstr "दत्तपाठेन सन्देशे प्रतिक्रियां कुर्वन्तु"
 
-#: src/libneochat/models/actionsmodel.cpp:381
+#: src/libneochat/models/actionsmodel.cpp:383
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 अस्मात् कक्ष्याम् पूर्वमेव प्रतिबन्धितम् अस्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:385
+#: src/libneochat/models/actionsmodel.cpp:387
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "अस्मिन् कक्षे उपयोक्तृन् प्रतिबन्धयितुं भवद्भिः अनुमतिः नास्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:391
+#: src/libneochat/models/actionsmodel.cpp:393
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "अस्मात् कक्ष्यायाः %1 प्रतिबन्धं कर्तुं भवतः अनुमतिः नास्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:395
+#: src/libneochat/models/actionsmodel.cpp:397
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितः आसीत् ।"
 
-#: src/libneochat/models/actionsmodel.cpp:399
-#: src/libneochat/models/actionsmodel.cpp:461
+#: src/libneochat/models/actionsmodel.cpp:401
+#: src/libneochat/models/actionsmodel.cpp:463
 msgid "<user id> [<reason>]"
 msgstr "<उपयोगकर्ता आईडी> [<कारण>]"
 
-#: src/libneochat/models/actionsmodel.cpp:400
+#: src/libneochat/models/actionsmodel.cpp:402
 msgid "Bans the given user"
 msgstr "दत्तं उपयोक्तारं प्रतिबन्धयति"
 
-#: src/libneochat/models/actionsmodel.cpp:411
+#: src/libneochat/models/actionsmodel.cpp:413
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "अस्मात् कक्ष्यायाः उपयोक्तृभ्यः निषेधं कर्तुं भवद्भिः अनुमतिः नास्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:416
+#: src/libneochat/models/actionsmodel.cpp:418
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितः नास्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:420
+#: src/libneochat/models/actionsmodel.cpp:422
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 अस्मात् कक्षात् अप्रतिबन्धितः आसीत् ।"
 
-#: src/libneochat/models/actionsmodel.cpp:426
+#: src/libneochat/models/actionsmodel.cpp:428
 msgid "Removes the ban of the given user"
 msgstr "दत्तस्य उपयोक्तुः प्रतिबन्धं निष्कासयति"
 
-#: src/libneochat/models/actionsmodel.cpp:439
+#: src/libneochat/models/actionsmodel.cpp:441
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "भवन्तः कक्षात् आत्मानं पादं पातुं न शक्नुवन्ति।"
 
-#: src/libneochat/models/actionsmodel.cpp:443
+#: src/libneochat/models/actionsmodel.cpp:445
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 अस्मिन् कक्षे नास्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:447
+#: src/libneochat/models/actionsmodel.cpp:449
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "अस्मात् कक्ष्यायाः उपयोक्तृन् पादं पातुं भवद्भिः अनुमतिः नास्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:453
+#: src/libneochat/models/actionsmodel.cpp:455
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "अस्मात् कक्ष्यायाः %1 पादं पातुं भवतः अनुमतिः नास्ति ।"
 
-#: src/libneochat/models/actionsmodel.cpp:457
+#: src/libneochat/models/actionsmodel.cpp:459
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 अस्मात् कक्ष्याः पादप्रहारः अभवत् ।"
 
-#: src/libneochat/models/actionsmodel.cpp:462
+#: src/libneochat/models/actionsmodel.cpp:464
 msgid "Removes the user from the room"
 msgstr "उपयोक्तारं कक्षात् निष्कासयति"
 
@@ -4540,7 +4540,7 @@ msgid "Loading URL preview"
 msgstr "URL पूर्वावलोकनं लोड् भवति"
 
 #: src/messagecontent/LoadComponent.qml:33
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:249
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info Loading this message"
@@ -4561,7 +4561,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Full Screen इति प्रविष्टं कुर्वन्तु"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4570,7 +4570,7 @@ msgid ""
 msgstr ""
 "एषः सन्देशः न प्राप्तः, भवतः द्रष्टुं अनुमतिः नास्ति, अथवा उपेक्षितेन उपयोक्त्रा प्रेषितः"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:249
 #, fuzzy, kde-format
 #| msgid "Loading reply"
 msgctxt "@info"
@@ -8170,14 +8170,14 @@ msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "उत्तरं"
 
-#: src/timeline/DelegateContextMenu.qml:221
+#: src/timeline/DelegateContextMenu.qml:216
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
-#: src/timeline/DelegateContextMenu.qml:247
+#: src/timeline/DelegateContextMenu.qml:237
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Remove"
@@ -8185,14 +8185,14 @@ msgctxt "@action:button"
 msgid "Remove…"
 msgstr "अपाकरोति"
 
-#: src/timeline/DelegateContextMenu.qml:252
-#: src/timeline/DelegateContextMenu.qml:259
+#: src/timeline/DelegateContextMenu.qml:242
+#: src/timeline/DelegateContextMenu.qml:249
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "सन्देशं निष्कासयन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:253
+#: src/timeline/DelegateContextMenu.qml:243
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for removing this message"
@@ -8200,19 +8200,19 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "अस्य सन्देशस्य निष्कासनस्य कारणम्"
 
-#: src/timeline/DelegateContextMenu.qml:254
+#: src/timeline/DelegateContextMenu.qml:244
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "अपाकरोति"
 
-#: src/timeline/DelegateContextMenu.qml:277
+#: src/timeline/DelegateContextMenu.qml:267
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "अग्रतः…"
 
-#: src/timeline/DelegateContextMenu.qml:283
+#: src/timeline/DelegateContextMenu.qml:273
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu As in 'Forward this message'"
 #| msgid "Forward…"
@@ -8220,19 +8220,19 @@ msgctxt "@action:button As in 'Forward this message'"
 msgid "Forward"
 msgstr "अग्रतः…"
 
-#: src/timeline/DelegateContextMenu.qml:286
+#: src/timeline/DelegateContextMenu.qml:276
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "अग्रे सन्देशः"
 
-#: src/timeline/DelegateContextMenu.qml:304
+#: src/timeline/DelegateContextMenu.qml:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "चित्रं उद्घाटयतु"
 
-#: src/timeline/DelegateContextMenu.qml:306
+#: src/timeline/DelegateContextMenu.qml:296
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -8242,7 +8242,7 @@ msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "सञ्चिकां उद्घाटयन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:308
+#: src/timeline/DelegateContextMenu.qml:298
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -8252,7 +8252,7 @@ msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "सञ्चिकां उद्घाटयन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:310
+#: src/timeline/DelegateContextMenu.qml:300
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -8262,13 +8262,13 @@ msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "सञ्चिकां उद्घाटयन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:323
+#: src/timeline/DelegateContextMenu.qml:313
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "चित्रं रक्षतु..."
 
-#: src/timeline/DelegateContextMenu.qml:325
+#: src/timeline/DelegateContextMenu.qml:315
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save Image…"
@@ -8276,7 +8276,7 @@ msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "चित्रं रक्षतु..."
 
-#: src/timeline/DelegateContextMenu.qml:327
+#: src/timeline/DelegateContextMenu.qml:317
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save Image…"
@@ -8284,7 +8284,7 @@ msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "चित्रं रक्षतु..."
 
-#: src/timeline/DelegateContextMenu.qml:329
+#: src/timeline/DelegateContextMenu.qml:319
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save Image…"
@@ -8292,14 +8292,14 @@ msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "चित्रं रक्षतु..."
 
-#: src/timeline/DelegateContextMenu.qml:344
+#: src/timeline/DelegateContextMenu.qml:334
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Hide Image"
 msgstr "चित्रं सेट् कुर्वन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:346
+#: src/timeline/DelegateContextMenu.qml:336
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -8309,7 +8309,7 @@ msgctxt "@action:inmenu"
 msgid "Hide Video"
 msgstr "सञ्चिकां उद्घाटयन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:358
+#: src/timeline/DelegateContextMenu.qml:348
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Image"
@@ -8317,7 +8317,7 @@ msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "चित्रं दर्शयतु"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:350
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Video"
@@ -8325,20 +8325,20 @@ msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "विडियो दर्शयतु"
 
-#: src/timeline/DelegateContextMenu.qml:372
+#: src/timeline/DelegateContextMenu.qml:362
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "प्रतिलिपि चित्रम्"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:364
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "प्रतिलिङ्कं लिङ्कं कुर्वन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:376
+#: src/timeline/DelegateContextMenu.qml:366
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Video"
@@ -8346,32 +8346,32 @@ msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "विडियो दर्शयतु"
 
-#: src/timeline/DelegateContextMenu.qml:378
+#: src/timeline/DelegateContextMenu.qml:368
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "प्रतिलिङ्कं लिङ्कं कुर्वन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:388
+#: src/timeline/DelegateContextMenu.qml:378
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "लिङ्क पता प्रतिलिपि कुर्वन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:396
+#: src/timeline/DelegateContextMenu.qml:386
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "पाठ प्रतिलिपि कुर्वन्तु"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:392
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "प्रतिलिपि सन्देश लिङ्क"
 
-#: src/timeline/DelegateContextMenu.qml:410
+#: src/timeline/DelegateContextMenu.qml:400
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -8381,13 +8381,13 @@ msgctxt ""
 msgid "Report…"
 msgstr "वृत्तान्तः"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "रिपोर्ट् सन्देशः"
 
-#: src/timeline/DelegateContextMenu.qml:416
+#: src/timeline/DelegateContextMenu.qml:406
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -8395,72 +8395,72 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "अस्य सन्देशस्य निवेदनस्य कारणम्"
 
-#: src/timeline/DelegateContextMenu.qml:418
+#: src/timeline/DelegateContextMenu.qml:408
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "वृत्तान्तः"
 
-#: src/timeline/DelegateContextMenu.qml:422
+#: src/timeline/DelegateContextMenu.qml:412
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "रिपोर्ट् सन्देशः"
 
-#: src/timeline/DelegateContextMenu.qml:434
+#: src/timeline/DelegateContextMenu.qml:424
 #, fuzzy, kde-format
 #| msgid "Search for '%1'"
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "'%1' इति अन्वेषणं कुर्वन्तु ।"
 
-#: src/timeline/DelegateContextMenu.qml:457
+#: src/timeline/DelegateContextMenu.qml:447
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "जालशॉर्टकट् विन्यस्तं कुर्वन्तु..."
 
-#: src/timeline/DelegateContextMenu.qml:465
+#: src/timeline/DelegateContextMenu.qml:455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:468
+#: src/timeline/DelegateContextMenu.qml:458
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:478
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:478
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:498
+#: src/timeline/DelegateContextMenu.qml:488
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "सन्देशान् अन्वेष्टुम्..."
 
-#: src/timeline/DelegateContextMenu.qml:498
+#: src/timeline/DelegateContextMenu.qml:488
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "सन्देशान् अन्वेष्टुम्..."
 
-#: src/timeline/DelegateContextMenu.qml:511
+#: src/timeline/DelegateContextMenu.qml:501
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -8501,7 +8501,7 @@ msgstr "प्राचीनसन्देशान् पश्यन्त�
 msgid "React"
 msgstr "प्रतिक्रियां कुरुत"
 
-#: src/timeline/QuickActions.qml:89
+#: src/timeline/QuickActions.qml:87
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgid "Message menu"

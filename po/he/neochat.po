@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-11 00:43+0000\n"
+"POT-Creation-Date: 2026-05-12 00:44+0000\n"
 "PO-Revision-Date: 2026-05-09 07:18+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -986,13 +986,13 @@ msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "נא לבחור או להצטרף לחדר כדי להתחיל"
 
-#: src/app/qml/RoomPage.qml:338
+#: src/app/qml/RoomPage.qml:344
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat לא מחובר. נא לבדוק את החיבור שלך לרשת."
 
-#: src/app/qml/RoomPage.qml:370
+#: src/app/qml/RoomPage.qml:376
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1709,17 +1709,17 @@ msgstr "בוצע"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "מזהה Matrix שגוי או ריק<br />%1 אינו מזהה נכון של Matrix"
 
-#: src/app/roommanager.cpp:468
+#: src/app/roommanager.cpp:473
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "נכשלה ההצטרפות אל %1:<br />%2"
 
-#: src/app/roommanager.cpp:492
+#: src/app/roommanager.cpp:497
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "ביקשת להצטרף אל ‚%1’"
 
-#: src/app/roommanager.cpp:496
+#: src/app/roommanager.cpp:501
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "נכשלה הבקשה להצטרף לחדר<br />%1"
@@ -1740,19 +1740,19 @@ msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "אין לך הרשאות לשלוח הודעות לחדר הזה."
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Enter פותח שורה חדשה"
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:198
+#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Enter שולח את ההודעה"
 
-#: src/chatbar/ChatBarCore.qml:92
+#: src/chatbar/ChatBarCore.qml:97
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "אמוג׳ים ומדבקות"
@@ -1781,7 +1781,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "מדבקות"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:235
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:227
 #, kde-format
 msgid "Edit"
 msgstr "עריכה"
@@ -2008,7 +2008,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr "סגנון רשימה"
 
-#: src/chatbar/SendBar.qml:54
+#: src/chatbar/SendBar.qml:56
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2018,55 +2018,55 @@ msgid ""
 "removed"
 msgstr "לצרופות יכולים להיות כיתובים בטקסט פשוט, כל העיצוב יוסר"
 
-#: src/chatbar/SendBar.qml:88
+#: src/chatbar/SendBar.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
 msgstr "הוספה להודעה"
 
-#: src/chatbar/SendBar.qml:118 src/chatbar/SendBar.qml:149
+#: src/chatbar/SendBar.qml:120 src/chatbar/SendBar.qml:151
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "צירוף תמונה או קובץ"
 
-#: src/chatbar/SendBar.qml:123 src/chatbar/SendBar.qml:162
+#: src/chatbar/SendBar.qml:125 src/chatbar/SendBar.qml:164
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "שליחת מקום"
 
-#: src/chatbar/SendBar.qml:128 src/chatbar/SendBar.qml:174
+#: src/chatbar/SendBar.qml:130 src/chatbar/SendBar.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "יצירת סקר"
 
-#: src/chatbar/SendBar.qml:133 src/chatbar/SendBar.qml:185
+#: src/chatbar/SendBar.qml:135 src/chatbar/SendBar.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "שליחת הודעה קולית"
 
-#: src/chatbar/SendBar.qml:196
+#: src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
 msgstr "הסתרת פקדי טקסט עשיר"
 
-#: src/chatbar/SendBar.qml:196
+#: src/chatbar/SendBar.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
 msgstr "הצגת פקדי טקסט עשיר"
 
-#: src/chatbar/SendBar.qml:213
+#: src/chatbar/SendBar.qml:215
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "שליחת הודעה"
 
-#: src/chatbar/SendBar.qml:226 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:228 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -3150,317 +3150,317 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "יעד"
 
-#: src/libneochat/models/actionsmodel.cpp:30
+#: src/libneochat/models/actionsmodel.cpp:31
 #, kde-format
 msgid "Leaving this room."
 msgstr "עזיבת החדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:39
+#: src/libneochat/models/actionsmodel.cpp:40
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "עזיבת החדר %1."
 
-#: src/libneochat/models/actionsmodel.cpp:42
+#: src/libneochat/models/actionsmodel.cpp:43
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "החדר %1 לא נמצא."
 
-#: src/libneochat/models/actionsmodel.cpp:50
-#: src/libneochat/models/actionsmodel.cpp:285
+#: src/libneochat/models/actionsmodel.cpp:51
+#: src/libneochat/models/actionsmodel.cpp:286
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "לא סופק כינוי חדש, לא יתבצעו שינויים."
 
-#: src/libneochat/models/actionsmodel.cpp:64
-#: src/libneochat/models/actionsmodel.cpp:73
-#: src/libneochat/models/actionsmodel.cpp:82
-#: src/libneochat/models/actionsmodel.cpp:91
-#: src/libneochat/models/actionsmodel.cpp:109
-#: src/libneochat/models/actionsmodel.cpp:127
-#: src/libneochat/models/actionsmodel.cpp:141
-#: src/libneochat/models/actionsmodel.cpp:155
-#: src/libneochat/models/actionsmodel.cpp:164
-#: src/libneochat/models/actionsmodel.cpp:173
+#: src/libneochat/models/actionsmodel.cpp:65
+#: src/libneochat/models/actionsmodel.cpp:74
+#: src/libneochat/models/actionsmodel.cpp:83
+#: src/libneochat/models/actionsmodel.cpp:92
+#: src/libneochat/models/actionsmodel.cpp:110
+#: src/libneochat/models/actionsmodel.cpp:128
+#: src/libneochat/models/actionsmodel.cpp:142
+#: src/libneochat/models/actionsmodel.cpp:156
+#: src/libneochat/models/actionsmodel.cpp:165
+#: src/libneochat/models/actionsmodel.cpp:174
 msgid "<message>"
 msgstr "<הודעה>"
 
-#: src/libneochat/models/actionsmodel.cpp:65
+#: src/libneochat/models/actionsmodel.cpp:66
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "הוספת ‎¯\\_(ツ)_/¯‎ לתחילת הודעת טקסט פשוטה"
 
-#: src/libneochat/models/actionsmodel.cpp:74
+#: src/libneochat/models/actionsmodel.cpp:75
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "הוספת ‭( ͡° ͜ʖ ͡°)‬ לתחילת הודעת טקסט פשוטה"
 
-#: src/libneochat/models/actionsmodel.cpp:83
+#: src/libneochat/models/actionsmodel.cpp:84
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "מוסיף ‎(╯°□°）╯︵ ┻━┻‎ לתחילת הודעה בטקסט פשוט"
 
-#: src/libneochat/models/actionsmodel.cpp:92
+#: src/libneochat/models/actionsmodel.cpp:93
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "מוסיף ‎┬──┬ ノ( ゜-゜ノ) לתחילת הודעה בטקסט פשוט"
 
-#: src/libneochat/models/actionsmodel.cpp:110
+#: src/libneochat/models/actionsmodel.cpp:111
 msgid "Sends the given message colored as a rainbow"
 msgstr "שולח את ההודעה שסופקה בצבעי קשת בענן"
 
-#: src/libneochat/models/actionsmodel.cpp:128
+#: src/libneochat/models/actionsmodel.cpp:129
 msgid "Sends the given emote colored as a rainbow"
 msgstr "שליחת המסר הציורי שסופק בצבעי קשת בענן"
 
-#: src/libneochat/models/actionsmodel.cpp:142
+#: src/libneochat/models/actionsmodel.cpp:143
 msgid "Sends the given message as plain text"
 msgstr "שולח את ההודעה שסופקה כטקסט פשוט"
 
-#: src/libneochat/models/actionsmodel.cpp:156
+#: src/libneochat/models/actionsmodel.cpp:157
 msgid "Sends the given message as a spoiler"
 msgstr "שולח את ההודעה שסופקה כקלקלן"
 
-#: src/libneochat/models/actionsmodel.cpp:165
+#: src/libneochat/models/actionsmodel.cpp:166
 msgid "Sends the given emote"
 msgstr "שליחת המסר הציורי שסופק"
 
-#: src/libneochat/models/actionsmodel.cpp:174
+#: src/libneochat/models/actionsmodel.cpp:175
 msgid "Sends the given message as a notice"
 msgstr "שולח את ההודעה שסופקה כהתראה"
 
-#: src/libneochat/models/actionsmodel.cpp:181
-#: src/libneochat/models/actionsmodel.cpp:314
-#: src/libneochat/models/actionsmodel.cpp:335
-#: src/libneochat/models/actionsmodel.cpp:375
-#: src/libneochat/models/actionsmodel.cpp:407
-#: src/libneochat/models/actionsmodel.cpp:435
+#: src/libneochat/models/actionsmodel.cpp:182
+#: src/libneochat/models/actionsmodel.cpp:315
+#: src/libneochat/models/actionsmodel.cpp:336
+#: src/libneochat/models/actionsmodel.cpp:377
+#: src/libneochat/models/actionsmodel.cpp:409
+#: src/libneochat/models/actionsmodel.cpp:437
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "‚%1’ לא נראה כמו מזהה matrix."
 
-#: src/libneochat/models/actionsmodel.cpp:187
+#: src/libneochat/models/actionsmodel.cpp:188
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "כבר נשלחה הזמנה אל %1 להצטרף לחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:191
+#: src/libneochat/models/actionsmodel.cpp:192
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "הופעלה חסימה כנגד %1 מהחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:195
+#: src/libneochat/models/actionsmodel.cpp:196
 #, kde-format
 msgid "You are already in this room."
 msgstr "כבר הצטרפות לחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:199
+#: src/libneochat/models/actionsmodel.cpp:200
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 כבר בחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:203
+#: src/libneochat/models/actionsmodel.cpp:204
 #, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
 msgstr "נשלחה הזמנה אל %1 להצטרף לחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:207
-#: src/libneochat/models/actionsmodel.cpp:327
-#: src/libneochat/models/actionsmodel.cpp:347
-#: src/libneochat/models/actionsmodel.cpp:425
+#: src/libneochat/models/actionsmodel.cpp:208
+#: src/libneochat/models/actionsmodel.cpp:328
+#: src/libneochat/models/actionsmodel.cpp:348
+#: src/libneochat/models/actionsmodel.cpp:427
 msgid "<user id>"
 msgstr "<מזהה משתמש>"
 
-#: src/libneochat/models/actionsmodel.cpp:208
+#: src/libneochat/models/actionsmodel.cpp:209
 msgid "Invites the user to this room"
 msgstr "הזמנת המשתמש לחדר הזה"
 
-#: src/libneochat/models/actionsmodel.cpp:219
-#: src/libneochat/models/actionsmodel.cpp:259
+#: src/libneochat/models/actionsmodel.cpp:220
+#: src/libneochat/models/actionsmodel.cpp:260
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "הצטרפות לחדר %1."
 
-#: src/libneochat/models/actionsmodel.cpp:224
-#: src/libneochat/models/actionsmodel.cpp:264
+#: src/libneochat/models/actionsmodel.cpp:225
+#: src/libneochat/models/actionsmodel.cpp:265
 msgid "<room alias or id>"
 msgstr "<כינוי או מזהה חדר>"
 
-#: src/libneochat/models/actionsmodel.cpp:225
-#: src/libneochat/models/actionsmodel.cpp:265
+#: src/libneochat/models/actionsmodel.cpp:226
+#: src/libneochat/models/actionsmodel.cpp:266
 msgid "Joins the given room"
 msgstr "הצטרפות לחדר שצוין"
 
-#: src/libneochat/models/actionsmodel.cpp:237
+#: src/libneochat/models/actionsmodel.cpp:238
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "נקישה על החדר %1."
 
-#: src/libneochat/models/actionsmodel.cpp:248
+#: src/libneochat/models/actionsmodel.cpp:249
 msgid "<room alias or id> [<reason>]"
 msgstr "<כינוי או מזהה חדר> [<סיבה>]"
 
-#: src/libneochat/models/actionsmodel.cpp:249
+#: src/libneochat/models/actionsmodel.cpp:250
 msgid "Requests to join the given room"
 msgstr "נשלחה בקשה להצטרף לחדר שצוין"
 
-#: src/libneochat/models/actionsmodel.cpp:256
+#: src/libneochat/models/actionsmodel.cpp:257
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "כבר הצטרפת לחדר %1."
 
-#: src/libneochat/models/actionsmodel.cpp:271
-#: src/libneochat/models/actionsmodel.cpp:278
+#: src/libneochat/models/actionsmodel.cpp:272
+#: src/libneochat/models/actionsmodel.cpp:279
 msgid "[<room alias or id>]"
 msgstr "[<כינוי או מזהה חדר>]"
 
-#: src/libneochat/models/actionsmodel.cpp:272
-#: src/libneochat/models/actionsmodel.cpp:279
+#: src/libneochat/models/actionsmodel.cpp:273
+#: src/libneochat/models/actionsmodel.cpp:280
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "עזיבת החדר הנתון או החדר הזה, אם לא צוין חדר"
 
-#: src/libneochat/models/actionsmodel.cpp:292
-#: src/libneochat/models/actionsmodel.cpp:299
-#: src/libneochat/models/actionsmodel.cpp:306
+#: src/libneochat/models/actionsmodel.cpp:293
+#: src/libneochat/models/actionsmodel.cpp:300
+#: src/libneochat/models/actionsmodel.cpp:307
 msgid "<display name>"
 msgstr "<שם תצוגה>"
 
-#: src/libneochat/models/actionsmodel.cpp:293
+#: src/libneochat/models/actionsmodel.cpp:294
 msgid "Changes your global display name"
 msgstr "החלפת שם התצוגה המקיף שלך."
 
-#: src/libneochat/models/actionsmodel.cpp:300
-#: src/libneochat/models/actionsmodel.cpp:307
+#: src/libneochat/models/actionsmodel.cpp:301
+#: src/libneochat/models/actionsmodel.cpp:308
 msgid "Changes your display name in this room"
 msgstr "החלפת שם התצוגה שלך בחדר הזה"
 
-#: src/libneochat/models/actionsmodel.cpp:318
+#: src/libneochat/models/actionsmodel.cpp:319
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 כבר ברשימת ההתעלמות."
 
-#: src/libneochat/models/actionsmodel.cpp:322
+#: src/libneochat/models/actionsmodel.cpp:323
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 מעתה ברשימת ההתעלמות."
 
-#: src/libneochat/models/actionsmodel.cpp:328
+#: src/libneochat/models/actionsmodel.cpp:329
 msgid "Ignores the given user"
 msgstr "התעלמות ממשתמש מסוים"
 
-#: src/libneochat/models/actionsmodel.cpp:339
+#: src/libneochat/models/actionsmodel.cpp:340
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "לא הופעלה התעלמות כנגד %1."
 
-#: src/libneochat/models/actionsmodel.cpp:343
+#: src/libneochat/models/actionsmodel.cpp:344
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "לא מופעלת יותר התעלמות כנגד %1."
 
-#: src/libneochat/models/actionsmodel.cpp:348
+#: src/libneochat/models/actionsmodel.cpp:349
 msgid "Unignores the given user"
 msgstr "ביטול התעלמות ממשתמש מסוים"
 
-#: src/libneochat/models/actionsmodel.cpp:366
+#: src/libneochat/models/actionsmodel.cpp:368
 msgid "<reaction text>"
 msgstr "<טקסט תגובה>"
 
-#: src/libneochat/models/actionsmodel.cpp:367
+#: src/libneochat/models/actionsmodel.cpp:369
 msgid "React to the message with the given text"
 msgstr "להגיב להודעה עם הטקסט הנבחר"
 
-#: src/libneochat/models/actionsmodel.cpp:381
+#: src/libneochat/models/actionsmodel.cpp:383
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "כבר הופעלה חסימה נגד %1 בחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:385
+#: src/libneochat/models/actionsmodel.cpp:387
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "אסור לך לחסום גישה של משתמשים לחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:391
+#: src/libneochat/models/actionsmodel.cpp:393
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "אסור לך לחסום את הגישה של %1 לחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:395
+#: src/libneochat/models/actionsmodel.cpp:397
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "הופעלה חסימה כנגד %1 בחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:399
-#: src/libneochat/models/actionsmodel.cpp:461
+#: src/libneochat/models/actionsmodel.cpp:401
+#: src/libneochat/models/actionsmodel.cpp:463
 msgid "<user id> [<reason>]"
 msgstr "<מזהה משתמש> [<סיבה>]"
 
-#: src/libneochat/models/actionsmodel.cpp:400
+#: src/libneochat/models/actionsmodel.cpp:402
 msgid "Bans the given user"
 msgstr "חסימת משתמש מסוים"
 
-#: src/libneochat/models/actionsmodel.cpp:411
+#: src/libneochat/models/actionsmodel.cpp:413
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "אסור לך לבטל חסימה כנגד משתמשים מהחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:416
+#: src/libneochat/models/actionsmodel.cpp:418
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "אין חסימה כנגד %1 מהחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:420
+#: src/libneochat/models/actionsmodel.cpp:422
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "הוסרה החסימה כנגד %1 בחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:426
+#: src/libneochat/models/actionsmodel.cpp:428
 msgid "Removes the ban of the given user"
 msgstr "הסרת חסימה על משתמש/ת מסוימים"
 
-#: src/libneochat/models/actionsmodel.cpp:439
+#: src/libneochat/models/actionsmodel.cpp:441
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "אין לך איך לבעוט את עצמך מהחדר."
 
-#: src/libneochat/models/actionsmodel.cpp:443
+#: src/libneochat/models/actionsmodel.cpp:445
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 לא בחדר."
 
-#: src/libneochat/models/actionsmodel.cpp:447
+#: src/libneochat/models/actionsmodel.cpp:449
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "אסור לך לבעוט משתמשים אל מחוץ לחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:453
+#: src/libneochat/models/actionsmodel.cpp:455
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "אסור לך לבעוט את %1 אל מחוץ לחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:457
+#: src/libneochat/models/actionsmodel.cpp:459
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 נבעט/ה מהחדר הזה."
 
-#: src/libneochat/models/actionsmodel.cpp:462
+#: src/libneochat/models/actionsmodel.cpp:464
 msgid "Removes the user from the room"
 msgstr "הסרת המשתמש/ת מהחדר"
 
@@ -4258,7 +4258,7 @@ msgid "Loading URL preview"
 msgstr "תצוגה מקדימה של כתובת נטענת"
 
 #: src/messagecontent/LoadComponent.qml:33
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:249
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
@@ -4276,7 +4276,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "פתיחה במסך מלא"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4285,7 +4285,7 @@ msgid ""
 msgstr ""
 "ההודעה הזאת לא נמצאה, אין לך הרשאה לצפות בה או שנשלחה על ידי משתמש בהתעלמות"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
@@ -7585,104 +7585,104 @@ msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "תגובה"
 
-#: src/timeline/DelegateContextMenu.qml:221
+#: src/timeline/DelegateContextMenu.qml:216
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "תגובה בשרשור"
 
-#: src/timeline/DelegateContextMenu.qml:247
+#: src/timeline/DelegateContextMenu.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "הסרה…"
 
-#: src/timeline/DelegateContextMenu.qml:252
-#: src/timeline/DelegateContextMenu.qml:259
+#: src/timeline/DelegateContextMenu.qml:242
+#: src/timeline/DelegateContextMenu.qml:249
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "הסרת הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:253
+#: src/timeline/DelegateContextMenu.qml:243
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "הסיבה להסרת ההודעה הזאת כרשות"
 
-#: src/timeline/DelegateContextMenu.qml:254
+#: src/timeline/DelegateContextMenu.qml:244
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "הסרה"
 
-#: src/timeline/DelegateContextMenu.qml:277
+#: src/timeline/DelegateContextMenu.qml:267
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "העברה…"
 
-#: src/timeline/DelegateContextMenu.qml:283
+#: src/timeline/DelegateContextMenu.qml:273
 #, kde-format
 msgctxt "@action:button As in 'Forward this message'"
 msgid "Forward"
 msgstr "העברה"
 
-#: src/timeline/DelegateContextMenu.qml:286
+#: src/timeline/DelegateContextMenu.qml:276
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "העברת הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:304
+#: src/timeline/DelegateContextMenu.qml:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "פתיחת תמונה"
 
-#: src/timeline/DelegateContextMenu.qml:306
+#: src/timeline/DelegateContextMenu.qml:296
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "פתיחת קטע שמע"
 
-#: src/timeline/DelegateContextMenu.qml:308
+#: src/timeline/DelegateContextMenu.qml:298
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "פתיחת סרטון"
 
-#: src/timeline/DelegateContextMenu.qml:310
+#: src/timeline/DelegateContextMenu.qml:300
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "פתיחת קובץ"
 
-#: src/timeline/DelegateContextMenu.qml:323
+#: src/timeline/DelegateContextMenu.qml:313
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "שמירת תמונה…"
 
-#: src/timeline/DelegateContextMenu.qml:325
+#: src/timeline/DelegateContextMenu.qml:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "שמירת קטע שמע…"
 
-#: src/timeline/DelegateContextMenu.qml:327
+#: src/timeline/DelegateContextMenu.qml:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "שמירת סרטון…"
 
-#: src/timeline/DelegateContextMenu.qml:329
+#: src/timeline/DelegateContextMenu.qml:319
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "שמירת קובץ…"
 
-#: src/timeline/DelegateContextMenu.qml:344
+#: src/timeline/DelegateContextMenu.qml:334
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Hide Image"
@@ -7690,7 +7690,7 @@ msgctxt "@action:inmenu"
 msgid "Hide Image"
 msgstr "הסתרת תמונה"
 
-#: src/timeline/DelegateContextMenu.qml:346
+#: src/timeline/DelegateContextMenu.qml:336
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Open Video"
@@ -7698,7 +7698,7 @@ msgctxt "@action:inmenu"
 msgid "Hide Video"
 msgstr "פתיחת סרטון"
 
-#: src/timeline/DelegateContextMenu.qml:358
+#: src/timeline/DelegateContextMenu.qml:348
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Image"
@@ -7706,7 +7706,7 @@ msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "הצגת תמונה"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:350
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Video"
@@ -7714,129 +7714,129 @@ msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "הצגת סרטון"
 
-#: src/timeline/DelegateContextMenu.qml:372
+#: src/timeline/DelegateContextMenu.qml:362
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "העתקת תמונה"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:364
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "העתקת שמע"
 
-#: src/timeline/DelegateContextMenu.qml:376
+#: src/timeline/DelegateContextMenu.qml:366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "העתקת סרטון"
 
-#: src/timeline/DelegateContextMenu.qml:378
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "העתקת קובץ"
 
-#: src/timeline/DelegateContextMenu.qml:388
+#: src/timeline/DelegateContextMenu.qml:378
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "העתקת כתובת קישור"
 
-#: src/timeline/DelegateContextMenu.qml:396
+#: src/timeline/DelegateContextMenu.qml:386
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "העתקת טקסט"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:392
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "העתקת קישור להודעה"
 
-#: src/timeline/DelegateContextMenu.qml:410
+#: src/timeline/DelegateContextMenu.qml:400
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "דיווח…"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "דיווח על הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:416
+#: src/timeline/DelegateContextMenu.qml:406
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "הסיבה לדיווח על ההודעה הזאת כרשות"
 
-#: src/timeline/DelegateContextMenu.qml:418
+#: src/timeline/DelegateContextMenu.qml:408
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "דיווח"
 
-#: src/timeline/DelegateContextMenu.qml:422
+#: src/timeline/DelegateContextMenu.qml:412
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "דיווח על הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:434
+#: src/timeline/DelegateContextMenu.qml:424
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "חיפוש אחר ‚%1’"
 
-#: src/timeline/DelegateContextMenu.qml:457
+#: src/timeline/DelegateContextMenu.qml:447
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "הגדרת קיצורי אינטרנט…"
 
-#: src/timeline/DelegateContextMenu.qml:465
+#: src/timeline/DelegateContextMenu.qml:455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "להקריא את הטקסט בקול"
 
-#: src/timeline/DelegateContextMenu.qml:468
+#: src/timeline/DelegateContextMenu.qml:458
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 אמר/ה %2"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:478
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "שחרור נעיצה"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:478
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "נעיצה"
 
-#: src/timeline/DelegateContextMenu.qml:498
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "ביטול בחירת הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:498
+#: src/timeline/DelegateContextMenu.qml:488
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "בחירת הודעה"
 
-#: src/timeline/DelegateContextMenu.qml:511
+#: src/timeline/DelegateContextMenu.qml:501
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7878,7 +7878,7 @@ msgstr "להציג הודעות ישנות…"
 msgid "React"
 msgstr "רגש בתגובה"
 
-#: src/timeline/QuickActions.qml:89
+#: src/timeline/QuickActions.qml:87
 #, kde-format
 msgid "Message menu"
 msgstr "תפריט הודעה"
