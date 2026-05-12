@@ -626,7 +626,7 @@ void NeoChatConnection::unlockSSSS(const QString &secret)
         if (!secret.isEmpty()) {
             connect(handler, &SSSSHandler::error, this, [handler, this]() {
                 Q_EMIT keyBackupError();
-                delete handler;
+                handler->deleteLater();
             });
             handler->unlockSSSSWithPassphrase(secret);
         } else {
