@@ -53,7 +53,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Unlock by Verifying Session")
+        title: i18nc("@title", "Verify Session")
         visible: !root.connection.isVerifiedSession // If you've already verified there is nothing to...verify
     }
     FormCard.FormCard {
@@ -65,10 +65,10 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title", "Unlock using Recovery Key")
-        visible: !root.connection.isVerifiedSession // If you've already verified there is nothing to unlock
+        visible: !root.connection.isVerifiedSession || !root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable  // If you've already verified there is nothing to unlock, but we might not have all private keys
     }
     FormCard.FormCard {
-        visible: !root.connection.isVerifiedSession
+        visible: !root.connection.isVerifiedSession || !root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable
 
         FormCard.FormTextDelegate {
             description: i18nc("@info", "If you have a recovery key (also known as a “security key” or “backup passphrase”), enter it below or upload it as a file.")
@@ -110,10 +110,10 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title", "Unlock from Cross-Signing")
-        visible: root.connection.isVerifiedSession // This is only functional when verified
+        visible: root.connection.isVerifiedSession && (!root.connection.allPrivateCSKeysAvailable ||  !root.connection.isBackupDecryptionKeyAvailable) // This is only functional when verified and useless when we already have private keys
     }
     FormCard.FormCard {
-        visible: root.connection.isVerifiedSession
+        visible: root.connection.isVerifiedSession && (!root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable)
 
         FormCard.FormTextDelegate {
             id: crossSigningText
@@ -143,7 +143,7 @@ FormCard.FormCardPage {
         visible: Controller.libquotientMinorVersion > 9 && root.connection.isVerifiedSession
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Load Decryption Keys from Backup")
-            enabled: root.connection.isBackupDecryptionKeyAvailable() && !root.processing
+            enabled: root.connection.isBackupDecryptionKeyAvailable && !root.processing
             onClicked: {
                 root.connection.importFromBackup()
                 root.processing = true;

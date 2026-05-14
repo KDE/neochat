@@ -172,11 +172,6 @@ void NeoChatConnection::connectSignals()
         },
         Qt::SingleShotConnection);
 
-    connect(this, &Connection::sessionVerified, this, [this](const QString &userId, const QString &deviceId) {
-        if (userId == this->userId() && deviceId == this->deviceId()) {
-            Q_EMIT ownSessionVerified();
-        }
-    });
     connect(
         this,
         &Connection::syncDone,
@@ -614,7 +609,7 @@ bool NeoChatConnection::isVerifiedSession() const
         return true;
     }
 
-    return isVerifiedDevice(userId(), deviceId());
+    return isUserVerified(userId());
 }
 
 void NeoChatConnection::unlockSSSS(const QString &secret)
