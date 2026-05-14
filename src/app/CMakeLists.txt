@@ -88,7 +88,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/ManualUserDialog.qml
         qml/RecommendedSpaceDialog.qml
         qml/ShareDialog.qml
-        qml/UnlockSSSSDialog.qml
+        qml/ManageKeyStorageDialog.qml
         qml/QrScannerPage.qml
         qml/JoinRoomDialog.qml
         qml/ConfirmUrlDialog.qml

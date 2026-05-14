@@ -150,7 +150,7 @@ FormCard.FormCardPage {
             text: i18nc("@action:inmenu", "Manage Key Storage")
             description: i18nc("@info", "Import or unlock encryption keys from other devices.")
             icon.name: "unlock"
-            onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'ManageKeyStorageDialog'), {
                 connection: root.connection
             })
         }
