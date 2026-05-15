@@ -35,7 +35,7 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        Id, /**< The device ID. */
+        Id = Qt::UserRole, /**< The device ID. */
         DisplayName, /**< Display name set by the user for this device. */
         LastIp, /**< The IP address where this device was last seen. */
         LastTimestamp, /**< The timestamp when this devices was last seen. */
