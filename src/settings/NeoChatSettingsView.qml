@@ -63,11 +63,6 @@ KirigamiSettings.ConfigurationView {
             text: i18n("Devices")
             icon.name: "computer-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "DevicesPage")
-            initialProperties: () => {
-                return {
-                    connection: root.connection
-                };
-            }
             visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
