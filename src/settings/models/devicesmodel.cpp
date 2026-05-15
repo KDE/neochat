@@ -54,15 +54,13 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     case LastTimestamp:
         if (device.lastSeenTs) {
             return *device.lastSeenTs;
-        } else {
-            return false;
         }
+        break;
     case TimestampString:
         if (device.lastSeenTs) {
             return QDateTime::fromMSecsSinceEpoch(*device.lastSeenTs).toString(QLocale().dateTimeFormat(QLocale::ShortFormat));
-        } else {
-            return false;
         }
+        break;
     case Type:
         if (device.deviceId == m_connection->deviceId()) {
             return This;
@@ -72,9 +70,8 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         }
         if (m_connection->isVerifiedDevice(m_connection->userId(), device.deviceId)) {
             return Verified;
-        } else {
-            return Unverified;
         }
+        return Unverified;
     }
     return {};
 }
