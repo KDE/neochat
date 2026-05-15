@@ -3,6 +3,7 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <include>enums/roomsortorder.h</include>
   <kcfgfile name="neochatrc" />
   <group name="General">
     <entry name="AllRoomsInHome" type="bool">
@@ -146,6 +147,7 @@
       <label>The sort order for the rooms in the list.</label>
       <choices name="::RoomSortOrder::Order">
       </choices>
+      <default>::RoomSortOrder::Order::Activity</default>
     </entry>
     <entry name="CustomSortOrder" type="IntList">
       <label>The list of parameter in order to use for custom sorting</label>
