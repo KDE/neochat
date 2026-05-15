@@ -23,6 +23,9 @@ DevicesModel::DevicesModel(QObject *parent)
 void DevicesModel::fetchDevices()
 {
     if (!m_connection) {
+        beginResetModel();
+        m_devices.clear();
+        endResetModel();
         return;
     }
     m_connection->callApi<GetDevicesJob>().onResult([this](const auto &job) {

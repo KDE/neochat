@@ -21,7 +21,7 @@ FormCard.FormCardPage {
         visible: !thisDeviceCard.visible
     }
 
-    required property NeoChatConnection connection
+    readonly property NeoChatConnection connection: Controller.activeConnection
 
     property DevicesModel devicesModel: DevicesModel {
         connection: root.connection
