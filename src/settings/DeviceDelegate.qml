@@ -123,7 +123,7 @@ FormCard.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            text: i18nc("@action:button", "Logout device")
+            text: i18nc("@action:button", "Logout device…")
             icon.name: "edit-delete-remove"
             onClicked: {
                 passwordSheet.deviceId = root.id;
