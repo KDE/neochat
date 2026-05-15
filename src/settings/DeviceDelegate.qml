@@ -50,7 +50,7 @@ FormCard.AbstractFormDelegate {
 
             QQC2.Label {
                 Layout.fillWidth: true
-                text: i18nc("@label", "%1, Last activity: %2", root.id, root.timestamp)
+                text: root.timestamp.length > 0 ? i18nc("@label (Device ID), Last activity: (timestamp)", "%1, Last activity: %2", root.id, root.timestamp) : root.id
                 color: Kirigami.Theme.disabledTextColor
                 font: Kirigami.Theme.smallFont
                 elide: Text.ElideRight
