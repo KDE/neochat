@@ -39,16 +39,16 @@ Nightly Flatpaks are available from [KDE's nightly Flatpak repository](https://u
 
 ## Building NeoChat
 
-The best way to build KDE apps during development is to use `kdesrc-build`. The full instructions for this can be found on
-the KDE community website's get involved section under [development](https://community.kde.org/Get_Involved/development). This
+The best way to build KDE apps during development is to use `kde-builder`. The full instructions for this can be found on
+the KDE community website's get involved section under [development](https://develop.kde.org/docs/getting-started/building/). This
 is primarily aimed at Linux development.
 
 For Windows and Android, [Craft](https://invent.kde.org/packaging/craft) is the primary choice. There are guides for setting up
-development environments for [Windows](https://community.kde.org/Get_Involved/development/Windows) and [Android](https://develop.kde.org/docs/packaging/android/building_applications/).
+development environments for [Windows](https://develop.kde.org/docs/getting-started/building/craft/) and [Android](https://develop.kde.org/docs/packaging/android/building_applications/).
 
 ## Running
 
-Start the executable in your preferred way – either from the build directory or from the installed location.
+Start the executable in your preferred way – either from the build directory or from the installed location. If built using `kde-builder`, you can also run `kde-builder --run neochat`
 
 ## Tests
 
