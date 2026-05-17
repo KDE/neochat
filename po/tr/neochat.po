@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:44+0000\n"
+"POT-Creation-Date: 2026-05-17 00:43+0000\n"
 "PO-Revision-Date: 2026-05-10 12:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -5466,8 +5466,10 @@ msgid "Activate Encryption"
 msgstr "Şifrelemeyi Etkinleştir"
 
 #: src/settings/DeviceDelegate.qml:53
-#, kde-format
-msgctxt "@label"
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "%1, Last activity: %2"
+msgctxt "@label (Device ID), Last activity: (timestamp)"
 msgid "%1, Last activity: %2"
 msgstr "%1, son etkinlik: %2"
 
@@ -5505,9 +5507,11 @@ msgid "Verified"
 msgstr "Doğrulandı"
 
 #: src/settings/DeviceDelegate.qml:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Logout device"
 msgctxt "@action:button"
-msgid "Logout device"
+msgid "Logout device…"
 msgstr "Aygıt Oturumunu Kapat"
 
 #: src/settings/DeviceDelegate.qml:146

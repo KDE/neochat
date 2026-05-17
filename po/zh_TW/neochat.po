@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:44+0000\n"
+"POT-Creation-Date: 2026-05-17 00:43+0000\n"
 "PO-Revision-Date: 2026-04-22 23:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -5434,8 +5434,10 @@ msgid "Activate Encryption"
 msgstr "啟用加密"
 
 #: src/settings/DeviceDelegate.qml:53
-#, kde-format
-msgctxt "@label"
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "%1, Last activity: %2"
+msgctxt "@label (Device ID), Last activity: (timestamp)"
 msgid "%1, Last activity: %2"
 msgstr "%1，最後活動：%2"
 
@@ -5473,9 +5475,11 @@ msgid "Verified"
 msgstr "已驗證"
 
 #: src/settings/DeviceDelegate.qml:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Logout device"
 msgctxt "@action:button"
-msgid "Logout device"
+msgid "Logout device…"
 msgstr "登出裝置"
 
 #: src/settings/DeviceDelegate.qml:146

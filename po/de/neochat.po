@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:44+0000\n"
+"POT-Creation-Date: 2026-05-17 00:43+0000\n"
 "PO-Revision-Date: 2026-03-10 23:12+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -5557,8 +5557,10 @@ msgid "Activate Encryption"
 msgstr "Verschlüsselung aktivieren"
 
 #: src/settings/DeviceDelegate.qml:53
-#, kde-format
-msgctxt "@label"
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "%1, Last activity: %2"
+msgctxt "@label (Device ID), Last activity: (timestamp)"
 msgid "%1, Last activity: %2"
 msgstr "%1, letzte Aktivität: %2"
 
@@ -5596,9 +5598,11 @@ msgid "Verified"
 msgstr "Verifiziert"
 
 #: src/settings/DeviceDelegate.qml:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Logout device"
 msgctxt "@action:button"
-msgid "Logout device"
+msgid "Logout device…"
 msgstr "Gerät abmelden"
 
 #: src/settings/DeviceDelegate.qml:146
