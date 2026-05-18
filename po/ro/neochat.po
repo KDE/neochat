@@ -307,11 +307,11 @@ msgstr "Alegeți o cameră"
 
 #: src/app/qml/ChooseRoomDialog.qml:24
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Select All"
+#| msgctxt "@action"
+#| msgid "Select"
 msgctxt "@action"
 msgid "Select"
-msgstr "Selectează tot"
+msgstr "Selectează"
 
 #: src/app/qml/ChooseRoomDialog.qml:84 src/app/qml/ReasonDialog.qml:72
 #, kde-format
@@ -648,9 +648,9 @@ msgstr "Cerere de verificare a cheii primită de la dispozitivul **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:172
 #, fuzzy, kde-format
-#| msgid "Incoming key verification request from device **%1**"
+#| msgid "Incoming key verification request from **%1**"
 msgid "Incoming key verification request from **%1**"
-msgstr "Cerere de verificare a cheii primită de la dispozitivul **%1**"
+msgstr "Cerere de verificare a cheii primită de la **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:176
 #: src/app/qml/OlmKeyVerificationDialog.qml:155
@@ -680,17 +680,19 @@ msgstr "S-a verificat cu succes dispozitivul **%1**"
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/KeyVerificationDialog.qml:196
 #, fuzzy, kde-format
-#| msgid "Successfully verified device **%1**"
+#| msgctxt "@info"
+#| msgid "Successfully verified **%1**"
 msgctxt "@info"
 msgid "Successfully verified **%1**"
-msgstr "S-a verificat cu succes dispozitivul **%1**"
+msgstr "S-a verificat cu succes **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:190
 #, fuzzy, kde-format
-#| msgid "Waiting for other party to confirm our keys."
+#| msgctxt "@info"
+#| msgid "Waiting for remote party to confirm verification"
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
-msgstr "Se așteaptă ca cealaltă parte să ne confirme cheile."
+msgstr "Se așteaptă confirmarea verificării de către partea de la distanță"
 
 #: src/app/qml/KeyVerificationDialog.qml:216
 #: src/app/qml/OlmKeyVerificationDialog.qml:178
@@ -797,16 +799,21 @@ msgid "Start Meeting"
 msgstr "Începe ședință"
 
 #: src/app/qml/MeetingDialog.qml:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "You are about to join a Jitsi meeting in your web browser."
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
 msgstr ""
+"Sunteți pe cale să vă alăturați unei întâlniri Jitsi în navigatorul web."
 
 #: src/app/qml/MeetingDialog.qml:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "You are about to start a new Jitsi meeting in your web browser."
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
-msgstr ""
+msgstr "Sunteți pe cale să începeți o nouă întâlnire Jitsi în navigatorul web."
 
 #: src/app/qml/MeetingDialog.qml:23
 #, kde-format
@@ -852,9 +859,9 @@ msgstr "Nicio notificare"
 
 #: src/app/qml/OlmKeyVerificationDialog.qml:18
 #, fuzzy, kde-format
-#| msgid "Session Verification"
+#| msgid "Session Verifications"
 msgid "Session Verifications"
-msgstr "Verificarea sesiunii"
+msgstr "Verificările sesiunii"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format
@@ -882,10 +889,12 @@ msgid "Strikethrough"
 msgstr "Tăiat"
 
 #: src/app/qml/QuickFormatBar.qml:79
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Spoiler"
 msgctxt "@action:button"
 msgid "Spoiler"
-msgstr ""
+msgstr "Ascuns"
 
 #: src/app/qml/QuickFormatBar.qml:98
 #, kde-format
@@ -921,12 +930,18 @@ msgid "Explore"
 msgstr "Explorează"
 
 #: src/app/qml/ReasonDialog.qml:33
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "This report will <strong>only</strong> be sent to the administrators of "
+#| "<link>%1</link> (your server)."
 msgctxt "@info"
 msgid ""
 "This report will <strong>only</strong> be sent to the administrators of "
 "<link>%1</link> (your server)."
 msgstr ""
+"Acest raport va fi trimis <strong>doar</strong> administratorilor <link>%1</"
+"link> (serverului)."
 
 #: src/app/qml/RecommendedSpaceDialog.qml:23
 #, kde-format
@@ -1744,11 +1759,11 @@ msgstr "Termină"
 
 #: src/chatbar/ChatBar.qml:89
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#| msgctxt "@info:label"
+#| msgid "You do not have permission to send messages to this room."
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "Nu aveți permisiunile pentru începerea ședințelor Jitsi"
+msgstr "Nu aveți permisiunea de a trimite mesaje în această cameră."
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
 #, fuzzy, kde-format
@@ -1861,8 +1876,8 @@ msgstr "Oglindește"
 
 #: src/chatbar/LinkDialog.qml:17
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#| msgctxt "@title:window"
+#| msgid "Insert Link"
 msgctxt "@title:window"
 msgid "Insert Link"
 msgstr "Inserează legătură"
@@ -1909,19 +1924,19 @@ msgstr "Creează sondaj"
 
 #: src/chatbar/NewPollDialog.qml:35
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Menu"
+#| msgctxt "@label The type of poll to create"
+#| msgid "Show Results:"
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr "Arată meniul"
+msgstr "Arată rezultatele:"
 
 #: src/chatbar/NewPollDialog.qml:40
 #, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#| msgctxt "@item:inlistbox Show results after a user votes"
+#| msgid "After Voting"
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "Introduceți opțiunea"
+msgstr "După votare"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
@@ -5139,7 +5154,8 @@ msgstr "Verifică acest dispozitiv"
 
 #: src/rooms/UserInfo.qml:112
 #, fuzzy, kde-format
-#| msgid "View notifications"
+#| msgctxt "@action:button"
+#| msgid "View Notifications"
 msgctxt "@action:button"
 msgid "View Notifications"
 msgstr "Vezi notificările"
@@ -5166,6 +5182,7 @@ msgstr "Anulează modificările"
 
 #: src/settings/AccountEditorPage.qml:79
 #, fuzzy, kde-format
+#| msgctxt "@action:button Save changes to user"
 #| msgid "Save"
 msgctxt "@action:button Save changes to user"
 msgid "Save"
@@ -5189,6 +5206,7 @@ msgstr ""
 
 #: src/settings/AccountEditorPage.qml:99
 #, fuzzy, kde-format
+#| msgctxt "@action:button As in 'Remove this device'"
 #| msgid "Apply"
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
@@ -6508,10 +6526,11 @@ msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:41
 #, fuzzy, kde-format
-#| msgid "Direct Messages"
+#| msgctxt "@title:group"
+#| msgid "Messages"
 msgctxt "@title:group"
 msgid "Messages"
-msgstr "Mesaje directe"
+msgstr "Mesaje"
 
 #: src/settings/NeoChatSecurityPage.qml:46
 #, kde-format
@@ -6840,10 +6859,11 @@ msgstr ""
 
 #: src/settings/Permissions.qml:75
 #, fuzzy, kde-format
-#| msgid "Direct Messages"
+#| msgctxt "@title"
+#| msgid "Messages"
 msgctxt "@title"
 msgid "Messages"
-msgstr "Mesaje directe"
+msgstr "Mesaje"
 
 #: src/settings/Permissions.qml:114
 #, fuzzy, kde-format
@@ -7871,21 +7891,22 @@ msgstr ""
 #: src/timeline/DelegateContextMenu.qml:334
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
-#| msgid "Open Image"
+#| msgid "Hide Image"
 msgctxt "@action:inmenu"
 msgid "Hide Image"
-msgstr "Deschide imagine"
+msgstr "Ascunde imaginea"
 
 #: src/timeline/DelegateContextMenu.qml:336
 #, fuzzy, kde-format
-#| msgid "Video"
+#| msgctxt "@action:inmenu"
+#| msgid "Hide Video"
 msgctxt "@action:inmenu"
 msgid "Hide Video"
-msgstr "Video"
+msgstr "Ascunde videoclipul"
 
 #: src/timeline/DelegateContextMenu.qml:348
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
+#| msgctxt "@action:inmenu"
 #| msgid "Show Image"
 msgctxt "@action:inmenu"
 msgid "Show Image"
@@ -7893,11 +7914,11 @@ msgstr "Afișează imaginea"
 
 #: src/timeline/DelegateContextMenu.qml:350
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
+#| msgctxt "@action:inmenu"
 #| msgid "Show Video"
 msgctxt "@action:inmenu"
 msgid "Show Video"
-msgstr "Arată video"
+msgstr "Arată videoclipul"
 
 #: src/timeline/DelegateContextMenu.qml:362
 #, kde-format
@@ -7957,10 +7978,10 @@ msgstr ""
 #: src/timeline/DelegateContextMenu.qml:406
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#| msgid "Optionally give a reason for reporting this message"
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
-msgstr "Motivul pentru care utilizatorul e dat afară"
+msgstr "Oferiți opțional un motiv pentru raportarea acestui mesaj"
 
 #: src/timeline/DelegateContextMenu.qml:408
 #, kde-format
@@ -8013,17 +8034,19 @@ msgstr "Fixează"
 
 #: src/timeline/DelegateContextMenu.qml:488
 #, fuzzy, kde-format
-#| msgid "Direct Messages"
+#| msgctxt "@action:inmenu"
+#| msgid "Deselect Message"
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
-msgstr "Mesaje directe"
+msgstr "Deselectare mesaj"
 
 #: src/timeline/DelegateContextMenu.qml:488
 #, fuzzy, kde-format
-#| msgid "Direct Messages"
+#| msgctxt "@action:inmenu"
+#| msgid "Select Message"
 msgctxt "@action:inmenu"
 msgid "Select Message"
-msgstr "Mesaje directe"
+msgstr "Selectare mesaj"
 
 #: src/timeline/DelegateContextMenu.qml:501
 #, kde-format
@@ -8136,15 +8159,15 @@ msgstr ""
 
 #: src/timeline/TypingPane.qml:27
 #, fuzzy, kde-format
-#| msgctxt "Message displayed when some users are typing"
-#| msgid "%2 is typing"
-#| msgid_plural "%2 are typing"
+#| msgctxt "Number of users typing in the room"
+#| msgid "1 user is typing"
+#| msgid_plural "%1 users are typing"
 msgctxt "Number of users typing in the room"
 msgid "1 user is typing"
 msgid_plural "%1 users are typing"
-msgstr[0] "%2 scrie"
-msgstr[1] "%2 scriu"
-msgstr[2] "%2 scriu"
+msgstr[0] "1 utilizator scrie"
+msgstr[1] "%2 utilizatori scriu"
+msgstr[2] "%2 de utilizatori scriu"
 
 #: src/timeline/TypingPane.qml:30
 #, fuzzy, kde-format
