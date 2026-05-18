@@ -151,15 +151,10 @@
                     "type": "git",
                     "url": "https://github.com/quotient-im/libquotient",
                     "branch": "dev"
-                },
-                {
-                    "type": "patch",
-                    "path": "flatpak/libquotient-cmake.patch"
                 }
             ],
             "config-opts": [
                 "-DBUILD_WITH_QT6=ON",
-                "-DQuotient_ENABLE_E2EE=ON",
                 "-DBUILD_TESTING=OFF"
             ],
             "build-options": {
