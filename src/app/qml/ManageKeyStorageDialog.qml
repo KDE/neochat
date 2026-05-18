@@ -65,10 +65,10 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title", "Unlock using Recovery Key")
-        visible: !root.connection.isVerifiedSession || !root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable  // If you've already verified there is nothing to unlock, but we might not have all private keys
+        visible: !root.connection.isVerifiedSession || Controller.libquotientMinorVersion >= 10 && (!root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable)  // If you've already verified there is nothing to unlock, but we might not have all private keys
     }
     FormCard.FormCard {
-        visible: !root.connection.isVerifiedSession || !root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable
+        visible: !root.connection.isVerifiedSession || Controller.libquotientMinorVersion >= 10 && (!root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable)
 
         FormCard.FormTextDelegate {
             description: i18nc("@info", "If you have a recovery key (also known as a “security key” or “backup passphrase”), enter it below or upload it as a file.")
@@ -110,11 +110,10 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title", "Unlock from Cross-Signing")
-        visible: root.connection.isVerifiedSession && (!root.connection.allPrivateCSKeysAvailable ||  !root.connection.isBackupDecryptionKeyAvailable) // This is only functional when verified and useless when we already have private keys
+        visible: root.connection.isVerifiedSession && (Controller.libquotientMinorVersion < 10 || (!root.connection.allPrivateCSKeysAvailable ||  !root.connection.isBackupDecryptionKeyAvailable)) // This is only functional when verified and useless when we already have private keys
     }
     FormCard.FormCard {
-        visible: root.connection.isVerifiedSession && (!root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable)
-
+        visible: root.connection.isVerifiedSession && (Controller.libquotientMinorVersion < 10 || (!root.connection.allPrivateCSKeysAvailable ||  !root.connection.isBackupDecryptionKeyAvailable))
         FormCard.FormTextDelegate {
             id: crossSigningText
             description: i18nc("@info", "If you have previously verified this device, you request encryption keys from other verified devices.")

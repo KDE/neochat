@@ -298,6 +298,13 @@ Q_SIGNALS:
      */
     void roomAboutToBeLeft(const QString &id);
 
+#if Quotient_VERSION_MINOR < 10
+    /**
+     * @brief When the connection's own verification state changes.
+     */
+    void ownSessionVerified();
+#endif
+
     void keyBackupUnlocked();
     void keyBackupError();
     void blockAllInvitesChanged();
