@@ -22,7 +22,7 @@ class ChatBarMessageContentModelTest : public QObject
     Q_OBJECT
 
 private:
-    Connection *connection = nullptr;
+    std::unique_ptr<Connection> connection = nullptr;
 
 private Q_SLOTS:
     void initTestCase();
@@ -32,14 +32,14 @@ private Q_SLOTS:
 
 void ChatBarMessageContentModelTest::initTestCase()
 {
-    connection = new NeoChatConnection;
+    connection = std::make_unique<NeoChatConnection>();
 }
 
 void ChatBarMessageContentModelTest::missingEvent()
 {
-    auto room = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s);
+    auto room = std::make_unique<TestUtils::TestRoom>(connection.get(), u"#firstRoom:kde.org"_s);
     auto model1 = ChatBarMessageContentModel(this);
-    model1.setRoom(room);
+    model1.setRoom(room.get());
 
     // Ensure we have a text block that's initialized correctly:
     QCOMPARE(model1.rowCount(), 1);
