@@ -135,7 +135,7 @@ MessageDelegateBase {
     Message.contentModel: root.contentModel
     Message.messageModel: root.ListView.view.model
     Message.index: root.index
-    Message.maxContentWidth: maxContentWidth - bubble.leftPadding - bubble.rightPadding
+    Message.maxContentWidth: NeoChatConfig.compactLayout ? bubble.width : maxContentWidth - bubble.leftPadding - bubble.rightPadding
 
     width: parent?.width
     leftPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : Kirigami.Units.largeSpacing
@@ -148,10 +148,10 @@ MessageDelegateBase {
 
     contentItem: Bubble {
         id: bubble
-        topPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing
-        bottomPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing
-        leftPadding: NeoChatConfig.compactLayout ? Kirigami.Units.mediumSpacing : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-        rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+        topPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
+        bottomPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
+        leftPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+        rightPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
         author: root.author
         showAuthor: root.showAuthor
@@ -187,7 +187,7 @@ MessageDelegateBase {
 
     avatarComponent: KirigamiComponents.Avatar {
         id: avatar
-        implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+        implicitWidth: NeoChatConfig.compactLayout ? Kirigami.Units.iconSizes.medium : Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
         implicitHeight: width
 
         name: root.author.displayName

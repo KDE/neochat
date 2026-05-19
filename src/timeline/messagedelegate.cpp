@@ -95,7 +95,7 @@ void MessageDelegateBase::setIsThreaded(bool isThreaded)
 void MessageDelegateBase::setCurveValues()
 {
     m_spacing = qreal(m_units->smallSpacing());
-    m_avatarSize = qreal(m_units->gridUnit() + m_units->largeSpacing() * 2);
+    m_avatarSize = m_compactMode ? qreal(m_units->iconSizes()->medium()) : qreal(m_units->gridUnit() + m_units->largeSpacing() * 2);
 
     m_sizeHelper.setLeftPadding(qreal(m_units->largeSpacing()));
     setBaseRightPadding();
@@ -188,7 +188,7 @@ void MessageDelegateBase::setAvatarComponent(QQmlComponent *avatarComponent)
 
 bool MessageDelegateBase::showAuthor() const
 {
-    return m_showAuthor;
+    return m_compactMode || m_showAuthor;
 }
 
 void MessageDelegateBase::setShowAuthor(bool showAuthor)
@@ -225,7 +225,7 @@ bool MessageDelegateBase::leaveAvatarSpace() const
 
 bool MessageDelegateBase::showAvatar() const
 {
-    return m_enableAvatars && (m_showAuthor || m_isThreaded) && !showMessageOnRight();
+    return m_enableAvatars && (m_compactMode || ((m_showAuthor || m_isThreaded) && !showMessageOnRight()));
 }
 
 void MessageDelegateBase::updateAvatar()
@@ -433,6 +433,7 @@ void MessageDelegateBase::setCompactMode(bool compactMode)
     setAlwaysFillWidth(m_compactMode);
     setPercentageValues(m_isThreaded || m_compactMode);
     setBaseRightPadding();
+    setCurveValues();
 
     Q_EMIT compactModeChanged();
     Q_EMIT maxContentWidthChanged();

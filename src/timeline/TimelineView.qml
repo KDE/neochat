@@ -286,12 +286,12 @@ QQC2.ScrollView {
                 right: parent.right
                 bottom: parent.bottom
                 bottomMargin: Kirigami.Units.largeSpacing
-                rightMargin: Kirigami.Units.largeSpacing
+                rightMargin: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing
             }
-            implicitWidth: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
-            implicitHeight: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+            implicitWidth: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : NeoChatConfig.compactLayout ? Kirigami.Units.iconSizes.medium : Kirigami.Units.gridUnit * 2
+            implicitHeight: implicitWidth
 
-            padding: Kirigami.Units.largeSpacing
+            padding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
 
             z: 2
             visible: !messageListView.closeToYEnd
