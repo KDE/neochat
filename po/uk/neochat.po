@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-17 00:43+0000\n"
+"POT-Creation-Date: 2026-05-20 00:44+0000\n"
 "PO-Revision-Date: 2026-05-17 12:06+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -729,6 +729,122 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Оприлюднення"
 
+#: src/app/qml/ManageKeyStorageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Key Storage"
+msgstr "Керування сховищем ключів"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:36
+#, kde-format
+msgctxt "@info:status"
+msgid "The recovery key was not correct."
+msgstr "Ключ відновлення є помилковим."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:42
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Ключі шифрування відновлено."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr "Завантажено ключі з резервної копії"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr "Не вдалося завантажити ключі з резервної копії"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock by Verifying Session"
+msgctxt "@title"
+msgid "Verify Session"
+msgstr "Розблокування перевіркою сеансу"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+"Рекомендуємо перевірити цей сеанс з іншого пристрою, якщо це можливо. "
+"Зробити це можна за допомогою сторінки «Пристрої»."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:67
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Recovery Key"
+msgstr "Розблокування за допомогою ключа відновлення"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:74
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+msgstr ""
+"Якщо у вас є ключ відновлення (також відомий як «ключ захисту») або "
+"резервний пароль, введіть його нижче або вивантажте його як файл."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:78
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Recovery Key:"
+msgstr "Ключ відновлення:"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:87
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload From File"
+msgstr "Вивантаження з файла"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Розблокувати"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:112
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Розблокування перехресним входом"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
+msgstr ""
+"Якщо ви раніше засвідчили цей пристрій, ви можете надсилаєте запит щодо "
+"ключів шифрування з інших перевірених пристроїв."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Request From Other Devices"
+msgstr "Запит з інших пристроїв"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:138
+#, kde-format
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Резервне копіювання ключа розшифрування"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:144
+#, kde-format
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Завантажити ключі розшифрування з резервної копії"
+
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
@@ -1187,120 +1303,6 @@ msgstr "Зв'язок за допомогою Matrix (%1)"
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Зв'язок за допомогою електронної пошти (%1)"
-
-#: src/app/qml/UnlockSSSSDialog.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Key Storage"
-msgstr "Керування сховищем ключів"
-
-#: src/app/qml/UnlockSSSSDialog.qml:36
-#, kde-format
-msgctxt "@info:status"
-msgid "The recovery key was not correct."
-msgstr "Ключ відновлення є помилковим."
-
-#: src/app/qml/UnlockSSSSDialog.qml:42
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "Ключі шифрування відновлено."
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Loaded keys from backup"
-msgstr "Завантажено ключі з резервної копії"
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Failed to load keys from backup"
-msgstr "Не вдалося завантажити ключі з резервної копії"
-
-#: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock by Verifying Session"
-msgstr "Розблокування перевіркою сеансу"
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@info:description"
-msgid ""
-"It's recommended to verify this session from another device, if possible. "
-"You can do so under the Devices page."
-msgstr ""
-"Рекомендуємо перевірити цей сеанс з іншого пристрою, якщо це можливо. "
-"Зробити це можна за допомогою сторінки «Пристрої»."
-
-#: src/app/qml/UnlockSSSSDialog.qml:67
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Recovery Key"
-msgstr "Розблокування за допомогою ключа відновлення"
-
-#: src/app/qml/UnlockSSSSDialog.qml:74
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-msgstr ""
-"Якщо у вас є ключ відновлення (також відомий як «ключ захисту») або "
-"резервний пароль, введіть його нижче або вивантажте його як файл."
-
-#: src/app/qml/UnlockSSSSDialog.qml:78
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Recovery Key:"
-msgstr "Ключ відновлення:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, kde-format
-msgctxt "@action:button"
-msgid "Upload From File"
-msgstr "Вивантаження з файла"
-
-#: src/app/qml/UnlockSSSSDialog.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Розблокувати"
-
-#: src/app/qml/UnlockSSSSDialog.qml:112
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Розблокування перехресним входом"
-
-#: src/app/qml/UnlockSSSSDialog.qml:120
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you request encryption keys "
-"from other verified devices."
-msgstr ""
-"Якщо ви раніше засвідчили цей пристрій, ви можете надсилаєте запит щодо "
-"ключів шифрування з інших перевірених пристроїв."
-
-#: src/app/qml/UnlockSSSSDialog.qml:129
-#, kde-format
-msgctxt "@action:button"
-msgid "Request From Other Devices"
-msgstr "Запит з інших пристроїв"
-
-#: src/app/qml/UnlockSSSSDialog.qml:139
-#, kde-format
-msgctxt "@title"
-msgid "Decryption Key Backup"
-msgstr "Резервне копіювання ключа розшифрування"
-
-#: src/app/qml/UnlockSSSSDialog.qml:145
-#, kde-format
-msgctxt "@action:button"
-msgid "Load Decryption Keys from Backup"
-msgstr "Завантажити ключі розшифрування з резервної копії"
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3642,18 +3644,18 @@ msgstr ""
 "Файл є надто великим для отримання.<br />Зв'яжіться із адміністратором "
 "вашого сервера matrix, щоб отримати допомогу."
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Не налаштовано жодного сервера профілів"
 
-#: src/libneochat/neochatconnection.cpp:393
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Не вдалося створити кімнату: %1"
 
-#: src/libneochat/neochatconnection.cpp:422
+#: src/libneochat/neochatconnection.cpp:417
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
@@ -6630,39 +6632,39 @@ msgstr "Безпека і захист"
 msgid "Devices"
 msgstr "Пристрої"
 
-#: src/settings/NeoChatSettingsView.qml:76
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Accounts"
 msgstr "Облікові записи"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:78
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Наліпки та емоційки"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
 msgstr "Проксі-сервер мережі"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr "Клавіатурні скорочення"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "Про NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Відомості"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "Про KDE"

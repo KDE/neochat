@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-17 00:43+0000\n"
+"POT-Creation-Date: 2026-05-20 00:44+0000\n"
 "PO-Revision-Date: 2026-05-17 11:16+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -728,6 +728,123 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Compartiu"
 
+#: src/app/qml/ManageKeyStorageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Key Storage"
+msgstr "Gestioneu l'emmagatzematge de claus"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:36
+#, kde-format
+msgctxt "@info:status"
+msgid "The recovery key was not correct."
+msgstr "La clau de recuperació no és correcta."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:42
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "S'han restaurat les claus d'encriptació."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr "Les claus s'han carregat des de la còpia de seguretat"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr "Ha fallat mentre es carregaven les claus des de la còpia de seguretat"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock by Verifying Session"
+msgctxt "@title"
+msgid "Verify Session"
+msgstr "Desbloquegeu per a verificar la sessió"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+"Es recomana verificar esta sessió des d'un altre dispositiu, si és possible. "
+"Podeu fer-ho a la pàgina Dispositius."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:67
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Recovery Key"
+msgstr "Desbloqueja utilitzant la clau de recuperació"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:74
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+msgstr ""
+"Si teniu una clau de recuperació (també coneguda com a «clau de seguretat» o "
+"frase de pas de còpia de seguretat), introduïu-la a continuació o carregueu-"
+"la com a fitxer."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:78
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Recovery Key:"
+msgstr "Clau de recuperació:"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:87
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload From File"
+msgstr "Carrega des d'un fitxer"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Desbloqueja"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:112
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Desbloqueja a partir d'una signatura creuada"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
+msgstr ""
+"Si heu verificat prèviament este dispositiu, sol·liciteu les claus "
+"d'encriptació des d'altres dispositius verificats."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Request From Other Devices"
+msgstr "Sol·licita des d'altres dispositius"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:138
+#, kde-format
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Còpia de seguretat de la clau de desencriptació"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:144
+#, kde-format
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Carrega les claus de desencriptació a partir de la còpia de seguretat"
+
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
@@ -1184,121 +1301,6 @@ msgstr "Contacta a través de Matrix (%1)"
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Contacta a través de correu electrònic (%1)"
-
-#: src/app/qml/UnlockSSSSDialog.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Key Storage"
-msgstr "Gestioneu l'emmagatzematge de claus"
-
-#: src/app/qml/UnlockSSSSDialog.qml:36
-#, kde-format
-msgctxt "@info:status"
-msgid "The recovery key was not correct."
-msgstr "La clau de recuperació no és correcta."
-
-#: src/app/qml/UnlockSSSSDialog.qml:42
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "S'han restaurat les claus d'encriptació."
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Loaded keys from backup"
-msgstr "Les claus s'han carregat des de la còpia de seguretat"
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Failed to load keys from backup"
-msgstr "Ha fallat mentre es carregaven les claus des de la còpia de seguretat"
-
-#: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock by Verifying Session"
-msgstr "Desbloquegeu per a verificar la sessió"
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@info:description"
-msgid ""
-"It's recommended to verify this session from another device, if possible. "
-"You can do so under the Devices page."
-msgstr ""
-"Es recomana verificar esta sessió des d'un altre dispositiu, si és possible. "
-"Podeu fer-ho a la pàgina Dispositius."
-
-#: src/app/qml/UnlockSSSSDialog.qml:67
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Recovery Key"
-msgstr "Desbloqueja utilitzant la clau de recuperació"
-
-#: src/app/qml/UnlockSSSSDialog.qml:74
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-msgstr ""
-"Si teniu una clau de recuperació (també coneguda com a «clau de seguretat» o "
-"frase de pas de còpia de seguretat), introduïu-la a continuació o carregueu-"
-"la com a fitxer."
-
-#: src/app/qml/UnlockSSSSDialog.qml:78
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Recovery Key:"
-msgstr "Clau de recuperació:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, kde-format
-msgctxt "@action:button"
-msgid "Upload From File"
-msgstr "Carrega des d'un fitxer"
-
-#: src/app/qml/UnlockSSSSDialog.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Desbloqueja"
-
-#: src/app/qml/UnlockSSSSDialog.qml:112
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Desbloqueja a partir d'una signatura creuada"
-
-#: src/app/qml/UnlockSSSSDialog.qml:120
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you request encryption keys "
-"from other verified devices."
-msgstr ""
-"Si heu verificat prèviament este dispositiu, sol·liciteu les claus "
-"d'encriptació des d'altres dispositius verificats."
-
-#: src/app/qml/UnlockSSSSDialog.qml:129
-#, kde-format
-msgctxt "@action:button"
-msgid "Request From Other Devices"
-msgstr "Sol·licita des d'altres dispositius"
-
-#: src/app/qml/UnlockSSSSDialog.qml:139
-#, kde-format
-msgctxt "@title"
-msgid "Decryption Key Backup"
-msgstr "Còpia de seguretat de la clau de desencriptació"
-
-#: src/app/qml/UnlockSSSSDialog.qml:145
-#, kde-format
-msgctxt "@action:button"
-msgid "Load Decryption Keys from Backup"
-msgstr "Carrega les claus de desencriptació a partir de la còpia de seguretat"
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3643,18 +3645,18 @@ msgstr ""
 "El fitxer és massa gran per a baixar.<br />Contacteu amb l'administrador del "
 "servidor Matrix per ajuda."
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "No s'ha configurat cap servidor d'identitats"
 
-#: src/libneochat/neochatconnection.cpp:393
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "No s'ha pogut crear la sala: %1"
 
-#: src/libneochat/neochatconnection.cpp:422
+#: src/libneochat/neochatconnection.cpp:417
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "No s'ha pogut crear l'espai: %1"
@@ -6629,39 +6631,39 @@ msgstr "Seguretat"
 msgid "Devices"
 msgstr "Dispositius"
 
-#: src/settings/NeoChatSettingsView.qml:76
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Accounts"
 msgstr "Comptes"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:78
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Adhesius i emoji"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
 msgstr "Servidor intermediari de la xarxa"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr "Dreceres de teclat"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "Quant a NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Quant a"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "Quant a KDE"

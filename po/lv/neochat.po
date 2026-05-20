@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-17 00:43+0000\n"
+"POT-Creation-Date: 2026-05-20 00:44+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -744,6 +744,142 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Kopīgot"
 
+#: src/app/qml/ManageKeyStorageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Key Storage"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "The security phrase was not correct."
+msgctxt "@info:status"
+msgid "The recovery key was not correct."
+msgstr "Drošības frāze ir nepareiza."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:42
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Šifrēšanas atslēgas ir atjaunotas."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Verify device"
+msgctxt "@title"
+msgid "Verify Session"
+msgstr "Verificēt ierīci"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:67
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Passphrase"
+msgctxt "@title"
+msgid "Unlock using Recovery Key"
+msgstr "Atbloķēt, izmantojot paroli"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:74
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have a security key for this account, enter it below or upload it "
+#| "as a file."
+msgctxt "@info"
+msgid ""
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+msgstr ""
+"Ja šim kontam jums ir drošības atslēgta, ievadiet to te vai augšupielādējiet "
+"kā datni."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
+msgctxt "@label:textbox"
+msgid "Recovery Key:"
+msgstr "Drošības atslēga:"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:87
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
+msgctxt "@action:button"
+msgid "Upload From File"
+msgstr "Augšupielāde no datnes"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Atbloķēt"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:112
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Atbloķēt ar krusta parakstīšanu"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:119
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
+msgstr ""
+"Ja iepriekš verificējāt šo ierīci, varat mēģināt ielādēt rezerves atslēgu no "
+"otras ierīces, spiežot uz pogas zemāk."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:128
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
+msgctxt "@action:button"
+msgid "Request From Other Devices"
+msgstr "Pieprasījums no citas ierīces"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Open Key Backup"
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Atvērt atslēgas rezervi"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:144
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Importēt šifrēšanas atslēgas no dublējuma."
+
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
@@ -1213,140 +1349,6 @@ msgstr ""
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Key Storage"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
-msgctxt "@info:status"
-msgid "The recovery key was not correct."
-msgstr "Drošības frāze ir nepareiza."
-
-#: src/app/qml/UnlockSSSSDialog.qml:42
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "Šifrēšanas atslēgas ir atjaunotas."
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Loaded keys from backup"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Failed to load keys from backup"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock by Verifying Session"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@info:description"
-msgid ""
-"It's recommended to verify this session from another device, if possible. "
-"You can do so under the Devices page."
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
-msgctxt "@title"
-msgid "Unlock using Recovery Key"
-msgstr "Atbloķēt, izmantojot paroli"
-
-#: src/app/qml/UnlockSSSSDialog.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
-msgctxt "@info"
-msgid ""
-"If you have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-msgstr ""
-"Ja šim kontam jums ir drošības atslēgta, ievadiet to te vai augšupielādējiet "
-"kā datni."
-
-#: src/app/qml/UnlockSSSSDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
-msgctxt "@label:textbox"
-msgid "Recovery Key:"
-msgstr "Drošības atslēga:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
-msgctxt "@action:button"
-msgid "Upload From File"
-msgstr "Augšupielāde no datnes"
-
-#: src/app/qml/UnlockSSSSDialog.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Atbloķēt"
-
-#: src/app/qml/UnlockSSSSDialog.qml:112
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Atbloķēt ar krusta parakstīšanu"
-
-#: src/app/qml/UnlockSSSSDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you request encryption keys "
-"from other verified devices."
-msgstr ""
-"Ja iepriekš verificējāt šo ierīci, varat mēģināt ielādēt rezerves atslēgu no "
-"otras ierīces, spiežot uz pogas zemāk."
-
-#: src/app/qml/UnlockSSSSDialog.qml:129
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
-msgctxt "@action:button"
-msgid "Request From Other Devices"
-msgstr "Pieprasījums no citas ierīces"
-
-#: src/app/qml/UnlockSSSSDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Open Key Backup"
-msgctxt "@title"
-msgid "Decryption Key Backup"
-msgstr "Atvērt atslēgas rezervi"
-
-#: src/app/qml/UnlockSSSSDialog.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
-msgctxt "@action:button"
-msgid "Load Decryption Keys from Backup"
-msgstr "Importēt šifrēšanas atslēgas no dublējuma."
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3760,18 +3762,18 @@ msgstr ""
 "Datne ir pārāk liela lejupielādei.<br />Atbalstam sazinieties ar sava "
 "„Matrix“ servera administratoru."
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Identitātes serveris nav konfigurēts"
 
-#: src/libneochat/neochatconnection.cpp:393
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Istabas izveide neizdevās: %1"
 
-#: src/libneochat/neochatconnection.cpp:422
+#: src/libneochat/neochatconnection.cpp:417
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
@@ -6884,39 +6886,39 @@ msgstr "Drošība un drošums"
 msgid "Devices"
 msgstr "Ierīces"
 
-#: src/settings/NeoChatSettingsView.qml:76
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Accounts"
 msgstr "Konti"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:78
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Uzlīmes un emocijzīmes"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
 msgstr "Tīkla starpniekserveris"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr "Tastatūras saīsnes"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "Par „NeoChat“"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Par"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "Par KDE"

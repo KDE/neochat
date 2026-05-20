@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-17 00:43+0000\n"
+"POT-Creation-Date: 2026-05-20 00:44+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -724,6 +724,122 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Zdieľať"
 
+#: src/app/qml/ManageKeyStorageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Key Storage"
+msgstr "Manage Key Storage"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:36
+#, kde-format
+msgctxt "@info:status"
+msgid "The recovery key was not correct."
+msgstr "Obnovovací kľúč nebol správny."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:42
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Šifrovacie kľúče boli obnovené."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr "Načítané kľúče zo zálohy"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr "Nepodarilo sa načítať kľúče zo zálohy"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock by Verifying Session"
+msgctxt "@title"
+msgid "Verify Session"
+msgstr "Odomknúť overením relácie"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+"Odporúča sa overiť túto reláciu z iného zariadenia, ak je to možné. Môžete "
+"tak urobiť na stránke Zariadenia."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:67
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Recovery Key"
+msgstr "Unlock using Recovery Key"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:74
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+msgstr ""
+"Ak have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:78
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Recovery Key:"
+msgstr "Obnovovací kľúč:"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:87
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload From File"
+msgstr "Nahrať zo súboru"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Odomknúť"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:112
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Odomknúť pomocou krížového podpisovania"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
+msgstr ""
+"Ak have previously verified this device, you request encryption keys from "
+"other verified devices."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Request From Other Devices"
+msgstr "Požiadať z iných zariadení"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:138
+#, kde-format
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Záloha dešifrovacieho kľúča"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:144
+#, kde-format
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Načítať dešifrovacie kľúče zo zálohy"
+
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
@@ -1177,120 +1293,6 @@ msgstr "Contact via Matrix (%1)"
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Contact via e-mail (%1)"
-
-#: src/app/qml/UnlockSSSSDialog.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Key Storage"
-msgstr "Manage Key Storage"
-
-#: src/app/qml/UnlockSSSSDialog.qml:36
-#, kde-format
-msgctxt "@info:status"
-msgid "The recovery key was not correct."
-msgstr "Obnovovací kľúč nebol správny."
-
-#: src/app/qml/UnlockSSSSDialog.qml:42
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "Šifrovacie kľúče boli obnovené."
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Loaded keys from backup"
-msgstr "Načítané kľúče zo zálohy"
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Failed to load keys from backup"
-msgstr "Nepodarilo sa načítať kľúče zo zálohy"
-
-#: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock by Verifying Session"
-msgstr "Odomknúť overením relácie"
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@info:description"
-msgid ""
-"It's recommended to verify this session from another device, if possible. "
-"You can do so under the Devices page."
-msgstr ""
-"Odporúča sa overiť túto reláciu z iného zariadenia, ak je to možné. Môžete "
-"tak urobiť na stránke Zariadenia."
-
-#: src/app/qml/UnlockSSSSDialog.qml:67
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Recovery Key"
-msgstr "Unlock using Recovery Key"
-
-#: src/app/qml/UnlockSSSSDialog.qml:74
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-msgstr ""
-"Ak have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-
-#: src/app/qml/UnlockSSSSDialog.qml:78
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Recovery Key:"
-msgstr "Obnovovací kľúč:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, kde-format
-msgctxt "@action:button"
-msgid "Upload From File"
-msgstr "Nahrať zo súboru"
-
-#: src/app/qml/UnlockSSSSDialog.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Odomknúť"
-
-#: src/app/qml/UnlockSSSSDialog.qml:112
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Odomknúť pomocou krížového podpisovania"
-
-#: src/app/qml/UnlockSSSSDialog.qml:120
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you request encryption keys "
-"from other verified devices."
-msgstr ""
-"Ak have previously verified this device, you request encryption keys from "
-"other verified devices."
-
-#: src/app/qml/UnlockSSSSDialog.qml:129
-#, kde-format
-msgctxt "@action:button"
-msgid "Request From Other Devices"
-msgstr "Požiadať z iných zariadení"
-
-#: src/app/qml/UnlockSSSSDialog.qml:139
-#, kde-format
-msgctxt "@title"
-msgid "Decryption Key Backup"
-msgstr "Záloha dešifrovacieho kľúča"
-
-#: src/app/qml/UnlockSSSSDialog.qml:145
-#, kde-format
-msgctxt "@action:button"
-msgid "Load Decryption Keys from Backup"
-msgstr "Načítať dešifrovacie kľúče zo zálohy"
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3613,18 +3615,18 @@ msgstr ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nie je nakonfigurovaný žiadný server identity"
 
-#: src/libneochat/neochatconnection.cpp:393
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/libneochat/neochatconnection.cpp:422
+#: src/libneochat/neochatconnection.cpp:417
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie priestoru zlyhalo: „%1\""
@@ -6584,39 +6586,39 @@ msgstr "Bezpečnosť"
 msgid "Devices"
 msgstr "Zariadenia"
 
-#: src/settings/NeoChatSettingsView.qml:76
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Accounts"
 msgstr "Kontá"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:78
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Stickers & Emojis"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
 msgstr "Chyba siete"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr "Klávesové skratky"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "O Neochat"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "O aplikácii"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "Informácie o KDE"

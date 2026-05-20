@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-17 00:43+0000\n"
+"POT-Creation-Date: 2026-05-20 00:44+0000\n"
 "PO-Revision-Date: 2026-03-21 02:14+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -732,6 +732,124 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Partekatu"
 
+#: src/app/qml/ManageKeyStorageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Key Storage"
+msgstr "Kudeatu gakoen biltegiratzea"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:36
+#, kde-format
+msgctxt "@info:status"
+msgid "The recovery key was not correct."
+msgstr "Berreskuratze-gakoa ez da zuzena."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:42
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Zifratzeko gakoak lehengoratu dira."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Verify device"
+msgctxt "@title"
+msgid "Verify Session"
+msgstr "Egiaztatu gailua"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:67
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Recovery Key"
+msgstr "Giltzapetik askatu berreskuratze-gakoa erabiliz"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:74
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+msgstr ""
+"Berreskuratze-gako bat (\"segurtasun-gako\" edo \"babes-pasaesaldi\" gisa "
+"ere ezaguna) baduzu, behean sartu edo fitxategi gisa zama-igo."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:78
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Recovery Key:"
+msgstr "Berreskuratze-gakoa:"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:87
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload From File"
+msgstr "Zama-igo fitxategitik"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Giltzapetik askatu"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:112
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Giltzapetik askatu sinadura-gurutzatu bidez"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
+msgstr ""
+"Gailu hau aurrez egiaztatu baduzu, egiaztatuetako beste gailu batzuetatik "
+"zifratze-gakoak eska ditzakezu."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Request From Other Devices"
+msgstr "Eskatu beste gailuetatik"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Open Key Backup"
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Ireki gakoaren babeskopia"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:144
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup file."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Inportatu zifratzeko gakoak babeskopia-fitxategi batetik."
+
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
@@ -1186,122 +1304,6 @@ msgstr "Jarri harremanean Matrix bidez (%1)"
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Jarri harremanean e-posta bidez (%1)"
-
-#: src/app/qml/UnlockSSSSDialog.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Key Storage"
-msgstr "Kudeatu gakoen biltegiratzea"
-
-#: src/app/qml/UnlockSSSSDialog.qml:36
-#, kde-format
-msgctxt "@info:status"
-msgid "The recovery key was not correct."
-msgstr "Berreskuratze-gakoa ez da zuzena."
-
-#: src/app/qml/UnlockSSSSDialog.qml:42
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "Zifratzeko gakoak lehengoratu dira."
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Loaded keys from backup"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Failed to load keys from backup"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock by Verifying Session"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@info:description"
-msgid ""
-"It's recommended to verify this session from another device, if possible. "
-"You can do so under the Devices page."
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:67
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Recovery Key"
-msgstr "Giltzapetik askatu berreskuratze-gakoa erabiliz"
-
-#: src/app/qml/UnlockSSSSDialog.qml:74
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-msgstr ""
-"Berreskuratze-gako bat (\"segurtasun-gako\" edo \"babes-pasaesaldi\" gisa "
-"ere ezaguna) baduzu, behean sartu edo fitxategi gisa zama-igo."
-
-#: src/app/qml/UnlockSSSSDialog.qml:78
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Recovery Key:"
-msgstr "Berreskuratze-gakoa:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, kde-format
-msgctxt "@action:button"
-msgid "Upload From File"
-msgstr "Zama-igo fitxategitik"
-
-#: src/app/qml/UnlockSSSSDialog.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Giltzapetik askatu"
-
-#: src/app/qml/UnlockSSSSDialog.qml:112
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Giltzapetik askatu sinadura-gurutzatu bidez"
-
-#: src/app/qml/UnlockSSSSDialog.qml:120
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you request encryption keys "
-"from other verified devices."
-msgstr ""
-"Gailu hau aurrez egiaztatu baduzu, egiaztatuetako beste gailu batzuetatik "
-"zifratze-gakoak eska ditzakezu."
-
-#: src/app/qml/UnlockSSSSDialog.qml:129
-#, kde-format
-msgctxt "@action:button"
-msgid "Request From Other Devices"
-msgstr "Eskatu beste gailuetatik"
-
-#: src/app/qml/UnlockSSSSDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Open Key Backup"
-msgctxt "@title"
-msgid "Decryption Key Backup"
-msgstr "Ireki gakoaren babeskopia"
-
-#: src/app/qml/UnlockSSSSDialog.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup file."
-msgctxt "@action:button"
-msgid "Load Decryption Keys from Backup"
-msgstr "Inportatu zifratzeko gakoak babeskopia-fitxategi batetik."
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3653,18 +3655,18 @@ msgstr ""
 "Zama-jaisteko fitxategi handiegia.<br />Jar zaitez zure matrix "
 "zerbitzariaren administratzailearekin harremanean, laguntza lortzeko."
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ez da nortasun zerbitzaririk konfiguratu"
 
-#: src/libneochat/neochatconnection.cpp:393
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Gela sortzea huts egin du: %1"
 
-#: src/libneochat/neochatconnection.cpp:422
+#: src/libneochat/neochatconnection.cpp:417
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Espazioa sortzea huts egin du: %1"
@@ -6664,39 +6666,39 @@ msgstr "Segurtasuna"
 msgid "Devices"
 msgstr "Gailuak"
 
-#: src/settings/NeoChatSettingsView.qml:76
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Accounts"
 msgstr "Kontuak"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:78
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Eranskailuak eta Emojiak"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
 msgstr "Sareko ordezkaria"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr "Teklatuko lasterbideak"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "Neochat-i buruz"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Honi buruz"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "KDEri buruz"

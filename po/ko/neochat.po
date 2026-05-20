@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-17 00:43+0000\n"
+"POT-Creation-Date: 2026-05-20 00:44+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -743,6 +743,140 @@ msgctxt "@title"
 msgid "Share"
 msgstr "공유"
 
+#: src/app/qml/ManageKeyStorageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Key Storage"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "The security phrase was not correct."
+msgctxt "@info:status"
+msgid "The recovery key was not correct."
+msgstr "암구호가 잘못되었습니다."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:42
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "암호화 키를 복원했습니다."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Verify device"
+msgctxt "@title"
+msgid "Verify Session"
+msgstr "장치 확인"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:67
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Passphrase"
+msgctxt "@title"
+msgid "Unlock using Recovery Key"
+msgstr "암구호로 잠금 해제"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:74
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have a security key for this account, enter it below or upload it "
+#| "as a file."
+msgctxt "@info"
+msgid ""
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+msgstr "이 계정의 보안 키가 있다면 아래에 입력하거나 파일로 업로드하십시오."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
+msgctxt "@label:textbox"
+msgid "Recovery Key:"
+msgstr "보안 키:"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:87
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
+msgctxt "@action:button"
+msgid "Upload From File"
+msgstr "파일에서 업로드"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "잠금 해제"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:112
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "교차 서명에서 잠금 해제"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:119
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
+msgstr ""
+"이전에 이 장치를 검증한 적이 있다면, 아래에 있는 단추를 클릭해서 다른 장치에"
+"서 백업 키를 불러올 수 있습니다."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:128
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
+msgctxt "@action:button"
+msgid "Request From Other Devices"
+msgstr "다른 장치에서 요청"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Open Key Backup"
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "키 백업 열기"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:144
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "백업에서 암호화 키를 가져옵니다."
+
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
@@ -1221,138 +1355,6 @@ msgstr ""
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Key Storage"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
-msgctxt "@info:status"
-msgid "The recovery key was not correct."
-msgstr "암구호가 잘못되었습니다."
-
-#: src/app/qml/UnlockSSSSDialog.qml:42
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "암호화 키를 복원했습니다."
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Loaded keys from backup"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Failed to load keys from backup"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock by Verifying Session"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@info:description"
-msgid ""
-"It's recommended to verify this session from another device, if possible. "
-"You can do so under the Devices page."
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
-msgctxt "@title"
-msgid "Unlock using Recovery Key"
-msgstr "암구호로 잠금 해제"
-
-#: src/app/qml/UnlockSSSSDialog.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
-msgctxt "@info"
-msgid ""
-"If you have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-msgstr "이 계정의 보안 키가 있다면 아래에 입력하거나 파일로 업로드하십시오."
-
-#: src/app/qml/UnlockSSSSDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
-msgctxt "@label:textbox"
-msgid "Recovery Key:"
-msgstr "보안 키:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
-msgctxt "@action:button"
-msgid "Upload From File"
-msgstr "파일에서 업로드"
-
-#: src/app/qml/UnlockSSSSDialog.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "잠금 해제"
-
-#: src/app/qml/UnlockSSSSDialog.qml:112
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "교차 서명에서 잠금 해제"
-
-#: src/app/qml/UnlockSSSSDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you request encryption keys "
-"from other verified devices."
-msgstr ""
-"이전에 이 장치를 검증한 적이 있다면, 아래에 있는 단추를 클릭해서 다른 장치에"
-"서 백업 키를 불러올 수 있습니다."
-
-#: src/app/qml/UnlockSSSSDialog.qml:129
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
-msgctxt "@action:button"
-msgid "Request From Other Devices"
-msgstr "다른 장치에서 요청"
-
-#: src/app/qml/UnlockSSSSDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Open Key Backup"
-msgctxt "@title"
-msgid "Decryption Key Backup"
-msgstr "키 백업 열기"
-
-#: src/app/qml/UnlockSSSSDialog.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
-msgctxt "@action:button"
-msgid "Load Decryption Keys from Backup"
-msgstr "백업에서 암호화 키를 가져옵니다."
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3750,18 +3752,18 @@ msgid ""
 msgstr ""
 "파일이 다운로드하기에 너무 큽니다.<br />Matrix 서버 관리자에게 연락하십시오."
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "아이덴티티 서버를 설정하지 않았음"
 
-#: src/libneochat/neochatconnection.cpp:393
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: %1"
 
-#: src/libneochat/neochatconnection.cpp:422
+#: src/libneochat/neochatconnection.cpp:417
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
@@ -6903,39 +6905,39 @@ msgstr "보안과 안전"
 msgid "Devices"
 msgstr "장치"
 
-#: src/settings/NeoChatSettingsView.qml:76
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Accounts"
 msgstr "계정"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:78
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "스티커와 이모지"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
 msgstr "네트워크 프록시"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat 정보"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "정보"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "KDE 정보"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-17 00:43+0000\n"
+"POT-Creation-Date: 2026-05-20 00:44+0000\n"
 "PO-Revision-Date: 2026-05-10 20:58+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -724,6 +724,122 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Condivisione"
 
+#: src/app/qml/ManageKeyStorageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Key Storage"
+msgstr "Gestisci l'archiviazione delle chiavi"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:36
+#, kde-format
+msgctxt "@info:status"
+msgid "The recovery key was not correct."
+msgstr "La chiave di ripristino non era corretta."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:42
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Chiavi di cifratura ripristinate"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr "Chiavi caricate dal backup"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr "Impossibile caricare le chiavi dal backup"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock by Verifying Session"
+msgctxt "@title"
+msgid "Verify Session"
+msgstr "Sblocca verificando la sessione"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+"Si consiglia di verificare questa sessione da un altro dispositivo, se "
+"possibile. È possibile farlo nella pagina Dispositivi."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:67
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Recovery Key"
+msgstr "Sblocca utilizzando la chiave di ripristino"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:74
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+msgstr ""
+"Se disponi di una chiave di ripristino (nota anche come \"chiave di sicurezza"
+"\" o \"passphrase di backup\"), inseriscila qui sotto o caricala come file."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:78
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Recovery Key:"
+msgstr "Chiave di ripristino:"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:87
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload From File"
+msgstr "Carica da file"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Sblocca"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:112
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Sblocca dalla firma incrociata"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
+msgstr ""
+"Se hai già verificato questo dispositivo, richiedi le chiavi di cifratura da "
+"altri dispositivi verificati."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Request From Other Devices"
+msgstr "Richiesta da altri dispositivi"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:138
+#, kde-format
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Backup della chiave di decifratura"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:144
+#, kde-format
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Carica le chiavi di decifratura dal backup"
+
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
@@ -1177,120 +1293,6 @@ msgstr "Contatta tramite Matrix (%1)"
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Contatta tramite posta elettronica (%1)"
-
-#: src/app/qml/UnlockSSSSDialog.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Key Storage"
-msgstr "Gestisci l'archiviazione delle chiavi"
-
-#: src/app/qml/UnlockSSSSDialog.qml:36
-#, kde-format
-msgctxt "@info:status"
-msgid "The recovery key was not correct."
-msgstr "La chiave di ripristino non era corretta."
-
-#: src/app/qml/UnlockSSSSDialog.qml:42
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "Chiavi di cifratura ripristinate"
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Loaded keys from backup"
-msgstr "Chiavi caricate dal backup"
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Failed to load keys from backup"
-msgstr "Impossibile caricare le chiavi dal backup"
-
-#: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock by Verifying Session"
-msgstr "Sblocca verificando la sessione"
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@info:description"
-msgid ""
-"It's recommended to verify this session from another device, if possible. "
-"You can do so under the Devices page."
-msgstr ""
-"Si consiglia di verificare questa sessione da un altro dispositivo, se "
-"possibile. È possibile farlo nella pagina Dispositivi."
-
-#: src/app/qml/UnlockSSSSDialog.qml:67
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Recovery Key"
-msgstr "Sblocca utilizzando la chiave di ripristino"
-
-#: src/app/qml/UnlockSSSSDialog.qml:74
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-msgstr ""
-"Se disponi di una chiave di ripristino (nota anche come \"chiave di sicurezza"
-"\" o \"passphrase di backup\"), inseriscila qui sotto o caricala come file."
-
-#: src/app/qml/UnlockSSSSDialog.qml:78
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Recovery Key:"
-msgstr "Chiave di ripristino:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, kde-format
-msgctxt "@action:button"
-msgid "Upload From File"
-msgstr "Carica da file"
-
-#: src/app/qml/UnlockSSSSDialog.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Sblocca"
-
-#: src/app/qml/UnlockSSSSDialog.qml:112
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Sblocca dalla firma incrociata"
-
-#: src/app/qml/UnlockSSSSDialog.qml:120
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you request encryption keys "
-"from other verified devices."
-msgstr ""
-"Se hai già verificato questo dispositivo, richiedi le chiavi di cifratura da "
-"altri dispositivi verificati."
-
-#: src/app/qml/UnlockSSSSDialog.qml:129
-#, kde-format
-msgctxt "@action:button"
-msgid "Request From Other Devices"
-msgstr "Richiesta da altri dispositivi"
-
-#: src/app/qml/UnlockSSSSDialog.qml:139
-#, kde-format
-msgctxt "@title"
-msgid "Decryption Key Backup"
-msgstr "Backup della chiave di decifratura"
-
-#: src/app/qml/UnlockSSSSDialog.qml:145
-#, kde-format
-msgctxt "@action:button"
-msgid "Load Decryption Keys from Backup"
-msgstr "Carica le chiavi di decifratura dal backup"
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3641,18 +3643,18 @@ msgstr ""
 "File troppo grande per essere scaricato.<br />Contatta l'amministratore del "
 "server Matrix per assistenza."
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nessun server delle identità configurato"
 
-#: src/libneochat/neochatconnection.cpp:393
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creazione della stanza non riuscita: %1"
 
-#: src/libneochat/neochatconnection.cpp:422
+#: src/libneochat/neochatconnection.cpp:417
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
@@ -6630,39 +6632,39 @@ msgstr "Sicurezza"
 msgid "Devices"
 msgstr "Dispositivi"
 
-#: src/settings/NeoChatSettingsView.qml:76
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Accounts"
 msgstr "Account"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:78
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Adesivi ed emoji"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
 msgstr "Proxy di rete"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr "Scorciatoie da tastiera"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "Informazioni su Neochat"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Informazioni"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "Informazioni su KDE"

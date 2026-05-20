@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-17 00:43+0000\n"
+"POT-Creation-Date: 2026-05-20 00:44+0000\n"
 "PO-Revision-Date: 2025-10-22 20:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -739,6 +739,143 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Dela"
 
+#: src/app/qml/ManageKeyStorageDialog.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Key Storage"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "The security phrase was not correct."
+msgctxt "@info:status"
+msgid "The recovery key was not correct."
+msgstr "Säkerhetsfrasen var inte korrekt."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:42
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Krypteringsnycklar återställda."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Loaded keys from backup"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:49
+#, kde-format
+msgctxt "@info"
+msgid "Failed to load keys from backup"
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Verify device"
+msgctxt "@title"
+msgid "Verify Session"
+msgstr "Verifiera enhet"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:62
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"It's recommended to verify this session from another device, if possible. "
+"You can do so under the Devices page."
+msgstr ""
+
+#: src/app/qml/ManageKeyStorageDialog.qml:67
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Passphrase"
+msgctxt "@title"
+msgid "Unlock using Recovery Key"
+msgstr "Lås upp med lösenordsfras"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:74
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have a security key for this account, enter it below or upload it "
+#| "as a file."
+msgctxt "@info"
+msgid ""
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
+msgstr ""
+"Om du har en säkerhetsnyckel för kontot, ange den nedan eller ladda upp den "
+"som en fil."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
+msgctxt "@label:textbox"
+msgid "Recovery Key:"
+msgstr "Säkerhetsnyckel:"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:87
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
+msgctxt "@action:button"
+msgid "Upload From File"
+msgstr "Ladda upp från fil"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:101
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Lås upp"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:112
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Lås upp från korssignering"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:119
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
+msgstr ""
+"Om du tidigare har verifierat enheten kan du prova att läsa in "
+"säkerhetskopian av nyckeln från andra enheter genom att klicka på knappen "
+"nedan."
+
+#: src/app/qml/ManageKeyStorageDialog.qml:128
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
+msgctxt "@action:button"
+msgid "Request From Other Devices"
+msgstr "Begäran från andra enheter"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Open Key Backup"
+msgctxt "@title"
+msgid "Decryption Key Backup"
+msgstr "Öppna nyckelsäkerhetskopia"
+
+#: src/app/qml/ManageKeyStorageDialog.qml:144
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@action:button"
+msgid "Load Decryption Keys from Backup"
+msgstr "Importera krypteringsnycklar från en säkerhetskopia."
+
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
@@ -1216,141 +1353,6 @@ msgstr ""
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Manage Key Storage"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
-msgctxt "@info:status"
-msgid "The recovery key was not correct."
-msgstr "Säkerhetsfrasen var inte korrekt."
-
-#: src/app/qml/UnlockSSSSDialog.qml:42
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "Krypteringsnycklar återställda."
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Loaded keys from backup"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:49
-#, kde-format
-msgctxt "@info"
-msgid "Failed to load keys from backup"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock by Verifying Session"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@info:description"
-msgid ""
-"It's recommended to verify this session from another device, if possible. "
-"You can do so under the Devices page."
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
-msgctxt "@title"
-msgid "Unlock using Recovery Key"
-msgstr "Lås upp med lösenordsfras"
-
-#: src/app/qml/UnlockSSSSDialog.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
-msgctxt "@info"
-msgid ""
-"If you have a recovery key (also known as a “security key” or “backup "
-"passphrase”), enter it below or upload it as a file."
-msgstr ""
-"Om du har en säkerhetsnyckel för kontot, ange den nedan eller ladda upp den "
-"som en fil."
-
-#: src/app/qml/UnlockSSSSDialog.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
-msgctxt "@label:textbox"
-msgid "Recovery Key:"
-msgstr "Säkerhetsnyckel:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
-msgctxt "@action:button"
-msgid "Upload From File"
-msgstr "Ladda upp från fil"
-
-#: src/app/qml/UnlockSSSSDialog.qml:101
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Lås upp"
-
-#: src/app/qml/UnlockSSSSDialog.qml:112
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Lås upp från korssignering"
-
-#: src/app/qml/UnlockSSSSDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you request encryption keys "
-"from other verified devices."
-msgstr ""
-"Om du tidigare har verifierat enheten kan du prova att läsa in "
-"säkerhetskopian av nyckeln från andra enheter genom att klicka på knappen "
-"nedan."
-
-#: src/app/qml/UnlockSSSSDialog.qml:129
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
-msgctxt "@action:button"
-msgid "Request From Other Devices"
-msgstr "Begäran från andra enheter"
-
-#: src/app/qml/UnlockSSSSDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Open Key Backup"
-msgctxt "@title"
-msgid "Decryption Key Backup"
-msgstr "Öppna nyckelsäkerhetskopia"
-
-#: src/app/qml/UnlockSSSSDialog.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
-msgctxt "@action:button"
-msgid "Load Decryption Keys from Backup"
-msgstr "Importera krypteringsnycklar från en säkerhetskopia."
 
 #: src/app/qml/UserDetailDialog.qml:56
 #, kde-format
@@ -3770,18 +3772,18 @@ msgstr ""
 "Filen är för stor för att ladda ner.<br />Kontakta matrix-"
 "serveradministratören för support."
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ingen identitetsserver inställd"
 
-#: src/libneochat/neochatconnection.cpp:393
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1"
 
-#: src/libneochat/neochatconnection.cpp:422
+#: src/libneochat/neochatconnection.cpp:417
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
@@ -6924,39 +6926,39 @@ msgstr "Säkerhet"
 msgid "Devices"
 msgstr "Enheter"
 
-#: src/settings/NeoChatSettingsView.qml:76
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Accounts"
 msgstr "Konton"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:78
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Klistermärken och emoji"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
 msgstr "Nätverksproxy"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "Om NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Om"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "Om KDE"
