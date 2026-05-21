@@ -48,7 +48,6 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         mediasizehelper.cpp
         pollhandler.cpp
         models/chatbarmessagecontentmodel.cpp
-        models/itinerarymodel.cpp
         models/linemodel.cpp
         models/messagecontentmodel.cpp
         models/pollanswermodel.cpp
@@ -84,8 +83,6 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         QtQuick
         org.kde.neochat.libneochat
 )
-
-configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
 
 ecm_qt_declare_logging_category(MessageContent
     HEADER "messagecontentlogging.h"

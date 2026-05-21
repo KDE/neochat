@@ -1,10 +1,18 @@
 // SPDX-FileCopyrightText: 2026 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+#include "blocktype.h"
+#include <QImageReader>
+
+#ifndef Q_OS_ANDROID
+#include <KSyntaxHighlighting/Definition>
+#include <KSyntaxHighlighting/Repository>
+#endif
+
 #include "block.h"
 #include "blockcache.h"
 #include "fileinfo.h"
-#include <memory>
+#include "filetype.h"
 
 using namespace Blocks;
 
@@ -324,6 +332,17 @@ const AudioInfo &AudioBlock::info() const
 CacheItemPtr AudioBlock::toCacheItem() const
 {
     return std::make_unique<AudioCacheItem>(type(), source(), filename(), info());
+}
+
+ItineraryBlock::ItineraryBlock(Type type, const QUrl &source, QObject *parent)
+    : Block(type, parent)
+    , m_model(new ItineraryModel(source, this))
+{
+}
+
+ItineraryModel *ItineraryBlock::model() const
+{
+    return m_model;
 }
 
 LocationBlock::LocationBlock(Type type, qreal latitude, qreal longitude, const QString &asset, QObject *parent)

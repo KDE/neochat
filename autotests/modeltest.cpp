@@ -251,7 +251,7 @@ void ModelTest::testSpaceChildrenModel()
 
 void ModelTest::testItineraryModel()
 {
-    auto model = new ItineraryModel(this);
+    auto model = new ItineraryModel({}, this);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }

@@ -7,6 +7,7 @@
 #include "chattextitemhelper.h"
 #include "enums/blocktype.h"
 #include "fileinfo.h"
+#include "models/itinerarymodel.h"
 #include "models/reactionmodel.h"
 #include "neochatroom.h"
 
@@ -390,6 +391,33 @@ public:
 private:
     QString m_filename;
     AudioInfo m_info;
+};
+
+/**
+ * @class ItineraryBlock
+ *
+ * A block to help visualize a message file that is an itinerary item.
+ *
+ * The ItineraryBlock will create and manage a ItineraryModel.
+ */
+class ItineraryBlock : public Block
+{
+    Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
+
+    /**
+     * @brief The model containing the list of reactions.
+     */
+    Q_PROPERTY(ItineraryModel *model READ model CONSTANT)
+
+public:
+    ItineraryBlock(Type type, const QUrl &source, QObject *parent);
+
+    ItineraryModel *model() const;
+
+private:
+    ItineraryModel *m_model;
 };
 
 /**

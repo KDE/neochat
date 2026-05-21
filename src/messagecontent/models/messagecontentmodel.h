@@ -18,7 +18,6 @@
 #include "fileinfo.h"
 #include "filetype.h"
 #include "linkpreviewer.h"
-#include "models/itinerarymodel.h"
 #include "models/reactionmodel.h"
 #include "neochatroom.h"
 #include "neochatroommember.h"
@@ -61,7 +60,6 @@ public:
         DateTimeRole, /**< The timestamp for when the event was sent (as a NeoChatDateTime). */
         AuthorRole, /**< The author of the event. */
         FileTransferInfoRole, /**< FileTransferInfo for any downloading files. */
-        ItineraryModelRole, /**< The itinerary model for a file. */
         PollHandlerRole, /**< The PollHandler for the event, if any. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
         ThreadRootRole, /**< The thread root event ID for the event. */
@@ -149,11 +147,6 @@ Q_SIGNALS:
      */
     void componentsUpdated();
 
-    /**
-     * @brief Emit whenever itinerary model is updated.
-     */
-    void itineraryUpdated();
-
 protected:
     QPointer<NeoChatRoom> m_room;
     QString m_eventId;
@@ -185,15 +178,7 @@ protected:
     void forEachComponentOfType(Blocks::Type type, std::function<Blocks::BlockPtrsIt(Blocks::BlockPtrsIt)> function);
     void forEachComponentOfType(QList<Blocks::Type> types, std::function<Blocks::BlockPtrsIt(Blocks::BlockPtrsIt)> function);
 
-    /**
-     * @brief The ID for the event that the message is replying to, if any.
-     *
-     * The default implementation returns a std::nullopt.
-     */
-    virtual std::optional<QString> getReplyEventId();
     QPointer<MessageContentModel> m_replyModel;
-    QPointer<ItineraryModel> m_itineraryModel = nullptr;
-    bool m_emptyItinerary = false;
 
     bool m_editableActive = false;
     QPersistentModelIndex m_currentFocusComponent = {};
@@ -203,58 +188,6 @@ private:
 
     std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_fileInfoFunction = [this](Blocks::BlockPtrsIt it) {
         Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {MessageContentModel::FileTransferInfoRole});
-        return ++it;
-    };
-    std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_fileFunction = [this](Blocks::BlockPtrsIt it) {
-        if (m_itineraryModel && m_itineraryModel->rowCount() > 0) {
-            beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-            it = m_components.insert(it + 1, new Blocks::Block(Blocks::Itinerary, this));
-            endInsertRows();
-            return it;
-        } else if (m_emptyItinerary) {
-            auto fileTransferInfo = m_room->cachedFileTransferInfo(m_eventId);
-#ifndef Q_OS_ANDROID
-            const QMimeType mimeType = FileType::instance().mimeTypeForFile(fileTransferInfo.localPath.toString());
-            if (mimeType.inherits(u"text/plain"_s)) {
-                KSyntaxHighlighting::Repository repository;
-                KSyntaxHighlighting::Definition definitionForFile = repository.definitionForFileName(fileTransferInfo.localPath.toString());
-                if (!definitionForFile.isValid()) {
-                    definitionForFile = repository.definitionForMimeType(mimeType.name());
-                }
-
-                QFile file(fileTransferInfo.localPath.path());
-                auto ok = file.open(QIODevice::ReadOnly);
-                if (!ok) {
-                    qWarning() << "Failed to open" << fileTransferInfo.localPath.path() << file.errorString();
-                }
-
-                beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                it = m_components.insert(it + 1,
-                                         new Blocks::CodeBlock(Blocks::Code,
-                                                               QTextDocumentFragment::fromPlainText(QString::fromStdString(file.readAll().toStdString())),
-                                                               definitionForFile.name(),
-                                                               this));
-                endInsertRows();
-                return it;
-            }
-#endif
-
-            if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
-                QImageReader reader(fileTransferInfo.localPath.path());
-                beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
-                Blocks::ImageInfo info;
-                info.pixelSize = reader.size();
-                it = m_components.insert(it + 1,
-                                         new Blocks::ImageBlock(Blocks::Pdf,
-                                                                fileTransferInfo.localPath,
-                                                                fileTransferInfo.localPath.fileName(),
-                                                                info,
-                                                                QUrl(),
-                                                                Blocks::ImageInfo(),
-                                                                this));
-                endInsertRows();
-            }
-        }
         return ++it;
     };
     std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_linkPreviewAddFunction = [this](Blocks::BlockPtrsIt it) {

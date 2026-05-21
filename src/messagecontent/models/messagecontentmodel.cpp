@@ -57,11 +57,6 @@ void MessageContentModel::initializeModel()
         }
         m_components.shrink_to_fit();
     });
-    connect(this, &MessageContentModel::itineraryUpdated, this, [this]() {
-        if (hasComponentType(Blocks::File)) {
-            forEachComponentOfType(Blocks::File, m_fileFunction);
-        }
-    });
 }
 
 NeoChatRoom *MessageContentModel::room() const
@@ -158,6 +153,9 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     }
 
     const auto &component = m_components[index.row()];
+    if (!component) {
+        return {};
+    }
 
     if (role == ComponentTypeRole) {
         return component->type();
@@ -176,9 +174,6 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     }
     if (role == FileTransferInfoRole) {
         return QVariant::fromValue(m_room->cachedFileTransferInfo(m_eventId));
-    }
-    if (role == ItineraryModelRole) {
-        return QVariant::fromValue<ItineraryModel *>(m_itineraryModel);
     }
     if (role == PollHandlerRole) {
         return QVariant::fromValue<PollHandler *>(ContentProvider::self().handlerForPoll(m_room, m_eventId));
@@ -230,7 +225,6 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::DateTimeRole] = "dateTime";
     roles[MessageContentModel::AuthorRole] = "author";
     roles[MessageContentModel::FileTransferInfoRole] = "fileTransferInfo";
-    roles[MessageContentModel::ItineraryModelRole] = "itineraryModel";
     roles[MessageContentModel::PollHandlerRole] = "pollHandler";
     roles[MessageContentModel::ReplyContentModelRole] = "replyContentModel";
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
@@ -276,11 +270,6 @@ void MessageContentModel::forEachComponentOfType(QList<Blocks::Type> types, std:
     for (const auto &type : types) {
         forEachComponentOfType(type, function);
     }
-}
-
-std::optional<QString> MessageContentModel::getReplyEventId()
-{
-    return std::nullopt;
 }
 
 Blocks::Block *MessageContentModel::linkPreviewComponent(const QUrl &link)

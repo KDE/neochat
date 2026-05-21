@@ -11,6 +11,20 @@
 
 #include "events/pollevent.h"
 
+QUrl Blocks::componentForType(Type type)
+{
+    switch (type) {
+    case Code:
+        return QUrl("CodeComponent.qml"_L1);
+    case Image:
+        return QUrl("ImageComponent.qml"_L1);
+    case Itinerary:
+        return QUrl("ItineraryComponent.qml"_L1);
+    default:
+        return {};
+    }
+}
+
 Blocks::Type Blocks::typeForEvent(const Quotient::RoomEvent &event, bool isInReply)
 {
     using namespace Quotient;
