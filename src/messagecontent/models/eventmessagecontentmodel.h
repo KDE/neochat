@@ -6,6 +6,7 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include "filepreview.h"
 #include "models/messagecontentmodel.h"
 #include "models/threadmodel.h"
 
@@ -79,11 +80,10 @@ private:
     void resetContent(bool isEditing = false, bool isThreading = false);
     Blocks::BlockPtrs messageContentComponents(bool isEditing = false, bool isThreading = false);
 
-    std::optional<QString> getReplyEventId() override;
-
-    Blocks::BlockPtrs componentsForType(Blocks::Type type);
-
-    void updateItineraryModel();
+    Blocks::FilePreviewBlockLoader *m_loader = nullptr;
+    bool m_fileChecked = false;
+    void checkFilePreview();
+    void insertFIlePreview();
 
     void updateReactionModel();
 };

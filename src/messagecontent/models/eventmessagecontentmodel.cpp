@@ -11,8 +11,6 @@
 
 #include <KLocalizedString>
 #include <Kirigami/Platform/PlatformTheme>
-#include <iterator>
-#include <memory>
 
 #include "block.h"
 #include "chatbarcache.h"
@@ -39,6 +37,13 @@ void EventMessageContentModel::initializeModel()
     Q_ASSERT(m_room != nullptr);
     Q_ASSERT(!m_eventId.isEmpty());
 
+    connect(this, &MessageContentModel::componentsUpdated, this, &EventMessageContentModel::checkFilePreview);
+    connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
+        if (eventId == m_eventId) {
+            m_fileChecked = false;
+            checkFilePreview();
+        }
+    });
     connect(m_room, &NeoChatRoom::pendingEventAdded, this, [this]() {
         if (m_room != nullptr && m_currentState == Unknown) {
             initializeEvent();
@@ -258,7 +263,6 @@ void EventMessageContentModel::resetModel()
     endResetModel();
 
     updateReactionModel();
-    updateItineraryModel();
 
     Q_EMIT componentsUpdated();
     // We need QML to re-evaluate author (for example, reply colors) if it was previously null.
@@ -286,165 +290,83 @@ void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
     endInsertRows();
 
     updateReactionModel();
-    updateItineraryModel();
 
     Q_EMIT componentsUpdated();
 }
 
 Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEditing, bool isThreading)
 {
-    const auto event = m_room->getEvent(m_eventId);
-    if (event.first == nullptr) {
+    const auto [event, _] = m_room->getEvent(m_eventId);
+    if (!event) {
         return {};
     }
 
-    Blocks::BlockPtrs newComponents;
+    Blocks::BlockPtrs blocks;
 
-    if (const auto replyId = getReplyEventId()) {
-        newComponents.push_back(new Blocks::ReplyBlock(Blocks::Reply, *replyId, this));
-        m_replyModel = new EventMessageContentModel(m_room, *replyId, true, false, this);
+    if (!m_isReply && event->isReply()) {
+        blocks.push_back(new Blocks::ReplyBlock(Blocks::Reply, event->replyEventId(), this));
+        m_replyModel = new EventMessageContentModel(m_room, event->replyEventId(), true, false, this);
     }
 
     if (isEditing) {
-        newComponents.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, true, {}, this));
+        blocks.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, true, {}, this));
     } else {
-        auto typeComponents = componentsForType(Blocks::typeForEvent(*event.first, m_isReply));
-        newComponents.insert(newComponents.end(), std::make_move_iterator(typeComponents.begin()), std::make_move_iterator(typeComponents.end()));
+        blocks.insert_range(blocks.end(), EventHandler::blocksForEvent(m_room, event, this));
     }
 
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-    if (roomMessageEvent
-        && ((roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId())
-            || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents.push_back(new Blocks::Block(Blocks::Separator, this));
-        newComponents.push_back(new Blocks::Block(Blocks::ThreadBody, this));
-    }
-
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
-        newComponents.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, false, m_eventId, this));
+        blocks.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, false, m_eventId, this));
     }
 
-    return newComponents;
+    return blocks;
 }
 
-std::optional<QString> EventMessageContentModel::getReplyEventId()
+void EventMessageContentModel::checkFilePreview()
 {
-    if (m_isReply) {
-        return std::nullopt;
-    }
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(m_room->getEvent(m_eventId).first);
-    if (roomMessageEvent == nullptr) {
-       return std::nullopt;
-    }
-    return roomMessageEvent->isReply() ? std::make_optional(roomMessageEvent->replyEventId()) : std::nullopt;
-}
-
-Blocks::BlockPtrs EventMessageContentModel::componentsForType(Blocks::Type type)
-{
-    const auto [event, _] = m_room->getEvent(m_eventId);
-    if (event == nullptr) {
-        return {};
-    }
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
-    Blocks::BlockPtrs components;
-
-    switch (type) {
-    case Blocks::Text: {
-        return TextHandler().textComponents(EventHandler::rawMessageBody(*event),
-                                            EventHandler::messageBodyInputFormat(*event),
-                                            m_room,
-                                            event,
-                                            roomMessageEvent ? roomMessageEvent->isReplaced() : false,
-                                            false,
-                                            this);
-    }
-    case Blocks::File: {
-        components.push_back(EventHandler::blockForMediaEvent(m_room, event, this));
-        auto body = EventHandler::rawMessageBody(*event);
-        if (!body.isEmpty()) {
-            auto textComponents = TextHandler().textComponents(body,
-                                                               EventHandler::messageBodyInputFormat(*event),
-                                                               m_room,
-                                                               event,
-                                                               roomMessageEvent ? roomMessageEvent->isReplaced() : false,
-                                                               false,
-                                                               this);
-            components.insert(components.end(), std::make_move_iterator(textComponents.begin()), std::make_move_iterator(textComponents.end()));
+    if (m_loader) {
+        if (m_loader->loaded()) {
+            insertFIlePreview();
+            return;
         }
-        return components;
     }
-    case Blocks::Image:
-    case Blocks::Audio:
-    case Blocks::Video: {
-        components.push_back(EventHandler::blockForMediaEvent(m_room, event, this));
-
-        if (!event->is<StickerEvent>() && roomMessageEvent) {
-            const auto fileContent = roomMessageEvent->get<EventContent::FileContentBase>();
-            if (fileContent != nullptr) {
-                const auto fileInfo = fileContent->commonInfo();
-                const auto body = EventHandler::rawMessageBody(*roomMessageEvent);
-                // Do not attach the description to the image, if it's the same as the original filename.
-                if (fileInfo.originalName != body) {
-                    auto textComponents = TextHandler().textComponents(body,
-                                                                       EventHandler::messageBodyInputFormat(*roomMessageEvent),
-                                                                       m_room,
-                                                                       roomMessageEvent,
-                                                                       roomMessageEvent->isReplaced(),
-                                                                       false,
-                                                                       this);
-                    components.insert(components.end(), std::make_move_iterator(textComponents.begin()), std::make_move_iterator(textComponents.end()));
-                }
-            }
-        }
-        return components;
-    }
-    case Blocks::Location:
-        components.push_back(
-            new Blocks::LocationBlock(type, EventHandler::latitude(event), EventHandler::longitude(event), EventHandler::locationAssetType(event), this));
-        components.push_back(new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(EventHandler::plainBody(m_room, event)), false, this));
-        return components;
-    default:
-        components.push_back(new Blocks::Block(type, this));
-        return components;
-    }
-}
-
-void EventMessageContentModel::updateItineraryModel()
-{
-    if (!hasComponentType(Blocks::File) || !m_room) {
+    if (m_fileChecked) {
         return;
     }
-
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(m_room->getEvent(m_eventId).first);
-    if (!roomMessageEvent || !roomMessageEvent->has<EventContent::FileContent>()) {
+    m_fileChecked = true;
+    auto it = std::ranges::find_if(m_components, [](Blocks::Block *block) {
+        return block->type() == Blocks::File;
+    });
+    if (it == m_components.end()) {
         return;
     }
+    m_loader = new Blocks::FilePreviewBlockLoader(this, m_room->cachedFileTransferInfo(m_eventId).localPath);
+    connect(m_loader, &Blocks::FilePreviewBlockLoader::blockAvailable, this, [this]() {
+        insertFIlePreview();
+    });
+    connect(m_loader, &Blocks::FilePreviewBlockLoader::blockUnavailable, this, [this]() {
+        m_loader->deleteLater();
+        m_loader = nullptr;
+    });
+}
 
-    auto filePath = m_room->cachedFileTransferInfo(roomMessageEvent).localPath;
-    if (filePath.isEmpty() && m_itineraryModel != nullptr) {
-        delete m_itineraryModel;
-        m_itineraryModel = nullptr;
-    } else if (!filePath.isEmpty()) {
-        if (m_itineraryModel == nullptr) {
-            m_itineraryModel = new ItineraryModel(this);
-            connect(m_itineraryModel, &ItineraryModel::loaded, this, [this]() {
-                if (m_itineraryModel->rowCount() == 0) {
-                    m_emptyItinerary = true;
-                    m_itineraryModel->deleteLater();
-                    m_itineraryModel = nullptr;
-                }
-                Q_EMIT itineraryUpdated();
-            });
-            connect(m_itineraryModel, &ItineraryModel::loadErrorOccurred, this, [this]() {
-                m_emptyItinerary = true;
-                m_itineraryModel->deleteLater();
-                m_itineraryModel = nullptr;
-                Q_EMIT itineraryUpdated();
-            });
-        }
-        m_itineraryModel->setPath(filePath.toString());
+void EventMessageContentModel::insertFIlePreview()
+{
+    if (!m_loader || !m_loader->loaded()) {
+        return;
     }
+    auto it = std::ranges::find_if(m_components, [](Blocks::Block *block) {
+        return block->type() == Blocks::File;
+    });
+    if (it == m_components.end()) {
+        return;
+    }
+    const auto insertIt = it + 1;
+    const auto insertRow = std::distance(m_components.begin(), insertIt);
+    beginInsertRows({}, insertRow, insertRow);
+    m_components.insert(insertIt, m_loader->previewBlock());
+    endInsertRows();
 }
 
 void EventMessageContentModel::updateReactionModel()

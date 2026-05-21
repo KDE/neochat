@@ -23,6 +23,7 @@
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/quotient_common.h>
 #include <Quotient/roommember.h>
+#include <Quotient/thread.h>
 
 #include "block.h"
 #include "blocktype.h"
@@ -31,6 +32,7 @@
 #include "events/pollevent.h"
 #include "events/widgetevent.h"
 #include "fileinfo.h"
+#include "filepreview.h"
 #include "neochatroom.h"
 #include "texthandler.h"
 #include "utils.h"
@@ -700,6 +702,76 @@ bool EventHandler::isMediaMessage(const Quotient::RoomEvent *event)
     }
     auto roomMessageEvent = eventCast<const RoomMessageEvent>(event);
     return roomMessageEvent->has<EventContent::ImageContent>() || roomMessageEvent->has<EventContent::VideoContent>();
+}
+
+Blocks::BlockPtrs EventHandler::blocksForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)
+{
+    Blocks::BlockPtrs blocks;
+    if (!room || !event || !parent) {
+        return blocks;
+    }
+
+    blocks.insert_range(blocks.end(), blocksForEventType(room, event, parent, Blocks::typeForEvent(*event, event->isReply())));
+
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+    if (roomMessageEvent
+        && ((roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId())
+            || room->threads().contains(roomMessageEvent->id()))) {
+        blocks.push_back(new Blocks::Block(Blocks::Separator, parent));
+        blocks.push_back(new Blocks::Block(Blocks::ThreadBody, parent));
+    }
+
+    return blocks;
+}
+
+Blocks::BlockPtrs EventHandler::blocksForEventType(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent, Blocks::Type type)
+{
+    if (!room || !event || !parent) {
+        return {};
+    }
+
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+    switch (type) {
+    case Blocks::Text: {
+        return TextHandler().textComponents(EventHandler::rawMessageBody(*event),
+                                            EventHandler::messageBodyInputFormat(*event),
+                                            room,
+                                            event,
+                                            roomMessageEvent ? roomMessageEvent->isReplaced() : false,
+                                            false,
+                                            parent);
+    }
+    case Blocks::File:
+    case Blocks::Image:
+    case Blocks::Audio:
+    case Blocks::Video: {
+        Blocks::BlockPtrs components;
+        components.push_back(EventHandler::blockForMediaEvent(room, event, parent));
+        auto body = EventHandler::rawMessageBody(*event);
+        if (!event->is<StickerEvent>() && !body.isEmpty()) {
+            components.insert_range(components.end(),
+                                    TextHandler().textComponents(body,
+                                                                 EventHandler::messageBodyInputFormat(*event),
+                                                                 room,
+                                                                 event,
+                                                                 roomMessageEvent ? roomMessageEvent->isReplaced() : false,
+                                                                 false,
+                                                                 parent));
+        }
+        return components;
+    }
+    case Blocks::Location: {
+        Blocks::BlockPtrs components;
+        components.push_back(
+            new Blocks::LocationBlock(type, EventHandler::latitude(event), EventHandler::longitude(event), EventHandler::locationAssetType(event), parent));
+        components.push_back(new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(EventHandler::plainBody(room, event)), false, parent));
+        return components;
+    }
+    default:
+        return {};
+    }
+
+    return {};
 }
 
 Blocks::Block *EventHandler::blockForMediaEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)

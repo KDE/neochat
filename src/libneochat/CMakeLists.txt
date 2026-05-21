@@ -11,6 +11,7 @@ target_sources(LibNeoChat PRIVATE
     chatbarcache.cpp
     block.cpp
     blockcache.cpp
+    filepreview.cpp
     fileinfo.h
     chatkeyhelper.cpp
     chatmarkdownhelper.cpp
@@ -53,6 +54,7 @@ target_sources(LibNeoChat PRIVATE
     models/customemojimodel.cpp
     models/emojimodel.cpp
     models/imagepacksmodel.cpp
+    models/itinerarymodel.cpp
     models/livelocationsmodel.cpp
     models/locationsmodel.cpp
     models/reactionmodel.cpp
@@ -67,6 +69,8 @@ target_sources(LibNeoChat PRIVATE
     models/timezonemodel.h
     profilefieldshelper.cpp
 )
+
+configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
 
 if (${QuotientQt6_VERSION_MINOR} LESS 10)
     target_sources(LibNeoChat PRIVATE
@@ -144,6 +148,7 @@ target_link_libraries(LibNeoChat PUBLIC
 if(NOT ANDROID)
     target_link_libraries(LibNeoChat PUBLIC
         KF6::KIOWidgets
+        KF6::SyntaxHighlighting
         ICU::uc
     )
     target_compile_definitions(LibNeoChat PUBLIC -DHAVE_ICU)

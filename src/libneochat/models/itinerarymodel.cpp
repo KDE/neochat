@@ -14,9 +14,12 @@
 
 using namespace Qt::StringLiterals;
 
-ItineraryModel::ItineraryModel(QObject *parent)
+ItineraryModel::ItineraryModel(const QUrl &source, QObject *parent)
     : QAbstractListModel(parent)
+    , m_source(source)
 {
+    Q_ASSERT(m_source.isLocalFile());
+    loadData();
 }
 
 QVariant ItineraryModel::data(const QModelIndex &index, int role) const
@@ -166,30 +169,27 @@ QHash<int, QByteArray> ItineraryModel::roleNames() const
     };
 }
 
-QString ItineraryModel::path() const
+bool ItineraryModel::loading() const
 {
-    return m_path;
-}
-
-void ItineraryModel::setPath(const QString &path)
-{
-    m_path = path;
-    loadData();
+    return m_loading;
 }
 
 void ItineraryModel::loadData()
 {
+    m_loading = true;
     auto process = new QProcess(this);
-    process->start(QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF6) + u"/kitinerary-extractor"_s, {m_path.mid(7)});
+    process->start("%1%2"_L1.arg(CMAKE_INSTALL_FULL_LIBEXECDIR_KF6, "/kitinerary-extractor"_L1), {m_source.path()});
     connect(process, &QProcess::finished, this, [this, process]() {
         auto data = process->readAllStandardOutput();
         beginResetModel();
         m_data = QJsonDocument::fromJson(data).array();
         endResetModel();
 
+        m_loading = false;
         Q_EMIT loaded();
     });
     connect(process, &QProcess::errorOccurred, this, [this]() {
+        m_loading = false;
         Q_EMIT loadErrorOccurred();
     });
 }
@@ -198,7 +198,7 @@ void ItineraryModel::sendToItinerary()
 {
 #ifndef Q_OS_ANDROID
     auto job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(u"org.kde.itinerary"_s));
-    job->setUrls({QUrl::fromLocalFile(m_path.mid(7))});
+    job->setUrls({m_source});
     job->start();
 #endif
 }

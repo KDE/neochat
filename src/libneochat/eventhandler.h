@@ -167,6 +167,11 @@ public:
     static bool isMediaMessage(const Quotient::RoomEvent *event);
 
     /**
+     * @brief Return an array of Blocks::Block to represent the content of the given event.
+     */
+    static Blocks::BlockPtrs blocksForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent);
+
+    /**
      * @brief Return the media info for the event.
      *
      * An empty QVariantMap will be returned for any event that doesn't have any
@@ -223,6 +228,8 @@ public:
 private:
     static QString getBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines);
     static QString getMessageBody(const NeoChatRoom *room, const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines);
+
+    static Blocks::BlockPtrs blocksForEventType(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent, Blocks::Type type);
 
     static Blocks::Block *fileBlockFromFileContent(QObject *parent,
                                                      const NeoChatRoom *room,

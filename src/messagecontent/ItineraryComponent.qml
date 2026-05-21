@@ -18,9 +18,9 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief A model with the itinerary preview of the file.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property var itineraryModel
+    required property ItineraryBlock block
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
@@ -28,7 +28,7 @@ ColumnLayout {
 
     Repeater {
         id: itinerary
-        model: root.itineraryModel
+        model: root.block.model
         delegate: DelegateChooser {
             role: "type"
             DelegateChoice {
@@ -55,7 +55,7 @@ ColumnLayout {
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.text: text
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        onClicked: root.itineraryModel.sendToItinerary()
+        onClicked: root.block.model.sendToItinerary()
         visible: itinerary.count > 0
     }
 }

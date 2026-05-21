@@ -53,6 +53,8 @@ enum Type {
 };
 Q_ENUM_NS(Type);
 
+QUrl componentForType(Type type);
+
 /**
  * @brief Return the delegate type for the given event.
  *

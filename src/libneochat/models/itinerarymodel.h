@@ -34,15 +34,14 @@ public:
         SeatRole,
     };
     Q_ENUM(Roles)
-    explicit ItineraryModel(QObject *parent = nullptr);
+    explicit ItineraryModel(const QUrl &source, QObject *parent = nullptr);
 
     QVariant data(const QModelIndex &index, int role) const override;
     int rowCount(const QModelIndex &parent = {}) const override;
 
     QHash<int, QByteArray> roleNames() const override;
 
-    QString path() const;
-    void setPath(const QString &path);
+    bool loading() const;
 
     Q_INVOKABLE void sendToItinerary();
 
@@ -52,6 +51,7 @@ Q_SIGNALS:
 
 private:
     QJsonArray m_data;
-    QString m_path;
+    QUrl m_source;
     void loadData();
+    bool m_loading = false;
 };
