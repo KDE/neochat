@@ -322,7 +322,7 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "document-save"
         onTriggered: {
             var dialog = root.saveAsDialog.createObject(QQC2.Overlay.overlay) as Dialogs.FileDialog;
-            dialog.selectedFile = root.room.fileNameToDownload(root.eventId);
+            dialog.selectedFile = dialog.currentFolder + "/" + root.room.fileNameToDownload(root.eventId);
             dialog.open();
         }
     }
@@ -510,7 +510,7 @@ KirigamiComponents.ConvergentContextMenu {
             if (!selectedFile) {
                 return;
             }
-            NeoChatConfig.lastSaveDirectory = currentFolder;
+            NeoChatConfig.lastSaveDirectory = Controller.translateToSaveDirectory(selectedFile, currentFolder);
             NeoChatConfig.save();
             root.room.downloadFile(root.eventId, selectedFile);
         }
