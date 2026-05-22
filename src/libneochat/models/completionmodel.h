@@ -142,7 +142,7 @@ private:
 
     void updateCompletion();
 
-    UserFilterModel *m_userListModel;
-    RoomListModel *m_roomListModel;
+    UserFilterModel *m_userListModel = nullptr;
+    RoomListModel *m_roomListModel = nullptr;
     QConcatenateTablesProxyModel *m_emojiModel;
 };
