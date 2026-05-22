@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-20 00:44+0000\n"
-"PO-Revision-Date: 2026-05-07 13:20+0400\n"
+"PO-Revision-Date: 2026-05-21 12:01+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -745,21 +745,19 @@ msgstr "استعاد مفاتيح التّعمية."
 #, kde-format
 msgctxt "@info"
 msgid "Loaded keys from backup"
-msgstr ""
+msgstr "حُملت المفاتيح من النسخة الاحتياطية."
 
 #: src/app/qml/ManageKeyStorageDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Failed to load keys from backup"
-msgstr ""
+msgstr "فشل تحميل المفاتيح من النسخة الاحتياطية"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Verify device"
+#, kde-format
 msgctxt "@title"
 msgid "Verify Session"
-msgstr "تَثَبّت من الجهاز"
+msgstr "جلسة تثبت"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:62
 #, kde-format
@@ -768,6 +766,8 @@ msgid ""
 "It's recommended to verify this session from another device, if possible. "
 "You can do so under the Devices page."
 msgstr ""
+"يُوصى بالتحقق من هذه الجلسة من جهاز آخر، إن أمكن. يمكنك فعل ذلك تحت صفحة "
+"الأجهزة."
 
 #: src/app/qml/ManageKeyStorageDialog.qml:67
 #, kde-format
@@ -826,20 +826,16 @@ msgid "Request From Other Devices"
 msgstr "اطلب من أجهزة أخرى"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Open Key Backup"
+#, kde-format
 msgctxt "@title"
 msgid "Decryption Key Backup"
-msgstr "النسخة الاحتياطية لمفتاح الفتح"
+msgstr "نسخ احتياطي لمفتاح فك التعمية"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:144
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup file."
+#, kde-format
 msgctxt "@action:button"
 msgid "Load Decryption Keys from Backup"
-msgstr "استورد مفاتيح التعمية من ملف نسخة احتياطية."
+msgstr "حمّل مفاتيح فك التعمية من النسخة الاحتياطية"
 
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
@@ -1307,8 +1303,7 @@ msgid "Message"
 msgstr "الرسالة"
 
 #: src/app/qml/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:intoolbar Edit This Account"
 msgid "Edit"
 msgstr "حرّر"
@@ -1748,12 +1743,10 @@ msgid "Quit"
 msgstr "أنهِ"
 
 #: src/chatbar/ChatBar.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "ليست لديك صلاحيات لتبدأ اجتماع جتسي"
+msgstr "ليست لديك صلاحية إرسال رسائل إلى هذه الغرفة."
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
 #, kde-format
@@ -4474,12 +4467,10 @@ msgid "Pl. %1"
 msgstr "المنصة %1"
 
 #: src/messagecontent/VideoComponent.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Video"
-msgstr "افتح فيديو"
+msgstr "أخف الفيديو"
 
 #: src/messagecontent/VideoComponent.qml:183
 #, kde-format
@@ -5091,8 +5082,7 @@ msgid "Verify This Device"
 msgstr "تَثَبّت من هذا الجهاز"
 
 #: src/rooms/UserInfo.qml:112
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
 msgstr "اعرض الإشعارات"
@@ -5104,34 +5094,28 @@ msgid "Edit Account"
 msgstr "حرّر الحساب"
 
 #: src/settings/AccountEditorPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr "أظهر أحداث تحديث الصورة الرمزية"
+msgstr "تعذّر تعيين الصورة الرمزية الجديدة."
 
 #: src/settings/AccountEditorPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert changes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Changes"
-msgstr "تراجع عن التغييرات"
+msgstr "صفّر التغييرات"
 
 #: src/settings/AccountEditorPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save changes to user"
 msgid "Save"
 msgstr "احفظ"
 
 #: src/settings/AccountEditorPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:dialog Apply unsaved settings"
 msgid "Apply Settings"
-msgstr "إعدادات الفتح"
+msgstr "طبّق الإعدادات"
 
 #: src/settings/AccountEditorPage.qml:93
 #, kde-format
@@ -5140,10 +5124,11 @@ msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
 msgstr ""
+"توجد تغييرات غير محفوظة في معلومات المستخدم. هل تريد تطبيق التغييرات أم "
+"تجاهلها؟"
 
 #: src/settings/AccountEditorPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
 msgstr "طبّق"
@@ -5152,7 +5137,7 @@ msgstr "طبّق"
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Reset"
-msgstr ""
+msgstr "صفّر"
 
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
@@ -5218,9 +5203,7 @@ msgid "New Password:"
 msgstr "كلمة السرّ الجديدة:"
 
 #: src/settings/AccountEditorPage.qml:290
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm New Password:"
 msgstr "أكد كلمة السر الجديدة:"
@@ -5477,9 +5460,7 @@ msgid "Activate Encryption"
 msgstr "التّعمية النشطة"
 
 #: src/settings/DeviceDelegate.qml:53
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "@label (Device ID), Last activity: (timestamp)"
 msgid "%1, Last activity: %2"
 msgstr "%1، أخر نشاط: %2"
@@ -5518,12 +5499,10 @@ msgid "Verified"
 msgstr "متحقّق منه"
 
 #: src/settings/DeviceDelegate.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Logout device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Logout device…"
-msgstr "اخرج الجهاز"
+msgstr "اخرج الجهاز…"
 
 #: src/settings/DeviceDelegate.qml:146
 #, kde-format
@@ -7738,33 +7717,25 @@ msgid "Save File…"
 msgstr "احفظ الملفّ…"
 
 #: src/timeline/DelegateContextMenu.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Hide Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Image"
 msgstr "أخفِ صورة"
 
 #: src/timeline/DelegateContextMenu.qml:336
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Video"
-msgstr "افتح فيديو"
+msgstr "أخف الفيديو"
 
 #: src/timeline/DelegateContextMenu.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "أظهر الصورة"
 
 #: src/timeline/DelegateContextMenu.qml:350
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "أظهر الفيديو"

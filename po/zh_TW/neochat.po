@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-20 00:44+0000\n"
-"PO-Revision-Date: 2026-04-22 23:04+0900\n"
+"PO-Revision-Date: 2026-05-21 22:37+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -308,12 +308,10 @@ msgid "Choose a Room"
 msgstr "選擇聊天室"
 
 #: src/app/qml/ChooseRoomDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
-msgstr "全部選取"
+msgstr "選取"
 
 #: src/app/qml/ChooseRoomDialog.qml:84 src/app/qml/ReasonDialog.qml:72
 #, kde-format
@@ -647,10 +645,9 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "來自裝置 **%1** 的金鑰驗證請求"
 
 #: src/app/qml/KeyVerificationDialog.qml:172
-#, fuzzy, kde-format
-#| msgid "Incoming key verification request from device **%1**"
+#, kde-format
 msgid "Incoming key verification request from **%1**"
-msgstr "來自裝置 **%1** 的金鑰驗證請求"
+msgstr "來自 **%1** 的金鑰驗證請求"
 
 #: src/app/qml/KeyVerificationDialog.qml:176
 #: src/app/qml/OlmKeyVerificationDialog.qml:155
@@ -679,18 +676,16 @@ msgstr "已成功驗證裝置 **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/KeyVerificationDialog.qml:196
-#, fuzzy, kde-format
-#| msgid "Successfully verified device **%1**"
+#, kde-format
 msgctxt "@info"
 msgid "Successfully verified **%1**"
-msgstr "已成功驗證裝置 **%1**"
+msgstr "已成功驗證 **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:190
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to confirm our keys."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
-msgstr "正在等待對方確認我們的金鑰。"
+msgstr "正在等待對方確認驗證"
 
 #: src/app/qml/KeyVerificationDialog.qml:216
 #: src/app/qml/OlmKeyVerificationDialog.qml:178
@@ -752,21 +747,19 @@ msgstr "已復原加密金鑰。"
 #, kde-format
 msgctxt "@info"
 msgid "Loaded keys from backup"
-msgstr ""
+msgstr "已從備份載入金鑰"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Failed to load keys from backup"
-msgstr ""
+msgstr "從備份載入金鑰失敗"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Verify device"
+#, kde-format
 msgctxt "@title"
 msgid "Verify Session"
-msgstr "驗證裝置"
+msgstr "驗證工作階段"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:62
 #, kde-format
@@ -775,6 +768,7 @@ msgid ""
 "It's recommended to verify this session from another device, if possible. "
 "You can do so under the Devices page."
 msgstr ""
+"可以的話建議從另一台裝置驗證此工作階段。要驗證的話可以到「裝置」頁面進行。"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:67
 #, kde-format
@@ -831,20 +825,16 @@ msgid "Request From Other Devices"
 msgstr "從其他裝置請求"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Open Key Backup"
+#, kde-format
 msgctxt "@title"
 msgid "Decryption Key Backup"
-msgstr "開啟金鑰備份"
+msgstr "解密金鑰備份"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:144
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup file."
+#, kde-format
 msgctxt "@action:button"
 msgid "Load Decryption Keys from Backup"
-msgstr "從備份檔匯入加密金鑰。"
+msgstr "從備份檔匯入解密金鑰"
 
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
@@ -967,8 +957,7 @@ msgid "No Notifications"
 msgstr "沒有通知"
 
 #: src/app/qml/OlmKeyVerificationDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Session Verification"
+#, kde-format
 msgid "Session Verifications"
 msgstr "工作階段驗證"
 
@@ -1316,8 +1305,7 @@ msgid "Message"
 msgstr "傳訊息"
 
 #: src/app/qml/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:intoolbar Edit This Account"
 msgid "Edit"
 msgstr "編輯"
@@ -1750,12 +1738,10 @@ msgid "Quit"
 msgstr "離開"
 
 #: src/chatbar/ChatBar.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "您沒有權限開始進行 Jitsi 會議"
+msgstr "您沒有權限在此聊天室傳送訊息。"
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
 #, kde-format
@@ -1904,32 +1890,28 @@ msgid "Create Poll"
 msgstr "建立投票"
 
 #: src/chatbar/NewPollDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Menu"
+#, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr "顯示選單"
+msgstr "顯示結果："
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "輸入選項"
+msgstr "投票後"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "投票結束後"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
-msgstr ""
+msgstr "投票不是匿名的，聊天室所有人都能看到每一票。"
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1941,7 +1923,7 @@ msgstr "問題："
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "大家最喜歡吃什麼？"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1968,9 +1950,7 @@ msgid "Send"
 msgstr "傳送"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
 msgstr "新增選項"
@@ -3627,8 +3607,7 @@ msgid "Lat: %1, Lon: %2"
 msgstr "緯度：%2，經度：%1"
 
 #: src/libneochat/profilefieldshelper.cpp:55
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "@info:label Local time (timezone offset)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -4448,12 +4427,10 @@ msgid "Pl. %1"
 msgstr "第 %1 月台"
 
 #: src/messagecontent/VideoComponent.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Video"
-msgstr "開啟影片"
+msgstr "隱藏影片"
 
 #: src/messagecontent/VideoComponent.qml:183
 #, kde-format
@@ -5050,8 +5027,7 @@ msgid "Verify This Device"
 msgstr "驗證此裝置"
 
 #: src/rooms/UserInfo.qml:112
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
 msgstr "檢視通知"
@@ -5063,34 +5039,28 @@ msgid "Edit Account"
 msgstr "編輯帳號"
 
 #: src/settings/AccountEditorPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr "顯示頭貼變更事件"
+msgstr "無法設定新頭貼。"
 
 #: src/settings/AccountEditorPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert changes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Changes"
-msgstr "回復變更"
+msgstr "重設變更"
 
 #: src/settings/AccountEditorPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save changes to user"
 msgid "Save"
 msgstr "儲存"
 
 #: src/settings/AccountEditorPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:dialog Apply unsaved settings"
 msgid "Apply Settings"
-msgstr "開啟設定"
+msgstr "套用設定"
 
 #: src/settings/AccountEditorPage.qml:93
 #, kde-format
@@ -5098,11 +5068,10 @@ msgctxt "@info"
 msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
-msgstr ""
+msgstr "使用者資訊變更尚未儲存。您要套用變更還是捨棄變更？"
 
 #: src/settings/AccountEditorPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
 msgstr "套用"
@@ -5111,7 +5080,7 @@ msgstr "套用"
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Reset"
-msgstr ""
+msgstr "重設"
 
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
@@ -5177,9 +5146,7 @@ msgid "New Password:"
 msgstr "新密碼："
 
 #: src/settings/AccountEditorPage.qml:290
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm New Password:"
 msgstr "確認新密碼："
@@ -5436,9 +5403,7 @@ msgid "Activate Encryption"
 msgstr "啟用加密"
 
 #: src/settings/DeviceDelegate.qml:53
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "@label (Device ID), Last activity: (timestamp)"
 msgid "%1, Last activity: %2"
 msgstr "%1，最後活動：%2"
@@ -5477,12 +5442,10 @@ msgid "Verified"
 msgstr "已驗證"
 
 #: src/settings/DeviceDelegate.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Logout device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Logout device…"
-msgstr "登出裝置"
+msgstr "登出裝置…"
 
 #: src/settings/DeviceDelegate.qml:146
 #, kde-format
@@ -7615,12 +7578,10 @@ msgid "Forward…"
 msgstr "轉寄…"
 
 #: src/timeline/DelegateContextMenu.qml:273
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward…"
+#, kde-format
 msgctxt "@action:button As in 'Forward this message'"
 msgid "Forward"
-msgstr "轉寄…"
+msgstr "轉寄"
 
 #: src/timeline/DelegateContextMenu.qml:276
 #, kde-format
@@ -7677,33 +7638,25 @@ msgid "Save File…"
 msgstr "儲存檔案…"
 
 #: src/timeline/DelegateContextMenu.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Hide Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Image"
 msgstr "隱藏影像"
 
 #: src/timeline/DelegateContextMenu.qml:336
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Video"
-msgstr "開啟影片"
+msgstr "隱藏影片"
 
 #: src/timeline/DelegateContextMenu.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Image"
-msgstr "設定影像"
+msgstr "顯示影像"
 
 #: src/timeline/DelegateContextMenu.qml:350
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "顯示影片"
@@ -7934,14 +7887,11 @@ msgid "Drag items here to share them"
 msgstr "將項目拖曳至此來分享它們"
 
 #: src/timeline/TypingPane.qml:27
-#, fuzzy, kde-format
-#| msgctxt "Message displayed when some users are typing"
-#| msgid "%2 is typing"
-#| msgid_plural "%2 are typing"
+#, kde-format
 msgctxt "Number of users typing in the room"
 msgid "1 user is typing"
 msgid_plural "%1 users are typing"
-msgstr[0] "%2 人正在輸入訊息"
+msgstr[0] "%1 名使用者正在輸入訊息"
 
 #: src/timeline/TypingPane.qml:30
 #, kde-format
