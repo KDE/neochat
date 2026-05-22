@@ -97,7 +97,7 @@ void AccountManager::saveAccessTokenToKeyChain(NeoChatConnection *connection)
     qCDebug(GENERAL) << "Save the access token to the keychain for " << userId;
     auto job = new QKeychain::WritePasswordJob(qAppName());
     job->setAutoDelete(true);
-    job->setKey(userId);
+    job->setKey(NeoChatConnection::keychainKey(userId));
     job->setBinaryData(connection->accessToken());
     connect(job, &QKeychain::WritePasswordJob::finished, this, [job]() {
         if (job->error()) {
@@ -111,7 +111,7 @@ QKeychain::ReadPasswordJob *AccountManager::loadAccessTokenFromKeyChain(const QS
 {
     qCDebug(GENERAL) << "Reading access token from the keychain for" << userId;
     auto job = new QKeychain::ReadPasswordJob(qAppName(), this);
-    job->setKey(userId);
+    job->setKey(NeoChatConnection::keychainKey(userId));
 
     // Handling of errors
     connect(job, &QKeychain::Job::finished, this, [this, job]() {

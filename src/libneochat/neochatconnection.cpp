@@ -45,6 +45,9 @@ PushRuleAction::Action NeoChatConnection::m_defaultAction = PushRuleAction::Unkn
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
 {
+#ifdef NEOCHAT_FLATPAK
+    setKeychainSuffix(QStringLiteral("flatpak"));
+#endif
     m_linkPreviewers.setMaxCost(20);
     connectSignals();
 }
@@ -52,6 +55,9 @@ NeoChatConnection::NeoChatConnection(QObject *parent)
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
     : Connection(server, parent)
 {
+#ifdef NEOCHAT_FLATPAK
+    setKeychainSuffix(QStringLiteral("flatpak"));
+#endif
     m_linkPreviewers.setMaxCost(20);
     connectSignals();
 }
@@ -234,7 +240,7 @@ void NeoChatConnection::logout(bool serverSideLogout)
 
     QKeychain::DeletePasswordJob job(qAppName());
     job.setAutoDelete(true);
-    job.setKey(userId());
+    job.setKey(keychainKey(userId()));
     QEventLoop loop;
     QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
     job.start();
@@ -725,6 +731,17 @@ void NeoChatConnection::setProfileField(const QString &key, const QString &value
 
     callApi<NeoChatSetProfileFieldJob>(BackgroundRequest, userId(), key, value);
     m_profileFields[key] = value;
+}
+
+QString NeoChatConnection::keychainKey(const QString &key)
+{
+    // NOTE: This needs to be kept in sync with libQuotient and what we do in our constructor currently.
+    // We can't move this to libQuotient because some users of this API in NeoChat don't have a Connection yet...
+#ifdef NEOCHAT_FLATPAK
+    return key + "-"_L1 + QStringLiteral("flatpak");
+#else
+    return key;
+#endif
 }
 
 bool NeoChatConnection::supportsProfileFields() const

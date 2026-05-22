@@ -75,6 +75,10 @@ if (${QuotientQt6_VERSION_MINOR} LESS 10)
     )
 endif()
 
+if(NEOCHAT_FLATPAK)
+    target_compile_definitions(LibNeoChat PUBLIC NEOCHAT_FLATPAK)
+endif()
+
 ecm_qt_declare_logging_category(LibNeoChat
     HEADER "chatbarlogging.h"
     IDENTIFIER "ChatBar"

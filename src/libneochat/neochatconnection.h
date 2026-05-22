@@ -265,6 +265,11 @@ public:
      */
     Q_INVOKABLE void setProfileField(const QString &key, const QString &value);
 
+    /**
+     * @brief Transforms the key into one that doesn't conflict between Flatpak and a native package.
+     */
+    static QString keychainKey(const QString &key);
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void identityServerChanged();
