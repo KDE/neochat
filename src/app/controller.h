@@ -101,6 +101,11 @@ public:
     Q_INVOKABLE void markImageShown(const QString &eventId);
     Q_INVOKABLE void markImageHidden(const QString &eventId);
 
+    /**
+     * @brief Hack around deficiencies in the XDP where currentFolder is useless but selectedFile has a useful URI we can use.
+     */
+    Q_INVOKABLE QString translateToSaveDirectory(const QUrl &selectedFile, const QUrl &currentFolder);
+
 private:
     explicit Controller(QObject *parent = nullptr);
 

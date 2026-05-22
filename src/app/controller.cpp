@@ -380,4 +380,15 @@ void Controller::markImageHidden(const QString &eventId)
     m_shownImages.removeAll(eventId);
 }
 
+QString Controller::translateToSaveDirectory(const QUrl &selectedFile, const QUrl &currentFolder)
+{
+    // Turn paths like file:///run/user/1000/doc/9d60121c/love2.png to file:///run/user/1000/doc/9d60121c
+    // We want to be able to use the currentFolder property, but this currently isn't possible.
+    if (isFlatpak()) {
+        return selectedFile.adjusted(QUrl::RemoveFilename).toString();
+    }
+
+    return currentFolder.toString();
+}
+
 #include "moc_controller.cpp"

@@ -161,7 +161,7 @@ Components.AlbumMaximizeComponent {
 
     onSaveItem: {
         var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay) as Dialogs.FileDialog;
-        dialog.selectedFile = currentRoom.fileNameToDownload(root.currentEventId);
+        dialog.selectedFile = dialog.currentFolder + "/" + currentRoom.fileNameToDownload(root.currentEventId);
         dialog.open();
     }
 
@@ -178,7 +178,7 @@ Components.AlbumMaximizeComponent {
             fileMode: Dialogs.FileDialog.SaveFile
             currentFolder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : Core.StandardPaths.writableLocation(Core.StandardPaths.DownloadLocation)
             onAccepted: {
-                NeoChatConfig.lastSaveDirectory = currentFolder;
+                NeoChatConfig.lastSaveDirectory = Controller.translateToSaveDirectory(selectedFile, currentFolder);
                 NeoChatConfig.save();
                 if (!selectedFile) {
                     return;
