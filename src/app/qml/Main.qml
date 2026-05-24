@@ -366,7 +366,7 @@ Kirigami.ApplicationWindow {
     }
 
     function load() {
-        pageStack.replace(roomListComponent);
+        // pageStack.replace(roomListComponent);
         RoomManager.loadInitialRoom();
 
         if (!Kirigami.Settings.isMobile) {

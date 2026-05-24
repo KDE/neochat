@@ -39,7 +39,7 @@ LoginStep {
     Connections {
         target: Registration
         function onConnected(connection): void {
-            root.processed("Loading");
+            root.processed("SetupCrypto");
         }
     }
 

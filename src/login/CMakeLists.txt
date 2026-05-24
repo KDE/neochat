@@ -21,6 +21,7 @@ ecm_add_qml_module(Login GENERATE_PLUGIN_SOURCE
         Sso.qml
         Terms.qml
         Username.qml
+        SetupCrypto.qml
     SOURCES
         login.cpp
         registration.cpp

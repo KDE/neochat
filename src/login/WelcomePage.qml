@@ -234,6 +234,9 @@ Kirigami.Page {
                             if (Registration.nextStep === "loading") {
                                 stepConnections.onProcessed("Loading");
                             }
+                            if (Registration.nextStep === "setup_crypto") {
+                                stepConnections.onProcessed("SetupCrypto");
+                            }
                         }
                     }
                     Connections {

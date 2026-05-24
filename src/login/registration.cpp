@@ -97,7 +97,7 @@ void Registration::registerAccount()
     auto job = m_connection->callApi<NeoChatRegisterJob>("user"_L1, authData, m_username, m_password, QString(), QString(), true);
     connect(job, &BaseJob::result, this, [this, job]() {
         if (job->status() == BaseJob::Success) {
-            setNextStep("loading"_L1);
+            setNextStep("setup_crypto"_L1);
             auto connection = new NeoChatConnection(this);
             auto matrixId = "@%1:%2"_L1.arg(m_username, m_homeserver);
             connection->resolveServer(matrixId);
@@ -194,6 +194,8 @@ void Registration::testHomeserver()
             if (m_testServerJob) {
                 delete m_testServerJob;
             }
+            // TODO right page when sso
+            // TODO also do this during login if crypto not set up yet?
             auto ssoFlow = m_connection->getLoginFlow(LoginFlowTypes::SSO);
             if (ssoFlow && ssoFlow->delegatedOidcCompatibility) {
                 auto session = m_connection->prepareForSso(u"NeoChat"_s);

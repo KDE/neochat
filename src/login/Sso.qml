@@ -21,7 +21,7 @@ LoginStep {
             UrlHelper.openUrl(LoginHelper.ssoUrl);
         }
         function onConnected() {
-            root.processed("Loading");
+            root.processed("SetupCrypto");
         }
     }
 
