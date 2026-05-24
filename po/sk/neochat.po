@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-20 00:44+0000\n"
+"POT-Creation-Date: 2026-05-24 00:44+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -29,117 +29,102 @@ msgstr "Prijímanie upozornení na nové správy"
 msgid "Receiving push notifications"
 msgstr "Prijímanie push upozornení"
 
-#: src/app/main.cpp:137 src/login/WelcomePage.qml:77
-#, kde-format
-msgid "NeoChat"
-msgstr "NeoChat"
-
 #: src/app/main.cpp:139
-#, kde-format
-msgid "Chat on Matrix"
-msgstr "Chat na Matrixe"
-
-#: src/app/main.cpp:141
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020 KDE komunita"
-
-#: src/app/main.cpp:142
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/app/main.cpp:142 src/app/main.cpp:143 src/app/main.cpp:144
-#: src/app/main.cpp:146
+#: src/app/main.cpp:139 src/app/main.cpp:140 src/app/main.cpp:141
+#: src/app/main.cpp:143
 #, kde-format
 msgid "Maintainer"
 msgstr "Správca"
 
-#: src/app/main.cpp:143
+#: src/app/main.cpp:140
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:141
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:142
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/app/main.cpp:150
+#: src/app/main.cpp:147
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/app/main.cpp:150
+#: src/app/main.cpp:147
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Pôvodný autor Spectralu"
 
-#: src/app/main.cpp:151
+#: src/app/main.cpp:148
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/app/main.cpp:151
+#: src/app/main.cpp:148
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Správca libQuotient"
 
-#: src/app/main.cpp:152
+#: src/app/main.cpp:149
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Roman Paholík"
 
-#: src/app/main.cpp:152
+#: src/app/main.cpp:149
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
 
-#: src/app/main.cpp:156
+#: src/app/main.cpp:152
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Knižnica Qt na písanie multiplatformových klientov pre Matrix"
 
-#: src/app/main.cpp:158
+#: src/app/main.cpp:154
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (zostavené pomocou %2)"
 
-#: src/app/main.cpp:179
+#: src/app/main.cpp:175
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient pre komunikačný protokol matrix"
 
-#: src/app/main.cpp:180
+#: src/app/main.cpp:176
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Podporuje appstream: url schému"
 
-#: src/app/main.cpp:181
+#: src/app/main.cpp:177
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignore all SSL Errors, napr., unsigned certificates."
 
-#: src/app/main.cpp:183
+#: src/app/main.cpp:179
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Nahradiť existujúcu inštanciu"
 
-#: src/app/main.cpp:186
+#: src/app/main.cpp:182
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Only používaný na autotests"
 
-#: src/app/main.cpp:196
+#: src/app/main.cpp:192
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Zdieľať URL adresu do Matrixu"
@@ -4107,6 +4092,11 @@ msgstr "Používateľské meno nie je dostupné"
 msgid "Welcome"
 msgstr "Vitajte"
 
+#: src/login/WelcomePage.qml:77
+#, kde-format
+msgid "NeoChat"
+msgstr "NeoChat"
+
 #: src/login/WelcomePage.qml:85
 #, kde-format
 msgctxt "@title"
@@ -8008,6 +7998,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "Chat na Matrixe"
+
+#~ msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
+#~ msgstr "© 2018-2020 Black Hat, 2020 KDE komunita"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Verify This Device"

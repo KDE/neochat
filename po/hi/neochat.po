@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-20 00:44+0000\n"
+"POT-Creation-Date: 2026-05-24 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -32,118 +32,102 @@ msgstr "नए संदेशों के लिए सूचनाएं प�
 msgid "Receiving push notifications"
 msgstr "पुश नोटिफिकेशन प्राप्त करना"
 
-#: src/app/main.cpp:137 src/login/WelcomePage.qml:77
-#, kde-format
-msgid "NeoChat"
-msgstr "नियोचैट"
-
 #: src/app/main.cpp:139
-#, kde-format
-msgid "Chat on Matrix"
-msgstr "मैट्रिक्स पर चैट करें"
-
-#: src/app/main.cpp:141
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
-msgstr "© 2018-2020 ब्लैक हैट, 2020-2024 केडीई समुदाय"
-
-#: src/app/main.cpp:142
 #, kde-format
 msgid "Carl Schwan"
 msgstr "कार्ल स्वान"
 
-#: src/app/main.cpp:142 src/app/main.cpp:143 src/app/main.cpp:144
-#: src/app/main.cpp:146
+#: src/app/main.cpp:139 src/app/main.cpp:140 src/app/main.cpp:141
+#: src/app/main.cpp:143
 #, kde-format
 msgid "Maintainer"
 msgstr "मेंटेनर"
 
-#: src/app/main.cpp:143
+#: src/app/main.cpp:140
 #, kde-format
 msgid "Tobias Fella"
 msgstr "टोबियास फेला"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:141
 #, kde-format
 msgid "James Graham"
 msgstr "जेम्स ग्राहम"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:142
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: src/app/main.cpp:150
+#: src/app/main.cpp:147
 #, kde-format
 msgid "Black Hat"
 msgstr "बुरा व्यक्ति"
 
-#: src/app/main.cpp:150
+#: src/app/main.cpp:147
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "स्पेक्ट्रल के मूल लेखक"
 
-#: src/app/main.cpp:151
+#: src/app/main.cpp:148
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "एलेक्सी रुसाकोव"
 
-#: src/app/main.cpp:151
+#: src/app/main.cpp:148
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "libQuotient का अनुरक्षक"
 
-#: src/app/main.cpp:152
+#: src/app/main.cpp:149
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "तुम्हारे नाम"
 
-#: src/app/main.cpp:152
+#: src/app/main.cpp:149
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "आपके ईमेल"
 
-#: src/app/main.cpp:156
+#: src/app/main.cpp:152
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "मैट्रिक्स के लिए क्रॉस-प्लेटफ़ॉर्म क्लाइंट लिखने के लिए एक Qt लाइब्रेरी"
 
-#: src/app/main.cpp:158
+#: src/app/main.cpp:154
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 के विरुद्ध निर्मित)"
 
-#: src/app/main.cpp:179
+#: src/app/main.cpp:175
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "मैट्रिक्स संचार प्रोटोकॉल के लिए क्लाइंट"
 
-#: src/app/main.cpp:180
+#: src/app/main.cpp:176
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "मैट्रिक्स का समर्थन करता है: यूआरएल योजना"
 
-#: src/app/main.cpp:181
+#: src/app/main.cpp:177
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "सभी SSL त्रुटियों को अनदेखा करें, जैसे कि, अहस्ताक्षरित प्रमाणपत्र।"
 
-#: src/app/main.cpp:183
+#: src/app/main.cpp:179
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr ""
 
-#: src/app/main.cpp:186
+#: src/app/main.cpp:182
 #, kde-format
 msgid "Only used for autotests"
 msgstr "केवल ऑटोटेस्ट के लिए उपयोग किया जाता है"
 
-#: src/app/main.cpp:196
+#: src/app/main.cpp:192
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "मैट्रिक्स के लिए URL साझा करें"
@@ -4366,6 +4350,11 @@ msgstr "उपयोगकर्ता नाम उपलब्ध नहीं
 #, kde-format
 msgid "Welcome"
 msgstr "स्वागत"
+
+#: src/login/WelcomePage.qml:77
+#, kde-format
+msgid "NeoChat"
+msgstr "नियोचैट"
 
 #: src/login/WelcomePage.qml:85
 #, kde-format
@@ -8620,6 +8609,14 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टाइप कर रहे हैं"
 msgstr[1] "%2 टाइप कर रहे हैं"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "मैट्रिक्स पर चैट करें"
+
+#, fuzzy
+#~| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+#~ msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
+#~ msgstr "© 2018-2020 ब्लैक हैट, 2020-2024 केडीई समुदाय"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Verify This Device"
