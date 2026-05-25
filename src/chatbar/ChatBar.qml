@@ -69,7 +69,7 @@ Item {
         }
     }
 
-    implicitHeight: column.implicitHeight + Kirigami.Units.largeSpacing
+    implicitHeight: column.implicitHeight + Kirigami.Units.largeSpacing + parent.SafeArea.margins.bottom
 
     ColumnLayout {
         id: column
