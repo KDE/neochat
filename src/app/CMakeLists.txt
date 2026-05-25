@@ -355,6 +355,8 @@ if(ANDROID)
         "window-unpin-symbolic"
         "edit-select-all-symbolic"
         "mail-unread-symbolic"
+        "tools"
+        "dialog-ok"
 
         ${KIRIGAMI_ADDONS_ICONS}
     )
