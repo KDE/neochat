@@ -20,8 +20,6 @@ QQC2.Control {
      */
     required property int index
 
-    required property int type
-
     /**
      * @brief Standard height for the link preview.
      *
@@ -34,11 +32,6 @@ QQC2.Control {
      * @brief Request for this delegate to be removed.
      */
     signal remove(int index)
-
-    enum Type {
-        Reply,
-        LinkPreview
-    }
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
@@ -57,14 +50,7 @@ QQC2.Control {
             Layout.minimumHeight: root.defaultHeight
             verticalAlignment: Text.AlignVCenter
             level: 2
-            text: {
-                switch (root.type) {
-                case LinkPreviewLoadComponent.Reply:
-                    return i18n("Loading reply");
-                case LinkPreviewLoadComponent.LinkPreview:
-                    return i18n("Loading URL preview");
-                }
-            }
+            text: i18n("Loading URL preview…")
         }
     }
 
@@ -72,12 +58,16 @@ QQC2.Control {
         id: closeButton
         anchors.right: parent.right
         anchors.top: parent.top
-        visible: root.hovered && root.type === LinkPreviewLoadComponent.LinkPreview
         text: i18nc("As in remove the link preview so it's no longer shown", "Remove preview")
         icon.name: "dialog-close"
         display: QQC2.AbstractButton.IconOnly
 
-        onClicked: root.remove(root.index)
+        onClicked: {
+            let sourceIndex = root.Message.contentFilterModel ?
+                              root.Message.contentFilterModel.mapToSource(root.Message.contentFilterModel.index(root.index, 0)).row :
+                              root.index
+            root.remove(sourceIndex)
+        }
 
         QQC2.ToolTip {
             text: closeButton.text

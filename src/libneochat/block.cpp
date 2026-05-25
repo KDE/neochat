@@ -334,6 +334,21 @@ CacheItemPtr AudioBlock::toCacheItem() const
     return std::make_unique<AudioCacheItem>(type(), source(), filename(), info());
 }
 
+LinkPreviewBlock::LinkPreviewBlock(Type type, const QUrl &source, NeoChatConnection *connection, QObject *parent)
+    : UrlBlock(type, source, parent)
+    , m_connection(connection)
+{
+}
+
+LinkPreviewer *LinkPreviewBlock::linkPreviewer() const
+{
+    if (m_connection) {
+        return m_connection->previewerForLink(source());
+    } else {
+        return emptyLinkPreview;
+    }
+}
+
 ItineraryBlock::ItineraryBlock(Type type, const QUrl &source, QObject *parent)
     : Block(type, parent)
     , m_model(new ItineraryModel(source, this))

@@ -165,7 +165,6 @@ DelegateChooser {
     DelegateChoice {
         roleValue: Blocks.LinkPreviewLoad
         delegate: LinkPreviewLoadComponent {
-            type: LinkPreviewLoadComponent.LinkPreview
             onRemove: index => root.removeLinkPreview(index)
         }
     }

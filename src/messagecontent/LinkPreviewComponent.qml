@@ -22,16 +22,9 @@ QQC2.Control {
     required property int index
 
     /**
-     * @brief The link preview properties.
-     *
-     * This is a list or object containing the following:
-     *  - url - The URL being previewed.
-     *  - loaded - Whether the URL preview has been loaded.
-     *  - title - the title of the URL preview.
-     *  - description - the description of the URL preview.
-     *  - imageSource - a source URL for the preview image.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property LinkPreviewer linkPreviewer
+    required property LinkPreviewBlock block
 
     /**
      * @brief Standard height for the link preview.
@@ -80,8 +73,8 @@ QQC2.Control {
             Layout.maximumWidth: root.defaultHeight
             Layout.fillHeight: true
             Layout.maximumHeight: root.defaultHeight // prevent accidentally giant link previews
-            visible: root.linkPreviewer.imageSource.toString().length > 0
-            source: root.linkPreviewer.imageSource
+            visible: root.block.linkPreviewer.imageSource.toString().length > 0
+            source: root.block.linkPreviewer.imageSource
             fillMode: Image.PreserveAspectFit
             sourceSize.width: width * Screen.devicePixelRatio
             sourceSize.height: height * Screen.devicePixelRatio
@@ -101,11 +94,11 @@ QQC2.Control {
                         text-decoration: none;
                     }
                     </style>
-                    <a href=\"" + root.linkPreviewer.url + "\">" + (maximizeButton.checked ? root.linkPreviewer.title : titleTextMetrics.elidedText).replace("&ndash;", "—") + "</a>"
+                    <a href=\"" + root.block.linkPreviewer.url + "\">" + (maximizeButton.checked ? root.block.linkPreviewer.title : titleTextMetrics.elidedText).replace("&ndash;", "—") + "</a>"
 
                 TextMetrics {
                     id: titleTextMetrics
-                    text: root.linkPreviewer.title
+                    text: root.block.linkPreviewer.title
                     font: linkPreviewTitle.font
                     elide: Text.ElideRight
                     elideWidth: column.width
@@ -116,7 +109,7 @@ QQC2.Control {
                 Layout.fillWidth: true
                 Layout.maximumHeight: maximizeButton.checked ? -1 : root.defaultHeight - linkPreviewTitle.height - column.spacing
                 visible: linkPreviewTitle.height + column.spacing + font.pointSize <= root.defaultHeight || maximizeButton.checked
-                text: root.linkPreviewer.description
+                text: root.block.linkPreviewer.description
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
             }
@@ -124,12 +117,12 @@ QQC2.Control {
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onTapped: RoomManager.resolveResource(root.linkPreviewer.url, "join")
+            onTapped: RoomManager.resolveResource(root.block.linkPreviewer.url, "join")
         }
 
         HoverHandler {
             cursorShape: Qt.PointingHandCursor
-            onHoveredChanged: (root.QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hovered ? root.linkPreviewer.url : ""
+            onHoveredChanged: (root.QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hovered ? root.block.linkPreviewer.url : ""
         }
     }
 
@@ -142,7 +135,12 @@ QQC2.Control {
         icon.name: "dialog-close"
         display: QQC2.AbstractButton.IconOnly
 
-        onClicked: root.remove(root.index)
+        onClicked: {
+            let sourceIndex = root.Message.contentFilterModel ?
+            root.Message.contentFilterModel.mapToSource(root.Message.contentFilterModel.index(root.index, 0)).row :
+            root.index
+            root.remove(sourceIndex)
+        }
 
         QQC2.ToolTip {
             text: closeButton.text

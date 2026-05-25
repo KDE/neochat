@@ -17,6 +17,7 @@
 #include "contentprovider.h"
 #include "enums/blocktype.h"
 #include "eventhandler.h"
+#include "messagecontentlogging.h"
 #include "models/reactionmodel.h"
 #include "neochatdatetime.h"
 #include "neochatroom.h"
@@ -38,6 +39,7 @@ void EventMessageContentModel::initializeModel()
     Q_ASSERT(!m_eventId.isEmpty());
 
     connect(this, &MessageContentModel::componentsUpdated, this, &EventMessageContentModel::checkFilePreview);
+    connect(this, &MessageContentModel::componentsUpdated, this, &EventMessageContentModel::checkLinkPreview);
     connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
         if (eventId == m_eventId) {
             m_fileChecked = false;
@@ -367,6 +369,108 @@ void EventMessageContentModel::insertFIlePreview()
     beginInsertRows({}, insertRow, insertRow);
     m_components.insert(insertIt, m_loader->previewBlock());
     endInsertRows();
+}
+
+void EventMessageContentModel::checkLinkPreview()
+{
+    if (m_room->urlPreviewEnabled()) {
+        forEachComponentOfType({Blocks::Text, Blocks::Quote}, [this](Blocks::BlockPtrsIt it) {
+            if ((*it)->type() != Blocks::Text && (*it)->type() != Blocks::Quote) {
+                return ++it;
+            }
+            const auto block = dynamic_cast<Blocks::TextBlock *>(*it);
+            if (!block) {
+                return ++it;
+            }
+
+            bool previewAdded = false;
+            if (LinkPreviewer::hasPreviewableLinks(block->item()->initialFragment().toPlainText())) {
+                const auto links = LinkPreviewer::linkPreviews(block->item()->initialFragment().toPlainText());
+                for (qsizetype j = 0; j < links.size(); ++j) {
+                    auto linkPreview = linkPreviewComponent(links[j]);
+                    if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview->isEmpty()) {
+                        const auto insertIt = it + 1;
+                        const auto insertRow = std::distance(m_components.begin(), insertIt);
+                        beginInsertRows({}, insertRow, insertRow);
+                        it = m_components.insert(insertIt, std::move(linkPreview));
+                        previewAdded = true;
+                        endInsertRows();
+                    }
+                };
+            }
+            return previewAdded ? it : ++it;
+        });
+    } else {
+        forEachComponentOfType({Blocks::LinkPreview, Blocks::LinkPreviewLoad}, [this](Blocks::BlockPtrsIt it) {
+            beginRemoveRows({}, std::distance(m_components.begin(), it), std::distance(m_components.begin(), it));
+            it = m_components.erase(it);
+            endRemoveRows();
+            return it;
+        });
+    }
+    m_components.shrink_to_fit();
+}
+
+Blocks::Block *EventMessageContentModel::linkPreviewComponent(const QUrl &link)
+{
+    const auto connection = dynamic_cast<NeoChatConnection *>(m_room->connection());
+    if (!connection) {
+        return nullptr;
+    }
+    const auto linkPreviewer = connection->previewerForLink(link);
+    if (linkPreviewer == nullptr) {
+        return nullptr;
+    }
+    if (linkPreviewer->loaded()) {
+        return new Blocks::LinkPreviewBlock(Blocks::LinkPreview, link, connection, this);
+    }
+    connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
+        if (!m_room) {
+            return;
+        }
+        const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
+
+        if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
+            QList<int> linkPreviewsToClose;
+            forEachComponentOfType(Blocks::LinkPreviewLoad, [this, link, linkPreviewer, &linkPreviewsToClose](Blocks::BlockPtrsIt it) {
+                const auto previewBlock = dynamic_cast<Blocks::UrlBlock *>(*it);
+                if (previewBlock && previewBlock->source() == link) {
+                    if (linkPreviewer->empty()) {
+                        // Hide the link preview, lest it be confusingly displayed with nothing in it!
+                        linkPreviewsToClose.push_back(it - m_components.begin());
+                    } else {
+                        (*it)->setType(Blocks::LinkPreview);
+                        Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
+                    }
+                }
+                return ++it;
+            });
+
+            // We need to do this outside of forEachComponentOfType to not invalidate iterators
+            for (const auto &index : linkPreviewsToClose) {
+                closeLinkPreview(index);
+            }
+        }
+    });
+    return new Blocks::LinkPreviewBlock(Blocks::LinkPreviewLoad, link, connection, this);
+}
+
+void EventMessageContentModel::closeLinkPreview(int row)
+{
+    if (row < 0 || row >= (int)m_components.size()) {
+        qCWarning(MessageContent) << __FUNCTION__ << "called with invalid row" << row << m_components.size();
+        return;
+    }
+
+    if (m_components[row]->type() == Blocks::LinkPreview || m_components[row]->type() == Blocks::LinkPreviewLoad) {
+        if (const auto previewBlock = dynamic_cast<Blocks::LinkPreviewBlock *>(m_components[row])) {
+            beginRemoveRows({}, row, row);
+            m_removedLinkPreviews += previewBlock->source();
+            m_components.erase(m_components.begin() + row);
+            m_components.shrink_to_fit();
+            endRemoveRows();
+        }
+    }
 }
 
 void EventMessageContentModel::updateReactionModel()

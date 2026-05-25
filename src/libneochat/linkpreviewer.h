@@ -5,9 +5,6 @@
 
 #include <QObject>
 #include <QQmlEngine>
-#include <QUrl>
-
-class NeoChatRoom;
 
 /**
  * @class LinkPreviewer
@@ -81,7 +78,7 @@ public:
     static QList<QUrl> linkPreviews(QString string);
 
 private:
-    bool m_loaded;
+    bool m_loaded = false;
     QString m_title = QString();
     QString m_description = QString();
     QUrl m_imageSource = QUrl();
@@ -97,4 +94,5 @@ Q_SIGNALS:
     void urlChanged();
     void emptyChanged();
 };
-Q_DECLARE_METATYPE(LinkPreviewer *)
+
+static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;

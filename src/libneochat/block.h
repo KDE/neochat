@@ -7,8 +7,10 @@
 #include "chattextitemhelper.h"
 #include "enums/blocktype.h"
 #include "fileinfo.h"
+#include "linkpreviewer.h"
 #include "models/itinerarymodel.h"
 #include "models/reactionmodel.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 
 namespace Blocks
@@ -391,6 +393,31 @@ public:
 private:
     QString m_filename;
     AudioInfo m_info;
+};
+
+/**
+ * @class AudioBlock
+ *
+ * A block to visualize an audio file.
+ */
+class LinkPreviewBlock : public UrlBlock
+{
+    Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
+
+    /**
+     * @brief The LinkPreviewer for the given URL.
+     */
+    Q_PROPERTY(LinkPreviewer *linkPreviewer READ linkPreviewer CONSTANT)
+
+public:
+    LinkPreviewBlock(Type type, const QUrl &source, NeoChatConnection *connection, QObject *parent);
+
+    [[nodiscard]] LinkPreviewer *linkPreviewer() const;
+
+private:
+    QPointer<NeoChatConnection> m_connection;
 };
 
 /**
