@@ -24,6 +24,7 @@ ecm_add_qml_module(Login GENERATE_PLUGIN_SOURCE
     SOURCES
         login.cpp
         registration.cpp
+        homeserverinfo.cpp
 )
 
 target_link_libraries(Login PRIVATE
