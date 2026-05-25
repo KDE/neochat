@@ -59,7 +59,6 @@ public:
         EventIdRole, /**< The matrix event ID of the event. */
         DateTimeRole, /**< The timestamp for when the event was sent (as a NeoChatDateTime). */
         AuthorRole, /**< The author of the event. */
-        FileTransferInfoRole, /**< FileTransferInfo for any downloading files. */
         PollHandlerRole, /**< The PollHandler for the event, if any. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
         ThreadRootRole, /**< The thread root event ID for the event. */
@@ -176,11 +175,6 @@ protected:
     QPersistentModelIndex m_currentFocusComponent = {};
 
 private:
-    std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_fileInfoFunction = [this](Blocks::BlockPtrsIt it) {
-        Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {MessageContentModel::FileTransferInfoRole});
-        return ++it;
-    };
-
     void updateSpoilers();
     void updateSpoiler(const QModelIndex &index);
 

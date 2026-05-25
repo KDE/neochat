@@ -536,19 +536,19 @@ Blocks::Block *ChatBarMessageContentModel::blockForFile(const QUrl &path)
         Blocks::VideoInfo videoInfo;
         videoInfo.mimeType = mime;
         videoInfo.size = fileInfo.size();
-        return new Blocks::VideoBlock(Blocks::Video, path, path.fileName(), videoInfo, QUrl(), Blocks::ImageInfo(), this);
+        return new Blocks::VideoBlock(Blocks::Video, path, path.fileName(), videoInfo, QUrl(), Blocks::ImageInfo(), nullptr, {}, this);
     }
     if (mime.name().contains(u"audio"_s)) {
         Blocks::AudioInfo audioInfo;
         audioInfo.mimeType = mime;
         audioInfo.size = fileInfo.size();
-        return new Blocks::AudioBlock(Blocks::Audio, path, path.fileName(), audioInfo, this);
+        return new Blocks::AudioBlock(Blocks::Audio, path, path.fileName(), audioInfo, nullptr, {}, this);
     }
 
     Blocks::FileInfo info;
     info.mimeType = mime;
     info.size = fileInfo.size();
-    return new Blocks::FileBlock(Blocks::File, path, path.fileName(), info, this);
+    return new Blocks::FileBlock(Blocks::File, path, path.fileName(), info, nullptr, {}, this);
 }
 
 Blocks::BlockPtrsIt ChatBarMessageContentModel::insertComponent(int row, Blocks::Block *block)

@@ -169,7 +169,7 @@ public:
     /**
      * @brief Return an array of Blocks::Block to represent the content of the given event.
      */
-    static Blocks::BlockPtrs blocksForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent);
+    static Blocks::BlockPtrs blocksForEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent);
 
     /**
      * @brief Return the media info for the event.
@@ -187,7 +187,7 @@ public:
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
      *  - isSticker - Whether the image is a sticker or not
      */
-    static Blocks::Block *blockForMediaEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent = nullptr);
+    static Blocks::Block *blockForMediaEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent = nullptr);
 
     /**
      * @brief Get the author of the event replied to in context of the room.
@@ -229,13 +229,13 @@ private:
     static QString getBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines);
     static QString getMessageBody(const NeoChatRoom *room, const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines);
 
-    static Blocks::BlockPtrs blocksForEventType(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent, Blocks::Type type);
+    static Blocks::BlockPtrs blocksForEventType(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent, Blocks::Type type);
 
     static Blocks::Block *fileBlockFromFileContent(QObject *parent,
-                                                     const NeoChatRoom *room,
-                                                     const Quotient::EventContent::FileContentBase *fileContent,
-                                                     const QString &eventId,
-                                                     const QString &filename,
-                                                     bool isSticker = false);
+                                                   NeoChatRoom *room,
+                                                   const Quotient::EventContent::FileContentBase *fileContent,
+                                                   const QString &eventId,
+                                                   const QString &filename,
+                                                   bool isSticker = false);
     static Blocks::ImageInfo getTumbnailInfo(const Quotient::EventContent::Thumbnail &thumbnail);
 };

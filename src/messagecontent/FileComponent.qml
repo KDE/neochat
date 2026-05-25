@@ -32,11 +32,6 @@ ColumnLayout {
     required property FileBlock block
 
     /**
-     * @brief FileTransferInfo for any downloading files.
-     */
-    required property var fileTransferInfo
-
-    /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
@@ -44,7 +39,7 @@ ColumnLayout {
     /**
      * @brief Whether the media has been downloaded.
      */
-    readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
+    readonly property bool downloaded: block.fileTransferInfo && block.fileTransferInfo.completed
     onDownloadedChanged: {
         if (autoOpenFile) {
             openSavedFile();
@@ -63,7 +58,7 @@ ColumnLayout {
     }
 
     function openSavedFile() {
-        UrlHelper.openUrl(root.fileTransferInfo.localPath);
+        UrlHelper.openUrl(root.block.fileTransferInfo.localPath);
     }
 
     Layout.fillWidth: true
@@ -91,7 +86,7 @@ ColumnLayout {
             },
             State {
                 name: "downloaded"
-                when: root.fileTransferInfo.completed && !root.autoOpenFile
+                when: root.block.fileTransferInfo.completed && !root.autoOpenFile
 
                 PropertyChanges {
                     openButton.visible: false
@@ -104,10 +99,10 @@ ColumnLayout {
             },
             State {
                 name: "downloading"
-                when: root.fileTransferInfo.active
+                when: root.block.fileTransferInfo.active
 
                 PropertyChanges {
-                    sizeLabel.text: i18nc("file download progress", "%1 / %2", Format.formatByteSize(root.fileTransferInfo.progress), Format.formatByteSize(root.fileTransferInfo.total))
+                    sizeLabel.text: i18nc("file download progress", "%1 / %2", Format.formatByteSize(root.block.fileTransferInfo.progress), Format.formatByteSize(root.block.fileTransferInfo.total))
                     openButton.visible: false
                     downloadButton {
                         icon.name: "media-playback-stop"
@@ -188,7 +183,7 @@ ColumnLayout {
                     NeoChatConfig.lastSaveDirectory = Controller.translateToSaveDirectory(selectedFile, currentFolder);
                     NeoChatConfig.save();
                     if (root.autoOpenFile) {
-                        UrlHelper.copyTo(root.fileTransferInfo.localPath, selectedFile);
+                        UrlHelper.copyTo(root.block.fileTransferInfo.localPath, selectedFile);
                     } else {
                         root.Message.room.download(root.eventId, selectedFile);
                     }

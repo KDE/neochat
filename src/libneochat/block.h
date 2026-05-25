@@ -12,6 +12,7 @@
 #include "models/reactionmodel.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
+#include <Quotient/room.h>
 
 namespace Blocks
 {
@@ -226,18 +227,32 @@ class FileBlock : public UrlBlock
      */
     Q_PROPERTY(FileInfo info READ info CONSTANT)
 
+    /**
+     * @brief The Quotient::FileTransferInfo for the file.
+     *
+     * @sa Quotient::FileTransferInfo
+     */
+    Q_PROPERTY(Quotient::FileTransferInfo fileTransferInfo READ fileTransferInfo NOTIFY fileTransferInfoChanged)
+
 public:
-    FileBlock(Type type, const QUrl &source, const QString &filename, const FileInfo &info, QObject *parent);
+    FileBlock(Type type, const QUrl &source, const QString &filename, const FileInfo &info, NeoChatRoom *room, const QString &eventId, QObject *parent);
     FileBlock(FileCacheItem *item, QObject *parent);
 
-    QString filename() const;
-    const FileInfo &info() const;
+    [[nodiscard]] const FileInfo &info() const;
+    [[nodiscard]] QString filename() const;
+    [[nodiscard]] Quotient::FileTransferInfo fileTransferInfo() const;
 
     [[nodiscard]] CacheItemPtr toCacheItem() const override;
+
+Q_SIGNALS:
+    void fileTransferInfoChanged();
 
 private:
     QString m_filename;
     FileInfo m_info;
+
+    QPointer<NeoChatRoom> m_room;
+    QString m_eventId = {};
 };
 
 /**
@@ -334,6 +349,13 @@ class VideoBlock : public UrlBlock
      */
     Q_PROPERTY(ImageInfo thumbnailInfo READ thumbnailInfo CONSTANT)
 
+    /**
+     * @brief The Quotient::FileTransferInfo for the file.
+     *
+     * @sa Quotient::FileTransferInfo
+     */
+    Q_PROPERTY(Quotient::FileTransferInfo fileTransferInfo READ fileTransferInfo NOTIFY fileTransferInfoChanged)
+
 public:
     VideoBlock(Type type,
                const QUrl &source,
@@ -341,21 +363,30 @@ public:
                const VideoInfo &info,
                const QUrl &thumbnailSource,
                const ImageInfo &thumbnailInfo,
+               NeoChatRoom *room,
+               const QString &eventId,
                QObject *parent);
     VideoBlock(VideoCacheItem *item, QObject *parent);
 
-    QString filename() const;
-    const VideoInfo &info() const;
-    QUrl thumbnailSource() const;
-    const ImageInfo &thumbnailInfo() const;
+    [[nodiscard]] QString filename() const;
+    [[nodiscard]] const VideoInfo &info() const;
+    [[nodiscard]] QUrl thumbnailSource() const;
+    [[nodiscard]] const ImageInfo &thumbnailInfo() const;
+    [[nodiscard]] Quotient::FileTransferInfo fileTransferInfo() const;
 
     [[nodiscard]] CacheItemPtr toCacheItem() const override;
+
+Q_SIGNALS:
+    void fileTransferInfoChanged();
 
 private:
     QString m_filename;
     VideoInfo m_info;
     QUrl m_thumbnailSource;
     ImageInfo m_thumbnailInfo;
+
+    QPointer<NeoChatRoom> m_room;
+    QString m_eventId = {};
 };
 
 /**
@@ -381,18 +412,32 @@ class AudioBlock : public UrlBlock
      */
     Q_PROPERTY(AudioInfo info READ info CONSTANT)
 
+    /**
+     * @brief The Quotient::FileTransferInfo for the file.
+     *
+     * @sa Quotient::FileTransferInfo
+     */
+    Q_PROPERTY(Quotient::FileTransferInfo fileTransferInfo READ fileTransferInfo NOTIFY fileTransferInfoChanged)
+
 public:
-    AudioBlock(Type type, const QUrl &source, const QString &filename, const AudioInfo &info, QObject *parent);
+    AudioBlock(Type type, const QUrl &source, const QString &filename, const AudioInfo &info, NeoChatRoom *room, const QString &eventId, QObject *parent);
     AudioBlock(AudioCacheItem *item, QObject *parent);
 
-    QString filename() const;
-    const AudioInfo &info() const;
+    [[nodiscard]] QString filename() const;
+    [[nodiscard]] const AudioInfo &info() const;
+    [[nodiscard]] Quotient::FileTransferInfo fileTransferInfo() const;
 
     [[nodiscard]] CacheItemPtr toCacheItem() const override;
+
+Q_SIGNALS:
+    void fileTransferInfoChanged();
 
 private:
     QString m_filename;
     AudioInfo m_info;
+
+    QPointer<NeoChatRoom> m_room;
+    QString m_eventId = {};
 };
 
 /**

@@ -30,17 +30,12 @@ Video {
     required property VideoBlock block
 
     /**
-     * @brief FileTransferInfo for any downloading files.
-     */
-    required property var fileTransferInfo
-
-    /**
      * @brief Whether the media has been downloaded.
      */
-    readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
+    readonly property bool downloaded: block.fileTransferInfo && block.fileTransferInfo.completed
     onDownloadedChanged: {
         if (downloaded) {
-            root.source = root.fileTransferInfo.localPath;
+            root.source = block.fileTransferInfo.localPath;
         }
         if (downloaded && playOnFinished) {
             playSavedFile();
@@ -73,7 +68,7 @@ Video {
     states: [
         State {
             name: "notDownloaded"
-            when: !root.fileTransferInfo.completed && !root.fileTransferInfo.active && !root.mediaHidden
+            when: !root.block.fileTransferInfo.completed && !root.block.fileTransferInfo.active && !root.mediaHidden
             PropertyChanges {
                 videoLabel.visible: true
                 mediaThumbnail.visible: true
@@ -81,7 +76,7 @@ Video {
         },
         State {
             name: "downloading"
-            when: root.fileTransferInfo.active && !root.fileTransferInfo.completed && !root.mediaHidden
+            when: root.block.fileTransferInfo.active && !root.block.fileTransferInfo.completed && !root.mediaHidden
             PropertyChanges {
                 downloadBar.visible: true
                 mediaThumbnail.visible: true
@@ -89,7 +84,7 @@ Video {
         },
         State {
             name: "paused"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState && !root.mediaHidden
+            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState && !root.mediaHidden
             PropertyChanges {
                 videoControls.stateVisible: true
                 playButton.icon.name: "media-playback-start"
@@ -101,7 +96,7 @@ Video {
         },
         State {
             name: "playing"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState && !root.mediaHidden
+            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState && !root.mediaHidden
             PropertyChanges {
                 videoControls.stateVisible: true
                 playButton.icon.name: "media-playback-pause"
@@ -110,7 +105,7 @@ Video {
         },
         State {
             name: "stopped"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && !root.mediaHidden && root.error === MediaPlayer.NoError
+            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && !root.mediaHidden && root.error === MediaPlayer.NoError
             PropertyChanges {
                 videoControls.stateVisible: true
                 mediaThumbnail.visible: true
@@ -225,8 +220,8 @@ Video {
             width: parent.width * 0.8
 
             from: 0
-            to: root.fileTransferInfo.total
-            value: root.fileTransferInfo.progress
+            to: root.block.fileTransferInfo.total
+            value: root.block.fileTransferInfo.progress
         }
     }
 
@@ -406,7 +401,7 @@ Video {
         acceptedButtons: Qt.LeftButton
         gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
         enabled: !root.editable // Only allow previewing videos that aren't being edited or waiting to be sent
-        onTapped: if (root.fileTransferInfo.completed) {
+        onTapped: if (root.block.fileTransferInfo.completed) {
             if (root.playbackState == MediaPlayer.PlayingState) {
                 root.pause();
             } else {
