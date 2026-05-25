@@ -58,32 +58,6 @@ void MessageContentModel::setRoom(NeoChatRoom *room)
     const auto oldRoom = std::exchange(m_room, room);
 
     if (m_room) {
-        connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
-            if (eventId == m_eventId) {
-                forEachComponentOfType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video}, m_fileInfoFunction);
-            }
-        });
-        connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
-            if (eventId == m_eventId) {
-                forEachComponentOfType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video}, m_fileInfoFunction);
-            }
-        });
-        connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
-            if (m_room != nullptr && eventId == m_eventId) {
-                forEachComponentOfType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video}, m_fileInfoFunction);
-            }
-        });
-        connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
-            if (eventId == m_eventId) {
-                forEachComponentOfType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video}, m_fileInfoFunction);
-                if (errorMessage.isEmpty()) {
-                    Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
-                } else {
-                    Q_EMIT m_room->showMessage(MessageType::Error,
-                                               i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage));
-                }
-            }
-        });
         connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, &MessageContentModel::componentsUpdated);
     }
 
@@ -151,9 +125,6 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == AuthorRole) {
         return QVariant::fromValue<NeochatRoomMember *>(author());
     }
-    if (role == FileTransferInfoRole) {
-        return QVariant::fromValue(m_room->cachedFileTransferInfo(m_eventId));
-    }
     if (role == PollHandlerRole) {
         return QVariant::fromValue<PollHandler *>(ContentProvider::self().handlerForPoll(m_room, m_eventId));
     }
@@ -195,7 +166,6 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::EventIdRole] = "eventId";
     roles[MessageContentModel::DateTimeRole] = "dateTime";
     roles[MessageContentModel::AuthorRole] = "author";
-    roles[MessageContentModel::FileTransferInfoRole] = "fileTransferInfo";
     roles[MessageContentModel::PollHandlerRole] = "pollHandler";
     roles[MessageContentModel::ReplyContentModelRole] = "replyContentModel";
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";

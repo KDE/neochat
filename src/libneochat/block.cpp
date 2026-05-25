@@ -2,7 +2,9 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "blocktype.h"
-#include <QImageReader>
+#include "neochatroom.h"
+
+#include <KLocalizedString>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
@@ -12,7 +14,6 @@
 #include "block.h"
 #include "blockcache.h"
 #include "fileinfo.h"
-#include "filetype.h"
 
 using namespace Blocks;
 
@@ -178,11 +179,43 @@ CacheItemPtr UrlBlock::toCacheItem() const
     return std::make_unique<UrlCacheItem>(type(), source());
 }
 
-FileBlock::FileBlock(Type type, const QUrl &source, const QString &filename, const FileInfo &info, QObject *parent)
+FileBlock::FileBlock(Type type, const QUrl &source, const QString &filename, const FileInfo &info, NeoChatRoom *room, const QString &eventId, QObject *parent)
     : UrlBlock(type, source, parent)
     , m_filename(filename)
     , m_info(info)
+    , m_room(room)
+    , m_eventId(eventId)
 {
+    if (m_room) {
+        connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+                if (m_room != nullptr) {
+                    if (errorMessage.isEmpty()) {
+                        Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
+                    } else {
+                        Q_EMIT m_room->showMessage(MessageType::Error,
+                                                   i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage));
+                    }
+                }
+            }
+        });
+    }
 }
 
 FileBlock::FileBlock(FileCacheItem *item, QObject *parent)
@@ -200,6 +233,14 @@ QString FileBlock::filename() const
 const FileInfo &FileBlock::info() const
 {
     return m_info;
+}
+
+Quotient::FileTransferInfo FileBlock::fileTransferInfo() const
+{
+    if (!m_room) {
+        return {};
+    }
+    return m_room->cachedFileTransferInfo(m_eventId);
 }
 
 CacheItemPtr FileBlock::toCacheItem() const
@@ -262,13 +303,47 @@ VideoBlock::VideoBlock(Type type,
                        const VideoInfo &info,
                        const QUrl &thumbnailSource,
                        const ImageInfo &thumbnailInfo,
+                       NeoChatRoom *room,
+                       const QString &eventId,
                        QObject *parent)
     : UrlBlock(type, source, parent)
     , m_filename(filename)
     , m_info(info)
     , m_thumbnailSource(thumbnailSource)
     , m_thumbnailInfo(thumbnailInfo)
+    , m_room(room)
+    , m_eventId(eventId)
 {
+    if (m_room) {
+        connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+                if (m_room != nullptr) {
+                    if (errorMessage.isEmpty()) {
+                        Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
+                    } else {
+                        Q_EMIT m_room->showMessage(MessageType::Error,
+                                                   i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage));
+                    }
+                }
+            }
+        });
+    }
 }
 
 VideoBlock::VideoBlock(VideoCacheItem *item, QObject *parent)
@@ -300,16 +375,62 @@ const ImageInfo &VideoBlock::thumbnailInfo() const
     return m_thumbnailInfo;
 }
 
+Quotient::FileTransferInfo VideoBlock::fileTransferInfo() const
+{
+    if (!m_room) {
+        return {};
+    }
+    return m_room->cachedFileTransferInfo(m_eventId);
+}
+
 CacheItemPtr VideoBlock::toCacheItem() const
 {
     return std::make_unique<VideoCacheItem>(type(), source(), filename(), info(), thumbnailSource(), thumbnailInfo());
 }
 
-AudioBlock::AudioBlock(Type type, const QUrl &source, const QString &filename, const AudioInfo &info, QObject *parent)
+AudioBlock::AudioBlock(Type type,
+                       const QUrl &source,
+                       const QString &filename,
+                       const AudioInfo &info,
+                       NeoChatRoom *room,
+                       const QString &eventId,
+                       QObject *parent)
     : UrlBlock(type, source, parent)
     , m_filename(filename)
     , m_info(info)
+    , m_room(room)
+    , m_eventId(eventId)
 {
+    if (m_room) {
+        connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
+            if (eventId == m_eventId) {
+                Q_EMIT fileTransferInfoChanged();
+                if (m_room != nullptr) {
+                    if (errorMessage.isEmpty()) {
+                        Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
+                    } else {
+                        Q_EMIT m_room->showMessage(MessageType::Error,
+                                                   i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage));
+                    }
+                }
+            }
+        });
+    }
 }
 
 AudioBlock::AudioBlock(AudioCacheItem *item, QObject *parent)
@@ -327,6 +448,14 @@ QString AudioBlock::filename() const
 const AudioInfo &AudioBlock::info() const
 {
     return m_info;
+}
+
+Quotient::FileTransferInfo AudioBlock::fileTransferInfo() const
+{
+    if (!m_room) {
+        return {};
+    }
+    return m_room->cachedFileTransferInfo(m_eventId);
 }
 
 CacheItemPtr AudioBlock::toCacheItem() const

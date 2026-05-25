@@ -29,14 +29,9 @@ ColumnLayout {
     required property AudioBlock block
 
     /**
-     * @brief FileTransferInfo for any downloading files.
-     */
-    required property var fileTransferInfo
-
-    /**
      * @brief Whether the media has been downloaded.
      */
-    readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
+    readonly property bool downloaded: block.fileTransferInfo && block.fileTransferInfo.completed
     onDownloadedChanged: if (downloaded) {
         audio.play();
     }
@@ -55,7 +50,7 @@ ColumnLayout {
     states: [
         State {
             name: "notDownloaded"
-            when: !root.fileTransferInfo.completed && !root.fileTransferInfo.active
+            when: !root.block.fileTransferInfo.completed && !root.block.fileTransferInfo.active
 
             PropertyChanges {
                 playButton.icon.name: "download"
@@ -64,7 +59,7 @@ ColumnLayout {
         },
         State {
             name: "downloading"
-            when: root.fileTransferInfo.active && !root.fileTransferInfo.completed
+            when: root.block.fileTransferInfo.active && !root.block.fileTransferInfo.completed
             PropertyChanges {
                 downloadBar.visible: true
             }
@@ -77,11 +72,11 @@ ColumnLayout {
         },
         State {
             name: "paused"
-            when: root.fileTransferInfo.completed && (audio.playbackState === MediaPlayer.StoppedState || audio.playbackState === MediaPlayer.PausedState)
+            when: root.block.fileTransferInfo.completed && (audio.playbackState === MediaPlayer.StoppedState || audio.playbackState === MediaPlayer.PausedState)
             PropertyChanges {
                 playButton.icon.name: "media-playback-start"
                 playButton.onClicked: {
-                    audio.source = root.fileTransferInfo.localPath;
+                    audio.source = root.block.fileTransferInfo.localPath;
                     MediaManager.startPlayback();
                     audio.play();
                 }
@@ -89,7 +84,7 @@ ColumnLayout {
         },
         State {
             name: "playing"
-            when: root.fileTransferInfo.completed && audio.playbackState === MediaPlayer.PlayingState
+            when: root.block.fileTransferInfo.completed && audio.playbackState === MediaPlayer.PlayingState
 
             PropertyChanges {
                 playButton.icon.name: "media-playback-pause"
@@ -137,7 +132,7 @@ ColumnLayout {
         Layout.fillWidth: true
         from: 0
         to: root.block.info.size
-        value: root.fileTransferInfo.progress
+        value: root.block.fileTransferInfo.progress
     }
     RowLayout {
         visible: audio.hasAudio

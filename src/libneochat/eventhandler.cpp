@@ -704,7 +704,7 @@ bool EventHandler::isMediaMessage(const Quotient::RoomEvent *event)
     return roomMessageEvent->has<EventContent::ImageContent>() || roomMessageEvent->has<EventContent::VideoContent>();
 }
 
-Blocks::BlockPtrs EventHandler::blocksForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)
+Blocks::BlockPtrs EventHandler::blocksForEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)
 {
     Blocks::BlockPtrs blocks;
     if (!room || !event || !parent) {
@@ -724,7 +724,7 @@ Blocks::BlockPtrs EventHandler::blocksForEvent(const NeoChatRoom *room, const Qu
     return blocks;
 }
 
-Blocks::BlockPtrs EventHandler::blocksForEventType(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent, Blocks::Type type)
+Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent, Blocks::Type type)
 {
     if (!room || !event || !parent) {
         return {};
@@ -774,7 +774,7 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(const NeoChatRoom *room, cons
     return {};
 }
 
-Blocks::Block *EventHandler::blockForMediaEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)
+Blocks::Block *EventHandler::blockForMediaEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)
 {
     if (room == nullptr) {
         qCWarning(EventHandling) << __FUNCTION__ << "called with room set to nullptr.";
@@ -810,11 +810,11 @@ Blocks::Block *EventHandler::blockForMediaEvent(const NeoChatRoom *room, const Q
 }
 
 Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
-                                                        const NeoChatRoom *room,
-                                                        const Quotient::EventContent::FileContentBase *fileContent,
-                                                        const QString &eventId,
-                                                        const QString &filename,
-                                                        bool isSticker)
+                                                      NeoChatRoom *room,
+                                                      const Quotient::EventContent::FileContentBase *fileContent,
+                                                      const QString &eventId,
+                                                      const QString &filename,
+                                                      bool isSticker)
 {
     // Get the mxc URL for the media.
     QUrl source;
@@ -872,7 +872,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
                 }
             }
             const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
-            return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, parent);
+            return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, room, eventId, parent);
         }
     }
     if (mimeType.name().contains(u"audio"_s)) {
@@ -881,14 +881,14 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
             audioInfo.mimeType = mimeType;
             audioInfo.size = castInfo->payloadSize;
             audioInfo.duration = castInfo->duration;
-            return new Blocks::AudioBlock(Blocks::Audio, source, filename, audioInfo, parent);
+            return new Blocks::AudioBlock(Blocks::Audio, source, filename, audioInfo, room, eventId, parent);
         }
     }
 
     Blocks::FileInfo info;
     info.mimeType = mimeType;
     info.size = fileContent->commonInfo().payloadSize;
-    return new Blocks::FileBlock(Blocks::File, source, filename, info, parent);
+    return new Blocks::FileBlock(Blocks::File, source, filename, info, room, eventId, parent);
 }
 
 Blocks::ImageInfo EventHandler::getTumbnailInfo(const Quotient::EventContent::Thumbnail &thumbnail)
