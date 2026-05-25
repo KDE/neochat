@@ -18,15 +18,10 @@ Kirigami.Page {
     id: root
 
     property bool showExisting: false
-    property bool _showExisting: showExisting && root.currentStepString === root.initialStep
-    property bool showSettings: _showExisting
-    property alias currentStep: module.item
-    property string currentStepString: initialStep
-    property string initialStep: "LoginRegister"
 
     signal connectionChosen
 
-    title: i18n("Welcome")
+    title: i18nc("@title:page", "Welcome")
     globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
     header: QQC2.Control {
@@ -74,7 +69,7 @@ Kirigami.Page {
             Kirigami.Heading {
                 id: welcomeMessage
 
-                text: i18n("NeoChat")
+                text: i18nc("@title", "NeoChat")
 
                 Layout.alignment: Qt.AlignHCenter
                 Layout.topMargin: Kirigami.Units.largeSpacing
@@ -83,13 +78,10 @@ Kirigami.Page {
             FormCard.FormHeader {
                 id: existingAccountsHeader
                 title: i18nc("@title", "Continue with an existing account")
-                visible: (loadedAccounts.count > 0 || loadingAccounts.count > 0) && root._showExisting
-                maximumWidth: Kirigami.Units.gridUnit * 20
+                visible: (loadedAccounts.count > 0 || loadingAccounts.count > 0)
             }
 
             FormCard.FormCard {
-                visible: existingAccountsHeader.visible
-                maximumWidth: Kirigami.Units.gridUnit * 20
                 Repeater {
                     id: loadedAccounts
                     model: AccountRegistry
@@ -171,100 +163,29 @@ Kirigami.Page {
                 }
             }
 
+            HomeserverInfo {
+                id: homeserverInfo
+                homeserver: homeserverField.text
+            }
+
             FormCard.FormHeader {
                 title: i18nc("@title", "Log in or Create a New Account")
-                maximumWidth: Kirigami.Units.gridUnit * 20
             }
 
             FormCard.FormCard {
-                maximumWidth: Kirigami.Units.gridUnit * 20
-                Loader {
-                    id: module
-                    Layout.fillWidth: true
-                    sourceComponent: Qt.createComponent('org.kde.neochat.login', root.initialStep)
-
-                    Connections {
-                        id: stepConnections
-                        target: root.currentStep
-
-                        function onProcessed(nextStep: string): void {
-                            module.source = nextStep + ".qml";
-                            root.currentStepString = nextStep;
-                            headerMessage.text = "";
-                            headerMessage.visible = false;
-                            if (!(root.currentStep as LoginStep).noControls) {
-                                (root.currentStep as LoginStep).forceActiveFocus();
-                            } else {
-                                continueButton.forceActiveFocus();
-                            }
-                        }
-
-                        function onShowMessage(message: string): void {
-                            headerMessage.text = message;
-                            headerMessage.visible = true;
-                            headerMessage.type = Kirigami.MessageType.Information;
-                        }
-
-                        function onClearError(): void {
-                            headerMessage.text = "";
-                            headerMessage.visible = false;
-                        }
-
-                        function onCloseDialog(): void {
-                            root.Kirigami.PageStack.closeDialog();
-                        }
-                    }
-
-                    Connections {
-                        target: Registration
-
-                        function onNextStepChanged() {
-                            if (Registration.nextStep === "m.login.recaptcha") {
-                                stepConnections.onProcessed("Captcha");
-                            }
-                            if (Registration.nextStep === "m.login.registration_token") {
-                                stepConnections.onProcessed("RegistrationToken");
-                            }
-                            if (Registration.nextStep === "m.login.terms") {
-                                stepConnections.onProcessed("Terms");
-                            }
-                            if (Registration.nextStep === "m.login.email.identity") {
-                                stepConnections.onProcessed("Email");
-                            }
-                            if (Registration.nextStep === "loading") {
-                                stepConnections.onProcessed("Loading");
-                            }
-                        }
-                    }
-                    Connections {
-                        target: LoginHelper
-
-                        function onLoginErrorOccured(message) {
-                            headerMessage.text = message;
-                            headerMessage.visible = message.length > 0;
-                            headerMessage.type = Kirigami.MessageType.Error;
-                        }
-                    }
+                FormCard.FormTextFieldDelegate {
+                    id: homeserverField
+                    label: i18nc("@label:textfield", "Homeserver")
                 }
-
-                FormCard.FormDelegateSeparator {
-                    above: null // Set this manually so KA doesn't decide to pick another unrelated delegate
-                    below: continueButton
-                    visible: (root.currentStep as LoginStep).nextAction
-                }
-
                 FormCard.FormButtonDelegate {
-                    id: continueButton
-                    text: (root.currentStep as LoginStep).nextAction && (root.currentStep as LoginStep).nextAction.text ? (root.currentStep as LoginStep).nextAction.text : i18nc("@action:button", "Continue")
-                    visible: (root.currentStep as LoginStep).nextAction
-                    onClicked: (root.currentStep as LoginStep).nextAction.trigger()
-                    enabled: (root.currentStep as LoginStep).nextAction ? (root.currentStep as LoginStep).nextAction.enabled : false
+                    visible: homeserverInfo.canSso
+                    text: i18nc("@action:button", "Continue in Browser")
+                    enabled: homeserverField.reachable
                 }
             }
 
             FormCard.FormCard {
                 Layout.topMargin: Kirigami.Units.largeSpacing * 2
-                maximumWidth: Kirigami.Units.gridUnit * 20
                 visible: root.showSettings || previousButtonDelegate.visible
 
                 FormCard.FormButtonDelegate {
@@ -273,25 +194,7 @@ Kirigami.Page {
                     visible: root.showSettings
                     onClicked: NeoChatSettingsView.open()
                 }
-
-                FormCard.FormButtonDelegate {
-                    id: previousButtonDelegate
-
-                    text: i18nc("@action:button", "Go Back")
-                    visible: (root.currentStep as LoginStep).previousAction
-                    onClicked: (root.currentStep as LoginStep).previousAction.trigger()
-                    enabled: (root.currentStep as LoginStep).previousAction ? (root.currentStep as LoginStep).previousAction.enabled : false
-                    trailingLogo.direction: Qt.LeftArrow
-                }
             }
         }
-    }
-
-    Component.onCompleted: {
-        LoginHelper.init();
-        (root.currentStep as LoginStep).forceActiveFocus();
-        Registration.username = "";
-        Registration.password = "";
-        Registration.email = "";
     }
 }
