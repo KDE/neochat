@@ -37,6 +37,13 @@ public:
                                          MessageContentModel *parent = nullptr);
 
     /**
+     * @brief Close the link preview at the given index.
+     *
+     * If the given index is not a link preview component, nothing happens.
+     */
+    Q_INVOKABLE void closeLinkPreview(int row);
+
+    /**
      * @brief Reply to the message in a thread.
      *
      * Starts a thread if the message isn't currently threaded. Otherwise a new message
@@ -84,6 +91,10 @@ private:
     bool m_fileChecked = false;
     void checkFilePreview();
     void insertFIlePreview();
+
+    void checkLinkPreview();
+    QList<QUrl> m_removedLinkPreviews;
+    Blocks::Block *linkPreviewComponent(const QUrl &link);
 
     void updateReactionModel();
 };

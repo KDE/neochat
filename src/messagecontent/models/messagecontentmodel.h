@@ -63,7 +63,6 @@ public:
         PollHandlerRole, /**< The PollHandler for the event, if any. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
         ThreadRootRole, /**< The thread root event ID for the event. */
-        LinkPreviewerRole, /**< The link preview details. */
         EditableRole, /**< Whether the component can be edited. */
         CurrentFocusRole, /**< Whether the delegate should have focus. */
         MediaHiddenRole, /**< Whether the media should be visible or not. */
@@ -107,13 +106,6 @@ public:
      * @brief The author of the message.
      */
     Q_INVOKABLE NeochatRoomMember *author() const;
-
-    /**
-     * @brief Close the link preview at the given index.
-     *
-     * If the given index is not a link preview component, nothing happens.
-     */
-    Q_INVOKABLE void closeLinkPreview(int row);
 
     /**
      * @brief Toggle spoiler for the component at the given row.
@@ -184,50 +176,10 @@ protected:
     QPersistentModelIndex m_currentFocusComponent = {};
 
 private:
-    void initializeModel();
-
     std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_fileInfoFunction = [this](Blocks::BlockPtrsIt it) {
         Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {MessageContentModel::FileTransferInfoRole});
         return ++it;
     };
-    std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_linkPreviewAddFunction = [this](Blocks::BlockPtrsIt it) {
-        if (!m_room->urlPreviewEnabled() || (*it)->type() != Blocks::Text || (*it)->type() != Blocks::Quote) {
-            return ++it;
-        }
-        const auto block = dynamic_cast<Blocks::TextBlock *>(*it);
-        if (!block) {
-            return ++it;
-        }
-
-        bool previewAdded = false;
-        if (LinkPreviewer::hasPreviewableLinks(block->item()->markdownText())) {
-            const auto links = LinkPreviewer::linkPreviews(block->item()->markdownText());
-            for (qsizetype j = 0; j < links.size(); ++j) {
-                auto linkPreview = linkPreviewComponent(links[j]);
-                if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview->isEmpty()) {
-                    const auto insertIt = it + 1;
-                    const auto insertRow = std::distance(m_components.begin(), insertIt);
-                    beginInsertRows({}, insertRow, insertRow);
-                    it = m_components.insert(insertIt, std::move(linkPreview));
-                    previewAdded = true;
-                    endInsertRows();
-                }
-            };
-        }
-        return previewAdded ? it : ++it;
-    };
-    std::function<Blocks::BlockPtrsIt(const Blocks::BlockPtrsIt &)> m_linkPreviewRemoveFunction = [this](Blocks::BlockPtrsIt it) {
-        if (m_room->urlPreviewEnabled()) {
-            return it;
-        }
-        beginRemoveRows({}, std::distance(m_components.begin(), it), std::distance(m_components.begin(), it));
-        it = m_components.erase(it);
-        endRemoveRows();
-        return it;
-    };
-
-    QList<QUrl> m_removedLinkPreviews;
-    Blocks::Block *linkPreviewComponent(const QUrl &link);
 
     void updateSpoilers();
     void updateSpoiler(const QModelIndex &index);

@@ -16,6 +16,7 @@
 #include "contentprovider.h"
 #include "enums/blocktype.h"
 #include "eventhandler.h"
+#include "eventmessagecontentmodel.h"
 #include "neochatroom.h"
 
 ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
@@ -172,7 +173,7 @@ void ThreadModel::closeLinkPreview(int row)
     // index so we need to search the source models.
     for (const auto &model : sourceModels()) {
         if (model == sourceModel) {
-            const auto sourceContentModel = dynamic_cast<MessageContentModel *>(model);
+            const auto sourceContentModel = dynamic_cast<EventMessageContentModel *>(model);
             if (sourceContentModel == nullptr) {
                 return;
             }

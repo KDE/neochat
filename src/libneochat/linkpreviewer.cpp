@@ -52,39 +52,38 @@ QUrl LinkPreviewer::url() const
 
 void LinkPreviewer::loadUrlPreview()
 {
-    if (m_url.scheme() == u"https"_s) {
-        m_loaded = false;
-        Q_EMIT loadedChanged();
+    if (m_url.scheme() != u"https"_s) {
+        return;
+    }
 
-        auto conn = dynamic_cast<Connection *>(this->parent());
-        if (conn == nullptr) {
-            return;
-        }
+    auto conn = dynamic_cast<Connection *>(this->parent());
+    if (conn == nullptr) {
+        return;
+    }
 
-        auto onSuccess = [this, conn](const auto &job) {
-            const auto json = job->jsonData();
-            m_title = json["og:title"_L1].toString().trimmed();
-            m_description = json["og:description"_L1].toString().trimmed().replace("\n"_L1, " "_L1);
+    auto onSuccess = [this, conn](const auto &job) {
+        const auto json = job->jsonData();
+        m_title = json["og:title"_L1].toString().trimmed();
+        m_description = json["og:description"_L1].toString().trimmed().replace("\n"_L1, " "_L1);
 
-            auto imageUrl = QUrl(json["og:image"_L1].toString());
-            if (imageUrl.isValid() && imageUrl.scheme() == u"mxc"_s) {
-                m_imageSource = conn->makeMediaUrl(imageUrl);
-            } else {
-                m_imageSource = QUrl();
-            }
-
-            m_loaded = true;
-            Q_EMIT titleChanged();
-            Q_EMIT descriptionChanged();
-            Q_EMIT imageSourceChanged();
-            Q_EMIT loadedChanged();
-        };
-
-        if (conn->supportedMatrixSpecVersions().contains("v1.11"_L1)) {
-            conn->callApi<GetUrlPreviewAuthedJob>(m_url).onResult(onSuccess);
+        auto imageUrl = QUrl(json["og:image"_L1].toString());
+        if (imageUrl.isValid() && imageUrl.scheme() == u"mxc"_s) {
+            m_imageSource = conn->makeMediaUrl(imageUrl);
         } else {
-            QT_IGNORE_DEPRECATIONS(conn->callApi<GetUrlPreviewJob>(m_url).onResult(onSuccess);)
+            m_imageSource = QUrl();
         }
+
+        m_loaded = true;
+        Q_EMIT titleChanged();
+        Q_EMIT descriptionChanged();
+        Q_EMIT imageSourceChanged();
+        Q_EMIT loadedChanged();
+    };
+
+    if (conn->supportedMatrixSpecVersions().contains("v1.11"_L1)) {
+        conn->callApi<GetUrlPreviewAuthedJob>(m_url).onResult(onSuccess);
+    } else {
+        QT_IGNORE_DEPRECATIONS(conn->callApi<GetUrlPreviewJob>(m_url).onResult(onSuccess);)
     }
 }
 
