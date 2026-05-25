@@ -29,7 +29,9 @@ QString HomeserverInfo::homeserver() const
 
 void HomeserverInfo::test()
 {
+    // TODO don't delete connection if we actually start doing something with it (i.e., if the user types something after already starting sso process)
     delete m_testConnection;
+    delete m_ssoSession;
     m_testConnection = new NeoChatConnection(this);
     m_testConnection->resolveServer("@user:%1"_L1.arg(m_homeserver));
     connect(m_testConnection.get(), &NeoChatConnection::loginFlowsChanged, this, &HomeserverInfo::flowsChanged);
@@ -43,4 +45,15 @@ bool HomeserverInfo::canSso() const
 bool HomeserverInfo::canPassword() const
 {
     return m_testConnection && m_testConnection->getLoginFlow(LoginFlowTypes::Password).has_value();
+}
+
+QString HomeserverInfo::ssoUrl()
+{
+    if (!m_testConnection) {
+        return {};
+    }
+    if (!m_ssoSession) {
+        m_ssoSession = m_testConnection->prepareForSso(u"NeoChat"_s);
+    }
+    return m_ssoSession->ssoUrl().toString();
 }

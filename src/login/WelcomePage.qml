@@ -181,6 +181,7 @@ Kirigami.Page {
                     visible: homeserverInfo.canSso
                     text: i18nc("@action:button", "Continue in Browser")
                     enabled: homeserverField.reachable
+                    onClicked: Qt.openUrlExternally(homeserverInfo.ssoUrl)
                 }
             }
 

@@ -7,6 +7,8 @@
 #include <QString>
 #include <qqmlintegration.h>
 
+#include <Quotient/ssosession.h>
+
 #include "neochatconnection.h"
 
 class HomeserverInfo : public QObject
@@ -17,6 +19,7 @@ class HomeserverInfo : public QObject
     Q_PROPERTY(QString homeserver READ homeserver WRITE setHomeserver NOTIFY homeserverChanged)
     Q_PROPERTY(bool canSso READ canSso NOTIFY flowsChanged)
     Q_PROPERTY(bool canPassword READ canPassword NOTIFY flowsChanged)
+    Q_PROPERTY(QString ssoUrl READ ssoUrl NOTIFY flowsChanged)
 
 public:
     explicit HomeserverInfo(QObject *parent = nullptr);
@@ -24,8 +27,10 @@ public:
     void setHomeserver(const QString &homeserver);
     QString homeserver() const;
 
-    bool canSso() const;
-    bool canPassword() const;
+    [[nodiscard]] bool canSso() const;
+    [[nodiscard]] bool canPassword() const;
+    [[nodiscard]] QString ssoUrl();
+    ;
 
 Q_SIGNALS:
     void homeserverChanged();
@@ -35,4 +40,5 @@ private:
     QString m_homeserver;
     void test();
     QPointer<NeoChatConnection> m_testConnection;
+    QPointer<Quotient::SsoSession> m_ssoSession;
 };
