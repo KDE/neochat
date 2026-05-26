@@ -131,7 +131,9 @@ int main(int argc, char *argv[])
 
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
 
+    // KAboutData doesn't set organizationName yet
     QGuiApplication::setOrganizationName("KDE"_L1);
+    // This needs to be set before fromAppStreamForApplication can be used, so don't remove this!
     QGuiApplication::setDesktopFileName(u"org.kde.neochat"_s);
 
     auto about = KAboutData::fromAppStreamForApplication();
