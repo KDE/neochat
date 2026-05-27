@@ -8,10 +8,7 @@
 #include <QQuickItem>
 #include <QSortFilterProxyModel>
 
-#include "chatbarcache.h"
 #include "chattextitemhelper.h"
-#include "enums/chatbartype.h"
-#include "neochatroom.h"
 
 class CompletionProxyModel;
 class UserFilterModel;
