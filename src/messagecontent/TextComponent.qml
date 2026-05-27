@@ -69,6 +69,11 @@ TextEdit {
      */
     property bool isReply: false
 
+    /**
+     * @brief The name of the currently hovered img title.
+     */
+    property string hoveredTitle
+
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
 
@@ -98,9 +103,17 @@ TextEdit {
             RoomManager.resolveResource(link, "join");
         }
     }
-    onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
-        (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hoveredLink;
-    } else {
+    onHoveredLinkChanged: {
+        if (hoveredLink.length > 0 && hoveredLink.startsWith("title://")) {
+            hoveredTitle = hoveredLink.substring(8); // Remove the protocol portion
+            return;
+        }
+
+        if (hoveredLink.length > 0 && hoveredLink !== "1") {
+            (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hoveredLink;
+        }
+
+        hoveredTitle = "";
         (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
     }
     onTextEdited: {
@@ -115,6 +128,12 @@ TextEdit {
         interval: 1000
 
         onTriggered: spellcheckHighlighterInstantiator.object.highlighter.active = spellcheckHighlighterInstantiator.object.settings.checkerEnabledByDefault
+    }
+
+    QQC2.ToolTip {
+        text: root.hoveredTitle
+        visible: root.hoveredTitle !== ""
+        delay: Kirigami.Units.toolTipDelay
     }
 
     QQC2.Label {
@@ -141,7 +160,7 @@ TextEdit {
     }
 
     HoverHandler {
-        cursorShape: root.hoveredLink || (!(root.block?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
+        cursorShape: (root.hoveredLink && !root.hoveredLink.startsWith("title://")) || (!(root.block?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
     }
     TapHandler {
         enabled: !root.hoveredLink && root.hasSpoiler

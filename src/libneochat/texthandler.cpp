@@ -116,28 +116,6 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
     // Apply user style
     m_dataBuffer.replace(TextRegex::userPill, uR"(<b>\1</b>)"_s);
 
-    // Make all media URLs resolvable.
-    if (room && event) {
-        QRegularExpressionMatchIterator i = TextRegex::mxcImage.globalMatch(m_dataBuffer);
-        while (i.hasNext()) {
-            const QRegularExpressionMatch match = i.next();
-            const QUrl mediaUrl = room->makeMediaUrl(event->id(), QUrl(u"mxc://"_s + match.captured(2) + u'/' + match.captured(3)));
-
-            QStringList extraAttributes = match.captured(4).split(QChar::Space);
-            const bool isEmoticon = match.captured(1).contains(u"data-mx-emoticon"_s);
-
-            // If the image does not have an explicit width, but has a vertical-align it's most likely an emoticon.
-            // We must do some pre-processing for it to show up nicely in and around text.
-            if (isEmoticon) {
-                // Align it properly
-                extraAttributes.append(u"style=\"%1\""_s.arg(customEmojiStyle));
-            }
-
-            m_dataBuffer.replace(match.captured(0),
-                                 u"<img "_s + match.captured(1) + u"src=\""_s + mediaUrl.toString() + u'"' + extraAttributes.join(QChar::Space) + u'>');
-        }
-    }
-
     // Strip any disallowed tags/attributes.
     QString outputString;
     m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
@@ -159,6 +137,42 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
         outputString.append(nextTokenBuffer);
 
         m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
+    }
+
+    // Make all media URLs resolvable.
+    if (room && event) {
+        QRegularExpressionMatchIterator i = TextRegex::mxcImage.globalMatch(outputString);
+        while (i.hasNext()) {
+            const QRegularExpressionMatch match = i.next();
+            const QUrl mediaUrl = room->makeMediaUrl(event->id(), QUrl(u"mxc://"_s + match.captured(2) + u'/' + match.captured(3)));
+
+            QStringList extraAttributes = match.captured(4).split(QChar::Space);
+            QString title;
+            for (const auto &attribute : extraAttributes) {
+                if (attribute.startsWith(u"title="_s)) {
+                    // Chop off the beginning and end of the attribute, only grabbing what's between the quotation marks
+                    title = attribute.sliced(7, attribute.length() - 8);
+                }
+            }
+
+            const bool isEmoticon = match.captured(1).contains(u"data-mx-emoticon"_s);
+
+            // If the image does not have an explicit width, but has a vertical-align it's most likely an emoticon.
+            // We must do some pre-processing for it to show up nicely in and around text.
+            if (isEmoticon) {
+                // Align it properly
+                extraAttributes.append(u"style=\"%1\""_s.arg(customEmojiStyle));
+            }
+
+            if (title.isEmpty()) {
+                outputString.replace(match.captured(0),
+                                     u"<img "_s + match.captured(1) + u"src=\""_s + mediaUrl.toString() + u'"' + extraAttributes.join(QChar::Space) + u'>');
+            } else {
+                outputString.replace(match.captured(0),
+                                     u"<a href=\"title://"_s + title + u"\"><img "_s + match.captured(1) + u"src=\""_s + mediaUrl.toString() + u'"'
+                                         + extraAttributes.join(QChar::Space) + u"></a>"_s);
+            }
+        }
     }
 
     if (isEdited) {

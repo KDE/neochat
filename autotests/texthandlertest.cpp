@@ -78,6 +78,8 @@ private Q_SLOTS:
     void receiveLineSeparator();
     void receiveRichCodeUrl();
     void receiveRichColor();
+    void receiveRichCustomEmoji();
+    void receiveRichCustomEmojiNoTitle();
 
     void componentOutput_data();
     void componentOutput();
@@ -561,7 +563,7 @@ void TextHandlerTest::receiveRichMxcUrl()
     const QString testInputString =
         u"<img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\"><img src=\"mxc://kde.org/34c3464b3a1bd7f55af2d559e07d2c773c430e73\" alt=\"image\">"_s;
     const QString testOutputString =
-        u"<img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$143273582443PhrSn:example.org\" alt=\"image\"><img src=\"mxc://kde.org/34c3464b3a1bd7f55af2d559e07d2c773c430e73?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$143273582443PhrSn:example.org\" alt=\"image\">"_s;
+        u"<img  src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$143273582443PhrSn:example.org\" alt=\"image\"><img  src=\"mxc://kde.org/34c3464b3a1bd7f55af2d559e07d2c773c430e73?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$143273582443PhrSn:example.org\" alt=\"image\">"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -671,6 +673,39 @@ void TextHandlerTest::receiveRichColor()
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+}
+
+void TextHandlerTest::receiveRichCustomEmoji()
+{
+    const QString testInputString =
+        u"<img data-mx-emoticon=\"\" src=\"mxc://test.com/examplemxc\" alt=\":test:\" title=\":test:\" height=\"32\" vertical-align=\"middle\" />"_s;
+    const QString testOutputString =
+        u"<a href=\"title://:test:\"><img  src=\"mxc://test.com/examplemxc?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$zrCiBxBnqqTn0Z5FY78qSZAszno_w8nJJXzfBULG-3E\" alt=\":test:\" title=\":test:\" height=\"32\"></a>"_s;
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    // Event is meaningless, we just need it for the title wrapping code to run
+    const auto event = eventCast<const Quotient::RoomMessageEvent>(room->messageEvents().at(2).get());
+
+    // Ensure that imgs (such as emoticons) with the title tag expose it via the custom link tag
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, event), testOutputString);
+}
+
+void TextHandlerTest::receiveRichCustomEmojiNoTitle()
+{
+    const QString testInputString = u"<img data-mx-emoticon=\"\" src=\"mxc://test.com/examplemxc\" height=\"32\" vertical-align=\"middle\" />"_s;
+    const QString testOutputString =
+        u"<img  src=\"mxc://test.com/examplemxc?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$zrCiBxBnqqTn0Z5FY78qSZAszno_w8nJJXzfBULG-3E\" height=\"32\">"_s;
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    // Event is meaningless, we just need it for the title wrapping code to run
+    const auto event = eventCast<const Quotient::RoomMessageEvent>(room->messageEvents().at(2).get());
+
+    // Ensure that imgs with no title set don't get wrapped.
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, event), testOutputString);
 }
 
 void TextHandlerTest::componentOutput_data()
