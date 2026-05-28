@@ -8,6 +8,7 @@
 #include <Quotient/avatar.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 
+#include "completionmodel.h"
 #include "enums/powerlevel.h"
 #include "neochatroom.h"
 
@@ -75,13 +76,13 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const auto &memberId = m_members.at(index.row());
-    if (role == DisplayNameRole) {
+    if (role == DisplayNameRole || role == CompletionModel::CompletionRoles::DisplayNameRole || role == CompletionModel::CompletionRoles::ReplacedTextRole) {
         return m_currentRoom->member(memberId).disambiguatedName();
     }
-    if (role == UserIdRole) {
+    if (role == UserIdRole || role == CompletionModel::CompletionRoles::SubtitleRole) {
         return memberId;
     }
-    if (role == AvatarRole) {
+    if (role == AvatarRole || role == CompletionModel::CompletionRoles::IconNameRole) {
         return m_currentRoom->member(memberId).avatarUrl();
     }
     if (role == ObjectRole) {
@@ -128,6 +129,9 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
     }
     if (role == ColorRole) {
         return m_currentRoom->member(memberId).color();
+    }
+    if (role == CompletionModel::CompletionRoles::HRefRole) {
+        return u"https://matrix.to/#/%1"_s.arg(memberId);
     }
 
     return {};

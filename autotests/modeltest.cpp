@@ -17,7 +17,6 @@
 #include "models/actionsmodel.h"
 #include "models/commonroomsmodel.h"
 #include "models/completionmodel.h"
-#include "models/completionproxymodel.h"
 #include "models/customemojimodel.h"
 #include "models/devicesmodel.h"
 #include "models/devicesproxymodel.h"
@@ -129,7 +128,6 @@ private Q_SLOTS:
     void testUserFilterModel();
     void testEmoticonFilterModel();
     void testDevicesProxyModel();
-    void testCompletionProxyModel();
 };
 
 void ModelTest::initTestCase()
@@ -400,10 +398,9 @@ void ModelTest::testCompletionModel()
     auto model = new CompletionModel(this);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    model->setAutoCompletionType(CompletionModel::Room);
-    auto roomListModel = new RoomListModel(this);
-    roomListModel->setConnection(connection);
-    model->setRoomListModel(roomListModel);
+    // auto roomListModel = new RoomListModel(this);
+    // roomListModel->setConnection(connection);
+    // model->setRoomListModel(roomListModel);
 }
 
 void ModelTest::testRoomListModel()
@@ -607,14 +604,6 @@ void ModelTest::testDevicesProxyModel()
     auto devicesModel = new DevicesModel(this);
     model->setSourceModel(devicesModel);
     devicesModel->setConnection(dynamic_cast<NeoChatConnection *>(connection));
-}
-
-void ModelTest::testCompletionProxyModel()
-{
-    auto model = new CompletionProxyModel(this);
-    auto tester = new QAbstractItemModelTester(model, model);
-    tester->setUseFetchMore(true);
-    model->setSourceModel(&EmojiModel::instance());
 }
 
 QTEST_MAIN(ModelTest)

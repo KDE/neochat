@@ -49,7 +49,6 @@ target_sources(LibNeoChat PRIVATE
     jobs/neochatauthmetadatajob.cpp
     models/actionsmodel.cpp
     models/completionmodel.cpp
-    models/completionproxymodel.cpp
     models/customemojimodel.cpp
     models/emojimodel.cpp
     models/imagepacksmodel.cpp
