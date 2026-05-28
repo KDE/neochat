@@ -486,9 +486,9 @@ void ChatKeyHelper::checkMouseSelection()
     m_textItem->setSelection(leftPos == -1 ? cursor.selectionStart() : leftPos, rightPos == -1 ? cursor.selectionEnd() : rightPos);
 }
 
-void ChatKeyHelper::checkLinkFormat(int position, int charsRemoved, int charsAdded)
+void ChatKeyHelper::checkLinkFormat(int position, int lengthBefore, int lengthAfter)
 {
-    if (!m_textItem || charsRemoved > charsAdded || charsAdded - charsRemoved != 1) {
+    if (!m_textItem || lengthBefore > lengthAfter || lengthAfter - lengthBefore != 1) {
         return;
     }
     QTextCursor cursor = m_textItem->textCursor();
@@ -497,7 +497,7 @@ void ChatKeyHelper::checkLinkFormat(int position, int charsRemoved, int charsAdd
     }
 
     bool nextToLink = false;
-    cursor.setPosition(position);
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::MoveAnchor, position + lengthAfter);
     if (cursor.charFormat().isAnchor()) {
         nextToLink = true;
     }
@@ -511,7 +511,7 @@ void ChatKeyHelper::checkLinkFormat(int position, int charsRemoved, int charsAdd
     }
 
     cursor.beginEditBlock();
-    cursor.setPosition(position);
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::MoveAnchor, position + lengthAfter);
     cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
     cursor.setCharFormat({});
     cursor.endEditBlock();

@@ -166,5 +166,5 @@ private:
 
     void checkMouseSelection();
 
-    void checkLinkFormat(int position, int charsRemoved, int charsAdded);
+    void checkLinkFormat(int position, int lengthBefore, int lengthAfter);
 };
