@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-28 00:43+0000\n"
-"PO-Revision-Date: 2026-05-30 23:10+0200\n"
+"PO-Revision-Date: 2026-05-31 23:32+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -3800,13 +3800,13 @@ msgstr "Pozvat tohoto uživatele"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Uživatel je buď již členem, nebo byl pozván"
 
 #: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
-msgstr ""
+msgstr "Odeslat pozvánku"
 
 #: src/libneochat/qml/OpenFileDialog.qml:12
 #, kde-format
@@ -3823,17 +3823,17 @@ msgstr "Hledat"
 #: src/libneochat/texthandler.cpp:643
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
-msgstr ""
+msgstr "<i>Tato událost nemá žádný obsah.</i>"
 
 #: src/login/Email.qml:20
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "Přidat e-mailovou adresu:"
 
 #: src/login/Email.qml:32
 #, kde-format
 msgid "Confirm e-mail address"
-msgstr ""
+msgstr "Potvrdit e-mailovou adresu"
 
 #: src/login/Email.qml:34
 #, kde-format
@@ -3841,12 +3841,14 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"Na vaši e-mailovou adresu byl odeslán potvrzovací e-mail. Po kliknutí na "
+"potvrzovací odkaz v e-mailu prosím pokračujte <b>zde</b>"
 
 #: src/login/Email.qml:39
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "Znovu odeslat potvrzovací e-mail"
 
 #: src/login/Homeserver.qml:20
 #, kde-format
@@ -3856,7 +3858,7 @@ msgstr "URL serveru:"
 #: src/login/Homeserver.qml:25
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "Na tomto serveru je registrace vypnutá."
 
 #: src/login/Homeserver.qml:47 src/login/Username.qml:38
 #, kde-format
@@ -3867,7 +3869,7 @@ msgstr "Načítání"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "Pokračovat v prohlížeči"
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -3875,6 +3877,7 @@ msgid ""
 "Please wait while your messages are loaded from the server. This might take "
 "a little while."
 msgstr ""
+"Počkejte prosím, než se vaše zprávy načtou ze serveru. Může to chvíli trvat."
 
 #: src/login/login.cpp:100 src/login/login.cpp:115
 #, kde-format
@@ -3906,19 +3909,19 @@ msgstr "Pokračovat"
 #: src/login/Login.qml:39
 #, kde-format
 msgid "Already logged in"
-msgstr ""
+msgstr "Již jste přihlášeni"
 
 #: src/login/LoginMethod.qml:20
 #, kde-format
 msgctxt "@action:button"
 msgid "Login with password"
-msgstr ""
+msgstr "Přihlásit se pomocí hesla"
 
 #: src/login/LoginMethod.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
-msgstr ""
+msgstr "Přihlásit se pomocí jednotného přihlášení"
 
 #: src/login/LoginRegister.qml:25 src/login/Password.qml:40
 #, kde-format
@@ -3956,70 +3959,67 @@ msgstr "Potvrdit heslo:"
 #: src/login/RegisterPassword.qml:33
 #, kde-format
 msgid "The passwords do not match."
-msgstr ""
+msgstr "Hesla se neshodují."
 
 #: src/login/registration.cpp:393
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgctxt "@info"
 msgid "No server."
-msgstr "Přidat server"
+msgstr "Žádný server."
 
 #: src/login/registration.cpp:395
 #, kde-format
 msgctxt "@info"
 msgid "Checking Server availability."
-msgstr ""
+msgstr "Kontrola dostupnosti serveru."
 
 #: src/login/registration.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "This is not a valid server."
-msgstr ""
+msgstr "Toto není platný server."
 
 #: src/login/registration.cpp:399
 #, kde-format
 msgctxt "@info"
 msgid "Registration for this server is disabled."
-msgstr ""
+msgstr "Registrace na tomto serveru je vypnutá."
 
 #: src/login/registration.cpp:401
 #, kde-format
 msgctxt "@info"
 msgid "Registration for this server requires a registration token."
-msgstr ""
+msgstr "K registraci na tomto serveru je zapotřebí registrační token."
 
 #: src/login/registration.cpp:403
 #, kde-format
 msgctxt "@info"
 msgid "This server cannot prevalidate registration tokens."
-msgstr ""
+msgstr "Tento server nemůže předběžně ověřit registrační tokeny."
 
 #: src/login/registration.cpp:405
 #, kde-format
 msgctxt "@info"
 msgid "This is not a valid registration token."
-msgstr ""
+msgstr "Toto není platný registrační token."
 
 #: src/login/registration.cpp:407
-#, fuzzy, kde-format
-#| msgid "No name"
+#, kde-format
 msgctxt "@info"
 msgid "No username."
-msgstr "Beze jména"
+msgstr "Žádné uživatelské jméno."
 
 #: src/login/registration.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Checking username availability."
-msgstr ""
+msgstr "Kontrola dostupnosti uživatelského jména."
 
 #: src/login/registration.cpp:411
 #, kde-format
 msgctxt "@info"
 msgid "This username is not available."
-msgstr ""
+msgstr "Toto uživatelské jméno není dostupné."
 
 #: src/login/registration.cpp:413
 #, kde-format
@@ -4037,41 +4037,41 @@ msgstr "Pracuje"
 #, kde-format
 msgctxt "@info"
 msgid "Checking registration token."
-msgstr ""
+msgstr "Ověřování registračního tokenu."
 
 #: src/login/registration.cpp:419
 #, kde-format
 msgctxt "@info"
 msgid "Waiting for login confirmation in your browser."
-msgstr ""
+msgstr "Čeká se na potvrzení přihlášení ve vašem prohlížeči."
 
 #: src/login/RegistrationToken.qml:20
 #, kde-format
 msgctxt "@label"
 msgid "Registration Token:"
-msgstr ""
+msgstr "Registrační token:"
 
 #: src/login/RegistrationToken.qml:23
 #, kde-format
 msgctxt "@info"
 msgid "Invalid registration token"
-msgstr ""
+msgstr "Neplatný registrační token"
 
 #: src/login/Sso.qml:29
 #, kde-format
 msgid "Continue the login process in your browser."
-msgstr ""
+msgstr "Pokračujte v přihlašování ve svém prohlížeči."
 
 #: src/login/Sso.qml:37
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
-msgstr ""
+msgstr "Znovu otevřít adresu URL pro jednotné přihlášení"
 
 #: src/login/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "Podmínky a ujednání"
 
 #: src/login/Terms.qml:19
 #, kde-format
@@ -4079,6 +4079,7 @@ msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
 msgstr ""
+"Pokračováním v registraci vyjadřujete souhlas s následujícími podmínkami:"
 
 #: src/login/Username.qml:20
 #, kde-format
@@ -4088,7 +4089,7 @@ msgstr "Uživatelské jméno:"
 #: src/login/Username.qml:23
 #, kde-format
 msgid "Username unavailable"
-msgstr ""
+msgstr "Uživatelské jméno není k dispozici"
 
 #: src/login/WelcomePage.qml:29
 #, kde-format
@@ -4104,7 +4105,7 @@ msgstr "NeoChat"
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
-msgstr ""
+msgstr "Pokračovat s existujícím účtem"
 
 #: src/login/WelcomePage.qml:137
 #, kde-format
@@ -4116,7 +4117,7 @@ msgstr "%1 (načítání)"
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
-msgstr ""
+msgstr "Odhlasit se z tohoto účtu"
 
 #: src/login/WelcomePage.qml:175
 #, kde-format
@@ -4139,7 +4140,7 @@ msgstr "Jít zpět"
 #: src/messagecontent/BaseBlockChooser.qml:190
 #, kde-format
 msgid "%1 started a user verification"
-msgstr ""
+msgstr "%1 zahájil ověření uživatele"
 
 #: src/messagecontent/CodeComponent.qml:183
 #, kde-format
@@ -4159,12 +4160,14 @@ msgid ""
 "This message is encrypted and the sender has not shared the key with this "
 "device."
 msgstr ""
+"Tato zpráva je zašifrovaná a odesílatel s tímto zařízením nesdílí šifrovací "
+"klíč."
 
 #: src/messagecontent/FetchButtonComponent.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
-msgstr ""
+msgstr "Načíst další události"
 
 #: src/messagecontent/FileComponent.qml:87
 #: src/messagecontent/FileComponent.qml:164
@@ -4269,7 +4272,7 @@ msgstr "Roztáhnout náhled"
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
 #, kde-format
 msgid "Loading reply"
-msgstr ""
+msgstr "Načítání odpovědi"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:65
 #, kde-format
@@ -4293,7 +4296,7 @@ msgstr "Otevřít externě"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
-msgstr ""
+msgstr "Otevřít na celou obrazovku"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:226
 #, kde-format
@@ -4302,24 +4305,26 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
+"Tato zpráva nebyla nalezena, nemáte oprávnění k jejímu zobrazení nebo ji "
+"odeslal uživatel, kterého jste ignorovali"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
-msgstr ""
+msgstr "Načítání odpovědi…"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr ""
+msgstr "Stahování souboru se nezdařilo."
 
 #: src/messagecontent/models/messagecontentmodel.cpp:107
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr ""
+msgstr "Stahování souboru se nezdařilo:<br />%1"
 
 #: src/messagecontent/PollComponent.qml:122
 #, kde-format
@@ -4373,19 +4378,19 @@ msgstr "Zrušit odpověď"
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
-msgstr ""
+msgstr "Zadat popisek přílohy…"
 
 #: src/messagecontent/TextComponent.qml:149
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
-msgstr ""
+msgstr "Odeslat šifrovanou zprávu…"
 
 #: src/messagecontent/TextComponent.qml:151
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
-msgstr "Poslat správu…"
+msgstr "Poslat zprávu…"
 
 #: src/messagecontent/TextComponentEditMenu.qml:98
 #, kde-format
@@ -4461,11 +4466,10 @@ msgid "Pl. %1"
 msgstr "Nást. %1"
 
 #: src/messagecontent/VideoComponent.qml:158
-#, fuzzy, kde-format
-#| msgid "Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Video"
-msgstr "Video"
+msgstr "Skrýt video"
 
 #: src/messagecontent/VideoComponent.qml:183
 #, kde-format
@@ -4491,18 +4495,17 @@ msgid "Locations"
 msgstr "Umístění"
 
 #: src/roominfo/LocationsPage.qml:70
-#, fuzzy, kde-format
-#| msgid "No Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No shared locations"
-msgstr "Žádné upozornění"
+msgstr "Žádná sdílená poloha"
 
 #: src/roominfo/LocationsPage.qml:71
 #, kde-format
 msgctxt ""
 "@info 'Send a Location' should share the same name as the chat bar button"
 msgid "Share a location by using 'Send a Location' in the chat bar."
-msgstr ""
+msgstr "Sdílejte polohu pomocí funkce 'Odeslat polohu' v liště chatu."
 
 #: src/roominfo/RoomDrawer.qml:122 src/roominfo/RoomDrawerPage.qml:51
 #, kde-format
@@ -4566,7 +4569,7 @@ msgstr "Rozšíření"
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr ""
+msgstr "Sdílená poloha"
 
 #: src/roominfo/RoomInformation.qml:161
 #, kde-format
@@ -4578,7 +4581,7 @@ msgstr "Připnuté zprávy"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr ""
+msgstr "Zkontrolovat údaje o místnosti"
 
 #: src/roominfo/RoomInformation.qml:197
 #, kde-format
@@ -4606,7 +4609,7 @@ msgstr "Pozvat uživatele"
 #: src/roominfo/RoomInformation.qml:229
 #, kde-format
 msgid "Invite user to room"
-msgstr ""
+msgstr "Pozvat uživatele do místnosti"
 
 #: src/roominfo/RoomInformation.qml:236
 #, kde-format
@@ -4626,13 +4629,13 @@ msgstr "Žádný počet členů"
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Media"
-msgstr ""
+msgstr "Média místnosti"
 
 #: src/roominfo/RoomPinnedMessagesPage.qml:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr ""
+msgstr "Žádné připnuté zprávy"
 
 #: src/roominfo/RoomSearchPage.qml:40
 #, kde-format
@@ -4649,23 +4652,23 @@ msgstr "Najít zprávy…"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching %1's messages"
-msgstr ""
+msgstr "Zadejte text a spusťte vyhledávání ve zprávách %1"
 
 #: src/roominfo/RoomSearchPage.qml:59
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching"
-msgstr ""
+msgstr "Zadejte text a spusťte vyhledávání"
 
 #: src/roominfo/RoomSearchPage.qml:60
 #, kde-format
 msgid "No messages found"
-msgstr ""
+msgstr "Nenalezena žádná zpráva"
 
 #: src/roominfo/RoomSearchPage.qml:62
 #, kde-format
 msgid "Cannot search in encrypted rooms"
-msgstr ""
+msgstr "V šifrovaných místnostech nelze vyhledávat"
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -4677,7 +4680,7 @@ msgstr "Rozšíření"
 #, kde-format
 msgctxt "@placeholder"
 msgid "No extensions"
-msgstr ""
+msgstr "Žádné rozšíření"
 
 #: src/roominfo/WidgetsPage.qml:67
 #, kde-format
@@ -4749,7 +4752,7 @@ msgstr "Vytvořit prostor"
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr ""
+msgstr "Pozvánka pro vás na chat"
 
 #: src/rooms/models/roomtreemodel.cpp:372
 #, kde-format
@@ -4787,7 +4790,7 @@ msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
 "keyword'"
 msgid "@Mentions and Keywords"
-msgstr ""
+msgstr "@Zmínky a klíčová slova"
 
 # žádné parametry funkce v inspektoru funkcí
 #: src/rooms/RoomContextMenu.qml:96 src/settings/PushNotification.qml:59
@@ -4812,19 +4815,19 @@ msgstr "Přidat do oblíbených"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
-msgstr ""
+msgstr "Změnit priority"
 
 #: src/rooms/RoomContextMenu.qml:115
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
-msgstr ""
+msgstr "Snížit prioritu"
 
 #: src/rooms/RoomContextMenu.qml:125
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Link"
-msgstr ""
+msgstr "Kopírovat odkaz na místnost"
 
 #: src/rooms/RoomContextMenu.qml:140
 #, kde-format
@@ -4840,19 +4843,16 @@ msgid "Report…"
 msgstr "Nahlásit…"
 
 #: src/rooms/RoomContextMenu.qml:157
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Room"
-msgstr "Hlášení"
+msgstr "Nahlásit místnost"
 
 #: src/rooms/RoomContextMenu.qml:158
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this room"
-msgstr ""
+msgstr "Volitelně můžete uvést důvod, proč tuto místnost nahlašujete"
 
 #: src/rooms/RoomContextMenu.qml:160
 #, kde-format
@@ -4876,63 +4876,61 @@ msgstr "Opustit místnost…"
 #: src/rooms/RoomDelegate.qml:128
 #, kde-format
 msgid "Muted room"
-msgstr ""
+msgstr "Ztlumená místnost"
 
 #: src/rooms/RoomDelegate.qml:159
 #, kde-format
 msgid "Configure room"
-msgstr ""
+msgstr "Nastavit místnost"
 
 #: src/rooms/RoomListPage.qml:207 src/rooms/RoomListPage.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
-msgstr ""
+msgstr "Najít vaše přátele"
 
 #: src/rooms/RoomListPage.qml:215 src/rooms/RoomListPage.qml:268
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
-msgstr ""
+msgstr "Najít vaše přátele"
 
 #: src/rooms/RoomListPage.qml:241
 #, kde-format
 msgctxt "@info"
 msgid "No friends found"
-msgstr ""
+msgstr "Žádní přátelé nenalezeni"
 
 #: src/rooms/RoomListPage.qml:241
 #, kde-format
 msgctxt "@info"
 msgid "No rooms found"
-msgstr ""
+msgstr "Žádná místnost nenalezena"
 
 #: src/rooms/RoomListPage.qml:243
 #, kde-format
 msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
-msgstr ""
+msgstr "Ještě nejsou přidaní žádní přátelé, klikněte níže a vyhledejte je."
 
 #: src/rooms/RoomListPage.qml:243
 #, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
-msgstr ""
+msgstr "Připojte se k několika místnostem a začněte"
 
 #: src/rooms/RoomListPage.qml:250
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
-msgstr "Hledat místnosti"
+msgstr "Hledat místnost"
 
 #: src/rooms/RoomListPage.qml:264
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
-msgstr ""
+msgstr "Hledat v seznamu přátel"
 
 #: src/rooms/RoomTreeSection.qml:73
 #, kde-format
@@ -5066,7 +5064,7 @@ msgstr "Opustit prostor…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr ""
+msgstr "Správa účtu"
 
 #: src/rooms/UserInfo.qml:103 src/settings/DevicesPage.qml:44
 #, kde-format
@@ -5090,7 +5088,7 @@ msgstr "Upravit účet"
 #, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr ""
+msgstr "Nový avatar se nepodařilo nastavit."
 
 #: src/settings/AccountEditorPage.qml:73
 #, kde-format
@@ -5117,6 +5115,8 @@ msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
 msgstr ""
+"V uživatelských údajích jsou neuložené změny. Chcete změny uložit, nebo je "
+"zrušit?"
 
 #: src/settings/AccountEditorPage.qml:99
 #, kde-format
@@ -5133,12 +5133,12 @@ msgstr "Obnovit"
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgid "Upload new avatar"
-msgstr "Odeslat nového avatara"
+msgstr "Nahrát nový avatar"
 
 #: src/settings/AccountEditorPage.qml:184
 #, kde-format
 msgid "Remove current avatar"
-msgstr ""
+msgstr "Odstranit současný avatar"
 
 #: src/settings/AccountEditorPage.qml:207
 #, kde-format
@@ -5179,7 +5179,7 @@ msgstr "Heslo"
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
-msgstr ""
+msgstr "Váš server nepodporuje změnu hesla"
 
 #: src/settings/AccountEditorPage.qml:276
 #, kde-format
@@ -5221,20 +5221,19 @@ msgstr "E-mailové adresy"
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
-msgstr ""
+msgstr "Identifikační server"
 
 #: src/settings/AccountEditorPage.qml:332
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
-msgstr ""
+msgstr "Správa účtu"
 
 #: src/settings/AccountEditorPage.qml:338
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@info"
 msgid "Manage Account"
-msgstr "Účty"
+msgstr "Správa účtu"
 
 #: src/settings/AccountEditorPage.qml:347
 #, kde-format
@@ -5257,7 +5256,7 @@ msgstr "URL domácího serveru"
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
-msgstr ""
+msgstr "Heslo bylo úspěšně změněno"
 
 #: src/settings/AccountEditorPage.qml:394
 #, kde-format
@@ -5269,7 +5268,7 @@ msgstr "Neplatné heslo"
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
-msgstr ""
+msgstr "Při pokusu o změnu hesla došlo k neznámé chybě"
 
 #: src/settings/AccountsPage.qml:22
 #, kde-format
@@ -5313,13 +5312,13 @@ msgstr "Obecné"
 #: src/settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgid "Use compact room list"
-msgstr ""
+msgstr "Použít kompaktní seznam místností"
 
 #: src/settings/AppearanceSettingsPage.qml:60
 #, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr ""
+msgstr "Změna velikosti písma v rozhovoru"
 
 #: src/settings/AppearanceSettingsPage.qml:64
 #, kde-format
@@ -5362,11 +5361,13 @@ msgstr "Průhlednost"
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
+"Tato funkce je k dispozici pouze v případě, že je povolena průhledná stránka "
+"rozhovoru."
 
 #: src/settings/AppearanceSettingsPage.qml:327
 #, kde-format
 msgid "Show your messages on the right"
-msgstr ""
+msgstr "Zobrazit zprávy vpravo"
 
 #: src/settings/AppearanceSettingsPage.qml:339
 #, kde-format
@@ -5377,19 +5378,18 @@ msgstr "Zobrazit avatary"
 #: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
-msgstr ""
+msgstr "V rozhovoru"
 
 #: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
 msgid "In sidebar"
-msgstr ""
+msgstr "V postranním panelu"
 
 #: src/settings/AppearanceSettingsPage.qml:361
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "In room information"
-msgstr "Informace"
+msgstr "V informacích o místnosti"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -5400,7 +5400,7 @@ msgstr "Barevný motiv"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Account Deactivation"
-msgstr ""
+msgstr "Potvrdit deaktivaci účtu"
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:18
 #, kde-format
@@ -5410,6 +5410,10 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"Váš účet bude trvale deaktivován.\n"
+"Tento krok nelze vzít zpět.\n"
+"Vaše Matrix ID nebude k dispozici pro nové účty.\n"
+"Vaše zprávy zůstanou dostupné."
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:28
 #, kde-format
@@ -5421,13 +5425,15 @@ msgstr "Heslo"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Vymazat data"
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
 msgstr ""
+"Požádejte svého poskytovatele webhostingu, aby smazal co nejvíce "
+"uživatelských dat."
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:44
 #, kde-format
@@ -5438,18 +5444,18 @@ msgstr "Deaktivovat účet"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Activate Encryption"
-msgstr ""
+msgstr "Aktivace šifrování"
 
 #: src/settings/ConfirmEncryptionDialog.qml:15
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
-msgstr ""
+msgstr "Jakmile bude šifrování aktivováno, nebude možné jej deaktivovat."
 
 #: src/settings/ConfirmEncryptionDialog.qml:25
 #, kde-format
 msgid "Activate Encryption"
-msgstr ""
+msgstr "Aktivace šifrování"
 
 #: src/settings/DeviceDelegate.qml:53
 #, kde-format
@@ -5460,29 +5466,29 @@ msgstr "%1, Poslední aktivita: %2"
 #: src/settings/DeviceDelegate.qml:62
 #, kde-format
 msgid "New device name"
-msgstr ""
+msgstr "Nový název zařízení"
 
 #: src/settings/DeviceDelegate.qml:71
 #, kde-format
 msgid "Cancel editing display name"
-msgstr ""
+msgstr "Zrušit úpravu zobrazovaného názvu"
 
 #: src/settings/DeviceDelegate.qml:78
 #, kde-format
 msgid "Confirm new display name"
-msgstr ""
+msgstr "Potvrdit nový zobrazovaný název"
 
 #: src/settings/DeviceDelegate.qml:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit device name"
-msgstr ""
+msgstr "Upravit název zařízení"
 
 #: src/settings/DeviceDelegate.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify device"
-msgstr ""
+msgstr "Ověřit zařízení"
 
 #: src/settings/DeviceDelegate.qml:119
 #, kde-format
@@ -5491,17 +5497,16 @@ msgid "Verified"
 msgstr "Ověřeno"
 
 #: src/settings/DeviceDelegate.qml:126
-#, fuzzy, kde-format
-#| msgid "Logout…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Logout device…"
-msgstr "Odhlásit se…"
+msgstr "Odhlásit zařízení…"
 
 #: src/settings/DeviceDelegate.qml:146
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove device"
-msgstr ""
+msgstr "Odstranit zařízení"
 
 #: src/settings/DeviceDelegate.qml:165
 #, kde-format
@@ -5528,47 +5533,50 @@ msgid ""
 "This device is marked as insecure until it's verified by another device. "
 "It's recommended to verify as soon as possible."
 msgstr ""
+"Toto zařízení je označeno jako nezabezpečené, dokud nebude ověřeno jiným "
+"zařízením. Doporučujeme provést ověření co nejdříve."
 
 #: src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:description"
 msgid "This device is marked as secure."
-msgstr ""
+msgstr "Toto zařízení je označeno jako zabezpečené."
 
 #: src/settings/DevicesPage.qml:51
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "Žádost o ověření odeslána"
 
 #: src/settings/DevicesPage.qml:52
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "Chcete-li pokračovat, potvrďte ověřovací žádost na jiném zařízení."
 
 #: src/settings/DevicesPage.qml:63
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
-msgstr ""
+msgstr "Ověřené zařízení"
 
 #: src/settings/DevicesPage.qml:69
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
-msgstr ""
+msgstr "Neověřené zařízení"
 
 #: src/settings/DevicesPage.qml:75
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
-msgstr ""
+msgstr "Zařízení bez podpory šifrování"
 
 #: src/settings/DevicesPage.qml:91
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
+"Přihlaste se, abyste si mohli prohlédnout zařízení přihlášená k vašemu účtu."
 
 #: src/settings/EmoticonEditorPage.qml:29
 #, kde-format
@@ -5702,6 +5710,8 @@ msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
 msgstr ""
+"Heslo pro zabezpečení zálohy klíče. Nemělo by se jednat o heslo k vašemu "
+"účtu."
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
