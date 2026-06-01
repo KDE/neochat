@@ -123,7 +123,6 @@ void ThreadModel::addModels()
 {
     clearModels();
 
-    addSourceModel(m_threadFetchModel);
     for (auto it = m_events.crbegin(); it != m_events.crend(); ++it) {
         const auto contentModel = ContentProvider::self().contentModelForEvent(m_room, *it);
         if (contentModel != nullptr) {
