@@ -143,7 +143,6 @@ void ThreadModel::clearModels()
     if (sourceModels().contains(m_threadChatBarModel)) {
         removeSourceModel(m_threadChatBarModel);
     }
-    removeSourceModel(m_threadChatBarModel);
 }
 
 void ThreadModel::closeLinkPreview(int row)
