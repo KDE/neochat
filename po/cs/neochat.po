@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-07 02:40+0000\n"
-"PO-Revision-Date: 2026-05-31 23:32+0200\n"
+"POT-Creation-Date: 2026-06-02 03:53+0000\n"
+"PO-Revision-Date: 2026-06-01 21:25+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -39,7 +39,7 @@ msgstr "NeoChat"
 #: src/app/main.cpp:139
 #, kde-format
 msgid "Chat on Matrix"
-msgstr "Rozhovor na Matrixu"
+msgstr "Chat na Matrixu"
 
 #: src/app/main.cpp:141
 #, kde-format
@@ -309,19 +309,19 @@ msgstr "Přihlášení"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Start a chat"
-msgstr "Zahájit rozhovor"
+msgstr "Zahájit chat"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:21
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to start a chat with %1?"
-msgstr "Přejete si začít rozhovor s %1?"
+msgstr "Přejete si začít chat s %1?"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:30
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Chat"
-msgstr "Zahájit rozhovor"
+msgstr "Zahájit chat"
 
 #: src/app/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -577,7 +577,7 @@ msgstr "%1 vás pozval do této místnosti na %2."
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Tento uživatel vás pozval k rozhovoru na %1."
+msgstr "Tento uživatel vás pozval k chatu na %1."
 
 #: src/app/qml/InvitationView.qml:114
 #, kde-format
@@ -1832,25 +1832,25 @@ msgstr "Locate (rychle najít)"
 #, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "Vytvořit anketu"
+msgstr "Vytvořit hlasování"
 
 #: src/chatbar/NewPollDialog.qml:35
 #, kde-format
 msgctxt "@label"
 msgid "Poll type:"
-msgstr "Typ ankety:"
+msgstr "Typ hlasování:"
 
 #: src/chatbar/NewPollDialog.qml:40
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Open poll"
-msgstr "Otevřít anketu"
+msgstr "Otevřít hlasování"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Closed poll"
-msgstr "Ukončit anketu"
+msgstr "Ukončit hlasování"
 
 #: src/chatbar/NewPollDialog.qml:46
 #, kde-format
@@ -1988,7 +1988,7 @@ msgstr "Odeslat polohu"
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "Vytvořit anketu"
+msgstr "Vytvořit hlasování"
 
 #: src/chatbar/SendBar.qml:133 src/chatbar/SendBar.qml:185
 #, kde-format
@@ -3078,7 +3078,7 @@ msgstr "%1 aktualizoval(a) stav"
 #: src/libneochat/eventhandler.cpp:666
 #, kde-format
 msgid "%1 started a poll"
-msgstr "%1 spustil anketu"
+msgstr "%1 spustil hlasování"
 
 #: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
@@ -3518,12 +3518,12 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Není nastaven žádný identifikační server"
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:379
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/libneochat/neochatconnection.cpp:413
+#: src/libneochat/neochatconnection.cpp:408
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
@@ -4235,7 +4235,7 @@ msgstr "(Ukončeno)"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr "Anketa skončila. Nejčastější odpověď: %1"
+msgstr "Hlasování skončilo. Nejčastější odpověď: %1"
 
 #: src/messagecontent/ReactionComponent.qml:88
 #, kde-format
@@ -5144,7 +5144,7 @@ msgstr "Použít kompaktní seznam místností"
 #, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr "Změna velikosti písma v rozhovoru"
+msgstr "Změna velikosti písma v chatu"
 
 #: src/settings/AppearanceSettingsPage.qml:64
 #, kde-format
@@ -5173,7 +5173,7 @@ msgstr "Kompaktní"
 #: src/settings/AppearanceSettingsPage.qml:269
 #, kde-format
 msgid "Use transparent chat page"
-msgstr "Použít průhlednou stránku pro rozhovor"
+msgstr "Použít průhlednou stránku pro chat"
 
 # Přechod sklouznutí má posunovače, kde vlevo (žádný výběr) znamená průhlednost a vpravo (výběr 100 %) znamená neprůhlednost.
 #
@@ -5188,7 +5188,7 @@ msgstr "Průhlednost"
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 "Tato funkce je k dispozici pouze v případě, že je povolena průhledná stránka "
-"rozhovoru."
+"chatu."
 
 #: src/settings/AppearanceSettingsPage.qml:327
 #, kde-format
@@ -5204,7 +5204,7 @@ msgstr "Zobrazit avatary"
 #: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
-msgstr "V rozhovoru"
+msgstr "V chatu"
 
 #: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
@@ -5566,16 +5566,17 @@ msgstr "Zapnout upozornění pro tento účet"
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
 msgstr ""
+"Upozornění se mohou zobrazovat i tehdy, když není spuštěna aplikace NeoChat."
 
 #: src/settings/GlobalNotificationsPage.qml:36
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "Push notifikace jsou k dispozici, ale nepodařilo se je aktivovat."
 
 #: src/settings/GlobalNotificationsPage.qml:39
 #, kde-format
 msgid "Notifications will only appear when NeoChat is running."
-msgstr ""
+msgstr "Upozornění se zobrazí pouze tehdy, když je spuštěna aplikace NeoChat."
 
 #: src/settings/GlobalNotificationsPage.qml:59
 #, kde-format
@@ -5584,12 +5585,15 @@ msgid ""
 "These are the default notification settings for all rooms. You can customize "
 "notifications per-room in the room list or room settings."
 msgstr ""
+"Toto jsou výchozí nastavení upozornění pro všechny místnosti. Oznámení "
+"můžete přizpůsobit pro jednotlivé místnosti v seznamu místností nebo v "
+"nastavení místnosti."
 
 #: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
-msgstr ""
+msgstr "Upozornění z místností"
 
 #: src/settings/GlobalNotificationsPage.qml:86
 #, kde-format
@@ -5632,60 +5636,60 @@ msgstr "Neznámý"
 #: src/settings/IdentityServerDelegate.qml:39
 #, kde-format
 msgid "New identity server url"
-msgstr ""
+msgstr "Nová url adresa identifikačního serveru"
 
 #: src/settings/IdentityServerDelegate.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel editing identity server url"
-msgstr ""
+msgstr "Zrušit úpravu url adresy identifikačního serveru"
 
 #: src/settings/IdentityServerDelegate.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm new identity server url"
-msgstr ""
+msgstr "Potvrdit novou url adresu identifikačního serveru"
 
 #: src/settings/IdentityServerDelegate.qml:73
 #, kde-format
 msgid "The entered url is not a valid identity server"
-msgstr ""
+msgstr "Zadaná url adresa není platný identifikační server"
 
 #: src/settings/IdentityServerDelegate.qml:75
 #, kde-format
 msgid "The entered url is already configured as your identity server"
-msgstr ""
+msgstr "Zadaná url adresa je již nastavena jako váš identifikační server"
 
 #: src/settings/IdentityServerDelegate.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit identity server url"
-msgstr ""
+msgstr "Zadat url adresu identifikačního serveru"
 
 #: src/settings/IdentityServerDelegate.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove identity server"
-msgstr ""
+msgstr "Vzdálený identifikační server"
 
 #: src/settings/IgnoredUsersDialog.qml:20
 #: src/settings/NeoChatSecurityPage.qml:37
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr ""
+msgstr "Ignorovaní uživatelé"
 
 #: src/settings/IgnoredUsersDialog.qml:27
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr ""
+msgstr "Žádní ignorovaní uživatelé"
 
 #: src/settings/IgnoredUsersDialog.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr ""
+msgstr "Zrušit ignorování uživatele"
 
 #: src/settings/ImportKeysDialog.qml:20
 #, kde-format
@@ -5715,7 +5719,7 @@ msgstr "Neplatné heslo"
 #, kde-format
 msgctxt "@info"
 msgid "Invalid key backup data"
-msgstr ""
+msgstr "Neplatná data zálohy klíče"
 
 #: src/settings/KeyboardShortcutsPage.qml:12
 #, kde-format
@@ -5727,7 +5731,7 @@ msgstr "Klávesové zkratky"
 #, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
-msgstr ""
+msgstr "Otevřít rychlý přepínač"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
 #, kde-format
@@ -5739,31 +5743,31 @@ msgstr "Otevřít přepínač účtů"
 #, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr ""
+msgstr "Vyhledat zprávy v aktuální místnosti"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "Přejít do předchozí místnosti"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr ""
+msgstr "Přejít do další místnosti"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "Přejít na předchozí nepřečtenou místnost"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "Přejít na další nepřečtenou místnost"
 
 #: src/settings/Members.qml:23
 #, kde-format
@@ -5775,15 +5779,13 @@ msgstr "Členové"
 #, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
-msgstr ""
+msgstr "Privilegovaní členové"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "Žádná místnost nebyla nalezena"
+msgstr "Nenalezen žádný uživatel."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5794,17 +5796,17 @@ msgstr "Probíhá načítání…"
 #: src/settings/models/permissionsmodel.cpp:61
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr ""
+msgstr "Výchozí úroveň pravomocí"
 
 #: src/settings/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr ""
+msgstr "Výchozí úroveň pravomocí pro změnu stavu místnosti"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "Výchozí úroveň pravomocí pro odesílání zpráv"
 
 #: src/settings/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
@@ -5824,17 +5826,17 @@ msgstr "Zablokovat uživatele"
 #: src/settings/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
-msgstr ""
+msgstr "Odstranit zprávy odeslané jinými uživateli"
 
 #: src/settings/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Send reactions"
-msgstr ""
+msgstr "Odeslat reakci"
 
 #: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
-msgstr ""
+msgstr "Odstranit vlastní zprávy"
 
 #: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
@@ -5854,39 +5856,37 @@ msgstr "Změnit avatara místnosti"
 #: src/settings/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
-msgstr ""
+msgstr "Změnit základní alias místnosti"
 
 #: src/settings/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Change the room topic"
-msgstr ""
+msgstr "Změnit téma místnosti"
 
 #: src/settings/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
-msgstr ""
+msgstr "Zapnout šifrování pro místnost"
 
 #: src/settings/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
-msgstr ""
+msgstr "Změnit viditelnost historie místnosti"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgid "Find messages…"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "Najít zprávy…"
+msgstr "Připnout a odepnout zprávy"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
 msgid "Upgrade the room"
-msgstr ""
+msgstr "Aktualizovat místnost"
 
 #: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
-msgstr ""
+msgstr "Nastavit seznam řízení přístupu (ACL) pro server místnosti"
 
 #: src/settings/models/permissionsmodel.cpp:80
 msgctxt "Room permission type"
@@ -5899,43 +5899,46 @@ msgid "Set the parent space of this room"
 msgstr "Nastavit nadřazený prostor této místnosti"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "Poslat tuto polohu"
+msgstr "Odesílat aktualizace polohy v reálném čase"
 
 #: src/settings/models/permissionsmodel.cpp:83
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "Spustit ankety"
+msgstr "Spustit hlasování"
 
 #: src/settings/models/permissionsmodel.cpp:84
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "Hlasovat v anketách"
+msgstr "Hlasovat v hlasování"
 
 #: src/settings/models/permissionsmodel.cpp:85
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "Ukončit ankety"
+msgstr "Ukončit hlasování"
 
 #: src/settings/models/permissionsmodel.cpp:90
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
 msgstr ""
+"Toto je úroveň pravomocí, kterou mají všichni noví uživatelé při vstupu do "
+"místnosti."
 
 #: src/settings/models/permissionsmodel.cpp:91
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
 msgstr ""
+"Toto se používá pro všechny stavové události, které nemají vlastní záznam."
 
 #: src/settings/models/permissionsmodel.cpp:92
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
 msgstr ""
+"Toto se používá pro všechny události typu zprávy, které nemají vlastní "
+"záznam."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -5945,62 +5948,62 @@ msgstr "Zapnout upozornění pro tento účet"
 #: src/settings/models/pushrulemodel.cpp:18
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
-msgstr ""
+msgstr "Zprávy v soukromých chatech"
 
 #: src/settings/models/pushrulemodel.cpp:19
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
-msgstr ""
+msgstr "Šifrované zprávy v soukromých chatech"
 
 #: src/settings/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Messages in group chats"
-msgstr ""
+msgstr "Zprávy ve skupinových chatech"
 
 #: src/settings/models/pushrulemodel.cpp:21
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
-msgstr ""
+msgstr "Zprávy v šifrovaných skupinových chatech"
 
 #: src/settings/models/pushrulemodel.cpp:22
 msgctxt "Notification type"
 msgid "Room upgrade messages"
-msgstr ""
+msgstr "Zprávy o aktualizaci místnosti"
 
 #: src/settings/models/pushrulemodel.cpp:23
 msgctxt "Notification type"
 msgid "Messages containing my display name"
-msgstr ""
+msgstr "Zprávy obsahující mé zobrazované jméno"
 
 #: src/settings/models/pushrulemodel.cpp:24
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr ""
+msgstr "Zprávy, ve kterých se zmiňuje moje ID uživatele v Matrixu"
 
 #: src/settings/models/pushrulemodel.cpp:25
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr ""
+msgstr "Zprávy, ve kterých se zmiňuje místnost"
 
 #: src/settings/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
-msgstr ""
+msgstr "Zprávy obsahující místní část mého Matrix ID"
 
 #: src/settings/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
-msgstr ""
+msgstr "Upozornění pro celou místnost (@room)"
 
 #: src/settings/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Invites to a room"
-msgstr ""
+msgstr "Pozvat do místnosti"
 
 #: src/settings/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Call invitation"
-msgstr ""
+msgstr "Pozvánka na hovor"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -6028,35 +6031,37 @@ msgstr "Minimalizovat do systémového panelu"
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
+"Při změně velikosti okna automaticky skrýt/zobrazit informace o místnosti"
 
 #: src/settings/NeoChatGeneralPage.qml:80
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
-msgstr ""
+msgstr "Zobrazit všechny místnosti v záložce \"Domů\""
 
 #: src/settings/NeoChatGeneralPage.qml:91
 #, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
-msgstr ""
+msgstr "Pořadí v seznamu místností"
 
 #: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr ""
+"Skryté události se při třídění místností nezohledňují jako nedávná aktivita."
 
 #: src/settings/NeoChatGeneralPage.qml:101
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr ""
+msgstr "Důležitost"
 
 #: src/settings/NeoChatGeneralPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr ""
+msgstr "Nejprve se zobrazí místnosti s nepřečtenými upozorněními."
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -6068,13 +6073,13 @@ msgstr "Podle abecedy"
 #, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr ""
+msgstr "Nejnovější události"
 
 #: src/settings/NeoChatGeneralPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr ""
+msgstr "Nejprve se zobrazí místnosti s nejnovějšími událostmi."
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
@@ -6091,7 +6096,7 @@ msgstr "Časová osa"
 #: src/settings/NeoChatGeneralPage.qml:148
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Označit zprávy jako přečtené, když:"
 
 #: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
@@ -6104,7 +6109,7 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr ""
+msgstr "Vstoupíte do místnosti"
 
 #: src/settings/NeoChatGeneralPage.qml:161
 #, kde-format
@@ -6112,14 +6117,14 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "Vstoupíte do místnosti a všechny nepřečtené zprávy jsou viditelné"
 
 #: src/settings/NeoChatGeneralPage.qml:165
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr ""
+msgstr "Opustíte místnost"
 
 #: src/settings/NeoChatGeneralPage.qml:169
 #, kde-format
@@ -6127,12 +6132,12 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr ""
+msgstr "Opustíte místnost a všechny nepřečtené zprávy jsou viditelné"
 
 #: src/settings/NeoChatGeneralPage.qml:184
 #, kde-format
 msgid "Show deleted messages"
-msgstr ""
+msgstr "Zobrazit smazané zprávy"
 
 #: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
@@ -6142,17 +6147,17 @@ msgstr "Zobrazit stav událostí"
 #: src/settings/NeoChatGeneralPage.qml:218
 #, kde-format
 msgid "Show leave and join events"
-msgstr ""
+msgstr "Zobrazit události opuštění a připojení"
 
 #: src/settings/NeoChatGeneralPage.qml:236
 #, kde-format
 msgid "Show name change events"
-msgstr ""
+msgstr "Zobrazit události změny názvu"
 
 #: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Show avatar update events"
-msgstr ""
+msgstr "Zobrazit události aktualizace avataru"
 
 #: src/settings/NeoChatGeneralPage.qml:264
 #, kde-format
@@ -6163,17 +6168,17 @@ msgstr "Editor"
 #: src/settings/NeoChatGeneralPage.qml:269
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
-msgstr ""
+msgstr "K úpravě své poslední zprávy použijte syntaxi s/text/náhrada"
 
 #: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgid "Developer Settings"
-msgstr ""
+msgstr "Nastavení pro vývojáře"
 
 #: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Enable developer tools"
-msgstr ""
+msgstr "Povolit vývojářské nástroje"
 
 #: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
@@ -6195,7 +6200,7 @@ msgstr "Výchozí nastavení"
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
-msgstr ""
+msgstr "Obnovit všechny hodnoty nastavení na výchozí…"
 
 #: src/settings/NeoChatGeneralPage.qml:320
 #, kde-format
@@ -6207,7 +6212,7 @@ msgstr "Obnovit nastavení"
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
-msgstr ""
+msgstr "Opravdu chcete obnovit výchozí nastavení všech parametrů?"
 
 #: src/settings/NeoChatSecurityPage.qml:20
 #, kde-format
@@ -6219,7 +6224,7 @@ msgstr "Zabezpečení a bezpečnost"
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignored Users"
-msgstr ""
+msgstr "Ignorovaní uživatelé"
 
 #: src/settings/NeoChatSecurityPage.qml:43
 #, kde-format
@@ -6240,6 +6245,9 @@ msgid ""
 "You can customize this per-room under room settings. If unchecked, disables "
 "link previews in every room."
 msgstr ""
+"Tuto funkci můžete nastavit pro jednotlivé místnosti v nastavení místnosti. "
+"Pokud tuto možnost nezaškrtnete, zakážete náhledy odkazů ve všech "
+"místnostech."
 
 #: src/settings/NeoChatSecurityPage.qml:62
 #, kde-format
@@ -6251,7 +6259,7 @@ msgstr "Posílat upozornění o psaní"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
-msgstr ""
+msgstr "Ve výchozím nastavení skrýt obrázky a videa"
 
 #: src/settings/NeoChatSecurityPage.qml:77
 #, kde-format
@@ -6273,21 +6281,20 @@ msgstr "Všichni"
 #, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
-msgstr ""
+msgstr "Pozvánky vám může posílat kdokoli."
 
 #: src/settings/NeoChatSecurityPage.qml:98
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Ban users"
+#, kde-format
 msgctxt "@option:check"
 msgid "Known users"
-msgstr "Zablokovat uživatele"
+msgstr "Známí uživatelé"
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
+"Pozvánky vám mohou posílat pouze uživatelé, se kterými sdílíte místnost."
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #: src/settings/NeoChatSecurityPage.qml:112
@@ -6306,7 +6313,7 @@ msgstr "Nikdo"
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
-msgstr ""
+msgstr "Pozvánky vám nemůže posílat nikdo."
 
 #: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
@@ -6318,7 +6325,7 @@ msgstr "Šifrování"
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr ""
+msgstr "Zapnout šifrování v nových chatech"
 
 #: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
@@ -6326,6 +6333,8 @@ msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
+"Pokud je tato funkce zapnutá, NeoChat bude při zahájení nové přímé "
+"konverzace používat šifrování."
 
 #: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
@@ -6337,13 +6346,13 @@ msgstr "Správa úložiště klíčů"
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
-msgstr ""
+msgstr "Importovat nebo odemknout šifrovací klíče z jiných zařízení."
 
 #: src/settings/NeoChatSecurityPage.qml:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
-msgstr ""
+msgstr "Správa tajných záloh"
 
 #: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
@@ -6355,7 +6364,7 @@ msgstr "Importovat klíče"
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
-msgstr ""
+msgstr "Importovat šifrovací klíče ze záložního souboru."
 
 #: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
@@ -6379,7 +6388,7 @@ msgstr "Exportovat klíče"
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
-msgstr ""
+msgstr "Exportovat šifrovací klíče tohoto zařízení do souboru."
 
 #: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
@@ -6428,24 +6437,24 @@ msgstr "Síťová proxy"
 msgid "Devices"
 msgstr "Zařízení"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr "Klávesové zkratky"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "O aplikaci NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "O aplikaci"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "O prostředí KDE"
@@ -6514,12 +6523,12 @@ msgstr "Povolit upozornění"
 #: src/settings/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Mute notifications"
-msgstr "Ztlumit oznámení"
+msgstr "Ztlumit upozornění"
 
 #: src/settings/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Unmute notifications"
-msgstr ""
+msgstr "Zrušit ztlumení upozornění"
 
 #: src/settings/NotificationRuleItem.qml:113
 #, kde-format
@@ -6527,7 +6536,7 @@ msgctxt ""
 "As in clicking this button will switch off highlights for messages that "
 "match this rule"
 msgid "Disable message highlights"
-msgstr ""
+msgstr "Vypnout zvýraznění zpráv"
 
 #: src/settings/NotificationRuleItem.qml:113
 #, kde-format
@@ -6535,12 +6544,12 @@ msgctxt ""
 "As in clicking this button will switch on highlights for messages that match "
 "this rule"
 msgid "Enable message highlights"
-msgstr ""
+msgstr "Zapnout zvýraznění zpráv"
 
 #: src/settings/NotificationRuleItem.qml:135
 #, kde-format
 msgid "Delete keyword"
-msgstr ""
+msgstr "Smazat klíčové slovo"
 
 #: src/settings/PasswordSheet.qml:16
 #, kde-format
@@ -6558,7 +6567,7 @@ msgstr "Heslo:"
 #, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr ""
+msgstr "Úrovně pravomocí"
 
 #: src/settings/Permissions.qml:75
 #, kde-format
@@ -6583,13 +6592,13 @@ msgstr "Obecné"
 #, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr ""
+msgstr "Ostatní události"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
-msgstr ""
+msgstr "Typ události…"
 
 #: src/settings/Permissions.qml:276
 #, kde-format
@@ -6601,12 +6610,12 @@ msgstr "Přidat klíčové slovo"
 #, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
-msgstr ""
+msgstr "Upravit úroveň pravomocí uživatele"
 
 #: src/settings/PowerLevelDialog.qml:35
 #, kde-format
 msgid "New power level"
-msgstr ""
+msgstr "Nová úroveň pravomocí"
 
 #: src/settings/PowerLevelDialog.qml:43
 #, kde-format
@@ -6617,7 +6626,7 @@ msgstr "Potvrdit"
 #, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr ""
+msgstr "Odeslat upozornění pro"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
@@ -6641,31 +6650,31 @@ msgstr "ID místnosti"
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
-msgstr ""
+msgstr "Zkopírovat ID místnosti do schránky"
 
 #: src/settings/RoomAdvancedPage.qml:50
 #, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
-msgstr ""
+msgstr "Verze místnosti"
 
 #: src/settings/RoomAdvancedPage.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr ""
+msgstr "Aktualizace místnosti…"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
-msgstr ""
+msgstr "Aktualizovat místnost"
 
 #: src/settings/RoomAdvancedPage.qml:85
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
-msgstr ""
+msgstr "Vybrat novou verzi"
 
 #: src/settings/RoomAdvancedPage.qml:93
 #, kde-format
@@ -6677,7 +6686,7 @@ msgstr "Potvrdit"
 #, kde-format
 msgctxt "@action:button"
 msgid "Update avatar"
-msgstr ""
+msgstr "Aktualizovat avatara"
 
 #: src/settings/RoomGeneralPage.qml:68
 #, kde-format
@@ -6701,19 +6710,19 @@ msgstr "Uložit"
 #, kde-format
 msgctxt "@title"
 msgid "Aliases"
-msgstr "Zkratky"
+msgstr "Aliasy"
 
 #: src/settings/RoomGeneralPage.qml:108
 #, kde-format
 msgctxt "@info"
 msgid "No canonical alias set"
-msgstr ""
+msgstr "Není nastaven žádný základní alias"
 
 #: src/settings/RoomGeneralPage.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
-msgstr ""
+msgstr "Nastavit alias místnosti jako základní"
 
 #: src/settings/RoomGeneralPage.qml:138
 #, kde-format
@@ -6725,7 +6734,7 @@ msgstr "Smazat alias"
 #, kde-format
 msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
-msgstr ""
+msgstr "#novy_alias:server.org"
 
 #: src/settings/RoomGeneralPage.qml:177
 #, kde-format
@@ -6745,7 +6754,7 @@ msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
-msgstr ""
+msgstr "Náhledy odkazů jsou v nastaveních vzhledu globálně deaktivovány"
 
 #: src/settings/RoomGeneralPage.qml:206
 #, kde-format
@@ -6757,25 +6766,25 @@ msgstr "Povolit"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews for this room"
-msgstr ""
+msgstr "Zapnout náhledy odkazů pro tuto místnost"
 
 #: src/settings/RoomGeneralPage.qml:220
 #, kde-format
 msgctxt "@info"
 msgid "Link previews were enabled by default by the room admins."
-msgstr ""
+msgstr "Správci místnosti ve výchozím nastavení zapnuli náhledy odkazů."
 
 #: src/settings/RoomGeneralPage.qml:220
 #, kde-format
 msgctxt "@info"
 msgid "Link previews were disabled by default by the room admins."
-msgstr ""
+msgstr "Správci místnosti ve výchozím nastavení vypnuli náhledy odkazů."
 
 #: src/settings/RoomGeneralPage.qml:225
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews by default"
-msgstr ""
+msgstr "Zapnout náhledy odkazů jako výchozí"
 
 #: src/settings/RoomGeneralPage.qml:232
 #, kde-format
@@ -6787,7 +6796,7 @@ msgstr "Oficiální nadřazené prostory"
 #, kde-format
 msgctxt "@action:button"
 msgid "Canonical"
-msgstr "Canonical"
+msgstr "Základní"
 
 #: src/settings/RoomGeneralPage.qml:270
 #, kde-format
@@ -6811,37 +6820,37 @@ msgstr "Tato místnost nemá oficiální nadřazený prostor."
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
-msgstr ""
+msgstr "Přidat nového oficiálního potomka"
 
 #: src/settings/RoomGeneralPage.qml:315
 #, kde-format
 msgctxt "@info"
 msgid "This room continues another conversation."
-msgstr ""
+msgstr "Tato místnost navazuje na další konverzaci."
 
 #: src/settings/RoomGeneralPage.qml:319
 #, kde-format
 msgctxt "@action:button"
 msgid "See older messages…"
-msgstr ""
+msgstr "Zobrazit starší zprávy…"
 
 #: src/settings/RoomGeneralPage.qml:331
 #, kde-format
 msgctxt "@info"
 msgid "This room has been replaced."
-msgstr ""
+msgstr "Tato místnost byla nahrazena."
 
 #: src/settings/RoomGeneralPage.qml:335
 #, kde-format
 msgctxt "@action:button"
 msgid "See new room…"
-msgstr ""
+msgstr "Zobrazit novou místnost…"
 
 #: src/settings/RoomProfile.qml:29
 #, kde-format
 msgctxt "@info"
 msgid "Customize your profile only for this room."
-msgstr ""
+msgstr "Upravte si svůj profil pouze pro tuto místnost."
 
 #: src/settings/RoomProfile.qml:37
 #, kde-format
@@ -6867,6 +6876,8 @@ msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
+"Chcete-li toto nastavení aktivovat, musíte tuto místnost aktualizovat na "
+"novější verzi."
 
 #: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:49
 #, kde-format
@@ -6884,19 +6895,19 @@ msgstr "Šifrování"
 #, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
-msgstr ""
+msgstr "Tato místnost využívá šifrování."
 
 #: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
-msgstr ""
+msgstr "Zapnout šifrování…"
 
 #: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
-msgstr ""
+msgstr "Jakmile je šifrování jednou zapnuto, nelze jej vypnout."
 
 #: src/settings/RoomSecurityPage.qml:60
 #, kde-format
@@ -6908,13 +6919,13 @@ msgstr "Přístup"
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
-msgstr ""
+msgstr "Soukromé (pouze na pozvánku)"
 
 #: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@info"
 msgid "Only invited people can join."
-msgstr ""
+msgstr "Připojit se mohou pouze pozvaní."
 
 #: src/settings/RoomSecurityPage.qml:73
 #, kde-format
@@ -6938,49 +6949,52 @@ msgstr "Vybrat prostory"
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr ""
+msgstr "Zaklepat"
 
 #: src/settings/RoomSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
+"Lidé, kteří nejsou v místnosti, si musí vyžádat pozvánku, aby se mohli "
+"připojit."
 
 #: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
-msgstr "Veřejný"
+msgstr "Veřejné"
 
 #: src/settings/RoomSecurityPage.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
-msgstr ""
+msgstr "Kdokoli si to zde může najít a připojit se."
 
 #: src/settings/RoomSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
-msgstr ""
+msgstr "Zobrazení historie zpráv"
 
 #: src/settings/RoomSecurityPage.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
-msgstr ""
+msgstr "Kdokoli"
 
 #: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
+"Historii si může prohlédnout kdokoli, bez ohledu na to, zda se zaregistroval."
 
 #: src/settings/RoomSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr ""
+msgstr "Pouze členové"
 
 #: src/settings/RoomSecurityPage.qml:136
 #, kde-format
@@ -6988,12 +7002,14 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
+"Všichni členové si mohou prohlížet celou historii zpráv, a to i z doby "
+"předtím, než se připojili."
 
 #: src/settings/RoomSecurityPage.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr ""
+msgstr "Pouze členové (od doby pozvánky)"
 
 #: src/settings/RoomSecurityPage.qml:145
 #, kde-format
@@ -7002,12 +7018,14 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
+"Noví členové si mohou prohlížet historii zpráv od okamžiku, kdy byli do "
+"místnosti pozváni."
 
 #: src/settings/RoomSecurityPage.qml:153
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr ""
+msgstr "Pouze členové (od doby připojení)"
 
 #: src/settings/RoomSecurityPage.qml:154
 #, kde-format
@@ -7015,6 +7033,8 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
+"Noví členové si mohou prohlížet historii zpráv od okamžiku, kdy vstoupili do "
+"místnosti."
 
 #: src/settings/RoomSettingsView.qml:26
 #, kde-format
@@ -7056,7 +7076,7 @@ msgstr "Pokročilé"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
-msgstr ""
+msgstr "Vlastní pořadí řazení místností"
 
 #: src/settings/RoomSortParameterDialog.qml:60
 #, kde-format
@@ -7092,19 +7112,19 @@ msgstr "Odstranit"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
-msgstr ""
+msgstr "Přidat parametr"
 
 #: src/settings/RoomSortParameterDialog.qml:122
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
-msgstr ""
+msgstr "Vybrat parametr k přidání"
 
 #: src/settings/SelectParentDialog.qml:25
 #, kde-format
 msgctxt "@title"
 msgid "Select new official parent"
-msgstr ""
+msgstr "Vybrat nového oficiálního rodiče"
 
 #: src/settings/SelectParentDialog.qml:41
 #, kde-format
@@ -7128,6 +7148,7 @@ msgstr "Nastavit tuto místnost jako podřízenou prostoru %1"
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
+"Nemáte v nadřazeném objektu dostatečná oprávnění k nastavení tohoto stavu"
 
 #: src/settings/SelectParentDialog.qml:155
 #, kde-format
@@ -7137,7 +7158,7 @@ msgstr "Vybraná místnost není prostorem"
 #: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid "You do not have the privileges to complete this action"
-msgstr ""
+msgstr "Nemáte oprávnění k provedení této akce"
 
 #: src/settings/SelectParentDialog.qml:160
 #, kde-format
@@ -7161,26 +7182,27 @@ msgstr "Vybrat prostory"
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
 msgstr ""
+"%1. Postupujte podle pokynů na této stránce a poté klikněte na tlačítko výše"
 
 #: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid "We've sent you an email"
-msgstr ""
+msgstr "Poslali jsme vám e-mail"
 
 #: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid "We've sent you a text message"
-msgstr ""
+msgstr "Poslali jsme vám SMS zprávu"
 
 #: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
 #, kde-format
 msgid "The entered email is not valid"
-msgstr ""
+msgstr "Zadaná e-mailová adresa není platná"
 
 #: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
 #, kde-format
 msgid "The entered phone number is not valid"
-msgstr ""
+msgstr "Zadané telefonní číslo není platné"
 
 #: src/settings/threepidbindhelper.cpp:184
 #, kde-format
@@ -7188,6 +7210,8 @@ msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button above"
 msgstr ""
+"E-mailová adresa nebyla ověřena. Přejděte prosím do své e-mailové schránky, "
+"postupujte podle pokynů a poté klikněte na tlačítko výše"
 
 #: src/settings/threepidbindhelper.cpp:185
 #, kde-format
@@ -7195,6 +7219,8 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button above"
 msgstr ""
+"Telefonní číslo nebylo ověřeno. Přejděte prosím do SMS zprávy, postupujte "
+"podle pokynů v ní uvedených a poté klikněte na tlačítko výše"
 
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
@@ -7218,7 +7244,7 @@ msgstr "Dokončeno"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
-msgstr ""
+msgstr "Kód země pro nové telefonní číslo"
 
 #: src/settings/ThreePIdCard.qml:152
 #, kde-format
@@ -7237,11 +7263,12 @@ msgstr "Nové telefonní číslo:"
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr ""
+"%1. Postupujte podle pokynů na této stránce a poté klikněte na tlačítko níže"
 
 #: src/settings/ThreePIdCard.qml:160
 #, kde-format
 msgid "Incorrect password entered"
-msgstr ""
+msgstr "Bylo zadáno nesprávné heslo"
 
 #: src/settings/ThreePIdCard.qml:162
 #, kde-format
@@ -7249,6 +7276,8 @@ msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
+"E-mailová adresa nebyla ověřena. Přejděte prosím do své e-mailové schránky, "
+"postupujte podle pokynů a poté klikněte na tlačítko níže"
 
 #: src/settings/ThreePIdCard.qml:162
 #, kde-format
@@ -7256,6 +7285,8 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
+"Telefonní číslo nebylo ověřeno. Přejděte prosím do SMS zprávy, postupujte "
+"podle pokynů v ní uvedených a poté klikněte na tlačítko níže"
 
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
@@ -7447,7 +7478,7 @@ msgstr "Odstranit zprávy"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
-msgstr ""
+msgstr "Volitelně uveďte důvod pro odstranění této zprávy"
 
 #: src/timeline/DelegateContextMenu.qml:223
 #, kde-format
@@ -7501,7 +7532,7 @@ msgstr "Uložit obrázek…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
-msgstr ""
+msgstr "Uložit audio…"
 
 #: src/timeline/DelegateContextMenu.qml:289
 #, kde-format
@@ -7555,7 +7586,7 @@ msgstr "Kopírovat text"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr ""
+msgstr "Kopírovat odkaz na zprávu"
 
 #: src/timeline/DelegateContextMenu.qml:344
 #, kde-format
@@ -7574,7 +7605,7 @@ msgstr "Nahlásit zprávu"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
-msgstr ""
+msgstr "Volitelně uveďte důvod, proč tuto zprávu nahlašujete"
 
 #: src/timeline/DelegateContextMenu.qml:352
 #, kde-format
@@ -7605,13 +7636,13 @@ msgstr "Nastavit webové zkratky…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "Přečíst text nahlas"
 
 #: src/timeline/DelegateContextMenu.qml:402
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 řekl(a) %2"
 
 #: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
@@ -7626,20 +7657,16 @@ msgid "Pin"
 msgstr "Připnout"
 
 #: src/timeline/DelegateContextMenu.qml:429
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
-msgstr "Hledat zprávy"
+msgstr "Zrušit vybrání zprávy"
 
 #: src/timeline/DelegateContextMenu.qml:429
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
-msgstr "Hledat zprávy"
+msgstr "Vybrat zprávu"
 
 #: src/timeline/DelegateContextMenu.qml:442
 #, kde-format
@@ -7670,12 +7697,12 @@ msgstr ", "
 #: src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
-msgstr ""
+msgstr "Tato místnost navazuje na další konverzaci."
 
 #: src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
-msgstr ""
+msgstr "Zobrazit starší zprávy…"
 
 #: src/timeline/QuickActions.qml:41
 #, kde-format
@@ -7685,7 +7712,7 @@ msgstr "Zareagovat"
 #: src/timeline/QuickActions.qml:90
 #, kde-format
 msgid "Message menu"
-msgstr ""
+msgstr "Nabídka zpráv"
 
 #: src/timeline/ReadMarkerDelegate.qml:67
 #, kde-format
@@ -7702,12 +7729,12 @@ msgstr "Označit jako přečtené"
 #: src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
-msgstr ""
+msgstr "Tato místnost byla nahrazena."
 
 #: src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
-msgstr ""
+msgstr "Zobrazit novou místnost…"
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -7715,6 +7742,7 @@ msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
 msgstr ""
+"Toto je začátek chatu. Od tohoto místa již žádné starší zprávy neexistují."
 
 #: src/timeline/TimelineView.qml:240 src/timeline/TimelineView.qml:266
 #, kde-format
@@ -7726,25 +7754,25 @@ msgstr "Přejít na první nepřečtenou zprávu"
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
-msgstr ""
+msgstr "Přejít na nejstarší načtenou zprávu"
 
 #: src/timeline/TimelineView.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
-msgstr ""
+msgstr "Přejít na další nepřečtenou zvýrazněnou"
 
 #: src/timeline/TimelineView.qml:297
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
-msgstr ""
+msgstr "Přejít na poslední zprávu"
 
 #: src/timeline/TimelineView.qml:331
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
-msgstr ""
+msgstr "Přetáhněte položky sem a sdílejte je"
 
 #: src/timeline/TimelineView.qml:360
 #, kde-format

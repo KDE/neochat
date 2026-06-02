@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-07 02:40+0000\n"
-"PO-Revision-Date: 2026-03-10 23:12+0100\n"
+"POT-Creation-Date: 2026-06-02 03:53+0000\n"
+"PO-Revision-Date: 2026-05-31 14:02+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -134,7 +134,7 @@ msgstr "Unterstützt das Adressschema matrix:"
 #: src/app/main.cpp:181
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
-msgstr "Alle SSL-Fehler ignorieren (z. B. unsignierte Zertifikate)."
+msgstr "Alle SSL-Fehler ignorieren (z. B. unsignierte Zertifikate)."
 
 #: src/app/main.cpp:183
 #, kde-format
@@ -612,9 +612,7 @@ msgid "Ignore %1 and Reject Invite"
 msgstr "%1 ignorieren und Einladung ablehnen"
 
 #: src/app/qml/InvitationView.qml:198
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
 "settings page"
@@ -622,8 +620,8 @@ msgid ""
 "You can reject invitations from unknown users under the <interface>Security "
 "& Safety</interface> settings."
 msgstr ""
-"Einladungen von unbekannten Benutzers können in den Sicherheitseinstellungen "
-"abgelehnt werden."
+"Einladungen von unbekannten Benutzern können in den Einstellungen zu "
+"<interface>Sicherheit & Verschlüsselung</interface> abgelehnt werden."
 
 #: src/app/qml/JoinRoomDialog.qml:28
 #, kde-format
@@ -1196,7 +1194,7 @@ msgstr "Verschlüsselungsschlüssel wiederhergestellt."
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
-msgstr ""
+msgstr "Mit Wiederherstellungsschlüssel entsperren"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
 #, kde-format
@@ -1207,12 +1205,10 @@ msgid ""
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
-msgstr "Sicherheitsschlüssel:"
+msgstr "Wiederherstellungsschlüssel:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
@@ -1693,10 +1689,9 @@ msgstr ""
 "Ungültige oder leere Matrix-Kennung<br />%1 ist keine korrekte Matrix-Kennung"
 
 #: src/app/roommanager.cpp:444
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgid "Failed to join %1:<br />%2"
-msgstr "Raum kann nicht betreten werden<br />%1"
+msgstr "%1 kann nicht betreten werden:<br />%2"
 
 #: src/app/roommanager.cpp:468
 #, kde-format
@@ -1723,7 +1718,7 @@ msgstr "Beenden"
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
-msgstr ""
+msgstr "Eingabetaste beginnt eine neue Zeile"
 
 #: src/chatbar/ChatBar.qml:85 src/chatbar/SendBar.qml:198
 #, kde-format
@@ -1831,13 +1826,13 @@ msgstr "Verknüpfung einfügen"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Verknüpfungstext:"
 
 #: src/chatbar/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "Verknüpfungsadresse:"
 
 #: src/chatbar/LocationChooser.qml:20
 #, kde-format
@@ -1945,13 +1940,13 @@ msgstr "Unterstreichen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
-msgstr ""
+msgstr "Text formatieren"
 
 #: src/chatbar/RichEditBar.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Text Style"
-msgstr ""
+msgstr "Textstil"
 
 #: src/chatbar/RichEditBar.qml:238
 #, kde-format
@@ -1963,13 +1958,13 @@ msgstr "Verknüpfung bearbeiten"
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
-msgstr ""
+msgstr "Unsortierte Liste"
 
 #: src/chatbar/RichEditBar.qml:278 src/chatbar/RichEditBar.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
-msgstr ""
+msgstr "Sortierte Liste"
 
 #: src/chatbar/RichEditBar.qml:295 src/chatbar/RichEditBar.qml:357
 #, kde-format
@@ -1987,7 +1982,7 @@ msgstr "Listenebene verringern"
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
-msgstr ""
+msgstr "Listenstil"
 
 #: src/chatbar/SendBar.qml:54
 #, kde-format
@@ -2485,7 +2480,7 @@ msgstr "Überschrift 6"
 #, kde-format
 msgctxt "As in code text style in the chat bar"
 msgid "Code"
-msgstr ""
+msgstr "Quellcode"
 
 #: src/libneochat/enums/richformat.cpp:43
 #, kde-format
@@ -3562,12 +3557,12 @@ msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:379
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/libneochat/neochatconnection.cpp:413
+#: src/libneochat/neochatconnection.cpp:408
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Erstellen der Umgebung ist fehlgeschlagen: %1"
@@ -4319,18 +4314,16 @@ msgid "Send a message…"
 msgstr "Eine Nachricht senden …"
 
 #: src/messagecontent/TextComponentEditMenu.qml:98
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "No suggestions for %1"
+#, kde-format
 msgctxt "As in no suggestion for spellcheck to fix spelling"
 msgid "No Suggestions for \"%1\""
-msgstr "Keine Vorschläge für %1"
+msgstr "Keine Vorschläge für „%1“"
 
 #: src/messagecontent/TextComponentEditMenu.qml:107
 #, kde-format
 msgctxt "As in add the word %1 to spellcheck dictionary"
 msgid "Add \"%1\" to Dictionary"
-msgstr ""
+msgstr "„%1“ zum Wörterbuch hinzufügen"
 
 #: src/messagecontent/TextComponentEditMenu.qml:119
 #, kde-format
@@ -4584,7 +4577,7 @@ msgstr "Keine Nachrichten gefunden"
 #: src/roominfo/RoomSearchPage.qml:52
 #, kde-format
 msgid "Cannot search in encrypted rooms"
-msgstr ""
+msgstr "In verschlüsselten Räumen kann nicht gesucht werden"
 
 #: src/roominfo/WidgetsPage.qml:18
 #, kde-format
@@ -5254,11 +5247,10 @@ msgid "In sidebar"
 msgstr "In der Seitenleiste"
 
 #: src/settings/AppearanceSettingsPage.qml:361
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "In room information"
-msgstr "Raum-Informationen"
+msgstr "In Rauminformationen"
 
 #: src/settings/ColorScheme.qml:14
 #, kde-format
@@ -5413,7 +5405,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:description"
 msgid "This device is marked as secure."
-msgstr ""
+msgstr "Dieses Gerät ist als sicher markiert."
 
 #: src/settings/DevicesPage.qml:58
 #, kde-format
@@ -5672,21 +5664,19 @@ msgstr "Unbekannt"
 #: src/settings/IdentityServerDelegate.qml:39
 #, kde-format
 msgid "New identity server url"
-msgstr ""
+msgstr "Neue Identitätsserver-Adresse"
 
 #: src/settings/IdentityServerDelegate.qml:43
-#, fuzzy, kde-format
-#| msgid "Cancel editing display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel editing identity server url"
-msgstr "Bearbeiten des Anzeigenamens abbrechen"
+msgstr "Bearbeiten der Identitätsserver-Adresse abbrechen"
 
 #: src/settings/IdentityServerDelegate.qml:49
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm new identity server url"
-msgstr "Neuen Anzeigenamen bestätigen"
+msgstr "Neue Identitätsserver-Adresse bestätigen"
 
 #: src/settings/IdentityServerDelegate.qml:73
 #, fuzzy, kde-format
@@ -5703,14 +5693,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit identity server url"
-msgstr ""
+msgstr "Identitätsserver-Adresse bearbeiten"
 
 #: src/settings/IdentityServerDelegate.qml:119
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove identity server"
-msgstr "Gerät entfernen"
+msgstr "Identitätsserver entfernen"
 
 #: src/settings/IgnoredUsersDialog.qml:20
 #: src/settings/NeoChatSecurityPage.qml:37
@@ -5753,7 +5742,7 @@ msgstr "Schlüssel importieren"
 #, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr ""
+msgstr "Ungültige Passphrase"
 
 #: src/settings/ImportKeysDialog.qml:69
 #, kde-format
@@ -5765,7 +5754,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Tastenkürzel"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
 #, kde-format
@@ -5789,7 +5778,7 @@ msgstr "Nachrichten im aktuellen Raum suchen"
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "Zum vorherigen Raum gehen"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
 #, kde-format
@@ -5801,13 +5790,13 @@ msgstr "Zum nächsten Raum gehen"
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "Zum vorherigen ungelesenen Raum gehen"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "Zum nächsten ungelesenen Raum gehen"
 
 #: src/settings/Members.qml:23
 #, kde-format
@@ -6137,7 +6126,7 @@ msgstr "Zeitleiste"
 #: src/settings/NeoChatGeneralPage.qml:148
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Nachrichten als gelesen markieren, wenn:"
 
 #: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
@@ -6483,24 +6472,24 @@ msgstr "Netzwerk-Proxy"
 msgid "Devices"
 msgstr "Geräte"
 
-#: src/settings/NeoChatSettingsView.qml:102
+#: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
 msgid "Keyboard Shortcuts"
 msgstr "Tastenkürzel"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About NeoChat"
 msgstr "Über NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:111
-#: src/settings/NeoChatSettingsView.qml:118
+#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:113
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Über"
 
-#: src/settings/NeoChatSettingsView.qml:115
+#: src/settings/NeoChatSettingsView.qml:110
 #, kde-format
 msgid "About KDE"
 msgstr "Über KDE"
@@ -6845,11 +6834,10 @@ msgid "Official Parent Spaces"
 msgstr "Offiziell übergeordnete Umgebungen"
 
 #: src/settings/RoomGeneralPage.qml:265
-#, fuzzy, kde-format
-#| msgid "Canonical Alias:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Canonical"
-msgstr "Anerkannter Alias:"
+msgstr "Anerkannt"
 
 #: src/settings/RoomGeneralPage.qml:270
 #, fuzzy, kde-format
@@ -6946,11 +6934,10 @@ msgid "Encryption"
 msgstr "Verschlüsselung"
 
 #: src/settings/RoomSecurityPage.qml:37
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
-msgstr "Dieser Raum setzt eine andere Unterhaltung fort."
+msgstr "Dieser Raum verwendet Verschlüsselung."
 
 #: src/settings/RoomSecurityPage.qml:48
 #, kde-format
