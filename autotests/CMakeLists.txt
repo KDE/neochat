@@ -112,9 +112,15 @@ ecm_add_test(
 )
 
 ecm_add_test(
-        chatbarmessagecontentmodeltest.cpp
-        LINK_LIBRARIES neochat Qt::Test
-        TEST_NAME chatbarmessagecontentmodeltest
+    chatbarmessagecontentmodeltest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME chatbarmessagecontentmodeltest
+)
+
+ecm_add_test(
+    filepreviewtest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME filepreviewtest
 )
 
 macro(add_qml_tests)

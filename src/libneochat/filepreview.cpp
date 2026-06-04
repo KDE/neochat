@@ -21,15 +21,17 @@ FilePreviewBlockLoader::FilePreviewBlockLoader(QObject *parent, const QUrl &sour
 {
     Q_ASSERT(parent);
     if (!m_source.isLocalFile()) {
+        m_state = Unavailable;
         Q_EMIT blockUnavailable();
         return;
     }
 
+    m_state = Loading;
     const auto block = new Blocks::ItineraryBlock(Blocks::Itinerary, m_source, parent);
     m_previewBlock = block;
     connect(block->model(), &ItineraryModel::loaded, this, [this, block]() {
         if (block->model()->rowCount() > 0) {
-            m_loaded = true;
+            m_state = Available;
             Q_EMIT blockAvailable();
             return;
         }
@@ -65,7 +67,7 @@ void FilePreviewBlockLoader::blockForFile()
                                                QTextDocumentFragment::fromPlainText(QString::fromStdString(file.readAll().toStdString())),
                                                definitionForFile.name(),
                                                parent());
-        m_loaded = true;
+        m_state = Available;
         Q_EMIT blockAvailable();
         return;
     }
@@ -76,11 +78,12 @@ void FilePreviewBlockLoader::blockForFile()
         Blocks::ImageInfo info;
         info.pixelSize = reader.size();
         m_previewBlock = new Blocks::ImageBlock(Blocks::Pdf, m_source, m_source.fileName(), info, QUrl(), Blocks::ImageInfo(), parent());
-        m_loaded = true;
+        m_state = Available;
         Q_EMIT blockAvailable();
         return;
     }
 
+    m_state = Unavailable;
     Q_EMIT blockUnavailable();
 }
 
@@ -89,9 +92,9 @@ Block *FilePreviewBlockLoader::previewBlock()
     return m_previewBlock;
 }
 
-bool FilePreviewBlockLoader::loaded() const
+FilePreviewBlockLoader::State FilePreviewBlockLoader::state() const
 {
-    return m_loaded;
+    return m_state;
 }
 
 #include "moc_filepreview.cpp"

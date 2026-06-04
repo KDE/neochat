@@ -5,6 +5,7 @@
 
 #include <QJsonDocument>
 #include <QProcess>
+#include <QStandardPaths>
 
 #include "config-neochat.h"
 
@@ -189,6 +190,7 @@ void ItineraryModel::loadData()
         Q_EMIT loaded();
     });
     connect(process, &QProcess::errorOccurred, this, [this]() {
+        qWarning() << "itinerary process error";
         m_loading = false;
         Q_EMIT loadErrorOccurred();
     });

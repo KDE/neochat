@@ -1,0 +1,39 @@
+BEGIN:VCALENDAR
+PRODID:-//K Desktop Environment//NONSGML libkcal 4.3//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+
+BEGIN:VEVENT
+DTSTAMP:20171227T111649Z
+X-KDE-KITINERARY-RESERVATION:[{"@context":"http://schema.org"\,"@type":
+ "EventReservation"\,"reservationFor":{"@type":"Event"\,"endDate":{"@type":
+ "QDateTime"\,"@value":"2019-07-13T16:30:00+02:00"\,"timezone":
+ "Europe/Rome"}\,"location":{"@type":"Place"\,"address":{"@type":
+ "PostalAddress"\,"addressCountry":"IT"\,"addressLocality":
+ "Milan"\,"addressRegion":"Lombardy"\,"postalCode":
+ "20126"\,"streetAddress":"Piazza dell'Ateneo Nuovo\, 1"}\,"name":
+ "University of Milano-Bicocca"}\,"name":"Akademy 2019"\,"startDate":
+ {"@type":"QDateTime"\,"@value":"2019-09-07T09:30:00+02:00"\,"timezone":
+ "Europe/Rome"}}\,"reservationNumber":"42"\,"underName":{"@type":
+ "Person"\,"name":"Dr Konqui"}}\,{"@context":"http://schema.org"\,"@type":
+ "EventReservation"\,"reservationFor":{"@type":"Event"\,"endDate":{"@type":
+ "QDateTime"\,"@value":"2019-07-13T16:30:00+02:00"\,"timezone":
+ "Europe/Rome"}\,"location":{"@type":"Place"\,"address":{"@type":
+ "PostalAddress"\,"addressCountry":"IT"\,"addressLocality":
+ "Milan"\,"addressRegion":"Lombardy"\,"postalCode":
+ "20126"\,"streetAddress":"Piazza dell'Ateneo Nuovo\, 1"}\,"name":
+ "University of Milano-Bicocca"}\,"name":"Akademy 2019"\,"startDate":
+ {"@type":"QDateTime"\,"@value":"2019-09-07T09:30:00+02:00"\,"timezone":
+ "Europe/Rome"}}\,"reservationNumber":"42"\,"underName":{"@type":
+ "Person"\,"name":"Katie Dragon"}}]
+CREATED:20171227T111649Z
+UID:KIT-1234567890-1b22236a-21ff-4885-8c99-b3b2bbca062c
+LAST-MODIFIED:20171227T111649Z
+DESCRIPTION:Dr Konqui\nBooking reference: 42\nKatie Dragon\nBooking reference: 42
+SUMMARY:Akademy 2019
+LOCATION:University of Milano-Bicocca
+DTSTART;TZID=Europe/Rome:20190907T093000
+DTEND;TZID=Europe/Rome:20190713T163000
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
