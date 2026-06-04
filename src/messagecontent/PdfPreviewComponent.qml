@@ -11,11 +11,6 @@ Rectangle {
     id: root
 
     /**
-     * @brief FileTransferInfo for any downloading files.
-     */
-    required property var fileTransferInfo
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property ImageBlock block
@@ -27,7 +22,8 @@ Rectangle {
 
     Image {
         anchors.fill: root
-        source: root?.fileTransferInfo.localPath ?? ""
+        source: root.block.fileTransferInfo?.localPath ?? ""
+        onSourceChanged: console.warn(source)
 
         MediaSizeHelper {
             id: mediaSizeHelper

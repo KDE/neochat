@@ -72,7 +72,7 @@ ColumnLayout {
         states: [
             State {
                 name: "downloadedInstant"
-                when: root.fileTransferInfo.completed && root.autoOpenFile
+                when: (root.fileTransferInfo?.completed ?? false) && root.autoOpenFile
 
                 PropertyChanges {
                     openButton.icon.name: "document-open"
@@ -86,7 +86,7 @@ ColumnLayout {
             },
             State {
                 name: "downloaded"
-                when: root.block.fileTransferInfo.completed && !root.autoOpenFile
+                when: (root.fileTransferInfo?.completed ?? false) && !root.autoOpenFile
 
                 PropertyChanges {
                     openButton.visible: false
@@ -99,7 +99,7 @@ ColumnLayout {
             },
             State {
                 name: "downloading"
-                when: root.block.fileTransferInfo.active
+                when: root.block.fileTransferInfo?.active ?? false
 
                 PropertyChanges {
                     sizeLabel.text: i18nc("file download progress", "%1 / %2", Format.formatByteSize(root.block.fileTransferInfo.progress), Format.formatByteSize(root.block.fileTransferInfo.total))

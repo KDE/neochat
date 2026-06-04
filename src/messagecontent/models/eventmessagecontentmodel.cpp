@@ -17,6 +17,7 @@
 #include "contentprovider.h"
 #include "enums/blocktype.h"
 #include "eventhandler.h"
+#include "filepreview.h"
 #include "messagecontentlogging.h"
 #include "models/reactionmodel.h"
 #include "neochatdatetime.h"
@@ -328,7 +329,7 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
 void EventMessageContentModel::checkFilePreview()
 {
     if (m_loader) {
-        if (m_loader->loaded()) {
+        if (m_loader->state() == Blocks::FilePreviewBlockLoader::Available) {
             insertFIlePreview();
             return;
         }
@@ -355,7 +356,7 @@ void EventMessageContentModel::checkFilePreview()
 
 void EventMessageContentModel::insertFIlePreview()
 {
-    if (!m_loader || !m_loader->loaded()) {
+    if (!m_loader || m_loader->state() != Blocks::FilePreviewBlockLoader::Available) {
         return;
     }
     auto it = std::ranges::find_if(m_components, [](Blocks::Block *block) {
