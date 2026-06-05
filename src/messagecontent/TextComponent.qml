@@ -78,7 +78,7 @@ TextEdit {
     Layout.maximumWidth: Message.maxContentWidth
 
     Keys.onPressed: (event) => {
-        event.accepted = Message.contentModel.keyHelper.handleKey(event.key, event.modifiers);
+        event.accepted = Message.contentModel.keyHelper.handleKey(event.key, event.text, event.modifiers);
     }
 
     onFocusChanged: if (focus && !currentFocus && editable) {

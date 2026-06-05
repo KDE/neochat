@@ -47,7 +47,7 @@ public:
     /**
      * @brief handle the given key and modifiers.
      */
-    Q_INVOKABLE bool handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers);
+    Q_INVOKABLE bool handleKey(Qt::Key key, const QString &text, Qt::KeyboardModifiers modifiers);
 
     /**
      * @brief Whether the enter/return should send message.

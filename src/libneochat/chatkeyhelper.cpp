@@ -7,7 +7,6 @@
 #include "clipboard.h"
 #include "neochatroom.h"
 #include "richformat.h"
-#include <qtextcursor.h>
 
 ChatKeyHelper::ChatKeyHelper(QObject *parent)
     : QObject(parent)
@@ -35,8 +34,23 @@ void ChatKeyHelper::setTextItem(ChatTextItemHelper *textItem)
     }
 }
 
-bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
+// TODO fix other invocations
+bool ChatKeyHelper::handleKey(Qt::Key key, const QString &text, Qt::KeyboardModifiers modifiers)
 {
+    if (modifiers == Qt::NoModifier || modifiers == Qt::ShiftModifier) {
+        if (text.length() > 0 && key != Qt::Key_Tab && key != Qt::Key_Backspace) {
+            QTextCursor cursor = m_textItem->textCursor();
+            if (cursor.isNull()) {
+                return false;
+            }
+
+            if (cursor.charFormat().isAnchor()) {
+                cursor.insertText(text, {});
+                return true;
+            }
+            return false;
+        }
+    }
     switch (key) {
     case Qt::Key_V:
         return vKey(modifiers);
@@ -351,6 +365,7 @@ bool ChatKeyHelper::selectLeft(QTextCursor &cursor)
         return false;
     }
 
+    qWarning() << "Anchor?" << cursor.charFormat().isAnchor();
     if (!cursor.charFormat().isAnchor()) {
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
         const auto start = selecting ? cursor.selectionEnd() : cursor.selectionStart();
@@ -488,7 +503,8 @@ void ChatKeyHelper::checkMouseSelection()
 
 void ChatKeyHelper::checkLinkFormat(int position, int lengthBefore, int lengthAfter)
 {
-    if (!m_textItem || lengthBefore > lengthAfter || lengthAfter - lengthBefore != 1) {
+    return;
+    if (!m_textItem) {
         return;
     }
     QTextCursor cursor = m_textItem->textCursor();
@@ -510,11 +526,9 @@ void ChatKeyHelper::checkLinkFormat(int position, int lengthBefore, int lengthAf
         return;
     }
 
-    cursor.beginEditBlock();
-    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::MoveAnchor, position + lengthAfter);
-    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
-    cursor.setCharFormat({});
-    cursor.endEditBlock();
+    auto fmt = cursor.charFormat();
+    fmt.setAnchor(false);
+    fmt.setAnchorHref({});
 }
 
 #include "moc_chatkeyhelper.cpp"

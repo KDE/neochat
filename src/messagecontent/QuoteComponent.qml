@@ -53,7 +53,7 @@ QQC2.TextArea {
     }
 
     Keys.onPressed: (event) => {
-        event.accepted = Message.contentModel.keyHelper.handleKey(event.key, event.modifiers);
+        event.accepted = Message.contentModel.keyHelper.handleKey(event.key, event.text, event.modifiers);
     }
 
     Layout.fillWidth: true

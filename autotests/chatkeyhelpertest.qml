@@ -15,7 +15,7 @@ TestCase {
         id: textEdit
 
         Keys.onPressed: (event) => {
-            event.accepted = testHelper.keyHelper.handleKey(event.key, event.modifiers);
+            event.accepted = testHelper.keyHelper.handleKey(event.key, event.text, event.modifiers);
         }
     }
 
