@@ -306,9 +306,19 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
 
     Blocks::BlockPtrs blocks;
 
+#if Quotient_VERSION_MINOR > 9
     if (!m_isReply && event->isReply()) {
         blocks.push_back(new Blocks::ReplyBlock(Blocks::Reply, event->replyEventId(), this));
         m_replyModel = new EventMessageContentModel(m_room, event->replyEventId(), true, false, this);
+#else
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+    if (!roomMessageEvent) {
+        return {};
+    }
+    if (!m_isReply && roomMessageEvent->isReply()) {
+        blocks.push_back(new Blocks::ReplyBlock(Blocks::Reply, roomMessageEvent->replyEventId(), this));
+        m_replyModel = new EventMessageContentModel(m_room, roomMessageEvent->replyEventId(), true, false, this);
+#endif
     }
 
     if (isEditing) {
@@ -317,7 +327,9 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
         blocks.insert_range(blocks.end(), EventHandler::blocksForEvent(m_room, event, this));
     }
 
+#if Quotient_VERSION_MINOR > 9
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+#endif
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
         blocks.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, false, m_eventId, this));
