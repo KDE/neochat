@@ -1195,10 +1195,14 @@ void NeoChatRoom::loadPinnedMessage()
         // Note that we can't depend on QML doing this because we explicitly want the pinned message to be rich text (to support custom emojis)
         const auto indexOfFirstNewline = body.indexOf(QLatin1Char('\n'));
         const auto indexOfFirstBreak = body.indexOf(QLatin1String("<br>"));
-        const auto index = std::min(indexOfFirstBreak, indexOfFirstNewline);
 
-        if (index != -1) {
+        if (indexOfFirstBreak != -1 && indexOfFirstNewline != -1) {
+            const auto index = std::min(indexOfFirstBreak, indexOfFirstNewline);
             body.resize(index);
+        } else if (indexOfFirstBreak != -1) {
+            body.resize(indexOfFirstBreak);
+        } else if (indexOfFirstNewline != -1) {
+            body.resize(indexOfFirstNewline);
         }
 
         m_pinnedMessage = body;
