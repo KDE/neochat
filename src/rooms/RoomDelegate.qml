@@ -102,6 +102,7 @@ Delegates.RoundedItemDelegate {
             showNotificationLabel: root.hasNotableNotifications && root.collapsed
             asynchronous: true
 
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.fillHeight: true
             Layout.preferredWidth: height
             Layout.maximumHeight: height
