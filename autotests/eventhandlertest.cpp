@@ -51,6 +51,8 @@ private Q_SLOTS:
     void markdownBodyReply();
     void subtitle();
     void nullSubtitle();
+    void nullEventBlocks();
+    void eventBlocks();
     void mediaInfo();
     void nullMediaInfo();
     void replyAuthor();
@@ -225,6 +227,71 @@ void EventHandlerTest::nullSubtitle()
 
     QTest::ignoreMessage(QtWarningMsg, "subtitleText called with event set to nullptr.");
     QCOMPARE(EventHandler::subtitleText(room, nullptr), QString());
+}
+
+void EventHandlerTest::eventBlocks()
+{
+    // Simple message
+    auto event = room->messageEvents().at(0).get();
+    auto blocks = EventHandler::blocksForEvent(room, event, this);
+
+    QCOMPARE(blocks.size(), 1);
+    QCOMPARE(blocks[0]->type(), Blocks::Text);
+    auto textBlock = dynamic_cast<Blocks::TextBlock *>(blocks[0]);
+    QCOMPARE(textBlock->item()->initialFragment().toPlainText(), u"This is an example\ntext message"_s);
+
+    // Something file based
+    event = room->messageEvents().at(4).get();
+    blocks = EventHandler::blocksForEvent(room, event, this);
+
+    QCOMPARE(blocks.size(), 2);
+    QCOMPARE(blocks[0]->type(), Blocks::Video);
+    auto videoBlock = dynamic_cast<Blocks::VideoBlock *>(blocks[0]);
+    QCOMPARE(videoBlock->source(), QUrl(u"mxc://kde.org/1234567?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$263456789:example.org"_s));
+    QCOMPARE(blocks[1]->type(), Blocks::Text);
+    textBlock = dynamic_cast<Blocks::TextBlock *>(blocks[1]);
+    QCOMPARE(textBlock->item()->initialFragment().toPlainText(), u"video caption"_s);
+
+    // More complex message
+    event = room->messageEvents().at(12).get();
+    blocks = EventHandler::blocksForEvent(room, event, this);
+
+    QCOMPARE(blocks.size(), 3);
+    QCOMPARE(blocks[0]->type(), Blocks::Text);
+    textBlock = dynamic_cast<Blocks::TextBlock *>(blocks[0]);
+    QCOMPARE(textBlock->item()->initialFragment().toPlainText(), u"Text"_s);
+    QCOMPARE(blocks[1]->type(), Blocks::Code);
+    auto codeBlock = dynamic_cast<Blocks::CodeBlock *>(blocks[1]);
+    QCOMPARE(codeBlock->item()->initialFragment().toPlainText(), u"Code"_s);
+    QCOMPARE(blocks[2]->type(), Blocks::Quote);
+    textBlock = dynamic_cast<Blocks::TextBlock *>(blocks[2]);
+    QCOMPARE(textBlock->item()->initialFragment().toPlainText(), u"Quote"_s);
+}
+
+void EventHandlerTest::nullEventBlocks()
+{
+    Blocks::BlockPtrs emptyBlocks;
+
+#ifdef Q_OS_WINDOWS
+    QTest::ignoreMessage(QtWarningMsg, "EventHandler::blocksForEvent called with room set to nullptr.");
+#else
+    QTest::ignoreMessage(QtWarningMsg, "blocksForEvent called with room set to nullptr.");
+#endif
+    QCOMPARE(EventHandler::blocksForEvent(nullptr, nullptr, nullptr), emptyBlocks);
+
+#ifdef Q_OS_WINDOWS
+    QTest::ignoreMessage(QtWarningMsg, "EventHandler::blocksForEvent called with event set to nullptr.");
+#else
+    QTest::ignoreMessage(QtWarningMsg, "blocksForEvent called with event set to nullptr.");
+#endif
+    QCOMPARE(EventHandler::blocksForEvent(room, nullptr, nullptr), emptyBlocks);
+
+#ifdef Q_OS_WINDOWS
+    QTest::ignoreMessage(QtWarningMsg, "EventHandler::blocksForEvent called with parent set to nullptr.");
+#else
+    QTest::ignoreMessage(QtWarningMsg, "blocksForEvent called with parent set to nullptr.");
+#endif
+    QCOMPARE(EventHandler::blocksForEvent(room, room->messageEvents().at(0).get(), nullptr), emptyBlocks);
 }
 
 void EventHandlerTest::mediaInfo()

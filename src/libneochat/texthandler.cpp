@@ -417,23 +417,6 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
             string.remove(string.size() - 1, string.size());
         }
     }
-    if (tagType == u"blockquote"_s) {
-        int startQuotationIndex = 0;
-        int endQuotationIndex = string.size();
-
-        // We have to insert the quotation marks inside of the existing
-        // paragraphs, otherwise we add unnecessary line breaks.
-        if (string.startsWith(u"<p>"_s)) {
-            startQuotationIndex = string.indexOf(u">") + 1;
-            endQuotationIndex = string.lastIndexOf(u"</p>") + 1;
-        }
-
-        // This is not a normal quotation mark but U+201C
-        string.insert(startQuotationIndex, u"“"_s);
-        // This is U+201D
-        string.insert(endQuotationIndex, u"”"_s);
-    }
-
     return string;
 }
 
