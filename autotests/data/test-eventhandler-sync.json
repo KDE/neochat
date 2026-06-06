@@ -430,6 +430,22 @@
         "unsigned": {
           "age": 1230
         }
+      },
+      {
+        "content": {
+          "body": "Text\n\n```\nCode\n```\n\n> Quote",
+          "format": "org.matrix.custom.html",
+          "formatted_body": "<p>Text</p>\n<pre><code>Code\n</code></pre>\n<blockquote>\n<p>Quote</p>\n</blockquote>",
+          "msgtype": "m.text"
+        },
+        "event_id": "$153456899:example.org",
+        "origin_server_ts": 14427358246589,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@example:example.org",
+        "type": "m.room.message",
+        "unsigned": {
+          "age": 1240
+        }
       }
     ],
     "limited": true,

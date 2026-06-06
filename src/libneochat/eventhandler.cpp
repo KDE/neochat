@@ -706,12 +706,24 @@ bool EventHandler::isMediaMessage(const Quotient::RoomEvent *event)
 
 Blocks::BlockPtrs EventHandler::blocksForEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)
 {
+    if (!room) {
+        qCWarning(EventHandling) << __FUNCTION__ << "called with room set to nullptr.";
+        return {};
+    }
+    if (!event) {
+        qCWarning(EventHandling) << __FUNCTION__ << "called with event set to nullptr.";
+        return {};
+    }
+    if (!parent) {
+        qCWarning(EventHandling) << __FUNCTION__ << "called with parent set to nullptr.";
+        return {};
+    }
     Blocks::BlockPtrs blocks;
     if (!room || !event || !parent) {
         return blocks;
     }
 
-    blocks.insert_range(blocks.end(), blocksForEventType(room, event, parent, Blocks::typeForEvent(*event, event->isReply())));
+    blocks.insert_range(blocks.end(), blocksForEventType(room, event, parent));
 
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
     if (roomMessageEvent
@@ -724,20 +736,16 @@ Blocks::BlockPtrs EventHandler::blocksForEvent(NeoChatRoom *room, const Quotient
     return blocks;
 }
 
-Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent, Blocks::Type type)
+Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)
 {
-    if (!room || !event || !parent) {
-        return {};
-    }
-
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+    Blocks::Type type = Blocks::typeForEvent(*event, event->isReply());
     switch (type) {
     case Blocks::Text: {
         return TextHandler().textComponents(EventHandler::rawMessageBody(*event),
                                             EventHandler::messageBodyInputFormat(*event),
                                             room,
                                             event,
-                                            roomMessageEvent ? roomMessageEvent->isReplaced() : false,
+                                            event->isReplaced(),
                                             false,
                                             parent);
     }
@@ -749,14 +757,9 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Quot
         components.push_back(EventHandler::blockForMediaEvent(room, event, parent));
         auto body = EventHandler::rawMessageBody(*event);
         if (!event->is<StickerEvent>() && !body.isEmpty()) {
-            components.insert_range(components.end(),
-                                    TextHandler().textComponents(body,
-                                                                 EventHandler::messageBodyInputFormat(*event),
-                                                                 room,
-                                                                 event,
-                                                                 roomMessageEvent ? roomMessageEvent->isReplaced() : false,
-                                                                 false,
-                                                                 parent));
+            components.insert_range(
+                components.end(),
+                TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), room, event, event->isReplaced(), false, parent));
         }
         return components;
     }

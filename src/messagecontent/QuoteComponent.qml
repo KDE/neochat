@@ -23,15 +23,6 @@ QQC2.TextArea {
     required property string eventId
 
     /**
-     * @brief The message author.
-     *
-     * A Quotient::RoomMember object.
-     *
-     * @sa Quotient::RoomMember
-     */
-    required property NeochatRoomMember author
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property TextBlock block

@@ -164,6 +164,11 @@ public:
      */
     static QString subtitleText(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
+    /**
+     * @brief Whether the event is a media message.
+     *
+     * This means it contains either an image or video.
+     */
     static bool isMediaMessage(const Quotient::RoomEvent *event);
 
     /**
@@ -229,7 +234,7 @@ private:
     static QString getBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines);
     static QString getMessageBody(const NeoChatRoom *room, const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines);
 
-    static Blocks::BlockPtrs blocksForEventType(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent, Blocks::Type type);
+    static Blocks::BlockPtrs blocksForEventType(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent);
 
     static Blocks::Block *fileBlockFromFileContent(QObject *parent,
                                                    NeoChatRoom *room,
