@@ -738,14 +738,26 @@ Blocks::BlockPtrs EventHandler::blocksForEvent(NeoChatRoom *room, const Quotient
 
 Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Quotient::RoomEvent *event, QObject *parent)
 {
+#if Quotient_VERSION_MINOR > 9
     Blocks::Type type = Blocks::typeForEvent(*event, event->isReply());
+#else
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+    if (!roomMessageEvent) {
+        return {};
+    }
+    Blocks::Type type = Blocks::typeForEvent(*roomMessageEvent, roomMessageEvent->isReply());
+#endif
     switch (type) {
     case Blocks::Text: {
         return TextHandler().textComponents(EventHandler::rawMessageBody(*event),
                                             EventHandler::messageBodyInputFormat(*event),
                                             room,
                                             event,
+#if Quotient_VERSION_MINOR > 9
                                             event->isReplaced(),
+#else
+                                            roomMessageEvent->isReplaced(),
+#endif
                                             false,
                                             parent);
     }
@@ -757,9 +769,18 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Quot
         components.push_back(EventHandler::blockForMediaEvent(room, event, parent));
         auto body = EventHandler::rawMessageBody(*event);
         if (!event->is<StickerEvent>() && !body.isEmpty()) {
-            components.insert_range(
-                components.end(),
-                TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), room, event, event->isReplaced(), false, parent));
+            components.insert_range(components.end(),
+                                    TextHandler().textComponents(body,
+                                                                 EventHandler::messageBodyInputFormat(*event),
+                                                                 room,
+                                                                 event,
+#if Quotient_VERSION_MINOR > 9
+                                                                 event->isReplaced(),
+#else
+                                                                 roomMessageEvent->isReplaced(),
+#endif
+                                                                 false,
+                                                                 parent));
         }
         return components;
     }
