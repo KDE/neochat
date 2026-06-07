@@ -21,7 +21,7 @@ Components.AbstractMaximizeComponent {
     actions: [
         Kirigami.Action {
             icon.name: "map-globe-symbolic"
-            text: i18n("Select this location")
+            text: i18nc("@action:intoolbar Set the location seleted by the user as the one to send", "Select this location")
             onTriggered: {
                 root.locationChosen(mapView.locationMapItem.latitude, mapView.locationMapItem.longitude, "m.pin");
                 root.close();

@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
-import QtQuick.Controls
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtLocation
 import QtPositioning
@@ -44,7 +44,7 @@ ColumnLayout {
     /**
      * The maximum height of the image. Can be left undefined most of the times. Passed to MediaSizeHelper::contentMaxHeight.
      */
-    property var contentMaxHeight: editable ? Kirigami.Units.gridUnit * 8 : undefined
+    readonly property var contentMaxHeight: editable ? Kirigami.Units.gridUnit * 8 : undefined
 
     required property int index
 
@@ -88,22 +88,24 @@ ColumnLayout {
 
             spacing: Kirigami.Units.mediumSpacing
 
-            Button {
+            QQC2.Button {
+                visible: !root.editable
                 text: i18nc("@action:button Open the location in an external program", "Open Externally")
                 icon.name: "open-link-symbolic"
-                display: AbstractButton.IconOnly
+                display: QQC2.AbstractButton.IconOnly
 
                 onClicked: Qt.openUrlExternally("geo:" + root.block.latitude + "," + root.block.longitude)
 
-                ToolTip.text: text
-                ToolTip.visible: hovered
-                ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
 
-            Button {
+            QQC2.Button {
+                visible: !root.editable
                 icon.name: "view-fullscreen"
                 text: i18nc("@action:button", "Open Fullscreen")
-                display: AbstractButton.IconOnly
+                display: QQC2.AbstractButton.IconOnly
 
                 onClicked: {
                     let map = fullScreenMap.createObject(parent, {
@@ -114,9 +116,20 @@ ColumnLayout {
                     });
                 }
 
-                ToolTip.text: text
-                ToolTip.visible: hovered
-                ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            QQC2.Button {
+                id: cancelButton
+                visible: root.editable
+                display: QQC2.AbstractButton.IconOnly
+                text: i18nc("@action:button", "Remove attachment")
+                icon.name: "dialog-close"
+                onClicked: root.Message.contentModel?.removeAttachment()
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
     }
