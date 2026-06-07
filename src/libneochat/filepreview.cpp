@@ -27,6 +27,10 @@ FilePreviewBlockLoader::FilePreviewBlockLoader(QObject *parent, const QUrl &sour
     }
 
     m_state = Loading;
+
+#ifdef Q_OS_WINDOWS
+    blockForFile();
+#else
     const auto block = new Blocks::ItineraryBlock(Blocks::Itinerary, m_source, parent);
     m_previewBlock = block;
     connect(block->model(), &ItineraryModel::loaded, this, [this, block]() {
@@ -44,6 +48,7 @@ FilePreviewBlockLoader::FilePreviewBlockLoader(QObject *parent, const QUrl &sour
         m_previewBlock = nullptr;
         blockForFile();
     });
+#endif
 }
 
 void FilePreviewBlockLoader::blockForFile()

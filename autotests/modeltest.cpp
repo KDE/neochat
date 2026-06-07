@@ -251,7 +251,7 @@ void ModelTest::testSpaceChildrenModel()
 
 void ModelTest::testItineraryModel()
 {
-    auto model = new ItineraryModel({}, this);
+    auto model = new ItineraryModel(QUrl::fromLocalFile("%1/eventreservation.ics"_L1.arg(DATA_DIR)), this);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
