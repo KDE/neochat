@@ -90,4 +90,5 @@ static const QRegularExpression emailAddress(uR"(<a.*?<\/a>(*SKIP)(*F)|\b(mailto
                                              QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
 static const QRegularExpression mxId(uR"((?<=^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\w+(?::\d{1,5})?))"_s,
                                      QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
+static const QRegularExpression matrixLink{uR"AAA(\[([^\]]+)\]\(https:\/\/matrix.to\/#\/([^\)]+)\))AAA"_s, QRegularExpression::DotMatchesEverythingOption};
 }

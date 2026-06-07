@@ -1028,4 +1028,24 @@ QString TextHandler::updateSpoilerText(QObject *object, QString string, bool spo
     return string;
 }
 
+QString TextHandler::stripMatrixLinks(QString string)
+{
+    auto it = TextRegex::matrixLink.globalMatch(string);
+    int offset = 0;
+    while (it.hasNext()) {
+        const QRegularExpressionMatch match = it.next();
+
+        QString linkDisplayText = match.captured(1);
+        // Remove escaping (seen in room links, I guess because they start with a '#' character?)
+        if (linkDisplayText.startsWith(u"\\"_s)) {
+            linkDisplayText.remove(0, 1);
+        }
+
+        // Replace the matching Markdown link with its textual representation
+        string.replace(match.capturedStart(0) + offset, match.capturedLength(0), linkDisplayText);
+        offset += linkDisplayText.length() - match.capturedLength(0);
+    }
+    return string;
+}
+
 #include "moc_texthandler.cpp"

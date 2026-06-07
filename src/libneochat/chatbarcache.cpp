@@ -206,10 +206,11 @@ void ChatBarCache::postMessage(const QString &threadRootId)
 
     auto content = std::make_unique<Quotient::EventContent::TextContent>(sendText, u"text/html"_s);
 
-    m_room->post<Quotient::RoomMessageEvent>(m_cache.toString(),
-                                           *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result),
-                                           std::move(content),
-                                           relatesTo);
+    // We want to strip Matrix links here because it matches Element behavior, but more importantly is less annoying in bridged chats.
+    m_room->post<Quotient::RoomMessageEvent>(TextHandler::stripMatrixLinks(m_cache.toString()),
+                                             *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result),
+                                             std::move(content),
+                                             relatesTo);
     clearCache();
 }
 

@@ -86,6 +86,9 @@ private Q_SLOTS:
 
     void updateSpoiler_data();
     void updateSpoiler();
+
+    void stripMatrixLinks_data();
+    void stripMatrixLinks();
 };
 
 void TextHandlerTest::initTestCase()
@@ -814,6 +817,26 @@ void TextHandlerTest::updateSpoiler()
     QFETCH(bool, spoilerRevealed);
 
     QCOMPARE(TextHandler::updateSpoilerText(this, testInputString, spoilerRevealed), testOutputString);
+}
+
+void TextHandlerTest::stripMatrixLinks_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("user link") << u"[Bot](https://matrix.to/#/@bot:bot.com) foobar"_s << u"Bot foobar"_s;
+    QTest::newRow("room link") << u"[\\#tokodon:kde.org](https://matrix.to/#/#tokodon:kde.org) room link"_s << u"#tokodon:kde.org room link"_s;
+    QTest::newRow("multiple links")
+        << u"[Bot](https://matrix.to/#/@bot:bot.com) check out this client: [\\#tokodon:kde.org](https://matrix.to/#/#tokodon:kde.org) it's super cool!"_s
+        << u"Bot check out this client: #tokodon:kde.org it's super cool!"_s;
+}
+
+void TextHandlerTest::stripMatrixLinks()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
+
+    QCOMPARE(TextHandler::stripMatrixLinks(testInputString), testOutputString);
 }
 
 QTEST_MAIN(TextHandlerTest)

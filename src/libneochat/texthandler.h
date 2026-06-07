@@ -107,6 +107,11 @@ public:
      */
     static QString updateSpoilerText(QObject *object, QString string, bool spoilerRevealed);
 
+    /**
+     * @brief Strips Matrix links (matrix.to) from Markdown while not touching anything else.
+     */
+    static QString stripMatrixLinks(QString string);
+
 private:
     QString m_data;
 
