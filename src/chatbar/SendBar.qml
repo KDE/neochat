@@ -33,7 +33,7 @@ RowLayout {
     signal cancel
 
     function openLocationChooser(): void {
-        let chooser = Qt.createComponent('org.kde.neochat.chatbar', 'LocationChooser').createObject(QQC2.ApplicationWindow.overlay);
+        let chooser = Qt.createComponent('org.kde.neochat.chatbar', 'LocationChooser').createObject(QQC2.Overlay.overlay) as LocationChooser;
         chooser.locationChosen.connect((latitude, longitude, asset) => {
             root.contentModel.addLocation(latitude, longitude, asset);
         });

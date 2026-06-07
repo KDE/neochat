@@ -669,7 +669,7 @@ void ChatBarMessageContentModel::removeComponent(int row, bool removeLast)
 
 void ChatBarMessageContentModel::removeAttachment()
 {
-    if (!hasComponentType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video})) {
+    if (!hasComponentType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video, Blocks::Location})) {
         return;
     }
 
@@ -677,7 +677,12 @@ void ChatBarMessageContentModel::removeAttachment()
     if (Blocks::isFileType(m_components[1]->type())) {
         mediaRow = 1;
     }
+    const auto attachmentType = m_components[mediaRow]->type();
     removeComponent(mediaRow);
+    if (attachmentType == Blocks::Location) {
+        clearModel();
+        initializeModel();
+    }
     refocusCurrentComponent();
     Q_EMIT hasAttachmentChanged();
 }
