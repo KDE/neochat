@@ -29,12 +29,17 @@ private Q_SLOTS:
 
 void FilePreviewTest::initTestCase()
 {
+#ifdef Q_OS_WINDOWS
+    m_extractorAvailable = false;
+    return;
+#endif
+
     // We need to figure out if the machine running the test has itinerary extractor.
     auto process = new QProcess(this);
     process->start("%1%2"_L1.arg(CMAKE_INSTALL_FULL_LIBEXECDIR_KF6, "/kitinerary-extractor"_L1), {"testString"_L1});
     process->waitForFinished();
 
-    if (process->exitStatus() == QProcess::NormalExit) {
+    if (process->error() != QProcess::FailedToStart) {
         m_extractorAvailable = true;
     }
 }
@@ -64,8 +69,10 @@ void FilePreviewTest::fileTest()
     QSignalSpy spyUnavailable(loader, &FilePreviewBlockLoader::blockUnavailable);
 
     if (available) {
-        QVERIFY(spyAvailable.wait(5000));
-        QCOMPARE(spyAvailable.count(), 1);
+        if (loader->state() == FilePreviewBlockLoader::Loading) {
+            QVERIFY(spyAvailable.wait(5000));
+            QCOMPARE(spyAvailable.count(), 1);
+        }
         QCOMPARE(loader->state(), FilePreviewBlockLoader::Available);
         QCOMPARE(loader->previewBlock() != nullptr, true);
         QCOMPARE(loader->previewBlock()->type(), m_extractorAvailable ? typeExtractorAvailable : typeExtractorUnavailable);
