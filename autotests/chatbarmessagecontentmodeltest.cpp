@@ -9,8 +9,7 @@
 #include <Quotient/connection.h>
 
 #include "block.h"
-#include "models/eventmessagecontentmodel.h"
-
+#include "enums/blocktype.h"
 #include "neochatconnection.h"
 #include "testutils.h"
 
@@ -23,28 +22,55 @@ class ChatBarMessageContentModelTest : public QObject
 
 private:
     std::unique_ptr<Connection> connection = nullptr;
+    std::unique_ptr<TestUtils::TestRoom> room = nullptr;
+
+    void checkEmptyChatbar(const ChatBarMessageContentModel &model);
 
 private Q_SLOTS:
     void initTestCase();
 
     void missingEvent();
+    void addLocationTest();
 };
+
+void ChatBarMessageContentModelTest::checkEmptyChatbar(const ChatBarMessageContentModel &model)
+{
+    QCOMPARE(model.rowCount(), 1);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::ComponentTypeRole), Blocks::Text);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::BlockRole).value<Blocks::TextBlock *>()->hasSpoiler(), false);
+}
 
 void ChatBarMessageContentModelTest::initTestCase()
 {
     connection = std::make_unique<NeoChatConnection>();
+    room = std::make_unique<TestUtils::TestRoom>(connection.get(), u"#firstRoom:kde.org"_s);
 }
 
 void ChatBarMessageContentModelTest::missingEvent()
 {
-    auto room = std::make_unique<TestUtils::TestRoom>(connection.get(), u"#firstRoom:kde.org"_s);
-    auto model1 = ChatBarMessageContentModel(this);
-    model1.setRoom(room.get());
+    auto model = ChatBarMessageContentModel(this);
+    model.setRoom(room.get());
 
     // Ensure we have a text block that's initialized correctly:
-    QCOMPARE(model1.rowCount(), 1);
-    QCOMPARE(model1.data(model1.index(0), MessageContentModel::ComponentTypeRole), Blocks::Text);
-    QCOMPARE(model1.data(model1.index(0), MessageContentModel::BlockRole).value<Blocks::TextBlock *>()->hasSpoiler(), false);
+    checkEmptyChatbar(model);
+}
+
+void ChatBarMessageContentModelTest::addLocationTest()
+{
+    auto model = ChatBarMessageContentModel(this);
+    model.setRoom(room.get());
+
+    model.addLocation(51.606, 0.046, u"m.pin"_s);
+    QCOMPARE(model.rowCount(), 2);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::ComponentTypeRole), Blocks::Location);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::BlockRole).value<Blocks::LocationBlock *>()->latitude(), 51.606);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::BlockRole).value<Blocks::LocationBlock *>()->longitude(), 0.046);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::BlockRole).value<Blocks::LocationBlock *>()->asset(), u"m.pin"_s);
+    QCOMPARE(model.data(model.index(1), MessageContentModel::ComponentTypeRole), Blocks::Text);
+    QCOMPARE(model.data(model.index(1), MessageContentModel::BlockRole).value<Blocks::TextBlock *>()->item()->initialFragment().toPlainText(), u"User's pin"_s);
+
+    model.removeAttachment();
+    checkEmptyChatbar(model);
 }
 
 QTEST_MAIN(ChatBarMessageContentModelTest)

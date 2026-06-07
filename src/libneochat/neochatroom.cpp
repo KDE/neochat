@@ -1625,12 +1625,19 @@ void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
         {"uri"_L1, "geo:%1,%2"_L1.arg(QString::number(lat), QString::number(lon))},
     };
 
+    auto bodyString = i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon);
+
     if (!description.isEmpty()) {
+        bodyString = i18nc("%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' as in Latitude and Longitude",
+                           "%3 at Lat: %1, Lon: %2",
+                           lat,
+                           lon,
+                           description);
         locationContent["description"_L1] = description;
     }
 
     QJsonObject content{
-        {"body"_L1, i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
+        {"body"_L1, bodyString},
         {"msgtype"_L1, "m.location"_L1},
         {"geo_uri"_L1, "geo:%1,%2"_L1.arg(QString::number(lat), QString::number(lon))},
         {"org.matrix.msc3488.location"_L1, locationContent},
