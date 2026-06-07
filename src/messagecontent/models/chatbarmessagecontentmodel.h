@@ -5,7 +5,6 @@
 
 #include <QAbstractListModel>
 #include <QQmlEngine>
-#include <qtmetamacros.h>
 
 #include "block.h"
 #include "blockcache.h"
