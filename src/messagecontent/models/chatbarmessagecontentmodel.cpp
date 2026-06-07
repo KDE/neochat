@@ -8,6 +8,7 @@
 #include <QTextDocumentFragment>
 #include <QTimer>
 
+#include <KLocalizedString>
 #include <KUrlMimeData>
 #include <Kirigami/Platform/PlatformTheme>
 
@@ -496,7 +497,12 @@ void ChatBarMessageContentModel::addReply(const QString &eventId, bool updateCac
 void ChatBarMessageContentModel::addLocation(qreal latitude, qreal longitude, const QString &asset)
 {
     clearModel();
-    initializeModel(u"Lat: %1, Long: %2"_s.arg(QString::number(latitude), QString::number(longitude)));
+    auto assetString = asset == u"m.pin"_s ? i18n("pin") : i18n("location");
+    auto authorString = u"User"_s;
+    if (author()) {
+        authorString = author()->displayName();
+    }
+    initializeModel(u"%1's %2"_s.arg(authorString, assetString));
     auto it =
         insertComponent(m_components.front()->type() == Blocks::Reply ? 1 : 0, new Blocks::LocationBlock(Blocks::Location, latitude, longitude, asset, this));
     Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {BlockRole});
