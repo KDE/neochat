@@ -661,8 +661,10 @@ Blocks::BlockPtrs TextHandler::textComponents(QString string,
         if (event != nullptr && room != nullptr) {
             if (auto e = eventCast<const Quotient::RoomMessageEvent>(event); e && e->msgtype() == Quotient::MessageEventType::Emote && components.size() == 1) {
                 if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(components[0])) {
-                    textBlock->item()->initialFragment() =
-                        QTextDocumentFragment::fromHtml(emoteString(room, event) + textBlock->item()->initialFragment().toHtml());
+                    auto html = textBlock->item()->initialFragment().toHtml();
+                    static const auto startFragment = u"<!--StartFragment-->"_s;
+                    html.insert(html.indexOf(startFragment) + startFragment.size(), emoteString(room, event));
+                    textBlock->item()->setInitialFragment(QTextDocumentFragment::fromHtml(html));
                 } else {
                     components.insert(components.begin(),
                                       new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromHtml(emoteString(room, event)), false, parent));
