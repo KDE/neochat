@@ -201,6 +201,9 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     }
 
     auto notification = new KNotification(u"message"_s);
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(6, 27, 0)
+    notification->setHint(u"x-kde-symbolic-app-icon"_s, QIcon(u":/icons/org.kde.neochat.tray.svg"_s));
+#endif
     m_notifications.insert(roomId, {timestamp, notification});
     connect(notification, &KNotification::closed, this, [this, roomId, notification] {
         if (m_notifications[roomId].second == notification) {
@@ -288,6 +291,9 @@ void NotificationsManager::doPostInviteNotification(const QPointer<NeoChatRoom> 
     notification->setText(i18n("%1 invited you to a room", sender.htmlSafeDisplayName()));
     notification->setTitle(room->displayName());
     notification->setPixmap(createNotificationImage(sender, room));
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(6, 27, 0)
+    notification->setHint(u"x-kde-symbolic-app-icon"_s, QIcon(u":/icons/org.kde.neochat.tray.svg"_s));
+#endif
     const auto defaultAction = notification->addDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
         if (!room) {
@@ -352,6 +358,9 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
     // the only two types of push notifications we support right now
     if (const auto type = json["notification"_L1]["type"_L1].toString(); type == u"m.room.message"_s || type == u"m.room.encrypted"_s) {
         const auto notification = new KNotification("message"_L1);
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(6, 27, 0)
+        notification->setHint(u"x-kde-symbolic-app-icon"_s, QIcon(u":/icons/org.kde.neochat.tray.svg"_s));
+#endif
 
         const auto sender = json["notification"_L1]["sender_display_name"_L1].toString();
         const auto roomName = json["notification"_L1]["room_name"_L1].toString();
