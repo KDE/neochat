@@ -80,6 +80,7 @@ private Q_SLOTS:
     void receiveRichColor();
     void receiveRichCustomEmoji();
     void receiveRichCustomEmojiNoTitle();
+    void receiveEmote();
 
     void componentOutput_data();
     void componentOutput();
@@ -814,6 +815,17 @@ void TextHandlerTest::updateSpoiler()
     QFETCH(bool, spoilerRevealed);
 
     QCOMPARE(TextHandler::updateSpoilerText(this, testInputString, spoilerRevealed), testOutputString);
+}
+
+void TextHandlerTest::receiveEmote()
+{
+    auto components = TextHandler().textComponents(u"does something"_s, Qt::RichText, room, room->messageEvents().at(1).get(), false, false, this);
+    QCOMPARE(components.size(), 1);
+    const auto block = dynamic_cast<Blocks::TextBlock *>(components.at(0));
+    const auto html = block->item()->initialFragment().toHtml();
+    QRegularExpression regex(QStringLiteral(
+        R"(<!--StartFragment-->\* <a href="[^"]+"><span style="[^"]*color:#[0-9A-Fa-f]{6};?[^"]*">.*?</span></a> does something<!--EndFragment-->)"));
+    QVERIFY(html.contains(regex));
 }
 
 QTEST_MAIN(TextHandlerTest)
