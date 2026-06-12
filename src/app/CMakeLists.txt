@@ -290,8 +290,6 @@ if(ANDROID)
         "computer"
         "network-connect"
         "list-remove-user"
-        "org.kde.neochat"
-        "org.kde.neochat.tray"
         "preferences-system-users"
         "preferences-desktop-theme-global"
         "notifications"

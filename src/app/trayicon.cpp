@@ -16,7 +16,7 @@ using namespace Qt::StringLiterals;
 TrayIcon::TrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
 {
-    setIcon(QIcon(u":/icons/org.kde.neochat.tray.svg"_s));
+    setIcon(QIcon::fromTheme(u"org.kde.neochat.tray"_s));
     QMenu *menu = new QMenu();
     auto viewAction_ = new QAction(i18n("Show"), parent);
 

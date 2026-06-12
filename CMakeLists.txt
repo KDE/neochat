@@ -165,6 +165,9 @@ endif()
 if(ANDROID)
     find_package(Sqlite3)
     set(BUILD_TESTING FALSE)
+
+    install(FILES org.kde.neochat.svg DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kirigami/breeze-internal/icons/ RENAME org.kde.neochat.svg)
+    install(FILES org.kde.neochat.tray.svg DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kirigami/breeze-internal/icons/ RENAME org.kde.neochat.tray.svg)
 endif()
 
 ki18n_install(po)
