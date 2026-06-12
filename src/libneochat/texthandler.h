@@ -112,6 +112,8 @@ public:
      */
     static QString stripMatrixLinks(QString string);
 
+    [[nodiscard]] static QString unescapeBackslashes(QString text);
+
 private:
     QString m_data;
 

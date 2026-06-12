@@ -1048,4 +1048,11 @@ QString TextHandler::stripMatrixLinks(QString string)
     return string;
 }
 
+QString TextHandler::unescapeBackslashes(QString text)
+{
+    text.replace(u"\\!"_s, u"!"_s);
+    text.replace(u"\\\\"_s, u"\\"_s);
+    return text;
+}
+
 #include "moc_texthandler.cpp"
