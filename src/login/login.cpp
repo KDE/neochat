@@ -13,12 +13,6 @@
 
 using namespace Quotient;
 
-LoginHelper::LoginHelper(QObject *parent)
-    : QObject(parent)
-{
-    init();
-}
-
 void LoginHelper::setAccountManager(AccountManager *manager)
 {
     m_accountManager = manager;
@@ -168,11 +162,6 @@ void LoginHelper::login()
 {
     m_isLoggingIn = true;
     Q_EMIT isLoggingInChanged();
-
-    // Some servers do not have a .well_known file. So we login via the username part from the mxid,
-    // rather than with the full mxid, as that would lead to an invalid user.
-    auto username = m_matrixId.mid(1, m_matrixId.indexOf(QLatin1Char(':')) - 1);
-    m_connection->loginWithPassword(username, m_password, m_deviceName, QString());
 }
 
 bool LoginHelper::supportsPassword() const
