@@ -20,6 +20,7 @@ class HomeserverInfo : public QObject
     Q_PROPERTY(bool canSso READ canSso NOTIFY flowsChanged)
     Q_PROPERTY(bool canPassword READ canPassword NOTIFY flowsChanged)
     Q_PROPERTY(QString ssoUrl READ ssoUrl NOTIFY flowsChanged)
+    Q_PROPERTY(bool reachable READ reachable NOTIFY reachableChanged)
 
 public:
     explicit HomeserverInfo(QObject *parent = nullptr);
@@ -30,15 +31,21 @@ public:
     [[nodiscard]] bool canSso() const;
     [[nodiscard]] bool canPassword() const;
     [[nodiscard]] QString ssoUrl();
-    ;
+    [[nodiscard]] bool reachable() const;
+
+    Q_INVOKABLE void loginWithPassword(const QString &matrixId, const QString &password);
 
 Q_SIGNALS:
     void homeserverChanged();
     void flowsChanged();
+    void reachableChanged();
 
 private:
     QString m_homeserver;
-    void test();
+    bool m_reachable = false;
     QPointer<NeoChatConnection> m_testConnection;
     QPointer<Quotient::SsoSession> m_ssoSession;
+
+    void test();
+    void setReachable(bool reachable);
 };

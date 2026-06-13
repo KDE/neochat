@@ -47,7 +47,6 @@
 #include "blurhashimageprovider.h"
 #include "colorschemer.h"
 #include "controller.h"
-#include "login.h"
 #include "registration.h"
 #include "roommanager.h"
 #include "sharehandler.h"
@@ -228,7 +227,6 @@ int main(int argc, char *argv[])
 
     const auto accountManager = std::make_unique<AccountManager>(parser.isSet("test"_L1));
     Controller::instance().setAccountManager(accountManager.get());
-    LoginHelper::instance().setAccountManager(accountManager.get());
     Registration::instance().setAccountManager(accountManager.get());
 
     qml_register_types_org_kde_neochat();

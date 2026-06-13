@@ -31,12 +31,6 @@ Kirigami.Page {
         rightPadding: 0
 
         contentItem: ColumnLayout {
-            spacing: 0
-
-            Kirigami.Separator {
-                Layout.fillWidth: true
-            }
-
             Kirigami.InlineMessage {
                 id: headerMessage
                 type: Kirigami.MessageType.Error
@@ -82,6 +76,7 @@ Kirigami.Page {
             }
 
             FormCard.FormCard {
+                visible: loadedAccounts.count > 0 || loadingAccounts.count > 0
                 Repeater {
                     id: loadedAccounts
                     model: AccountRegistry
@@ -180,8 +175,32 @@ Kirigami.Page {
                 FormCard.FormButtonDelegate {
                     visible: homeserverInfo.canSso
                     text: i18nc("@action:button", "Continue in Browser")
-                    enabled: homeserverField.reachable
                     onClicked: Qt.openUrlExternally(homeserverInfo.ssoUrl)
+                }
+                FormCard.FormDelegateSeparator {}
+                FormCard.FormTextFieldDelegate {
+                    id: usernameField
+                    visible: homeserverInfo.canPassword
+                    label: i18nc("@label", "Username")
+                }
+                FormCard.FormPasswordFieldDelegate {
+                    id: passwordField
+                    visible: homeserverInfo.canPassword
+                    label: i18nc("@label", "Password")
+                }
+                FormCard.FormButtonDelegate {
+                    text: i18nc("@action:button", "Login")
+                    visible: homeserverInfo.canPassword
+                    enabled: passwordField.text.length > 0 && usernameField.text.length > 0
+                }
+                FormCard.AbstractFormDelegate {
+                    id: busy
+
+                    visible: false
+                    contentItem: QQC2.BusyIndicator {
+                        running: busy.visible
+                    }
+                    background: null
                 }
             }
 

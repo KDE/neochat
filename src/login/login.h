@@ -81,18 +81,6 @@ class LoginHelper : public QObject
     Q_PROPERTY(bool isInvalidPassword READ isInvalidPassword NOTIFY isInvalidPasswordChanged)
 
 public:
-    static LoginHelper &instance()
-    {
-        static LoginHelper _instance;
-        return _instance;
-    }
-
-    static LoginHelper *create(QQmlEngine *engine, QJSEngine *)
-    {
-        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
-        return &instance();
-    }
-
     void setAccountManager(AccountManager *manager);
 
     Q_INVOKABLE void init();
