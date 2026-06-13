@@ -58,7 +58,7 @@ ColumnLayout {
             when: !root.fileTransferInfo.completed && !root.fileTransferInfo.active
 
             PropertyChanges {
-                playButton.icon.name: "media-playback-start"
+                playButton.icon.name: "download"
                 playButton.onClicked: Message.room.downloadFile(root.eventId)
             }
         },
