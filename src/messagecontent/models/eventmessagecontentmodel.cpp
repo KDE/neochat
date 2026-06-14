@@ -342,7 +342,7 @@ void EventMessageContentModel::checkFilePreview()
 {
     if (m_loader) {
         if (m_loader->state() == Blocks::FilePreviewBlockLoader::Available) {
-            insertFIlePreview();
+            insertFilePreview();
             return;
         }
     }
@@ -358,7 +358,7 @@ void EventMessageContentModel::checkFilePreview()
     }
     m_loader = new Blocks::FilePreviewBlockLoader(this, m_room->cachedFileTransferInfo(m_eventId).localPath);
     connect(m_loader, &Blocks::FilePreviewBlockLoader::blockAvailable, this, [this]() {
-        insertFIlePreview();
+        insertFilePreview();
     });
     connect(m_loader, &Blocks::FilePreviewBlockLoader::blockUnavailable, this, [this]() {
         m_loader->deleteLater();
@@ -366,7 +366,7 @@ void EventMessageContentModel::checkFilePreview()
     });
 }
 
-void EventMessageContentModel::insertFIlePreview()
+void EventMessageContentModel::insertFilePreview()
 {
     if (!m_loader || m_loader->state() != Blocks::FilePreviewBlockLoader::Available) {
         return;
@@ -388,9 +388,6 @@ void EventMessageContentModel::checkLinkPreview()
 {
     if (m_room->urlPreviewEnabled()) {
         forEachComponentOfType({Blocks::Text, Blocks::Quote}, [this](Blocks::BlockPtrsIt it) {
-            if ((*it)->type() != Blocks::Text && (*it)->type() != Blocks::Quote) {
-                return ++it;
-            }
             const auto block = dynamic_cast<Blocks::TextBlock *>(*it);
             if (!block) {
                 return ++it;

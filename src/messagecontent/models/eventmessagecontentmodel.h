@@ -90,7 +90,7 @@ private:
     Blocks::FilePreviewBlockLoader *m_loader = nullptr;
     bool m_fileChecked = false;
     void checkFilePreview();
-    void insertFIlePreview();
+    void insertFilePreview();
 
     void checkLinkPreview();
     QList<QUrl> m_removedLinkPreviews;

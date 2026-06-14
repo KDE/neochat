@@ -441,9 +441,9 @@ private:
 };
 
 /**
- * @class AudioBlock
+ * @class LinkPreviewBlock
  *
- * A block to visualize an audio file.
+ * A block to visualize a link preview.
  */
 class LinkPreviewBlock : public UrlBlock
 {

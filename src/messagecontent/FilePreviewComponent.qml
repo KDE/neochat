@@ -12,34 +12,26 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat
 
 /**
- * @brief A component to show a message that has been replied to.
- *
- * Similar to the main timeline delegate a reply delegate is chosen based on the type
- * of message being replied to. The main difference is that not all messages can be
- * show in their original form and are instead visualised with a MIME type delegate
- * e.g. Videos.
+ * @brief A component to show a preview of a file.
  */
 Loader {
     id: root
 
     /**
-     * @brief The reaction model to get the reactions from.
+     * @brief The Blocks::Block for the delegate.
      */
     required property FilePreviewBlock block
     Connections {
         target: block
 
         function onPreviewBlockChanged(): void {
-            console.warn("change")
             if (root.block.previewBlock) {
-                console.warn("preview changed", root.block.previewBlock.type)
                 setSource(root.block.componentSource, {block: root.block.previewBlock})
             }
         }
     }
 
     onBlockChanged: if (block && block.previewBlock) {
-        console.warn("preview changed", root.block.previewBlock.type)
         let properties = {block: block.previewBlock};
         if (block.previewBlock.type === Blocks.Code) {
             properties.editable = false;

@@ -50,7 +50,7 @@ QQC2.Control {
             Layout.minimumHeight: root.defaultHeight
             verticalAlignment: Text.AlignVCenter
             level: 2
-            text: i18n("Loading URL preview…")
+            text: i18nc("As in the app is loading the link preview", "Loading URL preview…")
         }
     }
 

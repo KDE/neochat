@@ -719,10 +719,6 @@ Blocks::BlockPtrs EventHandler::blocksForEvent(NeoChatRoom *room, const Quotient
         return {};
     }
     Blocks::BlockPtrs blocks;
-    if (!room || !event || !parent) {
-        return blocks;
-    }
-
     blocks.insert_range(blocks.end(), blocksForEventType(room, event, parent));
 
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);

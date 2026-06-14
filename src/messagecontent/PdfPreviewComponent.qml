@@ -23,7 +23,6 @@ Rectangle {
     Image {
         anchors.fill: root
         source: root.block.fileTransferInfo?.localPath ?? ""
-        onSourceChanged: console.warn(source)
 
         MediaSizeHelper {
             id: mediaSizeHelper
