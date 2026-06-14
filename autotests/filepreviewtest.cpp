@@ -54,7 +54,7 @@ void FilePreviewTest::fileTest_data()
     QTest::newRow("remote") << QUrl("www.kde.org"_L1) << false << Other << Other;
     QTest::newRow("text") << QUrl::fromLocalFile("%1/TestText.txt"_L1.arg(DATA_DIR)) << true << Code << Code;
     QTest::newRow("itinerary") << QUrl::fromLocalFile("%1/eventreservation.ics"_L1.arg(DATA_DIR)) << true << Itinerary << Code;
-    QTest::newRow("pdf") << QUrl::fromLocalFile("%1/KDE_Org.pdf"_L1.arg(DATA_DIR)) << true << Pdf << Pdf;
+    QTest::newRow("pdf") << QUrl::fromLocalFile("%1/test_pdf.pdf"_L1.arg(DATA_DIR)) << true << Pdf << Pdf;
 }
 
 void FilePreviewTest::fileTest()

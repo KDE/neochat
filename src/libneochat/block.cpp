@@ -328,17 +328,14 @@ VideoBlock::VideoBlock(Type type,
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
-            if (eventId == m_eventId) {
-                Q_EMIT fileTransferInfoChanged();
-                if (m_room != nullptr) {
-                    if (errorMessage.isEmpty()) {
-                        Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
-                    } else {
-                        Q_EMIT m_room->showMessage(MessageType::Error,
-                                                   i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage));
-                    }
-                }
+            if (eventId != m_eventId || m_room == nullptr) {
+                return;
             }
+            Q_EMIT fileTransferInfoChanged();
+            const auto message = errorMessage.isEmpty()
+                ? i18nc("@info", "Failed to download file.")
+                : i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage);
+            Q_EMIT m_room->showMessage(MessageType::Error, message);
         });
     }
 }
