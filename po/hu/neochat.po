@@ -3,13 +3,13 @@
 #
 # Kristóf Kiszel <kiszel.kristof@gmail.com>, 2020, 2021.
 # aronkvh <aronkvh@gmail.com>, 2021, 2023.
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024-2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-02 03:53+0000\n"
-"PO-Revision-Date: 2026-01-03 22:36+0100\n"
+"PO-Revision-Date: 2026-06-16 22:27+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -218,8 +218,7 @@ msgid "Open Profile"
 msgstr "Profil megnyitása"
 
 #: src/app/qml/AccountMenu.qml:33
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Scan a QR Code"
 msgstr "QR-kód beolvasása"
@@ -273,13 +272,10 @@ msgid "To proceed, accept the verification request on another device."
 msgstr "A folytatáshoz fogadja el az ellenőrzési kérést a másik eszközön."
 
 #: src/app/qml/AccountMenu.qml:89
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
-msgstr "Jelentés"
+msgstr "Támogatás"
 
 #: src/app/qml/AccountMenu.qml:103
 #, kde-format
@@ -342,12 +338,10 @@ msgid "Copy to clipboard"
 msgstr "Másolás a vágólapra"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Confirm Leaving Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Space"
-msgstr "Szoba elhagyásának megerősítése"
+msgstr "Tér elhagyásának megerősítése"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -362,11 +356,10 @@ msgid "Do you really want to leave %1?"
 msgstr "Biztosan el szeretné hagyni a(z) %1 szobát?"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "@action:button Leave this room/space"
 msgid "Leave"
-msgstr "Szoba elhagyása"
+msgstr "Elhagyás"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -509,11 +502,10 @@ msgid "Create a Room"
 msgstr "Szoba létrehozása"
 
 #: src/app/qml/GlobalMenu.qml:48
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Szobák felfedezése"
+msgstr "Felfedezés"
 
 #: src/app/qml/GlobalMenu.qml:60
 #, kde-format
@@ -602,12 +594,10 @@ msgid "Reject Invite"
 msgstr "Meghívás elutasítása"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "Profil megnyitása"
+msgstr "%1 profiljának megtekintése"
 
 #: src/app/qml/InvitationView.qml:159
 #, fuzzy, kde-format
@@ -746,9 +736,7 @@ msgid "The input is not a valid room ID or alias"
 msgstr "A bemenet nem érvényes szobaazonosító vagy álnév"
 
 #: src/app/qml/ManualRoomDialog.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:button Join the Jitsi meeting"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join this room/space"
 msgid "Join"
 msgstr "Csatlakozás"
@@ -775,9 +763,7 @@ msgid "The input is not a valid user ID"
 msgstr "A bemenet nem érvényes felhasználóazonosító"
 
 #: src/app/qml/ManualUserDialog.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ok"
+#, kde-format
 msgctxt "@action:button Perform an action with this user ID"
 msgid "Ok"
 msgstr "OK"
@@ -905,11 +891,10 @@ msgstr "Nem található szoba"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
 #: src/rooms/SpaceDrawer.qml:281
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Szobák felfedezése"
+msgstr "Felfedezés"
 
 #: src/app/qml/ReasonDialog.qml:33
 #, kde-kuit-format
@@ -1002,12 +987,10 @@ msgid "Conversation copied to clipboard"
 msgstr "Másolás a vágólapra"
 
 #: src/app/qml/RoomPage.qml:249
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Messages"
-msgstr "Kitűzött üzenetek"
+msgstr "Üzenetek törlése"
 
 #: src/app/qml/RoomPage.qml:255 src/app/qml/RoomPage.qml:262
 #: src/app/qml/UserDetailDialog.qml:331
