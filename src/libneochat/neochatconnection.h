@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include <QCache>
 #include <QObject>
 #include <QQmlEngine>
 
@@ -301,7 +300,7 @@ private:
 
     int m_badgeNotificationCount = 0;
 
-    QCache<QUrl, LinkPreviewer> m_linkPreviewers;
+    QMap<QUrl, LinkPreviewer *> m_linkPreviewers;
 
     bool m_canCheckMutualRooms = false;
     bool m_canEraseData = false;

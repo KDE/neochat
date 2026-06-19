@@ -42,14 +42,12 @@ PushRuleAction::Action NeoChatConnection::m_defaultAction = PushRuleAction::Unkn
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
 {
-    m_linkPreviewers.setMaxCost(20);
     connectSignals();
 }
 
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
     : Connection(server, parent)
 {
-    m_linkPreviewers.setMaxCost(20);
     connectSignals();
 }
 
@@ -545,7 +543,7 @@ LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
         return nullptr;
     }
 
-    auto previewer = m_linkPreviewers.object(link);
+    auto previewer = m_linkPreviewers.value(link);
     if (previewer != nullptr) {
         return previewer;
     }
