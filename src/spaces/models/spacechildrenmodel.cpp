@@ -97,11 +97,6 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
 {
     SpaceTreeItem *parentItem = getItem(parent);
 
-    if (children[0].roomId == m_space->id() || children[0].roomId == parentItem->id()) {
-        parentItem->setChildStates(std::move(children[0].childrenState));
-        children.erase(children.begin());
-    }
-
     // If this is the first set of children added to the root item then we need to
     // set it so that we are no longer loading.
     if (rowCount(QModelIndex()) == 0) {
@@ -111,6 +106,11 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
 
     if (children.empty()) {
         return;
+    }
+
+    if (children[0].roomId == m_space->id() || children[0].roomId == parentItem->id()) {
+        parentItem->setChildStates(std::move(children[0].childrenState));
+        children.erase(children.begin());
     }
 
     beginInsertRows(parent, parentItem->childCount(), parentItem->childCount() + children.size() - 1);
