@@ -137,6 +137,10 @@ int main(int argc, char *argv[])
     QGuiApplication::setDesktopFileName(u"org.kde.neochat"_s);
 
     auto about = KAboutData::fromAppStreamForApplication();
+    // Works around bug fixed with https://invent.kde.org/frameworks/kcoreaddons/-/merge_requests/582
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 28, 0)
+    about.setComponentName(QStringLiteral("neochat"));
+#endif
     about.setVersion(QByteArrayLiteral(NEOCHAT_VERSION_STRING));
     about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), u"carl@carlschwan.eu"_s, u"https://carlschwan.eu"_s, QUrl(u"https://carlschwan.eu/avatar.png"_s));
     about.addAuthor(i18n("Tobias Fella"), i18n("Maintainer"), u"tobias.fella@kde.org"_s, u"https://tobiasfella.de"_s);
