@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2020-2026 Freek de Kruijf <freekdekruijf@kde.nl>
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-02 03:53+0000\n"
-"PO-Revision-Date: 2026-03-16 14:33+0100\n"
+"POT-Creation-Date: 2026-06-20 02:40+0000\n"
+"PO-Revision-Date: 2026-06-19 10:21+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -2664,12 +2664,12 @@ msgstr "de uitnodiging afgewezen"
 #: src/libneochat/eventhandler.cpp:367
 #, kde-format
 msgid "unbanned %1"
-msgstr "verbanning van %1 ongedaan gemaakt"
+msgstr "blokkering van %1 ongedaan gemaakt"
 
 #: src/libneochat/eventhandler.cpp:367
 #, kde-format
 msgid "self-unbanned"
-msgstr "zelf verbanning ongedaan gemaakt"
+msgstr "zelf-blokkering ongedaan gemaakt"
 
 #: src/libneochat/eventhandler.cpp:370
 #, kde-format
@@ -2689,17 +2689,17 @@ msgstr "heeft %1 verwijderd uit de room"
 #: src/libneochat/eventhandler.cpp:379
 #, kde-format
 msgid "banned %1 from the room"
-msgstr "%1 verbannen uit de room"
+msgstr "%1 geblokkeerd in de room"
 
 #: src/libneochat/eventhandler.cpp:381
 #, kde-format
 msgid "banned %1 from the room: %2"
-msgstr "%1 verbannen uit de room: %2"
+msgstr "%1 geblokkeerd in de room: %2"
 
 #: src/libneochat/eventhandler.cpp:384
 #, kde-format
 msgid "self-banned from the room"
-msgstr "zelf verbannen uit de room"
+msgstr "zelf geblokkeerd in de room"
 
 #: src/libneochat/eventhandler.cpp:388
 #, kde-format
@@ -2954,12 +2954,12 @@ msgstr "%1 heeft de uitnodiging afgewezen"
 #: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 unbanned a user"
-msgstr "%1 heeft verbanning van een gebruiker ongedaan gemaakt"
+msgstr "%1 heeft blokkering van een gebruiker ongedaan gemaakt"
 
 #: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 self-unbanned"
-msgstr "%1 heeft zelf verbanning ongedaan gemaakt"
+msgstr "%1 heeft zelf-blokkering ongedaan gemaakt"
 
 #: src/libneochat/eventhandler.cpp:602
 #, kde-format
@@ -2974,12 +2974,12 @@ msgstr "%1 heeft de room verlaten"
 #: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 banned a user from the room"
-msgstr "%1 heeft een gebruiker verbannen uit de room"
+msgstr "%1 heeft een gebruiker geblokkeerd in de room"
 
 #: src/libneochat/eventhandler.cpp:607
 #, kde-format
 msgid "%1 self-banned from the room"
-msgstr "%1 heeft zichzelf verbannen uit de room"
+msgstr "%1 heeft zichzelf geblokkeerd in de room"
 
 #: src/libneochat/eventhandler.cpp:610
 #, kde-format
@@ -3221,7 +3221,7 @@ msgstr "%1 is al uitgenodigd in deze room"
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "%1 is verbannen uit deze room"
+msgstr "%1 is geblokkeerd in deze room"
 
 #: src/libneochat/models/actionsmodel.cpp:195
 #, kde-format
@@ -3374,7 +3374,7 @@ msgstr "U mag %1 niet uit deze room verbannen."
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr "%1 was verbannen uit deze room"
+msgstr "%1 was geblokkeerd in deze room"
 
 #: src/libneochat/models/actionsmodel.cpp:399
 #: src/libneochat/models/actionsmodel.cpp:461
@@ -3400,7 +3400,7 @@ msgstr "%1 is niet verbannen uit deze room."
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
-msgstr "Verbande %1 is toegelaten tot deze room."
+msgstr "Geblokkeerde %1 is toegelaten tot deze room."
 
 #: src/libneochat/models/actionsmodel.cpp:426
 msgid "Removes the ban of the given user"
@@ -3523,7 +3523,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Maker"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/neochatconnection.cpp:74
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3532,18 +3532,18 @@ msgstr ""
 "Bestand is te groot om te downloaden.<br />Neem contact op met uw matrix-"
 "serverbeheerder voor ondersteuning."
 
-#: src/libneochat/neochatconnection.cpp:340
+#: src/libneochat/neochatconnection.cpp:338
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Geen identiteitsserver geconfigureerd"
 
-#: src/libneochat/neochatconnection.cpp:379
+#: src/libneochat/neochatconnection.cpp:377
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Aanmaken van room is mislukt: %1"
 
-#: src/libneochat/neochatconnection.cpp:408
+#: src/libneochat/neochatconnection.cpp:406
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ruimte aanmaken is mislukt: %1"
