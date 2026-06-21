@@ -98,7 +98,9 @@ android {
         // different syntax than above
         // see https://android.googlesource.com/platform/frameworks/base/+/refs/heads/pie-release/tools/aapt2/util/Files.h#90
         ignoreAssetsPattern '!<dir>ECM:!<dir>aclocal:!<dir>doc:!<dir>gtk-doc:!<dir>iso-codes:!<dir>man:!<dir>mime:!<dir>pkgconfig:!<dir>qlogging-categories5:!<file>iso_15924.mo:!<file>iso_3166-2.mo:!<file>iso_3166-3.mo:!<file>iso_4217.mo:!<file>iso_639-2.mo:!<file>iso_639-3.mo:!<file>iso_639-5.mo:!<file>kcodecs5_qt.qm:!<file>kde5_xml_mimetypes.qm'
-     }
+    }
 
-
+    androidResources {
+        generateLocaleConfig true
+    }
 }
