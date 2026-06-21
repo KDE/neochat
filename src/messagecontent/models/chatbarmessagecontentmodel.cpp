@@ -4,6 +4,7 @@
 #include "chatbarmessagecontentmodel.h"
 
 #include <QMimeData>
+#include <QMimeDatabase>
 #include <QMovie>
 #include <QTextDocumentFragment>
 #include <QTimer>

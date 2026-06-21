@@ -10,12 +10,13 @@
 #include <Quotient/syncdata.h>
 
 #include "events/pollevent.h"
-#include "pollhandler.h"
+#include "pollblock.h"
 #include "testutils.h"
 
 using namespace Quotient;
+using namespace Blocks;
 
-class PollHandlerTest : public QObject
+class PollBlockTest : public QObject
 {
     Q_OBJECT
 
@@ -29,45 +30,45 @@ private Q_SLOTS:
     void poll();
 };
 
-void PollHandlerTest::initTestCase()
+void PollBlockTest::initTestCase()
 {
     connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
     room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-pollhandlerstart-sync.json"_s);
 }
 
 // Basically don't crash.
-void PollHandlerTest::nullObject()
+void PollBlockTest::nullObject()
 {
-    auto pollHandler = PollHandler();
+    auto pollBlock = PollBlock(Poll, {}, nullptr, this);
 
-    QCOMPARE(pollHandler.hasEnded(), false);
-    QCOMPARE(pollHandler.numAnswers(), 0);
-    QCOMPARE(pollHandler.question(), QString());
-    QCOMPARE(pollHandler.kind(), PollKind::Disclosed);
+    QCOMPARE(pollBlock.hasEnded(), false);
+    QCOMPARE(pollBlock.numAnswers(), 0);
+    QCOMPARE(pollBlock.question(), QString());
+    QCOMPARE(pollBlock.kind(), PollKind::Disclosed);
 }
 
-void PollHandlerTest::poll()
+void PollBlockTest::poll()
 {
     auto startEvent = eventCast<const PollStartEvent>(room->messageEvents().at(0).get());
-    auto pollHandler = PollHandler(room, startEvent->id());
+    auto pollBlock = PollBlock(Poll, startEvent->id(), room, this);
 
     QList<Quotient::EventContent::Answer> options = {EventContent::Answer{"option1"_L1, "option1"_L1}, EventContent::Answer{"option2"_L1, "option2"_L1}};
 
-    const auto answer0 = pollHandler.answerAtRow(0);
-    const auto answer1 = pollHandler.answerAtRow(1);
-    QCOMPARE(pollHandler.hasEnded(), false);
-    QCOMPARE(pollHandler.numAnswers(), 2);
-    QCOMPARE(pollHandler.question(), u"test"_s);
+    const auto answer0 = pollBlock.answerAtRow(0);
+    const auto answer1 = pollBlock.answerAtRow(1);
+    QCOMPARE(pollBlock.hasEnded(), false);
+    QCOMPARE(pollBlock.numAnswers(), 2);
+    QCOMPARE(pollBlock.question(), u"test"_s);
     QCOMPARE(answer0.id, "option1"_L1);
     QCOMPARE(answer1.id, "option2"_L1);
     QCOMPARE(answer0.text, "option1text"_L1);
     QCOMPARE(answer1.text, "option2text"_L1);
-    QCOMPARE(pollHandler.answerCountAtId(answer0.id), 0);
-    QCOMPARE(pollHandler.answerCountAtId(answer1.id), 0);
-    QCOMPARE(pollHandler.checkMemberSelectedId(connection->userId(), answer0.id), false);
-    QCOMPARE(pollHandler.checkMemberSelectedId(connection->userId(), answer1.id), false);
-    QCOMPARE(pollHandler.kind(), PollKind::Undisclosed);
+    QCOMPARE(pollBlock.answerCountAtId(answer0.id), 0);
+    QCOMPARE(pollBlock.answerCountAtId(answer1.id), 0);
+    QCOMPARE(pollBlock.checkMemberSelectedId(connection->userId(), answer0.id), false);
+    QCOMPARE(pollBlock.checkMemberSelectedId(connection->userId(), answer1.id), false);
+    QCOMPARE(pollBlock.kind(), PollKind::Undisclosed);
 }
 
-QTEST_GUILESS_MAIN(PollHandlerTest)
-#include "pollhandlertest.moc"
+QTEST_GUILESS_MAIN(PollBlockTest)
+#include "pollblocktest.moc"
