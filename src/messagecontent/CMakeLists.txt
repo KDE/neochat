@@ -46,11 +46,9 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
     SOURCES
         contentprovider.cpp
         mediasizehelper.cpp
-        pollhandler.cpp
         models/chatbarmessagecontentmodel.cpp
         models/linemodel.cpp
         models/messagecontentmodel.cpp
-        models/pollanswermodel.cpp
         models/threadmodel.cpp
         models/eventmessagecontentmodel.cpp
     RESOURCES

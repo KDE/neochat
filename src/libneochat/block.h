@@ -12,7 +12,6 @@
 #include "models/reactionmodel.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include <Quotient/room.h>
 
 namespace Blocks
 {

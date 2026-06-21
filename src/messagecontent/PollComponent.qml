@@ -25,12 +25,9 @@ ColumnLayout {
     required property string eventId
 
     /**
-     * @brief The poll handler for this poll.
-     *
-     * This contains the required information like what the question, answers and
-     * current number of votes for each is.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property var pollHandler
+    required property PollBlock block
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
@@ -52,13 +49,13 @@ ColumnLayout {
             topPadding: Kirigami.Units.largeSpacing
             bottomPadding: Kirigami.Units.largeSpacing
 
-            text: root.pollHandler.question
+            text: root.block.question
             wrapMode: Text.Wrap
             visible: text.length > 0
         }
     }
     Repeater {
-        model: root.pollHandler.answerModel
+        model: root.block.answerModel
         delegate: Delegates.RoundedItemDelegate {
             id: answerDelegate
 
@@ -75,10 +72,10 @@ ColumnLayout {
             highlighted: false
 
             onClicked: {
-                if (root.pollHandler.hasEnded) {
+                if (root.block.hasEnded) {
                     return;
                 }
-                root.pollHandler.sendPollAnswer(root.eventId, answerDelegate.id);
+                root.block.sendPollAnswer(root.eventId, answerDelegate.id);
             }
             text: answerDelegate.answerText
 
@@ -94,7 +91,7 @@ ColumnLayout {
                     QQC2.CheckBox {
                         Layout.alignment: Qt.AlignTop
 
-                        enabled: !root.pollHandler.hasEnded
+                        enabled: !root.block.hasEnded
                         checked: answerDelegate.localChoice
 
                         onClicked: answerDelegate.clicked()
@@ -117,7 +114,7 @@ ColumnLayout {
                     QQC2.Label {
                         Layout.alignment: Qt.AlignTop
 
-                        visible: root.pollHandler.kind == PollKind.Disclosed || root.pollHandler.hasEnded
+                        visible: root.block.kind == PollKind.Disclosed || root.block.hasEnded
                         horizontalAlignment: Text.AlignRight
                         text: i18ncp("@info", "%1 Vote", "%1 Votes", answerDelegate.count)
                     }
@@ -126,16 +123,16 @@ ColumnLayout {
                     id: voteProgress
 
                     Layout.fillWidth: true
-                    to: root.pollHandler.totalCount
-                    value: root.pollHandler.kind == PollKind.Disclosed || root.pollHandler.hasEnded ? answerDelegate.count : 0
+                    to: root.block.totalCount
+                    value: root.block.kind == PollKind.Disclosed || root.block.hasEnded ? answerDelegate.count : 0
                 }
             }
         }
     }
 
     QQC2.Label {
-        visible: root.pollHandler.kind == PollKind.Disclosed || root.pollHandler.hasEnded
-        text: i18ncp("@info", "Based on votes by %1 user", "Based on votes by %1 users", root.pollHandler.totalCount) + (root.pollHandler.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
+        visible: root.block.kind == PollKind.Disclosed || root.block.hasEnded
+        text: i18ncp("@info", "Based on votes by %1 user", "Based on votes by %1 users", root.block.totalCount) + (root.block.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
         font.pointSize: questionLabel.font.pointSize * 0.8
     }
 }
