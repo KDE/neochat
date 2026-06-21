@@ -1,7 +1,8 @@
 // SPDX-FileCopyrightText: 2026 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-#include "block.h"
+#include "blocktype.h"
+#include "neochatroom.h"
 
 #include <KLocalizedString>
 
@@ -10,10 +11,9 @@
 #include <KSyntaxHighlighting/Repository>
 #endif
 
+#include "block.h"
 #include "blockcache.h"
-#include "blocktype.h"
 #include "fileinfo.h"
-#include "neochatroom.h"
 
 using namespace Blocks;
 

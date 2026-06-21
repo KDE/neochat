@@ -7,9 +7,10 @@
 #include <QObject>
 #include <QQmlEngine>
 
-#include "models/eventmessagecontentmodel.h"
 #include "models/threadmodel.h"
+#include "models/eventmessagecontentmodel.h"
 #include "neochatroom.h"
+#include "pollhandler.h"
 
 /**
  * @class ContentProvider
@@ -70,9 +71,20 @@ public:
      */
     ThreadModel *modelForThread(NeoChatRoom *room, const QString &threadRootId);
 
+    /**
+     * @brief Get a PollHandler object for the given event Id.
+     *
+     * Will return an existing PollHandler if one already exists for the event ID.
+     * A new PollHandler will be created if one doesn't exist.
+     *
+     * @sa PollHandler
+     */
+    Q_INVOKABLE PollHandler *handlerForPoll(NeoChatRoom *room, const QString &eventId);
+
 private:
     explicit ContentProvider(QObject *parent = nullptr);
 
     QCache<QString, EventMessageContentModel> m_eventContentModels;
     QCache<QString, ThreadModel> m_threadModels;
+    QCache<QString, PollHandler> m_pollHandlers;
 };

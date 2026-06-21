@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
-#include "pollblock.h"
+#include "pollhandler.h"
 
 #include <KLocalization>
 
@@ -10,33 +10,38 @@
 #include <Quotient/csapi/relations.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 
-using namespace Quotient;
-using namespace Blocks;
+#include <algorithm>
+#include <qcontainerfwd.h>
 
-PollBlock::PollBlock(Type type, const QString &pollStartId, NeoChatRoom *room, QObject *parent)
-    : Block(type, parent)
+using namespace Quotient;
+
+PollHandler::PollHandler(NeoChatRoom *room, const QString &pollStartId)
+    : QObject(nullptr)
     , m_pollStartId(pollStartId)
     , m_room(room)
 {
+    Q_ASSERT(room != nullptr);
+    Q_ASSERT(!pollStartId.isEmpty());
+
     if (room != nullptr) {
-        connect(room, &NeoChatRoom::aboutToAddNewMessages, this, &PollBlock::updatePoll);
-        connect(room, &NeoChatRoom::pendingEventAboutToAdd, this, &PollBlock::handleEvent);
+        connect(room, &NeoChatRoom::aboutToAddNewMessages, this, &PollHandler::updatePoll);
+        connect(room, &NeoChatRoom::pendingEventAboutToAdd, this, &PollHandler::handleEvent);
         checkLoadRelations();
     }
 }
 
-void PollBlock::updatePoll(Quotient::RoomEventsRange events)
+void PollHandler::updatePoll(Quotient::RoomEventsRange events)
 {
     auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
-    if (!pollStartEvent) {
+    if (pollStartEvent == nullptr) {
         return;
     }
-    std::ranges::for_each(events, [this](const std::unique_ptr<Quotient::RoomEvent> &event) {
+    for (const auto &event : events) {
         handleEvent(event.get());
-    });
+    }
 }
 
-void PollBlock::checkLoadRelations(const QString &nextBatch)
+void PollHandler::checkLoadRelations(const QString &nextBatch)
 {
     const auto pollStartEvent = m_room->getEvent(m_pollStartId).first;
     if (pollStartEvent == nullptr) {
@@ -55,7 +60,7 @@ void PollBlock::checkLoadRelations(const QString &nextBatch)
     });
 }
 
-void PollBlock::handleEvent(Quotient::RoomEvent *event)
+void PollHandler::handleEvent(Quotient::RoomEvent *event)
 {
     if (auto encEvent = eventCast<const EncryptedEvent>(event)) {
         const auto decrypted = room()->decryptMessage(*encEvent);
@@ -96,7 +101,7 @@ void PollBlock::handleEvent(Quotient::RoomEvent *event)
     }
 }
 
-void PollBlock::handleResponse(const Quotient::PollResponseEvent *event)
+void PollHandler::handleResponse(const Quotient::PollResponseEvent *event)
 {
     if (event == nullptr) {
         return;
@@ -128,12 +133,12 @@ void PollBlock::handleResponse(const Quotient::PollResponseEvent *event)
     Q_EMIT selectionsChanged();
 }
 
-NeoChatRoom *PollBlock::room() const
+NeoChatRoom *PollHandler::room() const
 {
     return m_room.get();
 }
 
-QString PollBlock::question() const
+QString PollHandler::question() const
 {
     if (!m_room) {
         return {};
@@ -145,7 +150,7 @@ QString PollBlock::question() const
     return pollStartEvent->question();
 }
 
-int PollBlock::numAnswers() const
+int PollHandler::numAnswers() const
 {
     if (m_room == nullptr) {
         return {};
@@ -157,7 +162,7 @@ int PollBlock::numAnswers() const
     return pollStartEvent->answers().length();
 }
 
-Quotient::EventContent::Answer PollBlock::answerAtRow(int row) const
+Quotient::EventContent::Answer PollHandler::answerAtRow(int row) const
 {
     if (m_room == nullptr) {
         return {};
@@ -169,7 +174,7 @@ Quotient::EventContent::Answer PollBlock::answerAtRow(int row) const
     return pollStartEvent->answers()[row];
 }
 
-int PollBlock::answerCountAtId(const QString &id) const
+int PollHandler::answerCountAtId(const QString &id) const
 {
     int count = 0;
     for (const auto &selection : m_selections) {
@@ -180,12 +185,12 @@ int PollBlock::answerCountAtId(const QString &id) const
     return count;
 }
 
-bool PollBlock::checkMemberSelectedId(const QString &memberId, const QString &id) const
+bool PollHandler::checkMemberSelectedId(const QString &memberId, const QString &id) const
 {
     return m_selections[memberId].contains(id);
 }
 
-PollKind::Kind PollBlock::kind() const
+PollKind::Kind PollHandler::kind() const
 {
     if (m_room == nullptr) {
         return {};
@@ -197,7 +202,7 @@ PollKind::Kind PollBlock::kind() const
     return pollStartEvent->kind();
 }
 
-PollAnswerModel *PollBlock::answerModel()
+PollAnswerModel *PollHandler::answerModel()
 {
     if (m_answerModel == nullptr) {
         m_answerModel = new PollAnswerModel(this);
@@ -205,7 +210,7 @@ PollAnswerModel *PollBlock::answerModel()
     return m_answerModel;
 }
 
-int PollBlock::totalCount() const
+int PollHandler::totalCount() const
 {
     int votes = 0;
     for (const auto &selection : m_selections) {
@@ -214,7 +219,7 @@ int PollBlock::totalCount() const
     return votes;
 }
 
-QStringList PollBlock::winningAnswerIds() const
+QStringList PollHandler::winningAnswerIds() const
 {
     if (m_room == nullptr) {
         return {};
@@ -242,7 +247,7 @@ QStringList PollBlock::winningAnswerIds() const
     return currentWinners;
 }
 
-void PollBlock::sendPollAnswer(const QString &eventId, const QString &answerId)
+void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId)
 {
     Q_ASSERT(eventId.length() > 0);
     Q_ASSERT(answerId.length() > 0);
@@ -271,19 +276,19 @@ void PollBlock::sendPollAnswer(const QString &eventId, const QString &answerId)
     handleResponse(eventCast<const PollResponseEvent>(response.event()));
 }
 
-bool PollBlock::hasEnded() const
+bool PollHandler::hasEnded() const
 {
     return m_hasEnded;
 }
 
-void PollBlock::endPoll() const
+void PollHandler::endPoll() const
 {
     room()->post<PollEndEvent>(m_pollStartId, endText());
 }
 
-QString PollBlock::endText() const
+QString PollHandler::endText() const
 {
-    if (!m_room) {
+    if (m_room == nullptr) {
         return {};
     }
     auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
@@ -303,4 +308,4 @@ QString PollBlock::endText() const
     return i18nc("%1 is the poll answer that had the most votes", "The poll has ended. Top answer: %1", answerText);
 }
 
-#include "moc_pollblock.cpp"
+#include "moc_pollhandler.cpp"

@@ -4,19 +4,17 @@
 #include "pollanswermodel.h"
 
 #include "neochatroom.h"
-#include "pollblock.h"
+#include "pollhandler.h"
 
-using namespace Blocks;
-
-PollAnswerModel::PollAnswerModel(PollBlock *parent)
+PollAnswerModel::PollAnswerModel(PollHandler *parent)
     : QAbstractListModel(parent)
 {
     Q_ASSERT(parent != nullptr);
 
-    connect(parent, &PollBlock::selectionsChanged, this, [this]() {
+    connect(parent, &PollHandler::selectionsChanged, this, [this]() {
         dataChanged(index(0), index(rowCount() - 1), {CountRole, LocalChoiceRole, IsWinnerRole});
     });
-    connect(parent, &PollBlock::answersChanged, this, [this]() {
+    connect(parent, &PollHandler::answersChanged, this, [this]() {
         dataChanged(index(0), index(rowCount() - 1), {TextRole});
     });
 }
@@ -30,7 +28,7 @@ QVariant PollAnswerModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const auto pollHandler = dynamic_cast<PollBlock *>(this->parent());
+    const auto pollHandler = dynamic_cast<PollHandler *>(this->parent());
     if (pollHandler == nullptr) {
         qWarning() << "PollAnswerModel created with nullptr parent.";
         return 0;
@@ -61,7 +59,7 @@ QVariant PollAnswerModel::data(const QModelIndex &index, int role) const
 int PollAnswerModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    const auto pollHandler = dynamic_cast<PollBlock *>(this->parent());
+    const auto pollHandler = dynamic_cast<PollHandler *>(this->parent());
     if (pollHandler == nullptr) {
         qWarning() << "PollAnswerModel created with nullptr parent.";
         return 0;

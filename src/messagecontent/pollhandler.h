@@ -11,7 +11,6 @@
 
 #include <Quotient/events/roomevent.h>
 
-#include "block.h"
 #include "events/pollevent.h"
 #include "models/pollanswermodel.h"
 
@@ -22,8 +21,6 @@ class PollResponseEvent;
 
 class NeoChatRoom;
 
-namespace Blocks
-{
 /**
  * @class PollHandler
  *
@@ -35,11 +32,11 @@ namespace Blocks
  * the poll is displayed as a single event in the timeline which merges all this
  * information.
  */
-class PollBlock : public Block
+class PollHandler : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
-    QML_UNCREATABLE("")
+    QML_UNCREATABLE("Use NeoChatRoom::poll")
 
     /**
      * @brief The kind of the poll.
@@ -67,7 +64,8 @@ class PollBlock : public Block
     Q_PROPERTY(int totalCount READ totalCount NOTIFY totalCountChanged)
 
 public:
-    PollBlock(Type type, const QString &pollStartId, NeoChatRoom *room, QObject *parent);
+    PollHandler() = default;
+    PollHandler(NeoChatRoom *room, const QString &pollStartId);
 
     NeoChatRoom *room() const;
 
@@ -142,4 +140,3 @@ private:
 
     QPointer<PollAnswerModel> m_answerModel;
 };
-}

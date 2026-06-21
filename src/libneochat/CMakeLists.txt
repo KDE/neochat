@@ -10,7 +10,6 @@ target_sources(LibNeoChat PRIVATE
     accountmanager.cpp
     chatbarcache.cpp
     block.cpp
-    pollblock.cpp
     blockcache.cpp
     filepreview.cpp
     fileinfo.h
@@ -58,7 +57,6 @@ target_sources(LibNeoChat PRIVATE
     models/itinerarymodel.cpp
     models/livelocationsmodel.cpp
     models/locationsmodel.cpp
-    models/pollanswermodel.cpp
     models/reactionmodel.cpp
     models/roomlistmodel.cpp
     models/stickermodel.cpp

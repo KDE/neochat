@@ -15,6 +15,9 @@
 
 #include "block.h"
 #include "enums/blocktype.h"
+#include "fileinfo.h"
+#include "filetype.h"
+#include "linkpreviewer.h"
 #include "models/reactionmodel.h"
 #include "neochatroom.h"
 #include "neochatroommember.h"
@@ -56,6 +59,7 @@ public:
         EventIdRole, /**< The matrix event ID of the event. */
         DateTimeRole, /**< The timestamp for when the event was sent (as a NeoChatDateTime). */
         AuthorRole, /**< The author of the event. */
+        PollHandlerRole, /**< The PollHandler for the event, if any. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
         ThreadRootRole, /**< The thread root event ID for the event. */
         EditableRole, /**< Whether the component can be edited. */

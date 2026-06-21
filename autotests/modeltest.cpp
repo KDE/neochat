@@ -52,7 +52,7 @@
 #include "models/userfiltermodel.h"
 #include "models/webshortcutmodel.h"
 #include "neochatroom.h"
-#include "pollblock.h"
+#include "pollhandler.h"
 #include "roommanager.h"
 #include "server.h"
 
@@ -225,8 +225,8 @@ void ModelTest::testReactionModel()
 
 void ModelTest::testPollAnswerModel()
 {
-    auto block = new Blocks::PollBlock(Blocks::Poll, eventId, room, this);
-    auto model = new Blocks::PollAnswerModel(block);
+    auto handler = std::make_unique<PollHandler>(room, eventId);
+    auto model = new PollAnswerModel(handler.get());
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }

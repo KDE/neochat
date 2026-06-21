@@ -9,6 +9,7 @@
 
 #include "block.h"
 #include "chatbarcache.h"
+#include "contentprovider.h"
 #include "messagecontentlogging.h"
 #include "neochatdatetime.h"
 #include "texthandler.h"
@@ -124,6 +125,9 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == AuthorRole) {
         return QVariant::fromValue<NeochatRoomMember *>(author());
     }
+    if (role == PollHandlerRole) {
+        return QVariant::fromValue<PollHandler *>(ContentProvider::self().handlerForPoll(m_room, m_eventId));
+    }
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);
     }
@@ -162,6 +166,7 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::EventIdRole] = "eventId";
     roles[MessageContentModel::DateTimeRole] = "dateTime";
     roles[MessageContentModel::AuthorRole] = "author";
+    roles[MessageContentModel::PollHandlerRole] = "pollHandler";
     roles[MessageContentModel::ReplyContentModelRole] = "replyContentModel";
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
     roles[MessageContentModel::EditableRole] = "editable";

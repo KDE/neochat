@@ -6,9 +6,7 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
-namespace Blocks
-{
-class PollBlock;
+class PollHandler;
 
 /**
  * @class PollAnswerModel
@@ -34,7 +32,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit PollAnswerModel(PollBlock *parent);
+    explicit PollAnswerModel(PollHandler *parent);
 
     /**
      * @brief Get the given role value at the given index.
@@ -57,4 +55,3 @@ public:
      */
     QHash<int, QByteArray> roleNames() const override;
 };
-}

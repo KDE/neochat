@@ -32,8 +32,8 @@
 #include "events/pollevent.h"
 #include "events/widgetevent.h"
 #include "fileinfo.h"
+#include "filepreview.h"
 #include "neochatroom.h"
-#include "pollblock.h"
 #include "texthandler.h"
 #include "utils.h"
 
@@ -786,11 +786,6 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Quot
             new Blocks::LocationBlock(type, EventHandler::latitude(event), EventHandler::longitude(event), EventHandler::locationAssetType(event), parent));
         components.push_back(new Blocks::TextBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(EventHandler::plainBody(room, event)), false, parent));
         return components;
-    }
-    case Blocks::Poll: {
-        Blocks::BlockPtrs blocks;
-        blocks.push_back(new Blocks::PollBlock(type, event->id(), room, parent));
-        return blocks;
     }
     default:
         return {};
