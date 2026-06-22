@@ -63,9 +63,6 @@ Kirigami.Page {
         anchors.fill: parent
         contentWidth: availableWidth
 
-        // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-        QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
-
         QQC2.TextArea {
             id: sourceTextArea
             Layout.fillWidth: true

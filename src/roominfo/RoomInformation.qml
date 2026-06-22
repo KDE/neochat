@@ -43,9 +43,6 @@ QQC2.ScrollView {
 
     signal resolveResource(string idOrUri, string action)
 
-    // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-    QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
-
     ListView {
         id: userList
 

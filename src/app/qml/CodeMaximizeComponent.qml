@@ -75,9 +75,6 @@ Components.AbstractMaximizeComponent {
         id: codeScrollView
         contentWidth: root.width
 
-        // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-        QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
-
         QQC2.TextArea {
             id: codeTextEdit
             topPadding: Kirigami.Units.smallSpacing

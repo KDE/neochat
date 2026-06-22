@@ -35,9 +35,6 @@ QQC2.ScrollView {
 
     required property Timeline.MediaMessageFilterModel mediaMessageFilterModel
 
-    // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-    QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
-
     ListView {
         clip: true
         verticalLayoutDirection: ListView.BottomToTop
