@@ -175,7 +175,7 @@ void ChatBarMessageContentModel::initializeEdit()
         QString escapedText;
         while (!cursor.atEnd()) {
             cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
-            auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown()));
+            auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown(QTextDocument::MarkdownUnderlineTag)));
             if (!cursor.currentList()) {
                 nextText.replace(u'\n', u' ');
                 nextText.replace(u"  "_s, u" "_s);

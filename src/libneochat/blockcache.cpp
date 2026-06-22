@@ -88,7 +88,7 @@ QString TextCacheItem::toString() const
 {
     if (!richTextActive) {
         auto plainText = content.toPlainText();
-        const auto markdownText = content.toMarkdown();
+        const auto markdownText = content.toMarkdown(QTextDocument::MarkdownUnderlineTag);
         QRegularExpression mentionRegex(u"\\[(.*)]\\(.*\\)"_s);
         QRegularExpressionMatch mentionMatch;
         qsizetype lastPos = 0;
@@ -115,7 +115,7 @@ QString TextCacheItem::toString() const
     cursor.movePosition(QTextCursor::Start);
     while (!cursor.atEnd()) {
         cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
-        auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown()));
+        auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown(QTextDocument::MarkdownUnderlineTag)));
         if (!cursor.currentList()) {
             nextText.replace(u'\n', u' ');
         }

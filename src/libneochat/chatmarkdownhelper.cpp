@@ -21,6 +21,7 @@ struct MarkdownSyntax {
 
 const QList<MarkdownSyntax> syntax = {
     MarkdownSyntax{.sequence = "*"_L1, .closable = true, .format = RichFormat::Italic},
+    MarkdownSyntax{.sequence = "_"_L1, .closable = true, .format = RichFormat::Italic},
     MarkdownSyntax{.sequence = "**"_L1, .closable = true, .format = RichFormat::Bold},
     MarkdownSyntax{.sequence = "# "_L1, .lineStart = true, .format = RichFormat::Heading1},
     MarkdownSyntax{.sequence = " # "_L1, .lineStart = true, .format = RichFormat::Heading1},
@@ -76,7 +77,8 @@ const QList<MarkdownSyntax> syntax = {
     MarkdownSyntax{.sequence = "  ```"_L1, .lineStart = true, .format = RichFormat::Code},
     MarkdownSyntax{.sequence = "   ```"_L1, .lineStart = true, .format = RichFormat::Code},
     MarkdownSyntax{.sequence = "~~"_L1, .closable = true, .format = RichFormat::Strikethrough},
-    MarkdownSyntax{.sequence = "_"_L1, .closable = true, .format = RichFormat::Underline},
+    MarkdownSyntax{.sequence = "<u>"_L1, .closable = true, .format = RichFormat::Underline},
+    MarkdownSyntax{.sequence = "</u>"_L1, .closable = true, .format = RichFormat::Underline},
 };
 
 std::optional<bool> checkSequence(const QString &currentString, const QString &nextChar, bool lineStart = false)

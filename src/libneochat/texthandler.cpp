@@ -48,7 +48,7 @@ void TextHandler::setData(const QString &string)
 QString TextHandler::handleSendText()
 {
     m_pos = 0;
-    m_dataBuffer = fixupUnderlineSyntax(m_data);
+    m_dataBuffer = m_data;
     escapeURLs(m_dataBuffer);
     m_dataBuffer = markdownToHTML(m_dataBuffer);
     m_dataBuffer = customMarkdownToHtml(m_dataBuffer);
@@ -779,17 +779,6 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
     return buffer;
 }
 
-QString TextHandler::fixupUnderlineSyntax(const QString &stringIn)
-{
-    QString buffer = stringIn;
-
-    // NOTE: This syntax may seem odd, but it's because the output from Qt's Markdown writer uses a single _ for underlining (???)
-    // So we have to be consistent with that.
-    processWithinMarkdown(buffer, u"_"_s, u"<u>"_s, u"</u>"_s);
-
-    return buffer;
-}
-
 void TextHandler::processWithinHTML(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag)
 {
     qsizetype beginCodeBlockTag = buffer.indexOf(u"<code>"_s);
@@ -857,83 +846,6 @@ void TextHandler::processWithinHTML(QString &buffer, const QString &syntax, cons
         if (nextPos > endCodeBlockTag) {
             beginCodeBlockTag = buffer.indexOf(u"<code>"_s, nextPos + 1);
             endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
-        }
-
-        // Move the search pointer past this point.
-        // Not technically needed in most cases since we replaced the original tag, but needed for code blocks
-        // which still have the characters.
-        lastPos = nextPos + syntax.length();
-    }
-}
-
-void TextHandler::processWithinMarkdown(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag)
-{
-    qsizetype beginCodeBlockTag = buffer.indexOf(u"`"_s);
-    qsizetype endCodeBlockTag = buffer.indexOf(u"`"_s, beginCodeBlockTag + 1);
-
-    // Index to search from
-    qsizetype lastPos = 0;
-    while (true) {
-        const qsizetype pos = buffer.indexOf(syntax, lastPos);
-        if (pos == -1) {
-            break;
-        }
-
-        // If we're inside a code block, ignore and move the search past this code block
-        const bool validCodeBlock = beginCodeBlockTag != -1 && endCodeBlockTag != -1;
-        if (validCodeBlock && pos > beginCodeBlockTag && pos < endCodeBlockTag) {
-            lastPos = endCodeBlockTag + 2;
-
-            // since we moved past this code block, make sure to update the indices for the next one
-            beginCodeBlockTag = buffer.indexOf(u"`"_s, lastPos + 1);
-            endCodeBlockTag = buffer.indexOf(u"`"_s, beginCodeBlockTag + 1);
-
-            continue;
-        }
-
-        const auto findNextPos = [&pos, &buffer, &syntax] {
-            qsizetype nextPos;
-
-            qsizetype nextSearchPos = pos + 1;
-            while (true) {
-                nextPos = buffer.indexOf(syntax, nextSearchPos);
-                if (nextPos == -1) {
-                    break;
-                }
-
-                if (nextPos + 1 < buffer.length()) {
-                    // Don't allow anything but spacing characters or symbols (which could be used for markdown syntax like strikethroughs)
-                    if (!buffer[nextPos + 1].isSpace() && !buffer[nextPos + 1].isSymbol()) {
-                        nextSearchPos = nextPos + 1;
-                        continue; // Keep searching
-                    }
-                }
-
-                break;
-            }
-
-            return nextPos;
-        };
-
-        // Find the next valid closing character
-        qsizetype nextPos = findNextPos();
-        if (nextPos == -1) {
-            break;
-        }
-
-        // Replace the beginning syntax
-        buffer.replace(pos, syntax.length(), beginTag);
-
-        // Update positions and re-search since the underlying text buffer changed
-        nextPos = findNextPos();
-
-        // Now replace the end syntax
-        buffer.replace(nextPos, syntax.length(), endTag);
-
-        // If we have begun checking spoilers past our current code block, make sure we're in the next one (if it exists)
-        if (nextPos > endCodeBlockTag) {
-            beginCodeBlockTag = buffer.indexOf(u"`"_s, nextPos + 1);
-            endCodeBlockTag = buffer.indexOf(u"`"_s, beginCodeBlockTag + 1);
         }
 
         // Move the search pointer past this point.
