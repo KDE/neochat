@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-25 00:44+0000\n"
-"PO-Revision-Date: 2026-04-03 22:05+0200\n"
+"PO-Revision-Date: 2026-06-27 16:11+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/app/controller.cpp:186
 #, kde-format
@@ -33,12 +33,9 @@ msgid "Receiving push notifications"
 msgstr "Получение push-уведомлений"
 
 #: src/app/main.cpp:145
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2026 KDE Community"
-msgstr ""
-"© Black Hat, 2018–2020\n"
-"© Сообщество KDE, 2020–2025"
+msgstr "© Black Hat, 2018–2020, © Сообщество KDE, 2020–2026"
 
 #: src/app/main.cpp:146
 #, kde-format
@@ -300,12 +297,10 @@ msgid "Choose a Room"
 msgstr "Выбор комнаты"
 
 #: src/app/qml/ChooseRoomDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
-msgstr "Выбрать все"
+msgstr "Выбрать"
 
 #: src/app/qml/ChooseRoomDialog.qml:84 src/app/qml/ReasonDialog.qml:72
 #, kde-format
@@ -642,10 +637,9 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "Входящий запрос на проверку ключа с устройства **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:172
-#, fuzzy, kde-format
-#| msgid "Incoming key verification request from device **%1**"
+#, kde-format
 msgid "Incoming key verification request from **%1**"
-msgstr "Входящий запрос на проверку ключа с устройства **%1**"
+msgstr "Входящий запрос на проверку ключа от **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:176
 #: src/app/qml/OlmKeyVerificationDialog.qml:155
@@ -674,15 +668,13 @@ msgstr "Устройство **%1** успешно проверено."
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/KeyVerificationDialog.qml:196
-#, fuzzy, kde-format
-#| msgid "Successfully verified device **%1**"
+#, kde-format
 msgctxt "@info"
 msgid "Successfully verified **%1**"
-msgstr "Устройство **%1** успешно проверено."
+msgstr "**%1** успешно проверено."
 
 #: src/app/qml/KeyVerificationDialog.qml:190
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to confirm our keys."
+#, kde-format
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
 msgstr "Ожидание подтверждения ключей от другой стороны."
@@ -747,21 +739,19 @@ msgstr "Ключи шифрования восстановлены."
 #, kde-format
 msgctxt "@info"
 msgid "Loaded keys from backup"
-msgstr ""
+msgstr "Ключи загружены из резервной копии"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Failed to load keys from backup"
-msgstr ""
+msgstr "Не удалось загрузить ключи из резервной копии"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Verify device"
+#, kde-format
 msgctxt "@title"
 msgid "Verify Session"
-msgstr "Проверить устройство"
+msgstr "Проверить сеанс"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:62
 #, kde-format
@@ -770,6 +760,8 @@ msgid ""
 "It's recommended to verify this session from another device, if possible. "
 "You can do so under the Devices page."
 msgstr ""
+"Рекомендуется подтвердить этот сеанс с другого устройства, если возможно. "
+"Сделать это можно на странице «Устройства»."
 
 #: src/app/qml/ManageKeyStorageDialog.qml:67
 #, kde-format
@@ -831,15 +823,13 @@ msgstr "Запросить с других устройств"
 #, kde-format
 msgctxt "@title"
 msgid "Decryption Key Backup"
-msgstr ""
+msgstr "Резервная копия ключа дешифрования"
 
 #: src/app/qml/ManageKeyStorageDialog.qml:144
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup file."
+#, kde-format
 msgctxt "@action:button"
 msgid "Load Decryption Keys from Backup"
-msgstr "Импорт ключей шифрования из файла резервной копии."
+msgstr "Импорт ключей шифрования из файла резервной копии"
 
 #: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
@@ -965,8 +955,7 @@ msgid "No Notifications"
 msgstr "Уведомлений нет"
 
 #: src/app/qml/OlmKeyVerificationDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Session Verification"
+#, kde-format
 msgid "Session Verifications"
 msgstr "Проверка сеанса"
 
@@ -1314,8 +1303,7 @@ msgid "Message"
 msgstr "Написать сообщение"
 
 #: src/app/qml/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:intoolbar Edit This Account"
 msgid "Edit"
 msgstr "Изменить"
@@ -1760,12 +1748,10 @@ msgid "Quit"
 msgstr "Выход"
 
 #: src/chatbar/ChatBar.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "You do not have permissions to start Jitsi meetings"
+#, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
-msgstr "Запуск конференций Jitsi недоступен"
+msgstr "У вас нет разрешения на отправку сообщений в эту комнату."
 
 #: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
 #, kde-format
@@ -1919,27 +1905,25 @@ msgstr "Создание голосования"
 #, kde-format
 msgctxt "@label The type of poll to create"
 msgid "Show Results:"
-msgstr ""
+msgstr "Показать результаты:"
 
 #: src/chatbar/NewPollDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@item:inlistbox Show results after a user votes"
 msgid "After Voting"
-msgstr "Введите вариант"
+msgstr "После голосования"
 
 #: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox Show results after the poll ends"
 msgid "After Poll Ends"
-msgstr ""
+msgstr "После завершения голосования"
 
 #: src/chatbar/NewPollDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid "Votes are not anonymous and will be visible to everyone in the room."
-msgstr ""
+msgstr "Голоса не анонимны и будут видны всем в комнате."
 
 #: src/chatbar/NewPollDialog.qml:61
 #, kde-format
@@ -1951,7 +1935,7 @@ msgstr "Вопрос:"
 #, kde-format
 msgctxt "@info:placeholder Example poll question"
 msgid "What's your favorite food?"
-msgstr ""
+msgstr "Ваше любимое блюдо?"
 
 #: src/chatbar/NewPollDialog.qml:108
 #, kde-format
@@ -1978,9 +1962,7 @@ msgid "Send"
 msgstr "Отправить"
 
 #: src/chatbar/NewPollDialog.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add option"
+#, kde-format
 msgctxt "@action:button Add new poll option"
 msgid "Add Option"
 msgstr "Добавить вариант"
@@ -3680,8 +3662,7 @@ msgid "Lat: %1, Lon: %2"
 msgstr "Широта: %1, долгота: %2"
 
 #: src/libneochat/profilefieldshelper.cpp:55
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "@info:label Local time (timezone offset)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -4323,11 +4304,10 @@ msgid "Expand preview"
 msgstr "Увеличить область предварительного просмотра"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:53
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgctxt "As in the app is loading the link preview"
 msgid "Loading URL preview…"
-msgstr "Загрузка предпросмотра содержимого по ссылке"
+msgstr "Загрузка предпросмотра содержимого по ссылке…"
 
 #: src/messagecontent/LoadComponent.qml:33
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:257
@@ -4507,12 +4487,10 @@ msgid "Pl. %1"
 msgstr "Пл. %1"
 
 #: src/messagecontent/VideoComponent.qml:153
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Video"
-msgstr "Открыть видеофайл"
+msgstr "Скрыть видео"
 
 #: src/messagecontent/VideoComponent.qml:178
 #, kde-format
@@ -5120,8 +5098,7 @@ msgid "Verify This Device"
 msgstr "Проверить это устройство"
 
 #: src/rooms/UserInfo.qml:112
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Notifications"
 msgstr "Просмотреть уведомления"
@@ -5133,34 +5110,28 @@ msgid "Edit Account"
 msgstr "Изменение учётной записи"
 
 #: src/settings/AccountEditorPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgctxt "@info"
 msgid "New avatar could not be set."
-msgstr "Показывать обновления изображений"
+msgstr "Не удалось установить новое изображение."
 
 #: src/settings/AccountEditorPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Revert changes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset Changes"
 msgstr "Отменить изменения"
 
 #: src/settings/AccountEditorPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save changes to user"
 msgid "Save"
 msgstr "Сохранить"
 
 #: src/settings/AccountEditorPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:dialog Apply unsaved settings"
 msgid "Apply Settings"
-msgstr "Настроить"
+msgstr "Применение параметров"
 
 #: src/settings/AccountEditorPage.qml:93
 #, kde-format
@@ -5169,10 +5140,11 @@ msgid ""
 "There are unsaved changes to user information. Apply the changes or discard "
 "them?"
 msgstr ""
+"В информации о пользователе есть несохранённые изменения. Применить "
+"изменения или отменить их?"
 
 #: src/settings/AccountEditorPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Apply"
 msgstr "Применить"
@@ -5181,7 +5153,7 @@ msgstr "Применить"
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Reset"
-msgstr ""
+msgstr "Сбросить"
 
 #: src/settings/AccountEditorPage.qml:167
 #, kde-format
@@ -5247,9 +5219,7 @@ msgid "New Password:"
 msgstr "Новый пароль:"
 
 #: src/settings/AccountEditorPage.qml:290
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm New Password:"
 msgstr "Подтверждение нового пароля:"
@@ -5509,9 +5479,7 @@ msgid "Activate Encryption"
 msgstr "Включить шифрование"
 
 #: src/settings/DeviceDelegate.qml:53
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "@label (Device ID), Last activity: (timestamp)"
 msgid "%1, Last activity: %2"
 msgstr "%1, последняя активность: %2"
@@ -5550,12 +5518,10 @@ msgid "Verified"
 msgstr "Проверено"
 
 #: src/settings/DeviceDelegate.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Logout device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Logout device…"
-msgstr "Отключить устройство от учётной записи"
+msgstr "Отключить устройство от учётной записи…"
 
 #: src/settings/DeviceDelegate.qml:146
 #, kde-format
@@ -7702,12 +7668,10 @@ msgid "Leave this Space…"
 msgstr "Покинуть это пространство…"
 
 #: src/timeline/DelegateContextMenu.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Pick Room"
+#, kde-format
 msgctxt "@info:tooltip Pick specific emoji for a reaction"
 msgid "Pick Reaction"
-msgstr "Выбрать комнату"
+msgstr "Выбрать реакцию"
 
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
@@ -7753,12 +7717,10 @@ msgid "Forward…"
 msgstr "Перенаправить…"
 
 #: src/timeline/DelegateContextMenu.qml:273
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward…"
+#, kde-format
 msgctxt "@action:button As in 'Forward this message'"
 msgid "Forward"
-msgstr "Перенаправить…"
+msgstr "Перенаправить"
 
 #: src/timeline/DelegateContextMenu.qml:276
 #, kde-format
@@ -7815,33 +7777,25 @@ msgid "Save File…"
 msgstr "Сохранить файл…"
 
 #: src/timeline/DelegateContextMenu.qml:334
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Hide Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Image"
 msgstr "Скрыть изображение"
 
 #: src/timeline/DelegateContextMenu.qml:336
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Video"
-msgstr "Открыть видеофайл"
+msgstr "Скрыть видео"
 
 #: src/timeline/DelegateContextMenu.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "Показать изображение"
 
 #: src/timeline/DelegateContextMenu.qml:350
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "Показать видео"
@@ -8075,17 +8029,14 @@ msgid "Drag items here to share them"
 msgstr "Чтобы опубликовать файлы, перетащите их сюда"
 
 #: src/timeline/TypingPane.qml:27
-#, fuzzy, kde-format
-#| msgctxt "Message displayed when some users are typing"
-#| msgid "%2 is typing"
-#| msgid_plural "%2 are typing"
+#, kde-format
 msgctxt "Number of users typing in the room"
 msgid "1 user is typing"
 msgid_plural "%1 users are typing"
-msgstr[0] "%2 набирают сообщение"
-msgstr[1] "%2 набирают сообщение"
-msgstr[2] "%2 набирают сообщение"
-msgstr[3] "%2 набирает сообщение"
+msgstr[0] "%1 пользователь набирает сообщение"
+msgstr[1] "%1 пользователя набирают сообщение"
+msgstr[2] "%1 пользователей набирают сообщение"
+msgstr[3] "1 пользователь набирает сообщение"
 
 #: src/timeline/TypingPane.qml:30
 #, kde-format
