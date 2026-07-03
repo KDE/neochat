@@ -170,28 +170,38 @@ Kirigami.Page {
             FormCard.FormCard {
                 FormCard.FormTextFieldDelegate {
                     id: homeserverField
+
+                    enabled: !homeserverInfo.loggingIn
                     label: i18nc("@label:textfield", "Homeserver")
+                    placeholderText: "matrix.org"
                 }
                 FormCard.FormButtonDelegate {
                     visible: homeserverInfo.canSso
+
+                    enabled: !homeserverInfo.loggingIn
                     text: i18nc("@action:button", "Continue in Browser")
                     onClicked: Qt.openUrlExternally(homeserverInfo.ssoUrl)
                 }
                 FormCard.FormDelegateSeparator {}
                 FormCard.FormTextFieldDelegate {
                     id: usernameField
+
+                    enabled: !homeserverInfo.loggingIn
                     visible: homeserverInfo.canPassword
                     label: i18nc("@label", "Username")
                 }
                 FormCard.FormPasswordFieldDelegate {
                     id: passwordField
+
+                    enabled: !homeserverInfo.loggingIn
                     visible: homeserverInfo.canPassword
                     label: i18nc("@label", "Password")
                 }
                 FormCard.FormButtonDelegate {
                     text: i18nc("@action:button", "Login")
                     visible: homeserverInfo.canPassword
-                    enabled: passwordField.text.length > 0 && usernameField.text.length > 0
+                    enabled: passwordField.text.length > 0 && usernameField.text.length > 0 && !homeserverInfo.loggingIn
+                    onClicked: homeserverInfo.loginWithPassword(usernameField.text, passwordField.text)
                 }
                 FormCard.AbstractFormDelegate {
                     id: busy
@@ -206,7 +216,7 @@ Kirigami.Page {
 
             FormCard.FormCard {
                 Layout.topMargin: Kirigami.Units.largeSpacing * 2
-                visible: root.showSettings || previousButtonDelegate.visible
+                visible: root.showSettings
 
                 FormCard.FormButtonDelegate {
                     text: i18nc("@action:button", "Settings")

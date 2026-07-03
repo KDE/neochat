@@ -3,7 +3,11 @@
 
 #include "homeserverinfo.h"
 #include "neochatconnection.h"
+
 #include <Quotient/connection.h>
+#include <Quotient/settings.h>
+
+#include <KLocalizedString>
 
 using namespace Quotient;
 
@@ -40,6 +44,37 @@ void HomeserverInfo::test()
         setReachable(true);
         Q_EMIT flowsChanged();
     });
+
+    connect(m_testConnection, &Connection::connected, this, [this] {
+        setLoggingIn(false);
+        AccountSettings account(m_testConnection->userId());
+        account.setKeepLoggedIn(true);
+        account.setHomeserver(m_testConnection->homeserver());
+        account.setDeviceId(m_testConnection->deviceId());
+        account.setDeviceName({});
+        account.sync();
+        // TODO m_accountManager->addConnection(m_connection);
+        // TODO m_accountManager->setActiveConnection(m_connection);
+        disconnect(m_testConnection, nullptr, this, nullptr);
+        // TODO use syncDone directly in the ui for that
+    });
+    connect(m_testConnection, &NeoChatConnection::networkError, this, [this](const auto &error, const auto &, int, int) {
+        setLoggingIn(false);
+        Q_EMIT m_testConnection->errorOccured(i18n("Network Error: %1", std::move(error)));
+    });
+    connect(m_testConnection, &NeoChatConnection::loginError, this, [this](const auto &error, const auto &) {
+        setLoggingIn(false);
+        if (error == u"Invalid username or password"_s) {
+            // setInvalidPassword(true); // TODO do in NeoChatConnection
+        } else {
+            // Q_EMIT loginErrorOccured(i18n("Login Failed: %1", error));
+        }
+    });
+
+    connect(m_testConnection, &NeoChatConnection::resolveError, this, [this](const auto error) {
+        setLoggingIn(false);
+        Q_EMIT m_testConnection->errorOccured(i18nc("@info", "Network Error: %1", std::move(error)));
+    });
 }
 
 bool HomeserverInfo::canSso() const
@@ -52,7 +87,7 @@ bool HomeserverInfo::canPassword() const
     return m_testConnection && m_testConnection->getLoginFlow(LoginFlowTypes::Password).has_value();
 }
 
-QString HomeserverInfo::ssoUrl()
+QUrl HomeserverInfo::ssoUrl()
 {
     if (!m_testConnection) {
         return {};
@@ -60,7 +95,7 @@ QString HomeserverInfo::ssoUrl()
     if (!m_ssoSession) {
         m_ssoSession = m_testConnection->prepareForSso(u"NeoChat"_s);
     }
-    return m_ssoSession->ssoUrl().toString();
+    return m_ssoSession->ssoUrl();
 }
 
 bool HomeserverInfo::reachable() const
@@ -79,7 +114,22 @@ void HomeserverInfo::setReachable(bool reachable)
 
 void HomeserverInfo::loginWithPassword(const QString &matrixId, const QString &password)
 {
-    auto username = matrixId.mid(1, matrixId.indexOf(QLatin1Char(':')) - 1);
-    auto connection = std::make_unique<NeoChatConnection>();
-    connection->loginWithPassword(username, password, {}, {});
+    setLoggingIn(true);
+    // TODO ensure this only runs once
+    m_testConnection->loginWithPassword(matrixId.mid(1, matrixId.indexOf(QLatin1Char(':')) - 1), password, {}, {});
+}
+
+void HomeserverInfo::setLoggingIn(bool loggingIn)
+{
+    if (m_loggingIn == loggingIn) {
+        return;
+    }
+
+    m_loggingIn = loggingIn;
+    Q_EMIT loggingInChanged();
+}
+
+bool HomeserverInfo::loggingIn() const
+{
+    return m_loggingIn;
 }
