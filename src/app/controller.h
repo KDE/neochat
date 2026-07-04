@@ -60,9 +60,9 @@ class Controller : public QObject
 
 public:
     static Controller &instance();
-    static Controller *create(QQmlEngine *engine, QJSEngine *)
+    static Controller *create(QQmlEngine *, QJSEngine *)
     {
-        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        QQmlEngine::setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
 
@@ -71,11 +71,11 @@ public:
     [[nodiscard]] NeoChatConnection *activeConnection() const;
     void setActiveConnection(NeoChatConnection *connection);
 
-    QStringList accountsLoading() const;
+    [[nodiscard]] QStringList accountsLoading() const;
 
     [[nodiscard]] bool supportSystemTray() const;
 
-    bool isFlatpak() const;
+    [[nodiscard]] bool isFlatpak() const;
 
     /**
      * @brief Start listening for notifications in dbus-activated mode.
@@ -90,11 +90,11 @@ public:
      */
     Q_INVOKABLE void clearInvitationNotification(const QString &roomId);
 
-    Q_INVOKABLE QString loadFileContent(const QString &path) const;
+    Q_INVOKABLE static QString loadFileContent(const QString &path);
 
     Quotient::AccountRegistry *accounts();
 
-    Q_INVOKABLE void removeConnection(const QString &userId);
+    Q_INVOKABLE void removeConnection(const QString &userId) const;
 
     /**
      * @brief Revert all configuration values to their default.
@@ -102,14 +102,14 @@ public:
      * The parameters along with their defaults are specified in the config file
      * neochatconfig.kcfg.
      */
-    Q_INVOKABLE void revertToDefaultConfig();
+    Q_INVOKABLE static void revertToDefaultConfig();
 
-    int libquotientMinorVersion() const;
+    [[nodiscard]] static int libquotientMinorVersion();
 
     /**
      * @brief Hack around deficiencies in the XDP where currentFolder is useless but selectedFile has a useful URI we can use.
      */
-    Q_INVOKABLE QString translateToSaveDirectory(const QUrl &selectedFile, const QUrl &currentFolder);
+    Q_INVOKABLE [[nodiscard]] QString translateToSaveDirectory(const QUrl &selectedFile, const QUrl &currentFolder) const;
 
 private:
     explicit Controller(QObject *parent = nullptr);
@@ -135,7 +135,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     /**
-     * @brief Request a error message be shown to the user.
+     * @brief Request an error message be shown to the user.
      */
     void errorOccured(const QString &error);
     void connectionAdded(NeoChatConnection *connection);

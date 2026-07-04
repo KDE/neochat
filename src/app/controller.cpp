@@ -40,16 +40,18 @@
 
 using namespace Quotient;
 
-static std::function<bool(const Quotient::RoomEvent *)> hiddenEventFilter = [](const RoomEvent *event) -> bool {
+static std::function<bool(const RoomEvent *)> hiddenEventFilter = [](const RoomEvent *event) -> bool {
     if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
         return true;
     }
-    if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
+    if (const auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
         if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
             return true;
-        } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
+        }
+        if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
             return true;
-        } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showAvatarUpdate()) {
+        }
+        if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showAvatarUpdate()) {
             return true;
         }
     }
@@ -358,7 +360,7 @@ AccountRegistry *Controller::accounts()
     return m_accountManager->accounts();
 }
 
-QString Controller::loadFileContent(const QString &path) const
+QString Controller::loadFileContent(const QString &path)
 {
     QUrl url(path);
     QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
@@ -369,7 +371,7 @@ QString Controller::loadFileContent(const QString &path) const
     return QString::fromLatin1(file.readAll());
 }
 
-void Controller::removeConnection(const QString &userId)
+void Controller::removeConnection(const QString &userId) const
 {
     m_accountManager->dropConnection(userId);
 }
@@ -381,12 +383,12 @@ void Controller::revertToDefaultConfig()
     config->save();
 }
 
-int Controller::libquotientMinorVersion() const
+int Controller::libquotientMinorVersion()
 {
     return Quotient_VERSION_MINOR;
 }
 
-QString Controller::translateToSaveDirectory(const QUrl &selectedFile, const QUrl &currentFolder)
+QString Controller::translateToSaveDirectory(const QUrl &selectedFile, const QUrl &currentFolder) const
 {
     // Turn paths like file:///run/user/1000/doc/9d60121c/love2.png to file:///run/user/1000/doc/9d60121c
     // We want to be able to use the currentFolder property, but this currently isn't possible.
