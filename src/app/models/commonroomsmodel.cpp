@@ -21,6 +21,9 @@ NeoChatConnection *CommonRoomsModel::connection() const
 
 void CommonRoomsModel::setConnection(NeoChatConnection *connection)
 {
+    if (connection == m_connection) {
+        return;
+    }
     m_connection = connection;
     Q_EMIT connectionChanged();
     reload();
@@ -33,6 +36,9 @@ QString CommonRoomsModel::userId() const
 
 void CommonRoomsModel::setUserId(const QString &userId)
 {
+    if (userId == m_userId) {
+        return;
+    }
     m_userId = userId;
     Q_EMIT userIdChanged();
     reload();
@@ -41,7 +47,7 @@ void CommonRoomsModel::setUserId(const QString &userId)
 QVariant CommonRoomsModel::data(const QModelIndex &index, int roleName) const
 {
     auto roomId = m_commonRooms[index.row()];
-    auto room = connection()->room(roomId);
+    const auto room = connection()->room(roomId);
     if (!room) {
         return {};
     }
