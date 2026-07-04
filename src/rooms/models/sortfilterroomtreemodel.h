@@ -70,7 +70,7 @@ public:
     void setFilterText(const QString &text);
     [[nodiscard]] QString filterText() const;
 
-    QString activeSpaceId() const;
+    [[nodiscard]] QString activeSpaceId() const;
     void setActiveSpaceId(const QString &spaceId);
 
     /**
@@ -78,10 +78,10 @@ public:
      */
     void setCurrentRoom(NeoChatRoom *room);
 
-    Mode mode() const;
+    [[nodiscard]] Mode mode() const;
     void setMode(Mode mode);
 
-    Q_INVOKABLE QModelIndex currentRoomIndex() const;
+    Q_INVOKABLE [[nodiscard]] QModelIndex currentRoomIndex() const;
 
     static void setShowAllRoomsInHome(bool enabled);
 

@@ -43,16 +43,16 @@ public:
 
     NotificationsModel(QObject *parent = nullptr);
 
-    int rowCount(const QModelIndex &parent) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QHash<int, QByteArray> roleNames() const override;
-    bool canFetchMore(const QModelIndex &parent) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] bool canFetchMore(const QModelIndex &parent) const override;
     void fetchMore(const QModelIndex &parent) override;
 
-    NeoChatConnection *connection() const;
+    [[nodiscard]] NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
-    bool loading() const;
-    QString nextToken() const;
+    [[nodiscard]] bool loading() const;
+    [[nodiscard]] QString nextToken() const;
 
 Q_SIGNALS:
     void connectionChanged();

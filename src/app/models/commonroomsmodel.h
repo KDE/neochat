@@ -39,9 +39,9 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int roleName) const override;
     [[nodiscard]] Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    bool loading() const;
+    [[nodiscard]] bool loading() const;
 
 Q_SIGNALS:
     void connectionChanged();
