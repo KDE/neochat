@@ -11,13 +11,6 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    Connections {
-        target: LoginHelper
-        function onConnected() {
-            root.processed("Loading");
-        }
-    }
-
     onActiveFocusChanged: if (activeFocus)
         passwordField.forceActiveFocus()
 

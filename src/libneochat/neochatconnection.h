@@ -101,6 +101,8 @@ class NeoChatConnection : public Quotient::Connection
      */
     Q_PROPERTY(bool supportsProfileFields READ supportsProfileFields NOTIFY supportsProfileFieldsChanged)
 
+    Q_PROPERTY(bool initialSyncDone MEMBER m_syncDone NOTIFY initialSyncDoneChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -307,6 +309,7 @@ Q_SIGNALS:
     void keyBackupUnlocked();
     void keyBackupError();
     void blockAllInvitesChanged();
+    void initialSyncDoneChanged();
 
 private:
     static bool m_globalUrlPreviewDefault;

@@ -179,6 +179,7 @@ void NeoChatConnection::connectSignals()
         this,
         [this] {
             m_syncDone = true;
+            Q_EMIT initialSyncDoneChanged();
             Q_EMIT ownSessionVerified();
         },
         Qt::SingleShotConnection);

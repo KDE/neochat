@@ -11,7 +11,6 @@ ecm_add_qml_module(Login GENERATE_PLUGIN_SOURCE
         Captcha.qml
         Email.qml
         Homeserver.qml
-        Loading.qml
         Login.qml
         LoginMethod.qml
         LoginRegister.qml

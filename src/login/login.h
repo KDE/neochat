@@ -139,7 +139,6 @@ Q_SIGNALS:
     void isLoggingInChanged();
     void isLoggedInChanged();
     void isInvalidPasswordChanged();
-    void loaded();
 
 private:
     QPointer<AccountManager> m_accountManager;

@@ -20,9 +20,6 @@ LoginStep {
         function onSsoUrlChanged() {
             UrlHelper.openUrl(LoginHelper.ssoUrl);
         }
-        function onConnected() {
-            root.processed("Loading");
-        }
     }
 
     FormCard.FormTextDelegate {

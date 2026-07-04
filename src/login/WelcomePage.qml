@@ -231,9 +231,6 @@ Kirigami.Page {
                             if (Registration.nextStep === "m.login.email.identity") {
                                 stepConnections.onProcessed("Email");
                             }
-                            if (Registration.nextStep === "loading") {
-                                stepConnections.onProcessed("Loading");
-                            }
                         }
                     }
                     Connections {

@@ -17,8 +17,6 @@ Kirigami.ApplicationWindow {
     property NeoChatConnection connection: Controller.activeConnection
     readonly property HoverLinkIndicator hoverLinkIndicator: linkIndicator
 
-    property bool initialized: false
-
     readonly property QuickSwitcher quickSwitcher: QuickSwitcher {
         connection: root.connection
         window: root
@@ -40,11 +38,41 @@ Kirigami.ApplicationWindow {
     visible: false // Will be overridden in Component.onCompleted
     wideScreen: width > Kirigami.Units.gridUnit * 65
 
+    property Item states : Item {
+        id: states
+        states: [
+            State { // No Connection -> WelcomePage
+                name: "noConnection"
+                when: !Controller.activeConnection
+                PropertyChanges {
+                    root.pageStack.items: [welcomePage]
+                }
+            },
+            State { // Connection Loading -> LoadingPage
+                name: "loading"
+                when: Controller.activeConnection && !Controller.activeConnection.initialSyncDone
+                PropertyChanges {
+                    root.pageStack.items: [loadingPage]
+                }
+            },
+            State { // Loaded but no room -> only RoomListPage
+                name: "noRoom"
+                when: Controller.activeConnection && Controller.activeConnection.initialSyncDone && !RoomManager.currentRoom
+                PropertyChanges {
+                    root.pageStack.items: [roomListPage]
+                }
+            },
+            State { // Loaded and room -> RoomListPage + RoomPage
+                name: "room"
+                when: Controller.activeConnection && Controller.activeConnection.initialSyncDone && RoomManager.currentRoom
+                PropertyChanges {
+                    root.pageStack.items: [roomListPage, roomPage]
+                }
+            }
+        ]
+    }
+
     pageStack {
-        initialPage: WelcomePage {
-            showExisting: true
-            onConnectionChosen: root.load()
-        }
         columnView.columnResizeMode: pageStack.wideMode ? Kirigami.ColumnView.DynamicColumns : Kirigami.ColumnView.SingleColumn
         globalToolBar.canContainHandles: true
         globalToolBar {
@@ -59,20 +87,6 @@ Kirigami.ApplicationWindow {
         NeoChatSettingsView.connection = root.connection;
         if (ShareHandler.text && root.connection) {
             root.handleShare();
-        }
-    }
-
-    Connections {
-        target: LoginHelper
-        function onLoaded() {
-            root.load();
-        }
-    }
-
-    Connections {
-        target: Registration
-        function onLoaded() {
-            root.load();
         }
     }
 
@@ -98,16 +112,6 @@ Kirigami.ApplicationWindow {
     Connections {
         target: RoomManager
 
-        function onCurrentRoomChanged() {
-            if (RoomManager.currentRoom && root.pageStack.depth <= 1 && root.initialized && Kirigami.Settings.isMobile) {
-                let roomPage = root.pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage'));
-                roomPage.forceActiveFocus();
-                roomPage.backRequested.connect(event => {
-                    RoomManager.clearCurrentRoom();
-                });
-            }
-        }
-
         function onAskJoinRoom(room) {
             (Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(root, {
                 room: room,
@@ -130,13 +134,11 @@ Kirigami.ApplicationWindow {
                 link: url
             }) as ConfirmUrlDialog).open();
         }
-    }
 
-    function pushReplaceLayer(page, args) {
-        if (pageStack.layers.depth === 2) {
-            pageStack.layers.replace(page, args);
-        } else {
-            pageStack.layers.push(page, args);
+        function onConnectionChanged(): void {
+            if (connection) {
+                RoomManager.loadInitialRoom();
+            }
         }
     }
 
@@ -227,62 +229,59 @@ Kirigami.ApplicationWindow {
         color: NeoChatConfig.blur && !NeoChatConfig.compactLayout ? Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 1 - NeoChatConfig.transparency) : "transparent"
     }
 
-    Component {
-        id: roomListComponent
-        RoomListPage {
-            id: roomList
+    readonly property WelcomePage welcomePage: WelcomePage {
+        showExisting: true
 
-            onSearch: root.quickSwitcher.open()
+        parent: states
+        objectName: "WelcomePage"
+    }
 
-            connection: root.connection
+    readonly property Kirigami.Page loadingPage : Kirigami.Page {
+        title: i18nc("@title", "Loading")
 
-            Shortcut {
-                sequences: ["Ctrl+PgUp", "Ctrl+Backtab", "Alt+Up"]
-                onActivated: {
-                    roomList.goToPreviousRoom();
-                }
-            }
-
-            Shortcut {
-                sequences: ["Ctrl+PgDown", "Ctrl+Tab", "Alt+Down"]
-                onActivated: {
-                    roomList.goToNextRoom();
-                }
-            }
-
-            Shortcut {
-                sequence: "Alt+Shift+Up"
-                onActivated: {
-                    roomList.goToPreviousUnreadRoom();
-                }
-            }
-
-            Shortcut {
-                sequence: "Alt+Shift+Down"
-                onActivated: {
-                    roomList.goToNextUnreadRoom();
-                }
-            }
+        parent: states
+        Kirigami.LoadingPlaceholder {
+            anchors.centerIn: parent
         }
     }
 
-    Connections {
-        target: root.connection
-        function onLoggedOut(): void {
-            root.pageStack.clear();
-            let page = root.pageStack.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'), {
-                showExisting: true,
-            }) as WelcomePage;
-            page.connectionChosen.connect(() => root.load())
-        }
+    readonly property RoomPage roomPage : RoomPage {
+        parent: states
     }
 
-    Connections {
-        target: AccountRegistry
-        function onRowsRemoved() {
-            if (AccountRegistry.rowCount() === 0) {
-                root.pageStack.clear();
-                root.pageStack.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'));
+    readonly property RoomListPage roomListPage : RoomListPage {
+        id: roomList
+
+        parent: states
+        onSearch: root.quickSwitcher.open()
+
+        connection: root.connection
+
+        Shortcut {
+            sequences: ["Ctrl+PgUp", "Ctrl+Backtab", "Alt+Up"]
+            onActivated: {
+                roomList.goToPreviousRoom();
+            }
+        }
+
+        Shortcut {
+            sequences: ["Ctrl+PgDown", "Ctrl+Tab", "Alt+Down"]
+            onActivated: {
+                roomList.goToNextRoom();
+            }
+        }
+
+        Shortcut {
+            sequence: "Alt+Shift+Up"
+            onActivated: {
+                roomList.goToPreviousUnreadRoom();
+            }
+        }
+
+        Shortcut {
+            sequence: "Alt+Shift+Down"
+            onActivated: {
+                roomList.goToNextUnreadRoom();
             }
         }
     }
@@ -363,17 +362,5 @@ Kirigami.ApplicationWindow {
             dialog.parent = QmlUtils.focusedWindowItem(); // Kirigami Dialogs overwrite the parent, so we need to set it again
         }
         dialog.open();
-    }
-
-    function load() {
-        pageStack.replace(roomListComponent);
-        RoomManager.loadInitialRoom();
-
-        if (!Kirigami.Settings.isMobile) {
-            let roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage'));
-            roomPage.forceActiveFocus();
-        }
-
-        initialized = true;
     }
 }

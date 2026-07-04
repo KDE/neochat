@@ -86,14 +86,6 @@ void LoginHelper::init()
         m_accountManager->addConnection(m_connection);
         m_accountManager->setActiveConnection(m_connection);
         disconnect(m_connection, nullptr, this, nullptr);
-        connect(
-            m_connection.get(),
-            &NeoChatConnection::syncDone,
-            this,
-            [this]() {
-                Q_EMIT loaded();
-            },
-            Qt::SingleShotConnection);
         m_connection = nullptr;
     });
     connect(m_connection, &NeoChatConnection::networkError, this, [this](QString error, const QString &, int, int) {

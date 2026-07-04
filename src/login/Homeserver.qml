@@ -36,13 +36,6 @@ LoginStep {
         onTriggered: Registration.homeserver = urlField.text
     }
 
-    Connections {
-        target: Registration
-        function onConnected(connection): void {
-            root.processed("Loading");
-        }
-    }
-
     nextAction: Kirigami.Action {
         text: Registration.testing ? i18n("Loading") : Registration.status === Registration.Oidc ? i18nc("@action:button", "Continue in Browser") : null
         enabled: Registration.status > Registration.ServerNoRegistration
