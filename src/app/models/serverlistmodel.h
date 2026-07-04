@@ -38,7 +38,7 @@ public:
     struct Server {
         QString url; /**< Server URL. */
         bool isHomeServer; /**< Whether the server is the local user's home server. */
-        bool isAddServerDelegate; /**< Wether the item is the "add new server" delegate. */
+        bool isAddServerDelegate; /**< Whether the item is the "add new server" delegate. */
         bool isDeletable; /**< Whether the item can be deleted from the model. */
     };
 
@@ -100,7 +100,7 @@ public:
      */
     Q_INVOKABLE void removeServerAtIndex(int index);
 
-    NeoChatConnection *connection() const;
+    [[nodiscard]] NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
 
 Q_SIGNALS:

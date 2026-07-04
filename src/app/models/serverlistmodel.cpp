@@ -142,13 +142,11 @@ void ServerListModel::initialize()
 
     beginResetModel();
     const auto stateConfig = KSharedConfig::openStateConfig();
-    const KConfigGroup serverGroup = stateConfig->group(u"Servers"_s);
-
-    QString domain = m_connection->domain();
+    const auto serverGroup = stateConfig->group(u"Servers"_s);
 
     // Add the user's homeserver
     m_servers.append(Server{
-        domain,
+        m_connection->domain(),
         true,
         false,
         false,
