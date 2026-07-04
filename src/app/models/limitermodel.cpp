@@ -32,10 +32,10 @@ int LimiterModel::extraCount() const
     return 0;
 }
 
-bool LimiterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+bool LimiterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
-    Q_UNUSED(source_parent)
-    return source_row < maximumCount();
+    Q_UNUSED(sourceParent)
+    return sourceRow < maximumCount();
 }
 
 #include "moc_limitermodel.cpp"

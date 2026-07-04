@@ -34,7 +34,7 @@ Q_SIGNALS:
     void extraCountChanged();
 
 protected:
-    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 private:
     int m_maximumCount = 0;
