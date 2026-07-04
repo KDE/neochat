@@ -8,9 +8,6 @@
 
 #include "neochatconnection.h"
 
-#include <Quotient/events/roommessageevent.h>
-#include <Quotient/roommember.h>
-
 /**
  * @brief Model to show the common or mutual rooms between you and another user.
  */
