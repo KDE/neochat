@@ -97,11 +97,9 @@ void UserDirectoryListModel::search(int limit)
         attempted = true;
 
         if (m_job->status() == BaseJob::Success) {
-            auto users = m_job->results();
-
-            this->beginResetModel();
-            this->users = users;
-            this->endResetModel();
+            beginResetModel();
+            users = m_job->results();
+            endResetModel();
         }
 
         this->m_job = nullptr;
@@ -135,7 +133,7 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
         return u"Unknown User"_s;
     }
     if (role == AvatarRole) {
-        auto avatarUrl = user.avatarUrl;
+        const auto avatarUrl = user.avatarUrl;
         if (avatarUrl.isEmpty() || !m_connection) {
             return QUrl();
         }
