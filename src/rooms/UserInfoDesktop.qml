@@ -2,14 +2,13 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
-import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 
-QQC2.ToolBar {
+ColumnLayout {
     id: root
 
     /**
@@ -18,24 +17,15 @@ QQC2.ToolBar {
     required property NeoChatConnection connection
 
     property bool collapsed: false
+    spacing: 0
 
-    padding: 0
-
-    background: Rectangle {
-        color: Kirigami.Theme.backgroundColor
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        Kirigami.Theme.inherit: false
+    Kirigami.Separator {
+        Layout.fillWidth: true
     }
 
-    contentItem: ColumnLayout {
-        spacing: 0
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-        UserInfo {
-            collapsed: root.collapsed
-            bottomEdge: true
-            connection: root.connection
-        }
+    UserInfo {
+        collapsed: root.collapsed
+        bottomEdge: true
+        connection: root.connection
     }
 }
