@@ -83,16 +83,16 @@ void EventHandlerTest::nullAuthorDisplayName()
 
 void EventHandlerTest::singleLineSidplayName()
 {
-    QCOMPARE(EventHandler::singleLineAuthorDisplayname(room, room->messageEvents().at(11).get()), "Look at me I put newlines in my display name"_L1);
+    QCOMPARE(EventHandler::singleLineAuthorDisplayName(room, room->messageEvents().at(11).get()), "Look at me I put newlines in my display name"_L1);
 }
 
 void EventHandlerTest::nullSingleLineDisplayName()
 {
-    QTest::ignoreMessage(QtWarningMsg, "singleLineAuthorDisplayname called with room set to nullptr.");
-    QCOMPARE(EventHandler::singleLineAuthorDisplayname(nullptr, nullptr), QString());
+    QTest::ignoreMessage(QtWarningMsg, "singleLineAuthorDisplayName called with room set to nullptr.");
+    QCOMPARE(EventHandler::singleLineAuthorDisplayName(nullptr, nullptr), QString());
 
-    QTest::ignoreMessage(QtWarningMsg, "singleLineAuthorDisplayname called with event set to nullptr.");
-    QCOMPARE(EventHandler::singleLineAuthorDisplayname(room, nullptr), QString());
+    QTest::ignoreMessage(QtWarningMsg, "singleLineAuthorDisplayName called with event set to nullptr.");
+    QCOMPARE(EventHandler::singleLineAuthorDisplayName(room, nullptr), QString());
 }
 
 void EventHandlerTest::time()
@@ -112,10 +112,18 @@ void EventHandlerTest::time()
 
 void EventHandlerTest::nullTime()
 {
-    QTest::ignoreMessage(QtWarningMsg, "time called with room set to nullptr.");
+#ifdef Q_OS_WINDOWS
+    QTest::ignoreMessage(QtWarningMsg, "EventHandler::dateTime called with room set to nullptr.");
+#else
+    QTest::ignoreMessage(QtWarningMsg, "dateTime called with room set to nullptr.");
+#endif
     QCOMPARE(EventHandler::dateTime(nullptr, nullptr), QDateTime());
 
-    QTest::ignoreMessage(QtWarningMsg, "time called with event set to nullptr.");
+#ifdef Q_OS_WINDOWS
+    QTest::ignoreMessage(QtWarningMsg, "EventHandler::dateTime called with event set to nullptr.");
+#else
+    QTest::ignoreMessage(QtWarningMsg, "dateTime called with event set to nullptr.");
+#endif
     QCOMPARE(EventHandler::dateTime(room, nullptr), QDateTime());
 }
 

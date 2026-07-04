@@ -63,7 +63,7 @@ public:
      * @param isPending whether the event is pending as this cannot be derived from
      *                  just the event object.
      */
-    static QString singleLineAuthorDisplayname(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
+    static QString singleLineAuthorDisplayName(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
 
     /**
      * @brief Return a QDateTime object for the event timestamp.
@@ -84,7 +84,7 @@ public:
      * user has hidden all state events or if the sender has been ignored by the local
      * user.
      */
-    static bool isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *event, std::function<bool(const Quotient::RoomEvent *)> filter = {});
+    static bool isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *event, const std::function<bool(const Quotient::RoomEvent *)> &filter = {});
 
     /**
      * @brief The input format of the body in the message.
