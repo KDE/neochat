@@ -95,7 +95,7 @@ void NotificationsModel::loadData()
     if (!m_connection) {
         return;
     }
-    if (m_job || (m_notifications.size() && m_nextToken.isEmpty())) {
+    if (m_job || (!m_notifications.empty() && m_nextToken.isEmpty())) {
         return;
     }
     m_job = m_connection->callApi<GetNotificationsJob>(m_nextToken);
@@ -106,8 +106,7 @@ void NotificationsModel::loadData()
         for (const auto &notification : m_job->notifications()) {
             if (std::any_of(notification.actions.constBegin(), notification.actions.constEnd(), [](const QVariant &it) {
                     if (it.canConvert<QVariantMap>()) {
-                        auto map = it.toMap();
-                        if (map["set_tweak"_L1] == "highlight"_L1) {
+                        if (it.toMap()["set_tweak"_L1] == "highlight"_L1) {
                             return true;
                         }
                     }
