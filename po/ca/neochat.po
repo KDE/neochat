@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:44+0000\n"
+"POT-Creation-Date: 2026-07-05 00:44+0000\n"
 "PO-Revision-Date: 2026-06-21 09:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: src/app/controller.cpp:186
+#: src/app/controller.cpp:188
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -28,7 +28,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Rebre les notificacions dels missatges nous"
 
-#: src/app/controller.cpp:333
+#: src/app/controller.cpp:335
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Rebre les notificacions automàtiques"
@@ -1775,13 +1775,13 @@ msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "No teniu permís per a enviar missatges a aquesta sala."
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
+#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:202
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Retorn comença una línia nova"
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:200
+#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:202
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
@@ -1895,27 +1895,31 @@ msgctxt "@label:textbox"
 msgid "Link URL:"
 msgstr "URL de l'enllaç:"
 
-#: src/chatbar/LocationChooser.qml:20
+#: src/chatbar/LocationChooser.qml:19
 #, kde-format
 msgid "Choose a Location"
 msgstr "Trieu una ubicació"
 
-#: src/chatbar/LocationChooser.qml:25
-#, kde-format
-msgid "Send this location"
+#: src/chatbar/LocationChooser.qml:24
+#, fuzzy, kde-format
+#| msgid "Send this location"
+msgctxt ""
+"@action:intoolbar Set the location seleted by the user as the one to send"
+msgid "Select this location"
 msgstr "Envia aquesta ubicació"
 
-#: src/chatbar/LocationChooser.qml:33
+#: src/chatbar/LocationChooser.qml:32
 #, kde-format
 msgctxt "@action:intoolbar Re-center the map onto the set location"
 msgid "Re-Center"
 msgstr "Torna a centrar"
 
-#: src/chatbar/LocationChooser.qml:39
-#, kde-format
+#: src/chatbar/LocationChooser.qml:38
+#, fuzzy, kde-format
+#| msgid "Send this location"
 msgctxt "@action:intoolbar Determine the device's location"
-msgid "Locate"
-msgstr "Ubica"
+msgid "Set to current location"
+msgstr "Envia aquesta ubicació"
 
 #: src/chatbar/NewPollDialog.qml:23
 #, kde-format
@@ -2043,7 +2047,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr "Estil de llista"
 
-#: src/chatbar/SendBar.qml:56
+#: src/chatbar/SendBar.qml:58
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2055,55 +2059,55 @@ msgstr ""
 "Els adjunts només poden tenir títols de text net, s'eliminaran tots els "
 "formats enriquits"
 
-#: src/chatbar/SendBar.qml:90
+#: src/chatbar/SendBar.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
 msgstr "Afegeix al missatge"
 
-#: src/chatbar/SendBar.qml:120 src/chatbar/SendBar.qml:151
+#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:153
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Adjunta una imatge o un fitxer"
 
-#: src/chatbar/SendBar.qml:125 src/chatbar/SendBar.qml:164
+#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Envia una ubicació"
 
-#: src/chatbar/SendBar.qml:130 src/chatbar/SendBar.qml:176
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:178
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Crea una votació"
 
-#: src/chatbar/SendBar.qml:135 src/chatbar/SendBar.qml:187
+#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Envia un missatge de veu"
 
-#: src/chatbar/SendBar.qml:198
+#: src/chatbar/SendBar.qml:200
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Rich Text Controls"
 msgstr "Oculta els controls de text enriquit"
 
-#: src/chatbar/SendBar.qml:198
+#: src/chatbar/SendBar.qml:200
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Rich Text Controls"
 msgstr "Mostra els controls de text enriquit"
 
-#: src/chatbar/SendBar.qml:215
+#: src/chatbar/SendBar.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Envia un missatge"
 
-#: src/chatbar/SendBar.qml:228 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:230 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -3207,318 +3211,318 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Destinació"
 
-#: src/libneochat/models/actionsmodel.cpp:31
+#: src/libneochat/models/actionsmodel.cpp:32
 #, kde-format
 msgid "Leaving this room."
 msgstr "Sortida d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:40
+#: src/libneochat/models/actionsmodel.cpp:41
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Sortida de la sala %1."
 
-#: src/libneochat/models/actionsmodel.cpp:43
+#: src/libneochat/models/actionsmodel.cpp:44
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "No s'ha trobat la sala %1."
 
-#: src/libneochat/models/actionsmodel.cpp:51
-#: src/libneochat/models/actionsmodel.cpp:286
+#: src/libneochat/models/actionsmodel.cpp:52
+#: src/libneochat/models/actionsmodel.cpp:287
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "No s'ha proporcionat un sobrenom nou, no s'efectuarà cap canvi."
 
-#: src/libneochat/models/actionsmodel.cpp:65
-#: src/libneochat/models/actionsmodel.cpp:74
-#: src/libneochat/models/actionsmodel.cpp:83
-#: src/libneochat/models/actionsmodel.cpp:92
-#: src/libneochat/models/actionsmodel.cpp:110
-#: src/libneochat/models/actionsmodel.cpp:128
-#: src/libneochat/models/actionsmodel.cpp:142
-#: src/libneochat/models/actionsmodel.cpp:156
-#: src/libneochat/models/actionsmodel.cpp:165
-#: src/libneochat/models/actionsmodel.cpp:174
+#: src/libneochat/models/actionsmodel.cpp:66
+#: src/libneochat/models/actionsmodel.cpp:75
+#: src/libneochat/models/actionsmodel.cpp:84
+#: src/libneochat/models/actionsmodel.cpp:93
+#: src/libneochat/models/actionsmodel.cpp:111
+#: src/libneochat/models/actionsmodel.cpp:129
+#: src/libneochat/models/actionsmodel.cpp:143
+#: src/libneochat/models/actionsmodel.cpp:157
+#: src/libneochat/models/actionsmodel.cpp:166
+#: src/libneochat/models/actionsmodel.cpp:175
 msgid "<message>"
 msgstr "<missatge>"
 
-#: src/libneochat/models/actionsmodel.cpp:66
+#: src/libneochat/models/actionsmodel.cpp:67
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Prefixa ¯\\_(ツ)_/¯ a un missatge de text net"
 
-#: src/libneochat/models/actionsmodel.cpp:75
+#: src/libneochat/models/actionsmodel.cpp:76
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Prefixa ( ͡° ͜ʖ ͡°) a un missatge de text net"
 
 # skip-rule: t-par_obe_tan
-#: src/libneochat/models/actionsmodel.cpp:84
+#: src/libneochat/models/actionsmodel.cpp:85
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Prefixa (╯°□°）╯︵ ┻━┻ a un missatge de text net"
 
-#: src/libneochat/models/actionsmodel.cpp:93
+#: src/libneochat/models/actionsmodel.cpp:94
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Prefixa ┬──┬ ノ( ゜-゜ノ) a un missatge de text net"
 
-#: src/libneochat/models/actionsmodel.cpp:111
+#: src/libneochat/models/actionsmodel.cpp:112
 msgid "Sends the given message colored as a rainbow"
 msgstr "Envia el missatge indicat acolorit com un arc de Sant Martí"
 
-#: src/libneochat/models/actionsmodel.cpp:129
+#: src/libneochat/models/actionsmodel.cpp:130
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Envia l'emote indicada acolorida com un arc de Sant Martí"
 
-#: src/libneochat/models/actionsmodel.cpp:143
+#: src/libneochat/models/actionsmodel.cpp:144
 msgid "Sends the given message as plain text"
 msgstr "Envia el missatge indicat com a text net"
 
-#: src/libneochat/models/actionsmodel.cpp:157
+#: src/libneochat/models/actionsmodel.cpp:158
 msgid "Sends the given message as a spoiler"
 msgstr "Envia el missatge indicat com un espòiler"
 
-#: src/libneochat/models/actionsmodel.cpp:166
+#: src/libneochat/models/actionsmodel.cpp:167
 msgid "Sends the given emote"
 msgstr "Envia l'emote indicada"
 
-#: src/libneochat/models/actionsmodel.cpp:175
+#: src/libneochat/models/actionsmodel.cpp:176
 msgid "Sends the given message as a notice"
 msgstr "Envia el missatge indicat com una nota"
 
-#: src/libneochat/models/actionsmodel.cpp:182
-#: src/libneochat/models/actionsmodel.cpp:315
-#: src/libneochat/models/actionsmodel.cpp:336
-#: src/libneochat/models/actionsmodel.cpp:377
-#: src/libneochat/models/actionsmodel.cpp:409
-#: src/libneochat/models/actionsmodel.cpp:437
+#: src/libneochat/models/actionsmodel.cpp:183
+#: src/libneochat/models/actionsmodel.cpp:316
+#: src/libneochat/models/actionsmodel.cpp:337
+#: src/libneochat/models/actionsmodel.cpp:378
+#: src/libneochat/models/actionsmodel.cpp:410
+#: src/libneochat/models/actionsmodel.cpp:438
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "«%1» no sembla pas un ID de Matrix."
 
-#: src/libneochat/models/actionsmodel.cpp:188
+#: src/libneochat/models/actionsmodel.cpp:189
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 ja està convidat en aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:192
+#: src/libneochat/models/actionsmodel.cpp:193
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 està bandejat d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:196
+#: src/libneochat/models/actionsmodel.cpp:197
 #, kde-format
 msgid "You are already in this room."
 msgstr "Ja esteu en aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:200
+#: src/libneochat/models/actionsmodel.cpp:201
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 ja està en aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:204
+#: src/libneochat/models/actionsmodel.cpp:205
 #, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
 msgstr "%1 s'ha convidat en aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:208
-#: src/libneochat/models/actionsmodel.cpp:328
-#: src/libneochat/models/actionsmodel.cpp:348
-#: src/libneochat/models/actionsmodel.cpp:427
+#: src/libneochat/models/actionsmodel.cpp:209
+#: src/libneochat/models/actionsmodel.cpp:329
+#: src/libneochat/models/actionsmodel.cpp:349
+#: src/libneochat/models/actionsmodel.cpp:428
 msgid "<user id>"
 msgstr "<ID d'usuari>"
 
-#: src/libneochat/models/actionsmodel.cpp:209
+#: src/libneochat/models/actionsmodel.cpp:210
 msgid "Invites the user to this room"
 msgstr "Convida l'usuari en aquesta sala"
 
-#: src/libneochat/models/actionsmodel.cpp:220
-#: src/libneochat/models/actionsmodel.cpp:260
+#: src/libneochat/models/actionsmodel.cpp:221
+#: src/libneochat/models/actionsmodel.cpp:261
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "S'uneix a la sala %1."
 
-#: src/libneochat/models/actionsmodel.cpp:225
-#: src/libneochat/models/actionsmodel.cpp:265
+#: src/libneochat/models/actionsmodel.cpp:226
+#: src/libneochat/models/actionsmodel.cpp:266
 msgid "<room alias or id>"
 msgstr "<àlies o ID de sala>"
 
-#: src/libneochat/models/actionsmodel.cpp:226
-#: src/libneochat/models/actionsmodel.cpp:266
+#: src/libneochat/models/actionsmodel.cpp:227
+#: src/libneochat/models/actionsmodel.cpp:267
 msgid "Joins the given room"
 msgstr "S'uneix a la sala indicada"
 
-#: src/libneochat/models/actionsmodel.cpp:238
+#: src/libneochat/models/actionsmodel.cpp:239
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Sol·licita permís a la sala %1."
 
-#: src/libneochat/models/actionsmodel.cpp:249
+#: src/libneochat/models/actionsmodel.cpp:250
 msgid "<room alias or id> [<reason>]"
 msgstr "<àlies o ID de sala> [<motiu>]"
 
-#: src/libneochat/models/actionsmodel.cpp:250
+#: src/libneochat/models/actionsmodel.cpp:251
 msgid "Requests to join the given room"
 msgstr "Sol·licita unir-se a la sala indicada"
 
-#: src/libneochat/models/actionsmodel.cpp:257
+#: src/libneochat/models/actionsmodel.cpp:258
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Ja esteu en la sala %1."
 
-#: src/libneochat/models/actionsmodel.cpp:272
-#: src/libneochat/models/actionsmodel.cpp:279
+#: src/libneochat/models/actionsmodel.cpp:273
+#: src/libneochat/models/actionsmodel.cpp:280
 msgid "[<room alias or id>]"
 msgstr "[<àlies o ID de sala>]"
 
-#: src/libneochat/models/actionsmodel.cpp:273
-#: src/libneochat/models/actionsmodel.cpp:280
+#: src/libneochat/models/actionsmodel.cpp:274
+#: src/libneochat/models/actionsmodel.cpp:281
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Surt de la sala indicada o d'aquesta sala, si no s'ha indicat cap"
 
-#: src/libneochat/models/actionsmodel.cpp:293
-#: src/libneochat/models/actionsmodel.cpp:300
-#: src/libneochat/models/actionsmodel.cpp:307
+#: src/libneochat/models/actionsmodel.cpp:294
+#: src/libneochat/models/actionsmodel.cpp:301
+#: src/libneochat/models/actionsmodel.cpp:308
 msgid "<display name>"
 msgstr "<nom a mostrar>"
 
-#: src/libneochat/models/actionsmodel.cpp:294
+#: src/libneochat/models/actionsmodel.cpp:295
 msgid "Changes your global display name"
 msgstr "Canvia el vostre nom a mostrar global"
 
-#: src/libneochat/models/actionsmodel.cpp:301
-#: src/libneochat/models/actionsmodel.cpp:308
+#: src/libneochat/models/actionsmodel.cpp:302
+#: src/libneochat/models/actionsmodel.cpp:309
 msgid "Changes your display name in this room"
 msgstr "Canvia el vostre nom a mostrar en aquesta sala"
 
-#: src/libneochat/models/actionsmodel.cpp:319
+#: src/libneochat/models/actionsmodel.cpp:320
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 ja està ignorat."
 
-#: src/libneochat/models/actionsmodel.cpp:323
+#: src/libneochat/models/actionsmodel.cpp:324
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 ara està ignorat."
 
-#: src/libneochat/models/actionsmodel.cpp:329
+#: src/libneochat/models/actionsmodel.cpp:330
 msgid "Ignores the given user"
 msgstr "Ignora l'usuari indicat"
 
-#: src/libneochat/models/actionsmodel.cpp:340
+#: src/libneochat/models/actionsmodel.cpp:341
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 no està ignorat."
 
-#: src/libneochat/models/actionsmodel.cpp:344
+#: src/libneochat/models/actionsmodel.cpp:345
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 ja no està ignorat."
 
-#: src/libneochat/models/actionsmodel.cpp:349
+#: src/libneochat/models/actionsmodel.cpp:350
 msgid "Unignores the given user"
 msgstr "Deixa d'ignorar l'usuari indicat"
 
-#: src/libneochat/models/actionsmodel.cpp:368
+#: src/libneochat/models/actionsmodel.cpp:369
 msgid "<reaction text>"
 msgstr "<text de reacció>"
 
-#: src/libneochat/models/actionsmodel.cpp:369
+#: src/libneochat/models/actionsmodel.cpp:370
 msgid "React to the message with the given text"
 msgstr "Reacciona al missatge amb el text indicat"
 
-#: src/libneochat/models/actionsmodel.cpp:383
+#: src/libneochat/models/actionsmodel.cpp:384
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 ja està bandejat d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:387
+#: src/libneochat/models/actionsmodel.cpp:388
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "No teniu permís per a bandejar usuaris d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:393
+#: src/libneochat/models/actionsmodel.cpp:394
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "No teniu permís per a bandejar l'usuari %1 d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:397
+#: src/libneochat/models/actionsmodel.cpp:398
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 fou bandejat d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:401
-#: src/libneochat/models/actionsmodel.cpp:463
+#: src/libneochat/models/actionsmodel.cpp:402
+#: src/libneochat/models/actionsmodel.cpp:464
 msgid "<user id> [<reason>]"
 msgstr "<ID d'usuari> [<motiu>]"
 
-#: src/libneochat/models/actionsmodel.cpp:402
+#: src/libneochat/models/actionsmodel.cpp:403
 msgid "Bans the given user"
 msgstr "Bandeja l'usuari indicat"
 
-#: src/libneochat/models/actionsmodel.cpp:413
+#: src/libneochat/models/actionsmodel.cpp:414
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "No teniu permís per desbandejar usuaris d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:418
+#: src/libneochat/models/actionsmodel.cpp:419
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 no està bandejat d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:422
+#: src/libneochat/models/actionsmodel.cpp:423
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 fou desbandejat d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:428
+#: src/libneochat/models/actionsmodel.cpp:429
 msgid "Removes the ban of the given user"
 msgstr "Elimina el bandeig a l'usuari indicat"
 
-#: src/libneochat/models/actionsmodel.cpp:441
+#: src/libneochat/models/actionsmodel.cpp:442
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "No podeu expulsar-vos vós mateix de la sala."
 
-#: src/libneochat/models/actionsmodel.cpp:445
+#: src/libneochat/models/actionsmodel.cpp:446
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 no està en aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:449
+#: src/libneochat/models/actionsmodel.cpp:450
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "No teniu permís per a expulsar usuaris d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:455
+#: src/libneochat/models/actionsmodel.cpp:456
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "No teniu permís per a expulsar l'usuari %1 d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:459
+#: src/libneochat/models/actionsmodel.cpp:460
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 fou expulsat d'aquesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:464
+#: src/libneochat/models/actionsmodel.cpp:465
 msgid "Removes the user from the room"
 msgstr "Elimina l'usuari d'aquesta sala"
 
@@ -3665,11 +3669,27 @@ msgstr "Ha fallat la creació de l'espai: %1"
 msgid "Report sent successfully."
 msgstr "L'informe s'ha enviat correctament."
 
-#: src/libneochat/neochatroom.cpp:1633 src/libneochat/neochatroom.cpp:1641
+#: src/libneochat/neochatroom.cpp:1628 src/libneochat/neochatroom.cpp:1648
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat.: %1, lon.: %2"
+
+#: src/libneochat/neochatroom.cpp:1632
+#, fuzzy, kde-format
+#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+#| msgid "Lat: %1, Lon: %2"
+msgctxt ""
+"%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' "
+"as in Latitude and Longitude"
+msgid "%3 at Lat: %1, Lon: %2"
+msgstr "Lat.: %1, lon.: %2"
+
+#: src/libneochat/pollblock.cpp:303
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr "La votació ha finalitzat. Resposta guanyadora: %1"
 
 #: src/libneochat/profilefieldshelper.cpp:55
 #, kde-format
@@ -4244,6 +4264,7 @@ msgstr "Atura la baixada"
 
 #: src/messagecontent/FileComponent.qml:168
 #: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/LocationComponent.qml:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4325,17 +4346,31 @@ msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "S'està carregant…"
 
-#: src/messagecontent/LocationComponent.qml:83
+#: src/messagecontent/LocationComponent.qml:93
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Obre externament"
 
-#: src/messagecontent/LocationComponent.qml:96
+#: src/messagecontent/LocationComponent.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Obre a pantalla completa"
+
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:501
+#, fuzzy, kde-format
+#| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
+#| msgid "Unpin"
+msgid "pin"
+msgstr "Deixa de fixar"
+
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:501
+#, fuzzy, kde-format
+#| msgctxt "Locations on a map"
+#| msgid "Locations"
+msgid "location"
+msgstr "Ubicacions"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:234
 #, kde-format
@@ -4353,7 +4388,7 @@ msgctxt "@info"
 msgid "Loading reply…"
 msgstr "S'està carregant la resposta…"
 
-#: src/messagecontent/PollComponent.qml:122
+#: src/messagecontent/PollComponent.qml:119
 #, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
@@ -4361,7 +4396,7 @@ msgid_plural "%1 Votes"
 msgstr[0] "%1 vot"
 msgstr[1] "%1 vots"
 
-#: src/messagecontent/PollComponent.qml:138
+#: src/messagecontent/PollComponent.qml:135
 #, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
@@ -4369,17 +4404,11 @@ msgid_plural "Based on votes by %1 users"
 msgstr[0] "Basat en els vots d'%1 usuari"
 msgstr[1] "Basat en els vots de %1 usuaris"
 
-#: src/messagecontent/PollComponent.qml:138
+#: src/messagecontent/PollComponent.qml:135
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Finalitzat)"
-
-#: src/messagecontent/pollhandler.cpp:308
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr "La votació ha finalitzat. Resposta guanyadora: %1"
 
 #: src/messagecontent/ReactionComponent.qml:88
 #, kde-format
@@ -8040,6 +8069,10 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
+
+#~ msgctxt "@action:intoolbar Determine the device's location"
+#~ msgid "Locate"
+#~ msgstr "Ubica"
 
 #~ msgid "Loading reply"
 #~ msgstr "S'està carregant la resposta"
