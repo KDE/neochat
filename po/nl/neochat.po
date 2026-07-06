@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-05 00:44+0000\n"
-"PO-Revision-Date: 2026-06-21 14:01+0200\n"
+"PO-Revision-Date: 2026-07-05 19:09+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/app/controller.cpp:188
 #, kde-format
@@ -1898,12 +1898,11 @@ msgid "Choose a Location"
 msgstr "Een locatie kiezen"
 
 #: src/chatbar/LocationChooser.qml:24
-#, fuzzy, kde-format
-#| msgid "Send this location"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Set the location seleted by the user as the one to send"
 msgid "Select this location"
-msgstr "Deze locatie verzenden"
+msgstr "Deze locatie selecteren"
 
 #: src/chatbar/LocationChooser.qml:32
 #, kde-format
@@ -1912,11 +1911,10 @@ msgid "Re-Center"
 msgstr "Opnieuw centreren"
 
 #: src/chatbar/LocationChooser.qml:38
-#, fuzzy, kde-format
-#| msgid "Send this location"
+#, kde-format
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Set to current location"
-msgstr "Deze locatie verzenden"
+msgstr "Op deze locatie zetten"
 
 #: src/chatbar/NewPollDialog.qml:23
 #, kde-format
@@ -3672,14 +3670,12 @@ msgid "Lat: %1, Lon: %2"
 msgstr "Bte: %1, Lte: %2"
 
 #: src/libneochat/neochatroom.cpp:1632
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgctxt ""
 "%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' "
 "as in Latitude and Longitude"
 msgid "%3 at Lat: %1, Lon: %2"
-msgstr "Bte: %1, Lte: %2"
+msgstr "%3 bij breedtegraad: %1, lengtegraad: %2"
 
 #: src/libneochat/pollblock.cpp:303
 #, kde-format
@@ -4357,18 +4353,14 @@ msgid "Open Fullscreen"
 msgstr "Volledig scherm openen"
 
 #: src/messagecontent/models/chatbarmessagecontentmodel.cpp:501
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
-#| msgid "Unpin"
+#, kde-format
 msgid "pin"
-msgstr "Pin losmaken"
+msgstr "pin"
 
 #: src/messagecontent/models/chatbarmessagecontentmodel.cpp:501
-#, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
+#, kde-format
 msgid "location"
-msgstr "Locaties"
+msgstr "locatie"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:234
 #, kde-format
