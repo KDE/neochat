@@ -207,7 +207,7 @@ int main(int argc, char *argv[])
     if (parser.isSet(dbusActivatedOption)) {
 #ifdef HAVE_KDBUSADDONS
         // We *don't* want to use KDBusService here. I don't know why, but it makes activation super unreliable. We don't really need it anyway.
-        if (!QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.neochat"))) {
+        if (!QDBusConnection::sessionBus().registerService(QGuiApplication::desktopFileName())) {
             // Gracefully fail if NeoChat is already running
             qWarning() << "NeoChat already running, not sending push notifications.";
             return 0;

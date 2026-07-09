@@ -3,6 +3,8 @@
 
 #include "neochatconnection.h"
 
+#include "general_logging.h"
+
 #include <QImageReader>
 #include <QJsonDocument>
 
@@ -17,6 +19,7 @@
 #include <qt6keychain/keychain.h>
 
 #include <KLocalizedString>
+#include <QGuiApplication>
 
 #include <Quotient/csapi/capabilities.h>
 #include <Quotient/csapi/content-repo.h>
@@ -520,18 +523,18 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
     if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == u"matrix"_s) {
         callApi<PostPusherJob>(endpoint,
                                u"http"_s,
-                               u"org.kde.neochat"_s,
-                               u"NeoChat"_s,
+                               QGuiApplication::desktopFileName(),
+                               QCoreApplication::applicationName(),
                                deviceId(),
                                QString(), // profileTag is intentionally left empty for now, it's optional
                                u"en-US"_s,
-                               PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), u" "_s},
+                               PostPusherJob::PusherData{gatewayEndpoint},
                                false);
 
-        qInfo() << "Registered for push notifications";
+        qCInfo(GENERAL) << "Successfully registered for push notifications.";
         m_pushNotificationsEnabled = true;
     } else {
-        qWarning() << "There's no gateway, not setting up push notifications.";
+        qCWarning(GENERAL) << "There's no gateway, not setting up push notifications.";
         m_pushNotificationsEnabled = false;
     }
     Q_EMIT enablePushNotificationsChanged();

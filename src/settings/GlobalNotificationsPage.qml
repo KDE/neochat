@@ -33,7 +33,7 @@ FormCard.FormCardPage {
                     if (root.connection.enablePushNotifications) {
                         return i18n("Notifications can appear even when NeoChat isn't running.");
                     } else {
-                        return i18n("Push notifications are available but could not be enabled.");
+                        return i18n("Push notifications are available, but the push distributor does not have a Matrix gateway.");
                     }
                 } else {
                     return i18n("Notifications will only appear when NeoChat is running.");

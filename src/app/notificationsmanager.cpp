@@ -386,8 +386,6 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
         });
 #endif
 
-        connect(notification, &KNotification::closed, qGuiApp, &QGuiApplication::quit);
-
         notification->sendEvent();
     } else {
         qWarning() << "Skipping unsupported push notification" << type;
