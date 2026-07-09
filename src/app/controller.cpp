@@ -170,22 +170,22 @@ Controller::Controller(QObject *parent)
 #endif
 
 #ifdef HAVE_KUNIFIEDPUSH
-    auto connector = new KUnifiedPush::Connector(u"org.kde.neochat"_s);
+    auto connector = new KUnifiedPush::Connector(QGuiApplication::desktopFileName());
     connect(connector, &KUnifiedPush::Connector::endpointChanged, this, [this](const QString &endpoint) {
+        m_endpoint = endpoint;
         if (!m_accountManager) {
             return;
         }
-
-        m_endpoint = endpoint;
         for (auto &quotientConnection : m_accountManager->accounts()->accounts()) {
             auto connection = dynamic_cast<NeoChatConnection *>(quotientConnection);
             connection->setupPushNotifications(endpoint);
         }
     });
+    m_endpoint = connector->endpoint();
 
     connector->registerClient(
         i18nc("The reason for using push notifications, as in: '[Push notifications are used for] Receiving notifications for new messages'",
-              "Receiving notifications for new messages"));
+              "Receiving push notifications"));
 
 #endif
 }
@@ -319,18 +319,14 @@ QStringList Controller::accountsLoading() const
 void Controller::listenForNotifications()
 {
 #ifdef HAVE_KUNIFIEDPUSH
-    auto connector = new KUnifiedPush::Connector(u"org.kde.neochat"_s);
+    auto connector = new KUnifiedPush::Connector(QGuiApplication::desktopFileName());
 
-    auto timer = new QTimer();
-    connect(timer, &QTimer::timeout, qGuiApp, &QGuiApplication::quit);
-
-    connect(connector, &KUnifiedPush::Connector::messageReceived, [timer](const QByteArray &data) {
+    connect(connector, &KUnifiedPush::Connector::messageReceived, [](const QByteArray &data) {
         NotificationsManager::postPushNotification(data);
     });
 
-    // Wait five seconds to see if we received any messages or this happened to be an erroneous activation.
-    // Otherwise, messageReceived is never activated, and this daemon could stick around forever.
-    timer->start(5000);
+    // Process events before quitting.
+    QTimer::singleShot(std::chrono::seconds(5), qGuiApp, &QCoreApplication::quit);
 
     connector->registerClient(i18n("Receiving push notifications"));
 #endif
