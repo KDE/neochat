@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-05 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 02:37+0000\n"
 "PO-Revision-Date: 2026-01-12 14:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -19,14 +19,15 @@ msgstr ""
 "X-Generator: Lokalize 25.04.0\n"
 
 #: src/app/controller.cpp:188
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Receiving push notifications"
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
-msgid "Receiving notifications for new messages"
-msgstr "Vastaanotetaan ilmoituksia uusista viesteistä"
+msgid "Receiving push notifications"
+msgstr "Vastaanotetaan push-ilmoituksia"
 
-#: src/app/controller.cpp:335
+#: src/app/controller.cpp:331
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Vastaanotetaan push-ilmoituksia"
@@ -3750,7 +3751,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Tekijä"
 
-#: src/libneochat/neochatconnection.cpp:74
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3759,18 +3760,18 @@ msgstr ""
 "Tiedosto on liian suuri ladata.<br />Pyydä apua Matrix-palvelimesi "
 "ylläpidolta."
 
-#: src/libneochat/neochatconnection.cpp:347
+#: src/libneochat/neochatconnection.cpp:350
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Henkilöyspalvelinta ei ole määritetty"
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:389
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Huoneen luominen epäonnistui: %1"
 
-#: src/libneochat/neochatconnection.cpp:415
+#: src/libneochat/neochatconnection.cpp:418
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
@@ -5989,8 +5990,11 @@ msgid "Notifications can appear even when NeoChat isn't running."
 msgstr "Ilmoitukset voivat näkyä, vaikka NeoChat ei ole käynnissä."
 
 #: src/settings/GlobalNotificationsPage.qml:36
-#, kde-format
-msgid "Push notifications are available but could not be enabled."
+#, fuzzy, kde-format
+#| msgid "Push notifications are available but could not be enabled."
+msgid ""
+"Push notifications are available, but the push distributor does not have a "
+"Matrix gateway."
 msgstr "Push-ilmoitukset ovat saatavilla, mutta niitä ei voitu ottaa käyttöön."
 
 #: src/settings/GlobalNotificationsPage.qml:39
@@ -8335,6 +8339,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 kirjoittaa"
 msgstr[1] "%2 kirjoittavat"
+
+#~ msgctxt ""
+#~ "The reason for using push notifications, as in: '[Push notifications are "
+#~ "used for] Receiving notifications for new messages'"
+#~ msgid "Receiving notifications for new messages"
+#~ msgstr "Vastaanotetaan ilmoituksia uusista viesteistä"
 
 #~ msgctxt "@action:intoolbar Determine the device's location"
 #~ msgid "Locate"

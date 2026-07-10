@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-05 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 02:37+0000\n"
 "PO-Revision-Date: 2026-05-10 15:11+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -18,14 +18,15 @@ msgstr ""
 "X-Generator: Lokalize 26.04.1\n"
 
 #: src/app/controller.cpp:188
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Receiving push notifications"
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
-msgid "Receiving notifications for new messages"
-msgstr "புதிய செய்திகளுக்கான அறிவிப்புகளைப் பெறுவதற்கு"
+msgid "Receiving push notifications"
+msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
 
-#: src/app/controller.cpp:335
+#: src/app/controller.cpp:331
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
@@ -3656,7 +3657,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "உருவாக்கியவர்"
 
-#: src/libneochat/neochatconnection.cpp:74
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3665,18 +3666,18 @@ msgstr ""
 "கோப்பு பதிவிறக்கக்கூடியதைவிட பெரிதாக உள்ளது.<br />உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக "
 "நிர்வாகியை தொடர்புகொள்ளவும்."
 
-#: src/libneochat/neochatconnection.cpp:347
+#: src/libneochat/neochatconnection.cpp:350
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "எந்த அடையாளச் சேவையகமும் அமைக்கப்பட்டிருக்கவில்லை"
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:389
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/libneochat/neochatconnection.cpp:415
+#: src/libneochat/neochatconnection.cpp:418
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
@@ -5930,8 +5931,11 @@ msgid "Notifications can appear even when NeoChat isn't running."
 msgstr "நியோச்சாட் இயங்காதபோதும் அறிவிப்புகள் காட்டப்படலாம்"
 
 #: src/settings/GlobalNotificationsPage.qml:36
-#, kde-format
-msgid "Push notifications are available but could not be enabled."
+#, fuzzy, kde-format
+#| msgid "Push notifications are available but could not be enabled."
+msgid ""
+"Push notifications are available, but the push distributor does not have a "
+"Matrix gateway."
 msgstr "புஷ் அறிவிப்புகள் ஆதரிக்கப்படுகின்றன, ஆனால் அவற்றை இயக்க முடியவில்லை."
 
 #: src/settings/GlobalNotificationsPage.qml:39
@@ -8366,6 +8370,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
+
+#~ msgctxt ""
+#~ "The reason for using push notifications, as in: '[Push notifications are "
+#~ "used for] Receiving notifications for new messages'"
+#~ msgid "Receiving notifications for new messages"
+#~ msgstr "புதிய செய்திகளுக்கான அறிவிப்புகளைப் பெறுவதற்கு"
 
 #~ msgctxt "@action:intoolbar Determine the device's location"
 #~ msgid "Locate"
