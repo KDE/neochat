@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-05 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
 "PO-Revision-Date: 2020-11-05 23:50-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -19,10 +19,10 @@ msgstr ""
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
-msgid "Receiving notifications for new messages"
+msgid "Receiving push notifications"
 msgstr ""
 
-#: src/app/controller.cpp:335
+#: src/app/controller.cpp:331
 #, kde-format
 msgid "Receiving push notifications"
 msgstr ""
@@ -3555,25 +3555,25 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:74
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:347
+#: src/libneochat/neochatconnection.cpp:350
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:389
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:415
+#: src/libneochat/neochatconnection.cpp:418
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
@@ -5674,7 +5674,9 @@ msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:36
 #, kde-format
-msgid "Push notifications are available but could not be enabled."
+msgid ""
+"Push notifications are available, but the push distributor does not have a "
+"Matrix gateway."
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:39

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-05 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -25,10 +25,10 @@ msgstr ""
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
-msgid "Receiving notifications for new messages"
+msgid "Receiving push notifications"
 msgstr "Receiving push notifications"
 
-#: src/app/controller.cpp:335
+#: src/app/controller.cpp:331
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Receiving push notifications"
@@ -3776,7 +3776,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "o open e tomo toki pi sina tu taso"
 
-#: src/libneochat/neochatconnection.cpp:74
+#: src/libneochat/neochatconnection.cpp:77
 #, fuzzy, kde-format
 #| msgid "Contact your matrix server administrator for support."
 msgid ""
@@ -3784,18 +3784,18 @@ msgid ""
 "for support."
 msgstr "o toki tawa lawa sina pi ilo Matrix."
 
-#: src/libneochat/neochatconnection.cpp:347
+#: src/libneochat/neochatconnection.cpp:350
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:389
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:415
+#: src/libneochat/neochatconnection.cpp:418
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
@@ -6064,7 +6064,9 @@ msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:36
 #, kde-format
-msgid "Push notifications are available but could not be enabled."
+msgid ""
+"Push notifications are available, but the push distributor does not have a "
+"Matrix gateway."
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:39
@@ -8458,6 +8460,14 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+#, fuzzy
+#~| msgid "Receiving push notifications"
+#~ msgctxt ""
+#~ "The reason for using push notifications, as in: '[Push notifications are "
+#~ "used for] Receiving notifications for new messages'"
+#~ msgid "Receiving notifications for new messages"
+#~ msgstr "Receiving push notifications"
 
 #, fuzzy
 #~| msgid "Loading…"

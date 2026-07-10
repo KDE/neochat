@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-05 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
 "PO-Revision-Date: 2026-07-05 16:29+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -20,14 +20,15 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 
 #: src/app/controller.cpp:188
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Receiving push notifications"
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
-msgid "Receiving notifications for new messages"
-msgstr "Varsling av nye meldingar"
+msgid "Receiving push notifications"
+msgstr "Varsling av push-varslingar"
 
-#: src/app/controller.cpp:335
+#: src/app/controller.cpp:331
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Varsling av push-varslingar"
@@ -3808,25 +3809,25 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Lag ny"
 
-#: src/libneochat/neochatconnection.cpp:74
+#: src/libneochat/neochatconnection.cpp:77
 #, fuzzy, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr "Ta kontakt med administratoren av Matrix-tenaren for brukarstøtte."
 
-#: src/libneochat/neochatconnection.cpp:347
+#: src/libneochat/neochatconnection.cpp:350
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ingen identitetstenar sett opp"
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:389
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Feil ved romregistrering: %1"
 
-#: src/libneochat/neochatconnection.cpp:415
+#: src/libneochat/neochatconnection.cpp:418
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
@@ -6118,7 +6119,9 @@ msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:36
 #, kde-format
-msgid "Push notifications are available but could not be enabled."
+msgid ""
+"Push notifications are available, but the push distributor does not have a "
+"Matrix gateway."
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:39
@@ -8527,3 +8530,9 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
+
+#~ msgctxt ""
+#~ "The reason for using push notifications, as in: '[Push notifications are "
+#~ "used for] Receiving notifications for new messages'"
+#~ msgid "Receiving notifications for new messages"
+#~ msgstr "Varsling av nye meldingar"
