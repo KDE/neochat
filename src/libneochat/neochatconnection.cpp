@@ -151,7 +151,7 @@ void NeoChatConnection::connectSignals()
                 Q_EMIT canCheckMutualRoomsChanged();
                 m_canEraseData = job->unstableFeatures().value("org.matrix.msc4025"_L1, false) || job->versions().count("v1.10"_L1);
                 Q_EMIT canEraseDataChanged();
-                m_supportsProfileFields = job->unstableFeatures().value("uk.tcpip.msc4133.stable"_L1, false);
+                m_supportsProfileFields = job->unstableFeatures().value("uk.tcpip.msc4133.stable"_L1, false) || job->versions().count("v1.16"_L1);
                 Q_EMIT supportsProfileFieldsChanged();
 
                 if (m_supportsProfileFields) {
