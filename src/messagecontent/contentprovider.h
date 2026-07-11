@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include <QCache>
 #include <QObject>
 #include <QQmlEngine>
 
@@ -72,7 +71,8 @@ public:
 
 private:
     explicit ContentProvider(QObject *parent = nullptr);
+    ~ContentProvider() override;
 
-    QCache<QString, EventMessageContentModel> m_eventContentModels;
-    QCache<QString, ThreadModel> m_threadModels;
+    QMap<QString, EventMessageContentModel *> m_eventContentModels;
+    QMap<QString, ThreadModel *> m_threadModels;
 };
