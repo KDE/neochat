@@ -98,9 +98,8 @@ QString TextCacheItem::toString() const
         qsizetype mentionPos = markdownText.indexOf(mentionRegex, lastPos, &mentionMatch);
         while (mentionPos != -1) {
             auto mentionName = mentionMatch.captured(1);
-            if (mentionName.startsWith(u"\\"_s)) {
-                mentionName.remove(0, 1);
-            }
+            // Unescape slashes that toMarkdown() inserts, otherwise the search fails.
+            mentionName = mentionName.replace(u"\\"_s, u""_s);
             qsizetype plainPos = plainText.indexOf(mentionName);
             if (plainPos != -1) {
                 plainText.replace(plainPos, mentionName.length(), mentionMatch.captured());

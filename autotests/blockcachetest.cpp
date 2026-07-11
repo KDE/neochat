@@ -21,6 +21,8 @@ private Q_SLOTS:
     void toStringTest();
 
     void listTest();
+
+    void disabledRichTextMention();
 };
 
 void BlockCacheTest::toStringTest_data()
@@ -115,6 +117,26 @@ void BlockCacheTest::listTest()
 
     cache.append(std::make_unique<TextCacheItem>(Blocks::Text, cursor.selection()));
     QCOMPARE(cache.toString(), u"1.  list 1\n    1.  list 1.1"_s);
+}
+
+void BlockCacheTest::disabledRichTextMention()
+{
+    Blocks::CacheItem::richTextActive = false;
+
+    QTextDocument document;
+    QTextCursor cursor(&document);
+
+    auto format = cursor.charFormat();
+    format.setAnchor(true);
+    format.setAnchorHref(u"https://matrix.to/#/@test:test.org"_s);
+    cursor.insertText(u"test user [with bracket]"_s, format);
+
+    // Ensure that escaped backslashes (\\) don't interrupt the mention handling in BlockCache
+    Cache cache;
+    cache.append(std::make_unique<TextCacheItem>(Text, QTextDocumentFragment(&document)));
+    QCOMPARE(cache.toString(), u"[test user \\[with bracket]](https://matrix.to/#/@test:test.org)"_s);
+
+    Blocks::CacheItem::richTextActive = true;
 }
 
 QTEST_MAIN(BlockCacheTest)
