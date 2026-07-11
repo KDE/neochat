@@ -97,8 +97,10 @@ KirigamiComponents.ConvergentContextMenu {
 
     /**
      * @brief Whether the event has file-based content. This includes images, videos, and other files
+     * Mimetype for polls (and probably some other things) is empty; for messages it's text/html or text/plain
+     * All others are (probably) something file-based
      */
-    readonly property bool hasFileContent: mimeType.length > 0
+    readonly property bool hasFileContent: mimeType.length > 0 && mimeType !== "text/html" && mimeType !== "text/plain"
 
     /**
      * @brief The message model for the selected message. Can be either MessageModel, MessageFilterModel, or MediaMessageFilterModel.
