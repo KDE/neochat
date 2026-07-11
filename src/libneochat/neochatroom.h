@@ -6,7 +6,6 @@
 #include <Quotient/events/roomevent.h>
 #include <Quotient/room.h>
 
-#include <QCache>
 #include <QObject>
 #include <QQmlEngine>
 
