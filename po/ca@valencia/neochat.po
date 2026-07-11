@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 02:37+0000\n"
-"PO-Revision-Date: 2026-07-05 09:23+0200\n"
+"PO-Revision-Date: 2026-07-10 08:47+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -21,8 +21,7 @@ msgstr ""
 "X-Generator: Lokalize 25.04.0\n"
 
 #: src/app/controller.cpp:188
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
@@ -5797,13 +5796,13 @@ msgstr ""
 "Les notificacions poden aparéixer encara que NeoChat no s'estiga executant."
 
 #: src/settings/GlobalNotificationsPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Push notifications are available but could not be enabled."
+#, kde-format
 msgid ""
 "Push notifications are available, but the push distributor does not have a "
 "Matrix gateway."
 msgstr ""
-"Les notificacions automàtiques estan disponibles però no es poden activar."
+"Les notificacions automàtiques estan disponibles, però el seu distribuïdor "
+"no té cap passarel·la Matrix."
 
 #: src/settings/GlobalNotificationsPage.qml:39
 #, kde-format
@@ -8068,9 +8067,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
-
-#~ msgctxt ""
-#~ "The reason for using push notifications, as in: '[Push notifications are "
-#~ "used for] Receiving notifications for new messages'"
-#~ msgid "Receiving notifications for new messages"
-#~ msgstr "Rebre les notificacions dels missatges nous"

@@ -14,12 +14,11 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/neochat/neochat.pot\n"
-"X-Crowdin-File-ID: 44721\n"
+"X-Crowdin-File: /kf6-stable/messages/neochat/neochat.pot\n"
+"X-Crowdin-File-ID: 49732\n"
 
 #: src/app/controller.cpp:188
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
@@ -1851,12 +1850,11 @@ msgid "Choose a Location"
 msgstr "选择位置"
 
 #: src/chatbar/LocationChooser.qml:24
-#, fuzzy, kde-format
-#| msgid "Send this location"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Set the location seleted by the user as the one to send"
 msgid "Select this location"
-msgstr "发送此位置"
+msgstr ""
 
 #: src/chatbar/LocationChooser.qml:32
 #, kde-format
@@ -1865,11 +1863,10 @@ msgid "Re-Center"
 msgstr "重新居中"
 
 #: src/chatbar/LocationChooser.qml:38
-#, fuzzy, kde-format
-#| msgid "Send this location"
+#, kde-format
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Set to current location"
-msgstr "发送此位置"
+msgstr ""
 
 #: src/chatbar/NewPollDialog.qml:23
 #, kde-format
@@ -3609,14 +3606,12 @@ msgid "Lat: %1, Lon: %2"
 msgstr "纬度：%1，经度：%2"
 
 #: src/libneochat/neochatroom.cpp:1632
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgctxt ""
 "%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' "
 "as in Latitude and Longitude"
 msgid "%3 at Lat: %1, Lon: %2"
-msgstr "纬度：%1，经度：%2"
+msgstr ""
 
 #: src/libneochat/pollblock.cpp:303
 #, kde-format
@@ -4285,18 +4280,14 @@ msgid "Open Fullscreen"
 msgstr "全屏显示"
 
 #: src/messagecontent/models/chatbarmessagecontentmodel.cpp:501
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
-#| msgid "Unpin"
+#, kde-format
 msgid "pin"
-msgstr "取消置顶"
+msgstr ""
 
 #: src/messagecontent/models/chatbarmessagecontentmodel.cpp:501
-#, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
+#, kde-format
 msgid "location"
-msgstr "位置"
+msgstr ""
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:234
 #, kde-format
@@ -5703,12 +5694,11 @@ msgid "Notifications can appear even when NeoChat isn't running."
 msgstr "当 NeoChat 不在运行时也可能会显示通知。"
 
 #: src/settings/GlobalNotificationsPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Push notifications are available but could not be enabled."
+#, kde-format
 msgid ""
 "Push notifications are available, but the push distributor does not have a "
 "Matrix gateway."
-msgstr "推送通知功能是可用的，但无法启用。"
+msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:39
 #, kde-format
@@ -7915,13 +7905,3 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
-
-#~ msgctxt ""
-#~ "The reason for using push notifications, as in: '[Push notifications are "
-#~ "used for] Receiving notifications for new messages'"
-#~ msgid "Receiving notifications for new messages"
-#~ msgstr "接收新消息通知"
-
-#~ msgctxt "@action:intoolbar Determine the device's location"
-#~ msgid "Locate"
-#~ msgstr "定位"
