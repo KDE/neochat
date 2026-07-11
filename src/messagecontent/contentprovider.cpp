@@ -26,7 +26,7 @@ EventMessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *roo
         m_eventContentModels.insert(evtOrTxnId, model);
     }
 
-    return m_eventContentModels.object(evtOrTxnId);
+    return m_eventContentModels[evtOrTxnId];
 }
 
 EventMessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply)
@@ -59,18 +59,18 @@ EventMessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *roo
     }
 
     if (!eventId.isEmpty() && m_eventContentModels.contains(eventId)) {
-        return m_eventContentModels.object(eventId);
+        return m_eventContentModels[eventId];
     }
 
     if (!txnId.isEmpty() && m_eventContentModels.contains(txnId)) {
         if (eventId.isEmpty()) {
-            return m_eventContentModels.object(txnId);
+            return m_eventContentModels[txnId];
         }
 
         // If we now have an event ID use that as the map key instead of transaction ID.
         auto txnModel = m_eventContentModels.take(txnId);
         m_eventContentModels.insert(eventId, txnModel);
-        return m_eventContentModels.object(eventId);
+        return m_eventContentModels[eventId];
     }
 
     return nullptr;
@@ -88,7 +88,18 @@ ThreadModel *ContentProvider::modelForThread(NeoChatRoom *room, const QString &t
         m_threadModels.insert(threadRootId, model);
     }
 
-    return m_threadModels.object(threadRootId);
+    return m_threadModels[threadRootId];
+}
+
+ContentProvider::~ContentProvider()
+{
+    for (const auto &model : m_eventContentModels.values()) {
+        delete model;
+    }
+
+    for (const auto &model : m_threadModels.values()) {
+        delete model;
+    }
 }
 
 #include "moc_contentprovider.cpp"
