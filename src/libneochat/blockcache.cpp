@@ -102,7 +102,10 @@ QString TextCacheItem::toString() const
             mentionName = mentionName.replace(u"\\"_s, u""_s);
             qsizetype plainPos = plainText.indexOf(mentionName);
             if (plainPos != -1) {
-                plainText.replace(plainPos, mentionName.length(), mentionMatch.captured());
+                // We also need to re-escape(?) the backslashes here, because CMark doesn't like them.
+                auto newMentionSyntax = mentionMatch.captured();
+                newMentionSyntax = newMentionSyntax.replace(u"\\"_s, u""_s);
+                plainText.replace(plainPos, mentionName.length(), newMentionSyntax);
             }
             lastPos = mentionPos + mentionMatch.capturedLength();
             mentionPos = markdownText.indexOf(mentionRegex, lastPos, &mentionMatch);

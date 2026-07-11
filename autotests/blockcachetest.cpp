@@ -134,7 +134,7 @@ void BlockCacheTest::disabledRichTextMention()
     // Ensure that escaped backslashes (\\) don't interrupt the mention handling in BlockCache
     Cache cache;
     cache.append(std::make_unique<TextCacheItem>(Text, QTextDocumentFragment(&document)));
-    QCOMPARE(cache.toString(), u"[test user \\[with bracket]](https://matrix.to/#/@test:test.org)"_s);
+    QCOMPARE(cache.toString(), u"[test user [with bracket]](https://matrix.to/#/@test:test.org)"_s);
 
     Blocks::CacheItem::richTextActive = true;
 }
