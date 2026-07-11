@@ -792,6 +792,11 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Quot
         blocks.push_back(new Blocks::PollBlock(type, event->id(), room, parent));
         return blocks;
     }
+    case Blocks::Encrypted: {
+        Blocks::BlockPtrs blocks;
+        blocks.push_back(new Blocks::Block(Blocks::Encrypted, parent));
+        return blocks;
+    }
     default:
         return {};
     }
