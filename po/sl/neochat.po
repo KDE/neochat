@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:44+0000\n"
+"POT-Creation-Date: 2026-07-12 00:44+0000\n"
 "PO-Revision-Date: 2026-07-10 07:14+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -694,25 +694,32 @@ msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Verifikacija čustvenčka"
 
-#: src/app/qml/Main.qml:172
+#: src/app/qml/Main.qml:174
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Prikaži informacije o sobi"
 
-#: src/app/qml/Main.qml:175
+#: src/app/qml/Main.qml:177
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Zapri predal z informacijami o sobi"
 
-#: src/app/qml/Main.qml:305
+#: src/app/qml/Main.qml:240
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgctxt "@title"
+msgid "Loading"
+msgstr "Nalaganje"
+
+#: src/app/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikacija seje"
 
-#: src/app/qml/Main.qml:345 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1805,7 +1812,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Nalepke"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:227
+#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
@@ -2643,533 +2650,533 @@ msgctxt "@info"
 msgid "Rooms with newer events are higher"
 msgstr "Sobe z novejšimi dogodki so višje"
 
-#: src/libneochat/eventhandler.cpp:208 src/libneochat/eventhandler.cpp:286
-#: src/libneochat/eventhandler.cpp:518
+#: src/libneochat/eventhandler.cpp:204 src/libneochat/eventhandler.cpp:285
+#: src/libneochat/eventhandler.cpp:520
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano]</i>"
 
-#: src/libneochat/eventhandler.cpp:208 src/libneochat/eventhandler.cpp:286
+#: src/libneochat/eventhandler.cpp:204 src/libneochat/eventhandler.cpp:285
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano: %1]</i>"
 
-#: src/libneochat/eventhandler.cpp:320
+#: src/libneochat/eventhandler.cpp:319
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "ponovno povabljen %1 v sobo"
 
-#: src/libneochat/eventhandler.cpp:322
+#: src/libneochat/eventhandler.cpp:321
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/libneochat/eventhandler.cpp:331
+#: src/libneochat/eventhandler.cpp:330
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "se je pridružil v sobi (ponovno)"
 
-#: src/libneochat/eventhandler.cpp:333
+#: src/libneochat/eventhandler.cpp:332
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "povabljen %1 v sobo"
 
-#: src/libneochat/eventhandler.cpp:333
+#: src/libneochat/eventhandler.cpp:332
 #, kde-format
 msgid "joined the room"
 msgstr "se je pridružil v sobi"
 
-#: src/libneochat/eventhandler.cpp:337
+#: src/libneochat/eventhandler.cpp:336
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/libneochat/eventhandler.cpp:344
+#: src/libneochat/eventhandler.cpp:343
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "je očistil njihovo ime prikaza"
 
-#: src/libneochat/eventhandler.cpp:347
+#: src/libneochat/eventhandler.cpp:346
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "je spremenil ime prikaza na %1"
 
-#: src/libneochat/eventhandler.cpp:353
+#: src/libneochat/eventhandler.cpp:352
 #, kde-format
 msgid " and "
 msgstr " in "
 
-#: src/libneochat/eventhandler.cpp:356
+#: src/libneochat/eventhandler.cpp:355
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "je očistil njihov avatar"
 
-#: src/libneochat/eventhandler.cpp:358
+#: src/libneochat/eventhandler.cpp:357
 #, kde-format
 msgid "set an avatar"
 msgstr "nastavi avatarja"
 
-#: src/libneochat/eventhandler.cpp:360
+#: src/libneochat/eventhandler.cpp:359
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "posodobil njihov avatar"
 
-#: src/libneochat/eventhandler.cpp:364
+#: src/libneochat/eventhandler.cpp:363
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "nič ni spremenjenega"
 
-#: src/libneochat/eventhandler.cpp:370
+#: src/libneochat/eventhandler.cpp:369
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "je umaknil povabilo %1"
 
-#: src/libneochat/eventhandler.cpp:370
+#: src/libneochat/eventhandler.cpp:369
 #, kde-format
 msgid "rejected the invitation"
 msgstr "zavrnil povabilo"
 
-#: src/libneochat/eventhandler.cpp:374
+#: src/libneochat/eventhandler.cpp:373
 #, kde-format
 msgid "unbanned %1"
 msgstr "brez prepovedi %1"
 
-#: src/libneochat/eventhandler.cpp:374
+#: src/libneochat/eventhandler.cpp:373
 #, kde-format
 msgid "self-unbanned"
 msgstr "sama rešena prepovedi"
 
-#: src/libneochat/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:376
 #, kde-format
 msgid "left the room"
 msgstr "je zapustil sobo"
 
-#: src/libneochat/eventhandler.cpp:380
+#: src/libneochat/eventhandler.cpp:379
 #, kde-format
 msgid "has removed %1 from the room: %2"
 msgstr "je odstranil %1 iz sobe: %2"
 
-#: src/libneochat/eventhandler.cpp:382
+#: src/libneochat/eventhandler.cpp:381
 #, kde-format
 msgid "has removed %1 from the room"
 msgstr "je odstranil %1 iz sobe"
 
-#: src/libneochat/eventhandler.cpp:386
+#: src/libneochat/eventhandler.cpp:385
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "prepovedan %1 iz sobe"
 
-#: src/libneochat/eventhandler.cpp:388
+#: src/libneochat/eventhandler.cpp:387
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "je prepovedal %1 v sobo: %2"
 
-#: src/libneochat/eventhandler.cpp:391
+#: src/libneochat/eventhandler.cpp:390
 #, kde-format
 msgid "self-banned from the room"
 msgstr "samo-prepovedano iz sobe"
 
-#: src/libneochat/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:394
 #, kde-format
 msgid "requested an invite"
 msgstr "je zahteval povabilo"
 
-#: src/libneochat/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:394
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "je zahteval povabilo z razlogom: %1"
 
-#: src/libneochat/eventhandler.cpp:399
+#: src/libneochat/eventhandler.cpp:398
 #, kde-format
 msgid "made something unknown"
 msgstr "je naredil nekaj neznanega"
 
-#: src/libneochat/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:401
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "je očistil glavni vzdevek sobe"
 
-#: src/libneochat/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:401
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "nastavi vzdevek sobe na: %1"
 
-#: src/libneochat/eventhandler.cpp:405
+#: src/libneochat/eventhandler.cpp:404
 #, kde-format
 msgid "cleared the room name"
 msgstr "je obrisal ime sobe"
 
-#: src/libneochat/eventhandler.cpp:405
+#: src/libneochat/eventhandler.cpp:404
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "je nastavil ime sobe na: %1"
 
-#: src/libneochat/eventhandler.cpp:408
+#: src/libneochat/eventhandler.cpp:407
 #, kde-format
 msgid "cleared the topic"
 msgstr "je počistil temo"
 
-#: src/libneochat/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:408
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "je nastavil temo na: %1"
 
-#: src/libneochat/eventhandler.cpp:415
+#: src/libneochat/eventhandler.cpp:414
 #, kde-format
 msgid "changed the room avatar"
 msgstr "je spremenil avatar sobe"
 
-#: src/libneochat/eventhandler.cpp:418
+#: src/libneochat/eventhandler.cpp:417
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "je aktiviral šifriranje od točke do točke"
 
-#: src/libneochat/eventhandler.cpp:422
+#: src/libneochat/eventhandler.cpp:421
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "je nadgradil sobo na verzijo %1"
 
-#: src/libneochat/eventhandler.cpp:423
+#: src/libneochat/eventhandler.cpp:422
 #, kde-format
 msgid "created the room, version %1"
 msgstr "je ustvaril sobo verzije %1"
 
-#: src/libneochat/eventhandler.cpp:426
+#: src/libneochat/eventhandler.cpp:425
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "spremenil ravni moči za to sobo"
 
-#: src/libneochat/eventhandler.cpp:432
+#: src/libneochat/eventhandler.cpp:431
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "spremenil sezname za nadzor dostopa do strežnika za to sobo"
 
-#: src/libneochat/eventhandler.cpp:436
+#: src/libneochat/eventhandler.cpp:435
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "dodan gradnik %1"
 
-#: src/libneochat/eventhandler.cpp:439
+#: src/libneochat/eventhandler.cpp:438
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "odstranjen gradnik %1"
 
-#: src/libneochat/eventhandler.cpp:441
+#: src/libneochat/eventhandler.cpp:440
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "nastavljen gradnik %1"
 
-#: src/libneochat/eventhandler.cpp:446
+#: src/libneochat/eventhandler.cpp:445
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
 msgstr "je zapustil klic"
 
-#: src/libneochat/eventhandler.cpp:448
+#: src/libneochat/eventhandler.cpp:447
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
 msgstr "se je pridružil klicu"
 
-#: src/libneochat/eventhandler.cpp:452
+#: src/libneochat/eventhandler.cpp:450
 #, kde-format
 msgctxt "[User] configured an extension"
 msgid "configured an extension"
 msgstr "je konfigurirala razširitev"
 
-#: src/libneochat/eventhandler.cpp:454
+#: src/libneochat/eventhandler.cpp:452
 #, kde-format
 msgid "updated %1 state"
 msgstr "je posodobil stanje %1"
 
-#: src/libneochat/eventhandler.cpp:455
+#: src/libneochat/eventhandler.cpp:453
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "je posodobil stanje %1 za %2"
 
-#: src/libneochat/eventhandler.cpp:461
+#: src/libneochat/eventhandler.cpp:459
 #, kde-format
 msgctxt "@info In room list"
 msgid "Encrypted event"
 msgstr "Šifriran dogodek"
 
-#: src/libneochat/eventhandler.cpp:464
+#: src/libneochat/eventhandler.cpp:462
 #, kde-format
 msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
 msgstr "se je odzval z %1"
 
-#: src/libneochat/eventhandler.cpp:466 src/libneochat/eventhandler.cpp:675
+#: src/libneochat/eventhandler.cpp:464 src/libneochat/eventhandler.cpp:685
 #, kde-format
 msgid "Unknown event"
 msgstr "Neznan dogodek"
 
-#: src/libneochat/eventhandler.cpp:481
+#: src/libneochat/eventhandler.cpp:484
 #, kde-format
 msgid "a file"
 msgstr "datoteka"
 
-#: src/libneochat/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:529
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 je poslal sporočilo"
 
-#: src/libneochat/eventhandler.cpp:530
+#: src/libneochat/eventhandler.cpp:532
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 je poslal nalepko"
 
-#: src/libneochat/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:538
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 je ponovno povabil nekoga v sobo"
 
-#: src/libneochat/eventhandler.cpp:542
+#: src/libneochat/eventhandler.cpp:544
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 se je pridružil v sobi (ponovno)"
 
-#: src/libneochat/eventhandler.cpp:544
+#: src/libneochat/eventhandler.cpp:547
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 je povabil nekoga v sobo"
 
-#: src/libneochat/eventhandler.cpp:545
+#: src/libneochat/eventhandler.cpp:548
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 se je pridružil v sobi"
 
-#: src/libneochat/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:574
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 je nastavil prikazno ime in nastavil avatarja"
 
-#: src/libneochat/eventhandler.cpp:573
+#: src/libneochat/eventhandler.cpp:577
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 je nastavil prikazno ime in posodobil njihov avatar"
 
-#: src/libneochat/eventhandler.cpp:575
+#: src/libneochat/eventhandler.cpp:580
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 je nastavil prikazno ime in počistil njihov avatar"
 
-#: src/libneochat/eventhandler.cpp:577
+#: src/libneochat/eventhandler.cpp:582
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 je nastavil prikazno ime za to sobo"
 
-#: src/libneochat/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:586
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 je spremenil svoje prikazno ime in nastavil avatar"
 
-#: src/libneochat/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:589
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 je spremenil njihovo prikazno ime in posodobil njihov avatar"
 
-#: src/libneochat/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:592
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 je spremenil njihovo prikazno ime in počistil njihov avatar"
 
-#: src/libneochat/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:594
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 je spremenil njihovo prikazno ime"
 
-#: src/libneochat/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:598
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 je počistil njihovo prikazno ime in nastavil avatar"
 
-#: src/libneochat/eventhandler.cpp:591
+#: src/libneochat/eventhandler.cpp:601
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 je počistil njihovo prikazno ime in posodobil njihov avatar"
 
-#: src/libneochat/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:604
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 je izbrisal njihovo prikazno ime in njihov avatar"
 
-#: src/libneochat/eventhandler.cpp:595
+#: src/libneochat/eventhandler.cpp:606
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 je počistil njihovo prikazno ime"
 
-#: src/libneochat/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:609
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 ni spremenil ničesar"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:613
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 je umaknil povabilo uporabniku"
 
-#: src/libneochat/eventhandler.cpp:603
+#: src/libneochat/eventhandler.cpp:614
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "z%1 je zavrnil povabilo"
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:618
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 je umaknil prepoved uporabnika"
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:618
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 je sam razrešen prepovedi"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:620
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 je postavil uporabnika iz sobe"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:620
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 je zapustil sobo"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:623
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 je prepovedal uporabniku v sobo"
 
-#: src/libneochat/eventhandler.cpp:614
+#: src/libneochat/eventhandler.cpp:625
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 se je samoizločil iz sobe"
 
-#: src/libneochat/eventhandler.cpp:617
+#: src/libneochat/eventhandler.cpp:628
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 je zahteval povabilo"
 
-#: src/libneochat/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:632
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 je naredil nekaj neznanega"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:635
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 je očistil glavni vzdevek sobe"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:635
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 je nastavil glavni vzdevek sobe"
 
-#: src/libneochat/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:638
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 je očistil ime sobe"
 
-#: src/libneochat/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:638
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 je nastavil ime sobe"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:641
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 je počistil temo"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:641
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 je nastavil temo"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:644
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 je spremenil avatar sobe"
 
-#: src/libneochat/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:647
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 je aktiviral šifriranje od točke do točke"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:650
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 je nadgradil različico sobe"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:650
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 je ustvaril sobo"
 
-#: src/libneochat/eventhandler.cpp:642
+#: src/libneochat/eventhandler.cpp:653
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 je spremenil ravni moči za to sobo"
 
-#: src/libneochat/eventhandler.cpp:645
+#: src/libneochat/eventhandler.cpp:656
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 je v živo posvetil žarek iz lokacije"
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:659
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 je spremenil sezname za nadzor dostopa do strežnika za to sobo"
 
-#: src/libneochat/eventhandler.cpp:652
+#: src/libneochat/eventhandler.cpp:663
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 je dodaj gradnik"
 
-#: src/libneochat/eventhandler.cpp:655
+#: src/libneochat/eventhandler.cpp:666
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 je odstranil gradnik"
 
-#: src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:668
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 je konfiguriral gradnik"
 
-#: src/libneochat/eventhandler.cpp:662
+#: src/libneochat/eventhandler.cpp:673
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "%1 je zapustil sobo"
 
-#: src/libneochat/eventhandler.cpp:664
+#: src/libneochat/eventhandler.cpp:675
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "%1 se je pridružil v sobi"
 
-#: src/libneochat/eventhandler.cpp:668
+#: src/libneochat/eventhandler.cpp:678
 #, kde-format
 msgctxt "[User] configured an extension"
 msgid "%1 configured an extension"
 msgstr "%1 je konfiguriral razširitev"
 
-#: src/libneochat/eventhandler.cpp:670
+#: src/libneochat/eventhandler.cpp:680
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 je posodobil stanje"
 
-#: src/libneochat/eventhandler.cpp:673
+#: src/libneochat/eventhandler.cpp:683
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 je začel glasovanje"
@@ -3638,18 +3645,18 @@ msgstr ""
 "Datoteka je prevelika za prenos.<br />Za podporo se obrnite na skrbnika "
 "strežnika matrix."
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:352
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ni konfigurirana identiteta strežnika"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/libneochat/neochatconnection.cpp:418
+#: src/libneochat/neochatconnection.cpp:420
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
@@ -3909,32 +3916,23 @@ msgstr "Strežnikov naslov Url:"
 msgid "Registration is disabled on this server."
 msgstr "Registracija je onemogočena na tem strežniku."
 
-#: src/login/Homeserver.qml:47 src/login/Username.qml:38
+#: src/login/Homeserver.qml:40 src/login/Username.qml:38
 #, kde-format
 msgid "Loading"
 msgstr "Nalaganje"
 
-#: src/login/Homeserver.qml:47
+#: src/login/Homeserver.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr "Nadaljuj v brskalniku"
 
-#: src/login/Loading.qml:17
-#, kde-format
-msgid ""
-"Please wait while your messages are loaded from the server. This might take "
-"a little while."
-msgstr ""
-"Počakajte, da se vaša sporočila naložijo iz strežnika. To lahko traja nekaj "
-"časa."
-
-#: src/login/login.cpp:100 src/login/login.cpp:115
+#: src/login/login.cpp:92 src/login/login.cpp:107
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Napaka omrežja: %1"
 
-#: src/login/login.cpp:108
+#: src/login/login.cpp:100
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prijava je spodletela: %1"
@@ -3949,7 +3947,7 @@ msgstr "Matrixov ID:"
 msgid "Matrix ID"
 msgstr "Matrixov ID"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:258
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3973,7 +3971,7 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Prijava z enovito prijavo"
 
-#: src/login/LoginRegister.qml:25 src/login/Password.qml:40
+#: src/login/LoginRegister.qml:25 src/login/Password.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
@@ -3985,18 +3983,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registracija"
 
-#: src/login/Password.qml:27 src/login/RegisterPassword.qml:20
+#: src/login/Password.qml:20 src/login/RegisterPassword.qml:20
 #: src/settings/DeviceDelegate.qml:154
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
 
-#: src/login/Password.qml:31 src/settings/NetworkProxyPage.qml:124
+#: src/login/Password.qml:24 src/settings/NetworkProxyPage.qml:124
 #, kde-format
 msgid "Password"
 msgstr "Geslo"
 
-#: src/login/Password.qml:32
+#: src/login/Password.qml:25
 #, kde-format
 msgid "Invalid username or password"
 msgstr "Neveljavno uporabniško ime ali geslo"
@@ -4107,12 +4105,12 @@ msgctxt "@info"
 msgid "Invalid registration token"
 msgstr "Neveljaven žeton registracije"
 
-#: src/login/Sso.qml:29
+#: src/login/Sso.qml:26
 #, kde-format
 msgid "Continue the login process in your browser."
 msgstr "Nadaljuje s prijavo v vašem brskalniku."
 
-#: src/login/Sso.qml:37
+#: src/login/Sso.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
@@ -4174,13 +4172,13 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Prijavite se ali ustvarite nov račun"
 
-#: src/login/WelcomePage.qml:271
+#: src/login/WelcomePage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/login/WelcomePage.qml:280
+#: src/login/WelcomePage.qml:277
 #, kde-format
 msgctxt "@action:button"
 msgid "Go Back"
@@ -7663,262 +7661,262 @@ msgctxt "@action:button"
 msgid "Leave this Space…"
 msgstr "Zapusti ta prostor…"
 
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:159
 #, kde-format
 msgctxt "@info:tooltip Pick specific emoji for a reaction"
 msgid "Pick Reaction"
 msgstr "Poberi reakcijo"
 
-#: src/timeline/DelegateContextMenu.qml:199
+#: src/timeline/DelegateContextMenu.qml:201
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Odgovori"
 
-#: src/timeline/DelegateContextMenu.qml:216
+#: src/timeline/DelegateContextMenu.qml:218
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: src/timeline/DelegateContextMenu.qml:237
+#: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Odstrani…"
 
-#: src/timeline/DelegateContextMenu.qml:242
-#: src/timeline/DelegateContextMenu.qml:249
+#: src/timeline/DelegateContextMenu.qml:244
+#: src/timeline/DelegateContextMenu.qml:251
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Odstrani sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:243
+#: src/timeline/DelegateContextMenu.qml:245
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "Po želji navedite razlog za odstranitev tega sporočila"
 
-#: src/timeline/DelegateContextMenu.qml:244
+#: src/timeline/DelegateContextMenu.qml:246
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/timeline/DelegateContextMenu.qml:267
+#: src/timeline/DelegateContextMenu.qml:269
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Naprej…"
 
-#: src/timeline/DelegateContextMenu.qml:273
+#: src/timeline/DelegateContextMenu.qml:275
 #, kde-format
 msgctxt "@action:button As in 'Forward this message'"
 msgid "Forward"
 msgstr "Naprej"
 
-#: src/timeline/DelegateContextMenu.qml:276
+#: src/timeline/DelegateContextMenu.qml:278
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Prenesi sporočilo naprej"
 
-#: src/timeline/DelegateContextMenu.qml:294
+#: src/timeline/DelegateContextMenu.qml:296
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Odpri sliko"
 
-#: src/timeline/DelegateContextMenu.qml:296
+#: src/timeline/DelegateContextMenu.qml:298
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "Odpri avdio"
 
-#: src/timeline/DelegateContextMenu.qml:298
+#: src/timeline/DelegateContextMenu.qml:300
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "Odpri video"
 
-#: src/timeline/DelegateContextMenu.qml:300
+#: src/timeline/DelegateContextMenu.qml:302
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: src/timeline/DelegateContextMenu.qml:313
+#: src/timeline/DelegateContextMenu.qml:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Shrani sliko…"
 
-#: src/timeline/DelegateContextMenu.qml:315
+#: src/timeline/DelegateContextMenu.qml:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "Shrani avdio…"
 
-#: src/timeline/DelegateContextMenu.qml:317
+#: src/timeline/DelegateContextMenu.qml:319
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "Shrani video…"
 
-#: src/timeline/DelegateContextMenu.qml:319
+#: src/timeline/DelegateContextMenu.qml:321
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "Shrani datoteko…"
 
-#: src/timeline/DelegateContextMenu.qml:334
+#: src/timeline/DelegateContextMenu.qml:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Image"
 msgstr "Skrij sliko"
 
-#: src/timeline/DelegateContextMenu.qml:336
+#: src/timeline/DelegateContextMenu.qml:338
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hide Video"
 msgstr "Skrij video"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "Prikaži sliko"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:352
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "Prikaži video"
 
-#: src/timeline/DelegateContextMenu.qml:362
+#: src/timeline/DelegateContextMenu.qml:364
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Kopiraj sliko"
 
-#: src/timeline/DelegateContextMenu.qml:364
+#: src/timeline/DelegateContextMenu.qml:366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Kopiraj avdio"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Prikaži video"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Kopiraj datoteko"
 
-#: src/timeline/DelegateContextMenu.qml:378
+#: src/timeline/DelegateContextMenu.qml:380
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopiraj naslov povezave"
 
-#: src/timeline/DelegateContextMenu.qml:386
+#: src/timeline/DelegateContextMenu.qml:388
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
-#: src/timeline/DelegateContextMenu.qml:392
+#: src/timeline/DelegateContextMenu.qml:394
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopiraj povezavo na sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:400
+#: src/timeline/DelegateContextMenu.qml:402
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Prijavi…"
 
-#: src/timeline/DelegateContextMenu.qml:405
+#: src/timeline/DelegateContextMenu.qml:407
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Prijavi sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:406
+#: src/timeline/DelegateContextMenu.qml:408
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Po želji navedite razlog za prijavo tega sporočila"
 
-#: src/timeline/DelegateContextMenu.qml:408
+#: src/timeline/DelegateContextMenu.qml:410
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Prijava"
 
-#: src/timeline/DelegateContextMenu.qml:412
+#: src/timeline/DelegateContextMenu.qml:414
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Prijavi sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:424
+#: src/timeline/DelegateContextMenu.qml:426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Poišči '%1'"
 
-#: src/timeline/DelegateContextMenu.qml:447
+#: src/timeline/DelegateContextMenu.qml:449
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Konfiguriraj spletne bližnjice…"
 
-#: src/timeline/DelegateContextMenu.qml:455
+#: src/timeline/DelegateContextMenu.qml:457
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Preberi besedilo na glas"
 
-#: src/timeline/DelegateContextMenu.qml:458
+#: src/timeline/DelegateContextMenu.qml:460
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 je rekel %2"
 
-#: src/timeline/DelegateContextMenu.qml:478
+#: src/timeline/DelegateContextMenu.qml:480
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Odpni"
 
-#: src/timeline/DelegateContextMenu.qml:478
+#: src/timeline/DelegateContextMenu.qml:480
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Pripni"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:490
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Prekliči izbiro sporočila"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:490
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Izberi sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:501
+#: src/timeline/DelegateContextMenu.qml:503
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -8044,6 +8042,13 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
+
+#~ msgid ""
+#~ "Please wait while your messages are loaded from the server. This might "
+#~ "take a little while."
+#~ msgstr ""
+#~ "Počakajte, da se vaša sporočila naložijo iz strežnika. To lahko traja "
+#~ "nekaj časa."
 
 #~ msgctxt ""
 #~ "The reason for using push notifications, as in: '[Push notifications are "
