@@ -14,10 +14,10 @@ void LineModel::setDocument(QTextDocument *document)
         return;
     }
 
+    beginResetModel();
     m_document = document;
     Q_EMIT documentChanged();
-
-    resetModel();
+    endResetModel();
 }
 
 void LineModel::setDocument(QQuickTextDocument *document)
@@ -31,8 +31,8 @@ QVariant LineModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const auto &row = index.row();
-    if (row < 0 || row > rowCount()) {
+    const auto row = index.row();
+    if (row < 0 || row > rowCount(index.parent())) {
         return {};
     }
 
@@ -44,8 +44,7 @@ QVariant LineModel::data(const QModelIndex &index, int role) const
 
 int LineModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
-    if (m_document == nullptr) {
+    if (m_document == nullptr || parent.isValid()) {
         return 0;
     }
     return m_document->blockCount();
