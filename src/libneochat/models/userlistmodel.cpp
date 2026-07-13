@@ -15,7 +15,6 @@ using namespace Quotient;
 
 UserListModel::UserListModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_currentRoom(nullptr)
 {
 }
 
