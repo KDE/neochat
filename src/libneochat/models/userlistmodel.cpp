@@ -164,8 +164,8 @@ void UserListModel::memberJoined(const Quotient::RoomMember &member)
 
 void UserListModel::refreshMember(const Quotient::RoomMember &member, const QList<int> &roles)
 {
-    auto pos = findUserPos(member);
-    if (pos != m_members.size()) {
+    const auto pos = findUserPos(member);
+    if (pos >= 0) {
         Q_EMIT dataChanged(index(pos), index(pos), roles);
     } else {
         qWarning() << "Trying to access a room member not in the user list";
@@ -196,12 +196,9 @@ int UserListModel::findUserPos(const RoomMember &member) const
 int UserListModel::findUserPos(const QString &userId) const
 {
     if (!m_currentRoom) {
-        return 0;
+        return -1;
     }
-    const auto pos = std::find_if(m_members.cbegin(), m_members.cend(), [&userId](const QString &member) {
-        return userId == member;
-    });
-    return pos - m_members.cbegin();
+    return m_members.indexOf(userId);
 }
 
 QHash<int, QByteArray> UserListModel::roleNames() const
