@@ -66,7 +66,7 @@ QVariant ReadMarkerModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    if (index.row() >= rowCount()) {
+    if (index.row() >= rowCount(index.parent())) {
         qDebug() << "ReadMarkerModel, something's wrong: index.row() >= rowCount()";
         return {};
     }
@@ -94,7 +94,9 @@ QVariant ReadMarkerModel::data(const QModelIndex &index, int role) const
 
 int ReadMarkerModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) {
+        return 0;
+    }
     return m_markerIds.size();
 }
 

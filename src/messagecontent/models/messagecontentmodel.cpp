@@ -145,7 +145,9 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
 
 int MessageContentModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
+    if (parent.isValid()) {
+        return 0;
+    }
     return m_components.size();
 }
 
@@ -217,7 +219,7 @@ void MessageContentModel::updateSpoilers()
 void MessageContentModel::updateSpoiler(const QModelIndex &index)
 {
     const auto row = index.row();
-    if (row < 0 || row >= rowCount()) {
+    if (row < 0 || row >= rowCount(index.parent())) {
         qCWarning(MessageContent) << __FUNCTION__ << "called with invalid index" << index << rowCount();
         return;
     }
