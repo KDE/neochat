@@ -8,7 +8,7 @@
 bool UserFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
     Q_UNUSED(sourceParent);
-    if (!m_allowEmpty && m_filterText.length() < 1) {
+    if (!m_allowEmpty && m_filterText.isEmpty()) {
         return false;
     }
     if (sourceModel()->data(sourceModel()->index(sourceRow, 0), UserListModel::MembershipRole).value<Quotient::Membership>() != Quotient::Membership::Join) {
@@ -38,7 +38,9 @@ bool UserFilterModel::allowEmpty() const
 
 void UserFilterModel::setAllowEmpty(bool allowEmpty)
 {
+    beginFilterChange();
     m_allowEmpty = allowEmpty;
+    endFilterChange();
     Q_EMIT allowEmptyChanged();
 }
 
