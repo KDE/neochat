@@ -26,7 +26,9 @@ RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount(), 0), {IsChildSpaceRole});
+        if (!m_rooms.isEmpty()) {
+            Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {IsChildSpaceRole});
+        }
     });
 }
 

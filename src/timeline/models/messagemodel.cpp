@@ -782,7 +782,9 @@ void MessageModel::clearEventObjects()
 bool MessageModel::event(QEvent *event)
 {
     if (event->type() == QEvent::ApplicationPaletteChange) {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
+        if (rowCount() > 0) {
+            Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
+        }
     }
     return QObject::event(event);
 }

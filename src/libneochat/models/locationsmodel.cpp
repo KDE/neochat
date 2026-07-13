@@ -128,7 +128,9 @@ QRectF LocationsModel::boundingBox() const
 bool LocationsModel::event(QEvent *event)
 {
     if (event->type() == QEvent::ApplicationPaletteChange) {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
+        if (rowCount() > 0) {
+            Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
+        }
     }
     return QObject::event(event);
 }
