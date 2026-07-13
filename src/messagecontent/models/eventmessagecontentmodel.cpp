@@ -94,7 +94,7 @@ void EventMessageContentModel::initializeModel()
         resetContent();
     });
     connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
-        if (m_room != nullptr) {
+        if (m_room != nullptr && rowCount() > 0) {
             if (authorId().isEmpty() || authorId() == member.id()) {
                 Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
                 Q_EMIT authorChanged();
@@ -102,7 +102,7 @@ void EventMessageContentModel::initializeModel()
         }
     });
     connect(m_room, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
-        if (m_room != nullptr) {
+        if (m_room != nullptr && rowCount() > 0) {
             if (authorId().isEmpty() || authorId() == member.id()) {
                 Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
                 Q_EMIT authorChanged();
