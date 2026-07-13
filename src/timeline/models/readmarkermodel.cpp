@@ -37,14 +37,16 @@ ReadMarkerModel::ReadMarkerModel(const QString &eventId, NeoChatRoom *room)
         }
     });
     connect(m_room, &NeoChatRoom::memberNameUpdated, this, [this](Quotient::RoomMember member) {
-        if (m_markerIds.contains(member.id())) {
-            const auto memberIndex = index(m_markerIds.indexOf(member.id()));
+        const auto listPos = m_markerIds.indexOf(member.id());
+        if (listPos >= 0) {
+            const auto memberIndex = index(listPos);
             Q_EMIT dataChanged(memberIndex, memberIndex);
         }
     });
     connect(m_room, &NeoChatRoom::memberAvatarUpdated, this, [this](Quotient::RoomMember member) {
-        if (m_markerIds.contains(member.id())) {
-            const auto memberIndex = index(m_markerIds.indexOf(member.id()));
+        const auto listPos = m_markerIds.indexOf(member.id());
+        if (listPos >= 0) {
+            const auto memberIndex = index(listPos);
             Q_EMIT dataChanged(memberIndex, memberIndex);
         }
     });
