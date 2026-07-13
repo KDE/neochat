@@ -261,7 +261,9 @@ void MessageContentModel::toggleSpoiler(QModelIndex index)
 void MessageContentModel::hideMedia()
 {
     m_mediaHidden = true;
-    Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {MediaHiddenRole});
+    if (rowCount()) {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {MediaHiddenRole});
+    }
 
     m_setMediaHidden(m_eventId, true);
 }
@@ -269,7 +271,9 @@ void MessageContentModel::hideMedia()
 void MessageContentModel::showMedia()
 {
     m_mediaHidden = false;
-    Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {MediaHiddenRole});
+    if (rowCount()) {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {MediaHiddenRole});
+    }
 
     m_setMediaHidden(m_eventId, false);
 }

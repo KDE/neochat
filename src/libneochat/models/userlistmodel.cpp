@@ -143,9 +143,9 @@ int UserListModel::rowCount(const QModelIndex &parent) const
 
 bool UserListModel::event(QEvent *event)
 {
-    if (event->type() == QEvent::ApplicationPaletteChange) {
+    if (event->type() == QEvent::ApplicationPaletteChange && !m_members.isEmpty()) {
         // Quotient::RoomMember::color needs to be recalculated for the new palette
-        Q_EMIT dataChanged(index(0, 0), index(m_members.size(), 0), {ColorRole});
+        Q_EMIT dataChanged(index(0, 0), index(m_members.size() - 1, 0), {ColorRole});
     }
     return QObject::event(event);
 }
