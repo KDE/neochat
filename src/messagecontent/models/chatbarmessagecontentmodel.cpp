@@ -468,7 +468,8 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     initializeModel(plainText);
 
     auto it = insertComponent(m_components.front()->type() == Blocks::Reply ? 1 : 0, blockForFile(path));
-    Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {BlockRole});
+    const auto componentIndex = index(std::distance(m_components.begin(), it));
+    Q_EMIT dataChanged(componentIndex, componentIndex, {BlockRole});
     Q_EMIT hasAttachmentChanged();
 }
 
@@ -506,7 +507,8 @@ void ChatBarMessageContentModel::addLocation(qreal latitude, qreal longitude, co
     initializeModel(u"%1's %2"_s.arg(authorString, assetString));
     auto it =
         insertComponent(m_components.front()->type() == Blocks::Reply ? 1 : 0, new Blocks::LocationBlock(Blocks::Location, latitude, longitude, asset, this));
-    Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {BlockRole});
+    const auto componentIndex = index(std::distance(m_components.begin(), it));
+    Q_EMIT dataChanged(componentIndex, componentIndex, {BlockRole});
     Q_EMIT hasAttachmentChanged();
 }
 
