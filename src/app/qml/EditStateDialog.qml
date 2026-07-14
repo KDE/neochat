@@ -62,9 +62,6 @@ Kirigami.Page {
 
             Kirigami.SpellCheck.enabled: false
 
-            onWidthChanged: lineModel.resetModel()
-            onHeightChanged: lineModel.resetModel()
-
             SyntaxHighlighter {
                 textEdit: sourceTextArea
                 definition: "JSON"

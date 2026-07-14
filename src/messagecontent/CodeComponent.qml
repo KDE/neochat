@@ -104,9 +104,6 @@ QQC2.Control {
 
             Kirigami.SpellCheck.enabled: false
 
-            onWidthChanged: lineModel.resetModel()
-            onHeightChanged: lineModel.resetModel()
-
             onSelectedTextChanged: root.selectedTextChanged(selectedText)
 
             SyntaxHighlighter {

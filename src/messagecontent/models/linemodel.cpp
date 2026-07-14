@@ -55,10 +55,4 @@ QHash<int, QByteArray> LineModel::roleNames() const
     return {{LineHeightRole, "docLineHeight"}};
 }
 
-void LineModel::resetModel()
-{
-    beginResetModel();
-    endResetModel();
-}
-
 #include "moc_linemodel.cpp"
