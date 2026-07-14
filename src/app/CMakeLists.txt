@@ -39,13 +39,11 @@ qt_add_library(neochat STATIC
     supportcontroller.h
 )
 
-# Use Quotient's blurhash implementation if available
-if (${QuotientQt6_VERSION_MINOR} LESS 10)
-    target_sources(neochat PRIVATE
-            blurhash.cpp
-            blurhash.h
-    )
-endif()
+# TODO: Switch to Quotient's blurhash implementation when that's merged
+target_sources(neochat PRIVATE
+        blurhash.cpp
+        blurhash.h
+)
 
 if(ANDROID OR WIN32)
     set_source_files_properties(qml/ShareActionStub.qml PROPERTIES

@@ -3,11 +3,7 @@
 
 #include "blurhashimageprovider.h"
 
-#if Quotient_VERSION_MINOR > 9
-#include <Quotient/blurhash.h>
-#else
 #include "blurhash.h"
-#endif
 
 /*
  * Qt unfortunately re-encodes the base83 string in QML.
