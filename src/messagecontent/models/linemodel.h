@@ -57,16 +57,6 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    /**
-     * @brief Reset the model.
-     *
-     * This needs to be called when the QQuickTextDocument container changes width
-     * or height as this may change line heights due to wrapping.
-     *
-     * @sa QQuickTextDocument
-     */
-    Q_INVOKABLE void resetModel();
-
 Q_SIGNALS:
     void documentChanged();
 
