@@ -242,6 +242,11 @@ public:
      */
     QTextDocumentFragment toFragment() const;
 
+    /**
+     * @brief Whether completion text is being inserted, so other code can not interfere with it.
+     */
+    bool isInsertingCompletion = false;
+
 Q_SIGNALS:
     void textItemChanged();
 

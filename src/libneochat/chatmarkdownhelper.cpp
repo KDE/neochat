@@ -174,7 +174,7 @@ void ChatMarkdownHelper::setTextItem(ChatTextItemHelper *textItem)
 
 void ChatMarkdownHelper::updateStart()
 {
-    if (!m_textItem) {
+    if (!m_textItem || m_textItem->isInsertingCompletion) {
         return;
     }
     const auto newCursorPosition = m_textItem->cursorPosition();
@@ -185,7 +185,7 @@ void ChatMarkdownHelper::updateStart()
 
 void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int charsAdded)
 {
-    if (!richTextActive) {
+    if (!richTextActive || m_textItem->isInsertingCompletion) {
         return;
     }
 

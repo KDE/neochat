@@ -129,6 +129,10 @@ void CompletionModel::disconnectModelSignals(CompletionProxyModel *model)
 
 void CompletionModel::updateTextStart()
 {
+    if (!m_textItem || m_textItem->isInsertingCompletion) {
+        return;
+    }
+
     auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
@@ -242,6 +246,10 @@ QHash<int, QByteArray> CompletionModel::roleNames() const
 
 void CompletionModel::updateCompletion()
 {
+    if (!m_textItem) {
+        return;
+    }
+
     auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
@@ -376,6 +384,8 @@ void CompletionModel::insertCompletion(const QString &text, const QUrl &link)
         return;
     }
 
+    m_textItem->isInsertingCompletion = true;
+
     cursor.beginEditBlock();
     while (!cursor.selectedText().startsWith(u' ') && !cursor.atBlockStart()) {
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
@@ -400,6 +410,8 @@ void CompletionModel::insertCompletion(const QString &text, const QUrl &link)
         cursor.insertText(u" "_s, previousFormat);
     }
     cursor.endEditBlock();
+
+    m_textItem->isInsertingCompletion = false;
 }
 
 #include "moc_completionmodel.cpp"

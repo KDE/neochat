@@ -488,7 +488,7 @@ void ChatKeyHelper::checkMouseSelection()
 
 void ChatKeyHelper::checkLinkFormat(int position, int charsRemoved, int charsAdded)
 {
-    if (!m_textItem || charsRemoved > charsAdded || charsAdded - charsRemoved != 1) {
+    if (!m_textItem || m_textItem->isInsertingCompletion || charsRemoved > charsAdded || charsAdded - charsRemoved != 1) {
         return;
     }
     QTextCursor cursor = m_textItem->textCursor();
