@@ -10,6 +10,7 @@ LineModel::LineModel(QObject *parent)
 
 void LineModel::setDocument(QTextDocument *document)
 {
+    qDebug() << Q_FUNC_INFO;
     if (document == m_document) {
         return;
     }
@@ -57,6 +58,8 @@ QHash<int, QByteArray> LineModel::roleNames() const
 
 void LineModel::resetModel()
 {
+    qDebug() << Q_FUNC_INFO;
+    // return;
     beginResetModel();
     endResetModel();
 }

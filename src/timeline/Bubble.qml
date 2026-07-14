@@ -85,15 +85,30 @@ QQC2.Control {
         ColumnLayout {
             id: contentColumn
             spacing: Kirigami.Units.smallSpacing
+            Layout.maximumWidth: 2000
+            onWidthChanged: {
+                console.log("Bubble ColumnLayout onWidthChanged", width);
+            }
 
             Repeater {
                 id: contentRepeater
+
+                onWidthChanged: {
+                    console.log("Bubble ColumnLayout Repeater onWidthChanged", width);
+                }
+
                 model: MessageContentFilterModel {
                     id: messageContentFilterModel
                     showAuthor: root.showAuthor
                     sourceModel: root.contentModel
                 }
                 delegate: BlockChooser {
+
+                    //onWidthChanged: {
+                    //    console.log("Bubble ColumnLayout Repeater BlockChooser onWidthChanged", width);
+                    //}
+
+
                     onSelectedTextChanged: selectedText => {
                         root.selectedTextChanged(selectedText);
                     }

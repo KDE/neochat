@@ -77,8 +77,15 @@ Kirigami.Page {
             // opt-out of whatever spell checker a styled TextArea might come with
             Kirigami.SpellCheck.enabled: false
 
-            onWidthChanged: lineModel.resetModel()
-            onHeightChanged: lineModel.resetModel()
+            property bool _blockUpdates: false
+            onWidthChanged: {
+                console.log("MessageSourceSheet onWidthChanged", width);
+                if (!_blockUpdates) {
+                    _blockUpdates = true;
+                    lineModel.resetModel();
+                    _blockUpdates = false;
+                }
+            }
 
             SyntaxHighlighter {
                 textEdit: sourceTextArea

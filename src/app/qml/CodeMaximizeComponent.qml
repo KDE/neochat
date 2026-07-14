@@ -92,8 +92,15 @@ Components.AbstractMaximizeComponent {
 
             Kirigami.SpellCheck.enabled: false
 
-            onWidthChanged: lineModel.resetModel()
-            onHeightChanged: lineModel.resetModel()
+            property bool _blockUpdates: false
+            onWidthChanged: {
+                console.log("CodeMaximizeComponent onWidthChanged", width);
+                if (!_blockUpdates) {
+                    _blockUpdates = true;
+                    lineModel.resetModel();
+                    _blockUpdates = false;
+                }
+            }
 
             SyntaxHighlighter {
                 property string definitionName: Repository.definitionForName(root.language).name

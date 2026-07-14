@@ -69,6 +69,14 @@ QQC2.Control {
     Layout.maximumHeight: Kirigami.Units.gridUnit * 20
 
     width: ListView.view?.width ?? -1
+    onWidthChanged: {
+        console.log("CodeComponent onWidthChanged", width);
+        let indent = "";
+        for (let p = root; p; p = p.parent) {
+            console.log(indent, p);
+            indent += "  ";
+        }
+    }
 
     topPadding: 0
     bottomPadding: 0
@@ -104,8 +112,15 @@ QQC2.Control {
 
             Kirigami.SpellCheck.enabled: false
 
-            onWidthChanged: lineModel.resetModel()
-            onHeightChanged: lineModel.resetModel()
+            property bool _blockUpdates: false
+            onWidthChanged: {
+                console.log("CodeComponent contentItem onWidthChanged", width);
+                if (!_blockUpdates && width <= 8192) {
+                    _blockUpdates = true;
+                    lineModel.resetModel();
+                    _blockUpdates = false;
+                }
+            }
 
             onSelectedTextChanged: root.selectedTextChanged(selectedText)
 
