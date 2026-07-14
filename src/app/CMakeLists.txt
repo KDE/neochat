@@ -12,6 +12,8 @@ qt_add_library(neochat STATIC
     models/userdirectorylistmodel.h
     notificationsmanager.cpp
     notificationsmanager.h
+    blurhash.cpp
+    blurhash.h
     blurhashimageprovider.cpp
     blurhashimageprovider.h
     windowcontroller.cpp
@@ -38,14 +40,6 @@ qt_add_library(neochat STATIC
     supportcontroller.cpp
     supportcontroller.h
 )
-
-# Use Quotient's blurhash implementation if available
-if (${QuotientQt6_VERSION_MINOR} LESS 10)
-    target_sources(neochat PRIVATE
-            blurhash.cpp
-            blurhash.h
-    )
-endif()
 
 if(ANDROID OR WIN32)
     set_source_files_properties(qml/ShareActionStub.qml PROPERTIES
