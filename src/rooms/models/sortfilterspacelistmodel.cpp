@@ -13,7 +13,8 @@ SortFilterSpaceListModel::SortFilterSpaceListModel(RoomListModel *sourceModel, Q
 
     connect(this->sourceModel(), &QAbstractListModel::dataChanged, this, [this](const QModelIndex &, const QModelIndex &, QList<int> roles) {
         if (roles.contains(RoomListModel::IsChildSpaceRole)) {
-            invalidate();
+            beginFilterChange();
+            endFilterChange();
         }
         Q_EMIT countChanged();
     });
