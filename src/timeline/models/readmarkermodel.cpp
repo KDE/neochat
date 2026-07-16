@@ -25,10 +25,6 @@ ReadMarkerModel::ReadMarkerModel(const QString &eventId, NeoChatRoom *room)
             }
 
             beginResetModel();
-            m_markerIds.clear();
-            endResetModel();
-
-            beginResetModel();
             memberIds.removeAll(m_room->localMember().id());
             m_markerIds = memberIds;
             endResetModel();
