@@ -33,13 +33,6 @@ class CompletionModel : public QAbstractListModel
     Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     /**
-     * @brief The current type of completion being done on the entered text.
-     *
-     * @sa AutoCompletionType
-     */
-    Q_PROPERTY(AutoCompletionType autoCompletionType READ autoCompletionType NOTIFY autoCompletionTypeChanged)
-
-    /**
      * @brief The RoomListModel to be used for room completions.
      */
     Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged)
@@ -122,24 +115,31 @@ public:
 
 Q_SIGNALS:
     void textItemChanged();
-    void autoCompletionTypeChanged();
     void roomListModelChanged();
     void userListModelChanged();
     void isCompletingChanged();
 
 private:
+    CompletionProxyModel *modelForCurrentType() const;
+    void connectModelSignals(CompletionProxyModel *model);
+    void disconnectModelSignals(CompletionProxyModel *model);
+
     QPointer<ChatTextItemHelper> m_textItem;
 
     bool m_ignoreCurrentCompletion = false;
     int m_textStart = 0;
     void updateTextStart();
 
-    CompletionProxyModel *m_filterModel;
+    CompletionProxyModel *m_userFilterModel = nullptr;
+    CompletionProxyModel *m_commandFilterModel = nullptr;
+    CompletionProxyModel *m_roomFilterModel = nullptr;
+    CompletionProxyModel *m_emojiFilterModel = nullptr;
+
     AutoCompletionType m_autoCompletionType = None;
 
     void updateCompletion();
 
     UserFilterModel *m_userListModel = nullptr;
     RoomListModel *m_roomListModel = nullptr;
-    QConcatenateTablesProxyModel *m_emojiModel;
+    QConcatenateTablesProxyModel *m_emojiModel = nullptr;
 };

@@ -3,7 +3,6 @@
 
 #include "completionmodel.h"
 
-#include <QDebug>
 #include <QTextCursor>
 
 #include <Kirigami/Platform/PlatformTheme>
@@ -20,11 +19,30 @@
 CompletionModel::CompletionModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_textItem(new ChatTextItemHelper(this))
-    , m_filterModel(new CompletionProxyModel(this))
     , m_emojiModel(new QConcatenateTablesProxyModel(this))
 {
     m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
     m_emojiModel->addSourceModel(&EmojiModel::instance());
+
+    m_userFilterModel = new CompletionProxyModel(this);
+    m_userFilterModel->setSourceModel(m_userListModel);
+    m_userFilterModel->setFilterRole(UserListModel::UserIdRole);
+    m_userFilterModel->setSecondaryFilterRole(UserListModel::DisplayNameRole);
+
+    m_commandFilterModel = new CompletionProxyModel(this);
+    m_commandFilterModel->setSourceModel(&ActionsModel::instance());
+    m_commandFilterModel->setFilterRole(ActionsModel::Prefix);
+    m_commandFilterModel->setSecondaryFilterRole(-1);
+
+    m_roomFilterModel = new CompletionProxyModel(this);
+    m_roomFilterModel->setSourceModel(m_roomListModel);
+    m_roomFilterModel->setFilterRole(RoomListModel::CanonicalAliasRole);
+    m_roomFilterModel->setSecondaryFilterRole(RoomListModel::DisplayNameRole);
+
+    m_emojiFilterModel = new CompletionProxyModel(this);
+    m_emojiFilterModel->setSourceModel(m_emojiModel);
+    m_emojiFilterModel->setFilterRole(CustomEmojiModel::Name);
+    m_emojiFilterModel->setSecondaryFilterRole(EmojiModel::DescriptionRole);
 }
 
 ChatTextItemHelper *CompletionModel::textItem() const
@@ -62,8 +80,51 @@ bool CompletionModel::isCompleting() const
 void CompletionModel::ignoreCurrentCompletion()
 {
     m_ignoreCurrentCompletion = true;
-    m_textItem->isCompleting = false;
-    Q_EMIT isCompletingChanged();
+
+    if (m_textItem->isCompleting) {
+        m_textItem->isCompleting = false;
+        Q_EMIT isCompletingChanged();
+    }
+}
+
+CompletionProxyModel *CompletionModel::modelForCurrentType() const
+{
+    switch (m_autoCompletionType) {
+    case User:
+        return m_userFilterModel;
+    case Room:
+        return m_roomFilterModel;
+    case Emoji:
+        return m_emojiFilterModel;
+    case Command:
+        return m_commandFilterModel;
+    default:
+        break;
+    }
+
+    return nullptr;
+}
+
+void CompletionModel::connectModelSignals(CompletionProxyModel *model)
+{
+    connect(model, &QAbstractItemModel::rowsAboutToBeInserted, this, &CompletionModel::rowsAboutToBeInserted);
+    connect(model, &QAbstractItemModel::rowsInserted, this, &CompletionModel::rowsInserted);
+    connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, this, &CompletionModel::rowsAboutToBeRemoved);
+    connect(model, &QAbstractItemModel::rowsRemoved, this, &CompletionModel::rowsRemoved);
+    connect(model, &QAbstractItemModel::rowsAboutToBeMoved, this, &CompletionModel::rowsAboutToBeMoved);
+    connect(model, &QAbstractItemModel::rowsMoved, this, &CompletionModel::rowsMoved);
+    connect(model, &QAbstractItemModel::dataChanged, this, &CompletionModel::dataChanged);
+}
+
+void CompletionModel::disconnectModelSignals(CompletionProxyModel *model)
+{
+    disconnect(model, &QAbstractItemModel::rowsAboutToBeInserted, this, &CompletionModel::rowsAboutToBeInserted);
+    disconnect(model, &QAbstractItemModel::rowsInserted, this, &CompletionModel::rowsInserted);
+    disconnect(model, &QAbstractItemModel::rowsAboutToBeRemoved, this, &CompletionModel::rowsAboutToBeRemoved);
+    disconnect(model, &QAbstractItemModel::rowsRemoved, this, &CompletionModel::rowsRemoved);
+    disconnect(model, &QAbstractItemModel::rowsAboutToBeMoved, this, &CompletionModel::rowsAboutToBeMoved);
+    disconnect(model, &QAbstractItemModel::rowsMoved, this, &CompletionModel::rowsMoved);
+    disconnect(model, &QAbstractItemModel::dataChanged, this, &CompletionModel::dataChanged);
 }
 
 void CompletionModel::updateTextStart()
@@ -84,81 +145,84 @@ void CompletionModel::updateTextStart()
 
 int CompletionModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
-    if (m_autoCompletionType == None) {
+    Q_UNUSED(parent)
+
+    const auto model = modelForCurrentType();
+    if (!model) {
         return 0;
     }
-    return m_filterModel->rowCount();
+    return model->rowCount();
 }
 
 QVariant CompletionModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= m_filterModel->rowCount()) {
+    const auto model = modelForCurrentType();
+    if (!model || index.row() < 0 || index.row() >= model->rowCount()) {
         return {};
     }
-    auto filterIndex = m_filterModel->index(index.row(), 0);
+    auto filterIndex = model->index(index.row(), 0);
     if (m_autoCompletionType == User) {
         if (role == DisplayNameRole) {
-            return m_filterModel->data(filterIndex, UserListModel::DisplayNameRole);
+            return m_userFilterModel->data(filterIndex, UserListModel::DisplayNameRole);
         }
         if (role == SubtitleRole) {
-            return m_filterModel->data(filterIndex, UserListModel::UserIdRole);
+            return m_userFilterModel->data(filterIndex, UserListModel::UserIdRole);
         }
         if (role == IconNameRole) {
-            return m_filterModel->data(filterIndex, UserListModel::AvatarRole);
+            return m_userFilterModel->data(filterIndex, UserListModel::AvatarRole);
         }
         if (role == ReplacedTextRole) {
-            return m_filterModel->data(filterIndex, UserListModel::DisplayNameRole);
+            return m_userFilterModel->data(filterIndex, UserListModel::DisplayNameRole);
         }
         if (role == HRefRole) {
-            return u"https://matrix.to/#/%1"_s.arg(m_filterModel->data(filterIndex, UserListModel::UserIdRole).toString());
+            return u"https://matrix.to/#/%1"_s.arg(m_userFilterModel->data(filterIndex, UserListModel::UserIdRole).toString());
         }
     }
 
     if (m_autoCompletionType == Command) {
         if (role == DisplayNameRole) {
-            return u"%1 %2"_s.arg(m_filterModel->data(filterIndex, ActionsModel::Prefix).toString(),
-                                  m_filterModel->data(filterIndex, ActionsModel::Parameters).toString());
+            return u"%1 %2"_s.arg(m_commandFilterModel->data(filterIndex, ActionsModel::Prefix).toString(),
+                                  m_commandFilterModel->data(filterIndex, ActionsModel::Parameters).toString());
         }
         if (role == SubtitleRole) {
-            return m_filterModel->data(filterIndex, ActionsModel::Description);
+            return m_commandFilterModel->data(filterIndex, ActionsModel::Description);
         }
         if (role == IconNameRole) {
             return u"invalid"_s;
         }
         if (role == ReplacedTextRole) {
-            return m_filterModel->data(filterIndex, ActionsModel::Prefix);
+            return m_commandFilterModel->data(filterIndex, ActionsModel::Prefix);
         }
     }
     if (m_autoCompletionType == Room) {
         if (role == DisplayNameRole) {
-            return m_filterModel->data(filterIndex, RoomListModel::DisplayNameRole);
+            return m_roomFilterModel->data(filterIndex, RoomListModel::DisplayNameRole);
         }
         if (role == SubtitleRole) {
-            return m_filterModel->data(filterIndex, RoomListModel::CanonicalAliasRole);
+            return m_roomFilterModel->data(filterIndex, RoomListModel::CanonicalAliasRole);
         }
         if (role == IconNameRole) {
-            return m_filterModel->data(filterIndex, RoomListModel::AvatarRole).toString();
+            return m_roomFilterModel->data(filterIndex, RoomListModel::AvatarRole).toString();
         }
         if (role == ReplacedTextRole) {
-            return m_filterModel->data(filterIndex, RoomListModel::CanonicalAliasRole);
+            return m_roomFilterModel->data(filterIndex, RoomListModel::CanonicalAliasRole);
         }
         if (role == HRefRole) {
-            return u"https://matrix.to/#/%1"_s.arg(m_filterModel->data(filterIndex, RoomListModel::CanonicalAliasRole).toString());
+            return u"https://matrix.to/#/%1"_s.arg(m_roomFilterModel->data(filterIndex, RoomListModel::CanonicalAliasRole).toString());
         }
     }
     if (m_autoCompletionType == Emoji) {
         if (role == DisplayNameRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
+            return m_emojiFilterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
         }
         if (role == IconNameRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::MxcUrl);
+            return m_emojiFilterModel->data(filterIndex, CustomEmojiModel::MxcUrl);
         }
         if (role == ReplacedTextRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
+            return m_emojiFilterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
         }
         if (role == SubtitleRole) {
-            return m_filterModel->data(filterIndex, EmojiModel::DescriptionRole);
+            return m_emojiFilterModel->data(filterIndex, EmojiModel::DescriptionRole);
         }
     }
 
@@ -199,69 +263,68 @@ void CompletionModel::updateCompletion()
     cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
     const auto fullText = cursor.selectedText();
 
-    m_autoCompletionType = None;
+    const auto setNewAutoCompletion = [this](AutoCompletionType type) {
+        if (m_autoCompletionType != type) {
+            if (const auto oldModel = modelForCurrentType()) {
+                disconnectModelSignals(oldModel);
+            }
+
+            m_autoCompletionType = type;
+
+            // The underlying model changed, so we have no choice but to wipe everything.
+            beginResetModel();
+            endResetModel();
+
+            if (const auto newModel = modelForCurrentType()) {
+                connectModelSignals(newModel);
+            }
+        }
+
+        const bool isCompleting = rowCount() > 0;
+        if (m_textItem->isCompleting != isCompleting) {
+            m_textItem->isCompleting = isCompleting;
+            Q_EMIT isCompletingChanged();
+        }
+    };
 
     // Don't start filtering anything until they type one more character, because this can load a lot of users, rooms or emojis.
     if (text.size() > 1) {
         if (text.startsWith(QLatin1Char('@'))) {
             // Users
-            m_filterModel->setSourceModel(m_userListModel);
-            m_filterModel->setFilterRole(UserListModel::UserIdRole);
-            m_filterModel->setSecondaryFilterRole(UserListModel::DisplayNameRole);
-            m_filterModel->setFullText(fullText);
-            m_filterModel->setFilterText(text);
-            m_autoCompletionType = User;
-            m_filterModel->invalidate();
-        } else if (text.startsWith(QLatin1Char('/'))) {
+            m_userFilterModel->setFilterText(text);
+
+            setNewAutoCompletion(User);
+            return;
+        }
+        if (text.startsWith(QLatin1Char('/'))) {
             // Commands
-            m_filterModel->setSourceModel(&ActionsModel::instance());
-            m_filterModel->setFilterRole(ActionsModel::Prefix);
-            m_filterModel->setSecondaryFilterRole(-1);
-            m_filterModel->setFullText(fullText);
-            m_filterModel->setFilterText(text.mid(1));
-            m_autoCompletionType = Command;
-            m_filterModel->invalidate();
-        } else if (text.startsWith(QLatin1Char('#'))) {
+            m_commandFilterModel->setFilterText(text.mid(1));
+
+            setNewAutoCompletion(Command);
+            return;
+        }
+        if (text.startsWith(QLatin1Char('#'))) {
             // Rooms
-            m_autoCompletionType = Room;
-            m_filterModel->setSourceModel(m_roomListModel);
-            m_filterModel->setFilterRole(RoomListModel::CanonicalAliasRole);
-            m_filterModel->setSecondaryFilterRole(RoomListModel::DisplayNameRole);
-            m_filterModel->setFullText(fullText);
-            m_filterModel->setFilterText(text);
-            m_filterModel->invalidate();
-        } else if (text.startsWith(QLatin1Char(':')) && !text[1].isUpper()) {
+            m_roomFilterModel->setFilterText(text);
+
+            setNewAutoCompletion(Room);
+            return;
+        }
+        if (text.startsWith(QLatin1Char(':')) && !text[1].isUpper()) {
             // Emojis
             const qsizetype locationOfEndColon = fullText.indexOf(QLatin1Char(':'), 1);
             const qsizetype locationOfSpace = fullText.indexOf(QLatin1Char(' '));
 
             if (locationOfEndColon == -1 || locationOfEndColon + 1 == fullText.size() || (locationOfSpace != -1 && locationOfEndColon > locationOfSpace)) {
-                m_filterModel->setSourceModel(m_emojiModel);
-                m_autoCompletionType = Emoji;
-                m_filterModel->setFilterRole(CustomEmojiModel::Name);
-                m_filterModel->setSecondaryFilterRole(EmojiModel::DescriptionRole);
-                m_filterModel->setFullText(fullText);
-                m_filterModel->setFilterText(text);
-                m_filterModel->invalidate();
+                m_emojiFilterModel->setFilterText(text);
+
+                setNewAutoCompletion(Emoji);
+                return;
             }
         }
     }
-    beginResetModel();
-    endResetModel();
 
-    m_textItem->isCompleting = rowCount() > 0;
-    Q_EMIT isCompletingChanged();
-}
-
-CompletionModel::AutoCompletionType CompletionModel::autoCompletionType() const
-{
-    return m_autoCompletionType;
-}
-
-void CompletionModel::setAutoCompletionType(AutoCompletionType autoCompletionType)
-{
-    m_autoCompletionType = autoCompletionType;
-    Q_EMIT autoCompletionTypeChanged();
+    setNewAutoCompletion(None);
 }
 
 RoomListModel *CompletionModel::roomListModel() const
@@ -271,7 +334,12 @@ RoomListModel *CompletionModel::roomListModel() const
 
 void CompletionModel::setRoomListModel(RoomListModel *roomListModel)
 {
+    if (roomListModel == m_roomListModel) {
+        return;
+    }
+
     m_roomListModel = roomListModel;
+    m_roomFilterModel->setSourceModel(roomListModel);
     Q_EMIT roomListModelChanged();
 }
 
@@ -287,7 +355,18 @@ void CompletionModel::setUserFilterModel(UserFilterModel *userListModel)
     }
 
     m_userListModel = userListModel;
+    m_userFilterModel->setSourceModel(m_userListModel);
     Q_EMIT userListModelChanged();
+}
+
+CompletionModel::AutoCompletionType CompletionModel::autoCompletionType() const
+{
+    return m_autoCompletionType;
+}
+
+void CompletionModel::setAutoCompletionType(AutoCompletionType autoCompletionType)
+{
+    m_autoCompletionType = autoCompletionType;
 }
 
 void CompletionModel::insertCompletion(const QString &text, const QUrl &link)
