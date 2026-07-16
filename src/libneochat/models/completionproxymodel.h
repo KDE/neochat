@@ -64,16 +64,7 @@ public:
      */
     void setFilterText(const QString &filterText);
 
-    /**
-     * @brief Set the full text in the chatbar after the completion start.
-     *
-     * This is used to automatically end the completion if the user replicated the
-     * primary filter role value perfectly.
-     */
-    void setFullText(const QString &fullText);
-
 private:
     int m_secondaryFilterRole = -1;
     QString m_filterText;
-    QString m_fullText;
 };

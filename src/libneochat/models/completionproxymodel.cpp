@@ -42,7 +42,9 @@ int CompletionProxyModel::secondaryFilterRole() const
 
 void CompletionProxyModel::setSecondaryFilterRole(int role)
 {
+    beginFilterChange();
     m_secondaryFilterRole = role;
+    endFilterChange();
 }
 
 QString CompletionProxyModel::filterText() const
@@ -52,12 +54,9 @@ QString CompletionProxyModel::filterText() const
 
 void CompletionProxyModel::setFilterText(const QString &filterText)
 {
+    beginFilterChange();
     m_filterText = filterText;
-}
-
-void CompletionProxyModel::setFullText(const QString &fullText)
-{
-    m_fullText = fullText;
+    endFilterChange();
 }
 
 #include "moc_completionproxymodel.cpp"
