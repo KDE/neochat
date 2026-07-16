@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 02:37+0000\n"
-"PO-Revision-Date: 2026-07-01 16:12+0200\n"
+"POT-Creation-Date: 2026-07-16 02:39+0000\n"
+"PO-Revision-Date: 2026-07-15 17:22+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -19,8 +19,7 @@ msgstr ""
 "X-Generator: Lokalize 25.04.0\n"
 
 #: src/app/controller.cpp:188
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
@@ -1899,12 +1898,11 @@ msgid "Choose a Location"
 msgstr "Selige un Location"
 
 #: src/chatbar/LocationChooser.qml:24
-#, fuzzy, kde-format
-#| msgid "Send this location"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Set the location seleted by the user as the one to send"
 msgid "Select this location"
-msgstr "Invia iste location"
+msgstr "Selige iste location"
 
 #: src/chatbar/LocationChooser.qml:32
 #, kde-format
@@ -1913,11 +1911,10 @@ msgid "Re-Center"
 msgstr "Re-Centra"
 
 #: src/chatbar/LocationChooser.qml:38
-#, fuzzy, kde-format
-#| msgid "Send this location"
+#, kde-format
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Set to current location"
-msgstr "Invia iste location"
+msgstr "Assigna a location currente"
 
 #: src/chatbar/NewPollDialog.qml:23
 #, kde-format
@@ -2498,7 +2495,7 @@ msgid "Custom"
 msgstr "Personalisate"
 
 #: src/libneochat/enums/powerlevel.cpp:98
-#: src/libneochat/models/userlistmodel.cpp:116
+#: src/libneochat/models/userlistmodel.cpp:115
 #: src/settings/models/permissionsmodel.cpp:222
 #, kde-format
 msgctxt ""
@@ -3628,7 +3625,7 @@ msgctxt "@item:inlistbox Prefer not to say which timezone im in"
 msgid "Prefer not to say"
 msgstr "Prefere non dicer"
 
-#: src/libneochat/models/userlistmodel.cpp:102
+#: src/libneochat/models/userlistmodel.cpp:101
 #, kde-format
 msgctxt "@info the person that created this room"
 msgid "Creator"
@@ -3643,42 +3640,40 @@ msgstr ""
 "File troppo grande a discargar.<br />Continge tu administrator de servitor "
 "de matrix per supporto."
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:351
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nulle servitor de identitate configurate"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:390
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creation de sala falleva: \"%1\""
 
-#: src/libneochat/neochatconnection.cpp:418
+#: src/libneochat/neochatconnection.cpp:419
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creation de spatio falleva: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1267
+#: src/libneochat/neochatroom.cpp:1273
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Reporto inviate con successo."
 
-#: src/libneochat/neochatroom.cpp:1628 src/libneochat/neochatroom.cpp:1648
+#: src/libneochat/neochatroom.cpp:1634 src/libneochat/neochatroom.cpp:1654
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
-#: src/libneochat/neochatroom.cpp:1632
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#: src/libneochat/neochatroom.cpp:1638
+#, kde-format
 msgctxt ""
 "%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' "
 "as in Latitude and Longitude"
 msgid "%3 at Lat: %1, Lon: %2"
-msgstr "Lat: %1, Lon: %2"
+msgstr "%3 a Lat: %1, Lon: %2"
 
 #: src/libneochat/pollblock.cpp:303
 #, kde-format
@@ -4354,19 +4349,15 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Aperi schermo plen"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:501
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
-#| msgid "Unpin"
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#, kde-format
 msgid "pin"
-msgstr "Distacca "
+msgstr "Pin"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:501
-#, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#, kde-format
 msgid "location"
-msgstr "Locationes"
+msgstr "location"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:234
 #, kde-format
@@ -5791,12 +5782,13 @@ msgid "Notifications can appear even when NeoChat isn't running."
 msgstr "Notificationes pote apparer anque quando NeoChat non es executante."
 
 #: src/settings/GlobalNotificationsPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Push notifications are available but could not be enabled."
+#, kde-format
 msgid ""
 "Push notifications are available, but the push distributor does not have a "
 "Matrix gateway."
-msgstr "Notificvationes push es disponibile ma non poteva esser habilitate."
+msgstr ""
+"Notificationes push es disponibile ma le distributor de push non ha un "
+"gateway de Matrix"
 
 #: src/settings/GlobalNotificationsPage.qml:39
 #, kde-format
@@ -7946,20 +7938,20 @@ msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "Vider Fonte"
 
-#: src/timeline/models/readmarkermodel.cpp:115
+#: src/timeline/models/readmarkermodel.cpp:119
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 Usator: "
 msgstr[1] "%1 Usatores:"
 
-#: src/timeline/models/readmarkermodel.cpp:120
+#: src/timeline/models/readmarkermodel.cpp:124
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "membro incognoscite"
 
-#: src/timeline/models/readmarkermodel.cpp:122
+#: src/timeline/models/readmarkermodel.cpp:126
 #, kde-format
 msgctxt "list separator"
 msgid ", "
