@@ -59,9 +59,6 @@ void TimelineMessageModel::connectNewRoom()
                 auto rowBelowInserted = m_room->maxTimelineIndex() - newest + timelineServerIndex() - 1;
                 refreshEventRoles(rowBelowInserted, {ContentModelRole});
             }
-            for (auto i = m_room->maxTimelineIndex() - newest; i <= m_room->maxTimelineIndex() - oldest; ++i) {
-                refreshLastUserEvents(i);
-            }
         });
         connect(m_room, &Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
             Q_EMIT newEventAdded(event);
