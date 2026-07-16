@@ -28,9 +28,11 @@ RemoteImage Runner::serializeImage(const QImage &image)
 
 Runner::Runner()
     : QObject()
-    , m_sourceModel(new RoomListModel(this))
+    , m_sourceModel(RoomManager::instance().roomListModel())
     , m_model(new SortFilterRoomListModel(m_sourceModel, this))
 {
+    Q_ASSERT(m_sourceModel != nullptr);
+
     connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
         m_sourceModel->setConnection(Controller::instance().activeConnection());
     });
