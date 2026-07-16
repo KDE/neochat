@@ -599,6 +599,9 @@ bool NeoChatRoom::isInvite() const
 
 bool NeoChatRoom::readOnly() const
 {
+    if (usesEncryption()) {
+        return !canSendEvent("m.room.encrypted"_L1);
+    }
     return !canSendEvent("m.room.message"_L1);
 }
 
