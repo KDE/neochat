@@ -8,20 +8,19 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-15 00:45+0000\n"
-"PO-Revision-Date: 2026-06-27 16:11+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2026-07-15 11:00+0300\n"
+"Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/app/controller.cpp:188
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
@@ -708,7 +707,6 @@ msgstr "Закрыть панель сведений о комнате"
 
 #: src/app/qml/Main.qml:240
 #, fuzzy, kde-format
-#| msgid "Loading"
 msgctxt "@title"
 msgid "Loading"
 msgstr "Загрузка"
@@ -1887,12 +1885,11 @@ msgid "Choose a Location"
 msgstr "Выбор местоположения"
 
 #: src/chatbar/LocationChooser.qml:24
-#, fuzzy, kde-format
-#| msgid "Send this location"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Set the location seleted by the user as the one to send"
 msgid "Select this location"
-msgstr "Отправить это местоположение"
+msgstr "Выбрать это местоположение"
 
 #: src/chatbar/LocationChooser.qml:32
 #, kde-format
@@ -1901,11 +1898,10 @@ msgid "Re-Center"
 msgstr "Перецентрировать"
 
 #: src/chatbar/LocationChooser.qml:38
-#, fuzzy, kde-format
-#| msgid "Send this location"
+#, kde-format
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Set to current location"
-msgstr "Отправить это местоположение"
+msgstr "Установить текущее местоположение"
 
 #: src/chatbar/NewPollDialog.qml:23
 #, kde-format
@@ -3674,14 +3670,12 @@ msgid "Lat: %1, Lon: %2"
 msgstr "Широта: %1, долгота: %2"
 
 #: src/libneochat/neochatroom.cpp:1638
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgctxt ""
 "%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' "
 "as in Latitude and Longitude"
 msgid "%3 at Lat: %1, Lon: %2"
-msgstr "Широта: %1, долгота: %2"
+msgstr "%3, широта: %1, долгота: %2"
 
 #: src/libneochat/pollblock.cpp:303
 #, kde-format
@@ -4350,18 +4344,14 @@ msgid "Open Fullscreen"
 msgstr "Открыть на весь экран"
 
 #: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
-#| msgid "Unpin"
+#, kde-format
 msgid "pin"
-msgstr "Открепить"
+msgstr "закреплённое местоположение"
 
 #: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
-#, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
+#, kde-format
 msgid "location"
-msgstr "Местоположения"
+msgstr "местоположение"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:234
 #, kde-format
@@ -5799,12 +5789,11 @@ msgstr ""
 "Уведомления появляются даже тогда, когда программа NeoChat не запущена."
 
 #: src/settings/GlobalNotificationsPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Push notifications are available but could not be enabled."
+#, kde-format
 msgid ""
 "Push notifications are available, but the push distributor does not have a "
 "Matrix gateway."
-msgstr "Push-уведомления доступны, но их не удалось включить."
+msgstr "Push-уведомления доступны, но у распределителя нет шлюза Matrix."
 
 #: src/settings/GlobalNotificationsPage.qml:39
 #, kde-format
