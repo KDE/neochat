@@ -42,9 +42,9 @@ void TimelineMessageModel::connectNewRoom()
                 beginInsertRows({}, rowCount(), rowCount() + int(events.size()) - 1);
             }
         });
-        connect(m_room, &Room::addedMessages, this, [this](int lowest, int biggest) {
+        connect(m_room, &Room::addedMessages, this, [this](int oldest, int newest) {
             if (m_initialized) {
-                for (int i = lowest; i <= biggest; ++i) {
+                for (int i = oldest; i <= newest; ++i) {
                     const auto event = m_room->findInTimeline(i)->event();
                     Q_EMIT newEventAdded(event);
                 }
@@ -55,11 +55,11 @@ void TimelineMessageModel::connectNewRoom()
                 // no read marker, so see if we need to create one.
                 moveReadMarker(m_room->lastFullyReadEventId());
             }
-            if (biggest < m_room->maxTimelineIndex()) {
-                auto rowBelowInserted = m_room->maxTimelineIndex() - biggest + timelineServerIndex() - 1;
+            if (newest < m_room->maxTimelineIndex()) {
+                auto rowBelowInserted = m_room->maxTimelineIndex() - newest + timelineServerIndex() - 1;
                 refreshEventRoles(rowBelowInserted, {ContentModelRole});
             }
-            for (auto i = m_room->maxTimelineIndex() - biggest; i <= m_room->maxTimelineIndex() - lowest; ++i) {
+            for (auto i = m_room->maxTimelineIndex() - newest; i <= m_room->maxTimelineIndex() - oldest; ++i) {
                 refreshLastUserEvents(i);
             }
         });
