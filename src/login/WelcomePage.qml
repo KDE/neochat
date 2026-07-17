@@ -101,65 +101,62 @@ Kirigami.Page {
 
                         text: QmlUtils.escapeString(connection.localUser.displayName)
                         description: connection.localUser.id
-                        leadingPadding: Kirigami.Units.largeSpacing
 
                         onClicked: {
                             Controller.activeConnection = delegate.connection;
                             root.connectionChosen();
                         }
+
                         leading: KirigamiComponents.Avatar {
-                            id: avatar
                             name: delegate.text
                             // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
                             source: delegate.connection.localUser.avatarUrl.toString().length > 0 ? delegate.connection.makeMediaUrl(delegate.connection.localUser.avatarUrl) : ""
                             implicitWidth: Kirigami.Units.iconSizes.medium
                             implicitHeight: Kirigami.Units.iconSizes.medium
                         }
+
+                        trailing: QQC2.ToolButton {
+                            text: i18nc("@action:button", "Log out of this account")
+                            icon.name: "im-kick-user"
+                            display: QQC2.Button.IconOnly
+
+                            onClicked: (Qt.createComponent("org.kde.neochat", "ConfirmLogoutDialog").createObject(root.QQC2.Overlay.overlay, {connection: delegate.connection}) as ConfirmLogoutDialog).open()
+
+                            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.visible: hovered
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        }
                     }
                 }
                 Repeater {
                     id: loadingAccounts
                     model: Controller.accountsLoading
-                    delegate: FormCard.AbstractFormDelegate {
+                    delegate: FormCard.FormButtonDelegate {
                         id: loadingDelegate
 
                         required property string modelData
 
-                        topPadding: Kirigami.Units.smallSpacing
-                        bottomPadding: Kirigami.Units.smallSpacing
+                        text: i18nc("As in 'this account is still loading'", "%1 (loading)", loadingDelegate.modelData)
 
-                        background: null
-                        contentItem: RowLayout {
-                            spacing: 0
+                        leading: QQC2.BusyIndicator {
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
+                        }
 
-                            QQC2.Label {
-                                Layout.fillWidth: true
-                                text: i18nc("As in 'this account is still loading'", "%1 (loading)", loadingDelegate.modelData)
-                                elide: Text.ElideRight
-                                wrapMode: Text.Wrap
-                                maximumLineCount: 2
-                                color: Kirigami.Theme.disabledTextColor
-                                Accessible.ignored: true // base class sets this text on root already
-                            }
+                        trailing: QQC2.ToolButton {
+                            text: i18nc("@action:button", "Log out of this account")
+                            icon.name: "im-kick-user"
+                            display: QQC2.Button.IconOnly
 
-                            QQC2.ToolButton {
-                                text: i18nc("@action:button", "Log out of this account")
-                                icon.name: "im-kick-user"
-                                onClicked: Controller.removeConnection(loadingDelegate.modelData)
-                                display: QQC2.Button.IconOnly
-                                QQC2.ToolTip.text: text
-                                QQC2.ToolTip.visible: hovered
-                                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                                enabled: true
-                                Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-                            }
+                            onClicked: Controller.removeConnection(loadingDelegate.modelData)
 
-                            FormCard.FormArrow {
-                                Layout.leftMargin: Kirigami.Units.smallSpacing
-                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                                direction: Qt.RightArrow
-                                visible: root.background.visible
-                            }
+                            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.visible: hovered
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         }
                     }
                     onCountChanged: {
