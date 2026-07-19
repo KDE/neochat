@@ -53,7 +53,7 @@ public:
 
     virtual bool operator==(const Block &right) const;
 
-    [[nodiscard]] bool isEmpty() const;
+    [[nodiscard]] virtual bool isEmpty() const;
 
 Q_SIGNALS:
     void typeChanged();
@@ -135,6 +135,8 @@ public:
     void setSpoilerRevealed(bool spoilerRevealed);
 
     [[nodiscard]] CacheItemPtr toCacheItem() const override;
+
+    [[nodiscard]] bool isEmpty() const override;
 
 Q_SIGNALS:
     void spoilerRevealedChanged();

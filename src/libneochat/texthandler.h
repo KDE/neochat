@@ -48,6 +48,11 @@ public:
     void setData(const QString &string);
 
     /**
+     * @brief Transform the given markdown string to HTML.
+     */
+    [[nodiscard]] static QString markdownToHtml(QString string);
+
+    /**
      * @brief Handle the text for a message that is being sent.
      */
     QString handleSendText();
@@ -147,15 +152,15 @@ private:
     QString addStyle(const QString &tag, QString cleanTagString, bool spoilerRevealed = false);
     QVariantMap getAttributes(const QString &tag, const QString &tagString);
 
-    QString markdownToHTML(const QString &markdown);
+    static QString cmarkdownToHtml(const QString &markdown);
     QString escapeHtml(QString stringIn);
     QString unescapeHtml(QString stringIn);
     QString linkifyUrls(QString stringIn);
-    QString customMarkdownToHtml(const QString &stringIn);
-    QString fixupUnderlineSyntax(const QString &stringIn);
-    void processWithinHTML(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
-    void processWithinMarkdown(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
-    void escapeURLs(QString &stringIn);
+    static QString customMarkdownToHtml(const QString &stringIn);
+    static QString fixupUnderlineSyntax(const QString &stringIn);
+    static void processWithinHTML(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
+    static void processWithinMarkdown(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
+    static void escapeURLs(QString &stringIn);
 
     QString editString() const;
     QString emoteString(const NeoChatRoom *room = nullptr, const Quotient::RoomEvent *event = nullptr) const;

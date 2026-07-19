@@ -7,6 +7,7 @@
 #include "block.h"
 #include "blockcache.h"
 #include "chatbarcache.h"
+#include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
 #include "controller.h"
 #include "eventhandler.h"
@@ -153,6 +154,10 @@ RoomManager::RoomManager(QObject *parent)
     ChatMarkdownHelper::richTextActive = NeoChatConfig::richChatBar();
     connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
         ChatMarkdownHelper::richTextActive = NeoChatConfig::richChatBar();
+    });
+    ChatKeyHelper::richTextActive = NeoChatConfig::richChatBar();
+    connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
+        ChatKeyHelper::richTextActive = NeoChatConfig::richChatBar();
     });
     ChatBarMessageContentModel::richTextActive = NeoChatConfig::richChatBar();
     connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {

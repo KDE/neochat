@@ -135,6 +135,11 @@ CacheItemPtr TextBlock::toCacheItem() const
     return std::make_unique<TextCacheItem>(type(), m_item->toFragment(), hasSpoiler());
 }
 
+bool TextBlock::isEmpty() const
+{
+    return m_item->isEmpty() || Block::isEmpty();
+}
+
 CodeBlock::CodeBlock(Type type, const QTextDocumentFragment &content, const QString &language, QObject *parent)
     : TextBlock(type, content, {}, parent)
     , m_language(language)

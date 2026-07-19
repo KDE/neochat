@@ -223,7 +223,38 @@ QTextDocumentFragment ChatTextItemHelper::takeFirstBlock()
     return block;
 }
 
-void ChatTextItemHelper::fillFragments(bool &hasBefore, QTextDocumentFragment &midFragment, std::optional<QTextDocumentFragment> &afterFragment)
+void ChatTextItemHelper::fill2Fragments(bool &hasBefore, std::optional<QTextDocumentFragment> &afterFragment, bool splitAtCursor)
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+
+    hasBefore = cursor.position() > m_fixedStartChars.length();
+    if (!splitAtCursor && hasBefore) {
+        cursor.movePosition(QTextCursor::EndOfBlock);
+        if (cursor.blockNumber() == document()->blockCount() - 1) {
+            cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::MoveAnchor, m_fixedEndChars.length());
+        }
+    }
+
+    if (cursor.position() == document()->characterCount() - m_fixedEndChars.length() - 1) {
+        return;
+    }
+
+    cursor.beginEditBlock();
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    if (cursor.selectedText() == QChar::ParagraphSeparator) {
+        cursor.removeSelectedText();
+    }
+    cursor.movePosition(QTextCursor::End, QTextCursor::KeepAnchor);
+    cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor, m_fixedEndChars.length());
+    afterFragment = cursor.selection();
+    cursor.removeSelectedText();
+    cursor.endEditBlock();
+}
+
+void ChatTextItemHelper::fill3Fragments(bool &hasBefore, std::optional<QTextDocumentFragment> &midFragment, std::optional<QTextDocumentFragment> &afterFragment)
 {
     auto cursor = textCursor();
     if (cursor.isNull()) {
@@ -246,7 +277,7 @@ void ChatTextItemHelper::fillFragments(bool &hasBefore, QTextDocumentFragment &m
     }
 
     midFragment = cursor.selection();
-    if (!midFragment.isEmpty()) {
+    if (!midFragment->isEmpty()) {
         cursor.removeSelectedText();
     }
 
@@ -263,6 +294,7 @@ void ChatTextItemHelper::fillFragments(bool &hasBefore, QTextDocumentFragment &m
             cursor.removeSelectedText();
         }
         cursor.movePosition(QTextCursor::End, QTextCursor::KeepAnchor);
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor, m_fixedEndChars.length());
         afterFragment = cursor.selection();
         cursor.removeSelectedText();
     }

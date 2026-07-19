@@ -123,6 +123,12 @@ ecm_add_test(
     TEST_NAME filepreviewtest
 )
 
+ecm_add_test(
+    clipboardtest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME clipboardtest
+)
+
 macro(add_qml_tests)
     if (WIN32)
         set(_extra_args -platform offscreen)

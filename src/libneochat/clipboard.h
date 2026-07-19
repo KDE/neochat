@@ -36,6 +36,13 @@ class Clipboard : public QObject
     Q_PROPERTY(QImage image READ image NOTIFY imageChanged)
 
 public:
+    enum PasteMode {
+        Raw,
+        PlainToRich,
+        ConvertMarkdown,
+    };
+    Q_ENUM(PasteMode)
+
     explicit Clipboard(QObject *parent = nullptr);
 
     [[nodiscard]] bool hasImage() const;
@@ -56,6 +63,26 @@ public:
      *         be empty if nothing was saved.
      */
     Q_INVOKABLE QUrl saveImage() const;
+
+    /**
+     * @brief Return the current clipboard text as plain text.
+     *
+     * Returns an empty string if the clipboard is empty or has no text.
+     *
+     * If the current clipboard contents are rich text they will be converted to
+     * plain text.
+     */
+    Q_INVOKABLE [[nodiscard]] QString plainText() const;
+
+    /**
+     * @brief Return the current clipboard text as rich text.
+     *
+     * Returns an empty string if the clipboard is empty or has no text.
+     *
+     * If clipboard contains plain text with markdown formatting it will be converted
+     * to rich text.
+     */
+    Q_INVOKABLE [[nodiscard]] QString richText(PasteMode mode) const;
 
     /**
      * @brief Set the clipboard content to the input message.

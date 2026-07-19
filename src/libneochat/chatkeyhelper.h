@@ -58,6 +58,8 @@ public:
      */
     bool sendMessageWithEnter = true;
 
+    static bool richTextActive;
+
 Q_SIGNALS:
     /**
      * @brief There is an unhandled up key press.
@@ -129,6 +131,13 @@ Q_SIGNALS:
      */
     void attachmentPasted(const QUrl &filePath);
 
+    /**
+     * @brief Text has been pasted.
+     *
+     * This is always formatted as rich text.
+     */
+    void textPasted(const QString &text);
+
 private:
     QPointer<ChatTextItemHelper> m_textItem;
 
@@ -155,6 +164,8 @@ private:
     bool cancel();
 
     bool pasteAttachments();
+
+    bool pasteText();
 
     bool selectLeft(QTextCursor &cursor);
 

@@ -120,6 +120,20 @@ public:
     QTextDocumentFragment takeFirstBlock();
 
     /**
+     * @brief Split the QTextDocument content into 2 QTextDocumentFragments.
+     *
+     * The first fragment will remain in this item. The second fragment will be filled
+     * into afterFragment.
+     *
+     * The split will either be at the current cursor position is splitAtCursor is
+     * true or at the current block (with the block containing the cursor in the first
+     * fragment) if false.
+     *
+     * @sa QTextDocument, QTextDocumentFragment
+     */
+    void fill2Fragments(bool &hasBefore, std::optional<QTextDocumentFragment> &afterFragment, bool splitAtCursor);
+
+    /**
      * @brief Fill the given QTextDocumentFragment with the text item contents.
      *
      * The idea is to split the QTextDocument into 3. There is the QTextBlock that the
@@ -133,7 +147,7 @@ public:
      *
      * @sa QTextBlock, QTextDocument, QTextDocumentFragment
      */
-    void fillFragments(bool &hasBefore, QTextDocumentFragment &midFragment, std::optional<QTextDocumentFragment> &afterFragment);
+    void fill3Fragments(bool &hasBefore, std::optional<QTextDocumentFragment> &midFragment, std::optional<QTextDocumentFragment> &afterFragment);
 
     /**
      * @brief Insert the given QTextDocumentFragment as the given position.
