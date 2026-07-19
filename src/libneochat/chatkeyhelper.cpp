@@ -3,11 +3,15 @@
 
 #include "chatkeyhelper.h"
 
+#include <QGuiApplication>
+#include <QMimeData>
+
 #include "chattextitemhelper.h"
 #include "clipboard.h"
 #include "neochatroom.h"
 #include "richformat.h"
-#include <qtextcursor.h>
+
+bool ChatKeyHelper::richTextActive = true;
 
 ChatKeyHelper::ChatKeyHelper(QObject *parent)
     : QObject(parent)
@@ -70,7 +74,12 @@ bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
 bool ChatKeyHelper::vKey(Qt::KeyboardModifiers modifiers)
 {
     if (modifiers.testFlag(Qt::ControlModifier)) {
-        return pasteAttachments();
+        if (pasteAttachments()) {
+            return true;
+        }
+        if (pasteText()) {
+            return true;
+        }
     }
     return false;
 }
@@ -311,6 +320,16 @@ bool ChatKeyHelper::pasteAttachments()
         }
     } else if (clipboard.hasUriList() && !clipboard.uriList().isEmpty()) {
         Q_EMIT attachmentPasted(clipboard.uriList().constFirst());
+    }
+    return false;
+}
+
+bool ChatKeyHelper::pasteText()
+{
+    const auto text = richTextActive ? Clipboard().richText(Clipboard::ConvertMarkdown) : Clipboard().plainText();
+    if (!text.isEmpty()) {
+        Q_EMIT textPasted(text);
+        return true;
     }
     return false;
 }

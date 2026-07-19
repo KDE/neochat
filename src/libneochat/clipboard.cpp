@@ -14,6 +14,8 @@
 #include <QStandardPaths>
 #include <QUrl>
 
+#include "texthandler.h"
+
 using namespace Qt::StringLiterals;
 
 Clipboard::Clipboard(QObject *parent)
@@ -68,6 +70,36 @@ QUrl Clipboard::saveImage() const
 
     if (image.save(url.toLocalFile())) {
         return url;
+    }
+    return {};
+}
+
+QString Clipboard::plainText() const
+{
+    const auto mimeData = m_clipboard->mimeData();
+    if (mimeData->hasHtml()) {
+        return QTextDocumentFragment::fromHtml(mimeData->html()).toPlainText();
+    } else {
+        return mimeData->text();
+    }
+}
+
+QString Clipboard::richText(PasteMode mode) const
+{
+    const auto mimeData = m_clipboard->mimeData();
+    if (mimeData->hasHtml()) {
+        return mimeData->html();
+    } else if (mimeData->hasText() && mode == PasteMode::ConvertMarkdown) {
+        auto richText = TextHandler::markdownToHtml(mimeData->text());
+        if (richText.count("<p>"_L1) == 1 && richText.count("</p>"_L1) == 1 && richText.startsWith("<p>"_L1) && richText.endsWith("</p>"_L1)) {
+            richText.remove("<p>"_L1);
+            richText.remove("</p>"_L1);
+        }
+        return richText;
+    } else if (mimeData->hasText() && mode == PasteMode::PlainToRich) {
+        auto text = mimeData->text();
+        text.replace(u"\n"_s, u"<br>"_s);
+        return text;
     }
     return {};
 }

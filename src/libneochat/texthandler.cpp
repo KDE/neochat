@@ -45,14 +45,19 @@ void TextHandler::setData(const QString &string)
     m_pos = 0;
 }
 
+QString TextHandler::markdownToHtml(QString string)
+{
+    string = fixupUnderlineSyntax(string);
+    escapeURLs(string);
+    string = cmarkdownToHtml(string);
+    string = customMarkdownToHtml(string);
+    return string;
+}
+
 QString TextHandler::handleSendText()
 {
     m_pos = 0;
-    m_dataBuffer = fixupUnderlineSyntax(m_data);
-    escapeURLs(m_dataBuffer);
-    m_dataBuffer = markdownToHTML(m_dataBuffer);
-    m_dataBuffer = customMarkdownToHtml(m_dataBuffer);
-
+    m_dataBuffer = markdownToHtml(m_data);
     m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
 
     // Strip any disallowed tags/attributes.
@@ -219,7 +224,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
      * This seems counterproductive but by converting any markup which could
      * arrive (e.g. in a caption body) it can then be stripped by the same code.
      */
-    m_dataBuffer = markdownToHTML(m_dataBuffer);
+    m_dataBuffer = cmarkdownToHtml(m_dataBuffer);
     // This is how \n is converted and for plain text we need it to just be <br>
     // to prevent extra newlines being inserted.
     m_dataBuffer.replace(u"<br />\n"_s, u"<br>"_s);
@@ -670,7 +675,7 @@ Blocks::BlockPtrs TextHandler::textComponents(QString string,
     return components;
 }
 
-QString TextHandler::markdownToHTML(const QString &markdown)
+QString TextHandler::cmarkdownToHtml(const QString &markdown)
 {
     const auto str = markdown.toUtf8();
     char *tmp_buf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_HARDBREAKS | CMARK_OPT_UNSAFE);

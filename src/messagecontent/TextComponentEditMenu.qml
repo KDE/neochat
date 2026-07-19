@@ -6,10 +6,13 @@
 
 import QtQml.Models
 import QtQuick
-import org.kde.desktop as QQC2
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.sonnet as Sonnet
+
+import org.kde.neochat
 
 QQC2.Menu {
     id: root
@@ -192,6 +195,7 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
+        id: pasteItem
         action: Kirigami.Action {
             icon.name: "edit-paste-symbolic"
             text: i18nc("@action:inmenu", "Paste")
@@ -202,6 +206,70 @@ QQC2.Menu {
             root.runOnMenuClose = () => {
                 root.target.paste();
             };
+        }
+    }
+    RowLayout {
+        visible: NeoChatConfig.richChatBar
+        spacing: Kirigami.Units.smallSpacing
+        Item {
+            id: padItem
+            Layout.preferredWidth: (pasteItem.ListView.view && pasteItem.ListView.view.hasCheckables) ? pasteItem.indicator.width - Kirigami.Units.smallSpacing : Kirigami.Units.smallSpacing
+            visible: NeoChatConfig.richChatBar
+        }
+        QQC2.ToolButton {
+            id: plainButton
+            visible: NeoChatConfig.richChatBar
+            icon.name: "font"
+            text: i18nc("@action:inmenu", "Paste as Plain Text")
+            display: QQC2.ToolButton.IconOnly
+
+            onClicked: {
+                let text = Clipboard.richText(Clipboard.PlainToRich);
+                root.target.Message.contentModel.insertTextAtCursor(text);
+                root.close();
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        QQC2.ToolButton {
+            id: markdownButton
+            visible: NeoChatConfig.richChatBar
+            icon.name: "xml-text-new-symbolic"
+            text: i18nc("@action:inmenu", "Paste as Markdown Text")
+            display: QQC2.ToolButton.IconOnly
+
+            onClicked: {
+                let text = Clipboard.richText(Clipboard.ConvertMarkdown);
+                root.target.Message.contentModel.insertTextAtCursor(text);
+                root.close();
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        QQC2.ToolButton {
+            id: richButton
+            visible: NeoChatConfig.richChatBar
+            icon.name: "format-text-code-symbolic"
+            text: i18nc("@action:inmenu", "Paste as Rich Text")
+            display: QQC2.ToolButton.IconOnly
+
+            onClicked: {
+                let text = Clipboard.richText(Clipboard.Raw);
+                root.target.Message.contentModel.insertTextAtCursor(text);
+                root.close();
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        Item {
+            Layout.fillWidth: true
+            visible: NeoChatConfig.richChatBar
         }
     }
     QQC2.MenuItem {

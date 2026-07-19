@@ -23,6 +23,11 @@
 #include "eventmessagecontentmodel.h"
 #include "fileinfo.h"
 #include "messagecontentmodel.h"
+<<<<<<< HEAD
+=======
+#include "neochatroom.h"
+#include "texthandler.h"
+>>>>>>> 1573e6f39 (Upgrade Markdown to richtext on paste)
 
 bool ChatBarMessageContentModel::richTextActive = true;
 
@@ -144,13 +149,14 @@ void ChatBarMessageContentModel::connectKeyHelper()
             }
         }
         if (m_components[currentRow]->type() == Blocks::Code || m_components[currentRow]->type() == Blocks::Quote) {
-            insertBlockAtCursor(Blocks::Text);
+            insertBlockAtCursor(makeEmptyTextBlock(Blocks::Text));
         }
     });
     connect(m_keyHelper, &ChatKeyHelper::requestReply, this, [this](const QString &eventId) {
         addReply(eventId);
     });
     connect(m_keyHelper, &ChatKeyHelper::attachmentPasted, this, &ChatBarMessageContentModel::addAttachment);
+    connect(m_keyHelper, &ChatKeyHelper::textPasted, this, &ChatBarMessageContentModel::insertTextAtCursor);
 }
 
 int ChatBarMessageContentModel::focusRow() const
@@ -275,6 +281,17 @@ bool ChatBarMessageContentModel::hasRichFormatting() const
             }
         }
         return false;
+    });
+}
+
+void ChatBarMessageContentModel::insertTextAtCursor(const QString &text)
+{
+    if (text.isEmpty()) {
+        return;
+    }
+    const auto blocks = TextHandler().textComponents(text);
+    std::ranges::for_each(blocks, [this](Blocks::Block *block) {
+        insertBlockAtCursor(block);
     });
 }
 
@@ -420,34 +437,48 @@ void ChatBarMessageContentModel::insertStyleAtCursor(RichFormat::Format style)
 {
     switch (style) {
     case RichFormat::Paragraph:
-        insertBlockAtCursor(Blocks::Text);
+        insertBlockAtCursor(makeEmptyTextBlock(Blocks::Text));
         return;
     case RichFormat::Code:
-        insertBlockAtCursor(Blocks::Code);
+        insertBlockAtCursor(makeEmptyTextBlock(Blocks::Code));
         return;
     case RichFormat::Quote:
-        insertBlockAtCursor(Blocks::Quote);
+        insertBlockAtCursor(makeEmptyTextBlock(Blocks::Quote));
         return;
     default:
         return;
     }
 }
 
-void ChatBarMessageContentModel::insertBlockAtCursor(Blocks::Type type)
+void ChatBarMessageContentModel::insertBlockAtCursor(Blocks::Block *block)
 {
-    if (m_components[m_currentFocusComponent.row()]->type() == type) {
-        if ((type == Blocks::Text || type == Blocks::Quote) && focusedTextItem()) {
+    if (!m_currentFocusComponent.isValid() || !block) {
+        return;
+    }
+
+    if (block->type() == m_components[m_currentFocusComponent.row()]->type()) {
+        if (!block->isEmpty()) {
+            if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(block)) {
+                focusedTextItem()->insertFragment(textBlock->item()->initialFragment());
+            }
+        } else if ((block->type() == Blocks::Text || block->type() == Blocks::Quote)) {
             focusedTextItem()->mergeFormatOnCursor(RichFormat::Paragraph);
         }
         return;
     }
 
     bool hasBefore = false;
-    QTextDocumentFragment midFragment;
+    std::optional<QTextDocumentFragment> midFragment = std::nullopt;
     std::optional<QTextDocumentFragment> afterFragment = std::nullopt;
 
-    if (const auto currentTextItem = focusedTextItem()) {
-        currentTextItem->fillFragments(hasBefore, midFragment, afterFragment);
+    const auto currentTextItem = focusedTextItem();
+    if (!currentTextItem) {
+        return;
+    }
+    if (block->isEmpty()) {
+        currentTextItem->fill3Fragments(hasBefore, midFragment, afterFragment);
+    } else {
+        currentTextItem->fill2Fragments(hasBefore, afterFragment, true);
     }
 
     const auto currentType = m_components[m_currentFocusComponent.row()]->type();
@@ -457,10 +488,11 @@ void ChatBarMessageContentModel::insertBlockAtCursor(Blocks::Type type)
         removeComponent(insertRow, true);
     }
 
-    const auto insertIt = insertComponent(insertRow, makeEmptyTextBlock(type));
+    const auto insertIt = insertComponent(insertRow, block);
     if (insertIt != m_components.end()) {
-        if (const auto insertTextItem = textItemForComponent(*insertIt)) {
-            insertTextItem->insertFragment(midFragment);
+        const auto insertTextItem = textItemForComponent(*insertIt);
+        if (midFragment && insertTextItem) {
+            insertTextItem->insertFragment(*midFragment);
         }
         m_currentFocusComponent = QPersistentModelIndex(index(insertIt - m_components.begin()));
         emitFocusChangeSignals();

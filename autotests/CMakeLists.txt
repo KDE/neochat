@@ -121,6 +121,11 @@ ecm_add_test(
     postmessagehelpertest.cpp
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME postmessagehelpertest
+
+ecm_add_test(
+    clipboardtest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME clipboardtest
 )
 
 macro(add_qml_tests)

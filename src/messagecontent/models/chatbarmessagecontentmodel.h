@@ -102,6 +102,7 @@ public:
     Q_INVOKABLE void insertStyleAtCursor(RichFormat::Format style);
 
     bool hasRichFormatting() const;
+    Q_INVOKABLE void insertTextAtCursor(const QString &text);
     bool hasAttachment() const;
     Q_INVOKABLE void addAttachment(const QUrl &path);
     Q_INVOKABLE void addReply(const QString &eventId, bool updateCache = true);
@@ -161,7 +162,7 @@ private:
 
     Blocks::Block *blockForFile(const QUrl &path);
 
-    void insertBlockAtCursor(Blocks::Type type);
+    void insertBlockAtCursor(Blocks::Block *block);
     Blocks::Block *makeEmptyTextBlock(Blocks::Type type);
     Blocks::BlockPtrsIt insertComponent(int row, Blocks::Block *block);
     Blocks::BlockPtrsIt removeComponent(Blocks::BlockPtrsIt it);
