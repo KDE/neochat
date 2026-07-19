@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:44+0000\n"
+"POT-Creation-Date: 2026-07-19 00:44+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3957,18 +3957,18 @@ msgstr "Αποτυχία δημιουργίας αίθουσας: %1"
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/libneochat/neochatroom.cpp:1276
+#: src/libneochat/neochatroom.cpp:1282
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/libneochat/neochatroom.cpp:1637 src/libneochat/neochatroom.cpp:1657
+#: src/libneochat/neochatroom.cpp:1643 src/libneochat/neochatroom.cpp:1663
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Πλάτος: %1, μήκος: %2"
 
-#: src/libneochat/neochatroom.cpp:1641
+#: src/libneochat/neochatroom.cpp:1647
 #, fuzzy, kde-format
 #| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 #| msgid "Lat: %1, Lon: %2"
@@ -4272,7 +4272,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:252
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -4498,7 +4498,14 @@ msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Σύνδεση με υφιστάμενο λογαριασμό"
 
-#: src/login/WelcomePage.qml:137
+#: src/login/WelcomePage.qml:119 src/login/WelcomePage.qml:149
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgctxt "@action:button"
+msgid "Log out of this account"
+msgstr "Επεξεργασία αυτού του λογαριασμού"
+
+#: src/login/WelcomePage.qml:141
 #, fuzzy, kde-format
 #| msgctxt "Job heading, like 'Copying'"
 #| msgid "Uploading"
@@ -4506,28 +4513,21 @@ msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "Γίνεται αποστολή"
 
-#: src/login/WelcomePage.qml:146
-#, fuzzy, kde-format
-#| msgid "Edit this account"
-msgctxt "@action:button"
-msgid "Log out of this account"
-msgstr "Επεξεργασία αυτού του λογαριασμού"
-
-#: src/login/WelcomePage.qml:175
+#: src/login/WelcomePage.qml:172
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Σύνδεση με υφιστάμενο λογαριασμό"
 
-#: src/login/WelcomePage.qml:268
+#: src/login/WelcomePage.qml:265
 #, fuzzy, kde-format
 #| msgid "Room Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Ρυθμίσεις αίθουσας"
 
-#: src/login/WelcomePage.qml:277
+#: src/login/WelcomePage.qml:274
 #, fuzzy, kde-format
 #| msgctxt "@action:button As in 'go back'"
 #| msgid "Back"
