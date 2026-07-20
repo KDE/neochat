@@ -91,10 +91,20 @@ ColumnLayout {
             Layout.preferredWidth: Kirigami.Units.iconSizes.large
             Layout.preferredHeight: Kirigami.Units.iconSizes.large
             Layout.rightMargin: Kirigami.Units.largeSpacing
+            // It doesn't make sense to scan a QR code to join an invite-only room... that isn't possible
+            visible: root.room.joinRuleString !== "invite"
+
             contentItem: Barcode {
                 id: barcode
                 barcodeType: Barcode.QRCode
-                content: "https://matrix.to/#/" + root.room.id
+                content: {
+                    const firstAlias = root.room.aliases[0];
+                    if (firstAlias) {
+                        return "https://matrix.to/#/" + firstAlias;
+                    } else {
+                        return "https://matrix.to/#/" + root.room.id;
+                    }
+                }
             }
 
             onClicked: {
