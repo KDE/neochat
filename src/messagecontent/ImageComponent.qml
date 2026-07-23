@@ -87,7 +87,7 @@ Item {
                 id: editImageButton
                 visible: root.editable
                 icon.name: "document-edit"
-                text: i18nc("@action:button", "Edit")
+                text: i18nc("@action:button", "Edit Image")
                 display: QQC2.AbstractButton.IconOnly
 
                 Component {
@@ -98,7 +98,7 @@ Item {
                 }
 
                 onClicked: {
-                    let imageEditor = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(imageEditorPage);
+                    let imageEditor = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(imageEditorPage, {}, { title: i18nc("@window:title", "Edit Image")});
                     imageEditor.newPathChanged.connect(function (newPath) {
                         imageEditor.closeDialog();
                         Message.contentModel?.addAttachment(newPath);

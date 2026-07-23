@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtCore as Core
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kquickimageeditor as KQuickImageEditor
@@ -16,7 +17,9 @@ Kirigami.Page {
 
     signal newPathChanged(string newPath)
 
-    title: i18n("Edit")
+    title: i18nc("@window:title", "Edit Image")
+    globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
+
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
@@ -29,30 +32,41 @@ Kirigami.Page {
         imageDoc.crop(selectionTool.selectionX / ratioX, selectionTool.selectionY / ratioY, selectionTool.selectionWidth / ratioX, selectionTool.selectionHeight / ratioY);
     }
 
-    actions: [
-        Kirigami.Action {
-            id: undoAction
-            text: i18nc("@action:button Undo modification", "Undo")
-            icon.name: "edit-undo"
-            onTriggered: imageDoc.undo()
-            visible: imageDoc.edited
-        },
-        Kirigami.Action {
-            id: okAction
-            text: i18nc("@action:button Accept image modification", "Accept")
-            icon.name: "dialog-ok"
-            onTriggered: {
-                let newPath = Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + (new Date()).getTime() + "." + root.imagePath.split('.').pop();
-                if (imageDoc.saveAs(newPath)) {
-                    root.newPathChanged(newPath);
-                } else {
-                    msg.type = Kirigami.MessageType.Error;
-                    msg.text = i18n("Unable to save file. Check if you have the correct permission to edit the cache directory.");
-                    msg.visible = true;
+    footer: QQC2.ToolBar {
+        QQC2.DialogButtonBox {
+            anchors.fill: parent
+
+            QQC2.Button {
+                id: saveButton
+
+                text: i18nc("@action:button Accept image modification", "Save")
+                icon.name: "document-save"
+
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ApplyRole
+
+                onClicked: {
+                    let newPath = Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + (new Date()).getTime() + "." + root.imagePath.split('.').pop();
+                    if (imageDoc.saveAs(newPath)) {
+                        root.newPathChanged(newPath);
+                    } else {
+                        // TODO: is this a thing that will ever actually happen?
+                        console.warn("Unable to save file. Check if you have the correct permission to edit the cache directory.");
+                    }
                 }
             }
+            QQC2.Button {
+                id: undoButton
+
+                text: i18nc("@action:button Undo modification", "Undo")
+                icon.name: "edit-undo"
+                enabled: imageDoc.edited
+
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ResetRole
+
+                onClicked: imageDoc.undo()
+            }
         }
-    ]
+    }
 
     KQuickImageEditor.ImageItem {
         id: editImage
@@ -64,17 +78,12 @@ Kirigami.Page {
 
         Shortcut {
             sequence: StandardKey.Undo
-            onActivated: undoAction.trigger()
+            onActivated: undoButton.click()
         }
 
         Shortcut {
             sequences: [StandardKey.Save, "Enter"]
-            onActivated: saveAction.trigger()
-        }
-
-        Shortcut {
-            sequence: StandardKey.SaveAs
-            onActivated: saveAsAction.trigger()
+            onActivated: saveButton.trigger()
         }
 
         KQuickImageEditor.ImageDocument {
@@ -104,6 +113,7 @@ Kirigami.Page {
                 }
             }
         }
+
         onImageChanged: {
             selectionTool.selectionX = 0;
             selectionTool.selectionY = 0;
@@ -117,21 +127,6 @@ Kirigami.Page {
             id: actionToolBar
             display: QQC2.Button.TextBesideIcon
             actions: [
-                Kirigami.Action {
-                    icon.name: root.resizing ? "dialog-cancel" : "transform-crop"
-                    text: root.resizing ? i18n("Cancel") : i18nc("@action:button Crop an image", "Crop")
-                    onTriggered: {
-                        resizeRectangle.width = editImage.paintedWidth;
-                        resizeRectangle.height = editImage.paintedHeight;
-                        resizeRectangle.x = editImage.horizontalPadding;
-                        resizeRectangle.y = editImage.verticalPadding;
-                        resizeRectangle.insideX = 100;
-                        resizeRectangle.insideY = 100;
-                        resizeRectangle.insideWidth = 100;
-                        resizeRectangle.insideHeight = 100;
-                        root.resizing = !root.resizing;
-                    }
-                },
                 Kirigami.Action {
                     icon.name: "dialog-ok"
                     visible: root.resizing
@@ -164,13 +159,5 @@ Kirigami.Page {
                 }
             ]
         }
-    }
-
-    footer: Kirigami.InlineMessage {
-        id: msg
-        type: Kirigami.MessageType.Error
-        showCloseButton: true
-        visible: false
-        position: Kirigami.InlineMessage.Position.Header
     }
 }
