@@ -51,7 +51,7 @@ Components.AlbumMaximizeComponent {
             return {}
         }
 
-        model.data(model.index(idx, 0), TimelineMessageModel.TimeRole)
+        model.data(model.index(idx, 0), TimelineMessageModel.DateTimeRole)
     }
 
     readonly property var currentProgressInfo: {
@@ -145,7 +145,7 @@ Components.AlbumMaximizeComponent {
             }
             QQC2.Label {
                 id: dateTimeLabel
-                text: root.currentTime.toLocaleString(Qt.locale(), Locale.ShortFormat)
+                text: root.currentTime.shortDateTime
                 color: Kirigami.Theme.disabledTextColor
                 elide: Text.ElideRight
             }
