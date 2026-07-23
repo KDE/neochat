@@ -152,7 +152,7 @@ Kirigami.Dialog {
 
             actions: [
                 Kirigami.Action {
-                    text: i18nc("@action:intoolbar Message this user directly", "Message")
+                    text: root.connection.directChatExists(root.user) ? i18nc("@action:intoolbar Open existing direct message", "Open Chat") : i18nc("@action:intoolbar Message this user directly", "Start Chat")
                     icon.name: "document-send-symbolic"
                     visible: !root.isSelf
 
