@@ -796,17 +796,24 @@ void MessageModel::setHiddenFilter(std::function<bool(const Quotient::RoomEvent 
 
 void MessageModel::hideMedia(const QString &eventId)
 {
-    ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)->hideMedia();
+    if (const auto contentModel = ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)) {
+        contentModel->hideMedia();
+    }
 }
 
 void MessageModel::showMedia(const QString &eventId)
 {
-    ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)->showMedia();
+    if (const auto contentModel = ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)) {
+        contentModel->showMedia();
+    }
 }
 
 bool MessageModel::isMediaHidden(const QString &eventId)
 {
-    return ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)->isMediaHidden();
+    if (const auto contentModel = ContentProvider::self().contentModelForEvent(roomForEvent(eventId), eventId)) {
+        return contentModel->isMediaHidden();
+    }
+    return false;
 }
 
 #include "moc_messagemodel.cpp"
