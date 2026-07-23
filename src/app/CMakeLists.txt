@@ -392,3 +392,5 @@ if (APPLE)
     set_target_properties(neochat-app PROPERTIES MACOSX_BUNDLE_SHORT_VERSION_STRING ${RELEASE_SERVICE_VERSION})
     set_target_properties(neochat-app PROPERTIES MACOSX_BUNDLE_BUNDLE_VERSION ${RELEASE_SERVICE_VERSION})
 endif ()
+
+install(FILES neochatconfig.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
