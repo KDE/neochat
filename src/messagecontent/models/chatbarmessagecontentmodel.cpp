@@ -315,9 +315,7 @@ void ChatBarMessageContentModel::connectKeyHelper()
     connect(m_keyHelper, &ChatKeyHelper::requestReply, this, [this](const QString &eventId) {
         addReply(eventId);
     });
-    connect(m_keyHelper, &ChatKeyHelper::imagePasted, this, [this](const QString &filePath) {
-        addAttachment(QUrl(filePath));
-    });
+    connect(m_keyHelper, &ChatKeyHelper::attachmentPasted, this, &ChatBarMessageContentModel::addAttachment);
 }
 
 int ChatBarMessageContentModel::focusRow() const

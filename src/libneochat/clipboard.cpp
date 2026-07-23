@@ -33,7 +33,22 @@ QImage Clipboard::image() const
     return m_clipboard->image();
 }
 
-QString Clipboard::saveImage(QString localPath) const
+bool Clipboard::hasUriList() const
+{
+    return !uriList().isEmpty();
+}
+
+QList<QUrl> Clipboard::uriList() const
+{
+    const auto mimeData = m_clipboard->mimeData();
+    if (mimeData->hasUrls()) {
+        return mimeData->urls();
+    }
+
+    return {};
+}
+
+QUrl Clipboard::saveImage() const
 {
     QString imageDir(u"%1/screenshots"_s.arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)));
 
@@ -41,10 +56,7 @@ QString Clipboard::saveImage(QString localPath) const
         QDir().mkdir(imageDir);
     }
 
-    if (localPath.isEmpty()) {
-        localPath = u"file://%1/%2.png"_s.arg(imageDir, QDateTime::currentDateTime().toString(u"yyyy-MM-dd-hh-mm-ss"_s));
-    }
-    QUrl url(localPath);
+    QUrl url(u"file://%1/%2.png"_s.arg(imageDir, QDateTime::currentDateTime().toString(u"yyyy-MM-dd-hh-mm-ss"_s)));
     if (!url.isLocalFile()) {
         return {};
     }
@@ -55,10 +67,9 @@ QString Clipboard::saveImage(QString localPath) const
     }
 
     if (image.save(url.toLocalFile())) {
-        return localPath;
-    } else {
-        return {};
+        return url;
     }
+    return {};
 }
 
 void Clipboard::saveText(QString message)

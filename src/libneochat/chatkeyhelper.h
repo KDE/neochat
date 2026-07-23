@@ -125,9 +125,9 @@ Q_SIGNALS:
     void requestReply(const QString &eventId);
 
     /**
-     * @brief An image has been pasted.
+     * @brief An attachment has been pasted.
      */
-    void imagePasted(const QString &filePath);
+    void attachmentPasted(const QUrl &filePath);
 
 private:
     QPointer<ChatTextItemHelper> m_textItem;
@@ -154,7 +154,7 @@ private:
 
     bool cancel();
 
-    bool pasteImage();
+    bool pasteAttachments();
 
     bool selectLeft(QTextCursor &cursor);
 
