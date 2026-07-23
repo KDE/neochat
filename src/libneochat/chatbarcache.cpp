@@ -21,6 +21,8 @@
 
 #include "chatbarlogging.h"
 
+#include <QStandardPaths>
+
 using namespace Qt::StringLiterals;
 
 ChatBarCache::ChatBarCache(NeoChatRoom *room)
@@ -174,8 +176,43 @@ void ChatBarCache::postMessage(const QString &threadRootId)
     }
 
     if (Blocks::isFileType(m_cache.at(0)->type)) {
-        const auto fileCacheItem = dynamic_cast<const Blocks::UrlCacheItem *>(m_cache.at(0));
-        m_room->uploadFile(fileCacheItem->source, m_cache.toString(), relatesTo);
+        QUrl source;
+        QString filename;
+        if (const auto imageItem = dynamic_cast<const Blocks::ImageCacheItem *>(m_cache.at(0)); imageItem != nullptr) {
+            if (imageItem->optimize) {
+                QImage image(imageItem->source.toLocalFile());
+
+                // Maximum resolution we want to send in standard quality.
+                constexpr QSize maximumResolution(3000, 3000);
+                // The file format we want standard quality images to be in.
+                const auto fileExtension = QStringLiteral("jpg");
+
+                if (image.size().width() > maximumResolution.width() || image.size().height() > maximumResolution.height()) {
+                    image = image.scaled(maximumResolution, Qt::AspectRatioMode::KeepAspectRatio);
+                }
+
+                QString imageDir(u"%1/optimized"_s.arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)));
+                if (!QDir().exists(imageDir)) {
+                    QDir().mkdir(imageDir);
+                }
+                filename = u"%1.%3"_s.arg(QDateTime::currentDateTime().toString(u"yyyy-MM-dd-hh-mm-ss"_s), fileExtension);
+                source = QUrl(u"file://%1/%2"_s.arg(imageDir, filename));
+                if (!image.save(source.toLocalFile())) {
+                    qCWarning(ChatBar) << "Failed to save optimized image to" << source << "falling back to the actual source file";
+                    source = imageItem->source;
+                    filename = imageItem->filename;
+                }
+            } else {
+                source = imageItem->source;
+                filename = imageItem->toString();
+            }
+        } else {
+            const auto fileCacheItem = dynamic_cast<const Blocks::UrlCacheItem *>(m_cache.at(0));
+            source = fileCacheItem->source;
+            filename = fileCacheItem->toString();
+        }
+
+        m_room->uploadFile(source, filename, relatesTo);
         clearCache();
         return;
     }

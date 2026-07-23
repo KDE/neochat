@@ -165,12 +165,14 @@ ImageCacheItem::ImageCacheItem(Type type,
                                const QString &filename,
                                const ImageInfo &info,
                                const QUrl &thumbnailSource,
-                               const ImageInfo &thumbnailInfo)
+                               const ImageInfo &thumbnailInfo,
+                               const bool optimize)
     : UrlCacheItem(type, source)
     , filename(filename)
     , info(info)
     , thumbnailSource(thumbnailSource)
     , thumbnailInfo(thumbnailInfo)
+    , optimize(optimize)
 {
 }
 

@@ -251,12 +251,14 @@ ImageBlock::ImageBlock(Type type,
                        const ImageInfo &info,
                        const QUrl &thumbnailSource,
                        const ImageInfo &thumbnailInfo,
+                       const bool optimize,
                        QObject *parent)
     : UrlBlock(type, source, parent)
     , m_filename(filename)
     , m_info(info)
     , m_thumbnailSource(thumbnailSource)
     , m_thumbnailInfo(thumbnailInfo)
+    , m_optimize(optimize)
 {
 }
 
@@ -266,6 +268,7 @@ ImageBlock::ImageBlock(ImageCacheItem *item, QObject *parent)
     , m_info(item->info)
     , m_thumbnailSource(item->thumbnailSource)
     , m_thumbnailInfo(item->thumbnailInfo)
+    , m_optimize(item->optimize)
 {
 }
 
@@ -289,9 +292,19 @@ const ImageInfo &ImageBlock::thumbnailInfo() const
     return m_thumbnailInfo;
 }
 
+bool ImageBlock::optimize() const
+{
+    return m_optimize;
+}
+
+void ImageBlock::setOptimize(const bool optimize)
+{
+    m_optimize = optimize;
+}
+
 CacheItemPtr ImageBlock::toCacheItem() const
 {
-    return std::make_unique<ImageCacheItem>(type(), source(), filename(), info(), thumbnailSource(), thumbnailInfo());
+    return std::make_unique<ImageCacheItem>(type(), source(), filename(), info(), thumbnailSource(), thumbnailInfo(), optimize());
 }
 
 VideoBlock::VideoBlock(Type type,

@@ -82,7 +82,7 @@ void FilePreviewBlockLoader::blockForFile()
         QImageReader reader(m_source.path());
         Blocks::ImageInfo info;
         info.pixelSize = reader.size();
-        m_previewBlock = new Blocks::ImageBlock(Blocks::Pdf, m_source, m_source.fileName(), info, QUrl(), Blocks::ImageInfo(), parent());
+        m_previewBlock = new Blocks::ImageBlock(Blocks::Pdf, m_source, m_source.fileName(), info, QUrl(), Blocks::ImageInfo(), true, parent());
         m_state = Available;
         Q_EMIT blockAvailable();
         return;

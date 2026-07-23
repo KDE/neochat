@@ -120,6 +120,7 @@ public:
     Q_INVOKABLE void removeComponent(int row, bool removeLast = false);
 
     Q_INVOKABLE void removeAttachment();
+    Q_INVOKABLE void setImageOptimization(bool optimize) const;
 
     bool sendMessageWithEnter() const;
     void setSendMessageWithEnter(bool sendMessageWithEnter);

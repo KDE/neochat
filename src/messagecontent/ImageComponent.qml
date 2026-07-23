@@ -76,8 +76,23 @@ Item {
                 icon.name: "view-hidden"
                 text: i18nc("@action:button", "Hide Image")
                 display: QQC2.Button.IconOnly
-                z: 10
                 onClicked: Message.contentModel?.hideMedia()
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            QQC2.Button {
+                id: qualityButton
+
+                visible: root.editable
+                icon.name: "quickwizard-symbolic"
+                text:  i18nc("@action:button", "Optimize Image")
+                display: QQC2.Button.IconOnly
+                checkable: true
+                checked: root.block.optimize
+
+                onCheckedChanged: root.Message.contentModel?.setImageOptimization(checked)
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered

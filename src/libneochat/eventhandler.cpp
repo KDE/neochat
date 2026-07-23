@@ -905,7 +905,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
             }
         }
         const auto thumbnailInfo = getTumbnailInfo(imageContent->thumbnail);
-        return new Blocks::ImageBlock(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo, parent);
+        return new Blocks::ImageBlock(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo, true, parent);
     }
     if (mimeType.name().contains(u"video"_s)) {
         const auto videoContent = dynamic_cast<const EventContent::VideoContent *>(fileContent);

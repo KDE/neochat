@@ -133,12 +133,14 @@ public:
                    const QString &filename,
                    const ImageInfo &info,
                    const QUrl &thumbnailSource = {},
-                   const ImageInfo &thumbnailInfo = {});
+                   const ImageInfo &thumbnailInfo = {},
+                   bool optimize = true);
 
     QString filename;
     ImageInfo info;
     QUrl thumbnailSource;
     ImageInfo thumbnailInfo;
+    bool optimize;
 };
 
 /**

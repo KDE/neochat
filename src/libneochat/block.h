@@ -289,6 +289,11 @@ class ImageBlock : public UrlBlock
      */
     Q_PROPERTY(ImageInfo thumbnailInfo READ thumbnailInfo CONSTANT)
 
+    /**
+     * @brief Whether the image should be optimized before uploading.
+     */
+    Q_PROPERTY(bool optimize READ optimize CONSTANT)
+
 public:
     ImageBlock(Type type,
                const QUrl &source,
@@ -296,6 +301,7 @@ public:
                const ImageInfo &info,
                const QUrl &thumbnailSource,
                const ImageInfo &thumbnailInfo,
+               bool optimize,
                QObject *parent);
     ImageBlock(ImageCacheItem *item, QObject *parent);
 
@@ -303,6 +309,8 @@ public:
     const ImageInfo &info() const;
     QUrl thumbnailSource() const;
     const ImageInfo &thumbnailInfo() const;
+    bool optimize() const;
+    void setOptimize(bool optimize);
 
     [[nodiscard]] CacheItemPtr toCacheItem() const override;
 
@@ -311,6 +319,7 @@ private:
     ImageInfo m_info;
     QUrl m_thumbnailSource;
     ImageInfo m_thumbnailInfo;
+    bool m_optimize;
 };
 
 /**

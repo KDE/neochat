@@ -547,7 +547,7 @@ Blocks::Block *ChatBarMessageContentModel::blockForFile(const QUrl &path)
 
         // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
         imageInfo.isAnimated = QMovie::supportedFormats().contains(mime.preferredSuffix().toUtf8());
-        return new Blocks::ImageBlock(Blocks::Image, path, path.fileName(), imageInfo, QUrl(), Blocks::ImageInfo(), this);
+        return new Blocks::ImageBlock(Blocks::Image, path, path.fileName(), imageInfo, QUrl(), Blocks::ImageInfo(), true, this);
     }
     if (mime.name().contains(u"video"_s)) {
         Blocks::VideoInfo videoInfo;
@@ -692,6 +692,21 @@ void ChatBarMessageContentModel::removeAttachment()
     }
     refocusCurrentComponent();
     Q_EMIT hasAttachmentChanged();
+}
+
+void ChatBarMessageContentModel::setImageOptimization(const bool optimize) const
+{
+    if (!hasComponentType(Blocks::Image)) {
+        return;
+    }
+
+    auto mediaRow = 0;
+    if (Blocks::isFileType(m_components[1]->type())) {
+        mediaRow = 1;
+    }
+
+    dynamic_cast<Blocks::ImageBlock *>(m_components[mediaRow])->setOptimize(optimize);
+    updateCache(); // so the optimization flag is actually reflected
 }
 
 bool ChatBarMessageContentModel::sendMessageWithEnter() const
