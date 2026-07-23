@@ -282,7 +282,8 @@ Kirigami.ApplicationWindow {
 
         function onNewKeyVerificationSession(session) {
             root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "KeyVerificationDialog"), {
-                session: session
+                session: session,
+                connection: root.connection,
             }, {
                 title: i18nc("@title:window", "Session Verification")
             });

@@ -18,6 +18,18 @@ Kirigami.Page {
     title: i18n("Session Verification")
 
     required property var session
+    required property NeoChatConnection connection
+    readonly property bool isSelfVerification: root.session.remoteUserId === root.connection.localUserId
+
+    Connections {
+        target: root.session
+
+        function onStateChanged(): void {
+            if (session.state === KeyVerificationSession.DONE) {
+                root.closeDialog();
+            }
+        }
+    }
 
     states: [
         State {
@@ -99,7 +111,7 @@ Kirigami.Page {
     }
 
     footer: QQC2.ToolBar {
-        visible: root.session.state === KeyVerificationSession.INCOMING
+        visible: root.session.state === KeyVerificationSession.INCOMING && !root.isSelfVerification
         QQC2.DialogButtonBox {
             anchors.fill: parent
             Item {
@@ -166,6 +178,9 @@ Kirigami.Page {
                 case KeyVerificationSession.WAITINGFORREADY:
                     return i18n("Waiting for device to accept verification.");
                 case KeyVerificationSession.INCOMING: {
+                    if (root.isSelfVerification) {
+                        return i18nc("@info:label Encryption device verification", "Waiting for a device to respond to our verification request.");
+                    }
                     if (root.session.remoteDeviceId.length > 0) {
                         return i18n("Incoming key verification request from device **%1**", root.session.remoteDeviceId);
                     } else {
@@ -201,8 +216,6 @@ Kirigami.Page {
                     return "";
                 }
             }
-            isDone: root.session.state === KeyVerificationSession.DONE
-            onDone: root.closeDialog()
         }
     }
 

@@ -45,18 +45,7 @@ FormCard.FormCardPage {
             description: !root.connection.isVerifiedSession ? i18nc("@info:description", "This device is marked as insecure until it's verified by another device. It's recommended to verify as soon as possible.")
                             : i18nc("@info:description", "This device is marked as secure.")
             visible: !root.connection.isVerifiedSession || NeoChatConfig.alwaysVerifyDevice
-            onClicked: {
-                root.connection.startSelfVerification();
-                const dialog = Qt.createComponent("org.kde.kirigami", "PromptDialog").createObject(QQC2.Overlay.overlay, {
-                    title: i18nc("@title", "Verification Request Sent"),
-                    subtitle: i18nc("@info:label", "To proceed, accept the verification request on another device."),
-                    standardButtons: Kirigami.Dialog.Ok
-                })
-                dialog.open();
-                root.connection.newKeyVerificationSession.connect(() => {
-                    dialog.close();
-                });
-            }
+            onClicked: root.connection.startSelfVerification()
         }
     }
     DevicesCard {
