@@ -16,6 +16,11 @@ SpaceChildrenModel::SpaceChildrenModel(QObject *parent)
 
 SpaceChildrenModel::~SpaceChildrenModel()
 {
+    for (const auto &job : m_currentJobs) {
+        if (job) {
+            job->abandon();
+        }
+    }
     delete m_rootItem;
 }
 
