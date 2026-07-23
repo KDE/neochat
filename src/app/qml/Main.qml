@@ -238,6 +238,7 @@ Kirigami.ApplicationWindow {
 
     readonly property Kirigami.Page loadingPage : Kirigami.Page {
         title: i18nc("@title", "Loading")
+        globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
         parent: states
         Kirigami.LoadingPlaceholder {
