@@ -347,7 +347,11 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
 
 void NeoChatRoom::acceptInvitation()
 {
-    connection()->joinRoom(id());
+    QStringList serverNames;
+    serverNames.push_back(connection()->domain());
+    serverNames.push_back(serverPart(invitingUserId()));
+
+    connection()->joinRoom(id(), serverNames);
 }
 
 void NeoChatRoom::forget()
