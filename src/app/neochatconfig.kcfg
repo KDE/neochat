@@ -2,18 +2,18 @@
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
-                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <include>enums/roomsortorder.h</include>
   <kcfgfile name="neochatrc" />
   <group name="General">
-    <entry name="AllRoomsInHome" type="bool">
+    <entry name="AllRoomsInHome" type="Bool">
       <label>Show all rooms in the home tab</label>
       <default>false</default>
     </entry>
     <entry name="CollapsedSections" type="IntList">
       <label>Collapsed sections in the room list</label>
     </entry>
-    <entry name="Blur" type="bool">
+    <entry name="Blur" type="Bool">
       <label>Make NeoChat blurry</label>
       <default>false</default>
     </entry>
@@ -21,7 +21,7 @@
       <label>Background transparency value</label>
       <default>0.3</default>
     </entry>
-    <entry name="AllowQuickEdit" type="bool">
+    <entry name="AllowQuickEdit" type="Bool">
       <label>Use s/text/replacement syntax to edit your last message.</label>
       <default>false</default>
     </entry>
@@ -37,31 +37,31 @@
         <default>Enter</default>
       </choices>
     </entry>
-    <entry name="ShowLocalMessagesOnRight" type="bool">
+    <entry name="ShowLocalMessagesOnRight" type="Bool">
       <label>"Show your messages on the right</label>
       <default>true</default>
     </entry>
-    <entry name="RoomDrawerWidth" type="int">
+    <entry name="RoomDrawerWidth" type="Int">
       <default>-1</default>
     </entry>
-    <entry name="TypingNotifications" type="bool">
+    <entry name="TypingNotifications" type="Bool">
       <default>true</default>
     </entry>
-    <entry name="PublicReadReceipts" type="bool">
+    <entry name="PublicReadReceipts" type="Bool">
       <default>true</default>
     </entry>
-    <entry name="AutoRoomInfoDrawer" type="bool">
+    <entry name="AutoRoomInfoDrawer" type="Bool">
       <label>Automatic Hide/Unhide Room Information</label>
       <default>true</default>
     </entry>
-    <entry name="DeveloperTools" type="bool">
+    <entry name="DeveloperTools" type="Bool">
       <label>Enable developer tools</label>
       <default>false</default>
     </entry>
     <entry name="LastSaveDirectory" type="String">
       <label>Directory last used for saving a file</label>
     </entry>
-    <entry name="KeywordPushRuleDefault" type="int">
+    <entry name="KeywordPushRuleDefault" type="Int">
       <label>The default setting for a new keyword push rule.</label>
       <default>4</default>
     </entry>
@@ -71,15 +71,15 @@
       <label>Scaling factor for font sizes</label>
       <default>1.0</default>
     </entry>
-    <entry name="ShowAvatarInTimeline" type="bool">
+    <entry name="ShowAvatarInTimeline" type="Bool">
       <label>Show avatar in the timeline</label>
       <default>true</default>
     </entry>
-    <entry name="CompactLayout" type="bool">
+    <entry name="CompactLayout" type="Bool">
       <label>Use a compact chat layout</label>
       <default>false</default>
     </entry>
-    <entry name="CompactRoomList" type="bool">
+    <entry name="CompactRoomList" type="Bool">
       <label>Use a compact room list layout</label>
       <default>false</default>
     </entry>
@@ -89,57 +89,57 @@
       </choices>
       <default>2</default>
     </entry>
-    <entry name="ShowStateEvent" type="bool">
+    <entry name="ShowStateEvent" type="Bool">
       <label>Show state events in the timeline</label>
       <default>true</default>
     </entry>
-    <entry name="ShowLeaveJoinEvent" type="bool">
+    <entry name="ShowLeaveJoinEvent" type="Bool">
       <label>Show leave and join events in the timeline</label>
       <default>true</default>
     </entry>
-    <entry name="ShowRename" type="bool">
+    <entry name="ShowRename" type="Bool">
       <label>Show rename events in the timeline</label>
       <default>false</default>
     </entry>
-    <entry name="ShowAvatarUpdate" type="bool">
+    <entry name="ShowAvatarUpdate" type="Bool">
       <label>Show avatar update events in the timeline</label>
       <default>false</default>
     </entry>
-    <entry name="ShowDeletedMessages" type="bool">
+    <entry name="ShowDeletedMessages" type="Bool">
       <label>Show deleted messages in the timeline</label>
       <default>false</default>
     </entry>
-    <entry name="HideImages" type="bool">
+    <entry name="HideImages" type="Bool">
       <label>Hide images in the timeline</label>
       <default>false</default>
     </entry>
-    <entry name="ShowLinkPreview" type="bool">
+    <entry name="ShowLinkPreview" type="Bool">
       <label>Show preview of the links in the chat messages</label>
       <default>true</default>
     </entry>
-    <entry name="SystemTray" type="bool">
+    <entry name="SystemTray" type="Bool">
       <label>Close NeoChat to system tray</label>
       <default>false</default>
     </entry>
-    <entry name="MinimizeToSystemTrayOnStartup" type="bool">
+    <entry name="MinimizeToSystemTrayOnStartup" type="Bool">
       <label>Minimize to system tray on startup</label>
       <default>false</default>
     </entry>
-    <entry name="MediaMaxWidth" type="int">
+    <entry name="MediaMaxWidth" type="Int">
       <label>The maximum width any media item in the timeline can be.</label>
       <default>540</default>
     </entry>
-    <entry name="MediaMaxHeight" type="int">
+    <entry name="MediaMaxHeight" type="Int">
       <label>The maximum height any media item in the timeline can be.</label>
       <default>540</default>
     </entry>
   </group>
   <group name="RoomDrawer">
-    <entry name="ShowAvatarInRoomDrawer" type="bool">
+    <entry name="ShowAvatarInRoomDrawer" type="Bool">
       <label>Show avatar in the room drawer</label>
       <default>true</default>
     </entry>
-    <entry name="Collapsed" type="bool">
+    <entry name="Collapsed" type="Bool">
       <label>Save the collapsed state of the room list</label>
       <default>false</default>
     </entry>
@@ -155,7 +155,7 @@
     </entry>
   </group>
   <group name="RoomInfo">
-    <entry name="ShowAvatarInRoomInfo" type="bool">
+    <entry name="ShowAvatarInRoomInfo" type="Bool">
       <label>Show avatar in the room information</label>
       <default>true</default>
     </entry>
@@ -183,7 +183,7 @@
       <label>IP or hostname of the proxy</label>
       <default>127.0.0.1</default>
     </entry>
-    <entry name="ProxyPort" type="int">
+    <entry name="ProxyPort" type="Int">
       <label>The port number of the proxy</label>
       <default>1080</default>
     </entry>
@@ -197,39 +197,39 @@
     </entry>
   </group>
   <group name="Debug">
-    <entry name="ShowAllEvents" type="bool">
+    <entry name="ShowAllEvents" type="Bool">
       <label>Don't hide any events in the timeline</label>
       <default>false</default>
     </entry>
-    <entry name="RelateAnyEvent" type="bool">
+    <entry name="RelateAnyEvent" type="Bool">
       <label>Send relations to any event, including state events and events normally hidden.</label>
       <default>false</default>
     </entry>
-    <entry name="AlwaysVerifyDevice" type="bool">
+    <entry name="AlwaysVerifyDevice" type="Bool">
       <label>Always allow device verification</label>
       <default>false</default>
     </entry>
-    <entry name="WindowTitleFocus" type="bool">
+    <entry name="WindowTitleFocus" type="Bool">
       <label>Show the current focus item in the window title</label>
       <default>false</default>
     </entry>
   </group>
   <group name="FeatureFlags">
-    <entry name="Calls" type="bool">
+    <entry name="Calls" type="Bool">
       <label>Enable audio and video calling</label>
       <default>false</default>
     </entry>
-    <entry name="RichChatBar" type="bool">
+    <entry name="RichChatBar" type="Bool">
       <label>Enable rich text chat bar</label>
       <default>true</default>
     </entry>
   </group>
   <group name="Security">
-    <entry name="RejectUnknownInvites" type="bool">
+    <entry name="RejectUnknownInvites" type="Bool">
       <label>Reject unknown invites</label>
       <default>false</default>
     </entry>
-    <entry name="PreferUsingEncryption" type="bool">
+    <entry name="PreferUsingEncryption" type="Bool">
       <label>Prefer encrypting chats</label>
       <default>true</default>
     </entry>
