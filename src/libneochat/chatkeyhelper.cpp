@@ -70,7 +70,7 @@ bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
 bool ChatKeyHelper::vKey(Qt::KeyboardModifiers modifiers)
 {
     if (modifiers.testFlag(Qt::ControlModifier)) {
-        return pasteImage();
+        return pasteAttachments();
     }
     return false;
 }
@@ -298,14 +298,19 @@ bool ChatKeyHelper::cancel()
     return false;
 }
 
-bool ChatKeyHelper::pasteImage()
+bool ChatKeyHelper::pasteAttachments()
 {
     if (!m_textItem) {
         return false;
     }
-    const auto savePath = Clipboard().saveImage();
-    if (!savePath.isEmpty()) {
-        Q_EMIT imagePasted(savePath);
+    Clipboard clipboard;
+    if (clipboard.hasImage()) {
+        const auto savePath = clipboard.saveImage();
+        if (!savePath.isEmpty()) {
+            Q_EMIT attachmentPasted(savePath);
+        }
+    } else if (clipboard.hasUriList() && !clipboard.uriList().isEmpty()) {
+        Q_EMIT attachmentPasted(clipboard.uriList().constFirst());
     }
     return false;
 }

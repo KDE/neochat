@@ -42,21 +42,20 @@ public:
 
     [[nodiscard]] QImage image() const;
 
+    [[nodiscard]] bool hasUriList() const;
+
+    [[nodiscard]] QList<QUrl> uriList() const;
+
     /**
      * @brief Save the current clipboard image to file.
      *
      * If the clipboard does not contain an image or if it contains an image in an
      * unsupported image format nothing happens.
      *
-     * The given file path must be both valid and local or nothing happens.
-     *
-     * @param localPath the path to save the image. A default path for the app cache
-     *                  will be used if available and this is empty.
-     *
      * @return A QString with the path that the image was saved to. The string will
      *         be empty if nothing was saved.
      */
-    Q_INVOKABLE QString saveImage(QString localPath = {}) const;
+    Q_INVOKABLE QUrl saveImage() const;
 
     /**
      * @brief Set the clipboard content to the input message.
