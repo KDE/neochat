@@ -41,6 +41,10 @@ NotificationsManager::NotificationsManager(QObject *parent)
 
 void NotificationsManager::handleNotifications(const QPointer<NeoChatConnection> &connection)
 {
+    if (!connection->enableDeviceNotifications()) {
+        return;
+    }
+
     if (KNotificationPermission::checkPermission() == Qt::PermissionStatus::Granted) {
         startNotificationJob(connection);
     } else if (!permissionAsked) {

@@ -20,35 +20,122 @@ FormCard.FormCardPage {
 
     title: i18nc("@title:window", "Notifications")
 
-    property PushRuleModel pushRuleModel: PushRuleModel {
+    readonly property PushRuleModel pushRuleModel: PushRuleModel {
         connection: root.connection
     }
+    
+    actions: [
+        Kirigami.Action {
+            displayComponent: QQC2.Switch {
+                text: i18nc("@option:check Whether notifications are enabled for this account", "Enabled for this account")
+                checkable: true
+                checked: root.pushRuleModel.globalNotificationsEnabled
+                enabled: root.pushRuleModel.globalNotificationsSet
+                onToggled: root.pushRuleModel.globalNotificationsEnabled = checked
+            }
+        }
+    ]
 
-    FormCard.FormCard {
-        Layout.topMargin: Kirigami.Units.largeSpacing * 4
-        FormCard.FormCheckDelegate {
-            text: i18n("Enable notifications for this account")
-            description: {
-                if (root.connection.pushNotificationsAvailable) {
-                    if (root.connection.enablePushNotifications) {
-                        return i18n("Notifications can appear even when NeoChat isn't running.");
-                    } else {
-                        return i18n("Push notifications are available, but the push distributor does not have a Matrix gateway.");
-                    }
-                } else {
-                    return i18n("Notifications will only appear when NeoChat is running.");
-                }
-            }
-            checked: root.pushRuleModel.globalNotificationsEnabled
-            enabled: root.pushRuleModel.globalNotificationsSet
-            onToggled: {
-                root.pushRuleModel.globalNotificationsEnabled = checked;
-            }
+    background: Item {
+        Kirigami.PlaceholderMessage {
+            icon.name: "notifications"
+            text: i18nc("@info:placeholder", "Notifications Disabled")
+            visible: !root.pushRuleModel.globalNotificationsEnabled
+
+            anchors.centerIn: parent
         }
     }
 
     FormCard.FormCard {
-        Layout.topMargin: Kirigami.Units.largeSpacing
+        visible: root.pushRuleModel.globalNotificationsEnabled
+
+        Layout.topMargin: Kirigami.Units.largeSpacing * 4
+
+        FormCard.FormSwitchDelegate {
+            id: enableDeviceNotificationsDelegate
+
+            text: i18nc("@option:check", "Enable notifications for this device")
+            checked: root.connection.enableDeviceNotifications
+            onToggled: root.connection.enableDeviceNotifications = checked
+        }
+        FormCard.FormDelegateSeparator {
+            visible: root.connection.enableDeviceNotifications
+            above: enableDeviceNotificationsDelegate
+            below: configureSystemNotificationsDelegate
+        }
+        FormCard.FormButtonDelegate {
+            id: configureSystemNotificationsDelegate
+
+            icon.name: "configure-symbolic"
+            text: i18nc("@action:button", "Configure System Notifications…")
+            visible: root.connection.enableDeviceNotifications && root.connection.inKDESession()
+
+            // TODO: replace with proper KNotifications API in the future and when we can depend on it!
+            onClicked: Qt.openUrlExternally("systemsettings:/kcm_notifications/--notifyrc neochat")
+        }
+    }
+
+    FormCard.FormHeader {
+        title: i18nc("@title:group Background/push notifications", "Background Notifications")
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications && root.connection.pushNotificationsAvailable
+    }
+    FormCard.FormCard {
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications && root.connection.pushNotificationsAvailable
+
+        FormCard.AbstractFormDelegate {
+            id: pushNotificationsStatusDelegate
+
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    source: {
+                        if (root.connection.pushNotificationsAvailable && !root.connection.enablePushNotifications) {
+                            "data-warning"
+                        } else {
+                            "data-information"
+                        }
+                    }
+                }
+                QQC2.Label {
+                    text: {
+                        if (root.connection.pushNotificationsAvailable) {
+                            if (root.connection.enablePushNotifications) {
+                                return i18nc("@info:label", "Notifications can appear even when NeoChat isn't running.");
+                            } else {
+                                return i18nc("@info:label", "The configured push distributor does not have a Matrix gateway.");
+                            }
+                        }
+                        return ""; // this section would be hidden anyway!
+                    }
+                    wrapMode: Text.WordWrap
+
+                    Layout.fillWidth: true
+                }
+            }
+        }
+        FormCard.FormDelegateSeparator {
+            above: pushNotificationsStatusDelegate
+            below: backgroundNotificationsDelegate
+            visible: root.connection.inKDESession()
+        }
+        FormCard.FormButtonDelegate {
+            id: backgroundNotificationsDelegate
+
+            icon.name: "configure-symbolic"
+            text: i18nc("@action:button", "Configure Background Notifications…")
+            visible: root.connection.inKDESession()
+
+            onClicked: Qt.openUrlExternally("systemsettings:/kcm_push_notifications")
+        }
+    }
+
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Room Notifications")
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
+    }
+    FormCard.FormCard {
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
+
         FormCard.AbstractFormDelegate {
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
@@ -64,11 +151,11 @@ FormCard.FormCardPage {
             }
         }
     }
-
-    FormCard.FormHeader {
-        title: i18nc("@title:group", "Room Notifications")
-    }
     FormCard.FormCard {
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
+
+        Layout.topMargin: Kirigami.Units.largeSpacing
+
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
@@ -83,9 +170,12 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "@Mentions")
+        title: i18nc("@title:group Mention notifications", "Mentions")
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
+
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
@@ -101,8 +191,11 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title:group", "Keywords")
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
+
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
@@ -115,6 +208,7 @@ FormCard.FormCardPage {
 
             delegate: root.ruleDelegate
         }
+
         FormCard.AbstractFormDelegate {
             Layout.fillWidth: true
 
@@ -165,8 +259,11 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title:group", "Invites")
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {
+        visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
+
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
@@ -182,10 +279,10 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title:group", "Unknown")
-        visible: unknownModel.rowCount() > 0
+        visible: unknownModel.rowCount() > 0 && root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {
-        visible: unknownModel.rowCount() > 0
+        visible: unknownModel.rowCount() > 0 && root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
 
         Repeater {
             model: KSortFilterProxyModel {
@@ -201,7 +298,7 @@ FormCard.FormCardPage {
         }
     }
 
-    property Component ruleDelegate: Component {
+    readonly property Component ruleDelegate: Component {
         NotificationRuleItem {
             onDeleteRule: {
                 root.pushRuleModel.removeKeyword(id);

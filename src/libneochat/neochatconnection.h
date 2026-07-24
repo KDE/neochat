@@ -103,6 +103,11 @@ class NeoChatConnection : public Quotient::Connection
 
     Q_PROPERTY(bool initialSyncDone MEMBER m_syncDone NOTIFY initialSyncDoneChanged)
 
+    /**
+     * @brief Whether this device should process and display notifications.
+     */
+    Q_PROPERTY(bool enableDeviceNotifications READ enableDeviceNotifications WRITE setEnableDeviceNotifications NOTIFY enableDeviceNotificationsChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -266,6 +271,11 @@ public:
      */
     Q_INVOKABLE void setProfileField(const QString &key, const QString &value);
 
+    [[nodiscard]] bool enableDeviceNotifications() const;
+    void setEnableDeviceNotifications(bool enable);
+
+    [[nodiscard]] Q_INVOKABLE bool inKDESession() const;
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void identityServerChanged();
@@ -310,6 +320,7 @@ Q_SIGNALS:
     void keyBackupError();
     void blockAllInvitesChanged();
     void initialSyncDoneChanged();
+    void enableDeviceNotificationsChanged();
 
 private:
     static bool m_globalUrlPreviewDefault;

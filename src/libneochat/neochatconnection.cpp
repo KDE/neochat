@@ -730,6 +730,24 @@ void NeoChatConnection::setProfileField(const QString &key, const QString &value
     m_profileFields[key] = value;
 }
 
+bool NeoChatConnection::enableDeviceNotifications() const
+{
+    const Quotient::AccountSettings account{userId()};
+    return account.get(QStringLiteral("enable_notifications"), true);
+}
+
+void NeoChatConnection::setEnableDeviceNotifications(bool enable)
+{
+    Quotient::AccountSettings account{userId()};
+    account.setValue(QStringLiteral("enable_notifications"), enable);
+    Q_EMIT enableDeviceNotificationsChanged();
+}
+
+bool NeoChatConnection::inKDESession() const
+{
+    return qgetenv("XDG_SESSION_DESKTOP") == "KDE";
+}
+
 bool NeoChatConnection::supportsProfileFields() const
 {
     return m_supportsProfileFields;
