@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2026-07-12 08:28-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1821,62 +1821,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Stickers"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Editar"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "Definir imagem"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Salvar"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Desfazer"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Aceitar"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Não foi possível salvar o arquivo. Verifique se você tem as permissões "
-"necessárias para editar o diretório de cache."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Recortar"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Girar à esquerda"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Girar à direita"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Inverter"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4288,10 +4277,11 @@ msgid "Hide Image"
 msgstr "Ocultar imagem"
 
 #: src/messagecontent/ImageComponent.qml:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Editar"
+msgid "Edit Image"
+msgstr "Definir imagem"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4347,12 +4337,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Abrir em tela cheia"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "pin"
 msgstr "fixar"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "location"
 msgstr "localização"
@@ -7690,6 +7680,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Responder no tópico"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Editar"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
@@ -8047,6 +8042,24 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está digitando"
 msgstr[1] "%2 estão digitando"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Aceitar"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Não foi possível salvar o arquivo. Verifique se você tem as permissões "
+#~ "necessárias para editar o diretório de cache."
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Editar"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

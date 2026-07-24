@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2026-01-12 14:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1905,62 +1905,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Tarrat"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Muokkaa"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "Aseta kuva"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Tallenna"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Kumoa"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Hyväksy"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Tiedostoa ei voitu tallentaa. Tarkista, onko sinulla välimuistikansioon "
-"muokkausoikeudet."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "Peru"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Rajaa"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Kierrä vasemmalle"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Kierrä oikealle"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Käännä pystysuunnassa"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4426,10 +4415,10 @@ msgstr "Piilota kuva"
 
 #: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
-#| msgid "Edit"
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Muokkaa"
+msgid "Edit Image"
+msgstr "Aseta kuva"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4486,14 +4475,14 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Avaa koko näytölle"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 #| msgid "Unpin"
 msgid "pin"
 msgstr "Irrota"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
@@ -7960,6 +7949,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Vastaa säikeeseen"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Muokkaa"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
@@ -8339,6 +8333,26 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 kirjoittaa"
 msgstr[1] "%2 kirjoittavat"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Hyväksy"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Tiedostoa ei voitu tallentaa. Tarkista, onko sinulla välimuistikansioon "
+#~ "muokkausoikeudet."
+
+#~ msgid "Cancel"
+#~ msgstr "Peru"
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Muokkaa"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

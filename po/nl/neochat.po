@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2026-07-12 16:25+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1819,62 +1819,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Stickers"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Bewerken"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "Afbeelding instellen"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Opslaan"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Accepteren"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Het bestand kon niet worden opgeslagen. Controleer of u de benodigde "
-"toegangsrechten hebt om de cache-map te bewerken."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Uitsnijden"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Linksom draaien"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Rechtsom draaien"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Verticaal spiegelen"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4290,10 +4279,11 @@ msgid "Hide Image"
 msgstr "Afbeelding verbergen"
 
 #: src/messagecontent/ImageComponent.qml:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Bewerken"
+msgid "Edit Image"
+msgstr "Afbeelding instellen"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4349,12 +4339,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Volledig scherm openen"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "pin"
 msgstr "pin"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "location"
 msgstr "locatie"
@@ -7698,6 +7688,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "In discussie antwoorden"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Bewerken"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
@@ -8055,6 +8050,24 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Accepteren"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Het bestand kon niet worden opgeslagen. Controleer of u de benodigde "
+#~ "toegangsrechten hebt om de cache-map te bewerken."
+
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Bewerken"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

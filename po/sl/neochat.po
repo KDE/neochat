@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2026-07-12 07:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1811,62 +1811,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Nalepke"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Uredi"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "Nastavi sliko"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Shrani"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Razveljavi"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Sprejmi"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Datoteke ni mogoče shraniti. Preverite, ali imate ustrezno dovoljenje za "
-"urejanje predpomnilnika imenika."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Obreži"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Zasukaj v levo"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Zasukaj v desno"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Prevrni"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4281,10 +4270,11 @@ msgid "Hide Image"
 msgstr "Skrij sliko"
 
 #: src/messagecontent/ImageComponent.qml:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Uredi"
+msgid "Edit Image"
+msgstr "Nastavi sliko"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4340,12 +4330,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Odpri celotni zaslon"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "pin"
 msgstr "pripni"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "location"
 msgstr "lokacija"
@@ -7678,6 +7668,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Uredi"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
@@ -8041,6 +8036,24 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Sprejmi"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Datoteke ni mogoče shraniti. Preverite, ali imate ustrezno dovoljenje za "
+#~ "urejanje predpomnilnika imenika."
+
+#~ msgid "Cancel"
+#~ msgstr "Prekliči"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Uredi"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

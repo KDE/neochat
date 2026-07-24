@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1904,62 +1904,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "스티커"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "편집"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "이미지 설정"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "저장"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "실행 취소"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "수락"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"파일을 저장할 수 없습니다. 캐시 디렉터리를 편집할 수 있는 권한이 있는지 확인"
-"하십시오."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "취소"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "자르기"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "왼쪽으로 회전"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "오른쪽으로 회전"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "상하 뒤집기"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4430,10 +4419,10 @@ msgstr "그림 숨기기"
 
 #: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
-#| msgid "Edit"
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "편집"
+msgid "Edit Image"
+msgstr "이미지 설정"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4490,14 +4479,14 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "전체 화면 열기"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 #| msgid "Unpin"
 msgid "pin"
 msgstr "고정 해제"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
@@ -8012,6 +8001,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "스레드에 답장"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "편집"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
@@ -8389,6 +8383,26 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "수락"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "파일을 저장할 수 없습니다. 캐시 디렉터리를 편집할 수 있는 권한이 있는지 확"
+#~ "인하십시오."
+
+#~ msgid "Cancel"
+#~ msgstr "취소"
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "편집"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

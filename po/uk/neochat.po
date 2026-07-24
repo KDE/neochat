@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2026-07-12 13:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1820,62 +1820,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Наліпки"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Змінити"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "Встановити зображення"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Зберегти"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Скасувати"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Прийняти"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Не вдалося зберегти файл. Перевірте, чи маєте ви належні права доступу для "
-"редагування каталогу кешу."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Обрізати"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Обернути ліворуч"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Обернути праворуч"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Перевернути"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4295,10 +4284,11 @@ msgid "Hide Image"
 msgstr "Приховати зображення"
 
 #: src/messagecontent/ImageComponent.qml:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Змінити"
+msgid "Edit Image"
+msgstr "Встановити зображення"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4354,12 +4344,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Відкрити у повноекранному режимі"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "pin"
 msgstr "пришпилити"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "location"
 msgstr "місце"
@@ -7722,6 +7712,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Змінити"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
@@ -8084,6 +8079,24 @@ msgstr[0] "%2 вводять текст…"
 msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Прийняти"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Не вдалося зберегти файл. Перевірте, чи маєте ви належні права доступу "
+#~ "для редагування каталогу кешу."
+
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Змінити"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

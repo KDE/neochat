@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2026-07-15 11:00+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1800,62 +1800,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Стикеры"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Изменить"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "Установить изображение"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Отменить"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Принять"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Не удалось сохранить файл. Проверьте, достаточно ли прав доступа для "
-"редактирования файлов в каталоге кэша."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "Отмена"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Кадрировать"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Повернуть влево"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Повернуть вправо"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Перевернуть"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4284,10 +4273,11 @@ msgid "Hide Image"
 msgstr "Скрыть изображение"
 
 #: src/messagecontent/ImageComponent.qml:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Изменить"
+msgid "Edit Image"
+msgstr "Установить изображение"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4343,12 +4333,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Открыть на весь экран"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "pin"
 msgstr "закреплённое местоположение"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "location"
 msgstr "местоположение"
@@ -7705,6 +7695,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Ответить в ветке"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Изменить"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
@@ -8067,6 +8062,24 @@ msgstr[0] "%2 набирают сообщение"
 msgstr[1] "%2 набирают сообщение"
 msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Принять"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Не удалось сохранить файл. Проверьте, достаточно ли прав доступа для "
+#~ "редактирования файлов в каталоге кэша."
+
+#~ msgid "Cancel"
+#~ msgstr "Отмена"
+
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Изменить"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

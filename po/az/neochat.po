@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1946,62 +1946,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Söz əlavə edin"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Düzəliş etmək"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "otağın adını silmək"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Saxlayın"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Geriyə qaytarmaq"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Qəbul etmək"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Fayl saxlanıla bilmədi. Keş qovluğuna düzəliş etməyə lazımi icazənizin olub "
-"olmadığını yoxlayın."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "İmtina"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Kəsmək"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Sola döndərmək"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Sağa döndərmək"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Səhifələmək"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4684,10 +4673,10 @@ msgstr "otağın adını silmək"
 
 #: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
-#| msgid "Edit"
+#| msgid "cleared the room name"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Düzəliş etmək"
+msgid "Edit Image"
+msgstr "otağın adını silmək"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, fuzzy, kde-format
@@ -4750,12 +4739,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Tam ekran"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "pin"
 msgstr ""
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "location"
@@ -8472,6 +8461,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr ""
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Düzəliş etmək"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, fuzzy, kde-format
 #| msgid "Remove"
@@ -8888,6 +8882,26 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 yazır"
 msgstr[1] "%2 yazırlar"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Qəbul etmək"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Fayl saxlanıla bilmədi. Keş qovluğuna düzəliş etməyə lazımi icazənizin "
+#~ "olub olmadığını yoxlayın."
+
+#~ msgid "Cancel"
+#~ msgstr "İmtina"
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Düzəliş etmək"
 
 #, fuzzy
 #~| msgid "Please wait. This might take a little while."

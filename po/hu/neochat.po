@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2026-06-19 22:20+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1917,62 +1917,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Matricák"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Szerkesztés"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "Kép beállítása"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Mentés"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Elfogadás"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Nem lehet menteni a fájlt. Ellenőrizze, hogy megfelelőek-e a jogosultságai a "
-"gyorsítótárkönyvtár szerkesztéséhez."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "Mégse"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Levágás"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Forgatás balra"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Forgatás jobbra"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Tükrözés függőlegesen"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4467,10 +4456,10 @@ msgstr "Kép elrejtése"
 
 #: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
-#| msgid "Edit"
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Szerkesztés"
+msgid "Edit Image"
+msgstr "Kép beállítása"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4528,14 +4517,14 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Teljes képernyő megnyitása"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 #| msgid "Unpin"
 msgid "pin"
 msgstr "Kitűzés megszüntetése"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
@@ -8029,6 +8018,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Válasz szálban"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Szerkesztés"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:button"
@@ -8408,6 +8402,26 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 gépel"
 msgstr[1] "%2 gépel"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Elfogadás"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Nem lehet menteni a fájlt. Ellenőrizze, hogy megfelelőek-e a "
+#~ "jogosultságai a gyorsítótárkönyvtár szerkesztéséhez."
+
+#~ msgid "Cancel"
+#~ msgstr "Mégse"
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Szerkesztés"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

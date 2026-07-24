@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1969,62 +1969,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "स्टिकर"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "सम्पादन"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "चित्रं सेट् कुर्वन्तु"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "रक्ष्"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "पूर्ववत"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "स्वीकरोतु"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"सञ्चिकां रक्षितुं असमर्थः। भवतः समीपे cache निर्देशिकां सम्पादयितुं सम्यक् अनुमतिः अस्ति वा "
-"इति पश्यन्तु ।"
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "निरसयतु"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "अन्नग्रह"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "वामभागे परिभ्रमन्तु"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "दक्षिणतः परिभ्रमन्तु"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "पर्यस्"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4526,10 +4515,10 @@ msgstr "चित्रं सेट् कुर्वन्तु"
 
 #: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
-#| msgid "Edit"
+#| msgid "Set Image"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "सम्पादन"
+msgid "Edit Image"
+msgstr "चित्रं सेट् कुर्वन्तु"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, kde-format
@@ -4589,12 +4578,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Full Screen इति प्रविष्टं कुर्वन्तु"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "pin"
 msgstr ""
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
@@ -8202,6 +8191,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "सम्पादन"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
@@ -8615,6 +8609,26 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टङ्कयति"
 msgstr[1] "%2 टङ्कयन्ति"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "स्वीकरोतु"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "सञ्चिकां रक्षितुं असमर्थः। भवतः समीपे cache निर्देशिकां सम्पादयितुं सम्यक् अनुमतिः अस्ति "
+#~ "वा इति पश्यन्तु ।"
+
+#~ msgid "Cancel"
+#~ msgstr "निरसयतु"
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "सम्पादन"
 
 #~ msgid ""
 #~ "Please wait while your messages are loaded from the server. This might "

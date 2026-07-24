@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1982,62 +1982,51 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Αυτοκόλλητα"
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
-#, kde-format
-msgid "Edit"
-msgstr "Επεξεργασία"
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#, fuzzy, kde-format
+#| msgid "Change the room name"
+msgctxt "@window:title"
+msgid "Edit Image"
+msgstr "Άλλαξε το όνομα της αίθουσας"
 
-#: src/chatbar/ImageEditorPage.qml:35
+#: src/chatbar/ImageEditorPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Accept image modification"
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: src/chatbar/ImageEditorPage.qml:42
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Αποδοχή"
-
-#: src/chatbar/ImageEditorPage.qml:50
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Αδυναμία αποθήκευσης του αρχείου. Έλεγξε αν έχεις το δικαίωμα επεξεργασίας "
-"στον κατάλογο της προσωρινής μνήμης."
-
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr "Ακύρωση"
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Περικοπή"
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Περιστροφή αριστερά"
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Περιστροφή δεξιά"
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Αναστροφή"
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4640,10 +4629,10 @@ msgstr "Άλλαξε το όνομα της αίθουσας"
 
 #: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
-#| msgid "Edit"
+#| msgid "Change the room name"
 msgctxt "@action:button"
-msgid "Edit"
-msgstr "Επεξεργασία"
+msgid "Edit Image"
+msgstr "Άλλαξε το όνομα της αίθουσας"
 
 #: src/messagecontent/ImageComponent.qml:189
 #, fuzzy, kde-format
@@ -4704,13 +4693,13 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Είσοδος σε πλήρη οθόνη"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgid "Options"
 msgid "pin"
 msgstr "Επιλογές"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "location"
@@ -8394,6 +8383,11 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr ""
 
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
+msgstr "Επεξεργασία"
+
 #: src/timeline/DelegateContextMenu.qml:239
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
@@ -8810,6 +8804,26 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 πληκτρολογεί"
 msgstr[1] "%2 πληκτρολογούν"
+
+#~ msgctxt "@action:button Accept image modification"
+#~ msgid "Accept"
+#~ msgstr "Αποδοχή"
+
+#~ msgid ""
+#~ "Unable to save file. Check if you have the correct permission to edit the "
+#~ "cache directory."
+#~ msgstr ""
+#~ "Αδυναμία αποθήκευσης του αρχείου. Έλεγξε αν έχεις το δικαίωμα "
+#~ "επεξεργασίας στον κατάλογο της προσωρινής μνήμης."
+
+#~ msgid "Cancel"
+#~ msgstr "Ακύρωση"
+
+#, fuzzy
+#~| msgid "Edit"
+#~ msgctxt "@action:button"
+#~ msgid "Edit"
+#~ msgstr "Επεξεργασία"
 
 #, fuzzy
 #~| msgid "Please wait. This might take a little while."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-24 00:44+0000\n"
 "PO-Revision-Date: 2023-12-12 01:02+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -1764,60 +1764,49 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr ""
 
-#: src/chatbar/ImageEditorPage.qml:19 src/timeline/DelegateContextMenu.qml:229
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
 #, kde-format
-msgid "Edit"
-msgstr ""
-
-#: src/chatbar/ImageEditorPage.qml:35
-#, kde-format
-msgctxt "@action:button Undo modification"
-msgid "Undo"
+msgctxt "@window:title"
+msgid "Edit Image"
 msgstr ""
 
 #: src/chatbar/ImageEditorPage.qml:42
 #, kde-format
 msgctxt "@action:button Accept image modification"
-msgid "Accept"
+msgid "Save"
 msgstr ""
 
-#: src/chatbar/ImageEditorPage.qml:50
+#: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
+msgctxt "@action:button Undo modification"
+msgid "Undo"
 msgstr ""
 
-#: src/chatbar/ImageEditorPage.qml:122
-#, kde-format
-msgid "Cancel"
-msgstr ""
-
-#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
+#: src/chatbar/ImageEditorPage.qml:133
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr ""
 
-#: src/chatbar/ImageEditorPage.qml:143
+#: src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr ""
 
-#: src/chatbar/ImageEditorPage.qml:149
+#: src/chatbar/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr ""
 
-#: src/chatbar/ImageEditorPage.qml:155
+#: src/chatbar/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr ""
 
-#: src/chatbar/ImageEditorPage.qml:161
+#: src/chatbar/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -4211,7 +4200,7 @@ msgstr ""
 #: src/messagecontent/ImageComponent.qml:90
 #, kde-format
 msgctxt "@action:button"
-msgid "Edit"
+msgid "Edit Image"
 msgstr ""
 
 #: src/messagecontent/ImageComponent.qml:189
@@ -4268,12 +4257,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr ""
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "pin"
 msgstr ""
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:502
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
 #, kde-format
 msgid "location"
 msgstr ""
@@ -7538,6 +7527,11 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
+msgstr ""
+
+#: src/timeline/DelegateContextMenu.qml:229
+#, kde-format
+msgid "Edit"
 msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:239
