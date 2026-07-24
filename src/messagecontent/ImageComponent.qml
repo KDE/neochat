@@ -141,6 +141,7 @@ Item {
             Image {
                 anchors.fill: parent
                 source: root?.block.thumbnailSource
+                visible: !root.mediaHidden
             }
         }
 
