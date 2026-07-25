@@ -158,3 +158,5 @@ add_qml_tests(
     chatmarkdownhelpertest.qml
     chatkeyhelpertest.qml
 )
+
+add_test(NAME neochat-self-test COMMAND neochat --self-test)
