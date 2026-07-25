@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: none
 # SPDX-License-Identifier: CC0-1.0
 
+variables:
+  KDE_FLATPAK_TEST_COMMAND: "flatpak run org.kde.neochat --self-test"
+
 include:
   - project: sysadmin/ci-utilities
     file:
