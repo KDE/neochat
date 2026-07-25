@@ -153,10 +153,6 @@ Kirigami.ApplicationWindow {
     }
 
     contextDrawer: RoomDrawer {
-        // This is a memory for all user initiated actions on the drawer, i.e. clicking the button
-        // It is used to ensure that user choice is remembered when changing pages and expanding and contracting the window width
-        property bool drawerUserState: NeoChatConfig.autoRoomInfoDrawer
-
         room: RoomManager.currentRoom
         connection: root.connection
         userListModel: RoomManager.userListModel
@@ -176,22 +172,8 @@ Kirigami.ApplicationWindow {
         // Default icon is fine, only need to override the tooltip text
         handleOpenToolTip: i18nc("@action:button", "Close Room Information Drawer")
 
-        // Connect to the onClicked function of the RoomDrawer handle button
-        Connections {
-            target: root.contextDrawer.handle.children[0]
-            function onClicked() {
-                root.contextDrawer.drawerUserState = root.contextDrawer.drawerOpen;
-            }
-        }
-
         modal: (!root.wideScreen || !enabled)
         onEnabledChanged: drawerOpen = enabled && !modal
-        onModalChanged: {
-            if (NeoChatConfig.autoRoomInfoDrawer) {
-                drawerOpen = !modal && drawerUserState;
-                dim = false;
-            }
-        }
         enabled: RoomManager.hasOpenRoom && root.pageStack.layers.depth < 2 && root.pageStack.depth < 3 && (root.pageStack.visibleItems.length > 1 || root.pageStack.currentIndex > 0) && !Kirigami.Settings.isMobile && root.pageStack.wideMode
         handleVisible: enabled
     }

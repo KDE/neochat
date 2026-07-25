@@ -55,26 +55,10 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator {
             above: minimizeDelegate
-            below: automaticallyDelegate
+            below: categorizeDelegate
             visible: minimizeDelegate.visible
         }
 
-        FormCard.FormCheckDelegate {
-            id: automaticallyDelegate
-            text: i18n("Automatically hide/unhide the room information when resizing the window")
-            checked: NeoChatConfig.autoRoomInfoDrawer
-            enabled: !NeoChatConfig.isAutoRoomInfoDrawerImmutable
-            visible: Qt.platform.os !== "android"
-            onToggled: {
-                NeoChatConfig.autoRoomInfoDrawer = checked;
-                NeoChatConfig.save();
-            }
-        }
-
-        FormCard.FormDelegateSeparator {
-            above: automaticallyDelegate
-            below: categorizeDelegate
-        }
         FormCard.FormCheckDelegate {
             id: categorizeDelegate
             text: i18n("Show all rooms in \"Home\" tab")
