@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-25 00:44+0000\n"
+"POT-Creation-Date: 2026-07-26 00:43+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -692,32 +692,32 @@ msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Overenie pomocou emoji"
 
-#: src/app/qml/Main.qml:174
+#: src/app/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Informácie o miestnosti"
 
-#: src/app/qml/Main.qml:177
+#: src/app/qml/Main.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Zavrieť panel informácií o miestnosti"
 
-#: src/app/qml/Main.qml:240
+#: src/app/qml/Main.qml:222
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgctxt "@title"
 msgid "Loading"
 msgstr "Načítavam"
 
-#: src/app/qml/Main.qml:304
+#: src/app/qml/Main.qml:287
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Zobraziť upozornenia"
 
-#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:327 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -6217,81 +6217,75 @@ msgstr "Pri spustení minimalizovať do systémovej lišty"
 
 #: src/settings/NeoChatGeneralPage.qml:64
 #, kde-format
-msgid "Automatically hide/unhide the room information when resizing the window"
-msgstr ""
-"Automatically hide/unhide the room information when resizing the window"
-
-#: src/settings/NeoChatGeneralPage.qml:80
-#, kde-format
 msgid "Show all rooms in \"Home\" tab"
 msgstr "Zobraziť všetky miestnosti na karte „Domov“"
 
-#: src/settings/NeoChatGeneralPage.qml:91
+#: src/settings/NeoChatGeneralPage.qml:75
 #, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "Poradie zoradenia zoznamu miestností"
 
-#: src/settings/NeoChatGeneralPage.qml:95
+#: src/settings/NeoChatGeneralPage.qml:79
 #, kde-format
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr ""
 "Skryté udalosti sa pri zoradiávaní miestností nepovažujú za nedávnu aktivitu."
 
-#: src/settings/NeoChatGeneralPage.qml:101
+#: src/settings/NeoChatGeneralPage.qml:85
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
 msgstr "Dôležitosť"
 
-#: src/settings/NeoChatGeneralPage.qml:102
+#: src/settings/NeoChatGeneralPage.qml:86
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
 msgstr "Miestnosti s neprečítanými upozorneniami sa zobrazia ako prvé."
 
-#: src/settings/NeoChatGeneralPage.qml:112
+#: src/settings/NeoChatGeneralPage.qml:96
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alfabeticky"
 
-#: src/settings/NeoChatGeneralPage.qml:122
+#: src/settings/NeoChatGeneralPage.qml:106
 #, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
 msgstr "Najnovšie udalosti"
 
-#: src/settings/NeoChatGeneralPage.qml:123
+#: src/settings/NeoChatGeneralPage.qml:107
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
 msgstr "Miestnosti s najnovšími udalosťami sa zobrazia ako prvé."
 
-#: src/settings/NeoChatGeneralPage.qml:134
+#: src/settings/NeoChatGeneralPage.qml:118
 #, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Vlastné"
 
-#: src/settings/NeoChatGeneralPage.qml:143
+#: src/settings/NeoChatGeneralPage.qml:127
 #, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Časová os"
 
-#: src/settings/NeoChatGeneralPage.qml:148
+#: src/settings/NeoChatGeneralPage.qml:132
 #, kde-format
 msgid "Mark messages as read when:"
 msgstr "Označiť správy ako prečítané keď:"
 
-#: src/settings/NeoChatGeneralPage.qml:153
+#: src/settings/NeoChatGeneralPage.qml:137
 #, kde-format
 msgid "Never"
 msgstr "Nikdy"
 
-#: src/settings/NeoChatGeneralPage.qml:157
+#: src/settings/NeoChatGeneralPage.qml:141
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -6299,7 +6293,7 @@ msgctxt ""
 msgid "Entering the room"
 msgstr "Vstupuje do miestnosti"
 
-#: src/settings/NeoChatGeneralPage.qml:161
+#: src/settings/NeoChatGeneralPage.qml:145
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -6307,14 +6301,14 @@ msgctxt ""
 msgid "Entering the room and all unread messages are visible"
 msgstr "Vstúpite do miestnosti a všetky neprečítané správy sú viditelné"
 
-#: src/settings/NeoChatGeneralPage.qml:165
+#: src/settings/NeoChatGeneralPage.qml:149
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
 msgstr "Odchádza z miestnosti"
 
-#: src/settings/NeoChatGeneralPage.qml:169
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
@@ -6322,81 +6316,81 @@ msgctxt ""
 msgid "Exiting the room and all unread messages are visible"
 msgstr "Odchádzate z miestnosti a všetky neprečítané správy sú viditeľné"
 
-#: src/settings/NeoChatGeneralPage.qml:184
+#: src/settings/NeoChatGeneralPage.qml:168
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Odoslať správu"
 
-#: src/settings/NeoChatGeneralPage.qml:200
+#: src/settings/NeoChatGeneralPage.qml:184
 #, kde-format
 msgid "Show state events"
 msgstr "Zobraziť stavové udalosti"
 
-#: src/settings/NeoChatGeneralPage.qml:218
+#: src/settings/NeoChatGeneralPage.qml:202
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:236
+#: src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Show name change events"
 msgstr "Zobraziť udalosti zmeny mena"
 
-#: src/settings/NeoChatGeneralPage.qml:254
+#: src/settings/NeoChatGeneralPage.qml:238
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Zobraziť udalosti aktualizácie avatara"
 
-#: src/settings/NeoChatGeneralPage.qml:264
+#: src/settings/NeoChatGeneralPage.qml:248
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/settings/NeoChatGeneralPage.qml:269
+#: src/settings/NeoChatGeneralPage.qml:253
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Na úpravu svojej poslednej správy použite syntax s/text/náhrada"
 
-#: src/settings/NeoChatGeneralPage.qml:279
+#: src/settings/NeoChatGeneralPage.qml:263
 #, kde-format
 msgid "Developer Settings"
 msgstr "Nastavenia vývojára"
 
-#: src/settings/NeoChatGeneralPage.qml:284
+#: src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Enable developer tools"
 
-#: src/settings/NeoChatGeneralPage.qml:300
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Nástroje pre vývojárov"
 
-#: src/settings/NeoChatGeneralPage.qml:304
+#: src/settings/NeoChatGeneralPage.qml:288
 #, kde-format
 msgid "Developer Tools"
 msgstr "Nástroje pre vývojárov"
 
-#: src/settings/NeoChatGeneralPage.qml:309
+#: src/settings/NeoChatGeneralPage.qml:293
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Štandardné nastavenia"
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "Obnoviť všetky hodnoty konfigurácie na predvolené…"
 
-#: src/settings/NeoChatGeneralPage.qml:320
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Obnoviť konfiguráciu"
 
-#: src/settings/NeoChatGeneralPage.qml:321
+#: src/settings/NeoChatGeneralPage.qml:305
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -8024,6 +8018,11 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
+
+#~ msgid ""
+#~ "Automatically hide/unhide the room information when resizing the window"
+#~ msgstr ""
+#~ "Automatically hide/unhide the room information when resizing the window"
 
 #~ msgctxt "@action:button Accept image modification"
 #~ msgid "Accept"

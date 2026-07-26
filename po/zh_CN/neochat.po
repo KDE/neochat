@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-25 00:44+0000\n"
+"POT-Creation-Date: 2026-07-26 00:43+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -688,31 +688,31 @@ msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Emoji 验证"
 
-#: src/app/qml/Main.qml:174
+#: src/app/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "显示房间信息"
 
-#: src/app/qml/Main.qml:177
+#: src/app/qml/Main.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "关闭房间信息面板"
 
-#: src/app/qml/Main.qml:240
+#: src/app/qml/Main.qml:222
 #, kde-format
 msgctxt "@title"
 msgid "Loading"
 msgstr ""
 
-#: src/app/qml/Main.qml:304
+#: src/app/qml/Main.qml:287
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "会话验证"
 
-#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:327 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1774,18 +1774,16 @@ msgid "Stickers"
 msgstr "贴纸"
 
 #: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@window:title"
 msgid "Edit Image"
-msgstr "设置图像"
+msgstr ""
 
 #: src/chatbar/ImageEditorPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Save"
-msgstr "保存"
+msgstr ""
 
 #: src/chatbar/ImageEditorPage.qml:60
 #, kde-format
@@ -4210,11 +4208,10 @@ msgid "Hide Image"
 msgstr "隐藏图像"
 
 #: src/messagecontent/ImageComponent.qml:90
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit Image"
-msgstr "设置图像"
+msgstr ""
 
 #: src/messagecontent/ImageComponent.qml:190
 #, kde-format
@@ -6140,79 +6137,74 @@ msgstr "启动时最小化到系统托盘"
 
 #: src/settings/NeoChatGeneralPage.qml:64
 #, kde-format
-msgid "Automatically hide/unhide the room information when resizing the window"
-msgstr "调整窗口大小时自动展示/隐藏聊天室信息"
-
-#: src/settings/NeoChatGeneralPage.qml:80
-#, kde-format
 msgid "Show all rooms in \"Home\" tab"
 msgstr "在“主页”标签页中显示所有房间"
 
-#: src/settings/NeoChatGeneralPage.qml:91
+#: src/settings/NeoChatGeneralPage.qml:75
 #, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "聊天室列表排序方式"
 
-#: src/settings/NeoChatGeneralPage.qml:95
+#: src/settings/NeoChatGeneralPage.qml:79
 #, kde-format
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr "排序聊天室时，不将隐藏事件视为近期活动。"
 
-#: src/settings/NeoChatGeneralPage.qml:101
+#: src/settings/NeoChatGeneralPage.qml:85
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
 msgstr "重要性"
 
-#: src/settings/NeoChatGeneralPage.qml:102
+#: src/settings/NeoChatGeneralPage.qml:86
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
 msgstr "带未读通知的聊天室将优先显示。"
 
-#: src/settings/NeoChatGeneralPage.qml:112
+#: src/settings/NeoChatGeneralPage.qml:96
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "字母顺序"
 
-#: src/settings/NeoChatGeneralPage.qml:122
+#: src/settings/NeoChatGeneralPage.qml:106
 #, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
 msgstr "最新事件"
 
-#: src/settings/NeoChatGeneralPage.qml:123
+#: src/settings/NeoChatGeneralPage.qml:107
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
 msgstr "有最新事件的聊天室将优先显示。"
 
-#: src/settings/NeoChatGeneralPage.qml:134
+#: src/settings/NeoChatGeneralPage.qml:118
 #, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "自定义"
 
-#: src/settings/NeoChatGeneralPage.qml:143
+#: src/settings/NeoChatGeneralPage.qml:127
 #, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "时间轴"
 
-#: src/settings/NeoChatGeneralPage.qml:148
+#: src/settings/NeoChatGeneralPage.qml:132
 #, kde-format
 msgid "Mark messages as read when:"
 msgstr "在以下情况时将消息标记为已读："
 
-#: src/settings/NeoChatGeneralPage.qml:153
+#: src/settings/NeoChatGeneralPage.qml:137
 #, kde-format
 msgid "Never"
 msgstr "从不"
 
-#: src/settings/NeoChatGeneralPage.qml:157
+#: src/settings/NeoChatGeneralPage.qml:141
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -6220,7 +6212,7 @@ msgctxt ""
 msgid "Entering the room"
 msgstr "正在进入房间"
 
-#: src/settings/NeoChatGeneralPage.qml:161
+#: src/settings/NeoChatGeneralPage.qml:145
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -6228,14 +6220,14 @@ msgctxt ""
 msgid "Entering the room and all unread messages are visible"
 msgstr "正在进入房间，且所有未读消息都可见"
 
-#: src/settings/NeoChatGeneralPage.qml:165
+#: src/settings/NeoChatGeneralPage.qml:149
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
 msgstr "正在离开房间"
 
-#: src/settings/NeoChatGeneralPage.qml:169
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
@@ -6243,81 +6235,81 @@ msgctxt ""
 msgid "Exiting the room and all unread messages are visible"
 msgstr "正在退出房间，且所有未读消息都可见"
 
-#: src/settings/NeoChatGeneralPage.qml:184
+#: src/settings/NeoChatGeneralPage.qml:168
 #, kde-format
 msgid "Show deleted messages"
 msgstr "显示已被删除的消息"
 
-#: src/settings/NeoChatGeneralPage.qml:200
+#: src/settings/NeoChatGeneralPage.qml:184
 #, kde-format
 msgid "Show state events"
 msgstr "显示状态事件"
 
-#: src/settings/NeoChatGeneralPage.qml:218
+#: src/settings/NeoChatGeneralPage.qml:202
 #, kde-format
 msgid "Show leave and join events"
 msgstr "显示离开和加入事件"
 
-#: src/settings/NeoChatGeneralPage.qml:236
+#: src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Show name change events"
 msgstr "显示名称更改事件"
 
-#: src/settings/NeoChatGeneralPage.qml:254
+#: src/settings/NeoChatGeneralPage.qml:238
 #, kde-format
 msgid "Show avatar update events"
 msgstr "显示头像更新事件"
 
-#: src/settings/NeoChatGeneralPage.qml:264
+#: src/settings/NeoChatGeneralPage.qml:248
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "编辑器"
 
-#: src/settings/NeoChatGeneralPage.qml:269
+#: src/settings/NeoChatGeneralPage.qml:253
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "使用 s/原始文本/替换文本 语法来修改你的上一条信息"
 
-#: src/settings/NeoChatGeneralPage.qml:279
+#: src/settings/NeoChatGeneralPage.qml:263
 #, kde-format
 msgid "Developer Settings"
 msgstr "开发者设置"
 
-#: src/settings/NeoChatGeneralPage.qml:284
+#: src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgid "Enable developer tools"
 msgstr "启用开发者工具"
 
-#: src/settings/NeoChatGeneralPage.qml:300
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "打开开发者工具"
 
-#: src/settings/NeoChatGeneralPage.qml:304
+#: src/settings/NeoChatGeneralPage.qml:288
 #, kde-format
 msgid "Developer Tools"
 msgstr "开发者工具"
 
-#: src/settings/NeoChatGeneralPage.qml:309
+#: src/settings/NeoChatGeneralPage.qml:293
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "默认设置"
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "重置所有配置值为默认值…"
 
-#: src/settings/NeoChatGeneralPage.qml:320
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "重置配置"
 
-#: src/settings/NeoChatGeneralPage.qml:321
+#: src/settings/NeoChatGeneralPage.qml:305
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -7902,18 +7894,6 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
 
-#~ msgctxt "@action:button Accept image modification"
-#~ msgid "Accept"
-#~ msgstr "接受"
-
 #~ msgid ""
-#~ "Unable to save file. Check if you have the correct permission to edit the "
-#~ "cache directory."
-#~ msgstr "无法保存文件。请检查您是否有编辑缓存目录的正确权限。"
-
-#~ msgid "Cancel"
-#~ msgstr "取消"
-
-#~ msgctxt "@action:button"
-#~ msgid "Edit"
-#~ msgstr "编辑"
+#~ "Automatically hide/unhide the room information when resizing the window"
+#~ msgstr "调整窗口大小时自动展示/隐藏聊天室信息"
