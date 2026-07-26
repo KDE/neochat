@@ -19,6 +19,13 @@ LoginHelper::LoginHelper(QObject *parent)
     init();
 }
 
+LoginHelper::~LoginHelper()
+{
+    if (m_connection) {
+        delete m_connection;
+    }
+}
+
 void LoginHelper::setAccountManager(AccountManager *manager)
 {
     m_accountManager = manager;
