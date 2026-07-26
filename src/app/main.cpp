@@ -271,7 +271,8 @@ int main(int argc, char *argv[])
 #endif
 
     KLocalization::setupLocalizedContext(&engine);
-    engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
+    NetworkAccessManagerFactory networkAccessManagerFactory;
+    engine.setNetworkAccessManagerFactory(&networkAccessManagerFactory);
 
     if (parser.isSet("ignore-ssl-errors"_L1)) {
         QObject::connect(NetworkAccessManager::instance(), &QNetworkAccessManager::sslErrors, NetworkAccessManager::instance(), [](QNetworkReply *reply) {
