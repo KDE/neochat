@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:43+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2026-07-24 08:36+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -139,65 +139,65 @@ msgstr "Використовують лише для автоматичного 
 msgid "Share a URL to Matrix"
 msgstr "Оприлюднити адресу у Matrix"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:373
+#: src/app/notificationsmanager.cpp:145 src/app/notificationsmanager.cpp:377
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/app/notificationsmanager.cpp:218
+#: src/app/notificationsmanager.cpp:222
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:224
+#: src/app/notificationsmanager.cpp:228
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
-#: src/app/notificationsmanager.cpp:237 src/timeline/QuickActions.qml:74
+#: src/app/notificationsmanager.cpp:241 src/timeline/QuickActions.qml:74
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
 
-#: src/app/notificationsmanager.cpp:238
+#: src/app/notificationsmanager.cpp:242
 #, kde-format
 msgid "Reply…"
 msgstr "Відповісти…"
 
-#: src/app/notificationsmanager.cpp:289
+#: src/app/notificationsmanager.cpp:293
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "Вас запрошено до кімнати %1"
 
-#: src/app/notificationsmanager.cpp:293
+#: src/app/notificationsmanager.cpp:297
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Відкрити це запрошення у NeoChat"
 
-#: src/app/notificationsmanager.cpp:303
+#: src/app/notificationsmanager.cpp:307
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Прийняти"
 
-#: src/app/notificationsmanager.cpp:304
+#: src/app/notificationsmanager.cpp:308
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Відмовити"
 
-#: src/app/notificationsmanager.cpp:306
+#: src/app/notificationsmanager.cpp:310
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Відмовити та ігнорувати користувача"
 
-#: src/app/notificationsmanager.cpp:366
+#: src/app/notificationsmanager.cpp:370
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:377
+#: src/app/notificationsmanager.cpp:381
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Відкрити NeoChat"
@@ -614,81 +614,88 @@ msgstr "Увійти в кімнату"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/KeyVerificationDialog.qml:121
 #: src/app/qml/OlmKeyVerificationDialog.qml:101
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
 
-#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/KeyVerificationDialog.qml:127
 #: src/app/qml/OlmKeyVerificationDialog.qml:107
 #, kde-format
 msgid "Decline"
 msgstr "Відхилити"
 
-#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/KeyVerificationDialog.qml:179
 #: src/app/qml/OlmKeyVerificationDialog.qml:151
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Очікуємо на прийняття пристроєм підтвердження."
 
-#: src/app/qml/KeyVerificationDialog.qml:170
+#: src/app/qml/KeyVerificationDialog.qml:182
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@info:label Encryption device verification"
+msgid "Waiting for a device to respond to our verification request."
+msgstr "Очікуємо на прийняття пристроєм підтвердження."
+
+#: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/OlmKeyVerificationDialog.qml:153
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Вхідний запит щодо перевірки ключа від пристрою **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:172
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, kde-format
 msgid "Incoming key verification request from **%1**"
 msgstr "Вхідний запит щодо перевірки ключа від **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:176
+#: src/app/qml/KeyVerificationDialog.qml:191
 #: src/app/qml/OlmKeyVerificationDialog.qml:155
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "Очікування на надсилання нам ключів з іншого боку"
 
-#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/KeyVerificationDialog.qml:193
 #: src/app/qml/OlmKeyVerificationDialog.qml:157
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "Очікування на підтвердження наших ключів з іншого боку."
 
-#: src/app/qml/KeyVerificationDialog.qml:180
+#: src/app/qml/KeyVerificationDialog.qml:195
 #: src/app/qml/OlmKeyVerificationDialog.qml:159
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Очікування на перевірку з іншого боку"
 
-#: src/app/qml/KeyVerificationDialog.qml:183
-#: src/app/qml/KeyVerificationDialog.qml:194
+#: src/app/qml/KeyVerificationDialog.qml:198
+#: src/app/qml/KeyVerificationDialog.qml:209
 #: src/app/qml/OlmKeyVerificationDialog.qml:161
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Успішно перевірено пристрій **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
-#: src/app/qml/KeyVerificationDialog.qml:196
+#: src/app/qml/KeyVerificationDialog.qml:200
+#: src/app/qml/KeyVerificationDialog.qml:211
 #, kde-format
 msgctxt "@info"
 msgid "Successfully verified **%1**"
 msgstr "Успішно перевірено **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:190
+#: src/app/qml/KeyVerificationDialog.qml:205
 #, kde-format
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
 msgstr "Очікування підтвердження перевірки від віддаленого пристрою"
 
-#: src/app/qml/KeyVerificationDialog.qml:216
+#: src/app/qml/KeyVerificationDialog.qml:229
 #: src/app/qml/OlmKeyVerificationDialog.qml:178
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Виберіть спосіб перевірки, щоб продовжити"
 
-#: src/app/qml/KeyVerificationDialog.qml:220
+#: src/app/qml/KeyVerificationDialog.qml:233
 #: src/app/qml/OlmKeyVerificationDialog.qml:182
 #, kde-format
 msgctxt "@action:button"
@@ -713,13 +720,13 @@ msgctxt "@title"
 msgid "Loading"
 msgstr "Завантаження"
 
-#: src/app/qml/Main.qml:287
+#: src/app/qml/Main.qml:288
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/app/qml/Main.qml:327 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:328 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1305,10 +1312,19 @@ msgid "Account Details"
 msgstr "Параметри облікового запису"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open NeoChat"
+msgctxt "@action:intoolbar Open existing direct message"
+msgid "Open Chat"
+msgstr "Відкрити NeoChat"
+
+#: src/app/qml/UserDetailDialog.qml:155
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
 msgctxt "@action:intoolbar Message this user directly"
-msgid "Message"
-msgstr "Повідомлення"
+msgid "Start Chat"
+msgstr "Почати спілкування"
 
 #: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
@@ -1567,32 +1583,32 @@ msgctxt "@action:button"
 msgid "Enter a User ID"
 msgstr "Введіть ідентифікатор користувача"
 
-#: src/app/qml/VerificationCanceled.qml:32
+#: src/app/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Перевірку сеансу скасовано через невідому причину."
 
-#: src/app/qml/VerificationCanceled.qml:34
+#: src/app/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Перевищено час очікування на підтвердження сеансу."
 
-#: src/app/qml/VerificationCanceled.qml:36
+#: src/app/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Перевищено час очікування на підтвердження з боку іншого пристрою."
 
-#: src/app/qml/VerificationCanceled.qml:38
+#: src/app/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Вами скасовано перевірку сеансу."
 
-#: src/app/qml/VerificationCanceled.qml:40
+#: src/app/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Перевірку сеансу скасовано на боці іншого пристрою."
 
-#: src/app/qml/VerificationCanceled.qml:42
+#: src/app/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -1600,7 +1616,7 @@ msgid ""
 msgstr ""
 "Перевірку сеансу скасовано, оскільки отримано неочікуване повідомлення."
 
-#: src/app/qml/VerificationCanceled.qml:44
+#: src/app/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1609,7 +1625,7 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "неочікуване повідомлення."
 
-#: src/app/qml/VerificationCanceled.qml:46
+#: src/app/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -1618,7 +1634,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки отримано повідомлення з невідомого "
 "сеансу."
 
-#: src/app/qml/VerificationCanceled.qml:48
+#: src/app/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -1627,7 +1643,7 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "повідомлення з невідомого сеансу."
 
-#: src/app/qml/VerificationCanceled.qml:50
+#: src/app/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -1636,7 +1652,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки NeoChat не може обробити цей спосіб "
 "перевірки."
 
-#: src/app/qml/VerificationCanceled.qml:52
+#: src/app/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -1645,12 +1661,12 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки обробка ним "
 "цього способу перевірки неможлива."
 
-#: src/app/qml/VerificationCanceled.qml:54
+#: src/app/qml/VerificationCanceled.qml:52
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Перевірку сеансу скасовано, оскільки ключі є помилковими."
 
-#: src/app/qml/VerificationCanceled.qml:56
+#: src/app/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -1664,7 +1680,7 @@ msgstr ""
 "**Будь ласка, вийдіть з облікового запису і увійдіть знову. Дані вашого "
 "сеансу пошкоджено.**"
 
-#: src/app/qml/VerificationCanceled.qml:58
+#: src/app/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -1672,7 +1688,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки у ній виконується перевірка "
 "неочікуваного користувача."
 
-#: src/app/qml/VerificationCanceled.qml:60
+#: src/app/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -1681,13 +1697,13 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки у ній "
 "виконується перевірка неочікуваного користувача."
 
-#: src/app/qml/VerificationCanceled.qml:62
+#: src/app/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "Перевірку сеансу скасовано, оскільки отримано некоректне повідомлення."
 
-#: src/app/qml/VerificationCanceled.qml:64
+#: src/app/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1696,18 +1712,18 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "некоректне повідомлення."
 
+#: src/app/qml/VerificationCanceled.qml:64
 #: src/app/qml/VerificationCanceled.qml:66
-#: src/app/qml/VerificationCanceled.qml:68
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Сеанс було прийнято на іншому пристрої"
 
-#: src/app/qml/VerificationCanceled.qml:70
+#: src/app/qml/VerificationCanceled.qml:68
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Перевірку сеансу скасовано, оскільки ключі не збігаються."
 
-#: src/app/qml/VerificationCanceled.qml:72
+#: src/app/qml/VerificationCanceled.qml:70
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -1716,12 +1732,12 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою через невідповідність "
 "ключів."
 
-#: src/app/qml/VerificationCanceled.qml:74
+#: src/app/qml/VerificationCanceled.qml:72
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Перевірку сеансу скасовано, оскільки ключі не збігаються."
 
-#: src/app/qml/VerificationCanceled.qml:76
+#: src/app/qml/VerificationCanceled.qml:74
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -1730,16 +1746,10 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ключі не "
 "збігаються."
 
-#: src/app/qml/VerificationCanceled.qml:78
+#: src/app/qml/VerificationCanceled.qml:76
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Перевірку сеансу скасовано через невідому помилку."
-
-#: src/app/qml/VerificationMessage.qml:39
-#, kde-format
-msgctxt "@action:button Done, we are finished with verification"
-msgid "Done"
-msgstr "Виконано"
 
 #: src/app/roommanager.cpp:241
 #, kde-format
@@ -3657,18 +3667,18 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/libneochat/neochatroom.cpp:1282
+#: src/libneochat/neochatroom.cpp:1286
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/libneochat/neochatroom.cpp:1643 src/libneochat/neochatroom.cpp:1663
+#: src/libneochat/neochatroom.cpp:1647 src/libneochat/neochatroom.cpp:1667
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Шир: %1, Довг: %2"
 
-#: src/libneochat/neochatroom.cpp:1647
+#: src/libneochat/neochatroom.cpp:1651
 #, kde-format
 msgctxt ""
 "%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' "
@@ -5580,37 +5590,25 @@ msgctxt "@info:description"
 msgid "This device is marked as secure."
 msgstr "Цей пристрій позначено як безпечний."
 
-#: src/settings/DevicesPage.qml:51
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr "Надіслано запит щодо перевірки"
-
 #: src/settings/DevicesPage.qml:52
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr "Далі, вам слід прийняти запит щодо перевірки на іншому пристрої."
-
-#: src/settings/DevicesPage.qml:63
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Перевірені пристрої"
 
-#: src/settings/DevicesPage.qml:69
+#: src/settings/DevicesPage.qml:58
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Неперевірені пристрої"
 
-#: src/settings/DevicesPage.qml:75
+#: src/settings/DevicesPage.qml:64
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Пристрої без підтримки шифрування"
 
-#: src/settings/DevicesPage.qml:91
+#: src/settings/DevicesPage.qml:80
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
@@ -5777,30 +5775,74 @@ msgid "Notifications"
 msgstr "Сповіщення"
 
 #: src/settings/GlobalNotificationsPage.qml:30
-#, kde-format
-msgid "Enable notifications for this account"
+#, fuzzy, kde-format
+#| msgid "Enable notifications for this account"
+msgctxt "@option:check Whether notifications are enabled for this account"
+msgid "Enabled for this account"
 msgstr "Увімкнути сповіщення для цього облікового запису"
 
-#: src/settings/GlobalNotificationsPage.qml:34
-#, kde-format
+#: src/settings/GlobalNotificationsPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Notification State"
+msgctxt "@info:placeholder"
+msgid "Notifications Disabled"
+msgstr "Стан сповіщень"
+
+#: src/settings/GlobalNotificationsPage.qml:57
+#, fuzzy, kde-format
+#| msgid "Enable notifications for this account"
+msgctxt "@option:check"
+msgid "Enable notifications for this device"
+msgstr "Увімкнути сповіщення для цього облікового запису"
+
+#: src/settings/GlobalNotificationsPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Configure Web Shortcuts…"
+msgctxt "@action:button"
+msgid "Configure System Notifications…"
+msgstr "Налаштувати вебскорочення…"
+
+#: src/settings/GlobalNotificationsPage.qml:79
+#, fuzzy, kde-format
+#| msgid "No Notifications"
+msgctxt "@title:group Background/push notifications"
+msgid "Background Notifications"
+msgstr "Немає сповіщень"
+
+#: src/settings/GlobalNotificationsPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Notifications can appear even when NeoChat isn't running."
+msgctxt "@info:label"
 msgid "Notifications can appear even when NeoChat isn't running."
 msgstr "Сповіщення може бути показано, навіть якщо NeoChat не запущено."
 
-#: src/settings/GlobalNotificationsPage.qml:36
-#, kde-format
-msgid ""
-"Push notifications are available, but the push distributor does not have a "
-"Matrix gateway."
+#: src/settings/GlobalNotificationsPage.qml:105
+#, fuzzy, kde-format
+#| msgid ""
+#| "Push notifications are available, but the push distributor does not have "
+#| "a Matrix gateway."
+msgctxt "@info:label"
+msgid "The configured push distributor does not have a Matrix gateway."
 msgstr ""
 "Імпульсні сповіщення доступні, але розподільник сповіщень немає шлюзу до "
 "Matrix."
 
-#: src/settings/GlobalNotificationsPage.qml:39
-#, kde-format
-msgid "Notifications will only appear when NeoChat is running."
-msgstr "Сповіщення буде показано, лише якщо NeoChat запущено."
+#: src/settings/GlobalNotificationsPage.qml:125
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Configure Web Shortcuts…"
+msgctxt "@action:button"
+msgid "Configure Background Notifications…"
+msgstr "Налаштувати вебскорочення…"
 
-#: src/settings/GlobalNotificationsPage.qml:59
+#: src/settings/GlobalNotificationsPage.qml:133
+#, kde-format
+msgctxt "@title:group"
+msgid "Room Notifications"
+msgstr "Сповіщення кімнати"
+
+#: src/settings/GlobalNotificationsPage.qml:146
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -5810,45 +5852,41 @@ msgstr ""
 "Це типові параметри сповіщень для усіх кімнат. Ви можете налаштувати "
 "сповіщення для окремих кімнат у списку кімнат або параметрах кімнати."
 
-#: src/settings/GlobalNotificationsPage.qml:69
-#, kde-format
-msgctxt "@title:group"
-msgid "Room Notifications"
-msgstr "Сповіщення кімнати"
-
-#: src/settings/GlobalNotificationsPage.qml:86
-#, kde-format
-msgctxt "@title:group"
-msgid "@Mentions"
+#: src/settings/GlobalNotificationsPage.qml:173
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
+msgctxt "@title:group Mention notifications"
+msgid "Mentions"
 msgstr "@Згадування"
 
-#: src/settings/GlobalNotificationsPage.qml:103
+#: src/settings/GlobalNotificationsPage.qml:193
 #: src/settings/PushNotification.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Ключові слова"
 
-#: src/settings/GlobalNotificationsPage.qml:127
+#: src/settings/GlobalNotificationsPage.qml:221
 #: src/settings/PushNotification.qml:99
 #, kde-format
 msgid "Keyword…"
 msgstr "Ключове слово…"
 
-#: src/settings/GlobalNotificationsPage.qml:146
+#: src/settings/GlobalNotificationsPage.qml:240
 #: src/settings/PushNotification.qml:118
 #, kde-format
 msgid "Add keyword"
 msgstr "Додати ключове слово"
 
-#: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/GlobalNotificationsPage.qml:261
 #: src/settings/NeoChatSecurityPage.qml:100
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Запрошення"
 
-#: src/settings/GlobalNotificationsPage.qml:184
+#: src/settings/GlobalNotificationsPage.qml:281
 #, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
@@ -8071,6 +8109,25 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
+#~ msgctxt "@action:intoolbar Message this user directly"
+#~ msgid "Message"
+#~ msgstr "Повідомлення"
+
+#~ msgctxt "@action:button Done, we are finished with verification"
+#~ msgid "Done"
+#~ msgstr "Виконано"
+
+#~ msgctxt "@title"
+#~ msgid "Verification Request Sent"
+#~ msgstr "Надіслано запит щодо перевірки"
+
+#~ msgctxt "@info:label"
+#~ msgid "To proceed, accept the verification request on another device."
+#~ msgstr "Далі, вам слід прийняти запит щодо перевірки на іншому пристрої."
+
+#~ msgid "Notifications will only appear when NeoChat is running."
+#~ msgstr "Сповіщення буде показано, лише якщо NeoChat запущено."
+
 #~ msgid ""
 #~ "Automatically hide/unhide the room information when resizing the window"
 #~ msgstr ""
@@ -8709,9 +8766,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgctxt "@title"
 #~ msgid "Ignored Users"
 #~ msgstr "Ігноровані користувачі"
-
-#~ msgid "Notification State"
-#~ msgstr "Стан сповіщень"
 
 #~ msgid "Open Externally"
 #~ msgstr "Відкрити у сторонній програмі"

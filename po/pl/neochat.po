@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:43+0000\n"
+"POT-Creation-Date: 2026-07-27 00:44+0000\n"
 "PO-Revision-Date: 2026-05-09 15:48+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -139,65 +139,65 @@ msgstr "Tylko dla samosprawdzania"
 msgid "Share a URL to Matrix"
 msgstr "Udostępnij adres URL w Matriksie"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:373
+#: src/app/notificationsmanager.cpp:145 src/app/notificationsmanager.cpp:377
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zaszyfrowana wiadomość"
 
-#: src/app/notificationsmanager.cpp:218
+#: src/app/notificationsmanager.cpp:222
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:224
+#: src/app/notificationsmanager.cpp:228
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Otwórz NeoChat w tym pokoju"
 
-#: src/app/notificationsmanager.cpp:237 src/timeline/QuickActions.qml:74
+#: src/app/notificationsmanager.cpp:241 src/timeline/QuickActions.qml:74
 #, kde-format
 msgid "Reply"
 msgstr "Odpowiedz"
 
-#: src/app/notificationsmanager.cpp:238
+#: src/app/notificationsmanager.cpp:242
 #, kde-format
 msgid "Reply…"
 msgstr "Odpowiedz…"
 
-#: src/app/notificationsmanager.cpp:289
+#: src/app/notificationsmanager.cpp:293
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 zaprosił cię do pokoju"
 
-#: src/app/notificationsmanager.cpp:293
+#: src/app/notificationsmanager.cpp:297
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Otwórz to zaproszenie w NeoChat"
 
-#: src/app/notificationsmanager.cpp:303
+#: src/app/notificationsmanager.cpp:307
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Przyjmij"
 
-#: src/app/notificationsmanager.cpp:304
+#: src/app/notificationsmanager.cpp:308
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Odrzuć"
 
-#: src/app/notificationsmanager.cpp:306
+#: src/app/notificationsmanager.cpp:310
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Odrzuć lub wycisz użytkownika"
 
-#: src/app/notificationsmanager.cpp:366
+#: src/app/notificationsmanager.cpp:370
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:377
+#: src/app/notificationsmanager.cpp:381
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Otwórz NeoChat"
@@ -615,84 +615,91 @@ msgstr "Dołącz do pokoju"
 msgid "Session Verification"
 msgstr "Sprawdzenie posiedzenia"
 
-#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/KeyVerificationDialog.qml:121
 #: src/app/qml/OlmKeyVerificationDialog.qml:101
 #, kde-format
 msgid "Accept"
 msgstr "Zaakceptuj"
 
-#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/KeyVerificationDialog.qml:127
 #: src/app/qml/OlmKeyVerificationDialog.qml:107
 #, kde-format
 msgid "Decline"
 msgstr "Odmów"
 
-#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/KeyVerificationDialog.qml:179
 #: src/app/qml/OlmKeyVerificationDialog.qml:151
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Oczekiwanie, aż urządzenie zatwierdzi sprawdzenie."
 
-#: src/app/qml/KeyVerificationDialog.qml:170
+#: src/app/qml/KeyVerificationDialog.qml:182
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@info:label Encryption device verification"
+msgid "Waiting for a device to respond to our verification request."
+msgstr "Oczekiwanie, aż urządzenie zatwierdzi sprawdzenie."
+
+#: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/OlmKeyVerificationDialog.qml:153
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Przychodząca prośba o sprawdzenie klucza z urządzenia **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:172
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, fuzzy, kde-format
 #| msgid "Incoming key verification request from device **%1**"
 msgid "Incoming key verification request from **%1**"
 msgstr "Przychodząca prośba o sprawdzenie klucza z urządzenia **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:176
+#: src/app/qml/KeyVerificationDialog.qml:191
 #: src/app/qml/OlmKeyVerificationDialog.qml:155
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "Oczekiwanie na wysłanie kluczy przez drugą stronę."
 
-#: src/app/qml/KeyVerificationDialog.qml:178
+#: src/app/qml/KeyVerificationDialog.qml:193
 #: src/app/qml/OlmKeyVerificationDialog.qml:157
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "Oczekiwanie na potwierdzenie kluczy przez drugą stronę."
 
-#: src/app/qml/KeyVerificationDialog.qml:180
+#: src/app/qml/KeyVerificationDialog.qml:195
 #: src/app/qml/OlmKeyVerificationDialog.qml:159
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Oczekiwanie na sprawdzenie drugiej strony."
 
-#: src/app/qml/KeyVerificationDialog.qml:183
-#: src/app/qml/KeyVerificationDialog.qml:194
+#: src/app/qml/KeyVerificationDialog.qml:198
+#: src/app/qml/KeyVerificationDialog.qml:209
 #: src/app/qml/OlmKeyVerificationDialog.qml:161
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Pomyślnie sprawdzono urządzenie  **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
-#: src/app/qml/KeyVerificationDialog.qml:196
+#: src/app/qml/KeyVerificationDialog.qml:200
+#: src/app/qml/KeyVerificationDialog.qml:211
 #, fuzzy, kde-format
 #| msgid "Successfully verified device **%1**"
 msgctxt "@info"
 msgid "Successfully verified **%1**"
 msgstr "Pomyślnie sprawdzono urządzenie  **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:190
+#: src/app/qml/KeyVerificationDialog.qml:205
 #, fuzzy, kde-format
 #| msgid "Waiting for other party to confirm our keys."
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
 msgstr "Oczekiwanie na potwierdzenie kluczy przez drugą stronę."
 
-#: src/app/qml/KeyVerificationDialog.qml:216
+#: src/app/qml/KeyVerificationDialog.qml:229
 #: src/app/qml/OlmKeyVerificationDialog.qml:178
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Wybierz sposób potwierdzenia, aby kontynuować"
 
-#: src/app/qml/KeyVerificationDialog.qml:220
+#: src/app/qml/KeyVerificationDialog.qml:233
 #: src/app/qml/OlmKeyVerificationDialog.qml:182
 #, kde-format
 msgctxt "@action:button"
@@ -718,13 +725,13 @@ msgctxt "@title"
 msgid "Loading"
 msgstr "Wczytywanie"
 
-#: src/app/qml/Main.qml:287
+#: src/app/qml/Main.qml:288
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sprawdzenie posiedzenia"
 
-#: src/app/qml/Main.qml:327 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:328 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1312,10 +1319,19 @@ msgid "Account Details"
 msgstr "Szczegóły konta"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open NeoChat"
+msgctxt "@action:intoolbar Open existing direct message"
+msgid "Open Chat"
+msgstr "Otwórz NeoChat"
+
+#: src/app/qml/UserDetailDialog.qml:155
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
 msgctxt "@action:intoolbar Message this user directly"
-msgid "Message"
-msgstr "Wiadomość"
+msgid "Start Chat"
+msgstr "Rozpocznij rozmowę"
 
 #: src/app/qml/UserDetailDialog.qml:165
 #, fuzzy, kde-format
@@ -1574,32 +1590,32 @@ msgctxt "@action:button"
 msgid "Enter a User ID"
 msgstr "Wpisz ID użytkownika"
 
-#: src/app/qml/VerificationCanceled.qml:32
+#: src/app/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Zaniechano sprawdzenia posiedzenia z nieznanego powodu."
 
-#: src/app/qml/VerificationCanceled.qml:34
+#: src/app/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Przekroczono czas na sprawdzenie posiedzenia."
 
-#: src/app/qml/VerificationCanceled.qml:36
+#: src/app/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Przekroczono czas na sprawdzenie posiedzenia dla strony zdalnej."
 
-#: src/app/qml/VerificationCanceled.qml:38
+#: src/app/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Zaniechałeś sprawdzenia posiedzenia."
 
-#: src/app/qml/VerificationCanceled.qml:40
+#: src/app/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Strona zdalna zaniechała sprawdzenia posiedzenia."
 
-#: src/app/qml/VerificationCanceled.qml:42
+#: src/app/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -1607,7 +1623,7 @@ msgid ""
 msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymaliśmy nieoczekiwaną wiadomość."
 
-#: src/app/qml/VerificationCanceled.qml:44
+#: src/app/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1616,7 +1632,7 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała nieoczekiwaną "
 "wiadomość."
 
-#: src/app/qml/VerificationCanceled.qml:46
+#: src/app/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -1625,7 +1641,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymała ona wiadomość z nieznanego "
 "powodu."
 
-#: src/app/qml/VerificationCanceled.qml:48
+#: src/app/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -1634,7 +1650,7 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała wiadomość dla "
 "nieznanej posiedzenia."
 
-#: src/app/qml/VerificationCanceled.qml:50
+#: src/app/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -1643,7 +1659,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo NeoChat nie jest w stanie obsłużyć "
 "tego sposobu sprawdzenia."
 
-#: src/app/qml/VerificationCanceled.qml:52
+#: src/app/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -1652,12 +1668,12 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo nie jest w stanie "
 "obsłużyć tego sposobu sprawdzenia."
 
-#: src/app/qml/VerificationCanceled.qml:54
+#: src/app/qml/VerificationCanceled.qml:52
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Zaniechano sprawdzenia posiedzenia, bo klucze są niepoprawne."
 
-#: src/app/qml/VerificationCanceled.qml:56
+#: src/app/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -1671,7 +1687,7 @@ msgstr ""
 "**Spróbuj wyjść i wejść ponownie, bo twoje obecne posiedzenie jest "
 "uszkodzone.**"
 
-#: src/app/qml/VerificationCanceled.qml:58
+#: src/app/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -1679,7 +1695,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo sprawdzała ona nieoczekiwanego "
 "użytkownika."
 
-#: src/app/qml/VerificationCanceled.qml:60
+#: src/app/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -1688,14 +1704,14 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo sprawdzała ona "
 "nieoczekiwanego użytkownika."
 
-#: src/app/qml/VerificationCanceled.qml:62
+#: src/app/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymaliśmy nieprawidłową wiadomość."
 
-#: src/app/qml/VerificationCanceled.qml:64
+#: src/app/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1704,18 +1720,18 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała nieprawidłową "
 "wiadomość."
 
+#: src/app/qml/VerificationCanceled.qml:64
 #: src/app/qml/VerificationCanceled.qml:66
-#: src/app/qml/VerificationCanceled.qml:68
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Posiedzenie zostało zatwierdzone na innym urządzeniu"
 
-#: src/app/qml/VerificationCanceled.qml:70
+#: src/app/qml/VerificationCanceled.qml:68
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Zaniechano sprawdzenia posiedzenia ze względu na niezgodne klucze."
 
-#: src/app/qml/VerificationCanceled.qml:72
+#: src/app/qml/VerificationCanceled.qml:70
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -1724,12 +1740,12 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia ze względu na niezgodne "
 "klucze."
 
-#: src/app/qml/VerificationCanceled.qml:74
+#: src/app/qml/VerificationCanceled.qml:72
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Zaniechano sprawdzenia posiedzenia, bo klucze nie są zgodne."
 
-#: src/app/qml/VerificationCanceled.qml:76
+#: src/app/qml/VerificationCanceled.qml:74
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -1737,16 +1753,10 @@ msgid ""
 msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo klucze nie są zgodne."
 
-#: src/app/qml/VerificationCanceled.qml:78
+#: src/app/qml/VerificationCanceled.qml:76
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Zaniechano sprawdzenia posiedzenia ze względu na nieznany błąd."
-
-#: src/app/qml/VerificationMessage.qml:39
-#, kde-format
-msgctxt "@action:button Done, we are finished with verification"
-msgid "Done"
-msgstr "Gotowe"
 
 #: src/app/roommanager.cpp:241
 #, kde-format
@@ -3674,18 +3684,18 @@ msgstr "Nie udało się utworzyć pokoju: %1"
 msgid "Space creation failed: %1"
 msgstr "Nie udało się utworzyć przestrzeni: %1"
 
-#: src/libneochat/neochatroom.cpp:1282
+#: src/libneochat/neochatroom.cpp:1286
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
 
-#: src/libneochat/neochatroom.cpp:1643 src/libneochat/neochatroom.cpp:1663
+#: src/libneochat/neochatroom.cpp:1647 src/libneochat/neochatroom.cpp:1667
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Szer.: %1, Dł.: %2"
 
-#: src/libneochat/neochatroom.cpp:1647
+#: src/libneochat/neochatroom.cpp:1651
 #, fuzzy, kde-format
 #| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 #| msgid "Lat: %1, Lon: %2"
@@ -5629,37 +5639,25 @@ msgctxt "@info:description"
 msgid "This device is marked as secure."
 msgstr "To urządzenie jest oznaczone jako bezpieczne."
 
-#: src/settings/DevicesPage.qml:51
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr "Wysłano prośbę o sprawdzenie"
-
 #: src/settings/DevicesPage.qml:52
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr "Aby przejść dalej, potwierdź prośbę o sprawdzenie na innym urządzeniu."
-
-#: src/settings/DevicesPage.qml:63
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Sprawdzone urządzenia"
 
-#: src/settings/DevicesPage.qml:69
+#: src/settings/DevicesPage.qml:58
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Niesprawdzone urządzenia"
 
-#: src/settings/DevicesPage.qml:75
+#: src/settings/DevicesPage.qml:64
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Urządzenia nieobsługujące szyfrowania"
 
-#: src/settings/DevicesPage.qml:91
+#: src/settings/DevicesPage.qml:80
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
@@ -5825,30 +5823,71 @@ msgid "Notifications"
 msgstr "Powiadomienia"
 
 #: src/settings/GlobalNotificationsPage.qml:30
-#, kde-format
-msgid "Enable notifications for this account"
+#, fuzzy, kde-format
+#| msgid "Enable notifications for this account"
+msgctxt "@option:check Whether notifications are enabled for this account"
+msgid "Enabled for this account"
 msgstr "Włącz powiadomienia dla tego konta"
 
-#: src/settings/GlobalNotificationsPage.qml:34
-#, kde-format
+#: src/settings/GlobalNotificationsPage.qml:42
+#, fuzzy, kde-format
+#| msgid "Notification State"
+msgctxt "@info:placeholder"
+msgid "Notifications Disabled"
+msgstr "Zakres powiadamiania"
+
+#: src/settings/GlobalNotificationsPage.qml:57
+#, fuzzy, kde-format
+#| msgid "Enable notifications for this account"
+msgctxt "@option:check"
+msgid "Enable notifications for this device"
+msgstr "Włącz powiadomienia dla tego konta"
+
+#: src/settings/GlobalNotificationsPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Configure Web Shortcuts…"
+msgctxt "@action:button"
+msgid "Configure System Notifications…"
+msgstr "Ustawienia skrótów sieciowych…"
+
+#: src/settings/GlobalNotificationsPage.qml:79
+#, fuzzy, kde-format
+#| msgid "No Notifications"
+msgctxt "@title:group Background/push notifications"
+msgid "Background Notifications"
+msgstr "Bez powiadomień"
+
+#: src/settings/GlobalNotificationsPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Notifications can appear even when NeoChat isn't running."
+msgctxt "@info:label"
 msgid "Notifications can appear even when NeoChat isn't running."
 msgstr ""
 "Powiadomienia mogą się pojawiać, nawet gdy NeoChat nie będzie uruchomiony."
 
-#: src/settings/GlobalNotificationsPage.qml:36
+#: src/settings/GlobalNotificationsPage.qml:105
 #, fuzzy, kde-format
 #| msgid "Push notifications are available but could not be enabled."
-msgid ""
-"Push notifications are available, but the push distributor does not have a "
-"Matrix gateway."
+msgctxt "@info:label"
+msgid "The configured push distributor does not have a Matrix gateway."
 msgstr "Powiadomienia Push są dostępne, ale nie można ich włączyć."
 
-#: src/settings/GlobalNotificationsPage.qml:39
-#, kde-format
-msgid "Notifications will only appear when NeoChat is running."
-msgstr "Powiadomienia będą się pojawiać, tylko gdy będzie uruchomiony NeoChat."
+#: src/settings/GlobalNotificationsPage.qml:125
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Configure Web Shortcuts…"
+msgctxt "@action:button"
+msgid "Configure Background Notifications…"
+msgstr "Ustawienia skrótów sieciowych…"
 
-#: src/settings/GlobalNotificationsPage.qml:59
+#: src/settings/GlobalNotificationsPage.qml:133
+#, kde-format
+msgctxt "@title:group"
+msgid "Room Notifications"
+msgstr "Powiadomienia pokoju"
+
+#: src/settings/GlobalNotificationsPage.qml:146
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -5859,45 +5898,41 @@ msgstr ""
 "dostosować powiadomienia na pokój na liście pokojów lub w ustawieniach "
 "samego pokoju."
 
-#: src/settings/GlobalNotificationsPage.qml:69
-#, kde-format
-msgctxt "@title:group"
-msgid "Room Notifications"
-msgstr "Powiadomienia pokoju"
-
-#: src/settings/GlobalNotificationsPage.qml:86
-#, kde-format
-msgctxt "@title:group"
-msgid "@Mentions"
+#: src/settings/GlobalNotificationsPage.qml:173
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
+msgctxt "@title:group Mention notifications"
+msgid "Mentions"
 msgstr "@Wzmianki"
 
-#: src/settings/GlobalNotificationsPage.qml:103
+#: src/settings/GlobalNotificationsPage.qml:193
 #: src/settings/PushNotification.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Słowa kluczowe"
 
-#: src/settings/GlobalNotificationsPage.qml:127
+#: src/settings/GlobalNotificationsPage.qml:221
 #: src/settings/PushNotification.qml:99
 #, kde-format
 msgid "Keyword…"
 msgstr "Słowo kluczowe…"
 
-#: src/settings/GlobalNotificationsPage.qml:146
+#: src/settings/GlobalNotificationsPage.qml:240
 #: src/settings/PushNotification.qml:118
 #, kde-format
 msgid "Add keyword"
 msgstr "Dodaj słowo kluczowe"
 
-#: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/GlobalNotificationsPage.qml:261
 #: src/settings/NeoChatSecurityPage.qml:100
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Zaproszenia"
 
-#: src/settings/GlobalNotificationsPage.qml:184
+#: src/settings/GlobalNotificationsPage.qml:281
 #, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
@@ -8125,6 +8160,27 @@ msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
 
+#~ msgctxt "@action:intoolbar Message this user directly"
+#~ msgid "Message"
+#~ msgstr "Wiadomość"
+
+#~ msgctxt "@action:button Done, we are finished with verification"
+#~ msgid "Done"
+#~ msgstr "Gotowe"
+
+#~ msgctxt "@title"
+#~ msgid "Verification Request Sent"
+#~ msgstr "Wysłano prośbę o sprawdzenie"
+
+#~ msgctxt "@info:label"
+#~ msgid "To proceed, accept the verification request on another device."
+#~ msgstr ""
+#~ "Aby przejść dalej, potwierdź prośbę o sprawdzenie na innym urządzeniu."
+
+#~ msgid "Notifications will only appear when NeoChat is running."
+#~ msgstr ""
+#~ "Powiadomienia będą się pojawiać, tylko gdy będzie uruchomiony NeoChat."
+
 #~ msgid ""
 #~ "Automatically hide/unhide the room information when resizing the window"
 #~ msgstr "Sam ukryj/odkryj szczegóły pokoju przy zmienianiu rozmiaru okna"
@@ -8758,9 +8814,6 @@ msgstr[2] "%2 pisze"
 #~ msgctxt "@title"
 #~ msgid "Ignored Users"
 #~ msgstr "Pomijani użytkownicy"
-
-#~ msgid "Notification State"
-#~ msgstr "Zakres powiadamiania"
 
 #~ msgid "Open Externally"
 #~ msgstr "Otwórz zewnętrznie"
