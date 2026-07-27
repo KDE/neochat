@@ -79,7 +79,7 @@ const QList<MarkdownSyntax> syntax = {
     MarkdownSyntax{.sequence = "_"_L1, .closable = true, .format = RichFormat::Underline},
 };
 
-std::optional<bool> checkSequence(const QString &currentString, const QString &nextChar, bool lineStart = false)
+std::pair<std::optional<MarkdownSyntax>, QList<MarkdownSyntax>> checkSequence(const QString &currentString, const QString &nextChar, bool lineStart = false)
 {
     QList<MarkdownSyntax> partialMatches;
     std::optional<MarkdownSyntax> fullMatch = std::nullopt;
@@ -100,13 +100,7 @@ std::optional<bool> checkSequence(const QString &currentString, const QString &n
         ++it;
     }
 
-    if (partialMatches.length() > 0) {
-        return false;
-    }
-    if (fullMatch) {
-        return true;
-    }
-    return std::nullopt;
+    return {fullMatch, partialMatches};
 }
 
 bool checkSequenceBackwards(const QString &currentString)
@@ -242,13 +236,27 @@ void ChatMarkdownHelper::checkMarkdownForward()
     cursor.setPosition(m_endPos + 1, QTextCursor::KeepAnchor);
     const auto nextChar = cursor.selectedText();
 
-    const auto result = checkSequence(currentMarkdown, nextChar, atBlockStart);
-    if (!result) {
+    const auto [fullMatch, partialMatches] = checkSequence(currentMarkdown, nextChar, atBlockStart);
+    if (!fullMatch && partialMatches.isEmpty()) {
         ++m_startPos;
         m_endPos = m_startPos;
         return;
     }
-    if (!*result) {
+
+    if (!partialMatches.isEmpty()) {
+        const auto syntax = partialMatches.constFirst();
+        const QString completeCursor = currentMarkdown + nextChar;
+        // Check if we can close syntax like '`' (one char) or '~~' (two char). If so, add a space too so it's obvious that block is done and format also
+        // doesn't merge.
+        if (syntax.closable && RichFormat::hasFormat(cursor, syntax.format) && completeCursor == syntax.sequence) {
+            ++m_endPos;
+            cursor.clearSelection();
+            cursor.insertText(u" "_s);
+            checkMarkdownForward();
+            m_endPos = m_startPos;
+            return;
+        }
+
         ++m_endPos;
         return;
     }
@@ -274,7 +282,7 @@ void ChatMarkdownHelper::complete()
     cursor.setPosition(m_startPos);
     cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
     const auto nextChar = cursor.selectedText();
-    const auto result = checkSequence({}, nextChar, cursor.atBlockStart());
+    const auto [fullMatch, partialMatches] = checkSequence({}, nextChar, cursor.atBlockStart());
 
     cursor.setPosition(m_startPos);
     cursor.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor);
@@ -290,8 +298,8 @@ void ChatMarkdownHelper::complete()
         m_textItem->mergeFormatOnCursor(syntax->format, cursor);
     }
 
-    m_startPos = result ? m_startPos : m_startPos + 1;
-    m_endPos = result ? m_startPos + 1 : m_startPos;
+    m_startPos = fullMatch || !partialMatches.isEmpty() ? m_startPos : m_startPos + 1;
+    m_endPos = fullMatch || !partialMatches.isEmpty() ? m_startPos + 1 : m_startPos;
 
     cursor.endEditBlock();
 }
