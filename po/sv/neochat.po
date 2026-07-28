@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-07-24 09:26+0200\n"
+"PO-Revision-Date: 2026-07-27 09:44+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -626,11 +626,10 @@ msgid "Waiting for device to accept verification."
 msgstr "Väntar på att enheten ska acceptera verifikation."
 
 #: src/app/qml/KeyVerificationDialog.qml:182
-#, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#, kde-format
 msgctxt "@info:label Encryption device verification"
 msgid "Waiting for a device to respond to our verification request."
-msgstr "Väntar på att enheten ska acceptera verifikation."
+msgstr "Väntar på att en enhet svarar på vår verifikationsbegäran."
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/OlmKeyVerificationDialog.qml:153
@@ -1301,16 +1300,13 @@ msgid "Account Details"
 msgstr "Kontoinformation"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgid "Open NeoChat"
+#, kde-format
 msgctxt "@action:intoolbar Open existing direct message"
 msgid "Open Chat"
-msgstr "Öppna NeoChat"
+msgstr "Öppna chatt"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Start Chat"
 msgstr "Starta chatt"
@@ -5733,66 +5729,54 @@ msgid "Notifications"
 msgstr "Underrättelser"
 
 #: src/settings/GlobalNotificationsPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Enable notifications for this account"
+#, kde-format
 msgctxt "@option:check Whether notifications are enabled for this account"
 msgid "Enabled for this account"
-msgstr "Aktivera underrättelser för kontot"
+msgstr "Aktivera för kontot"
 
 #: src/settings/GlobalNotificationsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Notification State"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Notifications Disabled"
-msgstr "Underrättelsetillstånd"
+msgstr "Underrättelser inaktiverade"
 
 #: src/settings/GlobalNotificationsPage.qml:57
-#, fuzzy, kde-format
-#| msgid "Enable notifications for this account"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable notifications for this device"
-msgstr "Aktivera underrättelser för kontot"
+msgstr "Aktivera underrättelser för enheten"
 
 #: src/settings/GlobalNotificationsPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure System Notifications…"
-msgstr "Anpassa webbgenvägar…"
+msgstr "Anpassa systemunderrättelser…"
 
 #: src/settings/GlobalNotificationsPage.qml:79
-#, fuzzy, kde-format
-#| msgid "No Notifications"
+#, kde-format
 msgctxt "@title:group Background/push notifications"
 msgid "Background Notifications"
-msgstr "Inga underrättelser"
+msgstr "Bakgrundsunderrättelser"
 
 #: src/settings/GlobalNotificationsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Notifications can appear even when NeoChat isn't running."
+#, kde-format
 msgctxt "@info:label"
 msgid "Notifications can appear even when NeoChat isn't running."
 msgstr "Underrättelser kan visas även när NeoChat inte kör."
 
 #: src/settings/GlobalNotificationsPage.qml:105
-#, fuzzy, kde-format
-#| msgid ""
-#| "Push notifications are available, but the push distributor does not have "
-#| "a Matrix gateway."
+#, kde-format
 msgctxt "@info:label"
 msgid "The configured push distributor does not have a Matrix gateway."
 msgstr ""
-"Utskickade underrättelser är tillgängliga men distributören av "
-"underrättelserna har inte en Matrix-förmedlingsnod."
+"Den inställda distributören av utskickade underrättelser har inte en Matrix-"
+"förmedlingsnod."
 
 #: src/settings/GlobalNotificationsPage.qml:125
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Background Notifications…"
-msgstr "Anpassa webbgenvägar…"
+msgstr "Anpassa bakgrundsunderrättelser…"
 
 #: src/settings/GlobalNotificationsPage.qml:133
 #, kde-format
@@ -5811,12 +5795,10 @@ msgstr ""
 "anpassa underrättelser per rum i rumslistan eller rumsinställningarna."
 
 #: src/settings/GlobalNotificationsPage.qml:173
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group Mention notifications"
 msgid "Mentions"
-msgstr "@Omnämnanden"
+msgstr "Omnämnanden"
 
 #: src/settings/GlobalNotificationsPage.qml:193
 #: src/settings/PushNotification.qml:69
