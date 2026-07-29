@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-07-12 18:19+0300\n"
+"PO-Revision-Date: 2026-07-28 08:41+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/app/controller.cpp:188
 #, kde-format
@@ -627,11 +627,10 @@ msgid "Waiting for device to accept verification."
 msgstr "בהמתנה למכשיר לקבל את האימות."
 
 #: src/app/qml/KeyVerificationDialog.qml:182
-#, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#, kde-format
 msgctxt "@info:label Encryption device verification"
 msgid "Waiting for a device to respond to our verification request."
-msgstr "בהמתנה למכשיר לקבל את האימות."
+msgstr "בהמתנה לתגובה על בקשת האימות שלנו מצד המכשיר."
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/OlmKeyVerificationDialog.qml:153
@@ -1298,16 +1297,13 @@ msgid "Account Details"
 msgstr "פרטי חשבון"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgid "Open NeoChat"
+#, kde-format
 msgctxt "@action:intoolbar Open existing direct message"
 msgid "Open Chat"
-msgstr "פתיחת NeoChat"
+msgstr "פתיחת שיחה"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Start Chat"
 msgstr "התחלת שיחה"
@@ -1790,15 +1786,13 @@ msgid "Stickers"
 msgstr "מדבקות"
 
 #: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@window:title"
 msgid "Edit Image"
-msgstr "הגדרת תמונה"
+msgstr "עריכת תמונה"
 
 #: src/chatbar/ImageEditorPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Save"
 msgstr "שמירה"
@@ -4239,11 +4233,10 @@ msgid "Hide Image"
 msgstr "הסתרת תמונה"
 
 #: src/messagecontent/ImageComponent.qml:90
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit Image"
-msgstr "הגדרת תמונה"
+msgstr "עריכת תמונה"
 
 #: src/messagecontent/ImageComponent.qml:190
 #, kde-format
@@ -5710,64 +5703,52 @@ msgid "Notifications"
 msgstr "התראות"
 
 #: src/settings/GlobalNotificationsPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Enable notifications for this account"
+#, kde-format
 msgctxt "@option:check Whether notifications are enabled for this account"
 msgid "Enabled for this account"
-msgstr "הפעלות התראות לחשבון הזה"
+msgstr "פעילות לחשבון הזה"
 
 #: src/settings/GlobalNotificationsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Notifications Disabled"
-msgstr "התראות"
+msgstr "התראות כבויות"
 
 #: src/settings/GlobalNotificationsPage.qml:57
-#, fuzzy, kde-format
-#| msgid "Enable notifications for this account"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable notifications for this device"
-msgstr "הפעלות התראות לחשבון הזה"
+msgstr "הפעלות התראות במכשיר הזה"
 
 #: src/settings/GlobalNotificationsPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure System Notifications…"
-msgstr "הגדרת קיצורי אינטרנט…"
+msgstr "הגדרת התראות מערכת…"
 
 #: src/settings/GlobalNotificationsPage.qml:79
-#, fuzzy, kde-format
-#| msgid "No Notifications"
+#, kde-format
 msgctxt "@title:group Background/push notifications"
 msgid "Background Notifications"
-msgstr "אין התראות"
+msgstr "התראות רקע"
 
 #: src/settings/GlobalNotificationsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Notifications can appear even when NeoChat isn't running."
+#, kde-format
 msgctxt "@info:label"
 msgid "Notifications can appear even when NeoChat isn't running."
 msgstr "התראות יכולות להופיע גם כש־NeoChat לא פעיל."
 
 #: src/settings/GlobalNotificationsPage.qml:105
-#, fuzzy, kde-format
-#| msgid ""
-#| "Push notifications are available, but the push distributor does not have "
-#| "a Matrix gateway."
+#, kde-format
 msgctxt "@info:label"
 msgid "The configured push distributor does not have a Matrix gateway."
-msgstr "התראות בדחיפה זמינות אך לספק הדחיפה אין שער גישור ל־Matrix."
+msgstr "לספק הדחיפה המוגדר אין שער גישור ל־Matrix."
 
 #: src/settings/GlobalNotificationsPage.qml:125
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Background Notifications…"
-msgstr "הגדרת קיצורי אינטרנט…"
+msgstr "הגדרת התראות רקע…"
 
 #: src/settings/GlobalNotificationsPage.qml:133
 #, kde-format
@@ -5786,12 +5767,10 @@ msgstr ""
 "ברשימת החדרים או בהגדרות החדר."
 
 #: src/settings/GlobalNotificationsPage.qml:173
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group Mention notifications"
 msgid "Mentions"
-msgstr "@אזכורים"
+msgstr "אזכורים"
 
 #: src/settings/GlobalNotificationsPage.qml:193
 #: src/settings/PushNotification.qml:69
