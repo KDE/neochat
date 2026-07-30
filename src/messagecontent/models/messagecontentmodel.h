@@ -170,9 +170,11 @@ protected:
     bool m_editableActive = false;
     QPersistentModelIndex m_currentFocusComponent = {};
 
+    bool eventFilter(QObject *obj, QEvent *event) override;
+
 private:
-    void updateSpoilers();
-    void updateSpoiler(const QModelIndex &index);
+    void updateTextBlocks();
+    void updateTextBlock(const QModelIndex &index);
 
     bool m_mediaHidden = false;
 

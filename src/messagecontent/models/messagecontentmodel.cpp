@@ -32,7 +32,7 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &event
     : QAbstractListModel(parent)
     , m_eventId(eventId)
 {
-    connect(qGuiApp->styleHints(), &QStyleHints::colorSchemeChanged, this, &MessageContentModel::updateSpoilers);
+    qGuiApp->installEventFilter(this);
 
     m_mediaHidden = m_mediaShouldBeHidden(m_eventId);
 
@@ -209,14 +209,24 @@ void MessageContentModel::forEachComponentOfType(QList<Blocks::Type> types, std:
     }
 }
 
-void MessageContentModel::updateSpoilers()
+bool MessageContentModel::eventFilter(QObject *obj, QEvent *event)
+{
+    Q_UNUSED(obj);
+    if (event->type() == QEvent::ApplicationPaletteChange) {
+        // Certain Text blocks depend on colors from the current color scheme (inline code, spoilers, etc.)
+        updateTextBlocks();
+    }
+    return false;
+}
+
+void MessageContentModel::updateTextBlocks()
 {
     for (auto it = m_components.begin(); it != m_components.end(); ++it) {
-        updateSpoiler(index(it - m_components.begin()));
+        updateTextBlock(index(it - m_components.begin()));
     }
 }
 
-void MessageContentModel::updateSpoiler(const QModelIndex &index)
+void MessageContentModel::updateTextBlock(const QModelIndex &index)
 {
     const auto row = index.row();
     if (row < 0 || row >= rowCount(index.parent())) {
@@ -237,7 +247,9 @@ void MessageContentModel::updateSpoiler(const QModelIndex &index)
         return;
     }
 
-    const auto newText = TextHandler::updateSpoilerText(this, doc->toHtml(), textBlock->spoilerRevealed());
+    auto newText = TextHandler::updateSpoilerText(this, doc->toHtml(), textBlock->spoilerRevealed());
+    newText = TextHandler::updateInlineCodeblock(this, newText);
+
     doc->clear();
     doc->setHtml(newText);
     Q_EMIT dataChanged(index, index, {BlockRole});
@@ -257,7 +269,7 @@ void MessageContentModel::toggleSpoiler(QModelIndex index)
 
     textBlock->setSpoilerRevealed(!textBlock->spoilerRevealed());
     Q_EMIT dataChanged(index, index, {BlockRole});
-    updateSpoiler(index);
+    updateTextBlock(index);
 }
 
 void MessageContentModel::hideMedia()

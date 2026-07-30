@@ -660,10 +660,13 @@ void TextHandlerTest::receiveLineSeparator()
 
 void TextHandlerTest::receiveRichCodeUrl()
 {
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+
     auto input = u"<code>https://kde.org</code>"_s;
+    auto output = u"<code style=\"background-color: %1\">https://kde.org</code>"_s.arg(theme->alternateBackgroundColor().name());
     TextHandler testTextHandler;
     testTextHandler.setData(input);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), input);
+    QCOMPARE(testTextHandler.handleRecieveRichText(), output);
 }
 
 void TextHandlerTest::receiveRichColor()

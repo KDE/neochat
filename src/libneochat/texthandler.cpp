@@ -139,6 +139,9 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
         m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     }
 
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+    outputString.replace(TextRegex::codePill, uR"(<code style="background-color: %1">\1</code>)"_s.arg(theme->alternateBackgroundColor().name()));
+
     // Make all media URLs resolvable.
     if (room && event) {
         QRegularExpressionMatchIterator i = TextRegex::mxcImage.globalMatch(outputString);
@@ -1009,6 +1012,21 @@ QString TextHandler::updateSpoilerText(QObject *object, QString string, bool spo
         string.replace(match.capturedStart(2) + offset, match.capturedLength(2), theme->alternateBackgroundColor().name());
         string.replace(match.capturedStart(1) + offset, match.capturedLength(1), newColor);
         offset = newColor.length() - match.capturedLength(1);
+    }
+    return string;
+}
+
+QString TextHandler::updateInlineCodeblock(QObject *object, QString string)
+{
+    auto it = QRegularExpression(u"<span style=\" font-family:\'(.*?)\'; background-color:(.*?);[^>]*\">"_s).globalMatch(string);
+    Kirigami::Platform::PlatformTheme *theme =
+        static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
+    int offset = 0;
+    while (it.hasNext()) {
+        const QRegularExpressionMatch match = it.next();
+        const auto newColor = theme->alternateBackgroundColor().name();
+        string.replace(match.capturedStart(2) + offset, match.capturedLength(2), newColor);
+        offset = newColor.length() - match.capturedLength(2);
     }
     return string;
 }

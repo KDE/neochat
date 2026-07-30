@@ -108,6 +108,11 @@ public:
     static QString updateSpoilerText(QObject *object, QString string, bool spoilerRevealed);
 
     /**
+     * @brief Modify the style parameters of inline code blocks to help make them to stand out.
+     */
+    static QString updateInlineCodeblock(QObject *object, QString string);
+
+    /**
      * @brief Strips Matrix links (matrix.to) from Markdown while not touching anything else.
      */
     static QString stripMatrixLinks(QString string);

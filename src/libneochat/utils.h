@@ -76,7 +76,7 @@ static const QRegularExpression attributeData{u"['\"](.*?)['\"]"_s};
 static const QRegularExpression htmlBodyContent{u"<body[^>]*>(.*?)</body>"_s, QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression removeReply{u"> <.*?>.*?\\n\\n"_s, QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression removeRichReply{u"<mx-reply>.*?</mx-reply>"_s, QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression codePill{u"<pre><code[^>]*>(.*?)</code></pre>"_s, QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression codePill{u"(?<!<pre>)<code[^>]*>(.*?)</code>"_s, QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression userPill{u"(<a href=\"https://matrix.to/#/@.*?:.*?\">.*?</a>)"_s, QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression blockQuote{u"<blockquote>\n?(?:<p>)?(.*?)(?:</p>)?\n?</blockquote>"_s, QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression strikethrough{u"<del>(.*?)</del>"_s, QRegularExpression::DotMatchesEverythingOption};
