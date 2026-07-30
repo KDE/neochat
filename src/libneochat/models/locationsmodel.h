@@ -47,7 +47,7 @@ Q_SIGNALS:
     void boundingBoxChanged();
 
 protected:
-    bool event(QEvent *event) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
     QPointer<NeoChatRoom> m_room;

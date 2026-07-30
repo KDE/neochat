@@ -33,6 +33,8 @@ std::function<bool(const Quotient::RoomEvent *)> MessageModel::m_hiddenFilter = 
 MessageModel::MessageModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    qGuiApp->installEventFilter(this);
+
     connect(this, &MessageModel::newEventAdded, this, &MessageModel::createEventObjects, Qt::QueuedConnection);
 
     connect(this, &MessageModel::modelAboutToReset, this, [this]() {
@@ -779,14 +781,15 @@ void MessageModel::clearEventObjects()
     m_readMarkerModels.clear();
 }
 
-bool MessageModel::event(QEvent *event)
+bool MessageModel::eventFilter(QObject *obj, QEvent *event)
 {
+    Q_UNUSED(obj);
     if (event->type() == QEvent::ApplicationPaletteChange) {
         if (rowCount() > 0) {
             Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
         }
     }
-    return QObject::event(event);
+    return false;
 }
 
 void MessageModel::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)

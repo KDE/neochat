@@ -87,7 +87,7 @@ Q_SIGNALS:
     void usersRefreshed();
 
 protected:
-    bool event(QEvent *event) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private Q_SLOTS:
     void memberJoined(const Quotient::RoomMember &member);

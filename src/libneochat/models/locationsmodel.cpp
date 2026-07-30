@@ -10,6 +10,8 @@ using namespace Quotient;
 LocationsModel::LocationsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    qGuiApp->installEventFilter(this);
+
     connect(this, &LocationsModel::roomChanged, this, [this]() {
         for (const auto &event : m_room->messageEvents()) {
             if (const auto &roomMessageEvent = event.viewAs<RoomMessageEvent>()) {
@@ -125,14 +127,15 @@ QRectF LocationsModel::boundingBox() const
     return bbox;
 }
 
-bool LocationsModel::event(QEvent *event)
+bool LocationsModel::eventFilter(QObject *obj, QEvent *event)
 {
+    Q_UNUSED(obj)
     if (event->type() == QEvent::ApplicationPaletteChange) {
         if (rowCount() > 0) {
             Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
         }
     }
-    return QObject::event(event);
+    return false;
 }
 
 #include "moc_locationsmodel.cpp"

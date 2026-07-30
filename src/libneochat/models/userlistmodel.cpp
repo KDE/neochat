@@ -16,6 +16,7 @@ using namespace Quotient;
 UserListModel::UserListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    qGuiApp->installEventFilter(this);
 }
 
 void UserListModel::setRoom(NeoChatRoom *room)
@@ -140,13 +141,14 @@ int UserListModel::rowCount(const QModelIndex &parent) const
     return m_members.count();
 }
 
-bool UserListModel::event(QEvent *event)
+bool UserListModel::eventFilter(QObject *obj, QEvent *event)
 {
+    Q_UNUSED(obj)
     if (event->type() == QEvent::ApplicationPaletteChange && !m_members.isEmpty()) {
         // Quotient::RoomMember::color needs to be recalculated for the new palette
         Q_EMIT dataChanged(index(0, 0), index(m_members.size() - 1, 0), {ColorRole});
     }
-    return QObject::event(event);
+    return false;
 }
 
 void UserListModel::memberJoined(const Quotient::RoomMember &member)

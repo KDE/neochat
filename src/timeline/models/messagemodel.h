@@ -254,7 +254,7 @@ protected:
     void clearModel();
     void clearEventObjects();
 
-    bool event(QEvent *event) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
