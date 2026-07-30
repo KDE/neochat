@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
+"POT-Creation-Date: 2026-07-30 00:44+0000\n"
 "PO-Revision-Date: 2026-07-22 01:46+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1790,7 +1790,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "貼圖"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@window:title"
@@ -2363,15 +2363,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "無法讀取存取權杖：%1"
 
-#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:336
-#: src/libneochat/block.cpp:420
+#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:349
+#: src/libneochat/block.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "下載檔案失敗。"
 
-#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:337
-#: src/libneochat/block.cpp:421
+#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:350
+#: src/libneochat/block.cpp:434
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4191,7 +4191,7 @@ msgid "Stop Download"
 msgstr "停止下載"
 
 #: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:129
 #: src/messagecontent/LocationComponent.qml:127
 #, kde-format
 msgctxt "@action:button"
@@ -4228,12 +4228,20 @@ msgstr "隱藏影像"
 
 #: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Image"
+msgctxt "@action:button"
+msgid "Optimize Image"
+msgstr "開啟影像"
+
+#: src/messagecontent/ImageComponent.qml:105
+#, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "設定影像"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"

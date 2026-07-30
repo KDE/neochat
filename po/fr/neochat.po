@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
-"PO-Revision-Date: 2026-07-25 09:13+0200\n"
+"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"PO-Revision-Date: 2026-07-28 07:28+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -629,11 +629,10 @@ msgid "Waiting for device to accept verification."
 msgstr "En attente qu'un périphérique accepte la vérification."
 
 #: src/app/qml/KeyVerificationDialog.qml:182
-#, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#, kde-format
 msgctxt "@info:label Encryption device verification"
 msgid "Waiting for a device to respond to our verification request."
-msgstr "En attente qu'un périphérique accepte la vérification."
+msgstr "En attente qu'un périphérique réponde à votre demande de vérification."
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/OlmKeyVerificationDialog.qml:153
@@ -1312,19 +1311,16 @@ msgid "Account Details"
 msgstr "Détails du compte"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgid "Open NeoChat"
+#, kde-format
 msgctxt "@action:intoolbar Open existing direct message"
 msgid "Open Chat"
-msgstr "Ouvrir NeoChat"
+msgstr "Ouvrir une discussion"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Start Chat"
-msgstr "Démarrer la conversation"
+msgstr "Démarrer une conversation"
 
 #: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
@@ -1837,7 +1833,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Étiquettes auto-collantes"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
 #, kde-format
 msgctxt "@window:title"
 msgid "Edit Image"
@@ -2420,15 +2416,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Impossible de lire le jeton d'accès : %1"
 
-#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:336
-#: src/libneochat/block.cpp:420
+#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:349
+#: src/libneochat/block.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Impossible de télécharger le fichier"
 
-#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:337
-#: src/libneochat/block.cpp:421
+#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:350
+#: src/libneochat/block.cpp:434
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4266,7 +4262,7 @@ msgid "Stop Download"
 msgstr "Arrêter le téléchargement"
 
 #: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:129
 #: src/messagecontent/LocationComponent.qml:127
 #, kde-format
 msgctxt "@action:button"
@@ -4302,12 +4298,20 @@ msgid "Hide Image"
 msgstr "Masquer l'image"
 
 #: src/messagecontent/ImageComponent.qml:90
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Image"
+msgctxt "@action:button"
+msgid "Optimize Image"
+msgstr "Ouvrir l'image"
+
+#: src/messagecontent/ImageComponent.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "Modifier l'image"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -5781,44 +5785,37 @@ msgid "Notifications"
 msgstr "Notifications"
 
 #: src/settings/GlobalNotificationsPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Enable notifications for this account"
+#, kde-format
 msgctxt "@option:check Whether notifications are enabled for this account"
 msgid "Enabled for this account"
-msgstr "Activer les notifications pour ce compte"
+msgstr "Activé pour ce compte"
 
 #: src/settings/GlobalNotificationsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Notification State"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Notifications Disabled"
-msgstr "État de notification"
+msgstr "Notifications désactivées"
 
 #: src/settings/GlobalNotificationsPage.qml:57
-#, fuzzy, kde-format
-#| msgid "Enable notifications for this account"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable notifications for this device"
-msgstr "Activer les notifications pour ce compte"
+msgstr "Activer les notifications pour ce périphérique"
 
 #: src/settings/GlobalNotificationsPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure System Notifications…"
-msgstr "Configurer les raccourcis Internet..."
+msgstr "Configurer les notifications provenant du système..."
 
 #: src/settings/GlobalNotificationsPage.qml:79
-#, fuzzy, kde-format
-#| msgid "No Notifications"
+#, kde-format
 msgctxt "@title:group Background/push notifications"
 msgid "Background Notifications"
-msgstr "Aucune notification"
+msgstr "Notifications en arrière-plan"
 
 #: src/settings/GlobalNotificationsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Notifications can appear even when NeoChat isn't running."
+#, kde-format
 msgctxt "@info:label"
 msgid "Notifications can appear even when NeoChat isn't running."
 msgstr ""
@@ -5826,23 +5823,18 @@ msgstr ""
 "d'exécution."
 
 #: src/settings/GlobalNotificationsPage.qml:105
-#, fuzzy, kde-format
-#| msgid ""
-#| "Push notifications are available, but the push distributor does not have "
-#| "a Matrix gateway."
+#, kde-format
 msgctxt "@info:label"
 msgid "The configured push distributor does not have a Matrix gateway."
 msgstr ""
-"Les notifications en diffusion automatique sont disponibles. Cependant, le "
-"module de diffusion automatique ne possède aucune passerelle pour Matrix."
+"Le module de diffusion automatique de la configuration ne possède aucune "
+"passerelle pour Matrix."
 
 #: src/settings/GlobalNotificationsPage.qml:125
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Background Notifications…"
-msgstr "Configurer les raccourcis Internet..."
+msgstr "Configurer les notifications en arrière-plan…"
 
 #: src/settings/GlobalNotificationsPage.qml:133
 #, kde-format
@@ -5862,12 +5854,10 @@ msgstr ""
 "dans la configuration des salons."
 
 #: src/settings/GlobalNotificationsPage.qml:173
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group Mention notifications"
 msgid "Mentions"
-msgstr "@Mentions"
+msgstr "Références"
 
 #: src/settings/GlobalNotificationsPage.qml:193
 #: src/settings/PushNotification.qml:69

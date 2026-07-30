@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
+"POT-Creation-Date: 2026-07-30 00:44+0000\n"
 "PO-Revision-Date: 2026-06-19 22:20+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1926,7 +1926,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Matricák"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@window:title"
@@ -2539,15 +2539,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Nem lehet olvasni a hozzáférési tokent: %1"
 
-#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:336
-#: src/libneochat/block.cpp:420
+#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:349
+#: src/libneochat/block.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Nem sikerült letölteni a fájlt."
 
-#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:337
-#: src/libneochat/block.cpp:421
+#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:350
+#: src/libneochat/block.cpp:434
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4426,7 +4426,7 @@ msgid "Stop Download"
 msgstr "Letöltés leállítása"
 
 #: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:129
 #: src/messagecontent/LocationComponent.qml:127
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
@@ -4465,12 +4465,20 @@ msgstr "Kép elrejtése"
 
 #: src/messagecontent/ImageComponent.qml:90
 #, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Image"
+msgctxt "@action:button"
+msgid "Optimize Image"
+msgstr "Kép megnyitása"
+
+#: src/messagecontent/ImageComponent.qml:105
+#, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "Kép beállítása"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"

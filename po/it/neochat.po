@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:44+0000\n"
+"POT-Creation-Date: 2026-07-30 00:44+0000\n"
 "PO-Revision-Date: 2026-07-24 13:44+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1828,7 +1828,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Adesivi"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:101
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
 #, kde-format
 msgctxt "@window:title"
 msgid "Edit Image"
@@ -2410,15 +2410,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Impossibile leggere il token di accesso: %1"
 
-#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:336
-#: src/libneochat/block.cpp:420
+#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:349
+#: src/libneochat/block.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Impossibile scaricare il file."
 
-#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:337
-#: src/libneochat/block.cpp:421
+#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:350
+#: src/libneochat/block.cpp:434
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4256,7 +4256,7 @@ msgid "Stop Download"
 msgstr "Ferma lo scaricamento"
 
 #: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:114
+#: src/messagecontent/ImageComponent.qml:129
 #: src/messagecontent/LocationComponent.qml:127
 #, kde-format
 msgctxt "@action:button"
@@ -4292,12 +4292,20 @@ msgid "Hide Image"
 msgstr "Nascondi immagine"
 
 #: src/messagecontent/ImageComponent.qml:90
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Image"
+msgctxt "@action:button"
+msgid "Optimize Image"
+msgstr "Apri immagine"
+
+#: src/messagecontent/ImageComponent.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "Modifica immagine"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
