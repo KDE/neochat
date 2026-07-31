@@ -102,7 +102,7 @@ FormCard.FormCardPage {
                             if (root.connection.enablePushNotifications) {
                                 return i18nc("@info:label", "Notifications can appear even when NeoChat isn't running.");
                             } else {
-                                return i18nc("@info:label", "The configured push distributor does not have a Matrix gateway.");
+                                return i18nc("@info:label", "Your selected push service distributor is not compatible with Matrix. Please contact the server administrator.");
                             }
                         }
                         return ""; // this section would be hidden anyway!
