@@ -820,7 +820,7 @@ void TextHandler::processWithinHTML(QString &buffer, const QString &syntax, cons
     qsizetype beginlinkBlockTag = buffer.indexOf(u"<a href"_s);
     qsizetype endLinkBlockTag = buffer.indexOf(u"</a>"_s, beginCodeBlockTag + 1);
     QRegularExpressionMatch plainLinkMatch;
-    qsizetype plainLink = buffer.indexOf(TextRegex::plainUrl, 0, &plainLinkMatch);
+    qsizetype plainLinkIndex = buffer.indexOf(TextRegex::plainUrl, 0, &plainLinkMatch);
 
     // Index to search from
     qsizetype lastPos = 0;
@@ -850,10 +850,10 @@ void TextHandler::processWithinHTML(QString &buffer, const QString &syntax, cons
 
             continue;
         }
-        if (plainLink != -1 && pos > plainLink && pos < plainLink + plainLinkMatch.capturedLength()) {
-            lastPos = plainLink + plainLinkMatch.capturedLength();
+        if (plainLinkIndex != -1 && pos > plainLinkIndex && pos < plainLinkIndex + plainLinkMatch.capturedLength()) {
+            lastPos = plainLinkIndex + plainLinkMatch.capturedLength();
 
-            plainLink = buffer.indexOf(TextRegex::plainUrl, lastPos, &plainLinkMatch);
+            plainLinkIndex = buffer.indexOf(TextRegex::plainUrl, lastPos, &plainLinkMatch);
             continue;
         }
 
@@ -893,6 +893,8 @@ void TextHandler::processWithinMarkdown(QString &buffer, const QString &syntax, 
 {
     qsizetype beginCodeBlockTag = buffer.indexOf(u"`"_s);
     qsizetype endCodeBlockTag = buffer.indexOf(u"`"_s, beginCodeBlockTag + 1);
+    QRegularExpressionMatch plainLinkMatch;
+    qsizetype plainLinkIndex = buffer.indexOf(TextRegex::plainUrl, 0, &plainLinkMatch);
 
     // Index to search from
     qsizetype lastPos = 0;
@@ -911,6 +913,12 @@ void TextHandler::processWithinMarkdown(QString &buffer, const QString &syntax, 
             beginCodeBlockTag = buffer.indexOf(u"`"_s, lastPos + 1);
             endCodeBlockTag = buffer.indexOf(u"`"_s, beginCodeBlockTag + 1);
 
+            continue;
+        }
+        if (plainLinkIndex != -1 && pos > plainLinkIndex && pos < plainLinkIndex + plainLinkMatch.capturedLength()) {
+            lastPos = plainLinkIndex + plainLinkMatch.capturedLength();
+
+            plainLinkIndex = buffer.indexOf(TextRegex::plainUrl, lastPos, &plainLinkMatch);
             continue;
         }
 
