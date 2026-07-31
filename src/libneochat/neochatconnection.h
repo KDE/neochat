@@ -77,7 +77,7 @@ class NeoChatConnection : public Quotient::Connection
     /**
      * @brief Whether this build of NeoChat supports push notifications via KUnifiedPush.
      */
-    Q_PROPERTY(bool pushNotificationsAvailable READ pushNotificationsAvailable CONSTANT)
+    Q_PROPERTY(bool pushNotificationsAvailable READ pushNotificationsAvailable NOTIFY pushNotificationsAvailableChanged)
 
     /**
      * @brief Whether we successfully set up push notifications with the server.
@@ -293,6 +293,7 @@ Q_SIGNALS:
     void enablePushNotificationsChanged();
     void accountManagementUriChanged();
     void supportsProfileFieldsChanged();
+    void pushNotificationsAvailableChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
@@ -337,6 +338,7 @@ private:
     bool m_canCheckMutualRooms = false;
     bool m_canEraseData = false;
     bool m_pushNotificationsEnabled = false;
+    bool m_pushNotificationsAvailable = false;
     bool m_supportsProfileFields = false;
     QHash<QString, QString> m_profileFields;
     bool m_profileFieldsWriteable = false;

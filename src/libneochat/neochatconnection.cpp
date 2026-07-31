@@ -512,6 +512,15 @@ qsizetype NeoChatConnection::roomInvites() const
 QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
 {
 #ifdef HAVE_KUNIFIEDPUSH
+    if (endpoint.isEmpty()) {
+        m_pushNotificationsAvailable = false;
+        Q_EMIT pushNotificationsAvailableChanged();
+        co_return;
+    }
+
+    m_pushNotificationsAvailable = true;
+    Q_EMIT pushNotificationsAvailableChanged();
+
     QUrl gatewayEndpoint(endpoint);
     gatewayEndpoint.setPath(u"/_matrix/push/v1/notify"_s);
 
@@ -542,6 +551,8 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
     Q_EMIT enablePushNotificationsChanged();
 #else
     Q_UNUSED(endpoint)
+    m_pushNotificationsAvailable = false;
+    Q_EMIT pushNotificationsAvailableChanged();
     co_return;
 #endif
 }
@@ -593,11 +604,7 @@ bool NeoChatConnection::canEraseData() const
 
 bool NeoChatConnection::pushNotificationsAvailable() const
 {
-#ifdef HAVE_KUNIFIEDPUSH
-    return true;
-#else
-    return false;
-#endif
+    return m_pushNotificationsAvailable;
 }
 
 bool NeoChatConnection::enablePushNotifications() const
