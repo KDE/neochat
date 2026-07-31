@@ -870,6 +870,8 @@ void TextHandler::processWithinMarkdown(QString &buffer, const QString &syntax, 
 {
     qsizetype beginCodeBlockTag = buffer.indexOf(u"`"_s);
     qsizetype endCodeBlockTag = buffer.indexOf(u"`"_s, beginCodeBlockTag + 1);
+    QRegularExpressionMatch plainLinkMatch;
+    qsizetype plainLink = buffer.indexOf(TextRegex::plainUrl, 0, &plainLinkMatch);
 
     // Index to search from
     qsizetype lastPos = 0;
@@ -888,6 +890,12 @@ void TextHandler::processWithinMarkdown(QString &buffer, const QString &syntax, 
             beginCodeBlockTag = buffer.indexOf(u"`"_s, lastPos + 1);
             endCodeBlockTag = buffer.indexOf(u"`"_s, beginCodeBlockTag + 1);
 
+            continue;
+        }
+        if (plainLink != -1 && pos > plainLink && pos < plainLink + plainLinkMatch.capturedLength()) {
+            lastPos = plainLink + plainLinkMatch.capturedLength();
+
+            plainLink = buffer.indexOf(TextRegex::plainUrl, lastPos, &plainLinkMatch);
             continue;
         }
 

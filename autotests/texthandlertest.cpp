@@ -397,6 +397,8 @@ void TextHandlerTest::sendPlainLink_data()
     QTest::newRow("double underscore")
         << u"https://bugs.kde.org/buglist.cgi?bug_status=__open__&amp;component=general&amp;list_id=3150863&amp;product=plasma-systemmonitor"_s
         << u"https://bugs.kde.org/buglist.cgi?bug_status=__open__&amp;component=general&amp;list_id=3150863&amp;product=plasma-systemmonitor"_s;
+    QTest::newRow("way too many underscores") << u"https://bugs.kde.org/buglist.cgi?component=General&amp;product=NeoChat&amp;bug_status=__open__"_s
+                                              << u"https://bugs.kde.org/buglist.cgi?component=General&amp;product=NeoChat&amp;bug_status=__open__"_s;
 }
 
 void TextHandlerTest::sendPlainLink()
