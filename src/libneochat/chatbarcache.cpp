@@ -195,21 +195,27 @@ void ChatBarCache::postMessage(const QString &threadRootId)
                 if (!QDir().exists(imageDir)) {
                     QDir().mkdir(imageDir);
                 }
-                filename = u"%1.%3"_s.arg(QDateTime::currentDateTime().toString(u"yyyy-MM-dd-hh-mm-ss"_s), fileExtension);
-                source = QUrl(u"file://%1/%2"_s.arg(imageDir, filename));
+                QString newFilename = u"%1.%3"_s.arg(QDateTime::currentDateTime().toString(u"yyyy-MM-dd-hh-mm-ss"_s), fileExtension);
+                source = QUrl(u"file://%1/%2"_s.arg(imageDir, newFilename));
+                // Only override if the old filename was the actual filename, and not custom text entered by the user.
+                if (imageItem->source.fileName() == m_cache.toString()) {
+                    filename = newFilename;
+                } else {
+                    filename = m_cache.toString();
+                }
                 if (!image.save(source.toLocalFile())) {
                     qCWarning(ChatBar) << "Failed to save optimized image to" << source << "falling back to the actual source file";
                     source = imageItem->source;
-                    filename = imageItem->filename;
+                    filename = m_cache.toString();
                 }
             } else {
                 source = imageItem->source;
-                filename = imageItem->toString();
+                filename = m_cache.toString();
             }
         } else {
             const auto fileCacheItem = dynamic_cast<const Blocks::UrlCacheItem *>(m_cache.at(0));
             source = fileCacheItem->source;
-            filename = fileCacheItem->toString();
+            filename = m_cache.toString();
         }
 
         m_room->uploadFile(source, filename, relatesTo);
