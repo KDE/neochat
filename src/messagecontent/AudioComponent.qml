@@ -32,14 +32,20 @@ ColumnLayout {
      * @brief Whether the media has been downloaded.
      */
     readonly property bool downloaded: block.fileTransferInfo && block.fileTransferInfo.completed
-    onDownloadedChanged:  if (downloaded) {
+    onDownloadedChanged:  if (downloaded && !block.fileTransferInfo.isUpload && userInitiatedDownload) {
         beginPlayback();
+        userInitiatedDownload = false;
     }
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
+
+    /**
+     * @brief Whether the user has initiated the download by pressing the button.
+     */
+    property bool userInitiatedDownload: false
 
     function beginPlayback(): void {
         audio.source = root.block.fileTransferInfo.localPath;
@@ -60,7 +66,10 @@ ColumnLayout {
 
             PropertyChanges {
                 playButton.icon.name: "download"
-                playButton.onClicked: Message.room.downloadFile(root.eventId)
+                playButton.onClicked: {
+                    root.userInitiatedDownload = true;
+                    Message.room.downloadFile(root.eventId);
+                }
             }
         },
         State {
