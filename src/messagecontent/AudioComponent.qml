@@ -32,14 +32,20 @@ ColumnLayout {
      * @brief Whether the media has been downloaded.
      */
     readonly property bool downloaded: block.fileTransferInfo && block.fileTransferInfo.completed
-    onDownloadedChanged: if (downloaded) {
-        audio.play();
+    onDownloadedChanged:  if (downloaded) {
+        beginPlayback();
     }
 
     /**
      * @brief Whether the component should be editable.
      */
     required property bool editable
+
+    function beginPlayback(): void {
+        audio.source = root.block.fileTransferInfo.localPath;
+        MediaManager.startPlayback();
+        audio.play();
+    }
 
     MediaPlayer {
         id: audio
@@ -75,11 +81,7 @@ ColumnLayout {
             when: root.block.fileTransferInfo.completed && (audio.playbackState === MediaPlayer.StoppedState || audio.playbackState === MediaPlayer.PausedState)
             PropertyChanges {
                 playButton.icon.name: "media-playback-start"
-                playButton.onClicked: {
-                    audio.source = root.block.fileTransferInfo.localPath;
-                    MediaManager.startPlayback();
-                    audio.play();
-                }
+                playButton.onClicked: root.beginPlayback()
             }
         },
         State {
