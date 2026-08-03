@@ -44,6 +44,10 @@ Item {
 
     property alias model: core.model
 
+    readonly property alias isEmpty: core.isEmpty
+
+    signal contentChanged
+
     onActiveFocusChanged: if (activeFocus) {
         core.forceActiveFocus();
     }
@@ -83,6 +87,8 @@ Item {
             room: root.currentRoom
             maxAvailableWidth: chatBarSizeHelper.availableWidth
             visible: !root.currentRoom.readOnly
+
+            onContentChanged: root.contentChanged()
         }
         QQC2.Label {
             visible: root.currentRoom.readOnly

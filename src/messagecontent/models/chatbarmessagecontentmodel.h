@@ -86,12 +86,7 @@ class ChatBarMessageContentModel : public MessageContentModel
     /**
      * @brief Whether the model has any content, ideal for checking if there is anything to send.
      */
-    Q_PROPERTY(bool hasAnyContent READ hasAnyContent NOTIFY hasAnyContentChanged)
-
-    /**
-     * @brief Whether to send typing notifications to the server when the content changes.
-     */
-    Q_PROPERTY(bool sendTypingNotifications READ sendTypingNotifications WRITE setSendTypingNotifications)
+    Q_PROPERTY(bool hasAnyContent READ hasAnyContent NOTIFY contentChanged)
 
 public:
     explicit ChatBarMessageContentModel(QObject *parent = nullptr);
@@ -125,9 +120,6 @@ public:
     bool sendMessageWithEnter() const;
     void setSendMessageWithEnter(bool sendMessageWithEnter);
 
-    void setSendTypingNotifications(bool sendTypingNotifications);
-    [[nodiscard]] bool sendTypingNotifications() const;
-
     Q_INVOKABLE void resetModel();
 
     Q_INVOKABLE void postMessage();
@@ -143,7 +135,8 @@ Q_SIGNALS:
     void hasRichFormattingChanged();
     void hasAttachmentChanged();
     void sendMessageWithEnterChanged();
-    void hasAnyContentChanged();
+
+    void contentChanged();
 
 private:
     ChatBarType::Type m_type = ChatBarType::None;
@@ -183,10 +176,6 @@ private:
     void updateCache() const;
 
     bool m_sendMessageWithEnter = true;
-    bool m_sendTypingNotifications = false;
 
     void clearModel();
-
-    QTimer *m_typingTimer;
-    void handleTyping();
 };

@@ -68,12 +68,15 @@
 using namespace Quotient;
 using namespace std::ranges::views;
 
+bool NeoChatRoom::m_typingNotificationActive = true;
+
 std::function<bool(const Quotient::RoomEvent *)> NeoChatRoom::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
     return false;
 };
 
 NeoChatRoom::NeoChatRoom(Connection *c, QString roomId, JoinState joinState)
     : Room(c, std::move(roomId), joinState)
+    , m_typingTimer(new QTimer(this))
 {
     const auto connection = static_cast<NeoChatConnection *>(c);
     Q_ASSERT(connection);
@@ -81,6 +84,9 @@ NeoChatRoom::NeoChatRoom(Connection *c, QString roomId, JoinState joinState)
     m_mainCache = new ChatBarCache(this);
     m_editCache = new ChatBarCache(this);
     m_threadCache = new ChatBarCache(this);
+
+    m_typingTimer->setInterval(std::chrono::milliseconds(5000));
+    m_typingTimer->setSingleShot(true);
 
     connect(connection, &Connection::accountDataChanged, this, &NeoChatRoom::updatePushNotificationState);
     connect(this, &Room::fileTransferCompleted, this, [this] {
@@ -369,11 +375,21 @@ void NeoChatRoom::forget()
     }
 }
 
+void NeoChatRoom::setTypingNotificationsActive(bool typingNotificationActive)
+{
+    m_typingNotificationActive = typingNotificationActive;
+}
+
 void NeoChatRoom::sendTypingNotification(bool isTyping)
 {
     // During the chatbar setup sequence, this may get called while we're still initializing
-    if (localMember().isEmpty()) {
+    if (localMember().isEmpty() || !m_typingNotificationActive || m_typingTimer->isActive() == isTyping) {
         return;
+    }
+    if (!m_typingTimer->isActive() && isTyping) {
+        m_typingTimer->start();
+    } else if (m_typingTimer->isActive() && !isTyping) {
+        m_typingTimer->stop();
     }
     connection()->callApi<SetTypingJob>(BackgroundRequest, localMember().id(), id(), isTyping, 10000);
 }

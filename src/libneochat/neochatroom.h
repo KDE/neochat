@@ -741,6 +741,8 @@ public:
      */
     Q_INVOKABLE QString forwardMessage(NeoChatRoom *targetRoom, const QString &eventId);
 
+    static void setTypingNotificationsActive(bool typingNotificationActive);
+
 private:
     bool m_visible = false;
 
@@ -777,6 +779,9 @@ private:
 
     QString m_lastUnreadHighlightId;
     QList<QString> m_sortedMemberIds;
+
+    static bool m_typingNotificationActive;
+    QTimer *m_typingTimer;
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);

@@ -33,12 +33,8 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
     : MessageContentModel(parent)
     , m_markdownHelper(new ChatMarkdownHelper(this))
     , m_keyHelper(new ChatKeyHelper(this))
-    , m_typingTimer(new QTimer(this))
 {
     m_editableActive = true;
-
-    m_typingTimer->setInterval(std::chrono::milliseconds(5000));
-    m_typingTimer->setSingleShot(true);
 
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this](NeoChatRoom *oldRoom) {
         if (m_type == ChatBarType::None || !m_room) {
@@ -82,9 +78,9 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
         initializeFromCache();
     });
     connect(m_markdownHelper, &ChatMarkdownHelper::unhandledBlockFormat, this, &ChatBarMessageContentModel::insertStyleAtCursor);
-    connect(this, &ChatBarMessageContentModel::modelReset, this, &ChatBarMessageContentModel::hasAnyContentChanged);
-    connect(this, &ChatBarMessageContentModel::rowsInserted, this, &ChatBarMessageContentModel::hasAnyContentChanged);
-    connect(this, &ChatBarMessageContentModel::rowsRemoved, this, &ChatBarMessageContentModel::hasAnyContentChanged);
+    connect(this, &ChatBarMessageContentModel::modelReset, this, &ChatBarMessageContentModel::contentChanged);
+    connect(this, &ChatBarMessageContentModel::rowsInserted, this, &ChatBarMessageContentModel::contentChanged);
+    connect(this, &ChatBarMessageContentModel::rowsRemoved, this, &ChatBarMessageContentModel::contentChanged);
 
     connectCache();
     connectKeyHelper();
@@ -397,8 +393,7 @@ void ChatBarMessageContentModel::connectTextItem(ChatTextItemHelper *chattextite
     connect(chattextitemhelper, &ChatTextItemHelper::cleared, this, [this](ChatTextItemHelper *helper) {
         removeComponent(helper);
     });
-    connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::hasAnyContentChanged);
-    connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::handleTyping);
+    connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::contentChanged);
 }
 
 ChatTextItemHelper *ChatBarMessageContentModel::textItemForComponent(Blocks::Block *component) const
@@ -724,15 +719,6 @@ void ChatBarMessageContentModel::setSendMessageWithEnter(bool sendMessageWithEnt
     Q_EMIT sendMessageWithEnterChanged();
 }
 
-void ChatBarMessageContentModel::setSendTypingNotifications(bool sendTypingNotifications)
-{
-    m_sendTypingNotifications = sendTypingNotifications;
-    if (!m_sendTypingNotifications && m_typingTimer->isActive()) {
-        m_typingTimer->stop();
-        m_room->sendTypingNotification(false);
-    }
-}
-
 Blocks::BlockPtrsIt ChatBarMessageContentModel::removeComponent(Blocks::BlockPtrsIt it)
 {
     if (it == m_components.end()) {
@@ -908,26 +894,6 @@ void ChatBarMessageContentModel::clearModel()
     if (hadAttachment) {
         Q_EMIT hasAttachmentChanged();
     }
-}
-
-void ChatBarMessageContentModel::handleTyping()
-{
-    if (m_type == ChatBarType::None || !m_room || !m_sendTypingNotifications) {
-        return;
-    }
-
-    if (!m_typingTimer->isActive() && hasAnyContent()) {
-        m_typingTimer->start();
-        m_room->sendTypingNotification(true);
-    } else if (m_typingTimer->isActive() && !hasAnyContent()) {
-        m_typingTimer->stop();
-        m_room->sendTypingNotification(false);
-    }
-}
-
-bool ChatBarMessageContentModel::sendTypingNotifications() const
-{
-    return m_sendTypingNotifications;
 }
 
 #include "moc_chatbarmessagecontentmodel.cpp"

@@ -312,6 +312,8 @@ Kirigami.Page {
             width: parent.width
             currentRoom: root.currentRoom
 
+            onContentChanged: root.currentRoom.sendTypingNotification(!isEmpty)
+
             // Creating a reply (or doing anything in the chat bar) can change the height, but this isn't picked up on the root's onHeightChanged.
             onHeightChanged: root.resetViewSettling()
         }

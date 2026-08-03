@@ -92,6 +92,10 @@ RoomManager::RoomManager(QObject *parent)
         m_roomListModel->setConnection(m_connection);
         m_roomTreeModel->setConnection(m_connection);
     });
+    NeoChatRoom::setTypingNotificationsActive(NeoChatConfig::self()->typingNotifications());
+    connect(NeoChatConfig::self(), &NeoChatConfig::TypingNotificationsChanged, this, [] {
+        NeoChatRoom::setTypingNotificationsActive(NeoChatConfig::self()->typingNotifications());
+    });
     connect(m_sortFilterSpaceListModel, &SortFilterSpaceListModel::layoutChanged, m_sortFilterRoomTreeModel, &SortFilterRoomTreeModel::invalidate);
     connect(&ActionsModel::instance(), &ActionsModel::resolveResource, this, [this](const QString &idOrUri, const QString &action) {
         resolveResource(idOrUri, action);

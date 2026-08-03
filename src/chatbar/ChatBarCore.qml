@@ -30,8 +30,13 @@ QQC2.Control {
         threadRootId: root.threadRootId
         room: root.room
         sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
-        sendTypingNotifications: NeoChatConfig.typingNotifications
+
+        onContentChanged: root.contentChanged()
     }
+
+    readonly property bool isEmpty: !model.hasAnyContent
+
+    signal contentChanged
 
     signal cancel
 
