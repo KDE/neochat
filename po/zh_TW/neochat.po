@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-30 00:44+0000\n"
-"PO-Revision-Date: 2026-07-22 01:46+0900\n"
+"PO-Revision-Date: 2026-08-04 08:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -629,11 +629,10 @@ msgid "Waiting for device to accept verification."
 msgstr "正在等待裝置接收驗證。"
 
 #: src/app/qml/KeyVerificationDialog.qml:182
-#, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#, kde-format
 msgctxt "@info:label Encryption device verification"
 msgid "Waiting for a device to respond to our verification request."
-msgstr "正在等待裝置接收驗證。"
+msgstr "正在等待裝置回應我們的驗證請求。"
 
 #: src/app/qml/KeyVerificationDialog.qml:185
 #: src/app/qml/OlmKeyVerificationDialog.qml:153
@@ -1302,16 +1301,13 @@ msgid "Account Details"
 msgstr "帳號詳細資訊"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgid "Open NeoChat"
+#, kde-format
 msgctxt "@action:intoolbar Open existing direct message"
 msgid "Open Chat"
-msgstr "開啟 NeoChat"
+msgstr "開啟聊天"
 
 #: src/app/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Start Chat"
 msgstr "開始私人聊天"
@@ -1791,15 +1787,13 @@ msgid "Stickers"
 msgstr "貼圖"
 
 #: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@window:title"
 msgid "Edit Image"
-msgstr "設定影像"
+msgstr "編輯影像"
 
 #: src/chatbar/ImageEditorPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Save"
 msgstr "儲存"
@@ -4227,25 +4221,22 @@ msgid "Hide Image"
 msgstr "隱藏影像"
 
 #: src/messagecontent/ImageComponent.qml:90
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Optimize Image"
-msgstr "開啟影像"
+msgstr "最佳化影像"
 
 #: src/messagecontent/ImageComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit Image"
-msgstr "設定影像"
+msgstr "編輯影像"
 
 #: src/messagecontent/ImageComponent.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
-msgstr "設定影像"
+msgstr "顯示影像"
 
 #: src/messagecontent/ItineraryComponent.qml:54
 #, kde-format
@@ -5691,64 +5682,52 @@ msgid "Notifications"
 msgstr "通知"
 
 #: src/settings/GlobalNotificationsPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Enable notifications for this account"
+#, kde-format
 msgctxt "@option:check Whether notifications are enabled for this account"
 msgid "Enabled for this account"
-msgstr "為這個帳號啟用通知"
+msgstr "為這個帳號啟用"
 
 #: src/settings/GlobalNotificationsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Notification State"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Notifications Disabled"
-msgstr "通知狀態"
+msgstr "通知已停用"
 
 #: src/settings/GlobalNotificationsPage.qml:57
-#, fuzzy, kde-format
-#| msgid "Enable notifications for this account"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable notifications for this device"
-msgstr "為這個帳號啟用通知"
+msgstr "為這個裝置啟用通知"
 
 #: src/settings/GlobalNotificationsPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure System Notifications…"
-msgstr "設定網頁捷徑…"
+msgstr "設定系統通知…"
 
 #: src/settings/GlobalNotificationsPage.qml:79
-#, fuzzy, kde-format
-#| msgid "No Notifications"
+#, kde-format
 msgctxt "@title:group Background/push notifications"
 msgid "Background Notifications"
-msgstr "沒有通知"
+msgstr "背景通知"
 
 #: src/settings/GlobalNotificationsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Notifications can appear even when NeoChat isn't running."
+#, kde-format
 msgctxt "@info:label"
 msgid "Notifications can appear even when NeoChat isn't running."
 msgstr "通知能在 NeoChat 未執行時出現。"
 
 #: src/settings/GlobalNotificationsPage.qml:105
-#, fuzzy, kde-format
-#| msgid ""
-#| "Push notifications are available, but the push distributor does not have "
-#| "a Matrix gateway."
+#, kde-format
 msgctxt "@info:label"
 msgid "The configured push distributor does not have a Matrix gateway."
-msgstr "有推送通知可用，但推送散佈者沒有 Matrix 閘道。"
+msgstr "設定的通知散佈者沒有 Matrix 閘道。"
 
 #: src/settings/GlobalNotificationsPage.qml:125
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Background Notifications…"
-msgstr "設定網頁捷徑…"
+msgstr "設定背景通知…"
 
 #: src/settings/GlobalNotificationsPage.qml:133
 #, kde-format
@@ -5767,12 +5746,10 @@ msgstr ""
 "己的通知設定。"
 
 #: src/settings/GlobalNotificationsPage.qml:173
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group Mention notifications"
 msgid "Mentions"
-msgstr "@Mention 提及"
+msgstr "提及"
 
 #: src/settings/GlobalNotificationsPage.qml:193
 #: src/settings/PushNotification.qml:69
