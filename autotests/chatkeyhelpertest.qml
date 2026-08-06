@@ -466,4 +466,11 @@ TestCase {
             compare(Clipboard.richText(Clipboard.Raw), "<strong>test</strong>");
         }
     }
+
+    function test_deleteSelected(): void {
+        textEdit.insert(0, "foo");
+        textEdit.select(3, 0);
+        keyClick(Qt.Key_Backspace);
+        compare(textEdit.length, 0);
+    }
 }
