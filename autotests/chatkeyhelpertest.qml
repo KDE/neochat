@@ -453,4 +453,11 @@ TestCase {
         compare(textEdit.selectionEnd, 12);
         compare(textEdit.selectedText, "");
     }
+
+    function test_deleteSelected(): void {
+        textEdit.insert(0, "foo");
+        textEdit.select(3, 0);
+        keyClick(Qt.Key_Backspace);
+        compare(textEdit.length, 0);
+    }
 }
