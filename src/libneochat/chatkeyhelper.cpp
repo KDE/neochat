@@ -228,7 +228,7 @@ bool ChatKeyHelper::backspace()
     }
 
     QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
+    if (cursor.isNull() || cursor.hasSelection()) {
         return false;
     }
     if (cursor.blockFormat().headingLevel() > 0 && m_textItem->plainText().length() <= m_textItem->fixedStartChars().length() + 1) {
