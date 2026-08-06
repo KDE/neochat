@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:45+0000\n"
+"POT-Creation-Date: 2026-08-06 00:44+0000\n"
 "PO-Revision-Date: 2026-05-10 15:11+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -1111,13 +1111,13 @@ msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "தொடங்க, அரங்கைத் தேர்ந்தெடுக்கவும் அல்லது ஒன்றில் செரவும்"
 
-#: src/app/qml/RoomPage.qml:344
+#: src/app/qml/RoomPage.qml:346
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. பிணைய இணைப்பை சரிபார்க்கவும்."
 
-#: src/app/qml/RoomPage.qml:376
+#: src/app/qml/RoomPage.qml:378
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1730,24 +1730,24 @@ msgstr "சாவிகள் பொருந்தாமையால் தொ�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "தெரியாத சிக்கலால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/app/roommanager.cpp:241
+#: src/app/roommanager.cpp:245
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "முறையற்ற அல்லது காலியான மேட்ரிக்ஸு அடையாளம்<br />%1 ஒரு முறையான மேட்ரிக்ஸு "
 "கணக்குப்பெயர் அல்ல"
 
-#: src/app/roommanager.cpp:459
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "%1 தனில் நுழைவது தோல்வியடைந்தது:<br />%2"
 
-#: src/app/roommanager.cpp:483
+#: src/app/roommanager.cpp:487
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/app/roommanager.cpp:487
+#: src/app/roommanager.cpp:491
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது<br />%1"
@@ -1762,25 +1762,25 @@ msgstr "காட்டு"
 msgid "Quit"
 msgstr "வெளியேறு"
 
-#: src/chatbar/ChatBar.qml:89
+#: src/chatbar/ChatBar.qml:95
 #, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "இந்த அரங்கிற்கு அஞ்சலனுப்பும் உரிமை உங்களிடம் இல்லை"
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:202
+#: src/chatbar/ChatBar.qml:123 src/chatbar/SendBar.qml:202
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Enter புதிய வரியை தவுக்கும்"
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:202
+#: src/chatbar/ChatBar.qml:123 src/chatbar/SendBar.qml:202
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Enter செய்தியை அனுப்பும்"
 
-#: src/chatbar/ChatBarCore.qml:97
+#: src/chatbar/ChatBarCore.qml:102
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Emojis & Stickers"
@@ -3688,18 +3688,18 @@ msgstr "அரங்கு உருவாக்கம் தோல்விய�
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/libneochat/neochatroom.cpp:1286
+#: src/libneochat/neochatroom.cpp:1302
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/libneochat/neochatroom.cpp:1647 src/libneochat/neochatroom.cpp:1667
+#: src/libneochat/neochatroom.cpp:1663 src/libneochat/neochatroom.cpp:1683
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "அட்ச: %1, தீர்க்க: %2"
 
-#: src/libneochat/neochatroom.cpp:1651
+#: src/libneochat/neochatroom.cpp:1667
 #, fuzzy, kde-format
 #| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 #| msgid "Lat: %1, Lon: %2"
@@ -4398,14 +4398,14 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "முழுத்திரை முறையில் திற"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:495
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 #| msgid "Unpin"
 msgid "pin"
 msgstr "தக்கவைக்கவேண்டாம்"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:495
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:45+0000\n"
+"POT-Creation-Date: 2026-08-06 00:44+0000\n"
 "PO-Revision-Date: 2026-08-04 08:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1102,7 +1102,7 @@ msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "先加入或選擇聊天室吧"
 
-#: src/app/qml/RoomPage.qml:344
+#: src/app/qml/RoomPage.qml:346
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
@@ -1111,7 +1111,7 @@ msgstr "NeoChat 目前為離線狀態。請檢查您的網路連線。"
 # sourceText: root.currentRoom.getEventJsonSource(eventId)
 # 應該確實是原始碼吧
 # --Kisaragi
-#: src/app/qml/RoomPage.qml:376
+#: src/app/qml/RoomPage.qml:378
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1709,22 +1709,22 @@ msgstr "遠端由於雙方金鑰不相符而取消了工作階段驗證。"
 msgid "The session verification was canceled due to an unknown error."
 msgstr "工作階段驗證由於不明錯誤而取消。"
 
-#: src/app/roommanager.cpp:241
+#: src/app/roommanager.cpp:245
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "格式不正確或空白的 Matrix ID<br />%1 不是一個正確的 Matrix ID"
 
-#: src/app/roommanager.cpp:459
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "加入 %1 失敗：<br />%2"
 
-#: src/app/roommanager.cpp:483
+#: src/app/roommanager.cpp:487
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
-#: src/app/roommanager.cpp:487
+#: src/app/roommanager.cpp:491
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "請求加入聊天室失敗<br />%1"
@@ -1739,25 +1739,25 @@ msgstr "顯示"
 msgid "Quit"
 msgstr "離開"
 
-#: src/chatbar/ChatBar.qml:89
+#: src/chatbar/ChatBar.qml:95
 #, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "您沒有權限在此聊天室傳送訊息。"
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:202
+#: src/chatbar/ChatBar.qml:123 src/chatbar/SendBar.qml:202
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "用 Enter 鍵換行"
 
-#: src/chatbar/ChatBar.qml:117 src/chatbar/SendBar.qml:202
+#: src/chatbar/ChatBar.qml:123 src/chatbar/SendBar.qml:202
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "用 Enter 鍵傳送訊息"
 
-#: src/chatbar/ChatBarCore.qml:97
+#: src/chatbar/ChatBarCore.qml:102
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "表情符號與貼圖"
@@ -3602,18 +3602,18 @@ msgstr "聊天室建立失敗：%1"
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
 
-#: src/libneochat/neochatroom.cpp:1286
+#: src/libneochat/neochatroom.cpp:1302
 #, kde-format
 msgid "Report sent successfully."
 msgstr "已成功傳送檢舉"
 
-#: src/libneochat/neochatroom.cpp:1647 src/libneochat/neochatroom.cpp:1667
+#: src/libneochat/neochatroom.cpp:1663 src/libneochat/neochatroom.cpp:1683
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "緯度：%2，經度：%1"
 
-#: src/libneochat/neochatroom.cpp:1651
+#: src/libneochat/neochatroom.cpp:1667
 #, kde-format
 msgctxt ""
 "%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' "
@@ -4286,12 +4286,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "開啟全螢幕"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:495
 #, kde-format
 msgid "pin"
 msgstr "釘選"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:500
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:495
 #, kde-format
 msgid "location"
 msgstr "位置"
