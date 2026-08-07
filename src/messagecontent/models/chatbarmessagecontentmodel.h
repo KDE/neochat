@@ -89,8 +89,8 @@ class ChatBarMessageContentModel : public MessageContentModel
     Q_PROPERTY(bool hasAnyContent READ hasAnyContent NOTIFY contentChanged)
 
 public:
-    enum ClearModelOptions {
-        None = 0,
+    enum class ClearModelOptions {
+        RemoveReply = 0,
         KeepReply = 1,
     };
     Q_ENUM(ClearModelOptions);
@@ -182,5 +182,5 @@ private:
 
     bool m_sendMessageWithEnter = true;
 
-    void clearModel(ClearModelOptions options = None);
+    void clearModel(ClearModelOptions options = ClearModelOptions::RemoveReply);
 };
