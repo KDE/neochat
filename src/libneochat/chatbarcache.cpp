@@ -175,10 +175,10 @@ void ChatBarCache::postMessage(const QString &threadRootId)
         relatesTo = Quotient::EventRelation::replyTo(replyId);
     }
 
-    if (Blocks::isFileType(m_cache.at(0)->type)) {
+    if (Blocks::isFileType(m_cache.at(isReply ? 1 : 0)->type)) {
         QUrl source;
         QString filename;
-        if (const auto imageItem = dynamic_cast<const Blocks::ImageCacheItem *>(m_cache.at(0)); imageItem != nullptr) {
+        if (const auto imageItem = dynamic_cast<const Blocks::ImageCacheItem *>(m_cache.at(isReply ? 1 : 0)); imageItem != nullptr) {
             if (imageItem->optimize) {
                 QImage image(imageItem->source.toLocalFile());
 

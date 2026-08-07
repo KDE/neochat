@@ -427,7 +427,7 @@ QModelIndex ChatBarMessageContentModel::indexForTextItem(ChatTextItemHelper *tex
 bool ChatBarMessageContentModel::hasRichFormatting() const
 {
     return std::ranges::any_of(m_components, [this](Blocks::Block *component) {
-        if (component->type() != Blocks::Text) {
+        if (component->type() != Blocks::Text && component->type() != Blocks::Reply) {
             return true;
         }
         if (const auto textItem = textItemForComponent(component)) {
@@ -457,7 +457,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
         }
     }
 
-    clearModel();
+    clearModel(KeepReply);
     initializeModel(plainText);
 
     auto it = insertComponent(m_components.front()->type() == Blocks::Reply ? 1 : 0, blockForFile(path));
@@ -877,7 +877,7 @@ bool ChatBarMessageContentModel::hasAnyContent() const
     return true;
 }
 
-void ChatBarMessageContentModel::clearModel()
+void ChatBarMessageContentModel::clearModel(ClearModelOptions options)
 {
     const auto hadAttachment = hasComponentType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video});
 
@@ -888,7 +888,9 @@ void ChatBarMessageContentModel::clearModel()
             textItem->deleteLater();
         }
     }
-    m_components.clear();
+    std::erase_if(m_components, [options](const auto &component) {
+        return component->type() != Blocks::Reply || !(options & KeepReply);
+    });
     endResetModel();
 
     if (hadAttachment) {
