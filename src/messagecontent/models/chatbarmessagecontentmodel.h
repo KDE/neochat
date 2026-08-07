@@ -89,6 +89,11 @@ class ChatBarMessageContentModel : public MessageContentModel
     Q_PROPERTY(bool hasAnyContent READ hasAnyContent NOTIFY contentChanged)
 
 public:
+    enum ClearModelOptions {
+        None = 0,
+        KeepReply = 1,
+    };
+    Q_ENUM(ClearModelOptions);
     explicit ChatBarMessageContentModel(QObject *parent = nullptr);
 
     ChatBarType::Type type() const;
@@ -177,5 +182,5 @@ private:
 
     bool m_sendMessageWithEnter = true;
 
-    void clearModel();
+    void clearModel(ClearModelOptions options = None);
 };
