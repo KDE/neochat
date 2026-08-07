@@ -457,7 +457,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
         }
     }
 
-    clearModel(KeepReply);
+    clearModel(ClearModelOptions::KeepReply);
     initializeModel(plainText);
 
     auto it = insertComponent(m_components.front()->type() == Blocks::Reply ? 1 : 0, blockForFile(path));
@@ -889,7 +889,7 @@ void ChatBarMessageContentModel::clearModel(ClearModelOptions options)
         }
     }
     std::erase_if(m_components, [options](const auto &component) {
-        return component->type() != Blocks::Reply || !(options & KeepReply);
+        return component->type() != Blocks::Reply || options == ClearModelOptions::RemoveReply;
     });
     endResetModel();
 

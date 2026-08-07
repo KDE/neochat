@@ -31,6 +31,7 @@ private Q_SLOTS:
 
     void missingEvent();
     void addLocationTest();
+    void addAttachmentToReply();
 };
 
 void ChatBarMessageContentModelTest::checkEmptyChatbar(const ChatBarMessageContentModel &model)
@@ -43,7 +44,7 @@ void ChatBarMessageContentModelTest::checkEmptyChatbar(const ChatBarMessageConte
 void ChatBarMessageContentModelTest::initTestCase()
 {
     connection = std::make_unique<NeoChatConnection>();
-    room = std::make_unique<TestUtils::TestRoom>(connection.get(), u"#firstRoom:kde.org"_s);
+    room = std::make_unique<TestUtils::TestRoom>(connection.get(), u"#firstRoom:kde.org"_s, u"test-messageventmodel-sync.json"_s);
 }
 
 void ChatBarMessageContentModelTest::missingEvent()
@@ -71,6 +72,19 @@ void ChatBarMessageContentModelTest::addLocationTest()
 
     model.removeAttachment();
     checkEmptyChatbar(model);
+}
+
+void ChatBarMessageContentModelTest::addAttachmentToReply()
+{
+    auto model = ChatBarMessageContentModel(this);
+    model.setType(ChatBarType::Room);
+    model.setRoom(room.get());
+    QCOMPARE(model.rowCount(), 1);
+    QVERIFY(room->timelineSize() > 0);
+    model.addReply(room->messageEvents()[0].event()->id());
+    QCOMPARE(model.rowCount(), 2);
+    model.addAttachment(QUrl(QString::fromUtf8(__FILE__)));
+    QCOMPARE(model.rowCount(), 3);
 }
 
 QTEST_MAIN(ChatBarMessageContentModelTest)
