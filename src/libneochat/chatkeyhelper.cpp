@@ -10,6 +10,7 @@
 #include "clipboard.h"
 #include "neochatroom.h"
 #include "richformat.h"
+#include "texthandler.h"
 
 bool ChatKeyHelper::richTextActive = true;
 
@@ -89,20 +90,7 @@ bool ChatKeyHelper::xKey(Qt::KeyboardModifiers modifiers)
     if (!m_textItem || !modifiers.testFlag(Qt::ControlModifier)) {
         return false;
     }
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
-        return false;
-    }
-    if (cursor.selectionStart() == 0 && cursor.selectionEnd() == cursor.document()->characterCount() - 1) {
-        m_textItem->cut();
-        if (cursor.currentList()) {
-            QTextBlockFormat blockFormat;
-            blockFormat.setObjectIndex(-1);
-            cursor.setBlockFormat(blockFormat);
-        }
-        return true;
-    }
-    return false;
+    return cutText();
 }
 
 bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
@@ -304,6 +292,31 @@ bool ChatKeyHelper::cancel()
         Q_EMIT closeCompletion();
         return true;
     }
+    return false;
+}
+
+bool ChatKeyHelper::cutText()
+{
+    QTextCursor cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    auto selectionMarkdown = cursor.selection().toMarkdown();
+    cursor.removeSelectedText();
+    TextHandler().markdownToHtml(selectionMarkdown);
+    auto mimeData = new QMimeData; // ownership is transferred to clipboard
+    selectionMarkdown == cursor.selection().toMarkdown() ? mimeData->setText(selectionMarkdown) : mimeData->setHtml(selectionMarkdown);
+    Clipboard().setMimeData(mimeData);
+
+    if (cursor.selectionStart() == 0 && cursor.selectionEnd() == cursor.document()->characterCount() - 1) {
+        if (cursor.currentList()) {
+            QTextBlockFormat blockFormat;
+            blockFormat.setObjectIndex(-1);
+            cursor.setBlockFormat(blockFormat);
+        }
+        return true;
+    }
+
     return false;
 }
 

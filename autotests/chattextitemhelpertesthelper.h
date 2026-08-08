@@ -65,7 +65,8 @@ public:
         return m_textItem->takeFirstBlock().toPlainText();
     }
 
-    Q_INVOKABLE bool check2Fragments(const QString &before, const QString &after, bool splitAtCursor, const QString &fixedStart, const QString &fixedEnd)
+    Q_INVOKABLE bool
+    check2Fragments(const QString &before, const QString &after, ChatTextItemHelper::Position position, const QString &fixedStart, const QString &fixedEnd)
     {
         if (!m_textItem) {
             return false;
@@ -73,11 +74,12 @@ public:
 
         bool hasBefore = false;
         std::optional<QTextDocumentFragment> afterFragment = std::nullopt;
-        m_textItem->fill2Fragments(hasBefore, afterFragment, splitAtCursor);
+        m_textItem->fill2Fragments(hasBefore, afterFragment, position);
 
         const auto trimmedBefore =
             m_textItem->document()->toPlainText().mid(fixedStart.length(),
                                                       m_textItem->document()->toPlainText().length() - fixedStart.length() - fixedEnd.length());
+        qWarning() << hasBefore << trimmedBefore << (after.isEmpty() ? !afterFragment : (afterFragment && afterFragment->toPlainText() == after));
         return hasBefore == !before.isEmpty() && trimmedBefore == before && after.isEmpty() ? !afterFragment
                                                                                             : (afterFragment && afterFragment->toPlainText() == after);
     }
@@ -101,7 +103,7 @@ public:
             : (afterFragment && afterFragment->toPlainText() == after);
     }
 
-    Q_INVOKABLE void insertFragment(const QString &text, ChatTextItemHelper::InsertPosition position = ChatTextItemHelper::Cursor, bool keepPosition = false)
+    Q_INVOKABLE void insertFragment(const QString &text, ChatTextItemHelper::Position position = ChatTextItemHelper::Cursor, bool keepPosition = false)
     {
         if (!m_textItem) {
             return;

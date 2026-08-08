@@ -50,7 +50,14 @@ public:
     /**
      * @brief Transform the given markdown string to HTML.
      */
-    [[nodiscard]] static QString markdownToHtml(QString string);
+    static void markdownToHtml(QString &string);
+
+    /**
+     * @brief Clean any html within the given string.
+     *
+     * This removes any invalid tags or attributes for matrix.
+     */
+    static QString cleanHtml(QString string);
 
     /**
      * @brief Handle the text for a message that is being sent.
@@ -127,8 +134,8 @@ private:
     Type m_nextTokenType = Text;
     QString m_nextToken;
 
-    void next();
-    Type nextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType) const;
+    static QString next(const QString &string, Type nextTokenType, int &pos);
+    static Type getNextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType);
 
     int nextBlockPos(const QString &string);
     Blocks::Block *nextBlock(const QString &string,
@@ -141,19 +148,19 @@ private:
                                QObject *parent = nullptr);
     QString stripBlockTags(QString string, const QString &tagType) const;
 
-    QString getTagType(const QString &tagToken) const;
-    bool isCloseTag(const QString &tagToken) const;
-    QString getAttributeType(const QString &string);
-    QString getAttributeData(const QString &string, bool stripQuotes = false);
-    bool isAllowedTag(const QString &type);
-    bool isAllowedAttribute(const QString &tag, const QString &attribute);
-    bool isAllowedLink(const QString &link, bool isImg = false);
-    QString cleanAttributes(const QString &tag, const QString &tagString, bool addStyle = false, bool spoilerRevealed = false);
-    QString addStyle(const QString &tag, QString cleanTagString, bool spoilerRevealed = false);
+    static QString getTagType(const QString &tagToken);
+    static bool isCloseTag(const QString &tagToken);
+    static QString getAttributeType(const QString &string);
+    static QString getAttributeData(const QString &string, bool stripQuotes = false);
+    static bool isAllowedTag(const QString &type);
+    static bool isAllowedAttribute(const QString &tag, const QString &attribute);
+    static bool isAllowedLink(const QString &link, bool isImg = false);
+    static QString cleanAttributes(const QString &tag, const QString &tagString);
+    QString addStyleToText(const QString &tag, QString cleanTagString, bool spoilerRevealed = false);
     QVariantMap getAttributes(const QString &tag, const QString &tagString);
 
     static QString cmarkdownToHtml(const QString &markdown);
-    QString escapeHtml(QString stringIn);
+    static QString escapeHtml(QString stringIn);
     QString unescapeHtml(QString stringIn);
     QString linkifyUrls(QString stringIn);
     static QString customMarkdownToHtml(const QString &stringIn);
