@@ -57,9 +57,9 @@ RowLayout {
             title: attachmentButton.text,
             subtitle: i18nc("@Warning: that any rich text in the chat bar will be switched for the plain text equivalent.", "Attachments can only have plain text captions, all rich formatting will be removed"),
             standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
-        });
+        }) as Kirigami.Dialog;
         warningDialog.onAccepted.connect(() => {
-            attachmentButton.fileDialog();
+            fileDialog();
         });
         warningDialog.open();
     }
