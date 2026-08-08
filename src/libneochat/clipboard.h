@@ -79,8 +79,10 @@ public:
      *
      * Returns an empty string if the clipboard is empty or has no text.
      *
-     * If clipboard contains plain text with markdown formatting it will be converted
-     * to rich text.
+     * @param mode defines how the clipboard text is handled if it is not rich text.
+     *                 - Raw - anything in the clipboard without the mimetype text/html is ignored.
+     *                 - PlainToRich - any text/plain is made suitable for placing in a rich text item.
+     *                 - ConvertMarkdown - any text/plain is treated as markdown to convert to rich text.
      */
     Q_INVOKABLE [[nodiscard]] QString richText(PasteMode mode) const;
 

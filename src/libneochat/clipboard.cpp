@@ -88,9 +88,11 @@ QString Clipboard::richText(PasteMode mode) const
 {
     const auto mimeData = m_clipboard->mimeData();
     if (mimeData->hasHtml()) {
-        return mimeData->html();
+        qWarning() << TextHandler::cleanHtml(mimeData->html());
+        return TextHandler::cleanHtml(mimeData->html());
     } else if (mimeData->hasText() && mode == PasteMode::ConvertMarkdown) {
-        auto richText = TextHandler::markdownToHtml(mimeData->text());
+        auto richText = mimeData->text();
+        TextHandler::markdownToHtml(richText);
         if (richText.count("<p>"_L1) == 1 && richText.count("</p>"_L1) == 1 && richText.startsWith("<p>"_L1) && richText.endsWith("</p>"_L1)) {
             richText.remove("<p>"_L1);
             richText.remove("</p>"_L1);

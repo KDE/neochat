@@ -223,19 +223,30 @@ QTextDocumentFragment ChatTextItemHelper::takeFirstBlock()
     return block;
 }
 
-void ChatTextItemHelper::fill2Fragments(bool &hasBefore, std::optional<QTextDocumentFragment> &afterFragment, bool splitAtCursor)
+void ChatTextItemHelper::fill2Fragments(bool &hasBefore, std::optional<QTextDocumentFragment> &afterFragment, Position position)
 {
     auto cursor = textCursor();
     if (cursor.isNull()) {
         return;
     }
 
-    hasBefore = cursor.position() > m_fixedStartChars.length();
-    if (!splitAtCursor && hasBefore) {
+    switch (position) {
+    case Start:
+        hasBefore = cursor.blockNumber() != 0;
+        cursor.movePosition(QTextCursor::StartOfBlock);
+        if (!hasBefore) {
+            cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::MoveAnchor, m_fixedStartChars.length());
+        }
+        break;
+    case End:
+        hasBefore = true;
         cursor.movePosition(QTextCursor::EndOfBlock);
         if (cursor.blockNumber() == document()->blockCount() - 1) {
             cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::MoveAnchor, m_fixedEndChars.length());
         }
+        break;
+    default:
+        hasBefore = cursor.position() > m_fixedStartChars.length();
     }
 
     if (cursor.position() == document()->characterCount() - m_fixedEndChars.length() - 1) {
@@ -301,7 +312,7 @@ void ChatTextItemHelper::fill3Fragments(bool &hasBefore, std::optional<QTextDocu
     cursor.endEditBlock();
 }
 
-void ChatTextItemHelper::insertFragment(const QTextDocumentFragment fragment, InsertPosition position, bool keepPosition)
+void ChatTextItemHelper::insertFragment(const QTextDocumentFragment fragment, Position position, bool keepPosition)
 {
     auto cursor = textCursor();
     if (cursor.isNull()) {
