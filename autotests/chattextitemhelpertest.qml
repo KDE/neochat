@@ -158,18 +158,24 @@ TestCase {
 
     function test_fill2Fragments_data() {
         return [
-            {tag: "start cursor", before: "before ", after: "fragment\nmid fragment\nafter fragment", splitAtCursor: true, cursorPos: 7, fixedStart: "", fixedEnd: ""},
-            {tag: "start block", before: "before fragment", after: "mid fragment\nafter fragment", splitAtCursor: false, cursorPos: 7, fixedStart: "", fixedEnd: ""},
-            {tag: "mid cursor", before: "before fragment\nmid ", after: "fragment\nafter fragment", splitAtCursor: true, cursorPos: 20, fixedStart: "", fixedEnd: ""},
-            {tag: "mid block", before: "before fragment\nmid fragment", after: "after fragment", splitAtCursor: false, cursorPos: 20, fixedStart: "", fixedEnd: ""},
-            {tag: "end cursor", before: "before fragment\nmid fragment\nafter ", after: "fragment", splitAtCursor: true, cursorPos: 35, fixedStart: "", fixedEnd: ""},
-            {tag: "end block", before: "before fragment\nmid fragment\nafter fragment", after: "", splitAtCursor: false, cursorPos: 35, fixedStart: "", fixedEnd: ""},
-            {tag: "start cursor fixed", before: "before ", after: "fragment\nmid fragment\nafter fragment", splitAtCursor: true, cursorPos: 8, fixedStart: "1", fixedEnd: "2"},
-            {tag: "start block fixed", before: "before fragment", after: "mid fragment\nafter fragment", splitAtCursor: false, cursorPos: 8, fixedStart: "1", fixedEnd: "2"},
-            {tag: "mid cursor fixed", before: "before fragment\nmid ", after: "fragment\nafter fragment", splitAtCursor: true, cursorPos: 21, fixedStart: "1", fixedEnd: "2"},
-            {tag: "mid block fixed", before: "before fragment\nmid fragment", after: "after fragment", splitAtCursor: false, cursorPos: 21, fixedStart: "1", fixedEnd: "2"},
-            {tag: "end cursor fixed", before: "before fragment\nmid fragment\nafter ", after: "fragment", splitAtCursor: true, cursorPos: 36, fixedStart: "1", fixedEnd: "2"},
-            {tag: "end block fixed", before: "before fragment\nmid fragment\nafter fragment", after: "", splitAtCursor: false, cursorPos: 36, fixedStart: "1", fixedEnd: "2"},
+            {tag: "start cursor", before: "before ", after: "fragment\nmid fragment\nafter fragment", position: 0, cursorPos: 7, fixedStart: "", fixedEnd: ""},
+            {tag: "start end", before: "before fragment", after: "mid fragment\nafter fragment", position: 2, cursorPos: 7, fixedStart: "", fixedEnd: ""},
+            {tag: "start start", before: "", after: "before fragment\nmid fragment\nafter fragment", position: 1, cursorPos: 7, fixedStart: "", fixedEnd: ""},
+            {tag: "mid cursor", before: "before fragment\nmid ", after: "fragment\nafter fragment", position: 0, cursorPos: 20, fixedStart: "", fixedEnd: ""},
+            {tag: "mid end", before: "before fragment\nmid fragment", after: "after fragment", position: 2, cursorPos: 20, fixedStart: "", fixedEnd: ""},
+            {tag: "mid start", before: "before fragment", after: "mid fragment\nafter fragment", position: 1, cursorPos: 20, fixedStart: "", fixedEnd: ""},
+            {tag: "end cursor", before: "before fragment\nmid fragment\nafter ", after: "fragment", position: 0, cursorPos: 35, fixedStart: "", fixedEnd: ""},
+            {tag: "end end", before: "before fragment\nmid fragment\nafter fragment", after: "", position: 2, cursorPos: 35, fixedStart: "", fixedEnd: ""},
+            {tag: "end start", before: "before fragment\nmid fragment", after: "after fragment", position: 1, cursorPos: 35, fixedStart: "", fixedEnd: ""},
+            {tag: "start cursor fixed", before: "before ", after: "fragment\nmid fragment\nafter fragment", position: 0, cursorPos: 8, fixedStart: "1", fixedEnd: "2"},
+            {tag: "start end fixed", before: "before fragment", after: "mid fragment\nafter fragment", position: 2, cursorPos: 8, fixedStart: "1", fixedEnd: "2"},
+            {tag: "start start fixed", before: "", after: "before fragment\nmid fragment\nafter fragment", position: 1, cursorPos: 8, fixedStart: "1", fixedEnd: "2"},
+            {tag: "mid cursor fixed", before: "before fragment\nmid ", after: "fragment\nafter fragment", position: 0, cursorPos: 21, fixedStart: "1", fixedEnd: "2"},
+            {tag: "mid end fixed", before: "before fragment\nmid fragment", after: "after fragment", position: 2, cursorPos: 21, fixedStart: "1", fixedEnd: "2"},
+            {tag: "mid start fixed", before: "before fragment", after: "mid fragment\nafter fragment", position: 1, cursorPos: 21, fixedStart: "1", fixedEnd: "2"},
+            {tag: "end cursor fixed", before: "before fragment\nmid fragment\nafter ", after: "fragment", position: 0, cursorPos: 36, fixedStart: "1", fixedEnd: "2"},
+            {tag: "end end fixed", before: "before fragment\nmid fragment\nafter fragment", after: "", position: 2, cursorPos: 36, fixedStart: "1", fixedEnd: "2"},
+            {tag: "end start fixed", before: "before fragment\nmid fragment", after: "after fragment", position: 1, cursorPos: 36, fixedStart: "1", fixedEnd: "2"},
         ]
     }
 
@@ -177,7 +183,7 @@ TestCase {
         textEdit.insert(0, "before fragment\nmid fragment\nafter fragment");
         testHelper.setFixedChars(data.fixedStart, data.fixedEnd);
         textEdit.cursorPosition = data.cursorPos;
-        compare(testHelper.check2Fragments(data.before, data.after, data.splitAtCursor, data.fixedStart, data.fixedEnd), true);
+        compare(testHelper.check2Fragments(data.before, data.after, data.position, data.fixedStart, data.fixedEnd), true);
     }
 
     function test_fill3Fragments_data() {

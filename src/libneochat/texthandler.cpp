@@ -45,28 +45,29 @@ void TextHandler::setData(const QString &string)
     m_pos = 0;
 }
 
-QString TextHandler::markdownToHtml(QString string)
+void TextHandler::markdownToHtml(QString &string)
 {
     string = fixupUnderlineSyntax(string);
     escapeURLs(string);
     string = cmarkdownToHtml(string);
     string = customMarkdownToHtml(string);
-    return string;
 }
 
-QString TextHandler::handleSendText()
+QString TextHandler::cleanHtml(QString string)
 {
-    m_pos = 0;
-    m_dataBuffer = markdownToHtml(m_data);
-    m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
+    string.remove(TextRegex::removeHead);
+    auto pos = 0;
+    auto nextToken = QString();
+    auto nextTokenType = Text;
+    nextTokenType = getNextTokenType(string, pos, nextToken, nextTokenType);
 
     // Strip any disallowed tags/attributes.
     QString outputString;
-    while (m_pos < m_dataBuffer.length()) {
-        next();
+    while (pos < string.length()) {
+        nextToken = next(string, nextTokenType, pos);
 
-        QString nextTokenBuffer = m_nextToken;
-        switch (m_nextTokenType) {
+        QString nextTokenBuffer = nextToken;
+        switch (nextTokenType) {
         case Text:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
             nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
@@ -74,20 +75,29 @@ QString TextHandler::handleSendText()
         case TextCode:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
             break;
-        case Tag:
-            if (!isAllowedTag(getTagType(m_nextToken))) {
+        case Tag: {
+            const auto tagType = getTagType(nextToken);
+            if (!isAllowedTag(tagType)) {
                 nextTokenBuffer = QString();
             }
-            nextTokenBuffer = cleanAttributes(getTagType(m_nextToken), nextTokenBuffer);
+            nextTokenBuffer = cleanAttributes(getTagType(nextToken), nextTokenBuffer);
+        }
         default:
             break;
         }
 
         outputString.append(nextTokenBuffer);
 
-        m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
+        nextTokenType = getNextTokenType(string, pos, nextToken, nextTokenType);
     }
+    return outputString.trimmed();
+}
 
+QString TextHandler::handleSendText()
+{
+    auto outputString = m_data;
+    markdownToHtml(outputString);
+    outputString = cleanHtml(outputString);
     if (outputString.count("<p>"_L1) == 1 && outputString.count("</p>"_L1) == 1 && outputString.startsWith("<p>"_L1) && outputString.endsWith("</p>"_L1)) {
         outputString.remove("<p>"_L1);
         outputString.remove("</p>"_L1);
@@ -123,9 +133,9 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
 
     // Strip any disallowed tags/attributes.
     QString outputString;
-    m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
+    m_nextTokenType = getNextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     while (m_pos < m_dataBuffer.length()) {
-        next();
+        m_nextToken = next(m_dataBuffer, m_nextTokenType, m_pos);
 
         QString nextTokenBuffer = m_nextToken;
         if (m_nextTokenType == Type::Text || m_nextTokenType == Type::TextCode) {
@@ -136,12 +146,14 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
             } else if ((getTagType(m_nextToken) == u"br"_s && stripNewlines)) {
                 nextTokenBuffer = u' ';
             }
-            nextTokenBuffer = cleanAttributes(getTagType(m_nextToken), nextTokenBuffer, true, spoilerRevealed);
+            const auto &tagType = getTagType(m_nextToken);
+            nextTokenBuffer = cleanAttributes(tagType, nextTokenBuffer);
+            nextTokenBuffer = addStyleToText(tagType, nextTokenBuffer, spoilerRevealed);
         }
 
         outputString.append(nextTokenBuffer);
 
-        m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
+        m_nextTokenType = getNextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     }
 
     // Make all media URLs resolvable.
@@ -240,9 +252,9 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
 
     // Strip all tags/attributes except code blocks which will be escaped.
     QString outputString;
-    m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
+    m_nextTokenType = getNextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     while (m_pos < m_dataBuffer.length()) {
-        next();
+        m_nextToken = next(m_dataBuffer, m_nextTokenType, m_pos);
 
         QString nextTokenBuffer = m_nextToken;
         if (m_nextTokenType == Type::TextCode) {
@@ -257,7 +269,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
 
         outputString.append(nextTokenBuffer);
 
-        m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
+        m_nextTokenType = getNextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     }
 
     // Escaping then unescaping allows < and > to be maintained in a plain text string
@@ -268,28 +280,29 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
     return outputString;
 }
 
-void TextHandler::next()
+QString TextHandler::next(const QString &string, Type nextTokenType, int &pos)
 {
     QString searchStr;
-    if (m_nextTokenType == Type::Tag) {
+    if (nextTokenType == Type::Tag) {
         searchStr = u'>';
-    } else if (m_nextTokenType == Type::TextCode) {
+    } else if (nextTokenType == Type::TextCode) {
         // Anything between code tags is assumed to be plain text
         searchStr = u"</code>"_s;
     } else {
         searchStr = u'<';
     }
 
-    int tokenEnd = m_dataBuffer.indexOf(searchStr, m_pos + 1);
+    int tokenEnd = string.indexOf(searchStr, pos + 1);
     if (tokenEnd == -1) {
-        tokenEnd = m_dataBuffer.length();
+        tokenEnd = string.length();
     }
 
-    m_nextToken = m_dataBuffer.mid(m_pos, tokenEnd - m_pos + (m_nextTokenType == Type::Tag ? 1 : 0));
-    m_pos = tokenEnd + (m_nextTokenType == Type::Tag ? 1 : 0);
+    const auto &nextToken = string.mid(pos, tokenEnd - pos + (nextTokenType == Type::Tag ? 1 : 0));
+    pos = tokenEnd + (nextTokenType == Type::Tag ? 1 : 0);
+    return nextToken;
 }
 
-TextHandler::Type TextHandler::nextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType) const
+TextHandler::Type TextHandler::getNextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType)
 {
     if (currentPos >= string.length()) {
         // This is to stop the function accessing an index outside the length of
@@ -311,7 +324,7 @@ int TextHandler::nextBlockPos(const QString &string)
         return -1;
     }
 
-    const auto nextTokenType = this->nextTokenType(string, 0, {}, Text);
+    const auto nextTokenType = this->getNextTokenType(string, 0, {}, Text);
     // If there is no tag at the start we need to handle potentially having some
     // text with no <p> tag.
     if (nextTokenType == Text) {
@@ -425,7 +438,7 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
     return string;
 }
 
-QString TextHandler::getTagType(const QString &tagToken) const
+QString TextHandler::getTagType(const QString &tagToken)
 {
     if (tagToken.isEmpty() || tagToken.length() < 2) {
         return QString();
@@ -435,7 +448,7 @@ QString TextHandler::getTagType(const QString &tagToken) const
     return tagToken.mid(tagTypeStart, tagTypeEnd - tagTypeStart);
 }
 
-bool TextHandler::isCloseTag(const QString &tagToken) const
+bool TextHandler::isCloseTag(const QString &tagToken)
 {
     if (tagToken.isEmpty()) {
         return false;
@@ -486,7 +499,7 @@ bool TextHandler::isAllowedLink(const QString &link, bool isImg)
     }
 }
 
-QString TextHandler::cleanAttributes(const QString &tag, const QString &tagString, bool addStyle, bool spoilerRevealed)
+QString TextHandler::cleanAttributes(const QString &tag, const QString &tagString)
 {
     if (!tagString.contains(u'<') || !tagString.contains(u'>')) {
         return tagString;
@@ -545,14 +558,17 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
             nextAttributeIndex = nextSpaceIndex + 1;
         }
 
-        return addStyle ? this->addStyle(tag, outputString, spoilerRevealed) : outputString + u'>';
+        return outputString + u'>';
     }
 
-    return addStyle ? this->addStyle(tag, tagString) : tagString;
+    return tagString;
 }
 
-QString TextHandler::addStyle(const QString &tag, QString cleanTagString, bool spoilerRevealed)
+QString TextHandler::addStyleToText(const QString &tag, QString cleanTagString, bool spoilerRevealed)
 {
+    if (cleanTagString.isEmpty() || !cleanTagString.contains(u'<') || !cleanTagString.contains(u'>')) {
+        return cleanTagString;
+    }
     if (cleanTagString.endsWith(u'>')) {
         cleanTagString.removeLast();
     }

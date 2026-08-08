@@ -45,7 +45,7 @@ class ChatTextItemHelper : public QObject
     Q_PROPERTY(QRect cursorRectangle READ cursorRectangle NOTIFY cursorPositionChanged)
 
 public:
-    enum InsertPosition {
+    enum Position {
         Cursor,
         Start,
         End,
@@ -125,13 +125,12 @@ public:
      * The first fragment will remain in this item. The second fragment will be filled
      * into afterFragment.
      *
-     * The split will either be at the current cursor position is splitAtCursor is
-     * true or at the current block (with the block containing the cursor in the first
-     * fragment) if false.
+     * The split will happen based on the value of position with the default being
+     * Position::Cursor.
      *
      * @sa QTextDocument, QTextDocumentFragment
      */
-    void fill2Fragments(bool &hasBefore, std::optional<QTextDocumentFragment> &afterFragment, bool splitAtCursor);
+    void fill2Fragments(bool &hasBefore, std::optional<QTextDocumentFragment> &afterFragment, Position position = Cursor);
 
     /**
      * @brief Fill the given QTextDocumentFragment with the text item contents.
@@ -152,7 +151,7 @@ public:
     /**
      * @brief Insert the given QTextDocumentFragment as the given position.
      */
-    void insertFragment(const QTextDocumentFragment fragment, InsertPosition position = Cursor, bool keepPosition = false);
+    void insertFragment(const QTextDocumentFragment fragment, Position position = Cursor, bool keepPosition = false);
 
     /**
      * @brief Return a QTextCursor pointing to the current cursor position.
@@ -235,11 +234,6 @@ public:
      * @brief Whether there is any rich formatting in the item text.
      */
     bool hasRichFormatting() const;
-
-    /**
-     * @brief Call the underlying text item's cut method.
-     */
-    void cut() const;
 
     /**
      * @brief Output the text in the text item in markdown format.

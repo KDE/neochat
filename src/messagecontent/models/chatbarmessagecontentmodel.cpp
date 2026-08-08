@@ -478,7 +478,7 @@ void ChatBarMessageContentModel::insertBlockAtCursor(Blocks::Block *block)
     if (block->isEmpty()) {
         currentTextItem->fill3Fragments(hasBefore, midFragment, afterFragment);
     } else {
-        currentTextItem->fill2Fragments(hasBefore, afterFragment, true);
+        currentTextItem->fill2Fragments(hasBefore, afterFragment);
     }
 
     const auto currentType = m_components[m_currentFocusComponent.row()]->type();

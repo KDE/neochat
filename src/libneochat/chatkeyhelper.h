@@ -163,6 +163,8 @@ private:
 
     bool cancel();
 
+    bool cutText();
+
     bool pasteAttachments();
 
     bool pasteText();
