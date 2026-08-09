@@ -13,7 +13,6 @@
 #include <Kirigami/Platform/PlatformTheme>
 
 #include "block.h"
-#include "chatbarcache.h"
 #include "contentprovider.h"
 #include "enums/blocktype.h"
 #include "eventhandler.h"
@@ -25,6 +24,8 @@
 #include "texthandler.h"
 
 using namespace Quotient;
+
+bool EventMessageContentModel::richTextActive = true;
 
 EventMessageContentModel::EventMessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending, MessageContentModel *parent)
     : MessageContentModel(room, eventId, parent)
@@ -83,11 +84,6 @@ void EventMessageContentModel::initializeModel()
                 initializeEvent();
                 resetContent();
             }
-        }
-    });
-    connect(m_room->editCache(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
-        if (oldEventId == m_eventId || newEventId == m_eventId) {
-            resetContent(newEventId == m_eventId);
         }
     });
     connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
@@ -272,7 +268,7 @@ void EventMessageContentModel::resetModel()
     Q_EMIT authorChanged();
 }
 
-void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
+void EventMessageContentModel::resetContent(bool isThreading)
 {
     const auto startIt = m_components.begin() + (m_components[0]->type() == Blocks::Author ? 1 : 0);
     const auto startRow = std::distance(m_components.begin(), startIt);
@@ -284,7 +280,7 @@ void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
         m_replyModel->deleteLater();
     }
 
-    auto newComponents = messageContentComponents(isEditing, isThreading);
+    auto newComponents = messageContentComponents(isThreading);
     if (newComponents.size() == 0) {
         return;
     }
@@ -297,7 +293,7 @@ void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
     Q_EMIT componentsUpdated();
 }
 
-Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEditing, bool isThreading)
+Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isThreading)
 {
     const auto [event, _] = m_room->getEvent(m_eventId);
     if (!event) {
@@ -321,8 +317,8 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
 #endif
     }
 
-    if (isEditing) {
-        blocks.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, true, {}, this));
+    if (m_isEditing) {
+        blocks.push_back(new Blocks::ChatBarBlock(m_room->editCache(), {}, this));
     } else {
         blocks.insert_range(blocks.end(), EventHandler::blocksForEvent(m_room, event, this));
     }
@@ -332,7 +328,7 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isEdit
 #endif
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
-        blocks.push_back(new Blocks::ChatBarBlock(Blocks::ChatBar, false, m_eventId, this));
+        blocks.push_back(new Blocks::ChatBarBlock(m_room->threadCache(), m_eventId, this));
     }
 
     return blocks;
@@ -465,6 +461,117 @@ Blocks::Block *EventMessageContentModel::linkPreviewComponent(const QUrl &link)
     return new Blocks::LinkPreviewBlock(Blocks::LinkPreviewLoad, link, connection, this);
 }
 
+void EventMessageContentModel::editEvent()
+{
+    if (m_isEditing) {
+        return;
+    }
+    m_isEditing = true;
+    fillEditCache();
+    resetContent();
+}
+
+inline QString trimmedTrailing(QString string)
+{
+    while (string.endsWith(u' ')) {
+        string.removeLast();
+    }
+    return string;
+}
+
+inline QString trimNewline(QString string)
+{
+    while (string.startsWith(u"\n"_s)) {
+        string.removeFirst();
+    }
+    while (string.endsWith(u"\n"_s)) {
+        string.removeLast();
+    }
+    return string;
+}
+
+void EventMessageContentModel::fillEditCache()
+{
+    if (m_currentState != Available) {
+        return;
+    }
+    const auto [event, _] = m_room->getEvent(m_eventId);
+    if (!event) {
+        return;
+    }
+
+    if (!richTextActive) {
+        auto doc = QTextDocument();
+        doc.setHtml(EventHandler::rawMessageBody(*event).replace(u'\n', u""_s));
+        auto cursor = QTextCursor(&doc);
+        QString escapedText;
+        while (!cursor.atEnd()) {
+            cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
+            auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown()));
+            if (!cursor.currentList()) {
+                nextText.replace(u'\n', u' ');
+                nextText.replace(u"  "_s, u" "_s);
+            }
+            if (!escapedText.isEmpty() && !nextText.isEmpty()) {
+                escapedText += cursor.currentList() ? u"\n"_s : u"\n\n"_s;
+            }
+            escapedText += nextText;
+            cursor.movePosition(QTextCursor::NextBlock);
+        }
+        doc.setPlainText(escapedText);
+        QRegularExpression mentionRegex(u"\\[(.*?)]\\((.*?)\\)"_s);
+        const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+        auto nextMention = doc.find(mentionRegex, 0);
+        while (nextMention.hasSelection()) {
+            const auto mentionMatch = mentionRegex.match(nextMention.selectedText());
+            auto mentionName = mentionMatch.captured(1);
+            if (mentionName.startsWith(u"\\"_s)) {
+                mentionName.remove(0, 1);
+            }
+            nextMention.removeSelectedText();
+            QTextCharFormat mentionFormat;
+            mentionFormat.setForeground(theme->linkColor());
+            mentionFormat.setFontWeight(QFont::Bold);
+            mentionFormat.setAnchor(true);
+            mentionFormat.setAnchorHref(mentionMatch.captured(2));
+            nextMention.insertText(mentionName, mentionFormat);
+            nextMention = doc.find(mentionRegex, nextMention.position());
+        }
+        cursor.movePosition(QTextCursor::End);
+        cursor.select(QTextCursor::Document);
+        auto textBlock = new Blocks::TextBlock(Blocks::Text, cursor.selection(), false, this);
+        m_room->editCache()->append(textBlock->toCacheItem());
+        textBlock->deleteLater();
+        return;
+    }
+
+    const auto components =
+        TextHandler().textComponents(EventHandler::rawMessageBody(*event), EventHandler::messageBodyInputFormat(*event), m_room, event, false, false, this);
+    std::ranges::for_each(components, [this](Blocks::Block *component) {
+        m_room->editCache()->append(component->toCacheItem());
+        component->deleteLater();
+    });
+}
+
+void EventMessageContentModel::cancelEventEdit()
+{
+    if (!m_isEditing) {
+        return;
+    }
+    m_isEditing = false;
+    m_room->editCache()->clear();
+    resetContent();
+}
+
+void EventMessageContentModel::cancelChatBar()
+{
+    if (m_isEditing) {
+        cancelEventEdit();
+    } else {
+        cancelReplyInThread();
+    }
+}
+
 void EventMessageContentModel::closeLinkPreview(int row)
 {
     if (row < 0 || row >= (int)m_components.size()) {
@@ -520,7 +627,7 @@ void EventMessageContentModel::replyInThread()
         }
         return;
     }
-    resetContent(false, true);
+    resetContent(true);
 }
 
 void EventMessageContentModel::cancelReplyInThread()

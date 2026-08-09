@@ -11,7 +11,7 @@
 
 #include <QCoroTask>
 
-#include "enums/chatbartype.h"
+#include "blockcache.h"
 #include "enums/messagetype.h"
 #include "enums/pushrule.h"
 #include "events/pollevent.h"
@@ -21,8 +21,6 @@ namespace Quotient
 {
 class User;
 }
-
-class ChatBarCache;
 
 /**
  * @class NeoChatRoom
@@ -180,17 +178,17 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief The cache for the main chat bar in the room.
      */
-    Q_PROPERTY(ChatBarCache *mainCache READ mainCache CONSTANT)
+    Q_PROPERTY(Blocks::Cache *mainCache READ mainCache CONSTANT)
 
     /**
      * @brief The cache for the edit chat bar in the room.
      */
-    Q_PROPERTY(ChatBarCache *editCache READ editCache CONSTANT)
+    Q_PROPERTY(Blocks::Cache *editCache READ editCache CONSTANT)
 
     /**
      * @brief The cache for the thread chat bar in the room.
      */
-    Q_PROPERTY(ChatBarCache *threadCache READ threadCache CONSTANT)
+    Q_PROPERTY(Blocks::Cache *threadCache READ threadCache CONSTANT)
 
     /**
      * @brief When the current user was invited to the room.
@@ -515,27 +513,18 @@ public:
 
     Q_INVOKABLE void setUserPowerLevel(const QString &userID, const int &powerLevel);
 
-    ChatBarCache *mainCache() const;
+    Blocks::Cache *mainCache() const;
 
-    ChatBarCache *editCache() const;
+    Blocks::Cache *editCache() const;
 
-    ChatBarCache *threadCache() const;
-
-    Q_INVOKABLE ChatBarCache *cacheForType(ChatBarType::Type type) const;
+    Blocks::Cache *threadCache() const;
 
     /**
      * @brief Return the Matrix event ID of the last message in the timeline.
      *
      * @note This checks a maximum of the previous 35 message for performance reasons.
      */
-    QString lastMessageId();
-
-    /**
-     * @brief Edit the last message sent by the local user.
-     *
-     * @note This checks a maximum of the previous 35 message for performance reasons.
-     */
-    Q_INVOKABLE void editLastMessage();
+    Q_INVOKABLE QString lastMessageId();
 
     Q_INVOKABLE void postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers);
 
@@ -764,9 +753,9 @@ private:
 
     std::unique_ptr<Quotient::RoomEvent> m_cachedEvent;
 
-    ChatBarCache *m_mainCache;
-    ChatBarCache *m_editCache;
-    ChatBarCache *m_threadCache;
+    std::unique_ptr<Blocks::Cache> m_mainCache;
+    std::unique_ptr<Blocks::Cache> m_editCache;
+    std::unique_ptr<Blocks::Cache> m_threadCache;
 
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
     void cleanupExtraEventRange(Quotient::RoomEventsRange events);

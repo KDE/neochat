@@ -571,16 +571,25 @@ ReactionModel *ReactionBlock::model() const
     return m_model;
 }
 
-ChatBarBlock::ChatBarBlock(Type type, bool isEditing, const QString &threadRootId, QObject *parent)
-    : Block(type, parent)
-    , m_isEditing(isEditing)
+ChatBarBlock::ChatBarBlock(Cache *cache, const QString &threadRootId, QObject *parent)
+    : Block(ChatBar, parent)
+    , m_cache(cache)
     , m_threadRootId(threadRootId)
 {
 }
 
-bool ChatBarBlock::isEditing() const
+Cache *ChatBarBlock::cache() const
 {
-    return m_isEditing;
+    return m_cache;
+}
+
+void ChatBarBlock::setCache(Cache *cache)
+{
+    if (cache == m_cache) {
+        return;
+    }
+    m_cache = cache;
+    Q_EMIT cacheChanged();
 }
 
 QString ChatBarBlock::threadRootId() const

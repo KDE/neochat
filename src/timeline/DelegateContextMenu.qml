@@ -228,9 +228,7 @@ KirigamiComponents.ConvergentContextMenu {
         visible: !root.hasFileContent && root.author.isLocalMember && root.blockType === Blocks.Text
         text: i18n("Edit")
         icon.name: "document-edit"
-        onTriggered: {
-            root.room.editCache.editId = root.eventId;
-        }
+        onTriggered: root.messageModel.editMessage(root.eventId)
     }
 
     Kirigami.Action {

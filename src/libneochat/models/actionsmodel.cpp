@@ -4,11 +4,10 @@
 #include "actionsmodel.h"
 
 #include "blockcache.h"
-#include "blocktype.h"
-#include "chatbarcache.h"
 #include "enums/messagetype.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
+#include "postmessagehelper.h"
 #include "utils.h"
 #include <Quotient/events/eventcontent.h>
 #include <Quotient/events/roommemberevent.h>
@@ -27,7 +26,7 @@ QStringList rainbowColors{"#ff2b00"_L1, "#ff5500"_L1, "#ff8000"_L1, "#ffaa00"_L1
                           "#00d4ff"_L1, "#00aaff"_L1, "#007fff"_L1, "#0055ff"_L1, "#002bff"_L1, "#0000ff"_L1, "#2a00ff"_L1, "#5500ff"_L1, "#7f00ff"_L1,
                           "#aa00ff"_L1, "#d400ff"_L1, "#ff00ff"_L1, "#ff00d4"_L1, "#ff00aa"_L1, "#ff0080"_L1, "#ff0055"_L1, "#ff002b"_L1, "#ff0000"_L1};
 
-auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
     if (text.isEmpty()) {
         Q_EMIT room->showMessage(MessageType::Information, i18n("Leaving this room."));
         room->forget();
@@ -47,7 +46,7 @@ auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *
     return QString();
 };
 
-auto roomNickLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+auto roomNickLambda = [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
     if (text.isEmpty()) {
         Q_EMIT room->showMessage(MessageType::Error, i18n("No new nickname provided, no changes will happen."));
     } else {
@@ -59,7 +58,7 @@ auto roomNickLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *)
 QList<ActionsModel::Action> actions{
     Action{
         u"shrug"_s,
-        [](const QString &message, NeoChatRoom *, ChatBarCache *) {
+        [](const QString &message, NeoChatRoom *, PostMessageHelper *) {
             return u"¯\\\\\\_(ツ)\\_/¯ %1"_s.arg(message);
         },
         Quotient::RoomMessageEvent::MsgType::Text,
@@ -68,7 +67,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"lenny"_s,
-        [](const QString &message, NeoChatRoom *, ChatBarCache *) {
+        [](const QString &message, NeoChatRoom *, PostMessageHelper *) {
             return u"( ͡° ͜ʖ ͡°) %1"_s.arg(message);
         },
         Quotient::RoomMessageEvent::MsgType::Text,
@@ -77,7 +76,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"tableflip"_s,
-        [](const QString &message, NeoChatRoom *, ChatBarCache *) {
+        [](const QString &message, NeoChatRoom *, PostMessageHelper *) {
             return u"(╯°□°）╯︵ ┻━┻ %1"_s.arg(message);
         },
         Quotient::RoomMessageEvent::MsgType::Text,
@@ -86,7 +85,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"unflip"_s,
-        [](const QString &message, NeoChatRoom *, ChatBarCache *) {
+        [](const QString &message, NeoChatRoom *, PostMessageHelper *) {
             return u"┬──┬ ノ( ゜-゜ノ) %1"_s.arg(message);
         },
         Quotient::RoomMessageEvent::MsgType::Text,
@@ -95,15 +94,15 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"rainbow"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *helper) {
             QString rainbowText;
             for (int i = 0; i < text.length(); i++) {
                 rainbowText += u"<font color='%2'>%3</font>"_s.arg(rainbowColors[i % rainbowColors.length()], text.at(i));
             }
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
-            const auto replyCache = chatBarCache->cache().at<Blocks::ReplyCacheItem>(0);
-            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(chatBarCache->editId());
+            const auto replyCache = helper->cache()->at<Blocks::ReplyCacheItem>(0);
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(helper->editId());
             room->post<Quotient::RoomMessageEvent>("/rainbow %1"_L1.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
@@ -113,15 +112,15 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"rainbowme"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *helper) {
             QString rainbowText;
             for (int i = 0; i < text.length(); i++) {
                 rainbowText += u"<font color='%2'>%3</font>"_s.arg(rainbowColors[i % rainbowColors.length()], text.at(i));
             }
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
-            const auto replyCache = chatBarCache->cache().at<Blocks::ReplyCacheItem>(0);
-            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(chatBarCache->editId());
+            const auto replyCache = helper->cache()->at<Blocks::ReplyCacheItem>(0);
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(helper->editId());
             room->post<Quotient::RoomMessageEvent>(u"/rainbow %1"_s.arg(text), MessageEventType::Emote, std::move(content), relatesTo);
             return QString();
         },
@@ -131,7 +130,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"plain"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
 #if Quotient_VERSION_MINOR > 9
             room->postText(text.toHtmlEscaped());
 #else
@@ -145,11 +144,11 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"spoiler"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *helper) {
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(u"<span data-mx-spoiler>%1</span>"_s.arg(text), u"text/html"_s);
-            const auto replyCache = chatBarCache->cache().at<Blocks::ReplyCacheItem>(0);
-            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(chatBarCache->editId());
+            const auto replyCache = helper->cache()->at<Blocks::ReplyCacheItem>(0);
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(helper->editId());
             room->post<Quotient::RoomMessageEvent>(u"/spoiler %1"_s.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
@@ -159,7 +158,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"me"_s,
-        [](const QString &text, NeoChatRoom *, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *, PostMessageHelper *) {
             return text;
         },
         RoomMessageEvent::MsgType::Emote,
@@ -168,7 +167,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"notice"_s,
-        [](const QString &text, NeoChatRoom *, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *, PostMessageHelper *) {
             return text;
         },
         RoomMessageEvent::MsgType::Notice,
@@ -177,7 +176,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"invite"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -211,7 +210,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"join"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             // FIXME: re-add sanity check for roomId/alias
             auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
             if (targetRoom) {
@@ -228,7 +227,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"knock"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             auto parts = text.split(u" "_s);
             QString roomName = parts[0];
             // FIXME: re-add sanity check for roomId/alias
@@ -252,7 +251,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"j"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             // FIXME: re-add sanity check for roomId/alias
             if (room->connection()->room(text) || room->connection()->roomByAlias(text)) {
                 Q_EMIT room->showMessage(MessageType::Information, i18nc("You are already in room <roomname>.", "You are already in room %1.", text));
@@ -282,7 +281,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"nick"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             if (text.isEmpty()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18n("No new nickname provided, no changes will happen."));
             } else {
@@ -310,7 +309,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"ignore"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -331,7 +330,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"unignore"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -351,8 +350,8 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"react"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
-            const auto replyCache = chatBarCache->cache().at<Blocks::ReplyCacheItem>(0);
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *helper) {
+            const auto replyCache = helper->cache()->at<Blocks::ReplyCacheItem>(0);
             if (!replyCache) {
                 for (auto it = room->messageEvents().crbegin(); it != room->messageEvents().crend(); it++) {
                     const auto &evt = **it;
@@ -371,7 +370,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"ban"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             auto parts = text.split(u" "_s);
             auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
@@ -404,7 +403,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"unban"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -430,7 +429,7 @@ QList<ActionsModel::Action> actions{
     },
     Action{
         u"kick"_s,
-        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+        [](const QString &text, NeoChatRoom *room, PostMessageHelper *) {
             auto parts = text.split(u" "_s);
             auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
@@ -552,9 +551,9 @@ bool ActionsModel::handleQuickEditAction(NeoChatRoom *room, const QString &messa
     return false;
 }
 
-std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgType>> ActionsModel::handleAction(NeoChatRoom *room, ChatBarCache *chatBarCache)
+std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgType>> ActionsModel::handleAction(NeoChatRoom *room, PostMessageHelper *helper)
 {
-    auto sendText = chatBarCache->cache().toString();
+    auto sendText = helper->cache()->toString();
     const auto edited = handleQuickEditAction(room, sendText);
     if (edited) {
         return std::make_pair(std::nullopt, std::nullopt);
@@ -565,7 +564,7 @@ std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgT
         for (const auto &action : ActionsModel::instance().allActions()) {
             if (sendText.indexOf(action.prefix) == 1
                 && (sendText.indexOf(" "_L1) == action.prefix.length() + 1 || sendText.length() == action.prefix.length() + 1)) {
-                sendText = action.handle(sendText.mid(action.prefix.length() + 1).trimmed(), room, chatBarCache);
+                sendText = action.handle(sendText.mid(action.prefix.length() + 1).trimmed(), room, helper);
                 if (action.messageType.has_value()) {
                     messageType = action.messageType;
                 } else {

@@ -19,24 +19,42 @@ QQC2.Control {
      */
     required property LibNeoChat.NeoChatRoom room
 
-    property int chatBarType: LibNeoChat.ChatBarType.Room
+    required property var cache
 
-    property string threadRootId
+    property int chatBarType: LibNeoChat.ChatBarType.Room
 
     required property real maxAvailableWidth
 
     readonly property ChatBarMessageContentModel model: ChatBarMessageContentModel {
-        type: root.chatBarType
-        threadRootId: root.threadRootId
+        cache: root.cache
         room: root.room
         sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
 
         onContentChanged: root.contentChanged()
+        onUnhandledUp: root.unhandledUp()
+    }
+
+    property bool showCancel: false
+
+    Connections {
+        target: root.model.keyHelper
+
+        function onUnhandledReturn(isCompleting: bool): void {
+            if (isCompleting) {
+                return;
+            }
+            root.send()
+            root.model.resetModel();
+        }
     }
 
     readonly property bool isEmpty: !model.hasAnyContent
 
     signal contentChanged
+
+    signal send
+
+    signal unhandledUp
 
     signal cancel
 
@@ -171,8 +189,13 @@ QQC2.Control {
             SendBar {
                 room: root.room
                 contentModel: root.model
+                showCancel: root.showCancel
                 maxAvailableWidth: root.maxAvailableWidth
 
+                onSend: {
+                    root.send()
+                    root.model.resetModel();
+                }
                 onCancel: root.cancel()
             }
         }

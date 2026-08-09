@@ -8,7 +8,6 @@
 
 #include "block.h"
 #include "blockcache.h"
-#include "chatbarcache.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
 #include "chattextitemhelper.h"
@@ -29,12 +28,7 @@ class ChatBarMessageContentModel : public MessageContentModel
     /**
      * @brief The QQuickTextDocument that is being handled.
      */
-    Q_PROPERTY(ChatBarType::Type type READ type WRITE setType NOTIFY typeChanged)
-
-    /**
-     * @brief The thread root id the chat bar is posting a message to if any.
-     */
-    Q_PROPERTY(QString threadRootId READ threadRootId WRITE setThreadRootId NOTIFY threadRootIdChanged)
+    Q_PROPERTY(Blocks::Cache *cache READ cache WRITE setCache NOTIFY cacheChanged)
 
     /**
      * @brief The row of the model component that currently has focus.
@@ -96,10 +90,8 @@ public:
     Q_ENUM(ClearModelOptions);
     explicit ChatBarMessageContentModel(QObject *parent = nullptr);
 
-    ChatBarType::Type type() const;
-    void setType(ChatBarType::Type type);
-    QString threadRootId() const override;
-    void setThreadRootId(const QString &threadRootId);
+    Blocks::Cache *cache() const;
+    void setCache(Blocks::Cache *cache);
     ChatKeyHelper *keyHelper() const;
     int focusRow() const;
     Blocks::Type focusType() const;
@@ -127,15 +119,12 @@ public:
 
     Q_INVOKABLE void resetModel();
 
-    Q_INVOKABLE void postMessage();
-
     bool hasAnyContent() const;
 
     static bool richTextActive;
 
 Q_SIGNALS:
-    void typeChanged(ChatBarType::Type oldType, ChatBarType::Type newType);
-    void threadRootIdChanged();
+    void cacheChanged();
     void focusRowChanged();
     void hasRichFormattingChanged();
     void hasAttachmentChanged();
@@ -143,15 +132,19 @@ Q_SIGNALS:
 
     void contentChanged();
 
+    /**
+     * @brief There is an unhandled up key press.
+     *
+     * Currently triggers when up is pressed on the first line of the first block
+     * of the first text item in the model.
+     */
+    void unhandledUp();
+
 private:
-    ChatBarType::Type m_type = ChatBarType::None;
-    std::optional<ChatBarType::Type> unhandledTypeChange = std::nullopt;
-    QString m_threadRootId = {};
-    void connectCache(ChatBarCache *oldCache = nullptr);
+    Blocks::Cache *m_cache = nullptr;
 
     void initializeModel(const QString &initialText = {});
     void initializeFromCache();
-    void initializeEdit();
 
     void setFocusIndex(const QModelIndex &index, bool mouse = false);
     void focusCurrentComponent(const QModelIndex &previousIndex, bool down);

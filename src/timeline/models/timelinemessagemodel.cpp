@@ -3,6 +3,7 @@
 
 #include "timelinemessagemodel.h"
 #include "events/pollevent.h"
+#include "models/eventmessagecontentmodel.h"
 #include "timelinelogging.h"
 
 #include <Quotient/events/reactionevent.h>

@@ -12,7 +12,6 @@
 #include <Quotient/jobs/basejob.h>
 
 #include "block.h"
-#include "chatbarcache.h"
 #include "contentprovider.h"
 #include "enums/blocktype.h"
 #include "eventhandler.h"
@@ -24,7 +23,7 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     , m_room(room)
     , m_threadRootId(threadRootId)
     , m_threadFetchModel(new ThreadFetchModel(this))
-    , m_threadChatBarModel(new ThreadChatBarModel(this))
+    , m_threadChatBarModel(new ThreadChatBarModel(this, room))
 {
     Q_ASSERT(!m_threadRootId.isEmpty());
     Q_ASSERT(room);
@@ -227,8 +226,9 @@ QHash<int, QByteArray> ThreadFetchModel::roleNames() const
     };
 }
 
-ThreadChatBarModel::ThreadChatBarModel(ThreadModel *threadModel)
+ThreadChatBarModel::ThreadChatBarModel(ThreadModel *threadModel, NeoChatRoom *room)
     : QAbstractListModel(threadModel)
+    , m_room(room)
 {
     Q_ASSERT(threadModel);
     m_block = new Blocks::Block(Blocks::ReplyButton, this);
@@ -281,7 +281,7 @@ void ThreadChatBarModel::setReplying(bool replying)
     m_block->deleteLater();
     m_block = nullptr;
     if (m_replying) {
-        m_block = new Blocks::ChatBarBlock(Blocks::ChatBar, false, dynamic_cast<ThreadModel *>(parent())->threadRootId(), this);
+        m_block = new Blocks::ChatBarBlock(m_room->threadCache(), dynamic_cast<ThreadModel *>(parent())->threadRootId(), this);
     } else {
         m_block = new Blocks::Block(Blocks::ReplyButton, this);
     }

@@ -18,6 +18,7 @@
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
+#include <memory>
 #include <qcoro/qcorosignal.h>
 
 #include <Quotient/avatar.h>
@@ -42,7 +43,6 @@
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/thread.h>
 
-#include "chatbarcache.h"
 #include "clipboard.h"
 #include "eventhandler.h"
 #include "filetransferpseudojob.h"
@@ -81,9 +81,9 @@ NeoChatRoom::NeoChatRoom(Connection *c, QString roomId, JoinState joinState)
     const auto connection = static_cast<NeoChatConnection *>(c);
     Q_ASSERT(connection);
 
-    m_mainCache = new ChatBarCache(this);
-    m_editCache = new ChatBarCache(this);
-    m_threadCache = new ChatBarCache(this);
+    m_mainCache = std::make_unique<Blocks::Cache>();
+    m_editCache = std::make_unique<Blocks::Cache>();
+    m_threadCache = std::make_unique<Blocks::Cache>();
 
     m_typingTimer->setInterval(std::chrono::milliseconds(5000));
     m_typingTimer->setSingleShot(true);
@@ -1440,33 +1440,19 @@ FileTransferInfo NeoChatRoom::cachedFileTransferInfo(const Quotient::RoomEvent *
     };
 }
 
-ChatBarCache *NeoChatRoom::mainCache() const
+Blocks::Cache *NeoChatRoom::mainCache() const
 {
-    return m_mainCache;
+    return m_mainCache.get();
 }
 
-ChatBarCache *NeoChatRoom::editCache() const
+Blocks::Cache *NeoChatRoom::editCache() const
 {
-    return m_editCache;
+    return m_editCache.get();
 }
 
-ChatBarCache *NeoChatRoom::threadCache() const
+Blocks::Cache *NeoChatRoom::threadCache() const
 {
-    return m_threadCache;
-}
-
-ChatBarCache *NeoChatRoom::cacheForType(ChatBarType::Type type) const
-{
-    switch (type) {
-    case ChatBarType::Room:
-        return m_mainCache;
-    case ChatBarType::Edit:
-        return m_editCache;
-    case ChatBarType::Thread:
-        return m_threadCache;
-    default:
-        return nullptr;
-    }
+    return m_threadCache.get();
 }
 
 QString NeoChatRoom::lastMessageId()
@@ -1499,41 +1485,6 @@ QString NeoChatRoom::lastMessageId()
         }
     }
     return {};
-}
-
-void NeoChatRoom::editLastMessage()
-{
-    const auto &timelineBottom = messageEvents().rbegin();
-
-    // set a cap limit of 35 messages, to prevent loading a lot of messages
-    // in rooms where the user has not sent many messages
-    const auto limit = timelineBottom + std::min(35, timelineSize());
-
-    for (auto it = timelineBottom; it != limit; ++it) {
-        auto evt = it->event();
-        auto e = eventCast<const RoomMessageEvent>(evt);
-        if (!e) {
-            continue;
-        }
-
-        // check if the current message's sender's id is same as the user's id
-        if ((*it)->senderId() == localMember().id()) {
-            auto content = (*it)->contentJson();
-
-            if (e->msgtype() != MessageEventType::Unknown) {
-                QString eventId;
-                if (content.contains("m.new_content"_L1)) {
-                    // The message has been edited so we have to return the id of the original message instead of the replacement
-                    eventId = content["m.relates_to"_L1].toObject()["event_id"_L1].toString();
-                } else {
-                    // For any message that isn't an edit return the id of the current message
-                    eventId = (*it)->id();
-                }
-                editCache()->setEditId(eventId);
-                return;
-            }
-        }
-    }
 }
 
 bool NeoChatRoom::canEncryptRoom() const

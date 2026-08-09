@@ -22,13 +22,15 @@ RowLayout {
      */
     required property LibNeoChat.NeoChatRoom room
 
-    property LibNeoChat.ChatBarCache chatBarCache
-
     required property MessageContent.ChatBarMessageContentModel contentModel
+
+    required property bool showCancel
 
     required property real maxAvailableWidth
 
     readonly property real overflowWidth: Kirigami.Units.gridUnit * 50
+
+    signal send
 
     signal cancel
 
@@ -218,14 +220,14 @@ RowLayout {
         display: QQC2.AbstractButton.IconOnly
         enabled: root.contentModel.hasAnyContent
 
-        onClicked: root.contentModel.postMessage();
+        onClicked: root.send();
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
     }
     QQC2.ToolButton {
         id: cancelButton
-        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Edit || (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Thread
+        visible: root.showCancel
         display: QQC2.AbstractButton.IconOnly
         text: i18nc("@action:button", "Cancel")
         icon.name: "dialog-close"

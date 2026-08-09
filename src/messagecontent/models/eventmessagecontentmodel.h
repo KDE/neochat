@@ -43,6 +43,9 @@ public:
      */
     Q_INVOKABLE void closeLinkPreview(int row);
 
+    void editEvent();
+    Q_INVOKABLE void cancelEventEdit();
+
     /**
      * @brief Reply to the message in a thread.
      *
@@ -58,6 +61,8 @@ public:
      */
     Q_INVOKABLE void cancelReplyInThread();
 
+    Q_INVOKABLE void cancelChatBar();
+
     /**
      * @brief Returns the thread model for the given thread root event ID.
      *
@@ -65,6 +70,8 @@ public:
      * is empty.
      */
     Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
+
+    static bool richTextActive;
 
 Q_SIGNALS:
     void eventUpdated();
@@ -78,14 +85,16 @@ private:
 
     MessageState m_currentState = Unknown;
     bool m_isReply;
+    bool m_isEditing = false;
+    void fillEditCache();
 
     void initializeEvent();
     void getEvent();
 
     Blocks::Block *unavailableBlock();
     void resetModel();
-    void resetContent(bool isEditing = false, bool isThreading = false);
-    Blocks::BlockPtrs messageContentComponents(bool isEditing = false, bool isThreading = false);
+    void resetContent(bool isThreading = false);
+    Blocks::BlockPtrs messageContentComponents(bool isThreading = false);
 
     Blocks::FilePreviewBlockLoader *m_loader = nullptr;
     bool m_fileChecked = false;

@@ -613,9 +613,9 @@ class ChatBarBlock : public Block
     QML_UNCREATABLE("")
 
     /**
-     * @brief The model containing the list of reactions.
+     * @brief The Blocks::Cache to initialize the chat bar from and save changes to.
      */
-    Q_PROPERTY(bool isEditing READ isEditing CONSTANT)
+    Q_PROPERTY(Cache *cache READ cache WRITE setCache NOTIFY cacheChanged)
 
     /**
      * @brief The model containing the list of reactions.
@@ -623,13 +623,18 @@ class ChatBarBlock : public Block
     Q_PROPERTY(QString threadRootId READ threadRootId CONSTANT)
 
 public:
-    ChatBarBlock(Type type, bool isEditing, const QString &threadRootId, QObject *parent);
+    ChatBarBlock(Cache *cache, const QString &threadRootId, QObject *parent);
 
-    [[nodiscard]] bool isEditing() const;
+    [[nodiscard]] Cache *cache() const;
+    void setCache(Cache *cache);
+
     [[nodiscard]] QString threadRootId() const;
 
+Q_SIGNALS:
+    void cacheChanged();
+
 private:
-    bool m_isEditing = false;
+    Cache *m_cache;
     QString m_threadRootId = {};
 };
 

@@ -137,6 +137,11 @@ public:
     /**
      * @brief The number of selected messages.
      */
+    void editMessage(const QString &eventId);
+
+    /**
+     * @brief The number of selected messages.
+     */
     int selectedMessageCount() const;
 
     /**

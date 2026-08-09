@@ -8,7 +8,6 @@ target_sources(LibNeoChat PRIVATE
     neochatroom.cpp
     neochatroommember.cpp
     accountmanager.cpp
-    chatbarcache.cpp
     block.cpp
     pollblock.cpp
     blockcache.cpp
@@ -27,6 +26,7 @@ target_sources(LibNeoChat PRIVATE
     neochatdatetime.cpp
     nestedlisthelper_p.h
     nestedlisthelper.cpp
+    postmessagehelper.cpp
     roomlastmessageprovider.cpp
     spacehierarchycache.cpp
     texthandler.cpp

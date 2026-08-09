@@ -162,6 +162,15 @@ const Quotient::RoomEvent *MessageFilterModel::findEvent(const QString &eventId)
     return messageModel->findEvent(eventId);
 }
 
+void MessageFilterModel::editMessage(const QString &eventId)
+{
+    const auto [messageModel, _] = this->messageModel();
+    if (!messageModel) {
+        return;
+    }
+    messageModel->editMessage(eventId);
+}
+
 int MessageFilterModel::selectedMessageCount() const
 {
     const auto [messageModel, _] = this->messageModel();

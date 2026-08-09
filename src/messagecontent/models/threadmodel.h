@@ -91,7 +91,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit ThreadChatBarModel(ThreadModel *parent);
+    explicit ThreadChatBarModel(ThreadModel *parent, NeoChatRoom *room);
 
     /**
      * @brief Get the given role value at the given index.
@@ -122,6 +122,7 @@ public:
     void reset();
 
 private:
+    QPointer<NeoChatRoom> m_room;
     Blocks::Block *m_block;
 
     bool m_replying = false;

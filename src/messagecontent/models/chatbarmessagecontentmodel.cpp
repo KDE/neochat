@@ -15,17 +15,14 @@
 
 #include "block.h"
 #include "blockcache.h"
-#include "chatbarcache.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
 #include "chattextitemhelper.h"
 #include "enums/blocktype.h"
-#include "enums/chatbartype.h"
 #include "enums/richformat.h"
 #include "eventmessagecontentmodel.h"
 #include "fileinfo.h"
 #include "messagecontentmodel.h"
-#include "neochatroom.h"
 
 bool ChatBarMessageContentModel::richTextActive = true;
 
@@ -36,77 +33,17 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
 {
     m_editableActive = true;
 
-    connect(this, &ChatBarMessageContentModel::roomChanged, this, [this](NeoChatRoom *oldRoom) {
-        if (m_type == ChatBarType::None || !m_room) {
-            return;
-        }
-
-        connectCache(oldRoom ? oldRoom->cacheForType(m_type) : nullptr);
-        initializeFromCache();
-        refocusCurrentComponent();
-    });
     connect(this, &ChatBarMessageContentModel::focusRowChanged, this, [this]() {
         m_markdownHelper->setTextItem(focusedTextItem());
         m_keyHelper->setTextItem(focusedTextItem());
-    });
-    connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
-        m_keyHelper->room = m_room;
-        // We can't guarantee whether room or type is intialised first so we have to handle.
-        if (!m_room || !unhandledTypeChange) {
-            return;
-        }
-        connectCache(m_room->cacheForType(*unhandledTypeChange));
-        unhandledTypeChange = std::nullopt;
-        const auto newCache = m_room->cacheForType(m_type);
-        if (newCache && newCache->isEditing()) {
-            initializeEdit();
-            return;
-        }
-        initializeFromCache();
-    });
-    connect(this, &ChatBarMessageContentModel::typeChanged, this, [this](ChatBarType::Type oldType) {
-        if (!m_room) {
-            unhandledTypeChange = oldType;
-            return;
-        }
-        connectCache(m_room->cacheForType(oldType));
-        const auto newCache = m_room->cacheForType(m_type);
-        if (newCache && newCache->isEditing()) {
-            initializeEdit();
-            return;
-        }
-        initializeFromCache();
     });
     connect(m_markdownHelper, &ChatMarkdownHelper::unhandledBlockFormat, this, &ChatBarMessageContentModel::insertStyleAtCursor);
     connect(this, &ChatBarMessageContentModel::modelReset, this, &ChatBarMessageContentModel::contentChanged);
     connect(this, &ChatBarMessageContentModel::rowsInserted, this, &ChatBarMessageContentModel::contentChanged);
     connect(this, &ChatBarMessageContentModel::rowsRemoved, this, &ChatBarMessageContentModel::contentChanged);
 
-    connectCache();
     connectKeyHelper();
     initializeModel();
-}
-
-void ChatBarMessageContentModel::connectCache(ChatBarCache *oldCache)
-{
-    if (m_type == ChatBarType::None || !m_room) {
-        return;
-    }
-
-    if (oldCache) {
-        oldCache->disconnect(this);
-    }
-
-    connect(m_room->cacheForType(m_type), &ChatBarCache::relationIdChanged, this, [this]() {
-        if (!m_room || m_type == ChatBarType::None) {
-            return;
-        }
-        const auto currentCache = m_room->cacheForType(m_type);
-        refocusCurrentComponent();
-        if (currentCache->isEditing()) {
-            initializeEdit();
-        }
-    });
 }
 
 void ChatBarMessageContentModel::initializeModel(const QString &initialText)
@@ -123,17 +60,18 @@ void ChatBarMessageContentModel::initializeModel(const QString &initialText)
 
 void ChatBarMessageContentModel::initializeFromCache()
 {
-    clearModel();
+    if (!m_cache) {
+        return;
+    }
 
-    const auto &currentCache = m_room->cacheForType(m_type);
-    const auto &blockCache = currentCache->cache();
-    if (blockCache.empty()) {
+    clearModel();
+    if (m_cache->empty()) {
         initializeModel();
         return;
     }
 
     beginResetModel();
-    std::ranges::for_each(blockCache.cbegin(), blockCache.cend(), [this](std::unique_ptr<Blocks::CacheItem> const &cacheItem) {
+    std::ranges::for_each(m_cache->cbegin(), m_cache->cend(), [this](std::unique_ptr<Blocks::CacheItem> const &cacheItem) {
         insertComponentFromCache(cacheItem.get());
     });
     endResetModel();
@@ -142,117 +80,23 @@ void ChatBarMessageContentModel::initializeFromCache()
     Q_EMIT focusRowChanged();
 }
 
-inline QString trimmedTrailing(QString string)
+Blocks::Cache *ChatBarMessageContentModel::cache() const
 {
-    while (string.endsWith(u' ')) {
-        string.removeLast();
-    }
-    return string;
+    return m_cache;
 }
 
-inline QString trimNewline(QString string)
+void ChatBarMessageContentModel::setCache(Blocks::Cache *cache)
 {
-    while (string.startsWith(u"\n"_s)) {
-        string.removeFirst();
-    }
-    while (string.endsWith(u"\n"_s)) {
-        string.removeLast();
-    }
-    return string;
-}
-
-void ChatBarMessageContentModel::initializeEdit()
-{
-    clearModel();
-
-    const auto currentCache = m_room->cacheForType(m_type);
-    if (!richTextActive) {
-        auto doc = QTextDocument();
-        doc.setHtml(currentCache->relationMessage().replace(u'\n', u""_s));
-        auto cursor = QTextCursor(&doc);
-        QString escapedText;
-        while (!cursor.atEnd()) {
-            cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
-            auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown()));
-            if (!cursor.currentList()) {
-                nextText.replace(u'\n', u' ');
-                nextText.replace(u"  "_s, u" "_s);
-            }
-            if (!escapedText.isEmpty() && !nextText.isEmpty()) {
-                escapedText += cursor.currentList() ? u"\n"_s : u"\n\n"_s;
-            }
-            escapedText += nextText;
-            cursor.movePosition(QTextCursor::NextBlock);
-        }
-        doc.setPlainText(escapedText);
-        QRegularExpression mentionRegex(u"\\[(.*?)]\\((.*?)\\)"_s);
-        const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
-        auto nextMention = doc.find(mentionRegex, 0);
-        while (nextMention.hasSelection()) {
-            const auto mentionMatch = mentionRegex.match(nextMention.selectedText());
-            auto mentionName = mentionMatch.captured(1);
-            if (mentionName.startsWith(u"\\"_s)) {
-                mentionName.remove(0, 1);
-            }
-            nextMention.removeSelectedText();
-            QTextCharFormat mentionFormat;
-            mentionFormat.setForeground(theme->linkColor());
-            mentionFormat.setFontWeight(QFont::Bold);
-            mentionFormat.setAnchor(true);
-            mentionFormat.setAnchorHref(mentionMatch.captured(2));
-            nextMention.insertText(mentionName, mentionFormat);
-            nextMention = doc.find(mentionRegex, nextMention.position());
-        }
-        cursor.movePosition(QTextCursor::End);
-        cursor.select(QTextCursor::Document);
-        auto textBlock = new Blocks::TextBlock(Blocks::Text, cursor.selection(), false, this);
-        connectTextItem(textBlock->item());
-        insertComponent(0, std::move(textBlock));
+    if (cache == m_cache) {
         return;
     }
+    m_cache = cache;
 
-    auto components = currentCache->relationComponents(this);
-    if (components.empty()) {
-        initializeModel();
-        return;
+    if (m_cache) {
+        initializeFromCache();
+        refocusCurrentComponent();
     }
-    m_components.insert(m_components.end(), std::make_move_iterator(components.begin()), std::make_move_iterator(components.end()));
-
-    beginResetModel();
-    std::ranges::for_each(m_components, [this](Blocks::Block *component) {
-        if (const auto textBlock = dynamic_cast<Blocks::TextBlock *>(component)) {
-            connectTextItem(textBlock->item());
-        }
-    });
-    endResetModel();
-}
-
-ChatBarType::Type ChatBarMessageContentModel::type() const
-{
-    return m_type;
-}
-
-void ChatBarMessageContentModel::setType(ChatBarType::Type type)
-{
-    if (type == m_type) {
-        return;
-    }
-    const auto oldType = std::exchange(m_type, type);
-    Q_EMIT typeChanged(oldType, m_type);
-}
-
-QString ChatBarMessageContentModel::threadRootId() const
-{
-    return m_threadRootId;
-}
-
-void ChatBarMessageContentModel::setThreadRootId(const QString &threadRootId)
-{
-    if (threadRootId == m_threadRootId) {
-        return;
-    }
-    m_threadRootId = threadRootId;
-    Q_EMIT threadRootIdChanged();
+    Q_EMIT cacheChanged();
 }
 
 ChatKeyHelper *ChatBarMessageContentModel::keyHelper() const
@@ -266,8 +110,8 @@ void ChatBarMessageContentModel::connectKeyHelper()
         if (isCompleting) {
             return;
         }
-        if (!m_room->editCache()->isEditing() && m_currentFocusComponent.row() <= 0 && focusedTextItem()->isEmpty()) {
-            m_room->editLastMessage();
+        if (m_currentFocusComponent.row() <= 0 && focusedTextItem()->isEmpty()) {
+            Q_EMIT unhandledUp();
             return;
         }
         handleBlockTransition(true);
@@ -301,11 +145,6 @@ void ChatBarMessageContentModel::connectKeyHelper()
         }
         if (m_components[currentRow]->type() == Blocks::Code || m_components[currentRow]->type() == Blocks::Quote) {
             insertBlockAtCursor(Blocks::Text);
-        }
-    });
-    connect(m_keyHelper, &ChatKeyHelper::unhandledReturn, this, [this](bool isCompleting) {
-        if (!isCompleting) {
-            postMessage();
         }
     });
     connect(m_keyHelper, &ChatKeyHelper::requestReply, this, [this](const QString &eventId) {
@@ -446,10 +285,6 @@ bool ChatBarMessageContentModel::hasAttachment() const
 
 void ChatBarMessageContentModel::addAttachment(const QUrl &path)
 {
-    if (m_type == ChatBarType::None || !m_room) {
-        return;
-    }
-
     QString plainText;
     for (const auto &component : std::as_const(m_components)) {
         if (const auto textItem = textItemForComponent(component)) {
@@ -825,31 +660,18 @@ void ChatBarMessageContentModel::handleBlockTransition(bool up)
 
 void ChatBarMessageContentModel::updateCache() const
 {
-    if (m_type == ChatBarType::None || !m_room) {
+    if (!m_cache) {
         return;
     }
 
-    auto &cache = m_room->cacheForType(m_type)->cache();
-    cache.clear();
-    std::ranges::for_each(m_components, [&cache](Blocks::Block *component) {
-        cache.append(component->toCacheItem());
+    m_cache->clear();
+    std::ranges::for_each(m_components, [this](Blocks::Block *component) {
+        m_cache->append(component->toCacheItem());
     });
 }
 
 void ChatBarMessageContentModel::resetModel()
 {
-    clearModel();
-    initializeModel();
-    refocusCurrentComponent();
-}
-
-void ChatBarMessageContentModel::postMessage()
-{
-    if (m_type == ChatBarType::None || !m_room) {
-        return;
-    }
-
-    m_room->cacheForType(m_type)->postMessage(m_threadRootId);
     clearModel();
     initializeModel();
     refocusCurrentComponent();

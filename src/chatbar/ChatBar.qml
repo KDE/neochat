@@ -34,6 +34,8 @@ Item {
      */
     required property LibNeoChat.NeoChatRoom currentRoom
 
+    property alias cache: core.cache
+
     onCurrentRoomChanged: {
         if (ShareHandler.text.length > 0 && ShareHandler.room === root.currentRoom.id) {
             core.model.focusedTextItem.textItem.text = ShareHandler.text;
@@ -46,7 +48,13 @@ Item {
 
     readonly property alias isEmpty: core.isEmpty
 
+    property alias showCancel: core.showCancel
+
     signal contentChanged
+
+    signal send
+
+    signal unhandledUp
 
     onActiveFocusChanged: if (activeFocus) {
         core.forceActiveFocus();
@@ -89,6 +97,8 @@ Item {
             visible: !root.currentRoom.readOnly
 
             onContentChanged: root.contentChanged()
+            onSend: root.send()
+            onUnhandledUp: root.unhandledUp()
         }
         QQC2.Label {
             visible: root.currentRoom.readOnly

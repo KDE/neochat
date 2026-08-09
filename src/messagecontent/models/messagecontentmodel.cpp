@@ -8,7 +8,6 @@
 #include <KLocalizedString>
 
 #include "block.h"
-#include "chatbarcache.h"
 #include "messagecontentlogging.h"
 #include "neochatdatetime.h"
 #include "texthandler.h"

@@ -386,6 +386,21 @@ const RoomEvent *MessageModel::findEvent(const QString &eventId) const
     return nullptr;
 }
 
+void MessageModel::editMessage(const QString &eventId)
+{
+    const auto eventIndex = indexForEventId(eventId);
+    if (!eventIndex.isValid()) {
+        qWarning() << "Trying to edit non-existent event:" << eventId;
+        return;
+    }
+    const auto contentModel = eventIndex.data(MessageModel::ContentModelRole).value<EventMessageContentModel *>();
+    if (!contentModel) {
+        qWarning() << "Trying to edit event without content model:" << eventId;
+        return;
+    }
+    contentModel->editEvent();
+}
+
 int MessageModel::selectedMessageCount() const
 {
     return std::accumulate(m_selectedMessageIds.constBegin(), m_selectedMessageIds.constEnd(), 0, [](int count, const auto &selectedMessageIds) {

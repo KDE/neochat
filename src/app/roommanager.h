@@ -12,6 +12,7 @@
 #include <Quotient/uriresolver.h>
 
 #include "enums/blocktype.h"
+#include "enums/chatbartype.h"
 #include "enums/messagetype.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messagefiltermodel.h"

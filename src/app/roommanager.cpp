@@ -6,12 +6,12 @@
 
 #include "block.h"
 #include "blockcache.h"
-#include "chatbarcache.h"
 #include "chatmarkdownhelper.h"
 #include "controller.h"
 #include "eventhandler.h"
 #include "models/actionsmodel.h"
 #include "models/chatbarmessagecontentmodel.h"
+#include "models/eventmessagecontentmodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -161,6 +161,10 @@ RoomManager::RoomManager(QObject *parent)
     ChatBarMessageContentModel::richTextActive = NeoChatConfig::richChatBar();
     connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
         ChatBarMessageContentModel::richTextActive = NeoChatConfig::richChatBar();
+    });
+    EventMessageContentModel::richTextActive = NeoChatConfig::richChatBar();
+    connect(NeoChatConfig::self(), &NeoChatConfig::RichChatBarChanged, this, [] {
+        EventMessageContentModel::richTextActive = NeoChatConfig::richChatBar();
     });
 }
 
@@ -412,10 +416,6 @@ UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 void RoomManager::visitRoom(Room *r, const QString &eventId)
 {
     auto room = qobject_cast<NeoChatRoom *>(r);
-
-    if (m_currentRoom && !m_currentRoom->editCache()->editId().isEmpty()) {
-        m_currentRoom->editCache()->setEditId({});
-    }
 
     if (!room) {
         setCurrentRoom({});

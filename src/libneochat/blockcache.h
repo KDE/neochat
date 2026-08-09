@@ -231,8 +231,11 @@ concept CacheItemClass = std::derived_from<CacheItemT, CacheItem>;
  *
  * @sa ChatBarMessageContentModel, QTextDocumentFragment, QTextDocument, Blocks::CacheItem
  */
-class Cache
+class Cache : public QObject
 {
+    Q_OBJECT
+    QML_ELEMENT
+
     using CacheItems = std::vector<CacheItemPtr>;
 
 public:

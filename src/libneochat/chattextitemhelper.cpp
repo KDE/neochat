@@ -619,7 +619,7 @@ QTextDocumentFragment ChatTextItemHelper::toFragment() const
 {
     auto cursor = textCursor();
     if (cursor.isNull()) {
-        return {};
+        return m_initialFragment;
     }
     cursor.select(QTextCursor::Document);
     return cursor.selection();
