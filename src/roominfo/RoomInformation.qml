@@ -93,7 +93,7 @@ QQC2.ScrollView {
             Delegates.RoundedItemDelegate {
                 id: searchButton
                 visible: !root.room.isSpace
-                icon.name: "search"
+                icon.name: "search-symbolic"
                 text: i18nc("@action:button", "Search Messages")
                 activeFocusOnTab: true
 
