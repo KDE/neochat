@@ -136,9 +136,15 @@
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/corrosion-rs/corrosion",
-                    "tag": "v0.6.0"
+                    "type": "archive",
+                    "url": "https://github.com/corrosion-rs/corrosion/archive/refs/tags/v0.6.1.tar.gz",
+                    "sha256": "e9e95b1ee2bad52681f347993fb1a5af5cce458c5ce8a2636c9e476e4babf8e3",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 242799,
+                        "stable-only": true,
+                        "url-template": "https://github.com/corrosion-rs/corrosion/archive/refs/tags/v$version.tar.gz"
+                    }
                 }
             ]
         },
