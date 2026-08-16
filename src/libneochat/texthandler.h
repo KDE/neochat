@@ -53,11 +53,16 @@ public:
     static void markdownToHtml(QString &string);
 
     /**
+     * @brief If the given string has exactly 1 para remove the tags.
+     */
+    static void cleanParas(QString &string);
+
+    /**
      * @brief Clean any html within the given string.
      *
      * This removes any invalid tags or attributes for matrix.
      */
-    static QString cleanHtml(QString string);
+    static void cleanHtml(QString &string);
 
     /**
      * @brief Handle the text for a message that is being sent.

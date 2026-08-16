@@ -201,7 +201,7 @@ QQC2.Menu {
             text: i18nc("@action:inmenu", "Paste")
             shortcut: StandardKey.Paste
         }
-        enabled: target?.canPaste ?? false
+        enabled: (target?.canPaste ?? false)
         onTriggered: {
             root.runOnMenuClose = () => {
                 root.target.paste();
@@ -210,6 +210,7 @@ QQC2.Menu {
     }
     RowLayout {
         visible: NeoChatConfig.richChatBar
+        enabled: Clipboard.hasText
         spacing: Kirigami.Units.smallSpacing
         Item {
             id: padItem
@@ -224,7 +225,7 @@ QQC2.Menu {
             display: QQC2.ToolButton.IconOnly
 
             onClicked: {
-                let text = Clipboard.richText(Clipboard.PlainToRich);
+                let text = Clipboard.plainText();
                 root.target.Message.contentModel.insertTextAtCursor(text);
                 root.close();
             }
@@ -253,6 +254,7 @@ QQC2.Menu {
         QQC2.ToolButton {
             id: richButton
             visible: NeoChatConfig.richChatBar
+            enabled: Clipboard.hasRichText
             icon.name: "format-text-code-symbolic"
             text: i18nc("@action:inmenu", "Paste as Rich Text")
             display: QQC2.ToolButton.IconOnly

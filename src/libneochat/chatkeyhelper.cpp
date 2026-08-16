@@ -301,12 +301,14 @@ bool ChatKeyHelper::cutText()
     if (cursor.isNull()) {
         return false;
     }
-    auto selectionMarkdown = cursor.selection().toMarkdown();
-    cursor.removeSelectedText();
-    TextHandler().markdownToHtml(selectionMarkdown);
+    auto convertedMarkdown = cursor.selection().toMarkdown();
+    TextHandler::markdownToHtml(convertedMarkdown);
+    TextHandler::cleanHtml(convertedMarkdown);
+    TextHandler::cleanParas(convertedMarkdown);
     auto mimeData = new QMimeData; // ownership is transferred to clipboard
-    selectionMarkdown == cursor.selection().toMarkdown() ? mimeData->setText(selectionMarkdown) : mimeData->setHtml(selectionMarkdown);
+    cursor.selection().toPlainText() == convertedMarkdown ? mimeData->setText(cursor.selection().toPlainText()) : mimeData->setHtml(convertedMarkdown);
     Clipboard().setMimeData(mimeData);
+    cursor.removeSelectedText();
 
     if (cursor.selectionStart() == 0 && cursor.selectionEnd() == cursor.document()->characterCount() - 1) {
         if (cursor.currentList()) {

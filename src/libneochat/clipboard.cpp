@@ -22,7 +22,25 @@ Clipboard::Clipboard(QObject *parent)
     : QObject(parent)
     , m_clipboard(QGuiApplication::clipboard())
 {
-    connect(m_clipboard, &QClipboard::changed, this, &Clipboard::imageChanged);
+    connect(m_clipboard, &QClipboard::changed, this, &Clipboard::changed);
+}
+
+bool Clipboard::hasText() const
+{
+    const auto mimeData = m_clipboard->mimeData();
+    if (!mimeData) {
+        return false;
+    }
+    return mimeData->hasText() || mimeData->hasHtml();
+}
+
+bool Clipboard::hasRichText() const
+{
+    const auto mimeData = m_clipboard->mimeData();
+    if (!mimeData) {
+        return false;
+    }
+    return mimeData->hasHtml();
 }
 
 bool Clipboard::hasImage() const
@@ -88,14 +106,14 @@ QString Clipboard::richText(PasteMode mode) const
 {
     const auto mimeData = m_clipboard->mimeData();
     if (mimeData->hasHtml()) {
-        return TextHandler::cleanHtml(mimeData->html());
+        auto richText = mimeData->html();
+        TextHandler::cleanHtml(richText);
+        return richText;
     } else if (mimeData->hasText() && mode == PasteMode::ConvertMarkdown) {
         auto richText = mimeData->text();
         TextHandler::markdownToHtml(richText);
-        if (richText.count("<p>"_L1) == 1 && richText.count("</p>"_L1) == 1 && richText.startsWith("<p>"_L1) && richText.endsWith("</p>"_L1)) {
-            richText.remove("<p>"_L1);
-            richText.remove("</p>"_L1);
-        }
+        TextHandler::cleanHtml(richText);
+        TextHandler::cleanParas(richText);
         return richText;
     } else if (mimeData->hasText() && mode == PasteMode::PlainToRich) {
         auto text = mimeData->text();
