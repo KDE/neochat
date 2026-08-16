@@ -164,36 +164,45 @@ ColumnLayout {
     Kirigami.Separator {
         Layout.fillWidth: true
     }
-    QQC2.ScrollView {
-        id: hierarchyScrollView
+    Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
         visible: !spaceChildrenModel.loading
 
-        TreeView {
-            id: spaceTree
-            columnWidthProvider: function (column) {
-                return spaceTree.width;
-            }
+        QQC2.ScrollView {
+            id: hierarchyScrollView
+            anchors.fill: parent
+            TreeView {
+                id: spaceTree
+                columnWidthProvider: function (column) {
+                    return spaceTree.width;
+                }
 
-            clip: true
+                clip: true
 
-            model: SpaceChildSortFilterModel {
-                id: spaceChildSortFilterModel
-                sourceModel: SpaceChildrenModel {
-                    id: spaceChildrenModel
-                    space: root.room
+                model: SpaceChildSortFilterModel {
+                    id: spaceChildSortFilterModel
+                    sourceModel: SpaceChildrenModel {
+                        id: spaceChildrenModel
+                        space: root.room
+                    }
+                }
+
+                delegate: SpaceHierarchyDelegate {
+                    onCreateRoom: _private.createRoom(roomId)
                 }
             }
 
-            delegate: SpaceHierarchyDelegate {
-                onCreateRoom: _private.createRoom(roomId)
+            background: Rectangle {
+                color: Kirigami.Theme.backgroundColor
+                Kirigami.Theme.colorSet: Kirigami.Theme.View
             }
         }
-
-        background: Rectangle {
-            color: Kirigami.Theme.backgroundColor
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            visible: spaceTree.rows === 0 && spaceChildSortFilterModel.filterText.length === 0
+            text: i18nc("@title", "This Space is empty")
+            explanation: i18nc("@info", "Add rooms to this Space to get started.")
         }
     }
     QQC2.Control {
