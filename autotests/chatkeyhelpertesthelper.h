@@ -17,6 +17,8 @@ class ChatKeyHelperTestHelper : public QObject
     Q_OBJECT
     QML_ELEMENT
 
+    Q_PROPERTY(bool isWindows READ isWindows CONSTANT)
+
     Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     Q_PROPERTY(ChatKeyHelper *keyHelper READ keyHelper CONSTANT)
@@ -26,6 +28,15 @@ public:
         : QObject(parent)
         , m_keyHelper(new ChatKeyHelper(this))
     {
+    }
+
+    bool isWindows() const
+    {
+#ifdef Q_OS_WINDOWS
+        return true;
+#else
+        return false;
+#endif
     }
 
     ChatTextItemHelper *textItem() const

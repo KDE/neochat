@@ -26,7 +26,17 @@ class Clipboard : public QObject
     /**
      * @brief Whether the current clipboard content is an image.
      */
-    Q_PROPERTY(bool hasImage READ hasImage NOTIFY imageChanged)
+    Q_PROPERTY(bool hasText READ hasText NOTIFY changed)
+
+    /**
+     * @brief Whether the current clipboard content is an image.
+     */
+    Q_PROPERTY(bool hasRichText READ hasRichText NOTIFY changed)
+
+    /**
+     * @brief Whether the current clipboard content is an image.
+     */
+    Q_PROPERTY(bool hasImage READ hasImage NOTIFY changed)
 
     /**
      * @brief Return the current clipboard content image.
@@ -34,7 +44,7 @@ class Clipboard : public QObject
      * Returns a null image if the clipboard does not contain an image or if it
      * contains an image in an unsupported image format.
      */
-    Q_PROPERTY(QImage image READ image NOTIFY imageChanged)
+    Q_PROPERTY(QImage image READ image NOTIFY changed)
 
 public:
     enum PasteMode {
@@ -45,6 +55,10 @@ public:
     Q_ENUM(PasteMode)
 
     explicit Clipboard(QObject *parent = nullptr);
+
+    [[nodiscard]] bool hasText() const;
+
+    [[nodiscard]] bool hasRichText() const;
 
     [[nodiscard]] bool hasImage() const;
 
@@ -104,9 +118,9 @@ public:
      */
     Q_INVOKABLE void setImage(const QUrl &image);
 
+Q_SIGNALS:
+    void changed();
+
 private:
     QClipboard *m_clipboard;
-
-Q_SIGNALS:
-    void imageChanged();
 };

@@ -23,11 +23,7 @@
 #include "eventmessagecontentmodel.h"
 #include "fileinfo.h"
 #include "messagecontentmodel.h"
-<<<<<<< HEAD
-=======
-#include "neochatroom.h"
 #include "texthandler.h"
->>>>>>> 1573e6f39 (Upgrade Markdown to richtext on paste)
 
 bool ChatBarMessageContentModel::richTextActive = true;
 

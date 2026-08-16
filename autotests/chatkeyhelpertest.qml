@@ -13,6 +13,7 @@ TestCase {
 
     TextEdit {
         id: textEdit
+        textFormat: TextEdit.RichText
 
         Keys.onPressed: (event) => {
             event.accepted = testHelper.keyHelper.handleKey(event.key, event.modifiers);
@@ -70,7 +71,7 @@ TestCase {
     }
 
     function test_upDown(): void {
-        textEdit.insert(0, "line 1\nline 2\nline 3")
+        textEdit.insert(0, "line 1<br>line 2<br>line 3")
         textEdit.cursorPosition = 0;
         keyClick(Qt.Key_Up);
         compare(spyUp.count, 1);
@@ -452,5 +453,17 @@ TestCase {
         compare(textEdit.selectionStart, 12);
         compare(textEdit.selectionEnd, 12);
         compare(textEdit.selectedText, "");
+    }
+
+    function test_cut(): void {
+        if (!testHelper.isWindows) {
+            console.warn("not windows")
+            textEdit.insert(0, "<strong>test</strong>");
+            textEdit.selectAll();
+            compare(textEdit.selectedText, "test");
+            keyClick(Qt.Key_X, Qt.ControlModifier);
+            compare(textEdit.selectedText, "");
+            compare(Clipboard.richText(Clipboard.Raw), "<strong>test</strong>");
+        }
     }
 }

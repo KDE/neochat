@@ -53,7 +53,15 @@ void TextHandler::markdownToHtml(QString &string)
     string = customMarkdownToHtml(string);
 }
 
-QString TextHandler::cleanHtml(QString string)
+void TextHandler::cleanParas(QString &string)
+{
+    if (string.count("<p>"_L1) == 1 && string.count("</p>"_L1) == 1 && string.startsWith("<p>"_L1) && string.endsWith("</p>"_L1)) {
+        string.remove("<p>"_L1);
+        string.remove("</p>"_L1);
+    }
+}
+
+void TextHandler::cleanHtml(QString &string)
 {
     string.remove(TextRegex::removeHead);
     auto pos = 0;
@@ -90,18 +98,15 @@ QString TextHandler::cleanHtml(QString string)
 
         nextTokenType = getNextTokenType(string, pos, nextToken, nextTokenType);
     }
-    return outputString.trimmed();
+    string = outputString.trimmed();
 }
 
 QString TextHandler::handleSendText()
 {
     auto outputString = m_data;
     markdownToHtml(outputString);
-    outputString = cleanHtml(outputString);
-    if (outputString.count("<p>"_L1) == 1 && outputString.count("</p>"_L1) == 1 && outputString.startsWith("<p>"_L1) && outputString.endsWith("</p>"_L1)) {
-        outputString.remove("<p>"_L1);
-        outputString.remove("</p>"_L1);
-    }
+    cleanHtml(outputString);
+    cleanParas(outputString);
 
     return outputString;
 }
@@ -210,10 +215,7 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
      */
     outputString.replace(TextRegex::strikethrough, u"<s>\\1</s>"_s);
 
-    if (outputString.count("<p>"_L1) == 1 && outputString.count("</p>"_L1) == 1 && outputString.startsWith("<p>"_L1) && outputString.endsWith("</p>"_L1)) {
-        outputString.remove("<p>"_L1);
-        outputString.remove("</p>"_L1);
-    }
+    cleanParas(outputString);
 
     return outputString;
 }
