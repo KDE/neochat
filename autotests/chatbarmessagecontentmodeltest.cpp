@@ -77,7 +77,6 @@ void ChatBarMessageContentModelTest::addLocationTest()
 void ChatBarMessageContentModelTest::addAttachmentToReply()
 {
     auto model = ChatBarMessageContentModel(this);
-    model.setType(ChatBarType::Room);
     model.setRoom(room.get());
     QCOMPARE(model.rowCount(), 1);
     QVERIFY(room->timelineSize() > 0);

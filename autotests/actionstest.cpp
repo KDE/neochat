@@ -90,11 +90,11 @@ void ActionsTest::testActions()
     QFETCH(std::optional<QString>, resultText);
     QFETCH(std::optional<Quotient::RoomMessageEvent::MsgType>, type);
 
-    auto cache = new Blocks::Cache();
-    auto helper = new PostMessageHelper();
-    cache->append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(command)));
-    helper->setCache(cache);
-    auto result = ActionsModel::handleAction(room, helper);
+    auto cache = Blocks::Cache();
+    auto helper = PostMessageHelper();
+    cache.append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(command)));
+    helper.setCache(&cache);
+    auto result = ActionsModel::handleAction(room, &helper);
     QCOMPARE(resultText, std::get<std::optional<QString>>(result));
     QCOMPARE(type, std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result));
 }

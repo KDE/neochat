@@ -135,7 +135,7 @@ public:
     Q_INVOKABLE const Quotient::RoomEvent *findEvent(const QString &eventId) const;
 
     /**
-     * @brief The number of selected messages.
+     * @brief Set the given message to edit mode.
      */
     void editMessage(const QString &eventId);
 
