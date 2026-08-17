@@ -94,5 +94,3 @@ Q_SIGNALS:
     void urlChanged();
     void emptyChanged();
 };
-
-static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
