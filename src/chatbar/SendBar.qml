@@ -143,7 +143,7 @@ RowLayout {
         }
 
         QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.visible: hovered && !checked
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
     QQC2.ToolButton {
@@ -195,7 +195,7 @@ RowLayout {
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
     }
-    
+
     QQC2.ToolButton {
         icon.name: "edit-select-text-symbolic"
         text: if (NeoChatConfig.richChatBar) {
@@ -212,7 +212,7 @@ RowLayout {
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
     }
-    
+
     QQC2.ToolButton {
         id: sendButton
         icon.name: "document-send"
