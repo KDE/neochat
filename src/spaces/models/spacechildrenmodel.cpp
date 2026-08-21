@@ -84,7 +84,7 @@ void SpaceChildrenModel::refreshModel()
         new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()), nullptr, m_space->id(), m_space->displayName(), m_space->canonicalAlias());
     endResetModel();
     m_currentJobs.append(
-        m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), std::nullopt, std::nullopt, 1).then([this](const auto &job) {
+        m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), std::nullopt, std::nullopt, 1).then(this, [this](const auto &job) {
             insertChildren(job->rooms());
         }));
 }
@@ -131,7 +131,7 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
             if (child.childrenState.size() > 0) {
                 m_currentJobs.append(m_space->connection()
                                          ->callApi<Quotient::GetSpaceHierarchyJob>(child.roomId, std::nullopt, std::nullopt, 1)
-                                         .then([this, parent, insertRow](const auto &job) {
+                                         .then(this, [this, parent, insertRow](const auto &job) {
                                              insertChildren(job->rooms(), index(insertRow, 0, parent));
                                          }));
             }

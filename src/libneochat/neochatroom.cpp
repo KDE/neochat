@@ -1191,7 +1191,7 @@ void NeoChatRoom::loadPinnedMessage()
     }
 
     const QString &mostRecentEventId = events.last();
-    connection()->callApi<GetOneRoomEventJob>(id(), mostRecentEventId).then([this](const auto &job) {
+    connection()->callApi<GetOneRoomEventJob>(id(), mostRecentEventId).then(this, [this](const auto &job) {
         auto event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
         if (auto encEv = eventCast<EncryptedEvent>(event.get())) {
             auto decryptedMessage = decryptMessage(*encEv);
@@ -1681,6 +1681,7 @@ void NeoChatRoom::downloadEventFromServer(const QString &eventId)
     connection()
         ->callApi<GetOneRoomEventJob>(id(), eventId)
         .then(
+            this,
             [this, eventId](const auto &job) {
                 // The event may have arrived in the meantime so check it's not in the timeline.
                 if (findInTimeline(eventId) != historyEdge()) {

@@ -106,7 +106,7 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
         endRemoveRows();
         Q_EMIT countChanged();
     };
-    m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId).then(onSuccess, [password, this, index, onSuccess](const auto &job) {
+    m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId).then(this, onSuccess, [password, this, index, onSuccess](const auto &job) {
         QJsonObject replyData = job->jsonData();
         AuthenticationData authData;
         authData.session = replyData["session"_L1].toString();

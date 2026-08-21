@@ -75,6 +75,7 @@ void ProfileFieldsHelper::load()
 
     m_connection->callApi<NeoChatGetProfileFieldJob>(BackgroundRequest, m_userId, QStringLiteral("m.tz"))
         .then(
+            this,
             [this](const auto &job) {
                 m_timezone = job->value();
                 Q_EMIT localTimeChanged();

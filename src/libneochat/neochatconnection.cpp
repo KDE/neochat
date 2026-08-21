@@ -155,7 +155,7 @@ void NeoChatConnection::connectSignals()
                 Q_EMIT supportsProfileFieldsChanged();
 
                 if (m_supportsProfileFields) {
-                    callApi<NeoChatGetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("m.tz")).then([this](const auto &job) {
+                    callApi<NeoChatGetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("m.tz")).then(this, [this](const auto &job) {
                         m_profileFields[QStringLiteral("m.tz")] = job->value();
                     });
                 }
@@ -168,7 +168,7 @@ void NeoChatConnection::connectSignals()
                 m_disallowedFields = profileFields["disallowed"_L1].toStringList();
             });
 
-            callApi<NeoChatAuthMetadataJob>().then([this](const auto &job) {
+            callApi<NeoChatAuthMetadataJob>().then(this, [this](const auto &job) {
                 setAccountManagementUri(job->jsonData()[u"account_management_uri"_s].toString());
             });
         },
@@ -293,6 +293,7 @@ void NeoChatConnection::changePassword(const QString &currentPassword, const QSt
         authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
         auto innerJob = callApi<ChangePasswordJob>(newPassword, false, authData)
                             .then(
+                                this,
                                 [this]() {
                                     Q_EMIT passwordStatus(PasswordStatus::Success);
                                 },
@@ -378,6 +379,7 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
                            {},
                            initialStateEvents)
         .then(
+            this,
             [parent, this](const auto &job) {
                 if (parent.isEmpty()) {
                     return;
@@ -407,6 +409,7 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
 
     Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, initialStateEvents, {}, QJsonObject{{"type"_L1, "m.space"_L1}})
         .then(
+            this,
             [parent, this](const auto &job) {
                 if (parent.isEmpty()) {
                     return;
