@@ -66,7 +66,7 @@ void VoiceRecorder::send()
     auto buffer = m_buffer;
     auto duration = m_recorder.duration();
     m_buffer = nullptr;
-    m_room->connection()->uploadContent(buffer, {}, u"audio/ogg"_s).then([fileMetadata, room, buffer, duration](const auto &job) mutable {
+    m_room->connection()->uploadContent(buffer, {}, u"audio/ogg"_s).then(this, [fileMetadata, room, buffer, duration](const auto &job) mutable {
         QJsonObject mscFile{
             {u"mimetype"_s, u"audio/ogg"_s},
             {u"name"_s, u"Voice Message"_s},

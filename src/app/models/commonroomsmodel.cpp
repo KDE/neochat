@@ -104,18 +104,19 @@ void CommonRoomsModel::reload()
     Q_EMIT loadingChanged();
 
     m_connection->callApi<NeochatGetCommonRoomsJob>(m_userId)
-        .then([this](const auto job) {
-            const auto &replyData = job->jsonData();
-            beginResetModel();
-            for (const auto &roomId : replyData[u"joined"_s].toArray()) {
-                m_commonRooms.push_back(roomId.toString());
-            }
-            endResetModel();
-            Q_EMIT countChanged();
+        .then(this,
+              [this](const auto job) {
+                  const auto &replyData = job->jsonData();
+                  beginResetModel();
+                  for (const auto &roomId : replyData[u"joined"_s].toArray()) {
+                      m_commonRooms.push_back(roomId.toString());
+                  }
+                  endResetModel();
+                  Q_EMIT countChanged();
 
-            m_loading = false;
-            Q_EMIT loadingChanged();
-        })
+                  m_loading = false;
+                  Q_EMIT loadingChanged();
+              })
         .onFailure([this] {
             m_loading = false;
             Q_EMIT loadingChanged();
