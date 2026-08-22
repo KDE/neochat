@@ -22,11 +22,6 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property FileBlock block
@@ -53,7 +48,7 @@ ColumnLayout {
 
     function saveFileAs() {
         const dialog = fileDialog.createObject(QQC2.Overlay.overlay) as Dialogs.FileDialog;
-        dialog.selectedFile = dialog.currentFolder + "/" + Message.room.fileNameToDownload(root.eventId);
+        dialog.selectedFile = dialog.currentFolder + "/" + Message.room.fileNameToDownload(Message.contentModel?.eventId ?? "");
         dialog.open();
     }
 
@@ -107,7 +102,7 @@ ColumnLayout {
                     downloadButton {
                         icon.name: "media-playback-stop"
                         QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
-                        onClicked: Message.room.cancelFileTransfer(root.eventId)
+                        onClicked: Message.room.cancelFileTransfer(root.Message.contentModel?.eventId ?? "")
                     }
                 }
             }
@@ -142,7 +137,7 @@ ColumnLayout {
             icon.name: "document-open"
             onClicked: {
                 root.autoOpenFile = true;
-                root.Message.room.downloadTempFile(root.eventId, root.block.filename);
+                root.Message.room.downloadTempFile(root.Message.contentModel?.eventId ?? "", root.block.filename);
             }
 
             QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
@@ -185,7 +180,7 @@ ColumnLayout {
                     if (root.autoOpenFile) {
                         UrlHelper.copyTo(root.block.fileTransferInfo.localPath, selectedFile);
                     } else {
-                        root.Message.room.download(root.eventId, selectedFile);
+                        root.Message.room.download(root.Message.contentModel?.eventId ?? "", selectedFile);
                     }
                 }
             }

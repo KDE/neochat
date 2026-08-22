@@ -18,20 +18,6 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
-     * @brief The message author.
-     *
-     * A Quotient::RoomMember object.
-     *
-     * @sa Quotient::RoomMember
-     */
-    required property var author
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property LocationBlock block
@@ -65,7 +51,7 @@ ColumnLayout {
             latitude: root.block.latitude
             longitude: root.block.longitude
             asset: root.block.asset
-            author: root.author
+            author: Message.contentModel?.author ?? null
             isLive: true
             heading: NaN
         }
@@ -112,7 +98,7 @@ ColumnLayout {
                         latitude: root.block.latitude,
                         longitude: root.block.longitude,
                         asset: root.block.asset,
-                        author: root.author
+                        author: Message.contentModel?.author
                     });
                 }
 

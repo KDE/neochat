@@ -20,11 +20,6 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property PollBlock block
@@ -75,7 +70,7 @@ ColumnLayout {
                 if (root.block.hasEnded) {
                     return;
                 }
-                root.block.sendPollAnswer(root.eventId, answerDelegate.id);
+                root.block.sendPollAnswer(root.Message.contentModel?.eventId ?? "", answerDelegate.id);
             }
             text: answerDelegate.answerText
 

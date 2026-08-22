@@ -22,11 +22,13 @@ QQC2.Control {
 
     required property var cache
 
+    property string authorName: ""
+
     required property real maxAvailableWidth
 
     readonly property ChatBarMessageContentModel model: ChatBarMessageContentModel {
-        room: root.room
         cache: root.cache
+        authorName: root.authorName
         sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
 
         onContentChanged: root.contentChanged()

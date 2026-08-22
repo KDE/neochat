@@ -20,7 +20,7 @@
 #include "enums/roomsortparameter.h"
 #include "general_logging.h"
 #include "mediasizehelper.h"
-#include "models/messagecontentmodel.h"
+#include "models/eventmessagecontentmodel.h"
 #include "models/messagemodel.h"
 #include "models/roomlistmodel.h"
 #include "models/roomtreemodel.h"
@@ -117,7 +117,7 @@ Controller::Controller(QObject *parent)
         RoomSortParameter::setCustomSortOrder(configParamList);
     });
 
-    MessageContentModel::setSetMediaHidden([this](const QString &eventId, bool hidden) {
+    EventMessageContentModel::setSetMediaHidden([this](const QString &eventId, bool hidden) {
         auto list = m_mediaGroup.readEntry(u"HiddenEvents"_s, QStringList());
         if (hidden) {
             list.push_back(eventId);
@@ -126,7 +126,7 @@ Controller::Controller(QObject *parent)
         }
         m_mediaGroup.writeEntry(u"HiddenEvents"_s, list);
     });
-    MessageContentModel::setMediaShouldBeHidden([this](const QString &eventId) {
+    EventMessageContentModel::setMediaShouldBeHidden([this](const QString &eventId) {
         return NeoChatConfig::hideImages() || m_mediaGroup.readEntry(u"HiddenEvents"_s, QStringList()).contains(eventId);
     });
 

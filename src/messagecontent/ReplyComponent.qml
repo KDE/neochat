@@ -62,6 +62,7 @@ QQC2.Control {
             id: contentColumn
             spacing: Kirigami.Units.smallSpacing
 
+            Message.contentModel: root.block.blockModel
             Message.maxContentWidth: _private.availableContentWidth
 
             Repeater {

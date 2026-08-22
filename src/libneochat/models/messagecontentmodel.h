@@ -15,8 +15,6 @@
 
 #include "block.h"
 #include "enums/blocktype.h"
-#include "neochatroom.h"
-#include "neochatroommember.h"
 
 class NeoChatDateTime;
 
@@ -34,17 +32,6 @@ class MessageContentModel : public QAbstractListModel
     QML_ELEMENT
     QML_UNCREATABLE("")
 
-    /**
-     * @brief The room the chat bar is for.
-     */
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
-
-    /**
-     * @brief The author if the message.
-     */
-    Q_PROPERTY(NeochatRoomMember *author READ author NOTIFY authorChanged)
-    Q_PROPERTY(QString eventId READ eventId CONSTANT)
-
 public:
     /**
      * @brief Defines the model roles.
@@ -52,22 +39,14 @@ public:
     enum Roles {
         ComponentTypeRole = Qt::UserRole, /**< The type of component to visualise the message. */
         BlockRole, /**< The Blocks::Block for the delegate. */
-        EventIdRole, /**< The matrix event ID of the event. */
-        DateTimeRole, /**< The timestamp for when the event was sent (as a NeoChatDateTime). */
-        AuthorRole, /**< The author of the event. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
         ThreadRootRole, /**< The thread root event ID for the event. */
         EditableRole, /**< Whether the component can be edited. */
         CurrentFocusRole, /**< Whether the delegate should have focus. */
-        MediaHiddenRole, /**< Whether the media should be visible or not. */
     };
     Q_ENUM(Roles)
 
     explicit MessageContentModel(QObject *parent = nullptr);
-    explicit MessageContentModel(NeoChatRoom *room, const QString &eventId, QObject *parent = nullptr);
-
-    NeoChatRoom *room() const;
-    void setRoom(NeoChatRoom *room);
 
     /**
      * @brief Get the given role value at the given index.
@@ -92,65 +71,17 @@ public:
     static QHash<int, QByteArray> roleNamesStatic();
 
     /**
-     * @brief The Matrix event ID of the message.
-     */
-    Q_INVOKABLE QString eventId() const;
-
-    /**
-     * @brief The author of the message.
-     */
-    Q_INVOKABLE NeochatRoomMember *author() const;
-
-    /**
      * @brief Toggle spoiler for the component at the given row.
      */
     Q_INVOKABLE void toggleSpoiler(QModelIndex index);
 
-    /**
-     * @brief Hides the media contained in this message.
-     */
-    Q_INVOKABLE void hideMedia();
-
-    /**
-     * @brief Shows the media contained in this message.
-     */
-    Q_INVOKABLE void showMedia();
-
-    /**
-     * @brief If the media is hidden for this message.
-     */
-    Q_INVOKABLE bool isMediaHidden();
-
-    static void setSetMediaHidden(std::function<void(const QString &, bool)> func);
-    static void setMediaShouldBeHidden(std::function<bool(const QString &)> func);
-
 Q_SIGNALS:
-    void roomChanged(NeoChatRoom *oldRoom, NeoChatRoom *newRoom);
-    void authorChanged();
-
     /**
      * @brief Emit whenever new components are added.
      */
     void componentsUpdated();
 
 protected:
-    QPointer<NeoChatRoom> m_room;
-    QString m_eventId;
-
-    /**
-     * @brief NeoChatDateTime for the message.
-     *
-     * The default implementation returns the current time.
-     */
-    virtual NeoChatDateTime dateTime() const;
-
-    /**
-     * @brief The author of the message.
-     *
-     * The default implementation returns the local user.
-     */
-    virtual QString authorId() const;
-
     /**
      * @brief Thread root ID for the message if in a thread.
      *
@@ -172,9 +103,4 @@ protected:
 private:
     void updateSpoilers();
     void updateSpoiler(const QModelIndex &index);
-
-    bool m_mediaHidden = false;
-
-    static std::function<void(const QString &, bool)> m_setMediaHidden;
-    static std::function<bool(const QString &)> m_mediaShouldBeHidden;
 };

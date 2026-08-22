@@ -37,6 +37,8 @@ Item {
 
     property alias cache: core.cache
 
+    property alias authorName: core.authorName
+
     onCurrentRoomChanged: {
         if (ShareHandler.text.length > 0 && ShareHandler.room === root.currentRoom.id) {
             core.model.focusedTextItem.textItem.text = ShareHandler.text;

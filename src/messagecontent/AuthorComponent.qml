@@ -12,26 +12,6 @@ import org.kde.neochat
 RowLayout {
     id: root
 
-    /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
-     * @brief The message author.
-     *
-     * A NeochatRoomMember object (which is just a QML safe wrapper around
-     * Quotient::RoomMember).
-     *
-     * @sa NeochatRoomMember, Quotient::RoomMember
-     */
-    required property NeochatRoomMember author
-
-    /**
-     * @brief The timestamp of the event as a neoChatDateTime.
-     */
-    required property neoChatDateTime dateTime
-
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
 
@@ -41,8 +21,8 @@ RowLayout {
     QQC2.Label {
         id: nameButton
 
-        text: root.author?.disambiguatedName ?? ""
-        color: root.author?.color ?? ""
+        text: Message.contentModel?.author?.disambiguatedName ?? ""
+        color: Message.contentModel?.author?.color ?? Kirigami.Theme.highlightColor
         textFormat: Text.PlainText
         font.weight: Font.Bold
         elide: Text.ElideRight
@@ -55,14 +35,14 @@ RowLayout {
         function openUserMenu(): void {
             const menu = Qt.createComponent("org.kde.neochat", "UserMenu").createObject(root, {
                 window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow,
-                author: root.author
+                author: Message.contentModel?.author
             });
             menu.popup(root.QQC2.Overlay.overlay);
         }
 
         // tapping to open profile
         TapHandler {
-            onTapped: RoomManager.resolveResource(root.author.uri)
+            onTapped: RoomManager.resolveResource(Message.contentModel?.author.uri ?? "")
         }
 
         // right-clicking/long-press for context menu
@@ -82,12 +62,12 @@ RowLayout {
     QQC2.Label {
         id: timeLabel
 
-        text: root.dateTime.shortRelativeDateTime
+        text: Message.contentModel?.dateTime.shortRelativeDateTime ?? ""
         horizontalAlignment: Text.AlignRight
         color: Kirigami.Theme.disabledTextColor
 
         QQC2.ToolTip.visible: timeHoverHandler.hovered
-        QQC2.ToolTip.text: root.dateTime.longDateTime
+        QQC2.ToolTip.text: Message.contentModel?.dateTime.longDateTime ?? ""
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         HoverHandler {

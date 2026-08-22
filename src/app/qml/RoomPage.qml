@@ -308,10 +308,10 @@ Kirigami.Page {
         height: active ? (item as ChatBar)?.implicitHeight : 0
         active: timelineViewLoader.active
         sourceComponent: ChatBar {
-            id: chatBar
             width: parent.width
             currentRoom: root.currentRoom
             cache: root.currentRoom?.mainCache ?? null
+            authorName: root.currentRoom?.qmlSafeLocalMember().displayName
 
             onContentChanged: root.currentRoom.sendTypingNotification(!isEmpty)
             onSend: postHelper.postMessage()
@@ -338,7 +338,7 @@ Kirigami.Page {
                 if (eventId.length <= 0) {
                     return;
                 }
-                chatBar.model.addReply(ReplyModelHelper.modelForEvent(root.currentRoom, eventId));
+                model.addReply(ReplyModelHelper.modelForEvent(root.currentRoom, eventId));
                 return;
             }
         }

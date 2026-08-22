@@ -20,11 +20,6 @@ Item {
     id: root
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property ImageBlock block
@@ -45,11 +40,6 @@ Item {
      * Normally used for scrollbars.
      */
     property int rightAnchorMargin: 0
-
-    /**
-     * @brief Whether the media should be hidden.
-     */
-    required property bool mediaHidden
 
     Layout.fillWidth: true
     implicitWidth: container.implicitWidth
@@ -72,7 +62,7 @@ Item {
                 id: hideButton
 
                 // For tiny images, having the button looks super buggy at their size
-                visible: !root.mediaHidden && !root.editable && root.width >= hideButton.width && root.height >= hideButton.height
+                visible: !root.block.imageHidden && !root.editable && root.width >= hideButton.width && root.height >= hideButton.height
                 icon.name: "view-hidden"
                 text: i18nc("@action:button", "Hide Image")
                 display: QQC2.Button.IconOnly
@@ -138,7 +128,7 @@ Item {
         Rectangle {
             anchors.fill: parent
 
-            visible: (_private.imageItem?.status !== Image.Ready ?? true) || root.mediaHidden
+            visible: (_private.imageItem?.status !== Image.Ready ?? true) || root.block.imageHidden
 
             color: "#BB000000"
 
@@ -146,7 +136,7 @@ Item {
                 anchors.centerIn: parent
 
                 width: parent.width * 0.8
-                visible: !root.mediaHidden
+                visible: !root.block.imageHidden
 
                 from: 0
                 to: 1.0
@@ -156,7 +146,7 @@ Item {
             Image {
                 anchors.fill: parent
                 source: root?.block.thumbnailSource
-                visible: !root.mediaHidden
+                visible: !root.block.imageHidden
             }
         }
 
@@ -167,7 +157,7 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
 
-            active: !root.block.info.isAnimated && !root.mediaHidden
+            active: !root.block.info.isAnimated && !root.block.imageHidden
             sourceComponent: Image {
                 source: root.block.source
                 sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
@@ -185,7 +175,7 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
 
-            active: (root?.block.info.isAnimated ?? false) && !root.mediaHidden
+            active: (root?.block.info.isAnimated ?? false) && !root.block.imageHidden
             sourceComponent: AnimatedImage {
                 source: root.block.source
 
@@ -203,7 +193,7 @@ Item {
         QQC2.Button {
             anchors.centerIn: parent
             text: i18nc("@action:button", "Show Image")
-            visible: root.mediaHidden
+            visible: root.block.imageHidden
             onClicked: Message.contentModel?.showMedia()
         }
 
@@ -218,8 +208,8 @@ Item {
                 if (root.Message.timeline) {
                     root.Message.timeline.interactive = false;
                 }
-                if (!root.block.info.isSticker && !root.editable && !root.mediaHidden) {
-                    RoomManager.maximizeMedia(root.eventId);
+                if (!root.block.info.isSticker && !root.editable && !root.block.imageHidden) {
+                    RoomManager.maximizeMedia(root.Message.contentModel?.eventId ?? "");
                 }
             }
         }

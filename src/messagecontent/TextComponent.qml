@@ -25,11 +25,6 @@ TextEdit {
     required property int index
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property TextBlock block
@@ -203,7 +198,7 @@ TextEdit {
     }
 
     function requestMenu() {
-        const event = root.Message.room.findEvent(root.eventId);
+        const event = root.Message.room.findEvent(Message.contentModel?.eventId ?? "");
         RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink, root.Message.messageModel);
     }
 

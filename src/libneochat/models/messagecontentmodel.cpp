@@ -9,77 +9,15 @@
 
 #include "block.h"
 #include "blocklogging.h"
-#include "neochatdatetime.h"
+
 #include "texthandler.h"
 
 using namespace Quotient;
 
-std::function<void(const QString &, bool)> MessageContentModel::m_setMediaHidden = [](const QString &, bool) {
-
-};
-
-std::function<bool(const QString &)> MessageContentModel::m_mediaShouldBeHidden = [](const QString &) -> bool {
-    return false;
-};
-
 MessageContentModel::MessageContentModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-}
-
-MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, QObject *parent)
-    : QAbstractListModel(parent)
-    , m_eventId(eventId)
-{
     connect(qGuiApp->styleHints(), &QStyleHints::colorSchemeChanged, this, &MessageContentModel::updateSpoilers);
-
-    m_mediaHidden = m_mediaShouldBeHidden(m_eventId);
-
-    setRoom(room);
-}
-
-NeoChatRoom *MessageContentModel::room() const
-{
-    return m_room;
-}
-
-void MessageContentModel::setRoom(NeoChatRoom *room)
-{
-    if (room == m_room) {
-        return;
-    }
-
-    if (m_room) {
-        m_room->disconnect(this);
-    }
-
-    const auto oldRoom = std::exchange(m_room, room);
-
-    if (m_room) {
-        connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, &MessageContentModel::componentsUpdated);
-    }
-
-    Q_EMIT roomChanged(oldRoom, m_room);
-}
-
-QString MessageContentModel::eventId() const
-{
-    return m_eventId;
-}
-
-NeoChatDateTime MessageContentModel::dateTime() const
-{
-    return QDateTime::currentDateTime();
-}
-
-QString MessageContentModel::authorId() const
-{
-    return m_room->localMember().id();
-}
-
-NeochatRoomMember *MessageContentModel::author() const
-{
-    return m_room->qmlSafeMember(authorId());
 }
 
 QString MessageContentModel::threadRootId() const
@@ -98,11 +36,6 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    if (!m_room) {
-        qCWarning(BlocksLog) << __FUNCTION__ << "called without room";
-        return {};
-    }
-
     const auto &component = m_components[index.row()];
     if (!component) {
         return {};
@@ -113,15 +46,6 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     }
     if (role == BlockRole) {
         return component->toVariant();
-    }
-    if (role == EventIdRole) {
-        return eventId();
-    }
-    if (role == DateTimeRole) {
-        return QVariant::fromValue(dateTime());
-    }
-    if (role == AuthorRole) {
-        return QVariant::fromValue<NeochatRoomMember *>(author());
     }
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);
@@ -134,9 +58,6 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     }
     if (role == CurrentFocusRole) {
         return index.row() == m_currentFocusComponent.row();
-    }
-    if (role == MediaHiddenRole) {
-        return m_mediaHidden;
     }
 
     return {};
@@ -160,14 +81,10 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     QHash<int, QByteArray> roles;
     roles[MessageContentModel::ComponentTypeRole] = "componentType";
     roles[MessageContentModel::BlockRole] = "block";
-    roles[MessageContentModel::EventIdRole] = "eventId";
-    roles[MessageContentModel::DateTimeRole] = "dateTime";
-    roles[MessageContentModel::AuthorRole] = "author";
     roles[MessageContentModel::ReplyContentModelRole] = "replyContentModel";
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
     roles[MessageContentModel::EditableRole] = "editable";
     roles[MessageContentModel::CurrentFocusRole] = "currentFocus";
-    roles[MessageContentModel::MediaHiddenRole] = "mediaHidden";
     return roles;
 }
 
@@ -257,41 +174,6 @@ void MessageContentModel::toggleSpoiler(QModelIndex index)
     textBlock->setSpoilerRevealed(!textBlock->spoilerRevealed());
     Q_EMIT dataChanged(index, index, {BlockRole});
     updateSpoiler(index);
-}
-
-void MessageContentModel::hideMedia()
-{
-    m_mediaHidden = true;
-    if (rowCount()) {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {MediaHiddenRole});
-    }
-
-    m_setMediaHidden(m_eventId, true);
-}
-
-void MessageContentModel::showMedia()
-{
-    m_mediaHidden = false;
-    if (rowCount()) {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {MediaHiddenRole});
-    }
-
-    m_setMediaHidden(m_eventId, false);
-}
-
-bool MessageContentModel::isMediaHidden()
-{
-    return m_mediaHidden;
-}
-
-void MessageContentModel::setSetMediaHidden(std::function<void(const QString &, bool)> func)
-{
-    m_setMediaHidden = func;
-}
-
-void MessageContentModel::setMediaShouldBeHidden(std::function<bool(const QString &)> func)
-{
-    m_mediaShouldBeHidden = func;
 }
 
 #include "moc_messagecontentmodel.cpp"

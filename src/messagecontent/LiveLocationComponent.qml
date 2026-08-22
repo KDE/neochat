@@ -18,25 +18,18 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property LocationBlock block
 
     required property int index
 
-    required property NeochatRoomMember author
-
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
 
     LiveLocationsModel {
         id: locationModel
-        eventId: root.eventId
+        eventId: Message.contentModel?.eventId ?? ""
         room: Message.room
     }
     MapView {

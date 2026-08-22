@@ -51,8 +51,6 @@ void ChatBarMessageContentModelTest::initTestCase()
 void ChatBarMessageContentModelTest::missingEvent()
 {
     auto model = ChatBarMessageContentModel(this);
-    model.setRoom(room.get());
-
     // Ensure we have a text block that's initialized correctly:
     checkEmptyChatbar(model);
 }
@@ -60,8 +58,6 @@ void ChatBarMessageContentModelTest::missingEvent()
 void ChatBarMessageContentModelTest::addLocationTest()
 {
     auto model = ChatBarMessageContentModel(this);
-    model.setRoom(room.get());
-
     model.addLocation(51.606, 0.046, u"m.pin"_s);
     QCOMPARE(model.rowCount(), 2);
     QCOMPARE(model.data(model.index(0), MessageContentModel::ComponentTypeRole), Blocks::Location);
@@ -78,7 +74,6 @@ void ChatBarMessageContentModelTest::addLocationTest()
 void ChatBarMessageContentModelTest::addAttachmentToReply()
 {
     auto model = ChatBarMessageContentModel(this);
-    model.setRoom(room.get());
     QCOMPARE(model.rowCount(), 1);
     QVERIFY(room->timelineSize() > 0);
     model.addReply(ReplyModelHelper().modelForEvent(room.get(), room->messageEvents()[0].event()->id()));

@@ -296,6 +296,11 @@ class ImageBlock : public UrlBlock
      */
     Q_PROPERTY(bool optimize READ optimize CONSTANT)
 
+    /**
+     * @brief Whether the image should be hidden.
+     */
+    Q_PROPERTY(bool imageHidden READ imageHidden WRITE setImageHidden NOTIFY imageHiddenChanged)
+
 public:
     ImageBlock(Type type,
                const QUrl &source,
@@ -314,7 +319,13 @@ public:
     bool optimize() const;
     void setOptimize(bool optimize);
 
+    [[nodiscard]] bool imageHidden() const;
+    void setImageHidden(bool imageHidden);
+
     [[nodiscard]] CacheItemPtr toCacheItem() override;
+
+Q_SIGNALS:
+    void imageHiddenChanged();
 
 private:
     QString m_filename;
@@ -322,6 +333,7 @@ private:
     QUrl m_thumbnailSource;
     ImageInfo m_thumbnailInfo;
     bool m_optimize;
+    bool m_imageHidden = false;
 };
 
 /**
@@ -366,6 +378,11 @@ class VideoBlock : public UrlBlock
      */
     Q_PROPERTY(Quotient::FileTransferInfo fileTransferInfo READ fileTransferInfo NOTIFY fileTransferInfoChanged)
 
+    /**
+     * @brief Whether the video should be hidden.
+     */
+    Q_PROPERTY(bool videoHidden READ videoHidden WRITE setVideoHidden NOTIFY videoHiddenChanged)
+
 public:
     VideoBlock(Type type,
                const QUrl &source,
@@ -384,16 +401,21 @@ public:
     [[nodiscard]] const ImageInfo &thumbnailInfo() const;
     [[nodiscard]] Quotient::FileTransferInfo fileTransferInfo() const;
 
+    [[nodiscard]] bool videoHidden() const;
+    void setVideoHidden(bool videoHidden);
+
     [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 Q_SIGNALS:
     void fileTransferInfoChanged();
+    void videoHiddenChanged();
 
 private:
     QString m_filename;
     VideoInfo m_info;
     QUrl m_thumbnailSource;
     ImageInfo m_thumbnailInfo;
+    bool m_videoHidden = false;
 
     QPointer<NeoChatRoom> m_room;
     QString m_eventId = {};

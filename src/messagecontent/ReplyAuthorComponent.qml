@@ -8,25 +8,13 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
+import org.kde.neochat
+
 RowLayout {
     id: root
 
-    /**
-     * @brief The message author.
-     *
-     * A Quotient::RoomMember object.
-     *
-     * @sa Quotient::RoomMember
-     */
-    required property var author
-
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     implicitHeight: Math.max(replyAvatar.implicitHeight, replyName.implicitHeight)
     spacing: Kirigami.Units.largeSpacing
@@ -37,17 +25,17 @@ RowLayout {
         implicitWidth: Kirigami.Units.iconSizes.small
         implicitHeight: Kirigami.Units.iconSizes.small
 
-        source: root.author.avatarUrl
-        name: root.author.displayName
-        color: root.author.color
+        source: Message.contentModel?.author.avatarUrl ?? ""
+        name: Message.contentModel?.author.displayName ?? ""
+        color: Message.contentModel?.author.color ?? Kirigami.Theme.highlightColor
         asynchronous: true
     }
     QQC2.Label {
         id: replyName
         Layout.fillWidth: true
 
-        color: root.author.color
-        text: root.author.disambiguatedName
+        color: Message.contentModel?.author.color ?? Kirigami.Theme.highlightColor
+        text: Message.contentModel?.author.disambiguatedName ?? ""
         elide: Text.ElideRight
         textFormat: Text.PlainText
     }

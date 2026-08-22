@@ -31,6 +31,13 @@ class ChatBarMessageContentModel : public MessageContentModel
     Q_PROPERTY(Blocks::Cache *cache READ cache WRITE setCache NOTIFY cacheChanged)
 
     /**
+     * @brief The name of the author of the chat message.
+     *
+     * Used in certain features to add the authors name to a default string, e.g. "<author>'s location".
+     */
+    Q_PROPERTY(QString authorName READ authorName WRITE setAuthorName NOTIFY authorNameChanged)
+
+    /**
      * @brief The row of the model component that currently has focus.
      */
     Q_PROPERTY(int focusRow READ focusRow WRITE setFocusRow NOTIFY focusRowChanged)
@@ -92,6 +99,8 @@ public:
 
     Blocks::Cache *cache() const;
     void setCache(Blocks::Cache *cache);
+    QString authorName() const;
+    void setAuthorName(const QString &authorName);
     ChatKeyHelper *keyHelper() const;
     int focusRow() const;
     Blocks::Type focusType() const;
@@ -127,6 +136,7 @@ public:
 
 Q_SIGNALS:
     void cacheChanged();
+    void authorNameChanged();
     void focusRowChanged();
     void hasRichFormattingChanged();
     void hasAttachmentChanged();
@@ -144,6 +154,7 @@ Q_SIGNALS:
 
 private:
     Blocks::Cache *m_cache = nullptr;
+    QString m_authorName;
 
     void initializeModel(const QString &initialText = {});
     void initializeFromCache();

@@ -18,11 +18,6 @@ QQC2.TextArea {
     required property int index
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property TextBlock block
@@ -74,7 +69,7 @@ QQC2.TextArea {
         acceptedDevices: PointerDevice.TouchScreen
         acceptedButtons: Qt.LeftButton
         onLongPressed: {
-            const event = root.Message.room.findEvent(root.eventId);
+            const event = root.Message.room.findEvent(root.Message.contentModel?.eventId ?? "");
             RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink, root.Message.messageModel);
         }
     }

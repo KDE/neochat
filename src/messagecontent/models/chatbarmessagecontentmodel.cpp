@@ -99,6 +99,20 @@ void ChatBarMessageContentModel::setCache(Blocks::Cache *cache)
     Q_EMIT cacheChanged();
 }
 
+QString ChatBarMessageContentModel::authorName() const
+{
+    return m_authorName;
+}
+
+void ChatBarMessageContentModel::setAuthorName(const QString &authorName)
+{
+    if (authorName == m_authorName) {
+        return;
+    }
+    m_authorName = authorName;
+    Q_EMIT authorNameChanged();
+}
+
 ChatKeyHelper *ChatBarMessageContentModel::keyHelper() const
 {
     return m_keyHelper;
@@ -335,10 +349,7 @@ void ChatBarMessageContentModel::addLocation(qreal latitude, qreal longitude, co
 {
     clearModel();
     auto assetString = asset == u"m.pin"_s ? i18n("pin") : i18n("location");
-    auto authorString = u"User"_s;
-    if (author()) {
-        authorString = author()->displayName();
-    }
+    auto authorString = m_authorName.isEmpty() ? u"User"_s : m_authorName;
     initializeModel(u"%1's %2"_s.arg(authorString, assetString));
     auto it = insertComponent(hasReply() ? 1 : 0, new Blocks::LocationBlock(Blocks::Location, latitude, longitude, asset, this));
     const auto componentIndex = index(std::distance(m_components.begin(), it));

@@ -20,11 +20,6 @@ Video {
     id: root
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property VideoBlock block
@@ -53,11 +48,6 @@ Video {
      */
     required property bool editable
 
-    /**
-     * @brief Whether the media should be hidden.
-     */
-    required property bool mediaHidden
-
     Layout.preferredWidth: mediaSizeHelper.currentSize.width
     Layout.preferredHeight: mediaSizeHelper.currentSize.height
 
@@ -68,7 +58,7 @@ Video {
     states: [
         State {
             name: "notDownloaded"
-            when: !root.block.fileTransferInfo.completed && !root.block.fileTransferInfo.active && !root.mediaHidden
+            when: !root.block.fileTransferInfo.completed && !root.block.fileTransferInfo.active && !root.block.videoHidden
             PropertyChanges {
                 videoLabel.visible: true
                 mediaThumbnail.visible: true
@@ -76,7 +66,7 @@ Video {
         },
         State {
             name: "downloading"
-            when: root.block.fileTransferInfo.active && !root.block.fileTransferInfo.completed && !root.mediaHidden
+            when: root.block.fileTransferInfo.active && !root.block.fileTransferInfo.completed && !root.block.videoHidden
             PropertyChanges {
                 downloadBar.visible: true
                 mediaThumbnail.visible: true
@@ -84,7 +74,7 @@ Video {
         },
         State {
             name: "paused"
-            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState && !root.mediaHidden
+            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState && !root.block.videoHidden
             PropertyChanges {
                 videoControls.stateVisible: true
                 playButton.icon.name: "media-playback-start"
@@ -96,7 +86,7 @@ Video {
         },
         State {
             name: "playing"
-            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState && !root.mediaHidden
+            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState && !root.block.videoHidden
             PropertyChanges {
                 videoControls.stateVisible: true
                 playButton.icon.name: "media-playback-pause"
@@ -105,7 +95,7 @@ Video {
         },
         State {
             name: "stopped"
-            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && !root.mediaHidden && root.error === MediaPlayer.NoError
+            when: root.block.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && !root.block.videoHidden && root.error === MediaPlayer.NoError
             PropertyChanges {
                 videoControls.stateVisible: true
                 mediaThumbnail.visible: true
@@ -119,7 +109,7 @@ Video {
         },
         State {
             name: "hidden"
-            when: root.mediaHidden
+            when: root.block.videoHidden
             PropertyChanges {
                 mediaThumbnail.visible: false
                 videoControls.visible: false
@@ -360,7 +350,7 @@ Video {
                 onClicked: {
                     root.Message.timeline.interactive = false;
                     root.pause();
-                    RoomManager.maximizeMedia(root.eventId);
+                    RoomManager.maximizeMedia(root.Message.contentModel?.eventId ?? "");
                 }
 
                 QQC2.ToolTip.text: text
@@ -425,7 +415,7 @@ Video {
             playSavedFile();
         } else {
             playOnFinished = true;
-            Message.room.downloadFile(root.eventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + Message.room.fileNameToDownload(root.eventId));
+            Message.room.downloadFile(root.Message.contentModel?.eventId ?? "", Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + (root.Message.contentModel?.eventId ?? "").replace(":", "_").replace("/", "_").replace("+", "_") + Message.room.fileNameToDownload(root.Message.contentModel?.eventId ?? ""));
         }
     }
 

@@ -71,14 +71,13 @@ void MessageContentModelTest::hideMedia()
     QCOMPARE(model1.rowCount(), 2);
 
     // Should be false in this case because that's the default without config
-    QCOMPARE(model1.data(model1.index(0), MessageContentModel::MediaHiddenRole), false);
     QCOMPARE(model1.isMediaHidden(), false);
 
     model1.hideMedia();
-    QCOMPARE(model1.data(model1.index(0), MessageContentModel::MediaHiddenRole), true);
+    QCOMPARE(model1.isMediaHidden(), true);
 
     model1.showMedia();
-    QCOMPARE(model1.data(model1.index(0), MessageContentModel::MediaHiddenRole), false);
+    QCOMPARE(model1.isMediaHidden(), false);
 }
 
 void MessageContentModelTest::threadModelNonRoomMessageEvent()

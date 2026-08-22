@@ -19,11 +19,6 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property AudioBlock block
@@ -68,7 +63,7 @@ ColumnLayout {
                 playButton.icon.name: "download"
                 playButton.onClicked: {
                     root.userInitiatedDownload = true;
-                    Message.room.downloadFile(root.eventId);
+                    Message.room.downloadFile(root.Message.contentModel?.eventId ?? "");
                 }
             }
         },
@@ -81,7 +76,7 @@ ColumnLayout {
             PropertyChanges {
                 playButton.icon.name: "media-playback-stop"
                 playButton.onClicked: {
-                    Message.room.cancelFileTransfer(root.eventId);
+                    Message.room.cancelFileTransfer(root.Message.contentModel?.eventId ?? "");
                 }
             }
         },

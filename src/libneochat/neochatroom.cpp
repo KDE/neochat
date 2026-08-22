@@ -1777,6 +1777,11 @@ NeochatRoomMember *NeoChatRoom::qmlSafeMember(const QString &memberId)
     return m_memberObjects[memberId].get();
 }
 
+NeochatRoomMember *NeoChatRoom::qmlSafeLocalMember()
+{
+    return qmlSafeMember(localMember().id());
+}
+
 void NeoChatRoom::pinEvent(const QString &eventId)
 {
     auto eventIds = pinnedEventIds();

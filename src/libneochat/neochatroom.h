@@ -601,6 +601,11 @@ public:
     Q_INVOKABLE NeochatRoomMember *qmlSafeMember(const QString &memberId);
 
     /**
+     * @brief Return a NeochatRoomMember object for the local user.
+     */
+    Q_INVOKABLE NeochatRoomMember *qmlSafeLocalMember();
+
+    /**
      * @brief Pin a message in the room.
      * @param eventId The id of the event to pin.
      */

@@ -50,9 +50,9 @@ MapQuickItem {
             visible: root.asset === "m.self"
             width: height
             height: parent.height / 3 + 1
-            name: root.author.displayName
-            source: root.author.avatarUrl
-            color: root.author.color
+            name: root.author?.displayName ?? ""
+            source: root.author?.avatarUrl ?? ""
+            color: root.author?.color ?? mainIcon.color
         }
 
         Kirigami.Icon {

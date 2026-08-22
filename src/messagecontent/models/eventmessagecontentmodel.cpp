@@ -28,11 +28,20 @@ using namespace Quotient;
 
 bool EventMessageContentModel::richTextActive = true;
 
+std::function<void(const QString &, bool)> EventMessageContentModel::m_setMediaHidden = [](const QString &, bool) { };
+
+std::function<bool(const QString &)> EventMessageContentModel::m_mediaShouldBeHidden = [](const QString &) -> bool {
+    return false;
+};
+
 EventMessageContentModel::EventMessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending, QObject *parent)
-    : MessageContentModel(room, eventId, parent)
+    : MessageContentModel(parent)
+    , m_eventId(eventId)
     , m_currentState(isPending ? Pending : Unknown)
     , m_isReply(isReply)
 {
+    setRoom(room);
+
     initializeModel();
 }
 
@@ -43,6 +52,9 @@ void EventMessageContentModel::initializeModel()
 
     connect(this, &MessageContentModel::componentsUpdated, this, &EventMessageContentModel::checkFilePreview);
     connect(this, &MessageContentModel::componentsUpdated, this, &EventMessageContentModel::checkLinkPreview);
+    connect(this, &MessageContentModel::componentsUpdated, this, [this]() {
+        setMediaHidden(m_mediaShouldBeHidden(m_eventId));
+    });
     connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
         if (eventId == m_eventId) {
             m_fileChecked = false;
@@ -90,22 +102,6 @@ void EventMessageContentModel::initializeModel()
     connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
         resetContent();
     });
-    connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
-        if (m_room != nullptr && rowCount() > 0) {
-            if (authorId().isEmpty() || authorId() == member.id()) {
-                Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
-                Q_EMIT authorChanged();
-            }
-        }
-    });
-    connect(m_room, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
-        if (m_room != nullptr && rowCount() > 0) {
-            if (authorId().isEmpty() || authorId() == member.id()) {
-                Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
-                Q_EMIT authorChanged();
-            }
-        }
-    });
     connect(m_room, &Room::updatedEvent, this, [this](const QString &eventId) {
         if (eventId == m_eventId) {
             updateReactionModel();
@@ -129,24 +125,58 @@ void EventMessageContentModel::initializeModel()
     resetModel();
 }
 
+NeoChatRoom *EventMessageContentModel::room() const
+{
+    return m_room;
+}
+
+void EventMessageContentModel::setRoom(NeoChatRoom *room)
+{
+    if (room == m_room) {
+        return;
+    }
+
+    if (m_room) {
+        m_room->disconnect(this);
+    }
+
+    const auto oldRoom = std::exchange(m_room, room);
+
+    if (m_room) {
+        connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, &MessageContentModel::componentsUpdated);
+    }
+
+    Q_EMIT roomChanged(oldRoom, m_room);
+}
+
+QString EventMessageContentModel::eventId() const
+{
+    return m_eventId;
+}
+
+NeochatRoomMember *EventMessageContentModel::author() const
+{
+    return m_room->qmlSafeMember(authorId());
+}
+
 NeoChatDateTime EventMessageContentModel::dateTime() const
 {
-    const auto event = m_room->getEvent(m_eventId);
-    if (event.first == nullptr) {
-        return MessageContentModel::dateTime();
+    const auto [event, _] = m_room->getEvent(m_eventId);
+    if (!event) {
+        return QDateTime::currentDateTime();
     };
-    return EventHandler::dateTime(m_room, event.first, m_currentState == Pending);
+    return EventHandler::dateTime(m_room, event, m_currentState == Pending);
 }
 
 QString EventMessageContentModel::authorId() const
 {
-    const auto eventResult = m_room->getEvent(m_eventId);
-    if (eventResult.first == nullptr) {
+    const auto [event, _] = m_room->getEvent(m_eventId);
+    if (!event) {
         return {};
     }
-    auto authorId = eventResult.first->senderId();
+    auto authorId = event->senderId();
     if (authorId.isEmpty()) {
-        return MessageContentModel::authorId();
+        return {};
     }
     return authorId;
 }
@@ -265,8 +295,6 @@ void EventMessageContentModel::resetModel()
     updateReactionModel();
 
     Q_EMIT componentsUpdated();
-    // We need QML to re-evaluate author (for example, reply colors) if it was previously null.
-    Q_EMIT authorChanged();
 }
 
 void EventMessageContentModel::resetContent(bool isThreading)
@@ -652,8 +680,49 @@ ThreadModel *EventMessageContentModel::modelForThread(const QString &threadRootI
     return ContentProvider::self().modelForThread(m_room, threadRootId);
 }
 
+void EventMessageContentModel::setMediaHidden(bool mediaHidden)
+{
+    std::ranges::for_each(m_components, [mediaHidden](Blocks::Block *block) {
+        if (const auto imageBlock = dynamic_cast<Blocks::ImageBlock *>(block)) {
+            imageBlock->setImageHidden(mediaHidden);
+            return;
+        }
+        if (const auto videoBlock = dynamic_cast<Blocks::VideoBlock *>(block)) {
+            videoBlock->setVideoHidden(mediaHidden);
+            return;
+        }
+    });
+
+    m_setMediaHidden(m_eventId, mediaHidden);
+}
+
+void EventMessageContentModel::hideMedia()
+{
+    setMediaHidden(true);
+}
+
+void EventMessageContentModel::showMedia()
+{
+    setMediaHidden(false);
+}
+
+bool EventMessageContentModel::isMediaHidden()
+{
+    return m_mediaShouldBeHidden(m_eventId);
+}
+
+void EventMessageContentModel::setSetMediaHidden(std::function<void(const QString &, bool)> func)
+{
+    m_setMediaHidden = func;
+}
+
+void EventMessageContentModel::setMediaShouldBeHidden(std::function<bool(const QString &)> func)
+{
+    m_mediaShouldBeHidden = func;
+}
+
 ReplyModelHelper::ReplyModelHelper(QObject *parent)
-    : QObject(parent)
+: QObject(parent)
 {
 }
 

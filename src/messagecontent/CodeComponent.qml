@@ -19,25 +19,6 @@ QQC2.Control {
     required property int index
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
-     * @brief The message author.
-     *
-     * A Quotient::RoomMember object.
-     *
-     * @sa Quotient::RoomMember
-     */
-    required property NeochatRoomMember author
-
-    /**
-     * @brief The timestamp of the event as a neoChatDateTime.
-     */
-    required property neoChatDateTime dateTime
-
-    /**
      * @brief The Blocks::Block for the delegate.
      */
     required property CodeBlock block
@@ -147,7 +128,7 @@ QQC2.Control {
             TapHandler {
                 acceptedDevices: PointerDevice.TouchScreen
                 onLongPressed: {
-                    const event = root.Message.room.findEvent(root.eventId);
+                    const event = root.Message.room.findEvent(root.Message.contentModel?.eventId ?? "");
                     RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink, root.Message.messageModel);
                 }
             }
@@ -187,12 +168,12 @@ QQC2.Control {
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
         QQC2.Button {
-            visible: root.dateTime.isValid
+            visible: Message.contentModel?.dateTime.isValid ?? false
             icon.name: "view-fullscreen"
             text: i18nc("@action:button", "Maximize")
             display: QQC2.AbstractButton.IconOnly
 
-            onClicked: RoomManager.maximizeCode(root.author, root.dateTime, codeText.text, root.block.language);
+            onClicked: RoomManager.maximizeCode(Message.contentModel?.author, Message.contentModel?.dateTime, codeText.text, root.block.language);
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered

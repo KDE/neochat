@@ -15,11 +15,6 @@ Flow {
     id: root
 
     /**
-     * @brief The matrix ID of the message event.
-     */
-    required property string eventId
-
-    /**
      * @brief The reaction model to get the reactions from.
      */
     required property ReactionBlock block
@@ -69,7 +64,7 @@ Flow {
             }
 
             onClicked: {
-                root.Message.room.toggleReaction(root.eventId, reactionDelegate.reaction);
+                root.Message.room.toggleReaction(root.Message.contentModel?.eventId ?? "", reactionDelegate.reaction);
             }
 
             hoverEnabled: true
@@ -106,7 +101,7 @@ Flow {
             var dialog = emojiDialog.createObject(reactButton) as EmojiDialog;
             dialog.showStickers = false;
             dialog.chosen.connect(emoji => {
-                root.Message.room.toggleReaction(root.eventId, emoji);
+                root.Message.room.toggleReaction(root.Message.contentModel?.eventId ?? "", emoji);
                 if (!Kirigami.Settings.isMobile) {
                     root.focusChatBar();
                 }

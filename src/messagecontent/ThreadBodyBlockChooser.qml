@@ -20,11 +20,6 @@ BaseBlockChooser {
             id: core
 
             /**
-             * @brief The matrix ID of the message event.
-             */
-            required property string eventId
-
-            /**
              * @brief The Blocks::Block for the delegate.
              */
             required property ChatBarBlock block
@@ -52,7 +47,7 @@ BaseBlockChooser {
                 id: postHelper
                 room: core.Message.room
                 cache: block.cache
-                editId: core.eventId
+                editId: parent.Message?.contentModel.eventId ?? ""
                 threadRootId: block.threadRootId
             }
         }

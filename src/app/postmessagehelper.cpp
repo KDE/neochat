@@ -12,6 +12,7 @@
 #include "actionsmodel.h"
 #include "blockreply.h"
 #include "events/pollevent.h"
+#include "models/eventmessagecontentmodel.h"
 #include "texthandler.h"
 
 PostMessageHelper::PostMessageHelper(QObject *parent)
@@ -85,7 +86,9 @@ void PostMessageHelper::postMessage()
     bool isReply = m_cache->at(0)->type == Blocks::Reply;
     QString replyId;
     if (const auto replyCacheItem = dynamic_cast<const Blocks::ReplyCacheItem *>(m_cache->at(0))) {
-        replyId = replyCacheItem->blockModel->eventId();
+        if (const auto replyModel = dynamic_cast<const EventMessageContentModel *>(replyCacheItem->blockModel)) {
+            replyId = replyModel->eventId();
+        }
     }
     std::optional<Quotient::EventRelation> relatesTo = std::nullopt;
 

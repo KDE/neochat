@@ -180,7 +180,7 @@ void ModelTest::testRoomTreeModel()
 
 void ModelTest::testMessageContentModel()
 {
-    auto contentModel = std::make_unique<MessageContentModel>(room, eventId);
+    auto contentModel = std::make_unique<MessageContentModel>(this);
     auto tester = new QAbstractItemModelTester(contentModel.get(), contentModel.get());
     tester->setUseFetchMore(true);
 }

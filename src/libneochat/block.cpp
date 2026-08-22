@@ -307,6 +307,20 @@ void ImageBlock::setOptimize(const bool optimize)
     m_optimize = optimize;
 }
 
+bool ImageBlock::imageHidden() const
+{
+    return m_imageHidden;
+}
+
+void ImageBlock::setImageHidden(bool imageHidden)
+{
+    if (imageHidden == m_imageHidden) {
+        return;
+    }
+    m_imageHidden = imageHidden;
+    Q_EMIT imageHiddenChanged();
+}
+
 CacheItemPtr ImageBlock::toCacheItem()
 {
     return std::make_unique<ImageCacheItem>(type(), source(), filename(), info(), thumbnailSource(), thumbnailInfo(), optimize());
@@ -393,6 +407,20 @@ Quotient::FileTransferInfo VideoBlock::fileTransferInfo() const
         return {};
     }
     return m_room->cachedFileTransferInfo(m_eventId);
+}
+
+bool VideoBlock::videoHidden() const
+{
+    return m_videoHidden;
+}
+
+void VideoBlock::setVideoHidden(bool videoHidden)
+{
+    if (videoHidden == m_videoHidden) {
+        return;
+    }
+    m_videoHidden = videoHidden;
+    Q_EMIT videoHiddenChanged();
 }
 
 CacheItemPtr VideoBlock::toCacheItem()
