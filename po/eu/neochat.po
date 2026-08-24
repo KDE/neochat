@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:45+0000\n"
+"POT-Creation-Date: 2026-08-24 00:45+0000\n"
 "PO-Revision-Date: 2026-08-09 10:35+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1762,24 +1762,24 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "Saioaren egiaztapena bertan behera utzi da, errore ezezagun baten ondorioz."
 
-#: src/app/roommanager.cpp:249
+#: src/app/roommanager.cpp:253
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Gaizki eratuta edo hutsik dagoen Matrix ID<br />%1 ez da "
 "Matrixidentifikatzaile zuzena"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:467
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "%1(e)ra batzea huts egin du<br />%2"
 
-#: src/app/roommanager.cpp:487
+#: src/app/roommanager.cpp:491
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1'(e)ra batzea eskatu duzu"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:495
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Gelara batzeko eskaerak huts egin du<br />%1"
@@ -2436,15 +2436,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Ez da sartzeko tokena irakurtzeko gai: %1"
 
-#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:349
-#: src/libneochat/block.cpp:433
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
+#: src/libneochat/block.cpp:438
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Fitxategia zama-jaistea huts egin du."
 
-#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:350
-#: src/libneochat/block.cpp:434
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
+#: src/libneochat/block.cpp:439
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -3907,7 +3907,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Bilatu"
 
-#: src/libneochat/texthandler.cpp:626
+#: src/libneochat/texthandler.cpp:649
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>Gertaera honek ez dauka edukirik.</i>"
@@ -4396,14 +4396,14 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Ireki pantaila-betean"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:330
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:343
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 #| msgid "Unpin"
 msgid "pin"
 msgstr "Iltzagetu"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:330
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:343
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
@@ -4484,67 +4484,85 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Bidali mezua bat…"
 
-#: src/messagecontent/TextComponentEditMenu.qml:98
+#: src/messagecontent/TextComponentEditMenu.qml:101
 #, kde-format
 msgctxt "As in no suggestion for spellcheck to fix spelling"
 msgid "No Suggestions for \"%1\""
 msgstr "\"%1\"(e)ri buruzko iradokizunik ez"
 
-#: src/messagecontent/TextComponentEditMenu.qml:107
+#: src/messagecontent/TextComponentEditMenu.qml:110
 #, kde-format
 msgctxt "As in add the word %1 to spellcheck dictionary"
 msgid "Add \"%1\" to Dictionary"
 msgstr "Gehitu \"%1\" hiztegira"
 
-#: src/messagecontent/TextComponentEditMenu.qml:119
+#: src/messagecontent/TextComponentEditMenu.qml:122
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ezikusi"
 
-#: src/messagecontent/TextComponentEditMenu.qml:132
+#: src/messagecontent/TextComponentEditMenu.qml:135
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Ortografia-azterketa"
 
-#: src/messagecontent/TextComponentEditMenu.qml:144
+#: src/messagecontent/TextComponentEditMenu.qml:147
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Desegin"
 
-#: src/messagecontent/TextComponentEditMenu.qml:157
+#: src/messagecontent/TextComponentEditMenu.qml:160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Berregin"
 
-#: src/messagecontent/TextComponentEditMenu.qml:171
+#: src/messagecontent/TextComponentEditMenu.qml:174
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Ebaki"
 
-#: src/messagecontent/TextComponentEditMenu.qml:184
+#: src/messagecontent/TextComponentEditMenu.qml:187
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopiatu"
 
-#: src/messagecontent/TextComponentEditMenu.qml:197
+#: src/messagecontent/TextComponentEditMenu.qml:201
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Itsatsi"
 
-#: src/messagecontent/TextComponentEditMenu.qml:210
+#: src/messagecontent/TextComponentEditMenu.qml:224
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Plain Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:241
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Markdown Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:259
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Rich Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:280
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: src/messagecontent/TextComponentEditMenu.qml:224
+#: src/messagecontent/TextComponentEditMenu.qml:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"

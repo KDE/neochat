@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:45+0000\n"
+"POT-Creation-Date: 2026-08-24 00:45+0000\n"
 "PO-Revision-Date: 2026-07-05 16:29+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -1884,23 +1884,23 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Stadfestinga av økta vart av ukjend grunn avbroten."
 
-#: src/app/roommanager.cpp:249
+#: src/app/roommanager.cpp:253
 #, fuzzy, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 er ikkje ein gyldig Matrix-identifikator"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:467
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Klarte ikkje verta med i rommet<br />%1"
 
-#: src/app/roommanager.cpp:487
+#: src/app/roommanager.cpp:491
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du har bedt om å få verta med i «%1»"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:495
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Klarte ikkje be om å få verta med i rommet<br />%1"
@@ -2564,15 +2564,15 @@ msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
 msgid "Unable to read access token: %1"
 msgstr "Klarte ikkje lesa tilgangspollett"
 
-#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:349
-#: src/libneochat/block.cpp:433
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
+#: src/libneochat/block.cpp:438
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:350
-#: src/libneochat/block.cpp:434
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
+#: src/libneochat/block.cpp:439
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
@@ -4076,7 +4076,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Søk"
 
-#: src/libneochat/texthandler.cpp:626
+#: src/libneochat/texthandler.cpp:649
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -4570,12 +4570,12 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Start fullskjermsmodus"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:330
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:343
 #, kde-format
 msgid "pin"
 msgstr ""
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:330
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:343
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
@@ -4662,19 +4662,19 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Send ei melding …"
 
-#: src/messagecontent/TextComponentEditMenu.qml:98
+#: src/messagecontent/TextComponentEditMenu.qml:101
 #, kde-format
 msgctxt "As in no suggestion for spellcheck to fix spelling"
 msgid "No Suggestions for \"%1\""
 msgstr ""
 
-#: src/messagecontent/TextComponentEditMenu.qml:107
+#: src/messagecontent/TextComponentEditMenu.qml:110
 #, kde-format
 msgctxt "As in add the word %1 to spellcheck dictionary"
 msgid "Add \"%1\" to Dictionary"
 msgstr ""
 
-#: src/messagecontent/TextComponentEditMenu.qml:119
+#: src/messagecontent/TextComponentEditMenu.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Ignore"
@@ -4682,13 +4682,13 @@ msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: src/messagecontent/TextComponentEditMenu.qml:132
+#: src/messagecontent/TextComponentEditMenu.qml:135
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr ""
 
-#: src/messagecontent/TextComponentEditMenu.qml:144
+#: src/messagecontent/TextComponentEditMenu.qml:147
 #, fuzzy, kde-format
 #| msgctxt "@action:button Undo modification"
 #| msgid "Undo"
@@ -4696,40 +4696,58 @@ msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Angra"
 
-#: src/messagecontent/TextComponentEditMenu.qml:157
+#: src/messagecontent/TextComponentEditMenu.qml:160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr ""
 
-#: src/messagecontent/TextComponentEditMenu.qml:171
+#: src/messagecontent/TextComponentEditMenu.qml:174
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Tilpassa"
 
-#: src/messagecontent/TextComponentEditMenu.qml:184
+#: src/messagecontent/TextComponentEditMenu.qml:187
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Kopier lenkje"
 
-#: src/messagecontent/TextComponentEditMenu.qml:197
+#: src/messagecontent/TextComponentEditMenu.qml:201
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr ""
 
-#: src/messagecontent/TextComponentEditMenu.qml:210
+#: src/messagecontent/TextComponentEditMenu.qml:224
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Plain Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:241
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Markdown Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:259
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Rich Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:280
 #, fuzzy, kde-format
 #| msgid "Delete alias"
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Slett aliaset"
 
-#: src/messagecontent/TextComponentEditMenu.qml:224
+#: src/messagecontent/TextComponentEditMenu.qml:294
 #, fuzzy, kde-format
 #| msgid "Select a File"
 msgctxt "@action:inmenu"

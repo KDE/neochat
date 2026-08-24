@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:45+0000\n"
+"POT-Creation-Date: 2026-08-24 00:45+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1922,24 +1922,24 @@ msgstr "Pihak jarak jauh membatalkan verifikasi sesi karena kunci tidak cocok."
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verifikasi sesi dibatalkan karena kesalahan yang tidak diketahui."
 
-#: src/app/roommanager.cpp:249
+#: src/app/roommanager.cpp:253
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 bukan pengenal Matrix yang benar"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:467
 #, fuzzy, kde-format
 #| msgid "Failed to join room"
 msgid "Failed to join %1:<br />%2"
 msgstr "Gagal bergabung dengan ruangan"
 
-#: src/app/roommanager.cpp:487
+#: src/app/roommanager.cpp:491
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Anda meminta untuk bergabung ke '%1'"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:495
 #, fuzzy, kde-format
 #| msgid "Failed to request joining room"
 msgid "Failed to request joining room<br />%1"
@@ -2636,16 +2636,16 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Tidak dapat membaca token pengaksesan"
 
-#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:349
-#: src/libneochat/block.cpp:433
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
+#: src/libneochat/block.cpp:438
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Berkas terlalu besar untuk diunduh."
 
-#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:350
-#: src/libneochat/block.cpp:434
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
+#: src/libneochat/block.cpp:439
 #, fuzzy, kde-format
 #| msgid "Failed to join room"
 msgctxt "@info Failed to download file: [error message]"
@@ -4226,7 +4226,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Cari"
 
-#: src/libneochat/texthandler.cpp:626
+#: src/libneochat/texthandler.cpp:649
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -4741,13 +4741,13 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Masuk ke Layar Penuh"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:330
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:343
 #, fuzzy, kde-format
 #| msgid "Options"
 msgid "pin"
 msgstr "Opsi"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:330
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:343
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "location"
@@ -4833,33 +4833,33 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Kirim pesan…"
 
-#: src/messagecontent/TextComponentEditMenu.qml:98
+#: src/messagecontent/TextComponentEditMenu.qml:101
 #, kde-format
 msgctxt "As in no suggestion for spellcheck to fix spelling"
 msgid "No Suggestions for \"%1\""
 msgstr ""
 
-#: src/messagecontent/TextComponentEditMenu.qml:107
+#: src/messagecontent/TextComponentEditMenu.qml:110
 #, kde-format
 msgctxt "As in add the word %1 to spellcheck dictionary"
 msgid "Add \"%1\" to Dictionary"
 msgstr ""
 
-#: src/messagecontent/TextComponentEditMenu.qml:119
+#: src/messagecontent/TextComponentEditMenu.qml:122
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "Abaikan pengguna ini"
 
-#: src/messagecontent/TextComponentEditMenu.qml:132
+#: src/messagecontent/TextComponentEditMenu.qml:135
 #, fuzzy, kde-format
 #| msgid "Spell Checking"
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "Pemeriksa Ejaan"
 
-#: src/messagecontent/TextComponentEditMenu.qml:144
+#: src/messagecontent/TextComponentEditMenu.qml:147
 #, fuzzy, kde-format
 #| msgctxt "@action:button Undo modification"
 #| msgid "Undo"
@@ -4867,7 +4867,7 @@ msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "Urungkan"
 
-#: src/messagecontent/TextComponentEditMenu.qml:157
+#: src/messagecontent/TextComponentEditMenu.qml:160
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Redo"
@@ -4875,7 +4875,7 @@ msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "Ulangi"
 
-#: src/messagecontent/TextComponentEditMenu.qml:171
+#: src/messagecontent/TextComponentEditMenu.qml:174
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Cut"
@@ -4883,7 +4883,7 @@ msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "Potong"
 
-#: src/messagecontent/TextComponentEditMenu.qml:184
+#: src/messagecontent/TextComponentEditMenu.qml:187
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Copy"
@@ -4891,7 +4891,7 @@ msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "Salin"
 
-#: src/messagecontent/TextComponentEditMenu.qml:197
+#: src/messagecontent/TextComponentEditMenu.qml:201
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Paste"
@@ -4899,7 +4899,25 @@ msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Tempel"
 
-#: src/messagecontent/TextComponentEditMenu.qml:210
+#: src/messagecontent/TextComponentEditMenu.qml:224
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Plain Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:241
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Markdown Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:259
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Rich Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:280
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Delete"
@@ -4907,7 +4925,7 @@ msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Hapus"
 
-#: src/messagecontent/TextComponentEditMenu.qml:224
+#: src/messagecontent/TextComponentEditMenu.qml:294
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"

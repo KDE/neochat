@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:45+0000\n"
+"POT-Creation-Date: 2026-08-24 00:45+0000\n"
 "PO-Revision-Date: 2026-08-17 14:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -1728,24 +1728,24 @@ msgstr "சாவிகள் பொருந்தாமையால் தொ�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "தெரியாத சிக்கலால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/app/roommanager.cpp:249
+#: src/app/roommanager.cpp:253
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "முறையற்ற அல்லது காலியான மேட்ரிக்ஸு அடையாளம்<br />%1 ஒரு முறையான மேட்ரிக்ஸு "
 "கணக்குப்பெயர் அல்ல"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:467
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "%1 தனில் நுழைவது தோல்வியடைந்தது:<br />%2"
 
-#: src/app/roommanager.cpp:487
+#: src/app/roommanager.cpp:491
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/app/roommanager.cpp:491
+#: src/app/roommanager.cpp:495
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது<br />%1"
@@ -2404,15 +2404,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை: %1"
 
-#: src/libneochat/block.cpp:211 src/libneochat/block.cpp:349
-#: src/libneochat/block.cpp:433
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
+#: src/libneochat/block.cpp:438
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "கோப்பை பதிவிறக்க முடியவில்லை."
 
-#: src/libneochat/block.cpp:212 src/libneochat/block.cpp:350
-#: src/libneochat/block.cpp:434
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
+#: src/libneochat/block.cpp:439
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -3893,7 +3893,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "தேடு"
 
-#: src/libneochat/texthandler.cpp:626
+#: src/libneochat/texthandler.cpp:649
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>இந்த நிகழ்வுக்கு உள்ளடக்கம் எதுவும் இல்லை.</i>"
@@ -4384,14 +4384,14 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "முழுத்திரை முறையில் திற"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:330
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:343
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 #| msgid "Unpin"
 msgid "pin"
 msgstr "தக்கவைக்கவேண்டாம்"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:330
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:343
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
@@ -4472,7 +4472,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: src/messagecontent/TextComponentEditMenu.qml:98
+#: src/messagecontent/TextComponentEditMenu.qml:101
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "No suggestions for %1"
@@ -4480,13 +4480,13 @@ msgctxt "As in no suggestion for spellcheck to fix spelling"
 msgid "No Suggestions for \"%1\""
 msgstr "%1 என்பதற்கு எதுவும் பரிந்துரைக்கப்படவில்லை"
 
-#: src/messagecontent/TextComponentEditMenu.qml:107
+#: src/messagecontent/TextComponentEditMenu.qml:110
 #, kde-format
 msgctxt "As in add the word %1 to spellcheck dictionary"
 msgid "Add \"%1\" to Dictionary"
 msgstr ""
 
-#: src/messagecontent/TextComponentEditMenu.qml:119
+#: src/messagecontent/TextComponentEditMenu.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Ignore"
@@ -4494,44 +4494,62 @@ msgctxt "@action:inmenu"
 msgid "Ignore"
 msgstr "பொருட்படுத்தாதே"
 
-#: src/messagecontent/TextComponentEditMenu.qml:132
+#: src/messagecontent/TextComponentEditMenu.qml:135
 #, fuzzy, kde-format
 #| msgid "Spell Checking"
 msgctxt "@action:inmenu"
 msgid "Spell Check"
 msgstr "சொல் திருத்தம்"
 
-#: src/messagecontent/TextComponentEditMenu.qml:144
+#: src/messagecontent/TextComponentEditMenu.qml:147
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Undo"
 msgstr "செயல்நீக்கு"
 
-#: src/messagecontent/TextComponentEditMenu.qml:157
+#: src/messagecontent/TextComponentEditMenu.qml:160
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Redo"
 msgstr "மீளச்செய்"
 
-#: src/messagecontent/TextComponentEditMenu.qml:171
+#: src/messagecontent/TextComponentEditMenu.qml:174
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Cut"
 msgstr "வெட்டு"
 
-#: src/messagecontent/TextComponentEditMenu.qml:184
+#: src/messagecontent/TextComponentEditMenu.qml:187
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy"
 msgstr "நகலெடு"
 
-#: src/messagecontent/TextComponentEditMenu.qml:197
+#: src/messagecontent/TextComponentEditMenu.qml:201
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "ஒட்டு"
 
-#: src/messagecontent/TextComponentEditMenu.qml:210
+#: src/messagecontent/TextComponentEditMenu.qml:224
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Plain Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:241
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Markdown Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:259
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Paste as Rich Text"
+msgstr ""
+
+#: src/messagecontent/TextComponentEditMenu.qml:280
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Delete"
@@ -4539,7 +4557,7 @@ msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "நீக்கு"
 
-#: src/messagecontent/TextComponentEditMenu.qml:224
+#: src/messagecontent/TextComponentEditMenu.qml:294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select All"
