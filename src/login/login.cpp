@@ -19,6 +19,13 @@ LoginHelper::LoginHelper(QObject *parent)
     init();
 }
 
+LoginHelper::~LoginHelper()
+{
+    if (m_connection) {
+        delete m_connection;
+    }
+}
+
 void LoginHelper::setAccountManager(AccountManager *manager)
 {
     m_accountManager = manager;
@@ -27,7 +34,7 @@ void LoginHelper::setAccountManager(AccountManager *manager)
 void LoginHelper::init()
 {
     m_homeserverReachable = false;
-    m_connection = new NeoChatConnection();
+    m_connection = new NeoChatConnection(this);
     m_matrixId = QString();
     m_password = QString();
     m_deviceName = u"NeoChat"_s;

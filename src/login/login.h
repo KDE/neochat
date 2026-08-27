@@ -158,4 +158,5 @@ private:
     bool m_isLoggedIn = false;
     bool m_invalidPassword = false;
     explicit LoginHelper(QObject *parent = nullptr);
+    ~LoginHelper() override;
 };

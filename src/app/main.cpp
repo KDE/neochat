@@ -12,6 +12,7 @@
 #include <QQmlNetworkAccessManagerFactory>
 #include <QQuickStyle>
 #include <QQuickWindow>
+#include <QTimer>
 #include <QtQml/QQmlExtensionPlugin>
 #include <Quotient/connection.h>
 
@@ -199,6 +200,10 @@ int main(int argc, char *argv[])
     QCommandLineOption shareOption(u"share"_s, i18n("Share a URL to Matrix"), u"text"_s);
     parser.addOption(shareOption);
 
+    QCommandLineOption selfTestOpt(u"self-test"_s, u"internal, for automated testing"_s);
+    selfTestOpt.setFlags(QCommandLineOption::HiddenFromHelp);
+    parser.addOption(selfTestOpt);
+
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
@@ -301,6 +306,10 @@ int main(int argc, char *argv[])
 #endif
 
     WindowController::instance().setWindow(windowFromEngine(&engine));
+
+    if (parser.isSet(selfTestOpt)) {
+        QTimer::singleShot(std::chrono::milliseconds(250), &app, &QCoreApplication::quit);
+    }
 
     return app.exec();
 }

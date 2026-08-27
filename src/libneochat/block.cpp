@@ -483,7 +483,7 @@ LinkPreviewer *LinkPreviewBlock::linkPreviewer() const
     if (m_connection) {
         return m_connection->previewerForLink(source());
     } else {
-        return emptyLinkPreview;
+        return {};
     }
 }
 
