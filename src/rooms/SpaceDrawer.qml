@@ -58,7 +58,7 @@ QQC2.Control {
 
                     text: hasCountableNotifications ? i18ncp("Home space for the uncategorized rooms", "Home (%1 notification)", "Home (%1 notifications)", countedNotifications) : i18nc("Home space for the uncategorized rooms", "Home")
                     contentItem: Kirigami.Icon {
-                        source: "user-home-symbolic"
+                        source: "go-home-symbolic"
 
                         QQC2.Label {
                             id: homeNotificationCountLabel

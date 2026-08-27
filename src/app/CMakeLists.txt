@@ -332,7 +332,7 @@ if(ANDROID)
         "kde"
         "list-remove-symbolic"
         "edit-delete"
-        "user-home-symbolic"
+        "go-home-symbolic"
         "pin-symbolic"
         "kt-restore-defaults-symbolic"
         "user-symbolic"
