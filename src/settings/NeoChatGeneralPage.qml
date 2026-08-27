@@ -61,7 +61,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: categorizeDelegate
-            text: i18n("Show all rooms in \"Home\" tab")
+            text: i18nc("@option:check Show all rooms in the 'Home' space. Keep this consistent with the same translation you use for that space.", "Show all rooms in \"Home\" space")
             checked: NeoChatConfig.allRoomsInHome
             enabled: !NeoChatConfig.isAllRoomsInHomeImmutable
             onToggled: {

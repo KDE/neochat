@@ -33,7 +33,7 @@ RowLayout {
         text: {
             if (Kirigami.Settings.isMobile) {
                 if (RoomManager.currentSpace === '') {
-                    return i18nc("@title Home space", "Home");
+                    return i18nc("@title Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home");
                 } else if(RoomManager.currentSpace === 'DM') {
                     return i18nc("@title", "Direct Messages");
                 }

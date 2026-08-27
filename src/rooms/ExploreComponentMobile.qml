@@ -31,7 +31,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             id: homeAction
 
-            text: i18nc("@action:button The 'normal' view of NeoChat including the room list", "Home")
+            text: i18nc("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home")
             icon.name: "go-home-symbolic"
             checked: true
         },

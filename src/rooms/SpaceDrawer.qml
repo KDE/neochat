@@ -56,7 +56,7 @@ QQC2.Control {
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
                     Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
-                    text: hasCountableNotifications ? i18ncp("Home space for the uncategorized rooms", "Home (%1 notification)", "Home (%1 notifications)", countedNotifications) : i18nc("Home space for the uncategorized rooms", "Home")
+                    text: hasCountableNotifications ? i18ncp("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home (%1 notification)", "Home (%1 notifications)", countedNotifications) : i18nc("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home")
                     contentItem: Kirigami.Icon {
                         source: "go-home-symbolic"
 
