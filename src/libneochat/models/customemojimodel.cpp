@@ -67,7 +67,7 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
 {
     using namespace Quotient;
 
-    m_connection->uploadFile(location.toLocalFile()).onResult([name, location, this](const auto &job) {
+    m_connection->uploadFile(location.toLocalFile()).onResult(this, [name, location, this](const auto &job) {
         const auto &data = m_connection->accountData("im.ponies.user_emotes"_L1);
         auto json = data != nullptr ? data->contentJson() : QJsonObject();
         auto emojiData = json["images"_L1].toObject();

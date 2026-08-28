@@ -117,7 +117,7 @@ void CommonRoomsModel::reload()
                   m_loading = false;
                   Q_EMIT loadingChanged();
               })
-        .onFailure([this] {
+        .onFailure(this, [this] {
             m_loading = false;
             Q_EMIT loadingChanged();
         });

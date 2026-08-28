@@ -145,7 +145,7 @@ void NeoChatConnection::connectSignals()
         &Connection::connected,
         this,
         [this] {
-            callApi<GetVersionsJob>(BackgroundRequest).onResult([this](const auto &job) {
+            callApi<GetVersionsJob>(BackgroundRequest).onResult(this, [this](const auto &job) {
                 m_canCheckMutualRooms =
                     job->unstableFeatures().value("uk.half-shot.msc2666.query_mutual_rooms.stable"_L1, false) || job->versions().count("v1.19"_L1);
                 Q_EMIT canCheckMutualRoomsChanged();
@@ -160,7 +160,7 @@ void NeoChatConnection::connectSignals()
                     });
                 }
             });
-            callApi<GetCapabilitiesJob>(BackgroundRequest).onResult([this](const auto &job) {
+            callApi<GetCapabilitiesJob>(BackgroundRequest).onResult(this, [this](const auto &job) {
                 const auto profileFields = job->capabilities().additionalProperties["m.profile_fields"_L1].toMap();
 
                 m_profileFieldsWriteable = profileFields["enabled"_L1].toBool();
@@ -283,7 +283,7 @@ bool NeoChatConnection::canCheckMutualRooms() const
 
 void NeoChatConnection::changePassword(const QString &currentPassword, const QString &newPassword)
 {
-    callApi<ChangePasswordJob>(newPassword, false).onFailure([this, currentPassword, newPassword](const auto &job) {
+    callApi<ChangePasswordJob>(newPassword, false).onFailure(this, [this, currentPassword, newPassword](const auto &job) {
         QJsonObject replyData = job->jsonData();
         AuthenticationData authData;
         authData.session = replyData["session"_L1].toString();
@@ -305,7 +305,7 @@ void NeoChatConnection::changePassword(const QString &currentPassword, const QSt
 
 void NeoChatConnection::deactivateAccount(const QString &password, const bool erase)
 {
-    callApi<DeactivateAccountJob>().onFailure([password, erase, this](const auto &job) {
+    callApi<DeactivateAccountJob>().onFailure(this, [password, erase, this](const auto &job) {
         QJsonObject replyData = job->jsonData();
         AuthenticationData authData;
         authData.session = replyData["session"_L1].toString();
@@ -314,7 +314,7 @@ void NeoChatConnection::deactivateAccount(const QString &password, const bool er
         authData.authInfo["user"_L1] = user()->id();
         QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
         authData.authInfo["identifier"_L1] = identifier;
-        callApi<DeactivateAccountJob>(authData, QString{}, erase).onResult([this]() {
+        callApi<DeactivateAccountJob>(authData, QString{}, erase).onResult(this, [this]() {
             logout(false);
         });
     });

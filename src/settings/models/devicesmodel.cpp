@@ -28,7 +28,7 @@ void DevicesModel::fetchDevices()
         endResetModel();
         return;
     }
-    m_connection->callApi<GetDevicesJob>().onResult([this](const auto &job) {
+    m_connection->callApi<GetDevicesJob>().onResult(this, [this](const auto &job) {
         beginResetModel();
         m_devices = job->devices();
         endResetModel();
@@ -113,7 +113,7 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
         authData.authInfo["password"_L1] = password;
         authData.type = "m.login.password"_L1;
         authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->user()->id()}};
-        m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId, authData).onResult(onSuccess);
+        m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId, authData).onResult(this, onSuccess);
     });
 }
 
