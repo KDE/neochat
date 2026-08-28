@@ -280,7 +280,7 @@ void Registration::testRegistrationToken()
         return;
     }
 
-    m_testValidityJob = m_connection->callApi<RegistrationTokenValidityJob>(m_registrationToken).onResult([this]() {
+    m_testValidityJob = m_connection->callApi<RegistrationTokenValidityJob>(m_registrationToken).onResult(this, [this]() {
         if (m_testValidityJob->error() == BaseJob::StatusCode::NotFound) {
             setStatus(NoRegistrationTokenPrevalidation);
         } else {

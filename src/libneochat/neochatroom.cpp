@@ -543,7 +543,7 @@ QUrl NeoChatRoom::avatarMediaUrl() const
 
 void NeoChatRoom::changeAvatar(const QUrl &localFile)
 {
-    connection()->uploadFile(localFile.toLocalFile()).onResult([this](const auto &job) {
+    connection()->uploadFile(localFile.toLocalFile()).onResult(this, [this](const auto &job) {
         connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar"_L1, QString(), QJsonObject{{"url"_L1, job->contentUri().toString()}});
     });
 }
@@ -1135,8 +1135,8 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions = {pushCondition};
 
         // Add new override rule and make sure it's enabled
-        connection()->callApi<SetPushRuleJob>("override"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult([this]() {
-            connection()->callApi<SetPushRuleEnabledJob>("override"_L1, id(), true).onResult([this]() {
+        connection()->callApi<SetPushRuleJob>("override"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult(this, [this]() {
+            connection()->callApi<SetPushRuleEnabledJob>("override"_L1, id(), true).onResult(this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
         });
@@ -1159,8 +1159,8 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         // No conditions for a room rule
         const QList<PushCondition> conditions;
 
-        connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult([this]() {
-            connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true).onResult([this]() {
+        connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult(this, [this]() {
+            connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true).onResult(this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
         });
@@ -1188,8 +1188,8 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions;
 
         // Add new room rule and make sure enabled
-        connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult([this]() {
-            connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true).onResult([this]() {
+        connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult(this, [this]() {
+            connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true).onResult(this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
         });
@@ -1298,7 +1298,7 @@ void NeoChatRoom::updatePushNotificationState(QString type)
 
 void NeoChatRoom::reportEvent(const QString &eventId, const QString &reason)
 {
-    auto job = connection()->callApi<ReportContentJob>(id(), eventId, -50, reason).onResult([this]() {
+    auto job = connection()->callApi<ReportContentJob>(id(), eventId, -50, reason).onResult(this, [this]() {
         Q_EMIT showMessage(MessageType::Positive, i18n("Report sent successfully."));
     });
 }
@@ -1549,7 +1549,7 @@ void NeoChatRoom::mapAlias(const QString &alias)
         if (job->aliases().contains(alias)) {
             return;
         } else {
-            connection()->callApi<SetRoomAliasJob>(alias, id()).onResult([this, alias] {
+            connection()->callApi<SetRoomAliasJob>(alias, id()).onResult(this, [this, alias] {
                 auto newAltAliases = altAliases();
                 newAltAliases.append(alias);
                 setLocalAliases(newAltAliases);

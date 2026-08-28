@@ -43,7 +43,7 @@ void PollBlock::checkLoadRelations(const QString &nextBatch)
         return;
     }
 
-    m_room->connection()->callApi<GetRelatingEventsJob>(m_room->id(), pollStartEvent->id(), nextBatch).onResult([this](const auto &job) {
+    m_room->connection()->callApi<GetRelatingEventsJob>(m_room->id(), pollStartEvent->id(), nextBatch).onResult(this, [this](const auto &job) {
         for (const auto &event : job->chunk()) {
             handleEvent(event.get());
         }

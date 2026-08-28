@@ -42,20 +42,21 @@ void SupportController::load()
     }
 
     m_connection->callApi<GetWellknownSupportJob>()
-        .onResult([this](const auto &job) {
-            m_supportPage = job->supportPage();
-            m_contacts.reserve(job->contacts().size());
-            for (const auto &contact : job->contacts()) {
-                m_contacts.push_back(SupportContact{
-                    .role = contact.role,
-                    .matrixId = contact.matrixId,
-                    .emailAddress = contact.emailAddress,
-                });
-            }
+        .onResult(this,
+                  [this](const auto &job) {
+                      m_supportPage = job->supportPage();
+                      m_contacts.reserve(job->contacts().size());
+                      for (const auto &contact : job->contacts()) {
+                          m_contacts.push_back(SupportContact{
+                              .role = contact.role,
+                              .matrixId = contact.matrixId,
+                              .emailAddress = contact.emailAddress,
+                          });
+                      }
 
-            Q_EMIT loaded();
-        })
-        .onFailure([this](const auto &job) {
+                      Q_EMIT loaded();
+                  })
+        .onFailure(this, [this](const auto &job) {
             Q_UNUSED(job)
 
             // Just do nothing, our properties will be empty.
