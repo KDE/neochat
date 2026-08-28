@@ -670,15 +670,18 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
             }
         }
     } else {
-        auto memberIds = m_room->userIdsAtEvent(eventId);
-        memberIds.remove(m_room->localMember().id());
-        if (memberIds.size() > 0) {
-            // If a model doesn't exist and there are reactions add it.
-            auto newModel = QSharedPointer<ReadMarkerModel>(new ReadMarkerModel(eventId, m_room));
-            if (newModel->rowCount() > 0) {
-                m_readMarkerModels[eventId] = newModel;
-                if (!m_resetting) {
-                    refreshEventRoles(eventId, {ReadMarkersRole, ShowReadMarkersRole});
+        // There may not be a room if we're a searchmodel that searches through all rooms
+        if (m_room) {
+            auto memberIds = m_room->userIdsAtEvent(eventId);
+            memberIds.remove(m_room->localMember().id());
+            if (memberIds.size() > 0) {
+                // If a model doesn't exist and there are reactions add it.
+                auto newModel = QSharedPointer<ReadMarkerModel>(new ReadMarkerModel(eventId, m_room));
+                if (newModel->rowCount() > 0) {
+                    m_readMarkerModels[eventId] = newModel;
+                    if (!m_resetting) {
+                        refreshEventRoles(eventId, {ReadMarkersRole, ShowReadMarkersRole});
+                    }
                 }
             }
         }
