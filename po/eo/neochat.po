@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
+"POT-Creation-Date: 2026-08-30 00:46+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -5063,7 +5063,9 @@ msgstr "forigis %1 fenestraĵo"
 #: src/rooms/ExploreComponent.qml:36
 #, fuzzy, kde-format
 #| msgid "Home"
-msgctxt "@title Home space"
+msgctxt ""
+"@title Home space for the uncategorized rooms. Please keep this consistent "
+"across all usages."
 msgid "Home"
 msgstr "Hejmo"
 
@@ -5096,10 +5098,12 @@ msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "Malfermi Agordojn"
 
-#: src/rooms/ExploreComponentMobile.qml:34
+#: src/rooms/ExploreComponentMobile.qml:34 src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Home"
-msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home"
 msgstr "Hejmo"
 
@@ -5364,18 +5368,13 @@ msgstr "Vastigi %1"
 #: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
-msgctxt "Home space for the uncategorized rooms"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
 msgstr[0] "Malsilentigi sciigojn"
 msgstr[1] "Malsilentigi sciigojn"
-
-#: src/rooms/SpaceDrawer.qml:59
-#, fuzzy, kde-format
-#| msgid "Home"
-msgctxt "Home space for the uncategorized rooms"
-msgid "Home"
-msgstr "Hejmo"
 
 #: src/rooms/SpaceDrawer.qml:110
 #, fuzzy, kde-format
@@ -6738,8 +6737,12 @@ msgid "Minimize to system tray on startup"
 msgstr "Minimumigi al sistema pleto ĉe ekfunkciigo"
 
 #: src/settings/NeoChatGeneralPage.qml:64
-#, kde-format
-msgid "Show all rooms in \"Home\" tab"
+#, fuzzy, kde-format
+#| msgid "Show all rooms in \"Home\" tab"
+msgctxt ""
+"@option:check Show all rooms in the 'Home' space. Keep this consistent with "
+"the same translation you use for that space."
+msgid "Show all rooms in \"Home\" space"
 msgstr "Montri ĉiujn ĉambrojn en \"Home\"-langeto"
 
 #: src/settings/NeoChatGeneralPage.qml:75
@@ -8701,6 +8704,19 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 estas tajpanta"
 msgstr[1] "%2 estas tajpantaj"
+
+#, fuzzy
+#~| msgid "Home"
+#~ msgctxt ""
+#~ "@action:button The 'normal' view of NeoChat including the room list"
+#~ msgid "Home"
+#~ msgstr "Hejmo"
+
+#, fuzzy
+#~| msgid "Home"
+#~ msgctxt "Home space for the uncategorized rooms"
+#~ msgid "Home"
+#~ msgstr "Hejmo"
 
 #, fuzzy
 #~| msgid "<message>"

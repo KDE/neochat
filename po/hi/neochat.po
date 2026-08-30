@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
+"POT-Creation-Date: 2026-08-30 00:46+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -5062,7 +5062,9 @@ msgstr "%1 विजेट हटाया गया"
 #: src/rooms/ExploreComponent.qml:36
 #, fuzzy, kde-format
 #| msgid "Home"
-msgctxt "@title Home space"
+msgctxt ""
+"@title Home space for the uncategorized rooms. Please keep this consistent "
+"across all usages."
 msgid "Home"
 msgstr "घर"
 
@@ -5094,10 +5096,12 @@ msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "खुली सेटिंग"
 
-#: src/rooms/ExploreComponentMobile.qml:34
+#: src/rooms/ExploreComponentMobile.qml:34 src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Home"
-msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home"
 msgstr "घर"
 
@@ -5362,18 +5366,13 @@ msgstr "विस्तृत करें %1"
 #: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
-msgctxt "Home space for the uncategorized rooms"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
 msgstr[0] "सूचनाएं अनम्यूट करें"
 msgstr[1] "सूचनाएं अनम्यूट करें"
-
-#: src/rooms/SpaceDrawer.qml:59
-#, fuzzy, kde-format
-#| msgid "Home"
-msgctxt "Home space for the uncategorized rooms"
-msgid "Home"
-msgstr "घर"
 
 #: src/rooms/SpaceDrawer.qml:110
 #, fuzzy, kde-format
@@ -6739,8 +6738,12 @@ msgid "Minimize to system tray on startup"
 msgstr "स्टार्टअप पर सिस्टम ट्रे में छोटा करें"
 
 #: src/settings/NeoChatGeneralPage.qml:64
-#, kde-format
-msgid "Show all rooms in \"Home\" tab"
+#, fuzzy, kde-format
+#| msgid "Show all rooms in \"Home\" tab"
+msgctxt ""
+"@option:check Show all rooms in the 'Home' space. Keep this consistent with "
+"the same translation you use for that space."
+msgid "Show all rooms in \"Home\" space"
 msgstr "\"होम\" टैब में सभी कमरे दिखाएँ"
 
 #: src/settings/NeoChatGeneralPage.qml:75
@@ -8703,6 +8706,19 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टाइप कर रहे हैं"
 msgstr[1] "%2 टाइप कर रहे हैं"
+
+#, fuzzy
+#~| msgid "Home"
+#~ msgctxt ""
+#~ "@action:button The 'normal' view of NeoChat including the room list"
+#~ msgid "Home"
+#~ msgstr "घर"
+
+#, fuzzy
+#~| msgid "Home"
+#~ msgctxt "Home space for the uncategorized rooms"
+#~ msgid "Home"
+#~ msgstr "घर"
 
 #, fuzzy
 #~| msgid "<message>"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
+"POT-Creation-Date: 2026-08-30 00:46+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -4986,7 +4986,9 @@ msgstr "o ante e toki"
 
 #: src/rooms/ExploreComponent.qml:36
 #, kde-format
-msgctxt "@title Home space"
+msgctxt ""
+"@title Home space for the uncategorized rooms. Please keep this consistent "
+"across all usages."
 msgid "Home"
 msgstr ""
 
@@ -5018,9 +5020,11 @@ msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "nimi tomo"
 
-#: src/rooms/ExploreComponentMobile.qml:34
+#: src/rooms/ExploreComponentMobile.qml:34 src/rooms/SpaceDrawer.qml:59
 #, kde-format
-msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home"
 msgstr ""
 
@@ -5262,19 +5266,15 @@ msgstr ""
 #: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Room Name"
-msgctxt "Home space for the uncategorized rooms"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
 msgstr[0] "nimi tomo"
 msgstr[1] "nimi tomo"
 msgstr[2] "nimi tomo"
 msgstr[3] "nimi tomo"
-
-#: src/rooms/SpaceDrawer.qml:59
-#, kde-format
-msgctxt "Home space for the uncategorized rooms"
-msgid "Home"
-msgstr ""
 
 #: src/rooms/SpaceDrawer.qml:110
 #, fuzzy, kde-format
@@ -6620,7 +6620,10 @@ msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:64
 #, kde-format
-msgid "Show all rooms in \"Home\" tab"
+msgctxt ""
+"@option:check Show all rooms in the 'Home' space. Keep this consistent with "
+"the same translation you use for that space."
+msgid "Show all rooms in \"Home\" space"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:75

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
+"POT-Creation-Date: 2026-08-30 00:46+0000\n"
 "PO-Revision-Date: 2026-08-17 14:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -4827,7 +4827,9 @@ msgstr "%1 பலகையை நீக்கினார்"
 #, fuzzy, kde-format
 #| msgctxt "Home space for the uncategorized rooms"
 #| msgid "Home"
-msgctxt "@title Home space"
+msgctxt ""
+"@title Home space for the uncategorized rooms. Please keep this consistent "
+"across all usages."
 msgid "Home"
 msgstr "முகப்பு"
 
@@ -4859,11 +4861,13 @@ msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "அமைப்புகளை திற"
 
-#: src/rooms/ExploreComponentMobile.qml:34
+#: src/rooms/ExploreComponentMobile.qml:34 src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgctxt "Home space for the uncategorized rooms"
 #| msgid "Home"
-msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home"
 msgstr "முகப்பு"
 
@@ -5108,18 +5112,17 @@ msgid "Expand %1"
 msgstr "%1 தனை விரி"
 
 #: src/rooms/SpaceDrawer.qml:59
-#, kde-format
-msgctxt "Home space for the uncategorized rooms"
+#, fuzzy, kde-format
+#| msgctxt "Home space for the uncategorized rooms"
+#| msgid "Home (%1 notification)"
+#| msgid_plural "Home (%1 notifications)"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
 msgstr[0] "முகப்பு (%1 அறிவிப்பு)"
 msgstr[1] "முகப்பு (%1 அறிவிப்புகள்)"
-
-#: src/rooms/SpaceDrawer.qml:59
-#, kde-format
-msgctxt "Home space for the uncategorized rooms"
-msgid "Home"
-msgstr "முகப்பு"
 
 #: src/rooms/SpaceDrawer.qml:110
 #, kde-format
@@ -6455,8 +6458,12 @@ msgid "Minimize to system tray on startup"
 msgstr "துவக்கும்போது கணினித்தட்டிற்கு ஒதுக்கு"
 
 #: src/settings/NeoChatGeneralPage.qml:64
-#, kde-format
-msgid "Show all rooms in \"Home\" tab"
+#, fuzzy, kde-format
+#| msgid "Show all rooms in \"Home\" tab"
+msgctxt ""
+"@option:check Show all rooms in the 'Home' space. Keep this consistent with "
+"the same translation you use for that space."
+msgid "Show all rooms in \"Home\" space"
 msgstr "முகப்பு கீற்றில் அனைத்து அரங்குகளையும் காட்டு"
 
 #: src/settings/NeoChatGeneralPage.qml:75
@@ -8416,6 +8423,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
+
+#, fuzzy
+#~| msgctxt "Home space for the uncategorized rooms"
+#~| msgid "Home"
+#~ msgctxt ""
+#~ "@action:button The 'normal' view of NeoChat including the room list"
+#~ msgid "Home"
+#~ msgstr "முகப்பு"
+
+#~ msgctxt "Home space for the uncategorized rooms"
+#~ msgid "Home"
+#~ msgstr "முகப்பு"
 
 #~ msgctxt "@action:intoolbar Message this user directly"
 #~ msgid "Message"

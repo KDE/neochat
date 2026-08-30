@@ -1,13 +1,14 @@
 # SPDX-FileCopyrightText: 2020-2026 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2026 Robin Viollet <kde@viollet.ch>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
+"POT-Creation-Date: 2026-08-30 00:46+0000\n"
 "PO-Revision-Date: 2026-08-25 15:27+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: fr\n"
+"Last-Translator: Robin Viollet <kde@viollet.ch>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3720,7 +3721,7 @@ msgstr "Créer"
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
-msgstr "Privée"
+msgstr "Privé"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:49
 #, kde-format
@@ -4764,8 +4765,12 @@ msgid "Remove widget"
 msgstr "Supprimer un composant graphique"
 
 #: src/rooms/ExploreComponent.qml:36
-#, kde-format
-msgctxt "@title Home space"
+#, fuzzy, kde-format
+#| msgctxt "@title Home space"
+#| msgid "Home"
+msgctxt ""
+"@title Home space for the uncategorized rooms. Please keep this consistent "
+"across all usages."
 msgid "Home"
 msgstr "Dossier personnel"
 
@@ -4793,9 +4798,13 @@ msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "Ouvrir la configuration"
 
-#: src/rooms/ExploreComponentMobile.qml:34
-#, kde-format
-msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+#: src/rooms/ExploreComponentMobile.qml:34 src/rooms/SpaceDrawer.qml:59
+#, fuzzy, kde-format
+#| msgctxt "@title Home space"
+#| msgid "Home"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home"
 msgstr "Dossier personnel"
 
@@ -5021,18 +5030,17 @@ msgid "Expand %1"
 msgstr "Développer %1"
 
 #: src/rooms/SpaceDrawer.qml:59
-#, kde-format
-msgctxt "Home space for the uncategorized rooms"
+#, fuzzy, kde-format
+#| msgctxt "Home space for the uncategorized rooms"
+#| msgid "Home (%1 notification)"
+#| msgid_plural "Home (%1 notifications)"
+msgctxt ""
+"@action:button Home space for the uncategorized rooms. Please keep this "
+"consistent across all usages."
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
 msgstr[0] "Dossier personnel (Notification %1)"
 msgstr[1] "Dossier personnel (%1 notifications)"
-
-#: src/rooms/SpaceDrawer.qml:59
-#, kde-format
-msgctxt "Home space for the uncategorized rooms"
-msgid "Home"
-msgstr "Dossier personnel"
 
 #: src/rooms/SpaceDrawer.qml:110
 #, kde-format
@@ -5094,7 +5102,7 @@ msgstr "Copier l'adresse de l'espace"
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
-msgstr "Configuration des espacements"
+msgstr "Configuration des espaces"
 
 #: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:110
 #, kde-format
@@ -6089,7 +6097,7 @@ msgstr "Inviter des utilisateurs"
 #: src/settings/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Kick users"
-msgstr "Rejeter ces utilisateurs"
+msgstr "Rejeter des utilisateurs"
 
 #: src/settings/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
@@ -6302,8 +6310,12 @@ msgid "Minimize to system tray on startup"
 msgstr "Minimiser dans la boite à miniatures au démarrage."
 
 #: src/settings/NeoChatGeneralPage.qml:64
-#, kde-format
-msgid "Show all rooms in \"Home\" tab"
+#, fuzzy, kde-format
+#| msgid "Show all rooms in \"Home\" tab"
+msgctxt ""
+"@option:check Show all rooms in the 'Home' space. Keep this consistent with "
+"the same translation you use for that space."
+msgid "Show all rooms in \"Home\" space"
 msgstr "Afficher tous les salons dans l'onglet « Accueil »"
 
 #: src/settings/NeoChatGeneralPage.qml:75
@@ -7270,7 +7282,7 @@ msgstr "Toute personne"
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
-"Toute personne, indépendamment du fait qu'ils ont rejoint le salon. Peut "
+"Toute personne, indépendamment du fait qu'ils ont rejoint le salon, peut "
 "voir l'historique."
 
 #: src/settings/RoomSecurityPage.qml:135
@@ -7286,13 +7298,13 @@ msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 "Tous les membres peuvent voir la totalité de l'historique des messages, même "
-"avant d'être dans le salon."
+"avant d'avoir rejoint dans le salon."
 
 #: src/settings/RoomSecurityPage.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr "Uniquement les membres (A partir de l'invitation)"
+msgstr "Uniquement les membres (À partir de l'invitation)"
 
 #: src/settings/RoomSecurityPage.qml:145
 #, kde-format
@@ -7323,7 +7335,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Space Settings"
-msgstr "Configuration des espacements"
+msgstr "Configuration des espaces"
 
 #: src/settings/RoomSettingsView.qml:28
 #, kde-format
@@ -8142,6 +8154,15 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 est entrain d'écrire"
 msgstr[1] "%2 sont entrain d'écrire"
+
+#~ msgctxt ""
+#~ "@action:button The 'normal' view of NeoChat including the room list"
+#~ msgid "Home"
+#~ msgstr "Dossier personnel"
+
+#~ msgctxt "Home space for the uncategorized rooms"
+#~ msgid "Home"
+#~ msgstr "Dossier personnel"
 
 #~ msgctxt "@action:intoolbar Message this user directly"
 #~ msgid "Message"
