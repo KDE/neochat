@@ -317,7 +317,13 @@ Kirigami.Page {
             onSend: postHelper.postMessage()
             onSendPoll: (kind, question, answers) => postHelper.postPoll(kind, question, answers)
             onSendVoiceMessage: recorder => postHelper.postVoiceMessage(recorder)
-            onUnhandledUp: root.messageFilterModel.editMessage(root.currentRoom.lastMessageId())
+            onUnhandledUp: modifiers => {
+                if (modifiers & Qt.ControlModifier) {
+                    addReply(root.currentRoom.lastMessageId());
+                    return;
+                }
+                root.messageFilterModel.editMessage(root.currentRoom.lastMessageId())
+            }
 
             // Creating a reply (or doing anything in the chat bar) can change the height, but this isn't picked up on the root's onHeightChanged.
             onHeightChanged: root.resetViewSettling()
@@ -326,6 +332,14 @@ Kirigami.Page {
                 id: postHelper
                 room: root.currentRoom
                 cache: root.currentRoom?.mainCache ?? null
+            }
+
+            function addReply(eventId: string): void {
+                if (eventId.length <= 0) {
+                    return;
+                }
+                chatBar.model.addReply(ReplyModelHelper.modelForEvent(root.currentRoom, eventId));
+                return;
             }
         }
     }
@@ -344,7 +358,7 @@ Kirigami.Page {
 
         function onShowReply(eventId: string, threadRootId: string): void {
             if (threadRootId.length <= 0 && chatBarLoader.item) {
-                chatBarLoader.item.model.addReply(eventId);
+                chatBarLoader.item.addReply(eventId);
             }
         }
     }

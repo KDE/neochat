@@ -25,9 +25,9 @@ QQC2.Control {
     id: root
 
     /**
-     * @brief The model to visualise the content of the message replied to.
+     * @brief The Blocks::Block for the delegate.
      */
-    required property var replyContentModel
+    required property ReplyBlock block
 
     /**
      * @brief Whether the component should be editable.
@@ -55,7 +55,7 @@ QQC2.Control {
             Layout.fillHeight: true
 
             implicitWidth: Kirigami.Units.smallSpacing
-            color: root.replyContentModel.author?.color ?? Kirigami.Theme.highlightColor
+            color: root.block.blockModel.author?.color ?? Kirigami.Theme.highlightColor
             radius: Kirigami.Units.cornerRadius
         }
         ColumnLayout {
@@ -66,9 +66,9 @@ QQC2.Control {
 
             Repeater {
                 id: contentRepeater
-                model: root.replyContentModel
+                model: root.block.blockModel
                 delegate: ReplyBlockChooser {
-                    onReplyClicked: RoomManager.goToEvent(root.replyContentModel.eventId)
+                    onReplyClicked: RoomManager.goToEvent(root.block.blockModel.eventId)
                 }
             }
         }
@@ -77,7 +77,7 @@ QQC2.Control {
         }
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onTapped: RoomManager.goToEvent(root.replyContentModel.eventId)
+            onTapped: RoomManager.goToEvent(root.block.blockModel.eventId)
         }
         QtObject {
             id: _private

@@ -10,6 +10,7 @@
 
 #include "block.h"
 #include "enums/blocktype.h"
+#include "models/eventmessagecontentmodel.h"
 #include "neochatconnection.h"
 #include "testutils.h"
 
@@ -80,7 +81,7 @@ void ChatBarMessageContentModelTest::addAttachmentToReply()
     model.setRoom(room.get());
     QCOMPARE(model.rowCount(), 1);
     QVERIFY(room->timelineSize() > 0);
-    model.addReply(room->messageEvents()[0].event()->id());
+    model.addReply(ReplyModelHelper().modelForEvent(room.get(), room->messageEvents()[0].event()->id()));
     QCOMPARE(model.rowCount(), 2);
     model.addAttachment(QUrl(QString::fromUtf8(__FILE__)));
     QCOMPARE(model.rowCount(), 3);

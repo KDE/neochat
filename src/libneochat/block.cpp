@@ -43,7 +43,7 @@ void Block::setType(Type type)
     Q_EMIT typeChanged();
 }
 
-CacheItemPtr Block::toCacheItem() const
+CacheItemPtr Block::toCacheItem()
 {
     return std::make_unique<CacheItem>(type());
 }
@@ -80,7 +80,7 @@ QString BasicTextBlock::display() const
     return m_display;
 }
 
-CacheItemPtr BasicTextBlock::toCacheItem() const
+CacheItemPtr BasicTextBlock::toCacheItem()
 {
     return std::make_unique<BasicTextCacheItem>(type(), display());
 }
@@ -130,7 +130,7 @@ void TextBlock::setSpoilerRevealed(bool spoilerRevealed)
     Q_EMIT spoilerRevealedChanged();
 }
 
-CacheItemPtr TextBlock::toCacheItem() const
+CacheItemPtr TextBlock::toCacheItem()
 {
     return std::make_unique<TextCacheItem>(type(), m_item->toFragment(), hasSpoiler());
 }
@@ -157,7 +157,7 @@ QString CodeBlock::language() const
     return m_language;
 }
 
-CacheItemPtr CodeBlock::toCacheItem() const
+CacheItemPtr CodeBlock::toCacheItem()
 {
     return std::make_unique<CodeCacheItem>(type(), item()->toFragment(), language());
 }
@@ -179,7 +179,7 @@ QUrl UrlBlock::source() const
     return m_source;
 }
 
-CacheItemPtr UrlBlock::toCacheItem() const
+CacheItemPtr UrlBlock::toCacheItem()
 {
     return std::make_unique<UrlCacheItem>(type(), source());
 }
@@ -245,7 +245,7 @@ Quotient::FileTransferInfo FileBlock::fileTransferInfo() const
     return m_room->cachedFileTransferInfo(m_eventId);
 }
 
-CacheItemPtr FileBlock::toCacheItem() const
+CacheItemPtr FileBlock::toCacheItem()
 {
     return std::make_unique<FileCacheItem>(type(), source(), filename(), info());
 }
@@ -307,7 +307,7 @@ void ImageBlock::setOptimize(const bool optimize)
     m_optimize = optimize;
 }
 
-CacheItemPtr ImageBlock::toCacheItem() const
+CacheItemPtr ImageBlock::toCacheItem()
 {
     return std::make_unique<ImageCacheItem>(type(), source(), filename(), info(), thumbnailSource(), thumbnailInfo(), optimize());
 }
@@ -395,7 +395,7 @@ Quotient::FileTransferInfo VideoBlock::fileTransferInfo() const
     return m_room->cachedFileTransferInfo(m_eventId);
 }
 
-CacheItemPtr VideoBlock::toCacheItem() const
+CacheItemPtr VideoBlock::toCacheItem()
 {
     return std::make_unique<VideoCacheItem>(type(), source(), filename(), info(), thumbnailSource(), thumbnailInfo());
 }
@@ -467,7 +467,7 @@ Quotient::FileTransferInfo AudioBlock::fileTransferInfo() const
     return m_room->cachedFileTransferInfo(m_eventId);
 }
 
-CacheItemPtr AudioBlock::toCacheItem() const
+CacheItemPtr AudioBlock::toCacheItem()
 {
     return std::make_unique<AudioCacheItem>(type(), source(), filename(), info());
 }
@@ -529,40 +529,9 @@ QString LocationBlock::asset() const
     return m_asset;
 }
 
-CacheItemPtr LocationBlock::toCacheItem() const
+CacheItemPtr LocationBlock::toCacheItem()
 {
     return std::make_unique<LocationCacheItem>(type(), latitude(), longitude(), asset());
-}
-
-ReplyBlock::ReplyBlock(Type type, const QString &id, QObject *parent)
-    : Block(type, parent)
-    , m_id(id)
-{
-}
-
-ReplyBlock::ReplyBlock(ReplyCacheItem *item, QObject *parent)
-    : Block(item, parent)
-    , m_id(item->id)
-{
-}
-
-QString ReplyBlock::id() const
-{
-    return m_id;
-}
-
-void ReplyBlock::setId(const QString &id)
-{
-    if (id == m_id) {
-        return;
-    }
-    m_id = id;
-    Q_EMIT idChanged();
-}
-
-CacheItemPtr ReplyBlock::toCacheItem() const
-{
-    return std::make_unique<ReplyCacheItem>(type(), id());
 }
 
 ReactionBlock::ReactionBlock(Type type, NeoChatRoom *room, const QString &eventId, QObject *parent)

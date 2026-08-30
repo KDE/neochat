@@ -75,15 +75,22 @@ TestCase {
         textEdit.cursorPosition = 0;
         keyClick(Qt.Key_Up);
         compare(spyUp.count, 1);
+        compare(spyUp.signalArguments[0][0], false)
+        compare(spyUp.signalArguments[0][1], Qt.NoModifier)
+        compare(spyDown.count, 0);
+        keyClick(Qt.Key_Up, Qt.ControlModifier);
+        compare(spyUp.count, 2);
+        compare(spyUp.signalArguments[1][0], false)
+        compare(spyUp.signalArguments[1][1], Qt.ControlModifier)
         compare(spyDown.count, 0);
         keyClick(Qt.Key_Down);
-        compare(spyUp.count, 1);
+        compare(spyUp.count, 2);
         compare(spyDown.count, 0);
         keyClick(Qt.Key_Down);
-        compare(spyUp.count, 1);
+        compare(spyUp.count, 2);
         compare(spyDown.count, 0);
         keyClick(Qt.Key_Down);
-        compare(spyUp.count, 1);
+        compare(spyUp.count, 2);
         compare(spyDown.count, 1);
     }
 

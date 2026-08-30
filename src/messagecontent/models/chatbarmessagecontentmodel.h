@@ -105,7 +105,7 @@ public:
     Q_INVOKABLE void insertTextAtCursor(const QString &text);
     bool hasAttachment() const;
     Q_INVOKABLE void addAttachment(const QUrl &path);
-    Q_INVOKABLE void addReply(const QString &eventId, bool updateCache = true);
+    Q_INVOKABLE void addReply(MessageContentModel *blockModel, bool updateCache = true);
     Q_INVOKABLE void addLocation(qreal latitude, qreal longitude, const QString &asset);
     Q_INVOKABLE void removeReply();
     Q_INVOKABLE void drop(QList<QUrl> urls, const QString &transferPortal);
@@ -139,7 +139,7 @@ Q_SIGNALS:
      * Currently triggers when up is pressed on the first line of the first block
      * of the first text item in the model.
      */
-    void unhandledUp();
+    void unhandledUp(Qt::KeyboardModifiers modifiers);
 
 private:
     Blocks::Cache *m_cache = nullptr;

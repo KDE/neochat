@@ -4,9 +4,6 @@
 #include "blockcache.h"
 
 #include <QRegularExpression>
-#include <algorithm>
-#include <memory>
-#include <ranges>
 
 #include "blocktype.h"
 #include "chattextitemhelper.h"
@@ -202,12 +199,6 @@ LocationCacheItem::LocationCacheItem(Type type, qreal latitude, qreal longitude,
     , latitude(latitude)
     , longitude(longitude)
     , asset(asset)
-{
-}
-
-ReplyCacheItem::ReplyCacheItem(Type type, const QString &id)
-    : CacheItem(type)
-    , id(id)
 {
 }
 

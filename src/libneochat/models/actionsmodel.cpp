@@ -4,6 +4,7 @@
 #include "actionsmodel.h"
 
 #include "blockcache.h"
+#include "blockreply.h"
 #include "enums/messagetype.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -102,7 +103,7 @@ QList<ActionsModel::Action> actions{
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
             const auto replyCache = helper->cache()->at<Blocks::ReplyCacheItem>(0);
-            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(helper->editId());
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->blockModel->eventId()) : EventRelation::replace(helper->editId());
             room->post<Quotient::RoomMessageEvent>("/rainbow %1"_L1.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
@@ -120,7 +121,7 @@ QList<ActionsModel::Action> actions{
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
             const auto replyCache = helper->cache()->at<Blocks::ReplyCacheItem>(0);
-            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(helper->editId());
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->blockModel->eventId()) : EventRelation::replace(helper->editId());
             room->post<Quotient::RoomMessageEvent>(u"/rainbow %1"_s.arg(text), MessageEventType::Emote, std::move(content), relatesTo);
             return QString();
         },
@@ -148,7 +149,7 @@ QList<ActionsModel::Action> actions{
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(u"<span data-mx-spoiler>%1</span>"_s.arg(text), u"text/html"_s);
             const auto replyCache = helper->cache()->at<Blocks::ReplyCacheItem>(0);
-            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->id) : EventRelation::replace(helper->editId());
+            EventRelation relatesTo = replyCache ? EventRelation::replyTo(replyCache->blockModel->eventId()) : EventRelation::replace(helper->editId());
             room->post<Quotient::RoomMessageEvent>(u"/spoiler %1"_s.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
@@ -361,7 +362,7 @@ QList<ActionsModel::Action> actions{
                     }
                 }
             }
-            room->toggleReaction(replyCache->id, text);
+            room->toggleReaction(replyCache->blockModel->eventId(), text);
             return QString();
         },
         std::nullopt,

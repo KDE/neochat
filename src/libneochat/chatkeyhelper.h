@@ -68,7 +68,7 @@ Q_SIGNALS:
      *  - Up is pressed on the first line of the first block of the text item.
      *  - Return clicked when a completion has been started.
      */
-    void unhandledUp(bool isCompleting);
+    void unhandledUp(bool isCompleting, Qt::KeyboardModifiers modifiers);
 
     /**
      * @brief There is an unhandled down key press.

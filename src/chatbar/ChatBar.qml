@@ -59,7 +59,7 @@ Item {
 
     signal sendVoiceMessage(recorder: MediaRecorder)
 
-    signal unhandledUp
+    signal unhandledUp(modifiers: int)
 
     onActiveFocusChanged: if (activeFocus) {
         core.forceActiveFocus();
@@ -105,7 +105,7 @@ Item {
             onSend: root.send()
             onSendPoll: (kind, question, answers) => root.sendPoll(kind, question, answers)
             onSendVoiceMessage: recorder => root.sendVoiceMessage(recorder)
-            onUnhandledUp: root.unhandledUp()
+            onUnhandledUp: modifiers => root.unhandledUp(modifiers)
         }
         QQC2.Label {
             visible: root.currentRoom.readOnly

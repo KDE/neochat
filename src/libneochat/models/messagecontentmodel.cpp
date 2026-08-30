@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 
 #include "block.h"
-#include "messagecontentlogging.h"
+#include "blocklogging.h"
 #include "neochatdatetime.h"
 #include "texthandler.h"
 
@@ -27,7 +27,7 @@ MessageContentModel::MessageContentModel(QObject *parent)
 {
 }
 
-MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, MessageContentModel *parent)
+MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, QObject *parent)
     : QAbstractListModel(parent)
     , m_eventId(eventId)
 {
@@ -94,12 +94,12 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     }
 
     if (index.row() < 0 || index.row() >= rowCount()) {
-        qCWarning(MessageContent) << __FUNCTION__ << "called with invalid index" << index << rowCount();
+        qCWarning(BlocksLog) << __FUNCTION__ << "called with invalid index" << index << rowCount();
         return {};
     }
 
     if (!m_room) {
-        qCWarning(MessageContent) << __FUNCTION__ << "called without room";
+        qCWarning(BlocksLog) << __FUNCTION__ << "called without room";
         return {};
     }
 
@@ -219,7 +219,7 @@ void MessageContentModel::updateSpoiler(const QModelIndex &index)
 {
     const auto row = index.row();
     if (row < 0 || row >= rowCount(index.parent())) {
-        qCWarning(MessageContent) << __FUNCTION__ << "called with invalid index" << index << rowCount();
+        qCWarning(BlocksLog) << __FUNCTION__ << "called with invalid index" << index << rowCount();
         return;
     }
 
@@ -246,7 +246,7 @@ void MessageContentModel::toggleSpoiler(QModelIndex index)
 {
     const auto row = index.row();
     if (row < 0 || row >= rowCount()) {
-        qCWarning(MessageContent) << __FUNCTION__ << "called with invalid row" << row << m_components.size();
+        qCWarning(BlocksLog) << __FUNCTION__ << "called with invalid row" << row << m_components.size();
         return;
     }
     const auto textBlock = dynamic_cast<Blocks::TextBlock *>(m_components[row]);

@@ -47,7 +47,7 @@ public:
     [[nodiscard]] Type type() const;
     void setType(Type type);
 
-    [[nodiscard]] virtual CacheItemPtr toCacheItem() const;
+    [[nodiscard]] virtual CacheItemPtr toCacheItem();
 
     [[nodiscard]] virtual QVariant toVariant() const;
 
@@ -88,7 +88,7 @@ public:
 
     [[nodiscard]] QString display() const;
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 private:
     QString m_display;
@@ -134,7 +134,7 @@ public:
     [[nodiscard]] bool spoilerRevealed() const;
     void setSpoilerRevealed(bool spoilerRevealed);
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
     [[nodiscard]] bool isEmpty() const override;
 
@@ -171,7 +171,7 @@ public:
 
     [[nodiscard]] QString language() const;
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 private:
     QString m_language;
@@ -199,7 +199,7 @@ public:
 
     [[nodiscard]] QUrl source() const;
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 private:
     QUrl m_source;
@@ -243,7 +243,7 @@ public:
     [[nodiscard]] QString filename() const;
     [[nodiscard]] Quotient::FileTransferInfo fileTransferInfo() const;
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 Q_SIGNALS:
     void fileTransferInfoChanged();
@@ -314,7 +314,7 @@ public:
     bool optimize() const;
     void setOptimize(bool optimize);
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 private:
     QString m_filename;
@@ -384,7 +384,7 @@ public:
     [[nodiscard]] const ImageInfo &thumbnailInfo() const;
     [[nodiscard]] Quotient::FileTransferInfo fileTransferInfo() const;
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 Q_SIGNALS:
     void fileTransferInfoChanged();
@@ -437,7 +437,7 @@ public:
     [[nodiscard]] const AudioInfo &info() const;
     [[nodiscard]] Quotient::FileTransferInfo fileTransferInfo() const;
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 Q_SIGNALS:
     void fileTransferInfoChanged();
@@ -536,44 +536,12 @@ public:
     qreal longitude() const;
     QString asset() const;
 
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
+    [[nodiscard]] CacheItemPtr toCacheItem() override;
 
 private:
     qreal m_latitude = 0.0;
     qreal m_longitude = 0.0;
     QString m_asset;
-};
-
-/**
- * @class ReplyBlock
- *
- * A block to visualize a reply.
- */
-class ReplyBlock : public Block
-{
-    Q_OBJECT
-    QML_ELEMENT
-    QML_UNCREATABLE("")
-
-    /**
-     * @brief The ID of the event being replied to.
-     */
-    Q_PROPERTY(QString id READ id WRITE setId NOTIFY idChanged)
-
-public:
-    ReplyBlock(Type type, const QString &id, QObject *parent);
-    ReplyBlock(ReplyCacheItem *item, QObject *parent);
-
-    QString id() const;
-    void setId(const QString &id);
-
-    [[nodiscard]] CacheItemPtr toCacheItem() const override;
-
-Q_SIGNALS:
-    void idChanged();
-
-private:
-    QString m_id;
 };
 
 /**

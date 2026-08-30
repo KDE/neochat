@@ -199,21 +199,6 @@ public:
     QString asset;
 };
 
-/**
- * @class ReplyCacheItem
- *
- * A structure to define a reply item stored in a Blocks::Cache.
- *
- * @sa Blocks::Cache
- */
-class ReplyCacheItem : public CacheItem
-{
-public:
-    ReplyCacheItem(Type type, const QString &id);
-
-    QString id;
-};
-
 using CacheItemPtr = std::unique_ptr<CacheItem>;
 
 template<typename CacheItemT>

@@ -25,12 +25,12 @@ QQC2.Control {
     required property real maxAvailableWidth
 
     readonly property ChatBarMessageContentModel model: ChatBarMessageContentModel {
-        cache: root.cache
         room: root.room
+        cache: root.cache
         sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
 
         onContentChanged: root.contentChanged()
-        onUnhandledUp: root.unhandledUp()
+        onUnhandledUp: modifiers => root.unhandledUp(modifiers)
     }
 
     property ChatBarFeatures features: ChatBarFeatures {}
@@ -57,7 +57,7 @@ QQC2.Control {
 
     signal sendVoiceMessage(recorder: MediaRecorder)
 
-    signal unhandledUp
+    signal unhandledUp(modifiers: int)
 
     signal cancel
 

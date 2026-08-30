@@ -9,6 +9,7 @@
 #include "filepreview.h"
 #include "models/messagecontentmodel.h"
 #include "models/threadmodel.h"
+#include "neochatroom.h"
 
 /**
  * @class EventMessageContentModel
@@ -30,11 +31,7 @@ public:
     };
     Q_ENUM(MessageState)
 
-    explicit EventMessageContentModel(NeoChatRoom *room,
-                                         const QString &eventId,
-                                         bool isReply = false,
-                                         bool isPending = false,
-                                         MessageContentModel *parent = nullptr);
+    explicit EventMessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply = false, bool isPending = false, QObject *parent = nullptr);
 
     /**
      * @brief Close the link preview at the given index.
@@ -106,4 +103,16 @@ private:
     Blocks::Block *linkPreviewComponent(const QUrl &link);
 
     void updateReactionModel();
+};
+
+class ReplyModelHelper : public QObject
+{
+    Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
+
+public:
+    ReplyModelHelper(QObject *parent = nullptr);
+
+    Q_INVOKABLE EventMessageContentModel *modelForEvent(NeoChatRoom *room, const QString &eventId);
 };

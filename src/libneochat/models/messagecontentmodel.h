@@ -15,7 +15,6 @@
 
 #include "block.h"
 #include "enums/blocktype.h"
-#include "models/reactionmodel.h"
 #include "neochatroom.h"
 #include "neochatroommember.h"
 
@@ -65,7 +64,7 @@ public:
     Q_ENUM(Roles)
 
     explicit MessageContentModel(QObject *parent = nullptr);
-    explicit MessageContentModel(NeoChatRoom *room, const QString &eventId, MessageContentModel *parent = nullptr);
+    explicit MessageContentModel(NeoChatRoom *room, const QString &eventId, QObject *parent = nullptr);
 
     NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);

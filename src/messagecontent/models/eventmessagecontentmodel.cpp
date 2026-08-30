@@ -13,6 +13,7 @@
 #include <Kirigami/Platform/PlatformTheme>
 
 #include "block.h"
+#include "blockreply.h"
 #include "contentprovider.h"
 #include "enums/blocktype.h"
 #include "eventhandler.h"
@@ -27,7 +28,7 @@ using namespace Quotient;
 
 bool EventMessageContentModel::richTextActive = true;
 
-EventMessageContentModel::EventMessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending, MessageContentModel *parent)
+EventMessageContentModel::EventMessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending, QObject *parent)
     : MessageContentModel(room, eventId, parent)
     , m_currentState(isPending ? Pending : Unknown)
     , m_isReply(isReply)
@@ -304,16 +305,14 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isThre
 
 #if Quotient_VERSION_MINOR > 9
     if (!m_isReply && event->isReply()) {
-        blocks.push_back(new Blocks::ReplyBlock(Blocks::Reply, event->replyEventId(), this));
-        m_replyModel = new EventMessageContentModel(m_room, event->replyEventId(), true, false, this);
+        blocks.push_back(new Blocks::ReplyBlock(new EventMessageContentModel(m_room, event->replyEventId(), true, false, this), this));
 #else
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
     if (!roomMessageEvent) {
         return {};
     }
     if (!m_isReply && roomMessageEvent->isReply()) {
-        blocks.push_back(new Blocks::ReplyBlock(Blocks::Reply, roomMessageEvent->replyEventId(), this));
-        m_replyModel = new EventMessageContentModel(m_room, roomMessageEvent->replyEventId(), true, false, this);
+        blocks.push_back(new Blocks::ReplyBlock(new EventMessageContentModel(m_room, roomMessageEvent->replyEventId(), true, false, this), this));
 #endif
     }
 
@@ -651,6 +650,23 @@ void EventMessageContentModel::cancelReplyInThread()
 ThreadModel *EventMessageContentModel::modelForThread(const QString &threadRootId)
 {
     return ContentProvider::self().modelForThread(m_room, threadRootId);
+}
+
+ReplyModelHelper::ReplyModelHelper(QObject *parent)
+    : QObject(parent)
+{
+}
+
+EventMessageContentModel *ReplyModelHelper::modelForEvent(NeoChatRoom *room, const QString &eventId)
+{
+    if (!room || eventId.isEmpty()) {
+        return nullptr;
+    }
+    const auto [event, _] = room->getEvent(eventId);
+    if (!event) {
+        return nullptr;
+    }
+    return new EventMessageContentModel(room, eventId, true, false);
 }
 
 #include "moc_eventmessagecontentmodel.cpp"

@@ -15,14 +15,13 @@
 
 #include "block.h"
 #include "blockcache.h"
+#include "blockreply.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
 #include "chattextitemhelper.h"
 #include "enums/blocktype.h"
 #include "enums/richformat.h"
-#include "eventmessagecontentmodel.h"
 #include "fileinfo.h"
-#include "messagecontentmodel.h"
 #include "texthandler.h"
 
 bool ChatBarMessageContentModel::richTextActive = true;
@@ -107,12 +106,12 @@ ChatKeyHelper *ChatBarMessageContentModel::keyHelper() const
 
 void ChatBarMessageContentModel::connectKeyHelper()
 {
-    connect(m_keyHelper, &ChatKeyHelper::unhandledUp, this, [this](bool isCompleting) {
+    connect(m_keyHelper, &ChatKeyHelper::unhandledUp, this, [this](bool isCompleting, Qt::KeyboardModifiers modifiers) {
         if (isCompleting) {
             return;
         }
-        if (m_currentFocusComponent.row() <= 0 && focusedTextItem()->isEmpty()) {
-            Q_EMIT unhandledUp();
+        if (m_currentFocusComponent.row() <= 0) {
+            Q_EMIT unhandledUp(modifiers);
             return;
         }
         handleBlockTransition(true);
@@ -147,9 +146,6 @@ void ChatBarMessageContentModel::connectKeyHelper()
         if (m_components[currentRow]->type() == Blocks::Code || m_components[currentRow]->type() == Blocks::Quote) {
             insertBlockAtCursor(makeEmptyTextBlock(Blocks::Text));
         }
-    });
-    connect(m_keyHelper, &ChatKeyHelper::requestReply, this, [this](const QString &eventId) {
-        addReply(eventId);
     });
     connect(m_keyHelper, &ChatKeyHelper::attachmentPasted, this, &ChatBarMessageContentModel::addAttachment);
     connect(m_keyHelper, &ChatKeyHelper::textPasted, this, &ChatBarMessageContentModel::insertTextAtCursor);
@@ -314,20 +310,13 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     Q_EMIT hasAttachmentChanged();
 }
 
-void ChatBarMessageContentModel::addReply(const QString &eventId, bool updateCache)
+void ChatBarMessageContentModel::addReply(MessageContentModel *blockModel, bool updateCache)
 {
-    if (!m_replyModel || m_replyModel->eventId() != eventId) {
-        if (m_replyModel) {
-            m_replyModel->disconnect(this);
-            m_replyModel->deleteLater();
-        }
-        m_replyModel = new EventMessageContentModel(m_room, eventId, true, false, this);
-    }
     if (!hasComponentType(Blocks::Reply)) {
-        insertComponent(0, new Blocks::ReplyBlock(Blocks::Reply, eventId, this));
+        insertComponent(0, new Blocks::ReplyBlock(blockModel, this));
     } else {
         if (const auto replyBlock = dynamic_cast<Blocks::ReplyBlock *>(m_components[0])) {
-            replyBlock->setId(eventId);
+            replyBlock->setBlockModel(blockModel);
         }
         dataChanged(index(0), index(0), {ReplyContentModelRole});
     }
@@ -648,7 +637,7 @@ void ChatBarMessageContentModel::insertComponentFromCache(Blocks::CacheItem *ite
         break;
     case Blocks::Reply:
         if (const auto replyItem = dynamic_cast<Blocks::ReplyCacheItem *>(item)) {
-            addReply(replyItem->id, false);
+            addReply(replyItem->blockModel, false);
         }
         break;
     default:

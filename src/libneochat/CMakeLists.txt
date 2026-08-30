@@ -9,6 +9,7 @@ target_sources(LibNeoChat PRIVATE
     neochatroommember.cpp
     accountmanager.cpp
     block.cpp
+    blockreply.cpp
     pollblock.cpp
     blockcache.cpp
     filepreview.cpp
@@ -57,6 +58,7 @@ target_sources(LibNeoChat PRIVATE
     models/itinerarymodel.cpp
     models/livelocationsmodel.cpp
     models/locationsmodel.cpp
+    models/messagecontentmodel.cpp
     models/pollanswermodel.cpp
     models/reactionmodel.cpp
     models/roomlistmodel.cpp
@@ -79,6 +81,13 @@ if (${QuotientQt6_VERSION_MINOR} LESS 10)
             events/joinrulesevent.h
     )
 endif()
+
+ecm_qt_declare_logging_category(LibNeoChat
+    HEADER "blocklogging.h"
+    IDENTIFIER "BlocksLog"
+    CATEGORY_NAME "org.kde.neochat.blocks"
+    DEFAULT_SEVERITY Info
+)
 
 ecm_qt_declare_logging_category(LibNeoChat
     HEADER "chatbarlogging.h"

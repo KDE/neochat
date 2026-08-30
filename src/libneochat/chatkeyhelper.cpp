@@ -98,29 +98,12 @@ bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
     if (!m_textItem) {
         return false;
     }
-
-    if (modifiers.testFlag(Qt::ControlModifier)) {
-        if (!room) {
-            return false;
-        }
-        const auto lastId = room->lastMessageId();
-        if (!lastId.isEmpty()) {
-            Q_EMIT requestReply(lastId);
-            return true;
-        }
-    }
-
-    if (m_textItem->isCompleting) {
-        Q_EMIT unhandledUp(true);
-        return true;
-    }
-
     QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
-    if (cursor.blockNumber() == 0 && cursor.block().layout()->lineForTextPosition(cursor.positionInBlock()).lineNumber() == 0) {
-        Q_EMIT unhandledUp(false);
+    if (m_textItem->isCompleting || (cursor.blockNumber() == 0 && cursor.block().layout()->lineForTextPosition(cursor.positionInBlock()).lineNumber() == 0)) {
+        Q_EMIT unhandledUp(m_textItem->isCompleting, modifiers);
         return true;
     }
     return false;

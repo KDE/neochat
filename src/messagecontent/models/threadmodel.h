@@ -16,7 +16,7 @@
 #include <optional>
 
 #include "linkpreviewer.h"
-#include "messagecontentmodel.h"
+#include "models/messagecontentmodel.h"
 
 class NeoChatRoom;
 class ThreadModel;
