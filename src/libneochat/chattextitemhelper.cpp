@@ -2,15 +2,12 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "chattextitemhelper.h"
-#include "chatbartype.h"
 #include "richformat.h"
 
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
 #include <Kirigami/Platform/PlatformTheme>
-
-#include "neochatroom.h"
 
 // Because we can't get access to the private header we foward declare this so the SIGNAL() macro works in setTextItem.
 namespace QQuickTextEdit

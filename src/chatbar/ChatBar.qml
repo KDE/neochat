@@ -48,7 +48,7 @@ Item {
 
     readonly property alias isEmpty: core.isEmpty
 
-    property alias showCancel: core.showCancel
+    property alias features: core.features
 
     signal contentChanged
 

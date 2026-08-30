@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include "neochatroom.h"
-#include "chatbartype.h"
 
 #include <QFileInfo>
 #include <QMediaMetaData>

@@ -33,7 +33,12 @@ BaseBlockChooser {
             Layout.maximumWidth: Message.maxContentWidth
 
             cache: block.cache
-            showCancel: true
+            features {
+                sendLocation: false
+                sendPoll: false
+                sendVoice: false
+                cancel: true
+            }
             room: Message.room
             maxAvailableWidth: Message.maxContentWidth
 

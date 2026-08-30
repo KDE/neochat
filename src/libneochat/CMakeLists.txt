@@ -33,7 +33,6 @@ target_sources(LibNeoChat PRIVATE
     urlhelper.cpp
     utils.cpp
     voicerecorder.cpp
-    enums/chatbartype.h
     enums/blocktype.cpp
     enums/blocktype.h
     enums/messagetype.h

@@ -12,7 +12,6 @@
 #include <Quotient/uriresolver.h>
 
 #include "enums/blocktype.h"
-#include "enums/chatbartype.h"
 #include "enums/messagetype.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messagefiltermodel.h"
@@ -222,7 +221,7 @@ public:
      * a room reply a replyId is expected. For a reply in a thread a threadRootId
      * is expected with an optional replyId if replying to a message within that thread.
      */
-    Q_INVOKABLE void requestReply(ChatBarType::Type type, const QString &replyId, const QString &threadRootId);
+    Q_INVOKABLE void requestReply(const QString &replyId, const QString &threadRootId);
 
     /**
      * @brief Show a media item maximized.
@@ -295,7 +294,7 @@ Q_SIGNALS:
      * a room reply a replyId is expected. For a reply in a thread a threadRootId
      * is expected with an optional replyId if replying to a message within that thread.
      */
-    void showReply(ChatBarType::Type type, const QString &replyId, const QString &threadRootId);
+    void showReply(const QString &replyId, const QString &threadRootId);
 
     /**
      * @brief Show details for the given user.

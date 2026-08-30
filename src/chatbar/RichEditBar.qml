@@ -16,11 +16,6 @@ pragma ComponentBehavior: Bound
 RowLayout {
     id: root
 
-    /**
-     * @brief The current room that user is viewing.
-     */
-    required property LibNeoChat.NeoChatRoom room
-
     required property MessageContent.ChatBarMessageContentModel contentModel
 
     required property real maxAvailableWidth

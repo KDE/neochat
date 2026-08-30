@@ -21,8 +21,6 @@ QQC2.Control {
 
     required property var cache
 
-    property int chatBarType: LibNeoChat.ChatBarType.Room
-
     required property real maxAvailableWidth
 
     readonly property ChatBarMessageContentModel model: ChatBarMessageContentModel {
@@ -34,7 +32,7 @@ QQC2.Control {
         onUnhandledUp: root.unhandledUp()
     }
 
-    property bool showCancel: false
+    property ChatBarFeatures features: ChatBarFeatures {}
 
     Connections {
         target: root.model.keyHelper
@@ -101,8 +99,6 @@ QQC2.Control {
             id: richEditBar
             visible: NeoChatConfig.sendMessageWith === 1 && NeoChatConfig.richChatBar
             maxAvailableWidth: root.maxAvailableWidth - Kirigami.Units.largeSpacing * 2
-
-            room: root.room
             contentModel: root.model
 
             onClicked: root.model.refocusCurrentComponent()
@@ -189,7 +185,7 @@ QQC2.Control {
             SendBar {
                 room: root.room
                 contentModel: root.model
-                showCancel: root.showCancel
+                features: root.features
                 maxAvailableWidth: root.maxAvailableWidth
 
                 onSend: {

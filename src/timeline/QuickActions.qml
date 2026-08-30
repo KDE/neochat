@@ -75,7 +75,7 @@ RowLayout {
         icon.name: "mail-replied-symbolic"
         display: QQC2.Button.IconOnly
         onClicked: {
-            RoomManager.requestReply(ChatBarType.Room, root.eventId, "");
+            RoomManager.requestReply(root.eventId, "");
         }
 
         QQC2.ToolTip.text: text

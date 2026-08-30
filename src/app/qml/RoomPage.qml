@@ -340,8 +340,8 @@ Kirigami.Page {
             (timelineViewLoader.item as TimelineView).goToEvent(eventId);
         }
 
-        function onShowReply(type: int, eventId: string): void {
-            if (type == ChatBarType.Room && chatBarLoader.item) {
+        function onShowReply(eventId: string, threadRootId: string): void {
+            if (threadRootId.length <= 0 && chatBarLoader.item) {
                 chatBarLoader.item.model.addReply(eventId);
             }
         }

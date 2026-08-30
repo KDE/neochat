@@ -31,6 +31,6 @@ Delegates.RoundedItemDelegate {
     text: i18nc("@action:button", "Reply")
 
     onClicked: {
-        RoomManager.requestReply(ChatBarType.Thread, "", root.threadRoot);
+        RoomManager.requestReply("", root.threadRoot);
     }
 }

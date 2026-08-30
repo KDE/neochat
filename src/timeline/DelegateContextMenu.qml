@@ -203,11 +203,11 @@ KirigamiComponents.ConvergentContextMenu {
         onTriggered: {
             let threadRoot = root.room.rootIdForThread(root.eventId);
             if (threadRoot.length > 0) {
-                RoomManager.requestReply(ChatBarType.Thread, root.eventId, threadRoot);
+                RoomManager.requestReply(root.eventId, threadRoot);
                 RoomManager.requestFullScreenClose();
                 return;
             }
-            RoomManager.requestReply(ChatBarType.Room, root.eventId, "");
+            RoomManager.requestReply(root.eventId, "");
             RoomManager.requestFullScreenClose();
         }
     }
@@ -218,7 +218,7 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu", "Reply in Thread")
         icon.name: "dialog-messages"
         onTriggered: {
-            RoomManager.requestReply(ChatBarType.Thread, "", root.room.eventIsThreaded(root.eventId) ? root.room.rootIdForThread(root.eventId) : root.eventId);
+            RoomManager.requestReply("", root.room.eventIsThreaded(root.eventId) ? root.room.rootIdForThread(root.eventId) : root.eventId);
             RoomManager.requestFullScreenClose();
         }
     }

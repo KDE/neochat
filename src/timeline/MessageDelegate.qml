@@ -53,8 +53,8 @@ MessageDelegateBase {
     Connections {
         target: RoomManager
 
-        function onShowReply(type: int, eventId: string, threadRootId: string): void {
-            if (type == ChatBarType.Thread && root.contentModel && threadRootId == root.eventId) {
+        function onShowReply(eventId: string, threadRootId: string): void {
+            if (threadRootId.length > 0 && root.contentModel && threadRootId == root.eventId) {
                 root.contentModel.replyInThread();
             }
         }

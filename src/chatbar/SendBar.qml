@@ -24,7 +24,7 @@ RowLayout {
 
     required property MessageContent.ChatBarMessageContentModel contentModel
 
-    required property bool showCancel
+    required property ChatBarFeatures features
 
     required property real maxAvailableWidth
 
@@ -89,7 +89,7 @@ RowLayout {
         id: compressedExtraSendButton
         property QQC2.Menu overflowMenu
 
-        visible: root.maxAvailableWidth < root.overflowWidth && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
+        visible: root.maxAvailableWidth < root.overflowWidth && (root.features.sendAttachment || root.features.sendLocation || root.features.sendPoll || root.features.sendVoice)
         icon.name: "list-add-symbolic"
         text: i18nc("@action:button", "Add to message")
         display: QQC2.AbstractButton.IconOnly
@@ -119,22 +119,25 @@ RowLayout {
                 y: -implicitHeight
 
                 QQC2.MenuItem {
-                    visible: !root.contentModel.hasAttachment
+                    visible: !root.contentModel.hasAttachment && root.features.sendAttachment
                     icon.name: "mail-attachment"
                     text: i18nc("@action:button", "Attach an image or file")
                     onTriggered: root.addAttachment()
                 }
                 QQC2.MenuItem {
+                    visible: root.features.sendLocation
                     icon.name: "globe"
                     text: i18nc("@action:button", "Send a Location")
                     onTriggered: root.openLocationChooser()
                 }
                 QQC2.MenuItem {
+                    visible: root.features.sendPoll
                     icon.name: "amarok_playcount"
                     text: i18nc("@action:button", "Create a Poll")
                     onTriggered: root.openNewPollDialog();
                 }
                 QQC2.MenuItem {
+                    visible: root.features.sendVoice
                     icon.name: "microphone"
                     text: i18nc("@action:button", "Send a Voice Message")
                     onTriggered: root.openVoiceDialog();
@@ -148,9 +151,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: attachmentButton
-        visible: !root.contentModel.hasAttachment &&
-                 ((root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room || (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Thread) &&
-                 root.maxAvailableWidth >= root.overflowWidth
+        visible: !root.contentModel.hasAttachment && root.features.sendAttachment && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "mail-attachment"
         text: i18nc("@action:button", "Attach an image or file")
         display: QQC2.AbstractButton.IconOnly
@@ -163,7 +164,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: mapButton
-        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room && root.maxAvailableWidth >= root.overflowWidth
+        visible: root.features.sendLocation && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "globe"
         text: i18nc("@action:button", "Send a Location")
         display: QQC2.AbstractButton.IconOnly
@@ -175,7 +176,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: pollButton
-        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room && root.maxAvailableWidth >= root.overflowWidth
+        visible: root.features.sendPoll && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "amarok_playcount"
         text: i18nc("@action:button", "Create a Poll")
         display: QQC2.AbstractButton.IconOnly
@@ -186,7 +187,7 @@ RowLayout {
         QQC2.ToolTip.text: text
     }
     QQC2.ToolButton {
-        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room && root.maxAvailableWidth >= root.overflowWidth
+        visible: root.features.sendVoice && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "microphone"
         text: i18nc("@action:button", "Send a Voice Message")
         display: QQC2.AbstractButton.IconOnly
@@ -227,7 +228,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: cancelButton
-        visible: root.showCancel
+        visible: root.features.cancel
         display: QQC2.AbstractButton.IconOnly
         text: i18nc("@action:button", "Cancel")
         icon.name: "dialog-close"
