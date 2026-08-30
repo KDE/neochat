@@ -884,6 +884,24 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
     const auto mimeType = fileContent->type();
 
     // Add parameter depending on media type.
+    if (const auto videoContent = dynamic_cast<const EventContent::VideoContent *>(fileContent)) {
+        Blocks::VideoInfo videoInfo;
+        videoInfo.mimeType = mimeType;
+        videoInfo.size = videoContent->payloadSize;
+        videoInfo.pixelSize = videoContent->imageSize;
+        videoInfo.duration = videoContent->duration;
+
+        QUrl thumbnailSource;
+        if (const auto thumbnail = videoContent->thumbnail; thumbnail.url().isValid() && thumbnail.url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
+            thumbnailSource = room->makeMediaUrl(eventId, thumbnail.url());
+        } else {
+            if (const auto blurhash = videoContent->originalInfoJson["xyz.amorgan.blurhash"_L1].toString(); !blurhash.isEmpty()) {
+                thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
+            }
+        }
+        const auto thumbnailInfo = getTumbnailInfo(videoContent->thumbnail);
+        return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, room, eventId, parent);
+    }
     if (const auto imageContent = dynamic_cast<const EventContent::ImageContent *>(fileContent)) {
         Blocks::ImageInfo imageInfo;
         imageInfo.mimeType = mimeType;
@@ -904,25 +922,6 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
         }
         const auto thumbnailInfo = getTumbnailInfo(imageContent->thumbnail);
         return new Blocks::ImageBlock(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo, true, parent);
-    }
-    if (const auto videoContent = dynamic_cast<const EventContent::VideoContent *>(fileContent)) {
-        ;
-        Blocks::VideoInfo videoInfo;
-        videoInfo.mimeType = mimeType;
-        videoInfo.size = videoContent->payloadSize;
-        videoInfo.pixelSize = videoContent->imageSize;
-        videoInfo.duration = videoContent->duration;
-
-        QUrl thumbnailSource;
-        if (const auto thumbnail = videoContent->thumbnail; thumbnail.url().isValid() && thumbnail.url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
-            thumbnailSource = room->makeMediaUrl(eventId, thumbnail.url());
-        } else {
-            if (const auto blurhash = videoContent->originalInfoJson["xyz.amorgan.blurhash"_L1].toString(); !blurhash.isEmpty()) {
-                thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
-            }
-        }
-        const auto thumbnailInfo = getTumbnailInfo(videoContent->thumbnail);
-        return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, room, eventId, parent);
     }
     if (const auto audioContent = dynamic_cast<const EventContent::AudioContent *>(fileContent)) {
         Blocks::AudioInfo audioInfo;
