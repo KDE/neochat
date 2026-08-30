@@ -884,9 +884,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
     const auto mimeType = fileContent->type();
 
     // Add parameter depending on media type.
-    if (mimeType.name().contains(u"image"_s)) {
-        const auto imageContent = dynamic_cast<const EventContent::ImageContent *>(fileContent);
-        Q_ASSERT(imageContent);
+    if (const auto imageContent = dynamic_cast<const EventContent::ImageContent *>(fileContent)) {
         Blocks::ImageInfo imageInfo;
         imageInfo.mimeType = mimeType;
         imageInfo.size = imageContent->payloadSize;
@@ -907,9 +905,8 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
         const auto thumbnailInfo = getTumbnailInfo(imageContent->thumbnail);
         return new Blocks::ImageBlock(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo, true, parent);
     }
-    if (mimeType.name().contains(u"video"_s)) {
-        const auto videoContent = dynamic_cast<const EventContent::VideoContent *>(fileContent);
-        Q_ASSERT(videoContent);
+    if (const auto videoContent = dynamic_cast<const EventContent::VideoContent *>(fileContent)) {
+        ;
         Blocks::VideoInfo videoInfo;
         videoInfo.mimeType = mimeType;
         videoInfo.size = videoContent->payloadSize;
@@ -927,9 +924,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
         const auto thumbnailInfo = getTumbnailInfo(videoContent->thumbnail);
         return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, room, eventId, parent);
     }
-    if (mimeType.name().contains(u"audio"_s)) {
-        const auto audioContent = dynamic_cast<const EventContent::AudioContent *>(fileContent);
-        Q_ASSERT(audioContent);
+    if (const auto audioContent = dynamic_cast<const EventContent::AudioContent *>(fileContent)) {
         Blocks::AudioInfo audioInfo;
         audioInfo.mimeType = mimeType;
         audioInfo.size = audioContent->payloadSize;
