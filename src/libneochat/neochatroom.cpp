@@ -1491,24 +1491,6 @@ bool NeoChatRoom::canEncryptRoom() const
     return !usesEncryption() && canSendState("m.room.encryption"_L1);
 }
 
-void NeoChatRoom::postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers)
-{
-    QList<EventContent::Answer> answerStructs;
-    for (const auto &answer : answers) {
-        answerStructs += EventContent::Answer{
-            QUuid::createUuid().toString().remove(QRegularExpression(u"{|}|-"_s)),
-            answer,
-        };
-    }
-    const auto content = EventContent::PollStartContent{
-        .kind = kind,
-        .maxSelection = 1,
-        .question = question,
-        .answers = answerStructs,
-    };
-    post<PollStartEvent>(content);
-}
-
 bool NeoChatRoom::downloadTempFile(const QString &eventId)
 {
     QTemporaryFile file;

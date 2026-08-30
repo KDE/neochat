@@ -32,6 +32,8 @@ RowLayout {
 
     signal send
 
+    signal sendPoll(kind: int, question: string, answers: list<string>)
+
     signal cancel
 
     function openLocationChooser(): void {
@@ -43,9 +45,9 @@ RowLayout {
     }
 
     function openNewPollDialog(): void {
-        Qt.createComponent('org.kde.neochat.chatbar', 'NewPollDialog').createObject(QQC2.Overlay.overlay, {
-            room: root.room
-        }).open();
+        let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'NewPollDialog').createObject(QQC2.Overlay.overlay) as NewPollDialog;
+        dialog.sendPoll.connect((kind, question, answers) => { root.sendPoll(kind, question, answers) });
+        dialog.open();
     }
 
     function addAttachment(): void {

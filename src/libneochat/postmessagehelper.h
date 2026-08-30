@@ -7,6 +7,7 @@
 #include <qqmlintegration.h>
 
 #include "blockcache.h"
+#include "events/pollevent.h"
 #include "neochatroom.h"
 
 class PostMessageHelper : public QObject
@@ -36,6 +37,8 @@ public:
     void setThreadRootId(const QString &threadRootId);
 
     Q_INVOKABLE void postMessage();
+
+    Q_INVOKABLE void postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers);
 
 Q_SIGNALS:
     void roomChanged();

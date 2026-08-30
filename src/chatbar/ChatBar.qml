@@ -54,6 +54,8 @@ Item {
 
     signal send
 
+    signal sendPoll(kind: int, question: string, answers: list<string>)
+
     signal unhandledUp
 
     onActiveFocusChanged: if (activeFocus) {
@@ -98,6 +100,7 @@ Item {
 
             onContentChanged: root.contentChanged()
             onSend: root.send()
+            onSendPoll: (kind, question, answers) => root.sendPoll(kind, question, answers)
             onUnhandledUp: root.unhandledUp()
         }
         QQC2.Label {

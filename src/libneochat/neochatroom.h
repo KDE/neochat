@@ -526,8 +526,6 @@ public:
      */
     Q_INVOKABLE QString lastMessageId();
 
-    Q_INVOKABLE void postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers);
-
     /**
      * @brief Get the full Json data for a given room account data event.
      */

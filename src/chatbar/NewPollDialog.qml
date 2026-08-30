@@ -17,14 +17,14 @@ import org.kde.neochat
 Kirigami.Dialog {
     id: root
 
-    required property NeoChatRoom room
+    signal sendPoll(kind: int, question: string, answers: list<string>)
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title: create new poll in the room", "Create Poll")
     showCloseButton: false
     standardButtons: QQC2.Dialog.Cancel
 
-    onAccepted: root.room.postPoll(pollTypeCombo.currentValue, questionTextField.text, optionModel.values())
+    onAccepted: root.sendPoll(pollTypeCombo.currentValue, questionTextField.text, optionModel.values())
 
     contentItem: ColumnLayout {
         spacing: 0

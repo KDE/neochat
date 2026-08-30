@@ -52,6 +52,8 @@ QQC2.Control {
 
     signal send
 
+    signal sendPoll(kind: int, question: string, answers: list<string>)
+
     signal unhandledUp
 
     signal cancel
@@ -192,6 +194,7 @@ QQC2.Control {
                     root.send()
                     root.model.resetModel();
                 }
+                onSendPoll: (kind, question, answers) => root.sendPoll(kind, question, answers)
                 onCancel: root.cancel()
             }
         }

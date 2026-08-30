@@ -169,4 +169,26 @@ void PostMessageHelper::postMessage()
     m_cache->clear();
 }
 
+void PostMessageHelper::postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers)
+{
+    if (!m_room) {
+        return;
+    }
+
+    QList<Quotient::EventContent::Answer> answerStructs;
+    for (const auto &answer : answers) {
+        answerStructs += Quotient::EventContent::Answer{
+            QUuid::createUuid().toString().remove(QRegularExpression(u"{|}|-"_s)),
+            answer,
+        };
+    }
+    const auto content = Quotient::EventContent::PollStartContent{
+        .kind = kind,
+        .maxSelection = 1,
+        .question = question,
+        .answers = answerStructs,
+    };
+    m_room->post<Quotient::PollStartEvent>(content);
+}
+
 #include "moc_postmessagehelper.cpp"
