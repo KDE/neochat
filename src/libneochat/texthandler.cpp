@@ -303,14 +303,15 @@ TextHandler::Type TextHandler::getNextTokenType(const QString &string, qsizetype
         // This is to stop the function accessing an index outside the length of
         // string during the final loop.
         return Type::End;
-    } else if (currentTokenType == Type::Tag && getTagType(currentToken) == u"code"_s && !isCloseTag(currentToken)
-               && string.indexOf(u"</code>"_s, currentPos) != currentPos) {
-        return Type::TextCode;
-    } else if (string[currentPos] == u'<' && string[currentPos + 1] != u' ') {
-        return Type::Tag;
-    } else {
-        return Type::Text;
     }
+    if (currentTokenType == Type::Tag && getTagType(currentToken) == u"code"_s && !isCloseTag(currentToken)
+        && string.indexOf(u"</code>"_s, currentPos) != currentPos) {
+        return Type::TextCode;
+    }
+    if (string[currentPos] == u'<' && string[currentPos + 1] != u' ') {
+        return Type::Tag;
+    }
+    return Type::Text;
 }
 
 qsizetype TextHandler::nextBlockPos(const QString &string)
@@ -488,9 +489,8 @@ bool TextHandler::isAllowedLink(const QString &link, bool isImg)
 
     if (isImg) {
         return !linkUrl.isRelative() && linkUrl.scheme() == u"mxc"_s;
-    } else {
-        return !linkUrl.isRelative() && allowedLinkSchemes.contains(linkUrl.scheme());
     }
+    return !linkUrl.isRelative() && allowedLinkSchemes.contains(linkUrl.scheme());
 }
 
 QString TextHandler::cleanAttributes(const QString &tag, const QString &tagString)
