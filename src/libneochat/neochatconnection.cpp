@@ -22,13 +22,11 @@
 #include <QGuiApplication>
 
 #include <Quotient/csapi/capabilities.h>
-#include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
 #include <Quotient/csapi/registration.h>
 #include <Quotient/csapi/versions.h>
 #include <Quotient/e2ee/sssshandler.h>
 #include <Quotient/jobs/downloadfilejob.h>
-#include <Quotient/qt_connection_util.h>
 #include <Quotient/room.h>
 #include <Quotient/settings.h>
 #include <Quotient/user.h>
