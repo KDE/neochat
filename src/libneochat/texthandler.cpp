@@ -4,14 +4,9 @@
 #include "texthandler.h"
 
 #include <QDebug>
-#include <QFontMetrics>
-#include <QGuiApplication>
-#include <QStringLiteral>
-#include <QTextBlock>
 #include <QUrl>
 
 #include <Quotient/events/roommessageevent.h>
-#include <Quotient/util.h>
 
 #include <cmark.h>
 
