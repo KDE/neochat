@@ -59,6 +59,7 @@ private Q_SLOTS:
     void nullReplyAuthor();
     void location();
     void nullLocation();
+    void imageAsFile();
 };
 
 void EventHandlerTest::initTestCase()
@@ -382,6 +383,21 @@ void EventHandlerTest::nullLocation()
 
     QTest::ignoreMessage(QtWarningMsg, "locationAssetType called with event set to nullptr.");
     QCOMPARE(EventHandler::locationAssetType(nullptr), QString());
+}
+
+void EventHandlerTest::imageAsFile()
+{
+    // Test that we don't crash when loading a jpeg with msgtype m.file
+    auto event = room->findEvent(u"$_rSIMoOPo2cCldHGSRheZAkTstj5f93cugjooD6p-DU"_s);
+    QVERIFY(event);
+    auto block = EventHandler::blockForMediaEvent(room, event);
+    QVERIFY(block);
+
+    // Test that we don't get a block for an event with unknown msgtype
+    event = room->findEvent(u"$_rSIMoOPo2cCldHGSRheZAkTstj5f93cugjoweird"_s);
+    QVERIFY(event);
+    block = EventHandler::blockForMediaEvent(room, event);
+    QVERIFY(!block);
 }
 
 QTEST_MAIN(EventHandlerTest)
