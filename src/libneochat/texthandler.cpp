@@ -402,11 +402,10 @@ Blocks::Block *TextHandler::nextBlock(const QString &string,
         content = handleReceiveRichText(inputFormat, room, event, false, isEdited, spoilerRevealed);
     }
 
-    auto hasSpoiler = content.contains(u"data-mx-spoiler"_s);
     if (blockType == Blocks::Code) {
         return new Blocks::CodeBlock(blockType, QTextDocumentFragment::fromPlainText(content), attributes["class"_L1].toString(), parent);
     }
-    return new Blocks::TextBlock(blockType, QTextDocumentFragment::fromHtml(content), hasSpoiler, parent);
+    return new Blocks::TextBlock(blockType, QTextDocumentFragment::fromHtml(content), content.contains(u"data-mx-spoiler"_s), parent);
 }
 
 QString TextHandler::stripBlockTags(QString string, const QString &tagType)
