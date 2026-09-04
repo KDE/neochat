@@ -438,7 +438,7 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
 QString TextHandler::getTagType(const QString &tagToken)
 {
     if (tagToken.isEmpty() || tagToken.length() < 2) {
-        return QString();
+        return {};
     }
     const int tagTypeStart = tagToken[1] == u'/' ? 2 : 1;
     const auto tagTypeEnd = tagToken.indexOf(TextRegex::endTagType, tagTypeStart);
@@ -465,7 +465,7 @@ QString TextHandler::getAttributeType(const QString &string)
 QString TextHandler::getAttributeData(const QString &string, bool stripQuotes)
 {
     if (!string.contains(u'=')) {
-        return QString();
+        return {};
     }
     const auto equalsPos = string.indexOf(u'=');
     auto data = string.right(string.length() - equalsPos - 1);
@@ -578,8 +578,7 @@ QString TextHandler::addStyleToText(const QString &tag, QString cleanTagString, 
         } else if (tag == u"th"_s || tag == u"td"_s) {
             cleanTagString += u" style=\"border: 1px solid black; padding: 3px;\""_s;
         } else if (tag == u"span"_s && cleanTagString.contains(u"data-mx-spoiler"_s)) {
-            Kirigami::Platform::PlatformTheme *theme =
-                static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+            auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
             cleanTagString += u" style=\"color: %1; background: %2;\""_s.arg(spoilerRevealed ? theme->highlightedTextColor().name() : u"transparent"_s,
                                                                              theme->alternateBackgroundColor().name());
         }
@@ -993,8 +992,7 @@ void TextHandler::escapeURLs(QString &stringIn)
 
 QString TextHandler::editString() const
 {
-    Kirigami::Platform::PlatformTheme *theme =
-        static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
 
     QString editTextColor;
     if (theme != nullptr) {
@@ -1026,8 +1024,7 @@ QString TextHandler::convertCodeLanguageString(const QString &languageString)
 QString TextHandler::updateSpoilerText(QObject *object, QString string, bool spoilerRevealed)
 {
     auto it = QRegularExpression(u"<span[^>]*style=\"[^>]*color:\\s*(.*?);[^>]*background-color:\\s*(.*?);[^>]*\">"_s).globalMatch(string);
-    Kirigami::Platform::PlatformTheme *theme =
-        static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
     qsizetype offset = 0;
     while (it.hasNext()) {
         const QRegularExpressionMatch match = it.next();
