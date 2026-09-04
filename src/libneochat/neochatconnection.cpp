@@ -75,7 +75,7 @@ void NeoChatConnection::connectSignals()
             Q_EMIT showMessage(MessageType::Warning, i18n("File too large to download.<br />Contact your matrix server administrator for support."));
         }
     });
-    connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {
+    connect(this, &NeoChatConnection::directChatsListChanged, this, [this](const DirectChatsMap &additions, const DirectChatsMap &removals) {
         Q_EMIT directChatInvitesChanged();
         for (const auto &chatId : additions) {
             if (const auto chat = room(chatId)) {
