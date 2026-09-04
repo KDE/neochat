@@ -779,10 +779,10 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
     QString buffer = stringIn;
 
     // spoilers
-    processWithinHTML(buffer, u"||"_s, u"<span data-mx-spoiler>"_s, u"</span>"_s);
+    processWithinHtml(buffer, u"||"_s, u"<span data-mx-spoiler>"_s, u"</span>"_s);
 
     // strikethrough
-    processWithinHTML(buffer, u"~~"_s, u"<del>"_s, u"</del>"_s);
+    processWithinHtml(buffer, u"~~"_s, u"<del>"_s, u"</del>"_s);
 
     return buffer;
 }
@@ -798,7 +798,7 @@ QString TextHandler::fixupUnderlineSyntax(const QString &stringIn)
     return buffer;
 }
 
-void TextHandler::processWithinHTML(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag)
+void TextHandler::processWithinHtml(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag)
 {
     qsizetype beginCodeBlockTag = buffer.indexOf(u"<code>"_s);
     qsizetype endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
