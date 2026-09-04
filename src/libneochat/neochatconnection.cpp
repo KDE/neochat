@@ -292,7 +292,7 @@ void NeoChatConnection::changePassword(const QString &currentPassword, const QSt
         auto innerJob = callApi<ChangePasswordJob>(newPassword, false, authData)
                             .then(
                                 this,
-                                [this]() {
+                                [this] {
                                     Q_EMIT passwordStatus(PasswordStatus::Success);
                                 },
                                 [this](const auto &job) {
