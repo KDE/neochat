@@ -3,7 +3,11 @@
 
 #include "postmessagehelper.h"
 
+#include <QBuffer>
+#include <QMediaRecorder>
 #include <QStandardPaths>
+
+#include <KFormat>
 
 #include "actionsmodel.h"
 #include "texthandler.h"
@@ -189,6 +193,75 @@ void PostMessageHelper::postPoll(PollKind::Kind kind, const QString &question, c
         .answers = answerStructs,
     };
     m_room->post<Quotient::PollStartEvent>(content);
+}
+
+void PostMessageHelper::postVoiceMessage(QMediaRecorder *recorder)
+{
+    if (!m_room || !recorder) {
+        return;
+    }
+    QPointer<QBuffer> buffer = dynamic_cast<QBuffer *>(recorder->outputDevice());
+    if (!buffer) {
+        return;
+    }
+    recorder->setOutputDevice(nullptr);
+
+    Quotient::FileSourceInfo fileMetadata;
+    buffer->seek(0);
+
+    if (m_room->usesEncryption()) {
+        QByteArray data;
+        std::tie(fileMetadata, data) = Quotient::encryptFile(buffer->data());
+        buffer->close();
+        buffer->setData(data);
+        buffer->open(QIODevice::ReadOnly);
+    }
+
+    auto room = m_room;
+    const auto duration = recorder->duration();
+    room->connection()->uploadContent(buffer, {}, u"audio/ogg"_s).then(this, [fileMetadata, room, buffer, duration](const auto &job) mutable {
+        if (!room || !buffer) {
+            return;
+        }
+
+        QJsonObject mscFile{
+            {u"mimetype"_s, u"audio/ogg"_s},
+            {u"name"_s, u"Voice Message"_s},
+            {u"size"_s, buffer->size()},
+        };
+
+        if (room->usesEncryption()) {
+            mscFile[u"file"_s] = toJson(fileMetadata);
+        } else {
+            mscFile[u"url"_s] = job->contentUri().toString();
+        }
+
+        Quotient::setUrlInSourceInfo(fileMetadata, job->contentUri());
+        QJsonObject content{
+            {u"body"_s, u"Voice message"_s},
+            {u"msgtype"_s, u"m.audio"_s},
+            {u"org.matrix.msc1767.text"_s,
+             QJsonObject{{u"body"_s, u"Voice Message (%1, %2)"_s.arg(KFormat().formatDuration(duration), KFormat().formatByteSize(buffer->size()))}}},
+            {u"org.matrix.msc1767.file"_s, mscFile},
+            {u"info"_s,
+             QJsonObject{
+                 {u"mimetype"_s, u"audio/ogg"_s},
+                 {u"size"_s, buffer->size()},
+                 {u"duration"_s, duration},
+             }},
+            {u"org.matrix.msc1767.audio"_s,
+             QJsonObject{
+                 {u"duration"_s, duration},
+                 {u"waveform"_s, QJsonArray{}}, // TODO
+             }},
+            {u"org.matrix.msc3245.voice"_s, QJsonObject{}}};
+        if (room->usesEncryption()) {
+            content[u"file"_s] = toJson(fileMetadata);
+        } else {
+            content[u"url"_s] = job->contentUri().toString();
+        }
+        room->postJson(u"m.room.message"_s, content);
+    });
 }
 
 #include "moc_postmessagehelper.cpp"

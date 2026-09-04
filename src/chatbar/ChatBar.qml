@@ -9,6 +9,7 @@ import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 
@@ -56,6 +57,8 @@ Item {
 
     signal sendPoll(kind: int, question: string, answers: list<string>)
 
+    signal sendVoiceMessage(recorder: MediaRecorder)
+
     signal unhandledUp
 
     onActiveFocusChanged: if (activeFocus) {
@@ -101,6 +104,7 @@ Item {
             onContentChanged: root.contentChanged()
             onSend: root.send()
             onSendPoll: (kind, question, answers) => root.sendPoll(kind, question, answers)
+            onSendVoiceMessage: recorder => root.sendVoiceMessage(recorder)
             onUnhandledUp: root.unhandledUp()
         }
         QQC2.Label {

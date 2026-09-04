@@ -316,6 +316,7 @@ Kirigami.Page {
             onContentChanged: root.currentRoom.sendTypingNotification(!isEmpty)
             onSend: postHelper.postMessage()
             onSendPoll: (kind, question, answers) => postHelper.postPoll(kind, question, answers)
+            onSendVoiceMessage: recorder => postHelper.postVoiceMessage(recorder)
             onUnhandledUp: root.messageFilterModel.editMessage(root.currentRoom.lastMessageId())
 
             // Creating a reply (or doing anything in the chat bar) can change the height, but this isn't picked up on the root's onHeightChanged.

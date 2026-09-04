@@ -16,12 +16,11 @@ import org.kde.neochat
 QQC2.Dialog {
     id: root
 
-    required property NeoChatRoom room
+    signal sendVoiceMessage(recorder: MediaRecorder)
 
     VoiceRecorder {
         id: voiceRecorder
         readonly property bool recording: recorder.recorderState == MediaRecorder.RecordingState
-        room: root.room
     }
 
     width: Kirigami.Units.gridUnit * 24
@@ -62,7 +61,7 @@ QQC2.Dialog {
             icon.name: "document-send"
             enabled: !voiceRecorder.recording && voiceRecorder.recorder.duration > 0 && voiceRecorder.isSupported
 
-            onClicked: voiceRecorder.send()
+            onClicked: root.sendVoiceMessage(voiceRecorder.recorder)
 
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }

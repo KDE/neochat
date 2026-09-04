@@ -5,6 +5,7 @@ import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 
@@ -53,6 +54,8 @@ QQC2.Control {
     signal send
 
     signal sendPoll(kind: int, question: string, answers: list<string>)
+
+    signal sendVoiceMessage(recorder: MediaRecorder)
 
     signal unhandledUp
 
@@ -185,7 +188,6 @@ QQC2.Control {
                 }
             }
             SendBar {
-                room: root.room
                 contentModel: root.model
                 features: root.features
                 maxAvailableWidth: root.maxAvailableWidth
@@ -195,6 +197,7 @@ QQC2.Control {
                     root.model.resetModel();
                 }
                 onSendPoll: (kind, question, answers) => root.sendPoll(kind, question, answers)
+                onSendVoiceMessage: recorder => root.sendVoiceMessage(recorder)
                 onCancel: root.cancel()
             }
         }

@@ -10,6 +10,8 @@
 #include "events/pollevent.h"
 #include "neochatroom.h"
 
+class QMediaRecorder;
+
 class PostMessageHelper : public QObject
 {
     Q_OBJECT
@@ -39,6 +41,8 @@ public:
     Q_INVOKABLE void postMessage();
 
     Q_INVOKABLE void postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers);
+
+    Q_INVOKABLE void postVoiceMessage(QMediaRecorder *recorder);
 
 Q_SIGNALS:
     void roomChanged();

@@ -5,6 +5,7 @@ import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 
@@ -17,11 +18,6 @@ pragma ComponentBehavior: Bound
 RowLayout {
     id: root
 
-    /**
-     * @brief The current room that user is viewing.
-     */
-    required property LibNeoChat.NeoChatRoom room
-
     required property MessageContent.ChatBarMessageContentModel contentModel
 
     required property ChatBarFeatures features
@@ -33,6 +29,8 @@ RowLayout {
     signal send
 
     signal sendPoll(kind: int, question: string, answers: list<string>)
+
+    signal sendVoiceMessage(recorder: MediaRecorder)
 
     signal cancel
 
@@ -78,9 +76,8 @@ RowLayout {
     }
 
     function openVoiceDialog(): void {
-        let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'VoiceMessageDialog').createObject(root, {
-            room: root.room
-        }) as VoiceMessageDialog;
+        let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'VoiceMessageDialog').createObject(QQC2.Overlay.overlay) as VoiceMessageDialog;
+        dialog.sendVoiceMessage.connect(recorder => { root.sendVoiceMessage(recorder) });
         dialog.open();
     }
 
