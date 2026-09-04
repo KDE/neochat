@@ -123,11 +123,11 @@ void TextHandlerTest::allowedAttributes()
     testTextHandler.setData(testInputString1);
 
     QCOMPARE(testTextHandler.handleSendText(), testOutputString1S);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString1R);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString1R);
 
     testTextHandler.setData(testInputString2);
     QCOMPARE(testTextHandler.handleSendText(), testOutputString2S);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString2R);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString2R);
 }
 
 void TextHandlerTest::stripDisallowedTags()
@@ -139,7 +139,7 @@ void TextHandlerTest::stripDisallowedTags()
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.handleSendText(), testOutputString);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
 }
 
 void TextHandlerTest::stripDisallowedAttributes()
@@ -151,7 +151,7 @@ void TextHandlerTest::stripDisallowedAttributes()
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.handleSendText(), testOutputString);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
 }
 
 /**
@@ -167,7 +167,7 @@ void TextHandlerTest::emptyCodeTags()
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.handleSendText(), testOutputString);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
 }
 
 void TextHandlerTest::addStyle_data()
@@ -193,7 +193,7 @@ void TextHandlerTest::addStyle()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
 }
 
 void TextHandlerTest::dontAddStyle_data()
@@ -421,8 +421,8 @@ void TextHandlerTest::receiveSpacelessSelfClosingTag()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testRichOutputString);
-    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText), testPlainOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testRichOutputString);
+    QCOMPARE(testTextHandler.handleReceivePlainText(Qt::RichText), testPlainOutputString);
 }
 
 void TextHandlerTest::receiveStripReply()
@@ -434,8 +434,8 @@ void TextHandlerTest::receiveStripReply()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
-    QCOMPARE(testTextHandler.handleRecievePlainText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceivePlainText(), testOutputString);
 }
 
 void TextHandlerTest::receiveRichInPlainOut_data()
@@ -457,7 +457,7 @@ void TextHandlerTest::receiveRichInPlainOut()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText), testOutputString);
+    QCOMPARE(testTextHandler.handleReceivePlainText(Qt::RichText), testOutputString);
 }
 
 void TextHandlerTest::receivePlainTextIn()
@@ -474,12 +474,12 @@ void TextHandlerTest::receivePlainTextIn()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::PlainText), testOutputStringRich);
-    QCOMPARE(testTextHandler.handleRecievePlainText(), testOutputStringPlain);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::PlainText), testOutputStringRich);
+    QCOMPARE(testTextHandler.handleReceivePlainText(), testOutputStringPlain);
 
     testTextHandler.setData(testInputString2);
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::PlainText), testOutputString2);
-    QCOMPARE(testTextHandler.handleRecievePlainText(), testOutputString2);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::PlainText), testOutputString2);
+    QCOMPARE(testTextHandler.handleReceivePlainText(), testOutputString2);
 }
 
 void TextHandlerTest::receiveStripNewlines()
@@ -494,15 +494,15 @@ void TextHandlerTest::receiveStripNewlines()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputStringPlain);
 
-    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::PlainText, true), testOutputString);
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::PlainText, nullptr, nullptr, true), testOutputString);
+    QCOMPARE(testTextHandler.handleReceivePlainText(Qt::PlainText, true), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::PlainText, nullptr, nullptr, true), testOutputString);
 
     testTextHandler.setData(testInputStringRich);
-    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText, true), testOutputString);
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, nullptr, nullptr, true), testOutputString);
+    QCOMPARE(testTextHandler.handleReceivePlainText(Qt::RichText, true), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::RichText, nullptr, nullptr, true), testOutputString);
 
     testTextHandler.setData(testInputStringPlain2);
-    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText, true), testOutputString2);
+    QCOMPARE(testTextHandler.handleReceivePlainText(Qt::RichText, true), testOutputString2);
 }
 
 /**
@@ -517,7 +517,7 @@ void TextHandlerTest::receivePlainStripHtml()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText), testOutputString);
+    QCOMPARE(testTextHandler.handleReceivePlainText(Qt::RichText), testOutputString);
 }
 
 void TextHandlerTest::receivePlainStripMarkup()
@@ -528,7 +528,7 @@ void TextHandlerTest::receivePlainStripMarkup()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecievePlainText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceivePlainText(), testOutputString);
 }
 
 void TextHandlerTest::receiveRichUserPill()
@@ -539,7 +539,7 @@ void TextHandlerTest::receiveRichUserPill()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
 }
 
 void TextHandlerTest::receiveRichStrikethrough()
@@ -550,7 +550,7 @@ void TextHandlerTest::receiveRichStrikethrough()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
 }
 
 void TextHandlerTest::receiveRichtextIn()
@@ -561,7 +561,7 @@ void TextHandlerTest::receiveRichtextIn()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
 }
 
 void TextHandlerTest::receiveRichMxcUrl()
@@ -574,7 +574,7 @@ void TextHandlerTest::receiveRichMxcUrl()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(0).get()), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::RichText, room, room->messageEvents().at(0).get()), testOutputString);
 }
 
 void TextHandlerTest::receiveRichPlainUrl_data()
@@ -624,7 +624,7 @@ void TextHandlerTest::receiveRichPlainUrl()
     TextHandler testTextHandler;
     testTextHandler.setData(input);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), output);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::RichText), output);
 }
 
 void TextHandlerTest::receiveRichEdited_data()
@@ -649,7 +649,7 @@ void TextHandlerTest::receiveRichEdited()
     testTextHandler.setData(testInputString);
 
     const auto event = eventCast<const Quotient::RoomMessageEvent>(room->messageEvents().at(2).get());
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, event, false, event->isReplaced()), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::RichText, room, event, false, event->isReplaced()), testOutputString);
 }
 
 void TextHandlerTest::receiveLineSeparator()
@@ -657,7 +657,7 @@ void TextHandlerTest::receiveLineSeparator()
     auto text = u"foo\u2028bar"_s;
     TextHandler textHandler;
     textHandler.setData(text);
-    QCOMPARE(textHandler.handleRecievePlainText(Qt::PlainText, true), u"foo bar"_s);
+    QCOMPARE(textHandler.handleReceivePlainText(Qt::PlainText, true), u"foo bar"_s);
 }
 
 void TextHandlerTest::receiveRichCodeUrl()
@@ -665,7 +665,7 @@ void TextHandlerTest::receiveRichCodeUrl()
     auto input = u"<code>https://kde.org</code>"_s;
     TextHandler testTextHandler;
     testTextHandler.setData(input);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), input);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), input);
 }
 
 void TextHandlerTest::receiveRichColor()
@@ -678,7 +678,7 @@ void TextHandlerTest::receiveRichColor()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(), testOutputString);
 }
 
 void TextHandlerTest::receiveRichCustomEmoji()
@@ -695,7 +695,7 @@ void TextHandlerTest::receiveRichCustomEmoji()
     const auto event = eventCast<const Quotient::RoomMessageEvent>(room->messageEvents().at(2).get());
 
     // Ensure that imgs (such as emoticons) with the title tag expose it via the custom link tag
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, event), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::RichText, room, event), testOutputString);
 }
 
 void TextHandlerTest::receiveRichCustomEmojiNoTitle()
@@ -711,7 +711,7 @@ void TextHandlerTest::receiveRichCustomEmojiNoTitle()
     const auto event = eventCast<const Quotient::RoomMessageEvent>(room->messageEvents().at(2).get());
 
     // Ensure that imgs with no title set don't get wrapped.
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, event), testOutputString);
+    QCOMPARE(testTextHandler.handleReceiveRichText(Qt::RichText, room, event), testOutputString);
 }
 
 void TextHandlerTest::componentOutput_data()
