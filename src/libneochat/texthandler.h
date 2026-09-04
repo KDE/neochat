@@ -67,7 +67,7 @@ public:
     /**
      * @brief Handle the text for a message that is being sent.
      */
-    QString handleSendText();
+    QString handleSendText() const;
 
     /**
      * @brief Handle the text as a rich output for a message being received.
@@ -142,7 +142,7 @@ private:
     static QString next(const QString &string, Type nextTokenType, qsizetype &pos);
     static Type getNextTokenType(const QString &string, qsizetype currentPos, const QString &currentToken, Type currentTokenType);
 
-    qsizetype nextBlockPos(const QString &string) const;
+    static qsizetype nextBlockPos(const QString &string);
     Blocks::Block *nextBlock(const QString &string,
                              qsizetype nextBlockPos,
                              Qt::TextFormat inputFormat = Qt::RichText,
@@ -151,7 +151,7 @@ private:
                              bool isEdited = false,
                              bool spoilerRevealed = false,
                              QObject *parent = nullptr);
-    QString stripBlockTags(QString string, const QString &tagType) const;
+    static QString stripBlockTags(QString string, const QString &tagType);
 
     static QString getTagType(const QString &tagToken);
     static bool isCloseTag(const QString &tagToken);
@@ -161,13 +161,13 @@ private:
     static bool isAllowedAttribute(const QString &tag, const QString &attribute);
     static bool isAllowedLink(const QString &link, bool isImg = false);
     static QString cleanAttributes(const QString &tag, const QString &tagString);
-    QString addStyleToText(const QString &tag, QString cleanTagString, bool spoilerRevealed = false);
-    QVariantMap getAttributes(const QString &tag, const QString &tagString);
+    QString addStyleToText(const QString &tag, QString cleanTagString, bool spoilerRevealed = false) const;
+    static QVariantMap getAttributes(const QString &tag, const QString &tagString);
 
     static QString cmarkdownToHtml(const QString &markdown);
     static QString escapeHtml(QString stringIn);
-    QString unescapeHtml(QString stringIn);
-    QString linkifyUrls(QString stringIn);
+    static QString unescapeHtml(QString stringIn);
+    static QString linkifyUrls(QString stringIn);
     static QString customMarkdownToHtml(const QString &stringIn);
     static QString fixupUnderlineSyntax(const QString &stringIn);
     static void processWithinHTML(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
@@ -175,7 +175,7 @@ private:
     static void escapeURLs(QString &stringIn);
 
     QString editString() const;
-    QString emoteString(const NeoChatRoom *room = nullptr, const Quotient::RoomEvent *event = nullptr) const;
+    static QString emoteString(const NeoChatRoom *room = nullptr, const Quotient::RoomEvent *event = nullptr);
 
     static QString convertCodeLanguageString(const QString &languageString);
 };
