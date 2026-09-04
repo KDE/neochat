@@ -69,9 +69,9 @@ QUrl buildWidgetUrl(QByteArray templateString, NeoChatRoom *room, const QJsonObj
         .replace("$matrix_display_name"_L1, enc(room->member(room->connection()->userId()).displayName()))
         .replace("$matrix_avatar_url"_L1, avatarUrl(room).toEncoded());
 
-    for (auto it = data.begin(); it != data.end(); ++it) {
-        const QByteArray key = '$' + it.key().toUtf8();
-        templateString.replace(key, enc(it.value().toString()));
+    for (const auto &[key, value] : data.asKeyValueRange()) {
+        const QByteArray keyBytes = '$' + key.toString().toUtf8();
+        templateString.replace(keyBytes, enc(value.toString()));
     }
 
     return QUrl::fromEncoded(templateString);
