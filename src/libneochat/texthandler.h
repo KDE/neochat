@@ -109,7 +109,7 @@ public:
      * @brief Split the given string into Blocks.
      *
      * Separate blocks are used for thing like paragraphs, codeblocks and quotes.
-     * Each block will have handleRecieveRichText() called on it.
+     * Each block will have handleReceiveRichText() called on it.
      */
     Blocks::BlockPtrs textComponents(QString string,
                                      Qt::TextFormat inputFormat = Qt::RichText,
