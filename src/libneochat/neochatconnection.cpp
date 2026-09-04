@@ -192,8 +192,7 @@ int NeoChatConnection::badgeNotificationCount() const
 void NeoChatConnection::refreshBadgeNotificationCount()
 {
     int count = 0;
-    const auto rooms = allRooms();
-    for (const auto &r : rooms) {
+    for (const auto &r : allRooms()) {
         if (const auto room = static_cast<NeoChatRoom *>(r)) {
             count += room->contextAwareNotificationCount();
 
@@ -474,9 +473,9 @@ qsizetype NeoChatConnection::homeNotifications() const
     const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
     const auto rooms = allRooms();
     for (const auto &r : rooms) {
-        if (const auto room = static_cast<NeoChatRoom *>(r)) {
+        if (const auto room = dynamic_cast<NeoChatRoom *>(r)) {
             if (!added.contains(room->id()) && !room->isDirectChat() && !spaceHierarchyCache.isChild(room->id())) {
-                notifications += dynamic_cast<NeoChatRoom *>(room)->contextAwareNotificationCount();
+                notifications += room->contextAwareNotificationCount();
                 added += room->id();
             }
         }
@@ -487,8 +486,7 @@ qsizetype NeoChatConnection::homeNotifications() const
 bool NeoChatConnection::homeHaveHighlightNotifications() const
 {
     const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
-    const auto rooms = allRooms();
-    for (const auto &r : rooms) {
+    for (const auto &r : allRooms()) {
         if (const auto room = static_cast<NeoChatRoom *>(r)) {
             if (!room->isDirectChat() && !spaceHierarchyCache.isChild(room->id()) && room->highlightCount() > 0) {
                 return true;
