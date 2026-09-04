@@ -561,7 +561,7 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
     return tagString;
 }
 
-QString TextHandler::addStyleToText(const QString &tag, QString cleanTagString, bool spoilerRevealed)
+QString TextHandler::addStyleToText(const QString &tag, QString cleanTagString, bool spoilerRevealed) const
 {
     if (cleanTagString.isEmpty() || !cleanTagString.contains(u'<') || !cleanTagString.contains(u'>')) {
         return cleanTagString;
