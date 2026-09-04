@@ -137,7 +137,7 @@ Q_SIGNALS:
     /**
      * @brief Request an error message be shown to the user.
      */
-    void errorOccured(const QString &error);
+    void errorOccurred(const QString &error);
     void connectionAdded(NeoChatConnection *connection);
     void connectionDropped(NeoChatConnection *connection);
     void activeConnectionChanged(NeoChatConnection *connection);

@@ -121,17 +121,17 @@ QKeychain::ReadPasswordJob *AccountManager::loadAccessTokenFromKeyChain(const QS
 
         switch (job->error()) {
         case QKeychain::EntryNotFound:
-            Q_EMIT errorOccured(i18n("Access token wasn't found: Maybe it was deleted?"));
+            Q_EMIT errorOccurred(i18n("Access token wasn't found: Maybe it was deleted?"));
             break;
         case QKeychain::AccessDeniedByUser:
         case QKeychain::AccessDenied:
-            Q_EMIT errorOccured(i18n("Access to keychain was denied: Please allow NeoChat to read the access token"));
+            Q_EMIT errorOccurred(i18n("Access to keychain was denied: Please allow NeoChat to read the access token"));
             break;
         case QKeychain::NoBackendAvailable:
-            Q_EMIT errorOccured(i18n("No keychain available: Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
+            Q_EMIT errorOccurred(i18n("No keychain available: Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
             break;
         case QKeychain::OtherError:
-            Q_EMIT errorOccured(i18n("Unable to read access token: %1", job->errorString()));
+            Q_EMIT errorOccurred(i18n("Unable to read access token: %1", job->errorString()));
             break;
         default:
             break;

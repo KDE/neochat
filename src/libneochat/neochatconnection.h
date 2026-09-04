@@ -302,7 +302,7 @@ Q_SIGNALS:
     /**
      * @brief Request a error message be shown to the user.
      */
-    void errorOccured(const QString &error);
+    void errorOccurred(const QString &error);
 
     /**
      * @brief The given room ID is about to be forgotten.

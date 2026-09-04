@@ -211,7 +211,7 @@ void Controller::setAccountManager(AccountManager *manager)
         return;
     }
 
-    connect(m_accountManager, &AccountManager::errorOccured, this, &Controller::errorOccured);
+    connect(m_accountManager, &AccountManager::errorOccurred, this, &Controller::errorOccurred);
     connect(m_accountManager, &AccountManager::accountsLoadingChanged, this, &Controller::accountsLoadingChanged);
     connect(m_accountManager, &AccountManager::connectionAdded, this, &Controller::initConnection);
     connect(m_accountManager, &AccountManager::connectionDropped, this, &Controller::teardownConnection);
@@ -259,7 +259,7 @@ void Controller::initActiveConnection(NeoChatConnection *oldConnection, NeoChatC
     }
 
     if (newConnection) {
-        connect(newConnection, &NeoChatConnection::errorOccured, this, &Controller::errorOccured);
+        connect(newConnection, &NeoChatConnection::errorOccurred, this, &Controller::errorOccurred);
         connect(newConnection, &NeoChatConnection::badgeNotificationCountChanged, this, &Controller::updateBadgeNotificationCount);
 
         // Refresh and update manually, in case we init too late for the badge count to actually change.

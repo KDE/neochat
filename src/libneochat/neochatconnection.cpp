@@ -390,7 +390,7 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
                 }
             },
             [this](const auto &job) {
-                Q_EMIT errorOccured(i18n("Room creation failed: %1", job->errorString()));
+                Q_EMIT errorOccurred(i18n("Room creation failed: %1", job->errorString()));
             });
 }
 
@@ -420,7 +420,7 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
                 }
             },
             [this](const auto &job) {
-                Q_EMIT errorOccured(i18n("Space creation failed: %1", job->errorString()));
+                Q_EMIT errorOccurred(i18n("Space creation failed: %1", job->errorString()));
             });
 }
 
