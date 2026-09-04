@@ -899,7 +899,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
                 thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
             }
         }
-        const auto thumbnailInfo = getTumbnailInfo(videoContent->thumbnail);
+        const auto thumbnailInfo = getThumbnailInfo(videoContent->thumbnail);
         return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, room, eventId, parent);
     }
     if (const auto imageContent = dynamic_cast<const EventContent::ImageContent *>(fileContent)) {
@@ -920,7 +920,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
                 thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
             }
         }
-        const auto thumbnailInfo = getTumbnailInfo(imageContent->thumbnail);
+        const auto thumbnailInfo = getThumbnailInfo(imageContent->thumbnail);
         return new Blocks::ImageBlock(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo, true, parent);
     }
     if (const auto audioContent = dynamic_cast<const EventContent::AudioContent *>(fileContent)) {
@@ -937,7 +937,7 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
     return new Blocks::FileBlock(Blocks::File, source, filename, info, room, eventId, parent);
 }
 
-Blocks::ImageInfo EventHandler::getTumbnailInfo(const EventContent::Thumbnail &thumbnail)
+Blocks::ImageInfo EventHandler::getThumbnailInfo(const EventContent::Thumbnail &thumbnail)
 {
     Blocks::ImageInfo thumbnailInfo;
     thumbnailInfo.mimeType = thumbnail.mimeType;

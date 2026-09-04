@@ -242,5 +242,5 @@ private:
                                                    const QString &eventId,
                                                    const QString &filename,
                                                    bool isSticker = false);
-    static Blocks::ImageInfo getTumbnailInfo(const Quotient::EventContent::Thumbnail &thumbnail);
+    static Blocks::ImageInfo getThumbnailInfo(const Quotient::EventContent::Thumbnail &thumbnail);
 };
