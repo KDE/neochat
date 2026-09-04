@@ -96,7 +96,7 @@ void TextHandler::cleanHtml(QString &string)
     string = outputString.trimmed();
 }
 
-QString TextHandler::handleSendText()
+QString TextHandler::handleSendText() const
 {
     auto outputString = m_data;
     markdownToHtml(outputString);
@@ -315,13 +315,13 @@ TextHandler::Type TextHandler::getNextTokenType(const QString &string, qsizetype
     }
 }
 
-qsizetype TextHandler::nextBlockPos(const QString &string) const
+qsizetype TextHandler::nextBlockPos(const QString &string)
 {
     if (string.isEmpty()) {
         return -1;
     }
 
-    const auto nextTokenType = this->getNextTokenType(string, 0, {}, Text);
+    const auto nextTokenType = TextHandler::getNextTokenType(string, 0, {}, Text);
     // If there is no tag at the start we need to handle potentially having some
     // text with no <p> tag.
     if (nextTokenType == Text) {
@@ -411,7 +411,7 @@ Blocks::Block *TextHandler::nextBlock(const QString &string,
     return new Blocks::TextBlock(blockType, QTextDocumentFragment::fromHtml(content), hasSpoiler, parent);
 }
 
-QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
+QString TextHandler::stripBlockTags(QString string, const QString &tagType)
 {
     if (blockTags.contains(tagType) && tagType != u"ol"_s && tagType != u"ul"_s && tagType != u"table"_s && string.startsWith(u"<%1"_s.arg(tagType))) {
         string.remove(0, string.indexOf(u'>') + 1).remove(string.indexOf(u"</%1>"_s.arg(tagType)), string.size());
@@ -648,7 +648,7 @@ Blocks::BlockPtrs TextHandler::textComponents(QString string,
     string.remove(TextRegex::removeRichReply);
 
     while (!string.isEmpty()) {
-        const auto nextBlockPos = this->nextBlockPos(string);
+        const auto nextBlockPos = TextHandler::nextBlockPos(string);
         components.push_back(
             nextBlock(string, nextBlockPos, inputFormat, room, event, nextBlockPos == string.size() ? isEdited : false, spoilerRevealed, parent));
         string.remove(0, nextBlockPos);
@@ -1003,7 +1003,7 @@ QString TextHandler::editString() const
     return u" <span style=\"color:"_s + editTextColor + u"\">(edited)</span>"_s;
 }
 
-QString TextHandler::emoteString(const NeoChatRoom *room, const Quotient::RoomEvent *event) const
+QString TextHandler::emoteString(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
     if (room == nullptr || event == nullptr) {
         return {};
