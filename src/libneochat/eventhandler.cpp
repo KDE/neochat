@@ -858,61 +858,55 @@ Blocks::Block *EventHandler::fileBlockFromFileContent(QObject *parent,
     const auto mimeType = fileContent->type();
 
     // Add parameter depending on media type.
-    if (mimeType.name().contains(u"image"_s)) {
-        if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileContent)) {
-            Blocks::ImageInfo imageInfo;
-            imageInfo.mimeType = mimeType;
-            imageInfo.size = castInfo->payloadSize;
-            imageInfo.pixelSize = castInfo->imageSize;
+    if (auto castInfo = dynamic_cast<const EventContent::VideoContent *>(fileContent)) {
+        Blocks::VideoInfo videoInfo;
+        videoInfo.mimeType = mimeType;
+        videoInfo.size = castInfo->payloadSize;
+        videoInfo.pixelSize = castInfo->imageSize;
+        videoInfo.duration = castInfo->duration;
 
-            // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
-            imageInfo.isAnimated = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
-            imageInfo.isSticker = isSticker;
-
-            QUrl thumbnailSource;
-            const auto thumbnail = castInfo->thumbnail;
-            if (thumbnail.url().isValid() && thumbnail.url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
-                thumbnailSource = room->makeMediaUrl(eventId, thumbnail.url());
-            } else {
-                QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
-                if (!blurhash.isEmpty()) {
-                    thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
-                }
+        QUrl thumbnailSource;
+        const auto thumbnail = castInfo->thumbnail;
+        if (thumbnail.url().isValid() && thumbnail.url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
+            thumbnailSource = room->makeMediaUrl(eventId, thumbnail.url());
+        } else {
+            QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
+            if (!blurhash.isEmpty()) {
+                thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
             }
-            const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
-            return new Blocks::ImageBlock(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo, parent);
         }
+        const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
+        return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, room, eventId, parent);
     }
-    if (mimeType.name().contains(u"video"_s)) {
-        if (auto castInfo = static_cast<const EventContent::VideoContent *>(fileContent)) {
-            Blocks::VideoInfo videoInfo;
-            videoInfo.mimeType = mimeType;
-            videoInfo.size = castInfo->payloadSize;
-            videoInfo.pixelSize = castInfo->imageSize;
-            videoInfo.duration = castInfo->duration;
+    if (auto castInfo = dynamic_cast<const EventContent::ImageContent *>(fileContent)) {
+        Blocks::ImageInfo imageInfo;
+        imageInfo.mimeType = mimeType;
+        imageInfo.size = castInfo->payloadSize;
+        imageInfo.pixelSize = castInfo->imageSize;
 
-            QUrl thumbnailSource;
-            const auto thumbnail = castInfo->thumbnail;
-            if (thumbnail.url().isValid() && thumbnail.url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
-                thumbnailSource = room->makeMediaUrl(eventId, thumbnail.url());
-            } else {
-                QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
-                if (!blurhash.isEmpty()) {
-                    thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
-                }
+        // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
+        imageInfo.isAnimated = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
+        imageInfo.isSticker = isSticker;
+
+        QUrl thumbnailSource;
+        const auto thumbnail = castInfo->thumbnail;
+        if (thumbnail.url().isValid() && thumbnail.url().scheme() == u"mxc"_s && !eventId.isEmpty()) {
+            thumbnailSource = room->makeMediaUrl(eventId, thumbnail.url());
+        } else {
+            QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
+            if (!blurhash.isEmpty()) {
+                thumbnailSource = QUrl("image://blurhash/"_L1 + blurhash);
             }
-            const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
-            return new Blocks::VideoBlock(Blocks::Video, source, filename, videoInfo, thumbnailSource, thumbnailInfo, room, eventId, parent);
         }
+        const auto thumbnailInfo = getTumbnailInfo(castInfo->thumbnail);
+        return new Blocks::ImageBlock(Blocks::Image, source, filename, imageInfo, thumbnailSource, thumbnailInfo, parent);
     }
-    if (mimeType.name().contains(u"audio"_s)) {
-        if (auto castInfo = static_cast<const EventContent::AudioContent *>(fileContent)) {
-            Blocks::AudioInfo audioInfo;
-            audioInfo.mimeType = mimeType;
-            audioInfo.size = castInfo->payloadSize;
-            audioInfo.duration = castInfo->duration;
-            return new Blocks::AudioBlock(Blocks::Audio, source, filename, audioInfo, room, eventId, parent);
-        }
+    if (auto castInfo = dynamic_cast<const EventContent::AudioContent *>(fileContent)) {
+        Blocks::AudioInfo audioInfo;
+        audioInfo.mimeType = mimeType;
+        audioInfo.size = castInfo->payloadSize;
+        audioInfo.duration = castInfo->duration;
+        return new Blocks::AudioBlock(Blocks::Audio, source, filename, audioInfo, room, eventId, parent);
     }
 
     Blocks::FileInfo info;
