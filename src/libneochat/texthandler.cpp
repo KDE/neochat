@@ -59,7 +59,7 @@ void TextHandler::cleanParas(QString &string)
 void TextHandler::cleanHtml(QString &string)
 {
     string.remove(TextRegex::removeHead);
-    auto pos = 0;
+    qsizetype pos = 0;
     auto nextToken = QString();
     auto nextTokenType = Text;
     nextTokenType = getNextTokenType(string, pos, nextToken, nextTokenType);
@@ -277,7 +277,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
     return outputString;
 }
 
-QString TextHandler::next(const QString &string, Type nextTokenType, int &pos)
+QString TextHandler::next(const QString &string, Type nextTokenType, qsizetype &pos)
 {
     QString searchStr;
     if (nextTokenType == Type::Tag) {
@@ -289,7 +289,7 @@ QString TextHandler::next(const QString &string, Type nextTokenType, int &pos)
         searchStr = u'<';
     }
 
-    int tokenEnd = string.indexOf(searchStr, pos + 1);
+    auto tokenEnd = string.indexOf(searchStr, pos + 1);
     if (tokenEnd == -1) {
         tokenEnd = string.length();
     }
@@ -299,7 +299,7 @@ QString TextHandler::next(const QString &string, Type nextTokenType, int &pos)
     return nextToken;
 }
 
-TextHandler::Type TextHandler::getNextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType)
+TextHandler::Type TextHandler::getNextTokenType(const QString &string, qsizetype currentPos, const QString &currentToken, Type currentTokenType)
 {
     if (currentPos >= string.length()) {
         // This is to stop the function accessing an index outside the length of
@@ -315,7 +315,7 @@ TextHandler::Type TextHandler::getNextTokenType(const QString &string, int curre
     }
 }
 
-int TextHandler::nextBlockPos(const QString &string)
+qsizetype TextHandler::nextBlockPos(const QString &string) const
 {
     if (string.isEmpty()) {
         return -1;
@@ -325,7 +325,7 @@ int TextHandler::nextBlockPos(const QString &string)
     // If there is no tag at the start we need to handle potentially having some
     // text with no <p> tag.
     if (nextTokenType == Text) {
-        int pos = 0;
+        qsizetype pos = 0;
         while (pos < string.size()) {
             pos = string.indexOf(u'<', pos);
             if (pos == -1) {
@@ -341,7 +341,7 @@ int TextHandler::nextBlockPos(const QString &string)
         return string.size();
     }
 
-    int tagEndPos = string.indexOf(u'>');
+    auto tagEndPos = string.indexOf(u'>');
     QString tag = string.first(tagEndPos + 1);
     QString tagType = getTagType(tag);
     // If the start tag is not a block tag there can be only 1 block.
@@ -350,7 +350,7 @@ int TextHandler::nextBlockPos(const QString &string)
     }
 
     const auto closeTag = u"</%1>"_s.arg(tagType);
-    int closeTagPos = string.indexOf(closeTag);
+    auto closeTagPos = string.indexOf(closeTag);
     // If the close tag can't be found assume malformed html and process as single block.
     if (closeTagPos == -1) {
         return string.size();
@@ -373,19 +373,19 @@ int TextHandler::nextBlockPos(const QString &string)
 }
 
 Blocks::Block *TextHandler::nextBlock(const QString &string,
-                                        int nextBlockPos,
-                                        Qt::TextFormat inputFormat,
-                                        const NeoChatRoom *room,
-                                        const Quotient::RoomEvent *event,
-                                        bool isEdited,
-                                        bool spoilerRevealed,
-                                        QObject *parent)
+                                      qsizetype nextBlockPos,
+                                      Qt::TextFormat inputFormat,
+                                      const NeoChatRoom *room,
+                                      const Quotient::RoomEvent *event,
+                                      bool isEdited,
+                                      bool spoilerRevealed,
+                                      QObject *parent)
 {
     if (string.isEmpty()) {
         return {};
     }
 
-    int tagEndPos = string.indexOf(u'>');
+    auto tagEndPos = string.indexOf(u'>');
     QString tag = string.first(tagEndPos + 1);
     QString tagType = getTagType(tag);
     const auto blockType = Blocks::typeForTag(tagType);
@@ -441,7 +441,7 @@ QString TextHandler::getTagType(const QString &tagToken)
         return QString();
     }
     const int tagTypeStart = tagToken[1] == u'/' ? 2 : 1;
-    const int tagTypeEnd = tagToken.indexOf(TextRegex::endTagType, tagTypeStart);
+    const auto tagTypeEnd = tagToken.indexOf(TextRegex::endTagType, tagTypeStart);
     return tagToken.mid(tagTypeStart, tagTypeEnd - tagTypeStart);
 }
 
@@ -458,7 +458,7 @@ QString TextHandler::getAttributeType(const QString &string)
     if (!string.contains(u'=')) {
         return string;
     }
-    const int equalsPos = string.indexOf(u'=');
+    const auto equalsPos = string.indexOf(u'=');
     return string.left(equalsPos);
 }
 
@@ -467,7 +467,7 @@ QString TextHandler::getAttributeData(const QString &string, bool stripQuotes)
     if (!string.contains(u'=')) {
         return QString();
     }
-    const int equalsPos = string.indexOf(u'=');
+    const auto equalsPos = string.indexOf(u'=');
     auto data = string.right(string.length() - equalsPos - 1);
     if (stripQuotes) {
         data = TextRegex::attributeData.match(data).captured(1);
@@ -501,12 +501,12 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
     if (!tagString.contains(u'<') || !tagString.contains(u'>')) {
         return tagString;
     }
-    int nextAttributeIndex = tagString.indexOf(u' ', 1);
+    qsizetype nextAttributeIndex = tagString.indexOf(u' ', 1);
 
     if (nextAttributeIndex != -1) {
         QString outputString = tagString.left(nextAttributeIndex);
         QString nextAttribute;
-        int nextSpaceIndex;
+        qsizetype nextSpaceIndex;
         nextAttributeIndex += 1;
 
         while (nextAttributeIndex < tagString.length()) {
@@ -590,11 +590,11 @@ QString TextHandler::addStyleToText(const QString &tag, QString cleanTagString, 
 QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagString)
 {
     QVariantMap attributes;
-    int nextAttributeIndex = tagString.indexOf(u' ', 1);
+    auto nextAttributeIndex = tagString.indexOf(u' ', 1);
 
     if (nextAttributeIndex != -1) {
         QString nextAttribute;
-        int nextSpaceIndex;
+        qsizetype nextSpaceIndex;
         nextAttributeIndex += 1;
 
         while (nextAttributeIndex < tagString.length()) {
@@ -734,9 +734,9 @@ QString TextHandler::unescapeHtml(QString stringIn)
 QString TextHandler::linkifyUrls(QString stringIn)
 {
     QRegularExpressionMatch match;
-    int start = 0;
-    for (int index = 0; index != -1; index = stringIn.indexOf(TextRegex::mxId, start, &match)) {
-        int skip = 0;
+    qsizetype start = 0;
+    for (qsizetype index = 0; index != -1; index = stringIn.indexOf(TextRegex::mxId, start, &match)) {
+        qsizetype skip = 0;
         if (match.captured(0).size() > 0) {
             if (stringIn.left(index).count(u"<code>"_s) == stringIn.left(index).count(u"</code>"_s)) {
                 auto replacement = u"<a href=\"https://matrix.to/#/%1\">%1</a>"_s.arg(match.captured(1));
@@ -750,8 +750,8 @@ QString TextHandler::linkifyUrls(QString stringIn)
     }
     start = 0;
     match = {};
-    for (int index = 0; index != -1; index = stringIn.indexOf(TextRegex::plainUrl, start, &match)) {
-        int skip = 0;
+    for (qsizetype index = 0; index != -1; index = stringIn.indexOf(TextRegex::plainUrl, start, &match)) {
+        qsizetype skip = 0;
         if (match.captured(0).size() > 0) {
             if (stringIn.left(index).count(u"<code>"_s) == stringIn.left(index).count(u"</code>"_s)) {
                 auto replacement = u"<a href=\"%1\">%1</a>"_s.arg(match.captured(1));
@@ -766,8 +766,8 @@ QString TextHandler::linkifyUrls(QString stringIn)
     }
     start = 0;
     match = {};
-    for (int index = 0; index != -1; index = stringIn.indexOf(TextRegex::emailAddress, start, &match)) {
-        int skip = 0;
+    for (qsizetype index = 0; index != -1; index = stringIn.indexOf(TextRegex::emailAddress, start, &match)) {
+        qsizetype skip = 0;
         if (match.captured(0).size() > 0) {
             if (stringIn.left(index).count(u"<code>"_s) == stringIn.left(index).count(u"</code>"_s)) {
                 auto replacement = u"<a href=\"mailto:%1\">%1</a>"_s.arg(match.captured(2));
@@ -976,9 +976,9 @@ void TextHandler::escapeURLs(QString &stringIn)
     // <strong>. We can avoid this by escaping it ourselves before giving it to CMark.
 
     QRegularExpressionMatch match;
-    int start = 0;
-    for (int index = 0; index != -1; index = stringIn.indexOf(TextRegex::url, start, &match)) {
-        int skip = 0;
+    qsizetype start = 0;
+    for (qsizetype index = 0; index != -1; index = stringIn.indexOf(TextRegex::url, start, &match)) {
+        qsizetype skip = 0;
         if (match.captured(0).size() > 0) {
             QString replacement = match.captured(0);
             replacement.replace(QLatin1String("__"), QLatin1String("\\_\\_"));
@@ -1019,7 +1019,7 @@ QString TextHandler::emoteString(const NeoChatRoom *room, const Quotient::RoomEv
 
 QString TextHandler::convertCodeLanguageString(const QString &languageString)
 {
-    const int equalsPos = languageString.indexOf(u'-');
+    const auto equalsPos = languageString.indexOf(u'-');
     return languageString.right(languageString.length() - equalsPos - 1);
 }
 
@@ -1028,7 +1028,7 @@ QString TextHandler::updateSpoilerText(QObject *object, QString string, bool spo
     auto it = QRegularExpression(u"<span[^>]*style=\"[^>]*color:\\s*(.*?);[^>]*background-color:\\s*(.*?);[^>]*\">"_s).globalMatch(string);
     Kirigami::Platform::PlatformTheme *theme =
         static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
-    int offset = 0;
+    qsizetype offset = 0;
     while (it.hasNext()) {
         const QRegularExpressionMatch match = it.next();
         const auto newColor = spoilerRevealed ? theme->textColor().name() : u"transparent"_s;
@@ -1042,7 +1042,7 @@ QString TextHandler::updateSpoilerText(QObject *object, QString string, bool spo
 QString TextHandler::stripMatrixLinks(QString string)
 {
     auto it = TextRegex::matrixLink.globalMatch(string);
-    int offset = 0;
+    qsizetype offset = 0;
     while (it.hasNext()) {
         const QRegularExpressionMatch match = it.next();
 

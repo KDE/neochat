@@ -135,22 +135,22 @@ private:
     QString m_data;
 
     QString m_dataBuffer;
-    int m_pos;
+    qsizetype m_pos;
     Type m_nextTokenType = Text;
     QString m_nextToken;
 
-    static QString next(const QString &string, Type nextTokenType, int &pos);
-    static Type getNextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType);
+    static QString next(const QString &string, Type nextTokenType, qsizetype &pos);
+    static Type getNextTokenType(const QString &string, qsizetype currentPos, const QString &currentToken, Type currentTokenType);
 
-    int nextBlockPos(const QString &string);
+    qsizetype nextBlockPos(const QString &string) const;
     Blocks::Block *nextBlock(const QString &string,
-                               int nextBlockPos,
-                               Qt::TextFormat inputFormat = Qt::RichText,
-                               const NeoChatRoom *room = nullptr,
-                               const Quotient::RoomEvent *event = nullptr,
-                               bool isEdited = false,
-                               bool spoilerRevealed = false,
-                               QObject *parent = nullptr);
+                             qsizetype nextBlockPos,
+                             Qt::TextFormat inputFormat = Qt::RichText,
+                             const NeoChatRoom *room = nullptr,
+                             const Quotient::RoomEvent *event = nullptr,
+                             bool isEdited = false,
+                             bool spoilerRevealed = false,
+                             QObject *parent = nullptr);
     QString stripBlockTags(QString string, const QString &tagType) const;
 
     static QString getTagType(const QString &tagToken);
