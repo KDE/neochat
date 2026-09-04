@@ -10,7 +10,7 @@
 
 #include <QTimer>
 
-#include <signal.h>
+#include <csignal>
 
 #include <Quotient/events/roommemberevent.h>
 #include <Quotient/qt_connection_util.h>
