@@ -8,7 +8,6 @@
 
 #include <KLocalizedString>
 
-#include <QGuiApplication>
 #include <QTimer>
 
 #include <signal.h>
