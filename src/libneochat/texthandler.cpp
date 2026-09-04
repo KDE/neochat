@@ -106,7 +106,7 @@ QString TextHandler::handleSendText()
     return outputString;
 }
 
-QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
+QString TextHandler::handleReceiveRichText(Qt::TextFormat inputFormat,
                                            const NeoChatRoom *room,
                                            const Quotient::RoomEvent *event,
                                            bool stripNewlines,
@@ -215,7 +215,7 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
     return outputString;
 }
 
-QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bool &stripNewlines)
+QString TextHandler::handleReceivePlainText(Qt::TextFormat inputFormat, const bool &stripNewlines)
 {
     m_pos = 0;
     m_dataBuffer = m_data;
@@ -401,7 +401,7 @@ Blocks::Block *TextHandler::nextBlock(const QString &string,
         content = unescapeHtml(content);
         break;
     default:
-        content = handleRecieveRichText(inputFormat, room, event, false, isEdited, spoilerRevealed);
+        content = handleReceiveRichText(inputFormat, room, event, false, isEdited, spoilerRevealed);
     }
 
     auto hasSpoiler = content.contains(u"data-mx-spoiler"_s);
@@ -812,7 +812,7 @@ void TextHandler::processWithinHTML(QString &buffer, const QString &syntax, cons
 {
     qsizetype beginCodeBlockTag = buffer.indexOf(u"<code>"_s);
     qsizetype endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
-    qsizetype beginlinkBlockTag = buffer.indexOf(u"<a href"_s);
+    qsizetype beginLinkBlockTag = buffer.indexOf(u"<a href"_s);
     qsizetype endLinkBlockTag = buffer.indexOf(u"</a>"_s, beginCodeBlockTag + 1);
     QRegularExpressionMatch plainLinkMatch;
     qsizetype plainLinkIndex = buffer.indexOf(TextRegex::plainUrl, 0, &plainLinkMatch);
@@ -836,12 +836,12 @@ void TextHandler::processWithinHTML(QString &buffer, const QString &syntax, cons
 
             continue;
         }
-        const bool validLinkBlock = beginlinkBlockTag != -1 && endLinkBlockTag != -1;
-        if (validLinkBlock && pos > beginlinkBlockTag && pos < endLinkBlockTag) {
+        const bool validLinkBlock = beginLinkBlockTag != -1 && endLinkBlockTag != -1;
+        if (validLinkBlock && pos > beginLinkBlockTag && pos < endLinkBlockTag) {
             lastPos = endLinkBlockTag + 4;
 
-            beginlinkBlockTag = buffer.indexOf(u"<a href"_s, lastPos + 1);
-            endLinkBlockTag = buffer.indexOf(u"</a>"_s, beginlinkBlockTag + 1);
+            beginLinkBlockTag = buffer.indexOf(u"<a href"_s, lastPos + 1);
+            endLinkBlockTag = buffer.indexOf(u"</a>"_s, beginLinkBlockTag + 1);
 
             continue;
         }

@@ -81,7 +81,7 @@ public:
      *       can be in either and the parameter inputFormat just needs to be set
      *       appropriately.
      */
-    QString handleRecieveRichText(Qt::TextFormat inputFormat = Qt::RichText,
+    QString handleReceiveRichText(Qt::TextFormat inputFormat = Qt::RichText,
                                   const NeoChatRoom *room = nullptr,
                                   const Quotient::RoomEvent *event = nullptr,
                                   bool stripNewlines = false,
@@ -103,7 +103,7 @@ public:
      *          control. It will try to preserve < and > in the plain string which
      *          could be malicious tags if the control uses rich text format.
      */
-    QString handleRecievePlainText(Qt::TextFormat inputFormat = Qt::PlainText, const bool &stripNewlines = false);
+    QString handleReceivePlainText(Qt::TextFormat inputFormat = Qt::PlainText, const bool &stripNewlines = false);
 
     /**
      * @brief Split the given string into Blocks.

@@ -481,7 +481,7 @@ QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageE
             fileCaption = event.plainBody() + " | "_L1 + fileCaption;
         }
         textHandler.setData(fileCaption);
-        return !fileCaption.isEmpty() ? textHandler.handleRecievePlainText(Qt::PlainText, stripNewlines) : i18n("a file");
+        return !fileCaption.isEmpty() ? textHandler.handleReceivePlainText(Qt::PlainText, stripNewlines) : i18n("a file");
     }
 
     QString body;
@@ -501,9 +501,9 @@ QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageE
     }
 
     if (format == Qt::RichText) {
-        return textHandler.handleRecieveRichText(inputFormat, room, &event, stripNewlines, event.isReplaced());
+        return textHandler.handleReceiveRichText(inputFormat, room, &event, stripNewlines, event.isReplaced());
     }
-    return textHandler.handleRecievePlainText(inputFormat, stripNewlines);
+    return textHandler.handleReceivePlainText(inputFormat, stripNewlines);
 }
 
 QString EventHandler::genericBody(const NeoChatRoom *room, const RoomEvent *event)
