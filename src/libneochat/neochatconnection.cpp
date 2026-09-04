@@ -421,14 +421,14 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
             });
 }
 
-Quotient::ForgetRoomJob *NeoChatConnection::forgetRoom(const QString &id)
+ForgetRoomJob *NeoChatConnection::forgetRoom(const QString &id)
 {
     Q_EMIT roomAboutToBeLeft(id);
 
     return Connection::forgetRoom(id);
 }
 
-bool NeoChatConnection::directChatExists(Quotient::User *user)
+bool NeoChatConnection::directChatExists(User *user)
 {
     return directChats().contains(user);
 }
@@ -731,13 +731,13 @@ void NeoChatConnection::setProfileField(const QString &key, const QString &value
 
 bool NeoChatConnection::enableDeviceNotifications() const
 {
-    const Quotient::AccountSettings account{userId()};
+    const AccountSettings account{userId()};
     return account.get(QStringLiteral("enable_notifications"), true);
 }
 
 void NeoChatConnection::setEnableDeviceNotifications(bool enable)
 {
-    Quotient::AccountSettings account{userId()};
+    AccountSettings account{userId()};
     account.setValue(QStringLiteral("enable_notifications"), enable);
     Q_EMIT enableDeviceNotificationsChanged();
 }
