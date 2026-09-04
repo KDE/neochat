@@ -172,11 +172,9 @@ QString TextHandler::handleReceiveRichText(Qt::TextFormat inputFormat,
                 }
             }
 
-            const bool isEmoticon = match.captured(1).contains(u"data-mx-emoticon"_s);
-
             // If the image does not have an explicit width, but has a vertical-align it's most likely an emoticon.
             // We must do some pre-processing for it to show up nicely in and around text.
-            if (isEmoticon) {
+            if (match.captured(1).contains(u"data-mx-emoticon"_s)) {
                 // Align it properly
                 extraAttributes.append(u"style=\"%1\""_s.arg(customEmojiStyle));
             }
@@ -501,20 +499,17 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
     if (!tagString.contains(u'<') || !tagString.contains(u'>')) {
         return tagString;
     }
-    qsizetype nextAttributeIndex = tagString.indexOf(u' ', 1);
 
-    if (nextAttributeIndex != -1) {
+    if (qsizetype nextAttributeIndex = tagString.indexOf(u' ', 1); nextAttributeIndex != -1) {
         QString outputString = tagString.left(nextAttributeIndex);
-        QString nextAttribute;
-        qsizetype nextSpaceIndex;
         nextAttributeIndex += 1;
 
         while (nextAttributeIndex < tagString.length()) {
-            nextSpaceIndex = tagString.indexOf(TextRegex::endAttributeType, nextAttributeIndex);
+            qsizetype nextSpaceIndex = tagString.indexOf(TextRegex::endAttributeType, nextAttributeIndex);
             if (nextSpaceIndex == -1) {
                 nextSpaceIndex = tagString.length();
             }
-            nextAttribute = tagString.mid(nextAttributeIndex, nextSpaceIndex - nextAttributeIndex);
+            QString nextAttribute = tagString.mid(nextAttributeIndex, nextSpaceIndex - nextAttributeIndex);
 
             if (isAllowedAttribute(tag, getAttributeType(nextAttribute))) {
                 QString style;
@@ -589,21 +584,18 @@ QString TextHandler::addStyleToText(const QString &tag, QString cleanTagString, 
 QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagString)
 {
     QVariantMap attributes;
-    auto nextAttributeIndex = tagString.indexOf(u' ', 1);
 
-    if (nextAttributeIndex != -1) {
-        QString nextAttribute;
-        qsizetype nextSpaceIndex;
+    if (auto nextAttributeIndex = tagString.indexOf(u' ', 1); nextAttributeIndex != -1) {
         nextAttributeIndex += 1;
 
         while (nextAttributeIndex < tagString.length()) {
-            nextSpaceIndex = tagString.indexOf(TextRegex::endAttributeType, nextAttributeIndex);
+            qsizetype nextSpaceIndex = tagString.indexOf(TextRegex::endAttributeType, nextAttributeIndex);
             if (nextSpaceIndex == -1) {
                 nextSpaceIndex = tagString.length();
             }
-            nextAttribute = tagString.mid(nextAttributeIndex, nextSpaceIndex - nextAttributeIndex);
 
-            if (isAllowedAttribute(tag, getAttributeType(nextAttribute))) {
+            if (auto nextAttribute = tagString.mid(nextAttributeIndex, nextSpaceIndex - nextAttributeIndex);
+                isAllowedAttribute(tag, getAttributeType(nextAttribute))) {
                 if (tag == u"img"_s && getAttributeType(nextAttribute) == u"src"_s) {
                     QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
                     if (isAllowedLink(attributeData, true)) {
