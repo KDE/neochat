@@ -16,3 +16,11 @@ add_subdirectory(chatbar)
 add_subdirectory(settings)
 add_subdirectory(devtools)
 add_subdirectory(app)
+
+# to avoid a race around qmlcachegen (QTBUG-137440):
+add_dependencies(Chatbar MessageContent)
+add_dependencies(Login Settings)
+add_dependencies(RoomInfo LibNeoChat Settings Timeline)
+add_dependencies(Rooms Settings)
+add_dependencies(Settings Devtools)
+add_dependencies(Spaces Settings)
