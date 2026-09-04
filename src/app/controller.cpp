@@ -341,7 +341,7 @@ void Controller::updateBadgeNotificationCount(int count)
     qGuiApp->setBadgeNumber(count);
 }
 
-bool Controller::isFlatpak() const
+bool Controller::isFlatpak()
 {
 #ifdef NEOCHAT_FLATPAK
     return true;

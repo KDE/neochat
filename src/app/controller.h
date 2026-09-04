@@ -75,7 +75,7 @@ public:
 
     [[nodiscard]] bool supportSystemTray() const;
 
-    [[nodiscard]] bool isFlatpak() const;
+    [[nodiscard]] static bool isFlatpak();
 
     /**
      * @brief Start listening for notifications in dbus-activated mode.
@@ -131,7 +131,7 @@ private:
 
 private Q_SLOTS:
     void setQuitOnLastWindowClosed();
-    void updateBadgeNotificationCount(int count);
+    static void updateBadgeNotificationCount(int count);
 
 Q_SIGNALS:
     /**
