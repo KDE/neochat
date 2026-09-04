@@ -215,7 +215,7 @@ bool NeoChatConnection::globalUrlPreviewEnabled()
 
 void NeoChatConnection::setGlobalUrlPreviewDefault(bool useByDefault)
 {
-    NeoChatConnection::m_globalUrlPreviewDefault = useByDefault;
+    m_globalUrlPreviewDefault = useByDefault;
 }
 
 PushRuleAction::Action NeoChatConnection::keywordPushRuleDefault() const
@@ -225,7 +225,7 @@ PushRuleAction::Action NeoChatConnection::keywordPushRuleDefault() const
 
 void NeoChatConnection::setKeywordPushRuleDefault(PushRuleAction::Action defaultAction)
 {
-    NeoChatConnection::m_defaultAction = defaultAction;
+    m_defaultAction = defaultAction;
 }
 
 void NeoChatConnection::logout(bool serverSideLogout)
