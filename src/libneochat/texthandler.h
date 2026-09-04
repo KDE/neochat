@@ -170,7 +170,7 @@ private:
     static QString linkifyUrls(QString stringIn);
     static QString customMarkdownToHtml(const QString &stringIn);
     static QString fixupUnderlineSyntax(const QString &stringIn);
-    static void processWithinHTML(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
+    static void processWithinHtml(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
     static void processWithinMarkdown(QString &buffer, const QString &syntax, const QString &beginTag, const QString &endTag);
     static void escapeURLs(QString &stringIn);
 
