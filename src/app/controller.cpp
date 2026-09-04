@@ -268,7 +268,7 @@ void Controller::initActiveConnection(NeoChatConnection *oldConnection, NeoChatC
     Q_EMIT activeConnectionChanged(newConnection);
 }
 
-bool Controller::supportSystemTray() const
+bool Controller::supportSystemTray()
 {
 #ifdef Q_OS_ANDROID
     return false;
