@@ -128,7 +128,7 @@ bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex
         return false;
     } else {
         const auto &rooms = SpaceHierarchyCache::instance().getRoomListForSpace(m_activeSpaceId, false);
-        return std::find(rooms.begin(), rooms.end(), sourceModel()->data(index, RoomTreeModel::RoomIdRole).toString()) != rooms.end() && acceptRoom;
+        return std::ranges::find(rooms, sourceModel()->data(index, RoomTreeModel::RoomIdRole).toString()) != rooms.end() && acceptRoom;
     }
 }
 

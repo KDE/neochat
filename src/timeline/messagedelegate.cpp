@@ -153,7 +153,7 @@ void MessageDelegateBase::cleanupIncubator(MessageObjectIncubator *incubator)
     }
 
     incubator->clear();
-    const auto it = std::find(m_activeIncubators.begin(), m_activeIncubators.end(), incubator);
+    const auto it = std::ranges::find(m_activeIncubators, incubator);
     delete incubator;
     if (it != m_activeIncubators.end()) {
         m_activeIncubators.erase(it);
