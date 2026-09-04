@@ -73,7 +73,7 @@ public:
 
     [[nodiscard]] QStringList accountsLoading() const;
 
-    [[nodiscard]] bool supportSystemTray() const;
+    [[nodiscard]] static bool supportSystemTray();
 
     [[nodiscard]] static bool isFlatpak();
 
