@@ -22,7 +22,6 @@ Kirigami.PromptDialog {
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
             text: i18nc("@action:button", "Sign out")
-            onClicked: root.accept()
 
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
