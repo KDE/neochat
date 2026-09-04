@@ -112,8 +112,7 @@ Controller::Controller(QObject *parent)
     RoomSortParameter::setCustomSortOrder(configParamList);
     connect(NeoChatConfig::self(), &NeoChatConfig::CustomSortOrderChanged, this, []() {
         QList<RoomSortParameter::Parameter> configParamList;
-        const auto intList = NeoChatConfig::customSortOrder();
-        std::transform(intList.constBegin(), intList.constEnd(), std::back_inserter(configParamList), [](int param) {
+        std::ranges::transform(NeoChatConfig::customSortOrder(), std::back_inserter(configParamList), [](int param) {
             return static_cast<RoomSortParameter::Parameter>(param);
         });
         RoomSortParameter::setCustomSortOrder(configParamList);
