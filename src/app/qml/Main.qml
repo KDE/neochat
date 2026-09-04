@@ -272,7 +272,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: Controller
 
-        function onErrorOccured(error) {
+        function onErrorOccurred(error) {
             root.showPassiveNotification(error, "short");
         }
     }
