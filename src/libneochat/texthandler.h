@@ -122,7 +122,7 @@ public:
     /**
      * @brief Modify the style parameters of the spoilers to reveal or hide the text.
      */
-    static QString updateSpoilerText(QObject *object, QString string, bool spoilerRevealed);
+    static QString updateSpoilerText(const QObject *object, QString string, bool spoilerRevealed);
 
     /**
      * @brief Strips Matrix links (matrix.to) from Markdown while not touching anything else.

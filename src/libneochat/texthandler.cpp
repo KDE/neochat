@@ -32,7 +32,7 @@ static const QHash<QString, QStringList> allowedAttributes = {{u"font"_s, {u"dat
 static const QStringList allowedLinkSchemes = {u"https"_s, u"http"_s, u"ftp"_s, u"mailto"_s, u"magnet"_s};
 static const QStringList blockTags = {u"blockquote"_s, u"p"_s, u"ul"_s, u"ol"_s, u"div"_s, u"table"_s, u"pre"_s};
 
-static const QString customEmojiStyle = u"vertical-align:bottom"_s;
+static const auto customEmojiStyle = u"vertical-align:bottom"_s;
 
 void TextHandler::setData(const QString &string)
 {
@@ -339,9 +339,9 @@ qsizetype TextHandler::nextBlockPos(const QString &string)
         return string.size();
     }
 
-    auto tagEndPos = string.indexOf(u'>');
-    QString tag = string.first(tagEndPos + 1);
-    QString tagType = getTagType(tag);
+    const auto tagEndPos = string.indexOf(u'>');
+    const auto tag = string.first(tagEndPos + 1);
+    const auto tagType = getTagType(tag);
     // If the start tag is not a block tag there can be only 1 block.
     if (!blockTags.contains(tagType)) {
         return string.size();
@@ -356,7 +356,7 @@ qsizetype TextHandler::nextBlockPos(const QString &string)
 
     // Handle nested lists
     if (tagType == u"ul"_s || tagType == u"ol"_s) {
-        bool nestContinue = true;
+        auto nestContinue = true;
         while (nestContinue) {
             const auto nextOpenTagPos = string.indexOf(tag, closeTagPos + closeTag.size());
             const auto nextCloseTagPos = string.indexOf(closeTag, closeTagPos + closeTag.size());
@@ -371,21 +371,21 @@ qsizetype TextHandler::nextBlockPos(const QString &string)
 }
 
 Blocks::Block *TextHandler::nextBlock(const QString &string,
-                                      qsizetype nextBlockPos,
-                                      Qt::TextFormat inputFormat,
+                                      const qsizetype nextBlockPos,
+                                      const Qt::TextFormat inputFormat,
                                       const NeoChatRoom *room,
                                       const Quotient::RoomEvent *event,
-                                      bool isEdited,
-                                      bool spoilerRevealed,
+                                      const bool isEdited,
+                                      const bool spoilerRevealed,
                                       QObject *parent)
 {
     if (string.isEmpty()) {
         return {};
     }
 
-    auto tagEndPos = string.indexOf(u'>');
-    QString tag = string.first(tagEndPos + 1);
-    QString tagType = getTagType(tag);
+    const auto tagEndPos = string.indexOf(u'>');
+    const auto tag = string.first(tagEndPos + 1);
+    const auto tagType = getTagType(tag);
     const auto blockType = Blocks::typeForTag(tagType);
     QVariantMap attributes;
     if (blockType == Blocks::Code) {
@@ -573,7 +573,7 @@ QString TextHandler::addStyleToText(const QString &tag, QString cleanTagString, 
         } else if (tag == u"th"_s || tag == u"td"_s) {
             cleanTagString += u" style=\"border: 1px solid black; padding: 3px;\""_s;
         } else if (tag == u"span"_s && cleanTagString.contains(u"data-mx-spoiler"_s)) {
-            auto theme = dynamic_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+            const auto theme = dynamic_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
             cleanTagString += u" style=\"color: %1; background: %2;\""_s.arg(spoilerRevealed ? theme->highlightedTextColor().name() : u"transparent"_s,
                                                                              theme->alternateBackgroundColor().name());
         }
@@ -682,11 +682,11 @@ Blocks::BlockPtrs TextHandler::textComponents(QString string,
 QString TextHandler::cmarkdownToHtml(const QString &markdown)
 {
     const auto str = markdown.toUtf8();
-    char *tmp_buf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_HARDBREAKS | CMARK_OPT_UNSAFE);
+    const auto tmpBuf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_HARDBREAKS | CMARK_OPT_UNSAFE);
 
-    const std::string html(tmp_buf);
+    const std::string html(tmpBuf);
 
-    free(tmp_buf);
+    free(tmpBuf);
 
     auto result = QString::fromStdString(html).trimmed();
 
@@ -984,7 +984,7 @@ void TextHandler::escapeURLs(QString &stringIn)
 
 QString TextHandler::editString() const
 {
-    auto theme = dynamic_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+    const auto theme = dynamic_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
 
     QString editTextColor;
     if (theme != nullptr) {
@@ -1001,8 +1001,8 @@ QString TextHandler::emoteString(const NeoChatRoom *room, const Quotient::RoomEv
         return {};
     }
 
-    auto e = eventCast<const Quotient::RoomMessageEvent>(event);
-    auto author = room->member(e->senderId());
+    const auto e = eventCast<const Quotient::RoomMessageEvent>(event);
+    const auto author = room->member(e->senderId());
     return u"* <a href=\"https://matrix.to/#/"_s + e->senderId() + u"\" style=\"color:"_s + author.color().name() + u"\">"_s + author.htmlSafeDisplayName()
         + u"</a> "_s;
 }
@@ -1013,10 +1013,10 @@ QString TextHandler::convertCodeLanguageString(const QString &languageString)
     return languageString.right(languageString.length() - equalsPos - 1);
 }
 
-QString TextHandler::updateSpoilerText(QObject *object, QString string, bool spoilerRevealed)
+QString TextHandler::updateSpoilerText(const QObject *object, QString string, bool spoilerRevealed)
 {
     auto it = QRegularExpression(u"<span[^>]*style=\"[^>]*color:\\s*(.*?);[^>]*background-color:\\s*(.*?);[^>]*\">"_s).globalMatch(string);
-    auto theme = dynamic_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
+    const auto theme = dynamic_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
     qsizetype offset = 0;
     while (it.hasNext()) {
         const QRegularExpressionMatch match = it.next();
