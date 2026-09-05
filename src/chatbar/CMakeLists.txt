@@ -28,7 +28,10 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         TableDialog.qml
         StyleButton.qml
     SOURCES
+        actionsmodel.cpp
         chatbuttonhelper.cpp
+        completionmodel.cpp
+        completionproxymodel.cpp
         styledelegatehelper.cpp
 )
 

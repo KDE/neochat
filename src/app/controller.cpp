@@ -17,10 +17,10 @@
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
+#include "actionsmodel.h"
 #include "enums/roomsortparameter.h"
 #include "general_logging.h"
 #include "mediasizehelper.h"
-#include "models/actionsmodel.h"
 #include "models/messagecontentmodel.h"
 #include "models/messagemodel.h"
 #include "models/roomlistmodel.h"

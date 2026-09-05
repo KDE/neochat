@@ -7,7 +7,6 @@
 #include <qqmlintegration.h>
 
 #include "blockcache.h"
-#include "events/pollevent.h"
 #include "neochatroom.h"
 
 class QMediaRecorder;

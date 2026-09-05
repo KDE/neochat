@@ -69,7 +69,7 @@ QQC2.Control {
         }
     }
 
-    readonly property LibNeoChat.CompletionModel completionModel: LibNeoChat.CompletionModel {
+    readonly property CompletionModel completionModel: CompletionModel {
         textItem: root.model.focusedTextItem
         roomListModel: RoomManager.roomListModel
         // We plug in a UserFilterModel in here because it will filter by Join membership for us!

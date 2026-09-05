@@ -27,7 +27,6 @@ target_sources(LibNeoChat PRIVATE
     neochatdatetime.cpp
     nestedlisthelper_p.h
     nestedlisthelper.cpp
-    postmessagehelper.cpp
     roomlastmessageprovider.cpp
     spacehierarchycache.cpp
     texthandler.cpp
@@ -49,9 +48,6 @@ target_sources(LibNeoChat PRIVATE
     jobs/neochatreportroomjob.cpp
     jobs/neochatreportuserjob.cpp
     jobs/neochatauthmetadatajob.cpp
-    models/actionsmodel.cpp
-    models/completionmodel.cpp
-    models/completionproxymodel.cpp
     models/customemojimodel.cpp
     models/emojimodel.cpp
     models/imagepacksmodel.cpp

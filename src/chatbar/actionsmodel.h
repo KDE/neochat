@@ -9,7 +9,6 @@
 
 class NeoChatConnection;
 class NeoChatRoom;
-class PostMessageHelper;
 
 /**
  * @class ActionsModel
@@ -32,7 +31,7 @@ public:
         /**
          * @brief The function to execute when the action is triggered.
          */
-        std::function<QString(const QString &, NeoChatRoom *, PostMessageHelper *)> handle;
+        std::function<QString(NeoChatRoom *, const QString &, const QString &, const QString &)> handle;
         /**
          * @brief The new message type of a message being sent.
          *
@@ -93,12 +92,13 @@ public:
     static bool handleQuickEditAction(NeoChatRoom *room, const QString &messageText);
 
     /**
-     * @brief Handle any action within the message contained in the given PostMessageHelper.
+     * @brief Handle any action within sendText.
      *
      * @return A modified or unmodified string that needs to be sent or an empty string if
      *         the handled action replaces sending a normal message.
      */
-    static std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgType>> handleAction(NeoChatRoom *room, PostMessageHelper *helper);
+    static std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgType>>
+    handleAction(NeoChatRoom *room, QString sendText, const QString &replyId, const QString &editId);
 
     static void setAllowQuickEdit(bool allow);
 
