@@ -4,12 +4,12 @@
 
 #include "roommanager.h"
 
+#include "actionsmodel.h"
 #include "blockcache.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
 #include "controller.h"
 #include "eventhandler.h"
-#include "models/actionsmodel.h"
 #include "models/chatbarmessagecontentmodel.h"
 #include "models/eventmessagecontentmodel.h"
 #include "neochatconfig.h"

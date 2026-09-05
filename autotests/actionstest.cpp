@@ -7,9 +7,9 @@
 #include <QVariantList>
 
 #include "accountmanager.h"
+#include "actionsmodel.h"
 #include "blockcache.h"
 #include "enums/blocktype.h"
-#include "models/actionsmodel.h"
 
 #include "postmessagehelper.h"
 #include "server.h"
@@ -94,7 +94,7 @@ void ActionsTest::testActions()
     auto helper = PostMessageHelper();
     cache.append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(command)));
     helper.setCache(&cache);
-    auto result = ActionsModel::handleAction(room, &helper);
+    auto result = ActionsModel::handleAction(room, helper.cache()->toString(), {}, helper.editId());
     QCOMPARE(resultText, std::get<std::optional<QString>>(result));
     QCOMPARE(type, std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result));
 }
@@ -114,7 +114,7 @@ void ActionsTest::expectMessage(const QString &actionName, const QString &args, 
 {
     auto action = findAction(actionName);
     QSignalSpy spy(room, &NeoChatRoom::showMessage);
-    auto result = action.handle(args, room, nullptr);
+    auto result = action.handle(room, args, {}, {});
     auto expected = QVariantList {type, message};
     auto signal = spy.takeFirst();
     QCOMPARE(signal, expected);

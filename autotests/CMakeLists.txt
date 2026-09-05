@@ -77,7 +77,7 @@ ecm_add_test(
 
 ecm_add_test(
     actionstest.cpp
-    LINK_LIBRARIES neochat Qt::Test neochat_server
+    LINK_LIBRARIES neochat Qt::Test Chatbar neochat_server
     TEST_NAME actionstest
 )
 
@@ -89,13 +89,13 @@ ecm_add_test(
 
 ecm_add_test(
     roommanagertest.cpp
-    LINK_LIBRARIES neochat Qt::Test neochat_server
+    LINK_LIBRARIES neochat Qt::Test Chatbar neochat_server
     TEST_NAME roommanagertest
 )
 
 ecm_add_test(
     modeltest.cpp
-    LINK_LIBRARIES neochat Qt::Test neochat_server Devtools
+    LINK_LIBRARIES neochat Qt::Test Chatbar neochat_server Devtools
     TEST_NAME modeltest
 )
 

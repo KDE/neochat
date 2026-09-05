@@ -7,7 +7,7 @@
 #include <QVariantList>
 
 #include "accountmanager.h"
-#include "models/actionsmodel.h"
+#include "actionsmodel.h"
 #include "roommanager.h"
 
 #include "server.h"

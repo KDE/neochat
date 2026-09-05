@@ -11,6 +11,7 @@
 
 #include "actionsmodel.h"
 #include "blockreply.h"
+#include "events/pollevent.h"
 #include "texthandler.h"
 
 PostMessageHelper::PostMessageHelper(QObject *parent)
@@ -152,7 +153,7 @@ void PostMessageHelper::postMessage()
         }
     }
 
-    const auto [sendString, msgType] = ActionsModel::handleAction(m_room, this);
+    const auto [sendString, msgType] = ActionsModel::handleAction(m_room, m_cache->toString(), replyId, m_editId);
     if (!msgType.has_value()) {
         m_cache->clear();
         return;

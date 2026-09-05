@@ -10,14 +10,14 @@
 #include <Quotient/connection.h>
 
 #include "accountmanager.h"
+#include "actionsmodel.h"
+#include "completionmodel.h"
+#include "completionproxymodel.h"
 #include "contentprovider.h"
 #include "enums/powerlevel.h"
 #include "enums/roomsortparameter.h"
 #include "models/accountemoticonmodel.h"
-#include "models/actionsmodel.h"
 #include "models/commonroomsmodel.h"
-#include "models/completionmodel.h"
-#include "models/completionproxymodel.h"
 #include "models/customemojimodel.h"
 #include "models/devicesmodel.h"
 #include "models/devicesproxymodel.h"

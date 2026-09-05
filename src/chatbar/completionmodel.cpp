@@ -7,14 +7,14 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
+#include "actionsmodel.h"
 #include "chattextitemhelper.h"
 #include "completionproxymodel.h"
-#include "models/actionsmodel.h"
 #include "models/customemojimodel.h"
 #include "models/emojimodel.h"
 #include "models/roomlistmodel.h"
-#include "userfiltermodel.h"
-#include "userlistmodel.h"
+#include "models/userfiltermodel.h"
+#include "models/userlistmodel.h"
 
 CompletionModel::CompletionModel(QObject *parent)
     : QAbstractListModel(parent)
