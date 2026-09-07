@@ -30,6 +30,10 @@ int AccountEmoticonModel::rowCount(const QModelIndex &index) const
 
 QVariant AccountEmoticonModel::data(const QModelIndex &index, int role) const
 {
+    if (!checkIndex(index)) {
+        qWarning() << "AccountEmoticonModel::data: Invalid index" << index;
+        return {};
+    }
     if (m_connection == nullptr) {
         return {};
     }
