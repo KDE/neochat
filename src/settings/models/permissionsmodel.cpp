@@ -163,6 +163,7 @@ void PermissionsModel::initializeModel()
 
     const auto currentPowerLevelEvent = m_room->currentState().get<Quotient::RoomPowerLevelsEvent>();
     if (currentPowerLevelEvent == nullptr) {
+        endResetModel();
         return;
     }
 
