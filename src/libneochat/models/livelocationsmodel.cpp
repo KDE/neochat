@@ -25,6 +25,9 @@ LiveLocationsModel::LiveLocationsModel(QObject *parent)
         &LiveLocationsModel::roomChanged,
         this,
         [this]() {
+            beginResetModel();
+            m_locations.clear();
+            endResetModel();
             for (const auto &event : m_room->messageEvents()) {
                 addEvent(event.get());
             }
@@ -187,6 +190,10 @@ void LiveLocationsModel::setRoom(NeoChatRoom *room)
 {
     if (m_room == room) {
         return;
+    }
+
+    if (m_room) {
+        disconnect(m_room, nullptr, this, nullptr);
     }
 
     m_room = room;
