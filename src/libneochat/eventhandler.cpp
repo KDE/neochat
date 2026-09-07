@@ -949,12 +949,7 @@ float EventHandler::latitude(const Quotient::RoomEvent *event)
         return -100.0;
     }
 
-    const auto geoUri = event->contentPart<QString>("geo_uri"_L1);
-    if (geoUri.isEmpty()) {
-        return -100.0; // latitude runs from -90deg to +90deg so -100 is out of range.
-    }
-    const auto latitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[0];
-    return latitude.toFloat();
+    return parseGeoUri(event->contentPart<QString>("geo_uri"_L1)).latitude;
 }
 
 float EventHandler::longitude(const Quotient::RoomEvent *event)
@@ -964,12 +959,7 @@ float EventHandler::longitude(const Quotient::RoomEvent *event)
         return -200.0;
     }
 
-    const auto geoUri = event->contentPart<QString>("geo_uri"_L1);
-    if (geoUri.isEmpty()) {
-        return -200.0; // longitude runs from -180deg to +180deg so -200 is out of range.
-    }
-    const auto latitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[1];
-    return latitude.toFloat();
+    return parseGeoUri(event->contentPart<QString>("geo_uri"_L1)).longitude;
 }
 
 QString EventHandler::locationAssetType(const Quotient::RoomEvent *event)
@@ -984,6 +974,34 @@ QString EventHandler::locationAssetType(const Quotient::RoomEvent *event)
         return {};
     }
     return assetType;
+}
+
+EventHandler::Coordinate EventHandler::parseGeoUri(const QString &geoUri)
+{
+    if (geoUri.isEmpty()) {
+        return {
+            .latitude = -100.0, // latitude runs from -90deg to +90deg so -100 is out of range.
+            .longitude = -200.0, // longitude runs from -180deg to +180deg so -200 is out of range.
+        };
+    }
+    auto latLong = geoUri.split(u';')[0].split(u':');
+    if (latLong.size() < 2) {
+        return {
+            .latitude = -100.0, // latitude runs from -90deg to +90deg so -100 is out of range.
+            .longitude = -200.0, // longitude runs from -180deg to +180deg so -200 is out of range.
+        };
+    }
+    latLong = latLong[1].split(u',');
+    if (latLong.size() < 2) {
+        return {
+            .latitude = -100.0, // latitude runs from -90deg to +90deg so -100 is out of range.
+            .longitude = -200.0, // longitude runs from -180deg to +180deg so -200 is out of range.
+        };
+    }
+    return {
+        .latitude = latLong[0].toFloat(),
+        .longitude = latLong[1].toFloat(),
+    };
 }
 
 #include "moc_eventhandler.cpp"

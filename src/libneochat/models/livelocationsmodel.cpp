@@ -4,6 +4,8 @@
 
 #include "livelocationsmodel.h"
 
+#include "eventhandler.h"
+
 #include <Quotient/events/roommessageevent.h>
 
 #include <QDebug>
@@ -69,16 +71,14 @@ QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
         if (geoUri.isEmpty()) {
             return {};
         }
-        const auto latitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[0];
-        return latitude.toFloat();
+        return EventHandler::parseGeoUri(geoUri).latitude;
     }
     case LongitudeRole: {
         const auto geoUri = data.beacon["org.matrix.msc3488.location"_L1].toObject()["uri"_L1].toString();
         if (geoUri.isEmpty()) {
             return {};
         }
-        const auto longitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[1];
-        return longitude.toFloat();
+        return EventHandler::parseGeoUri(geoUri).longitude;
     }
     case AssetRole:
         return data.beaconInfo["org.matrix.msc3488.asset"_L1].toObject()["type"_L1].toString();
