@@ -226,7 +226,7 @@ class FileBlock : public UrlBlock
      *
      * @sa FileInfo
      */
-    Q_PROPERTY(FileInfo info READ info CONSTANT)
+    Q_PROPERTY(Blocks::FileInfo info READ info CONSTANT)
 
     /**
      * @brief The Quotient::FileTransferInfo for the file.
