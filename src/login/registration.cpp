@@ -141,8 +141,13 @@ void Registration::registerAccount()
         // I'm not motivated enough to figure out how we should handle the flow stuff, so:
         // If there is a flow that requires e-mail, we use that, to make sure that the user can recover the account from a forgotten password.
         // Otherwise, we're using the first flow.
-        auto selectedFlow = data["flows"_L1].toArray()[0].toObject()["stages"_L1].toArray();
-        for (const auto &flow : data["flows"_L1].toArray()) {
+        const auto flows = data["flows"_L1].toArray();
+        if (flows.isEmpty()) {
+            qWarning() << "No registration flows available";
+            return;
+        }
+        auto selectedFlow = flows[0].toObject()["stages"_L1].toArray();
+        for (const auto &flow : flows) {
             if (flow.toObject()["stages"_L1].toArray().contains("m.login.email.identity"_L1)) {
                 selectedFlow = flow.toObject()["stages"_L1].toArray();
             }
