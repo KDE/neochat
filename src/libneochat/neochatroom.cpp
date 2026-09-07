@@ -1255,7 +1255,7 @@ void NeoChatRoom::updatePushNotificationState(QString type)
     for (const auto &i : roomRuleArray) {
         QJsonObject roomRule = i.toObject();
         if (roomRule["rule_id"_L1] == id()) {
-            if (roomRule["actions"_L1].toArray().size() == 0) {
+            if (roomRule["actions"_L1].toArray().isEmpty()) {
                 m_currentPushNotificationState = PushNotificationState::MentionKeyword;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
