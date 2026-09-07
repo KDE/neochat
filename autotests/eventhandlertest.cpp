@@ -59,7 +59,11 @@ private Q_SLOTS:
     void nullReplyAuthor();
     void location();
     void nullLocation();
+<<<<<<< HEAD
     void imageAsFile();
+=======
+    void testInvalidGeoUri();
+>>>>>>> f4814fae3 (Fix crash in invalid geo uris)
 };
 
 void EventHandlerTest::initTestCase()
@@ -398,6 +402,25 @@ void EventHandlerTest::imageAsFile()
     QVERIFY(event);
     block = EventHandler::blockForMediaEvent(room, event);
     QVERIFY(!block);
+}
+
+void EventHandlerTest::testInvalidGeoUri()
+{
+    auto event = std::make_unique<RoomMessageEvent>(QString(), u"m.location"_s, std::make_unique<EventContent::LocationContent>(u"https://kde.org"_s));
+    QCOMPARE_EQ(EventHandler::latitude(event.get()), -100);
+    QCOMPARE_EQ(EventHandler::longitude(event.get()), -200);
+
+    event = std::make_unique<RoomMessageEvent>(QString(), u"m.location"_s, std::make_unique<EventContent::LocationContent>(u"geo:"_s));
+    QCOMPARE_EQ(EventHandler::latitude(event.get()), -100);
+    QCOMPARE_EQ(EventHandler::longitude(event.get()), -200);
+
+    event = std::make_unique<RoomMessageEvent>(QString(), u"m.location"_s, std::make_unique<EventContent::LocationContent>(u"geo"_s));
+    QCOMPARE_EQ(EventHandler::latitude(event.get()), -100);
+    QCOMPARE_EQ(EventHandler::longitude(event.get()), -200);
+
+    event = std::make_unique<RoomMessageEvent>(QString(), u"m.location"_s, std::make_unique<EventContent::LocationContent>(u"geo://foobar"_s));
+    QCOMPARE_EQ(EventHandler::latitude(event.get()), -100);
+    QCOMPARE_EQ(EventHandler::longitude(event.get()), -200);
 }
 
 QTEST_MAIN(EventHandlerTest)

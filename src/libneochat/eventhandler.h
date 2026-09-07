@@ -41,6 +41,11 @@ class NeoChatRoom;
 class EventHandler
 {
 public:
+    struct Coordinate {
+        float latitude;
+        float longitude;
+    };
+
     /**
      * @brief Get the display name of the event author.
      *
@@ -229,6 +234,8 @@ public:
      * @brief Return the type of location marker for the event.
      */
     static QString locationAssetType(const Quotient::RoomEvent *event);
+
+    static Coordinate parseGeoUri(const QString &geoUri);
 
 private:
     static QString getBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines);
