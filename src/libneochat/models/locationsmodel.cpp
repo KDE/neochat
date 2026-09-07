@@ -75,7 +75,7 @@ NeoChatRoom *LocationsModel::room() const
 void LocationsModel::setRoom(NeoChatRoom *room)
 {
     if (m_room) {
-        disconnect(this, nullptr, m_room, nullptr);
+        disconnect(m_room, nullptr, this, nullptr);
     }
     m_room = room;
     Q_EMIT roomChanged();
