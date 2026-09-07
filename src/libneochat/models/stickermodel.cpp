@@ -106,8 +106,8 @@ NeoChatRoom *StickerModel::room() const
 
 void StickerModel::setRoom(NeoChatRoom *room)
 {
-    if (room) {
-        disconnect(room->connection(), nullptr, this, nullptr);
+    if (m_room) {
+        disconnect(m_room->connection(), nullptr, this, nullptr);
     }
     m_room = room;
     Q_EMIT roomChanged();
