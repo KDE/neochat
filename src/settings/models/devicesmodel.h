@@ -94,6 +94,7 @@ Q_SIGNALS:
 
 private:
     void fetchDevices();
+    std::optional<int> findDevice(const QString &deviceId) const;
     QList<Quotient::Device> m_devices;
     QPointer<NeoChatConnection> m_connection;
 };

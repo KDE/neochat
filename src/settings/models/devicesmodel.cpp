@@ -94,41 +94,62 @@ QHash<int, QByteArray> DevicesModel::roleNames() const
     };
 }
 
+std::optional<int> DevicesModel::findDevice(const QString &deviceId) const
+{
+    const auto device = std::ranges::find_if(m_devices, [deviceId](const auto &device) {
+        return device.deviceId == deviceId;
+    });
+    if (device == m_devices.end()) {
+        qWarning() << "Device" << deviceId << "not found";
+        return std::nullopt;
+    }
+
+    return static_cast<int>(std::distance(m_devices.begin(), device));
+}
+
 void DevicesModel::logout(const QString &deviceId, const QString &password)
 {
-    int index;
-    for (index = 0; m_devices[index].deviceId != deviceId; index++)
-        ;
-
-    auto onSuccess = [this, index]() {
+    auto onSuccess = [this, deviceId] {
+        const auto maybeIndex = findDevice(deviceId);
+        if (!maybeIndex.has_value()) {
+            return;
+        }
+        const auto index = *maybeIndex;
         beginRemoveRows(QModelIndex(), index, index);
         m_devices.remove(index);
         endRemoveRows();
         Q_EMIT countChanged();
     };
-    m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId).then(this, onSuccess, [password, this, index, onSuccess](const auto &job) {
+    m_connection->callApi<DeleteDeviceJob>(deviceId).then(this, onSuccess, [password, this, deviceId, onSuccess](const auto &job) {
         QJsonObject replyData = job->jsonData();
         AuthenticationData authData;
         authData.session = replyData["session"_L1].toString();
         authData.authInfo["password"_L1] = password;
         authData.type = "m.login.password"_L1;
         authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->user()->id()}};
-        m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId, authData).onResult(this, onSuccess);
+        m_connection->callApi<DeleteDeviceJob>(deviceId, authData).onResult(this, onSuccess);
     });
 }
 
 void DevicesModel::setName(const QString &deviceId, const QString &name)
 {
-    int index;
-    for (index = 0; m_devices[index].deviceId != deviceId; index++)
-        ;
+    const auto maybeIndex = findDevice(deviceId);
+    if (!maybeIndex.has_value()) {
+        return;
+    }
+    const auto index = *maybeIndex;
 
-    auto job = m_connection->callApi<UpdateDeviceJob>(m_devices[index].deviceId, name);
+    auto job = m_connection->callApi<UpdateDeviceJob>(deviceId, name);
     QString oldName = m_devices[index].displayName;
     beginResetModel();
     m_devices[index].displayName = name;
     endResetModel();
-    connect(job, &BaseJob::failure, this, [this, index, oldName]() {
+    connect(job, &BaseJob::failure, this, [this, oldName, deviceId] {
+        const auto maybeIndex = findDevice(deviceId);
+        if (!maybeIndex.has_value()) {
+            return;
+        }
+        const auto index = *maybeIndex;
         beginResetModel();
         m_devices[index].displayName = oldName;
         endResetModel();
