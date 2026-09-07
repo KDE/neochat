@@ -291,7 +291,7 @@ public:
     /**
      * @brief Download a file for the given event as a temporary file.
      */
-    Q_INVOKABLE bool downloadTempFile(const QString &eventId);
+    Q_INVOKABLE bool downloadTempFile(const QString &eventId, const QString &fileName);
 
     /**
      * @brief Check if the given event is highlighted.

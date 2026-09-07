@@ -142,7 +142,7 @@ ColumnLayout {
             icon.name: "document-open"
             onClicked: {
                 root.autoOpenFile = true;
-                root.Message.room.downloadTempFile(root.eventId);
+                root.Message.room.downloadTempFile(root.eventId, root.block.filename);
             }
 
             QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")

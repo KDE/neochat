@@ -51,6 +51,8 @@
 #include "urlhelper.h"
 #include "jobs/neochatreportroomjob.h"
 
+#include <KFileUtils>
+
 #if Quotient_VERSION_MINOR < 10
 #include "events/joinrulesevent.h"
 #endif
@@ -1491,15 +1493,21 @@ bool NeoChatRoom::canEncryptRoom() const
     return !usesEncryption() && canSendState("m.room.encryption"_L1);
 }
 
-bool NeoChatRoom::downloadTempFile(const QString &eventId)
+bool NeoChatRoom::downloadTempFile(const QString &eventId, const QString &fileName)
 {
-    QTemporaryFile file;
-    file.setAutoRemove(false);
-    if (!file.open()) {
-        return false;
+    const QString destFolder = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + u"/neochat/";
+
+    if (!QFileInfo::exists(destFolder)) {
+        QDir(destFolder).mkpath(u"."_s);
     }
 
-    download(eventId, QUrl::fromLocalFile(file.fileName()));
+    QString dest = destFolder + fileName;
+
+    if (QFileInfo::exists(dest)) {
+        dest = KFileUtils::suggestName(QUrl::fromLocalFile(destFolder), fileName);
+    }
+
+    download(eventId, QUrl::fromLocalFile(dest));
     return true;
 }
 
