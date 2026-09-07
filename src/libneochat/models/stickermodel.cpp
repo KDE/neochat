@@ -117,6 +117,7 @@ void StickerModel::postSticker(int index)
 {
     if (!m_room) {
         qWarning() << "No room";
+        return;
     }
 
     if (index >= m_images.count()) {
