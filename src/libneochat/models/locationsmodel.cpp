@@ -56,7 +56,7 @@ void LocationsModel::addLocation(const RoomMessageEvent *event)
     }
     const auto latitude = parts[0].toFloat();
     const auto longitude = parts[1].toFloat();
-    beginInsertRows(QModelIndex(), m_locations.size(), m_locations.size() + 1);
+    beginInsertRows(QModelIndex(), m_locations.size(), m_locations.size());
     m_locations += LocationData{
         .eventId = event->id(),
         .latitude = latitude,
