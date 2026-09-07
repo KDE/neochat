@@ -72,7 +72,7 @@ ColumnLayout {
         states: [
             State {
                 name: "downloadedInstant"
-                when: (root.fileTransferInfo?.completed ?? false) && root.autoOpenFile
+                when: (root.block.fileTransferInfo?.completed ?? false) && root.autoOpenFile
 
                 PropertyChanges {
                     openButton.icon.name: "document-open"
@@ -86,7 +86,7 @@ ColumnLayout {
             },
             State {
                 name: "downloaded"
-                when: (root.fileTransferInfo?.completed ?? false) && !root.autoOpenFile
+                when: (root.block.fileTransferInfo?.completed ?? false) && !root.autoOpenFile
 
                 PropertyChanges {
                     openButton.visible: false
