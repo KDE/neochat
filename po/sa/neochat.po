@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:45+0000\n"
+"POT-Creation-Date: 2026-09-08 00:45+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: src/app/controller.cpp:188
+#: src/app/controller.cpp:186
 #, fuzzy, kde-format
 #| msgid "Receiving push notifications"
 msgctxt ""
@@ -28,7 +28,7 @@ msgctxt ""
 msgid "Receiving push notifications"
 msgstr "पुश सूचनाः प्राप्य"
 
-#: src/app/controller.cpp:331
+#: src/app/controller.cpp:329
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "पुश सूचनाः प्राप्य"
@@ -1924,6 +1924,301 @@ msgstr "दर्शयतु"
 msgid "Quit"
 msgstr "परिजहातु"
 
+#: src/chatbar/actionsmodel.cpp:29
+#, kde-format
+msgid "Leaving this room."
+msgstr "एतत् कक्षं त्यक्त्वा।"
+
+#: src/chatbar/actionsmodel.cpp:38
+#, kde-format
+msgctxt "Leaving room <roomname>."
+msgid "Leaving room %1."
+msgstr "कक्षं त्यक्त्वा %1."
+
+#: src/chatbar/actionsmodel.cpp:41
+#, kde-format
+msgctxt "Room <roomname> not found"
+msgid "Room %1 not found."
+msgstr "कक्षः %1 न प्राप्तः।"
+
+#: src/chatbar/actionsmodel.cpp:49 src/chatbar/actionsmodel.cpp:281
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr "न नूतनं उपनाम प्रदत्तं, परिवर्तनं न भविष्यति।"
+
+#: src/chatbar/actionsmodel.cpp:63 src/chatbar/actionsmodel.cpp:72
+#: src/chatbar/actionsmodel.cpp:81 src/chatbar/actionsmodel.cpp:90
+#: src/chatbar/actionsmodel.cpp:107 src/chatbar/actionsmodel.cpp:124
+#: src/chatbar/actionsmodel.cpp:138 src/chatbar/actionsmodel.cpp:151
+#: src/chatbar/actionsmodel.cpp:160 src/chatbar/actionsmodel.cpp:169
+msgid "<message>"
+msgstr "<सन्देशः>"
+
+#: src/chatbar/actionsmodel.cpp:64
+msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgstr "साधारणपाठसन्देशस्य ̄\\_(ツ)_/ ̄ इत्यस्य पूर्ववर्तनं करोति"
+
+#: src/chatbar/actionsmodel.cpp:73
+msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgstr "साधारणपाठसन्देशस्य पूर्ववर्ती ( ͡° ͜ʖ ͡°) भवति"
+
+#: src/chatbar/actionsmodel.cpp:82
+msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
+msgstr "साधारणपाठसन्देशस्य पूर्ववर्ती (╯°□°)╯︵ ┻━┻"
+
+#: src/chatbar/actionsmodel.cpp:91
+msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
+msgstr "साधारणपाठसन्देशस्य ┬──┬ ノ( ゜-゜ノ) इत्यस्य पूर्ववर्ती भवति"
+
+#: src/chatbar/actionsmodel.cpp:108
+msgid "Sends the given message colored as a rainbow"
+msgstr "दत्तं सन्देशं इन्द्रधनुषरूपेण वर्णितं प्रेषयति"
+
+#: src/chatbar/actionsmodel.cpp:125
+msgid "Sends the given emote colored as a rainbow"
+msgstr "दत्तं इमोट् इन्द्रधनुष इव वर्णितं प्रेषयति"
+
+#: src/chatbar/actionsmodel.cpp:139
+msgid "Sends the given message as plain text"
+msgstr "दत्तं सन्देशं साधारणपाठरूपेण प्रेषयति"
+
+#: src/chatbar/actionsmodel.cpp:152
+msgid "Sends the given message as a spoiler"
+msgstr "दत्तं सन्देशं विध्वंसकरूपेण प्रेषयति"
+
+#: src/chatbar/actionsmodel.cpp:161
+msgid "Sends the given emote"
+msgstr "दत्तं इमोट् प्रेषयति"
+
+#: src/chatbar/actionsmodel.cpp:170
+msgid "Sends the given message as a notice"
+msgstr "दत्तं सन्देशं सूचनारूपेण प्रेषयति"
+
+#: src/chatbar/actionsmodel.cpp:177 src/chatbar/actionsmodel.cpp:310
+#: src/chatbar/actionsmodel.cpp:331 src/chatbar/actionsmodel.cpp:371
+#: src/chatbar/actionsmodel.cpp:403 src/chatbar/actionsmodel.cpp:431
+#, kde-format
+msgctxt "'<text>' does not look like a matrix id."
+msgid "'%1' does not look like a matrix id."
+msgstr "'%1' matrix id इव न दृश्यते ।"
+
+#: src/chatbar/actionsmodel.cpp:183
+#, kde-format
+msgctxt "<user> is already invited to this room."
+msgid "%1 is already invited to this room."
+msgstr "%1 अस्मिन् कक्षे पूर्वमेव आमन्त्रितः अस्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:187
+#, kde-format
+msgctxt "<user> is banned from this room."
+msgid "%1 is banned from this room."
+msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितम् अस्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:191
+#, kde-format
+msgid "You are already in this room."
+msgstr "त्वं पूर्वमेव अस्मिन् कक्षे असि।"
+
+#: src/chatbar/actionsmodel.cpp:195
+#, kde-format
+msgctxt "<user> is already in this room."
+msgid "%1 is already in this room."
+msgstr "%1 अस्मिन् कक्षे पूर्वमेव अस्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:199
+#, kde-format
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
+msgstr "%1 अस्मिन् कक्षे आमन्त्रितः आसीत् ।"
+
+#: src/chatbar/actionsmodel.cpp:203 src/chatbar/actionsmodel.cpp:323
+#: src/chatbar/actionsmodel.cpp:343 src/chatbar/actionsmodel.cpp:421
+msgid "<user id>"
+msgstr "<उपयोक्ता आईडी>"
+
+#: src/chatbar/actionsmodel.cpp:204
+msgid "Invites the user to this room"
+msgstr "उपयोक्तारम् अस्मिन् कक्षे आमन्त्रयति"
+
+#: src/chatbar/actionsmodel.cpp:215 src/chatbar/actionsmodel.cpp:255
+#, kde-format
+msgctxt "Joining room <roomname>."
+msgid "Joining room %1."
+msgstr "संयोगकक्षः %1."
+
+#: src/chatbar/actionsmodel.cpp:220 src/chatbar/actionsmodel.cpp:260
+msgid "<room alias or id>"
+msgstr "<कक्ष उपनाम वा id>"
+
+#: src/chatbar/actionsmodel.cpp:221 src/chatbar/actionsmodel.cpp:261
+msgid "Joins the given room"
+msgstr "दत्तकक्षे सम्मिलितः भवति"
+
+#: src/chatbar/actionsmodel.cpp:233
+#, kde-format
+msgctxt "Knocking room <roomname>."
+msgid "Knocking room %1."
+msgstr "ठोकने कक्ष %1."
+
+#: src/chatbar/actionsmodel.cpp:244
+msgid "<room alias or id> [<reason>]"
+msgstr "<कक्ष उपनाम वा id> [<कारण>] ।"
+
+#: src/chatbar/actionsmodel.cpp:245
+msgid "Requests to join the given room"
+msgstr "दत्तकक्षे सम्मिलितुं अनुरोधं करोति"
+
+#: src/chatbar/actionsmodel.cpp:252
+#, kde-format
+msgctxt "You are already in room <roomname>."
+msgid "You are already in room %1."
+msgstr "भवान् पूर्वमेव %1 कक्षे अस्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:267 src/chatbar/actionsmodel.cpp:274
+msgid "[<room alias or id>]"
+msgstr "[<कक्ष उपनाम वा id>] ।"
+
+#: src/chatbar/actionsmodel.cpp:268 src/chatbar/actionsmodel.cpp:275
+msgid "Leaves the given room or this room, if there is none given"
+msgstr "दत्तं कक्षं वा एतत् कक्षं वा त्यजति, यदि दत्तं नास्ति"
+
+#: src/chatbar/actionsmodel.cpp:288 src/chatbar/actionsmodel.cpp:295
+#: src/chatbar/actionsmodel.cpp:302
+msgid "<display name>"
+msgstr "<प्रदर्शननाम>"
+
+#: src/chatbar/actionsmodel.cpp:289
+msgid "Changes your global display name"
+msgstr "भवतः वैश्विकप्रदर्शननाम परिवर्तयति"
+
+#: src/chatbar/actionsmodel.cpp:296 src/chatbar/actionsmodel.cpp:303
+msgid "Changes your display name in this room"
+msgstr "अस्मिन् कक्षे भवतः प्रदर्शननाम परिवर्तयति"
+
+#: src/chatbar/actionsmodel.cpp:314
+#, kde-format
+msgctxt "<username> is already ignored."
+msgid "%1 is already ignored."
+msgstr "%1 पूर्वमेव उपेक्षितम् अस्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:318
+#, kde-format
+msgctxt "<username> is now ignored"
+msgid "%1 is now ignored."
+msgstr "%1 इदानीं उपेक्षितम् अस्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:324
+msgid "Ignores the given user"
+msgstr "दत्तं उपयोक्तारं उपेक्षते"
+
+#: src/chatbar/actionsmodel.cpp:335
+#, kde-format
+msgctxt "<username> is not ignored."
+msgid "%1 is not ignored."
+msgstr "%1 न उपेक्षितम् ।"
+
+#: src/chatbar/actionsmodel.cpp:339
+#, kde-format
+msgctxt "<username> is no longer ignored."
+msgid "%1 is no longer ignored."
+msgstr "%1 न पुनः उपेक्षितम् ।"
+
+#: src/chatbar/actionsmodel.cpp:344
+msgid "Unignores the given user"
+msgstr "दत्तस्य उपयोक्तुः अवहेलनां करोति"
+
+#: src/chatbar/actionsmodel.cpp:362
+msgid "<reaction text>"
+msgstr "<प्रतिक्रिया पाठ>"
+
+#: src/chatbar/actionsmodel.cpp:363
+msgid "React to the message with the given text"
+msgstr "दत्तपाठेन सन्देशे प्रतिक्रियां कुर्वन्तु"
+
+#: src/chatbar/actionsmodel.cpp:377
+#, kde-format
+msgctxt "<user> is already banned from this room."
+msgid "%1 is already banned from this room."
+msgstr "%1 अस्मात् कक्ष्याम् पूर्वमेव प्रतिबन्धितम् अस्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:381
+#, kde-format
+msgid "You are not allowed to ban users from this room."
+msgstr "अस्मिन् कक्षे उपयोक्तृन् प्रतिबन्धयितुं भवद्भिः अनुमतिः नास्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:387
+#, kde-format
+msgctxt "You are not allowed to ban <username> from this room."
+msgid "You are not allowed to ban %1 from this room."
+msgstr "अस्मात् कक्ष्यायाः %1 प्रतिबन्धं कर्तुं भवतः अनुमतिः नास्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:391
+#, kde-format
+msgctxt "<username> was banned from this room."
+msgid "%1 was banned from this room."
+msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितः आसीत् ।"
+
+#: src/chatbar/actionsmodel.cpp:395 src/chatbar/actionsmodel.cpp:457
+msgid "<user id> [<reason>]"
+msgstr "<उपयोगकर्ता आईडी> [<कारण>]"
+
+#: src/chatbar/actionsmodel.cpp:396
+msgid "Bans the given user"
+msgstr "दत्तं उपयोक्तारं प्रतिबन्धयति"
+
+#: src/chatbar/actionsmodel.cpp:407
+#, kde-format
+msgid "You are not allowed to unban users from this room."
+msgstr "अस्मात् कक्ष्यायाः उपयोक्तृभ्यः निषेधं कर्तुं भवद्भिः अनुमतिः नास्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:412
+#, kde-format
+msgctxt "<user> is not banned from this room."
+msgid "%1 is not banned from this room."
+msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितः नास्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:416
+#, kde-format
+msgctxt "<username> was unbanned from this room."
+msgid "%1 was unbanned from this room."
+msgstr "%1 अस्मात् कक्षात् अप्रतिबन्धितः आसीत् ।"
+
+#: src/chatbar/actionsmodel.cpp:422
+msgid "Removes the ban of the given user"
+msgstr "दत्तस्य उपयोक्तुः प्रतिबन्धं निष्कासयति"
+
+#: src/chatbar/actionsmodel.cpp:435
+#, kde-format
+msgid "You cannot kick yourself from the room."
+msgstr "भवन्तः कक्षात् आत्मानं पादं पातुं न शक्नुवन्ति।"
+
+#: src/chatbar/actionsmodel.cpp:439
+#, kde-format
+msgctxt "<username> is not in this room"
+msgid "%1 is not in this room."
+msgstr "%1 अस्मिन् कक्षे नास्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:443
+#, kde-format
+msgid "You are not allowed to kick users from this room."
+msgstr "अस्मात् कक्ष्यायाः उपयोक्तृन् पादं पातुं भवद्भिः अनुमतिः नास्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:449
+#, kde-format
+msgctxt "You are not allowed to kick <username> from this room"
+msgid "You are not allowed to kick %1 from this room."
+msgstr "अस्मात् कक्ष्यायाः %1 पादं पातुं भवतः अनुमतिः नास्ति ।"
+
+#: src/chatbar/actionsmodel.cpp:453
+#, kde-format
+msgctxt "<username> was kicked from this room."
+msgid "%1 was kicked from this room."
+msgstr "%1 अस्मात् कक्ष्याः पादप्रहारः अभवत् ।"
+
+#: src/chatbar/actionsmodel.cpp:458
+msgid "Removes the user from the room"
+msgstr "उपयोक्तारं कक्षात् निष्कासयति"
+
 #: src/chatbar/ChatBar.qml:112
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
@@ -3410,320 +3705,6 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "गन्तव्य"
 
-#: src/libneochat/models/actionsmodel.cpp:32
-#, kde-format
-msgid "Leaving this room."
-msgstr "एतत् कक्षं त्यक्त्वा।"
-
-#: src/libneochat/models/actionsmodel.cpp:41
-#, kde-format
-msgctxt "Leaving room <roomname>."
-msgid "Leaving room %1."
-msgstr "कक्षं त्यक्त्वा %1."
-
-#: src/libneochat/models/actionsmodel.cpp:44
-#, kde-format
-msgctxt "Room <roomname> not found"
-msgid "Room %1 not found."
-msgstr "कक्षः %1 न प्राप्तः।"
-
-#: src/libneochat/models/actionsmodel.cpp:52
-#: src/libneochat/models/actionsmodel.cpp:287
-#, kde-format
-msgid "No new nickname provided, no changes will happen."
-msgstr "न नूतनं उपनाम प्रदत्तं, परिवर्तनं न भविष्यति।"
-
-#: src/libneochat/models/actionsmodel.cpp:66
-#: src/libneochat/models/actionsmodel.cpp:75
-#: src/libneochat/models/actionsmodel.cpp:84
-#: src/libneochat/models/actionsmodel.cpp:93
-#: src/libneochat/models/actionsmodel.cpp:111
-#: src/libneochat/models/actionsmodel.cpp:129
-#: src/libneochat/models/actionsmodel.cpp:143
-#: src/libneochat/models/actionsmodel.cpp:157
-#: src/libneochat/models/actionsmodel.cpp:166
-#: src/libneochat/models/actionsmodel.cpp:175
-msgid "<message>"
-msgstr "<सन्देशः>"
-
-#: src/libneochat/models/actionsmodel.cpp:67
-msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "साधारणपाठसन्देशस्य ̄\\_(ツ)_/ ̄ इत्यस्य पूर्ववर्तनं करोति"
-
-#: src/libneochat/models/actionsmodel.cpp:76
-msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "साधारणपाठसन्देशस्य पूर्ववर्ती ( ͡° ͜ʖ ͡°) भवति"
-
-#: src/libneochat/models/actionsmodel.cpp:85
-msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr "साधारणपाठसन्देशस्य पूर्ववर्ती (╯°□°)╯︵ ┻━┻"
-
-#: src/libneochat/models/actionsmodel.cpp:94
-msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "साधारणपाठसन्देशस्य ┬──┬ ノ( ゜-゜ノ) इत्यस्य पूर्ववर्ती भवति"
-
-#: src/libneochat/models/actionsmodel.cpp:112
-msgid "Sends the given message colored as a rainbow"
-msgstr "दत्तं सन्देशं इन्द्रधनुषरूपेण वर्णितं प्रेषयति"
-
-#: src/libneochat/models/actionsmodel.cpp:130
-msgid "Sends the given emote colored as a rainbow"
-msgstr "दत्तं इमोट् इन्द्रधनुष इव वर्णितं प्रेषयति"
-
-#: src/libneochat/models/actionsmodel.cpp:144
-msgid "Sends the given message as plain text"
-msgstr "दत्तं सन्देशं साधारणपाठरूपेण प्रेषयति"
-
-#: src/libneochat/models/actionsmodel.cpp:158
-msgid "Sends the given message as a spoiler"
-msgstr "दत्तं सन्देशं विध्वंसकरूपेण प्रेषयति"
-
-#: src/libneochat/models/actionsmodel.cpp:167
-msgid "Sends the given emote"
-msgstr "दत्तं इमोट् प्रेषयति"
-
-#: src/libneochat/models/actionsmodel.cpp:176
-msgid "Sends the given message as a notice"
-msgstr "दत्तं सन्देशं सूचनारूपेण प्रेषयति"
-
-#: src/libneochat/models/actionsmodel.cpp:183
-#: src/libneochat/models/actionsmodel.cpp:316
-#: src/libneochat/models/actionsmodel.cpp:337
-#: src/libneochat/models/actionsmodel.cpp:378
-#: src/libneochat/models/actionsmodel.cpp:410
-#: src/libneochat/models/actionsmodel.cpp:438
-#, kde-format
-msgctxt "'<text>' does not look like a matrix id."
-msgid "'%1' does not look like a matrix id."
-msgstr "'%1' matrix id इव न दृश्यते ।"
-
-#: src/libneochat/models/actionsmodel.cpp:189
-#, kde-format
-msgctxt "<user> is already invited to this room."
-msgid "%1 is already invited to this room."
-msgstr "%1 अस्मिन् कक्षे पूर्वमेव आमन्त्रितः अस्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:193
-#, kde-format
-msgctxt "<user> is banned from this room."
-msgid "%1 is banned from this room."
-msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितम् अस्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:197
-#, kde-format
-msgid "You are already in this room."
-msgstr "त्वं पूर्वमेव अस्मिन् कक्षे असि।"
-
-#: src/libneochat/models/actionsmodel.cpp:201
-#, kde-format
-msgctxt "<user> is already in this room."
-msgid "%1 is already in this room."
-msgstr "%1 अस्मिन् कक्षे पूर्वमेव अस्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:205
-#, kde-format
-msgctxt "<username> was invited into this room."
-msgid "%1 was invited into this room."
-msgstr "%1 अस्मिन् कक्षे आमन्त्रितः आसीत् ।"
-
-#: src/libneochat/models/actionsmodel.cpp:209
-#: src/libneochat/models/actionsmodel.cpp:329
-#: src/libneochat/models/actionsmodel.cpp:349
-#: src/libneochat/models/actionsmodel.cpp:428
-msgid "<user id>"
-msgstr "<उपयोक्ता आईडी>"
-
-#: src/libneochat/models/actionsmodel.cpp:210
-msgid "Invites the user to this room"
-msgstr "उपयोक्तारम् अस्मिन् कक्षे आमन्त्रयति"
-
-#: src/libneochat/models/actionsmodel.cpp:221
-#: src/libneochat/models/actionsmodel.cpp:261
-#, kde-format
-msgctxt "Joining room <roomname>."
-msgid "Joining room %1."
-msgstr "संयोगकक्षः %1."
-
-#: src/libneochat/models/actionsmodel.cpp:226
-#: src/libneochat/models/actionsmodel.cpp:266
-msgid "<room alias or id>"
-msgstr "<कक्ष उपनाम वा id>"
-
-#: src/libneochat/models/actionsmodel.cpp:227
-#: src/libneochat/models/actionsmodel.cpp:267
-msgid "Joins the given room"
-msgstr "दत्तकक्षे सम्मिलितः भवति"
-
-#: src/libneochat/models/actionsmodel.cpp:239
-#, kde-format
-msgctxt "Knocking room <roomname>."
-msgid "Knocking room %1."
-msgstr "ठोकने कक्ष %1."
-
-#: src/libneochat/models/actionsmodel.cpp:250
-msgid "<room alias or id> [<reason>]"
-msgstr "<कक्ष उपनाम वा id> [<कारण>] ।"
-
-#: src/libneochat/models/actionsmodel.cpp:251
-msgid "Requests to join the given room"
-msgstr "दत्तकक्षे सम्मिलितुं अनुरोधं करोति"
-
-#: src/libneochat/models/actionsmodel.cpp:258
-#, kde-format
-msgctxt "You are already in room <roomname>."
-msgid "You are already in room %1."
-msgstr "भवान् पूर्वमेव %1 कक्षे अस्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:273
-#: src/libneochat/models/actionsmodel.cpp:280
-msgid "[<room alias or id>]"
-msgstr "[<कक्ष उपनाम वा id>] ।"
-
-#: src/libneochat/models/actionsmodel.cpp:274
-#: src/libneochat/models/actionsmodel.cpp:281
-msgid "Leaves the given room or this room, if there is none given"
-msgstr "दत्तं कक्षं वा एतत् कक्षं वा त्यजति, यदि दत्तं नास्ति"
-
-#: src/libneochat/models/actionsmodel.cpp:294
-#: src/libneochat/models/actionsmodel.cpp:301
-#: src/libneochat/models/actionsmodel.cpp:308
-msgid "<display name>"
-msgstr "<प्रदर्शननाम>"
-
-#: src/libneochat/models/actionsmodel.cpp:295
-msgid "Changes your global display name"
-msgstr "भवतः वैश्विकप्रदर्शननाम परिवर्तयति"
-
-#: src/libneochat/models/actionsmodel.cpp:302
-#: src/libneochat/models/actionsmodel.cpp:309
-msgid "Changes your display name in this room"
-msgstr "अस्मिन् कक्षे भवतः प्रदर्शननाम परिवर्तयति"
-
-#: src/libneochat/models/actionsmodel.cpp:320
-#, kde-format
-msgctxt "<username> is already ignored."
-msgid "%1 is already ignored."
-msgstr "%1 पूर्वमेव उपेक्षितम् अस्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:324
-#, kde-format
-msgctxt "<username> is now ignored"
-msgid "%1 is now ignored."
-msgstr "%1 इदानीं उपेक्षितम् अस्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:330
-msgid "Ignores the given user"
-msgstr "दत्तं उपयोक्तारं उपेक्षते"
-
-#: src/libneochat/models/actionsmodel.cpp:341
-#, kde-format
-msgctxt "<username> is not ignored."
-msgid "%1 is not ignored."
-msgstr "%1 न उपेक्षितम् ।"
-
-#: src/libneochat/models/actionsmodel.cpp:345
-#, kde-format
-msgctxt "<username> is no longer ignored."
-msgid "%1 is no longer ignored."
-msgstr "%1 न पुनः उपेक्षितम् ।"
-
-#: src/libneochat/models/actionsmodel.cpp:350
-msgid "Unignores the given user"
-msgstr "दत्तस्य उपयोक्तुः अवहेलनां करोति"
-
-#: src/libneochat/models/actionsmodel.cpp:369
-msgid "<reaction text>"
-msgstr "<प्रतिक्रिया पाठ>"
-
-#: src/libneochat/models/actionsmodel.cpp:370
-msgid "React to the message with the given text"
-msgstr "दत्तपाठेन सन्देशे प्रतिक्रियां कुर्वन्तु"
-
-#: src/libneochat/models/actionsmodel.cpp:384
-#, kde-format
-msgctxt "<user> is already banned from this room."
-msgid "%1 is already banned from this room."
-msgstr "%1 अस्मात् कक्ष्याम् पूर्वमेव प्रतिबन्धितम् अस्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:388
-#, kde-format
-msgid "You are not allowed to ban users from this room."
-msgstr "अस्मिन् कक्षे उपयोक्तृन् प्रतिबन्धयितुं भवद्भिः अनुमतिः नास्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:394
-#, kde-format
-msgctxt "You are not allowed to ban <username> from this room."
-msgid "You are not allowed to ban %1 from this room."
-msgstr "अस्मात् कक्ष्यायाः %1 प्रतिबन्धं कर्तुं भवतः अनुमतिः नास्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:398
-#, kde-format
-msgctxt "<username> was banned from this room."
-msgid "%1 was banned from this room."
-msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितः आसीत् ।"
-
-#: src/libneochat/models/actionsmodel.cpp:402
-#: src/libneochat/models/actionsmodel.cpp:464
-msgid "<user id> [<reason>]"
-msgstr "<उपयोगकर्ता आईडी> [<कारण>]"
-
-#: src/libneochat/models/actionsmodel.cpp:403
-msgid "Bans the given user"
-msgstr "दत्तं उपयोक्तारं प्रतिबन्धयति"
-
-#: src/libneochat/models/actionsmodel.cpp:414
-#, kde-format
-msgid "You are not allowed to unban users from this room."
-msgstr "अस्मात् कक्ष्यायाः उपयोक्तृभ्यः निषेधं कर्तुं भवद्भिः अनुमतिः नास्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:419
-#, kde-format
-msgctxt "<user> is not banned from this room."
-msgid "%1 is not banned from this room."
-msgstr "%1 अस्मिन् कक्षे प्रतिबन्धितः नास्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:423
-#, kde-format
-msgctxt "<username> was unbanned from this room."
-msgid "%1 was unbanned from this room."
-msgstr "%1 अस्मात् कक्षात् अप्रतिबन्धितः आसीत् ।"
-
-#: src/libneochat/models/actionsmodel.cpp:429
-msgid "Removes the ban of the given user"
-msgstr "दत्तस्य उपयोक्तुः प्रतिबन्धं निष्कासयति"
-
-#: src/libneochat/models/actionsmodel.cpp:442
-#, kde-format
-msgid "You cannot kick yourself from the room."
-msgstr "भवन्तः कक्षात् आत्मानं पादं पातुं न शक्नुवन्ति।"
-
-#: src/libneochat/models/actionsmodel.cpp:446
-#, kde-format
-msgctxt "<username> is not in this room"
-msgid "%1 is not in this room."
-msgstr "%1 अस्मिन् कक्षे नास्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:450
-#, kde-format
-msgid "You are not allowed to kick users from this room."
-msgstr "अस्मात् कक्ष्यायाः उपयोक्तृन् पादं पातुं भवद्भिः अनुमतिः नास्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:456
-#, kde-format
-msgctxt "You are not allowed to kick <username> from this room"
-msgid "You are not allowed to kick %1 from this room."
-msgstr "अस्मात् कक्ष्यायाः %1 पादं पातुं भवतः अनुमतिः नास्ति ।"
-
-#: src/libneochat/models/actionsmodel.cpp:460
-#, kde-format
-msgctxt "<username> was kicked from this room."
-msgid "%1 was kicked from this room."
-msgstr "%1 अस्मात् कक्ष्याः पादप्रहारः अभवत् ।"
-
-#: src/libneochat/models/actionsmodel.cpp:465
-msgid "Removes the user from the room"
-msgstr "उपयोक्तारं कक्षात् निष्कासयति"
-
 #: src/libneochat/models/emojimodel.cpp:158
 #: src/libneochat/models/emojimodel.cpp:216
 #, kde-format
@@ -3838,7 +3819,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "New रचयतु"
 
-#: src/libneochat/neochatconnection.cpp:77
+#: src/libneochat/neochatconnection.cpp:75
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3847,34 +3828,34 @@ msgstr ""
 "सञ्चिका अतीव विशाला डाउनलोड् कर्तुं।<br /> समर्थनार्थं स्वस्य matrix server प्रशासकेन सह "
 "सम्पर्कं कुर्वन्तु ।"
 
-#: src/libneochat/neochatconnection.cpp:357
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोऽपि परिचयसर्वरः विन्यस्तः नास्ति"
 
-#: src/libneochat/neochatconnection.cpp:397
+#: src/libneochat/neochatconnection.cpp:394
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्षनिर्माणं विफलम्: %1"
 
-#: src/libneochat/neochatconnection.cpp:427
+#: src/libneochat/neochatconnection.cpp:424
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
 
-#: src/libneochat/neochatroom.cpp:1301
+#: src/libneochat/neochatroom.cpp:1303
 #, kde-format
 msgid "Report sent successfully."
 msgstr "प्रतिवेदनं सफलतया प्रेषितम्।"
 
-#: src/libneochat/neochatroom.cpp:1595 src/libneochat/neochatroom.cpp:1615
+#: src/libneochat/neochatroom.cpp:1603 src/libneochat/neochatroom.cpp:1623
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "अक्षांश: %1, लोन: %2"
 
-#: src/libneochat/neochatroom.cpp:1599
+#: src/libneochat/neochatroom.cpp:1607
 #, fuzzy, kde-format
 #| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 #| msgid "Lat: %1, Lon: %2"
@@ -4101,7 +4082,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "अन्वेषण"
 
-#: src/libneochat/texthandler.cpp:649
+#: src/libneochat/texthandler.cpp:634
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
