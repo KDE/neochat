@@ -293,7 +293,8 @@ TextHandler::Type TextHandler::nextTokenType(const QString &string, int currentP
     } else if (currentTokenType == Type::Tag && getTagType(currentToken) == u"code"_s && !isCloseTag(currentToken)
                && string.indexOf(u"</code>"_s, currentPos) != currentPos) {
         return Type::TextCode;
-    } else if (string[currentPos] == u'<' && string[currentPos + 1] != u' ') {
+    }
+    if (string[currentPos] == u'<' && currentPos + 1 < string.length() && string[currentPos + 1] != u' ') {
         return Type::Tag;
     } else {
         return Type::Text;
