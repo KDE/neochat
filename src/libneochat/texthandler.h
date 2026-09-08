@@ -9,6 +9,8 @@
 #include "block.h"
 #include "neochatroom.h"
 
+class TextHandlerTest;
+
 namespace Quotient
 {
 class RoomMessageEvent;
@@ -132,6 +134,7 @@ public:
     [[nodiscard]] static QString unescapeBackslashes(QString text);
 
 private:
+    friend class TextHandlerTest;
     QString m_data;
 
     QString m_dataBuffer;

@@ -308,7 +308,7 @@ TextHandler::Type TextHandler::getNextTokenType(const QString &string, qsizetype
         && string.indexOf(u"</code>"_s, currentPos) != currentPos) {
         return Type::TextCode;
     }
-    if (string[currentPos] == u'<' && string[currentPos + 1] != u' ') {
+    if (string[currentPos] == u'<' && currentPos + 1 < string.length() && string[currentPos + 1] != u' ') {
         return Type::Tag;
     }
     return Type::Text;

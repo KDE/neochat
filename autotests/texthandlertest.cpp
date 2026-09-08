@@ -90,6 +90,8 @@ private Q_SLOTS:
 
     void stripMatrixLinks_data();
     void stripMatrixLinks();
+
+    void getNextTokenTypeCrash();
 };
 
 void TextHandlerTest::initTestCase()
@@ -851,6 +853,11 @@ void TextHandlerTest::receiveEmote()
     QRegularExpression regex(QStringLiteral(
         R"(<!--StartFragment-->\* <a href="[^"]+"><span style="[^"]*color:#[0-9A-Fa-f]{6};?[^"]*">.*?</span></a> does something<!--EndFragment-->)"));
     QVERIFY(html.contains(regex));
+}
+
+void TextHandlerTest::getNextTokenTypeCrash()
+{
+    QCOMPARE(TextHandler::getNextTokenType(QStringLiteral("<"), 0, {}, TextHandler::Type::Text), TextHandler::Type::Text);
 }
 
 QTEST_MAIN(TextHandlerTest)
