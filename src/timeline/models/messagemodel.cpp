@@ -539,7 +539,7 @@ QString MessageModel::getFormattedSelectedMessages() const
             formattedContent +=
                 EventHandler::authorDisplayName(eventRoom, event)
                 % u" — "_s
-                % EventHandler::dateTime(eventRoom, event).shortDateTime();
+                % EventHandler::dateTime(eventRoom, event).value_or({}).shortDateTime();
             if (const auto roomMessageEvent = eventCast<const RoomMessageEvent>(event)) {
                 if (const auto rel = roomMessageEvent->relatesTo(); rel && rel->type == EventRelation::ReplyType) {
                     if (const auto parentEvent = eventRoom->findEvent(rel->eventId)) {
@@ -564,7 +564,7 @@ QString MessageModel::getFormattedSelectedMessages() const
                         u"\t"_s
                         % EventHandler::authorDisplayName(eventRoom, threadReply)
                         % u" — "_s
-                        % EventHandler::dateTime(eventRoom, threadReply).shortDateTime()
+                        % EventHandler::dateTime(eventRoom, threadReply).value_or({}).shortDateTime()
                         % u"\n\t"_s
                         % EventHandler::plainBody(eventRoom, threadReply)
                         % u"\n\n"_s;

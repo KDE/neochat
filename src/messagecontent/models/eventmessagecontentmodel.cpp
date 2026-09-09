@@ -165,7 +165,11 @@ NeoChatDateTime EventMessageContentModel::dateTime() const
     if (!event) {
         return QDateTime::currentDateTime();
     };
-    return EventHandler::dateTime(m_room, event, m_currentState == Pending);
+    auto result = EventHandler::dateTime(m_room, event, m_currentState == Pending);
+    if (result.has_value()) {
+        return *result;
+    }
+    return {};
 }
 
 QString EventMessageContentModel::authorId() const
