@@ -17,6 +17,18 @@
 
 using namespace Quotient;
 
+NeoChatError::NeoChatError(Type type, const QString &errorText)
+    : m_type(type)
+    , m_errorText(errorText)
+{
+    qWarning() << "Error:" << type << errorText;
+}
+
+bool NeoChatError::operator==(const NeoChatError &rhs) const
+{
+    return m_type == rhs.m_type && m_errorText == rhs.m_errorText;
+}
+
 bool QmlUtils::isEmoji(const QString &text)
 {
     return Utils::isEmoji(text);

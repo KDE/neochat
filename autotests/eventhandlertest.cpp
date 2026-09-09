@@ -112,19 +112,12 @@ void EventHandlerTest::time()
 
 void EventHandlerTest::nullTime()
 {
-#ifdef Q_OS_WINDOWS
-    QTest::ignoreMessage(QtWarningMsg, "EventHandler::dateTime called with room set to nullptr.");
-#else
-    QTest::ignoreMessage(QtWarningMsg, "dateTime called with room set to nullptr.");
-#endif
-    QCOMPARE(EventHandler::dateTime(nullptr, nullptr), QDateTime());
-
-#ifdef Q_OS_WINDOWS
-    QTest::ignoreMessage(QtWarningMsg, "EventHandler::dateTime called with event set to nullptr.");
-#else
-    QTest::ignoreMessage(QtWarningMsg, "dateTime called with event set to nullptr.");
-#endif
-    QCOMPARE(EventHandler::dateTime(room, nullptr), QDateTime());
+    auto result = EventHandler::dateTime(nullptr, nullptr);
+    QVERIFY(!result.has_value());
+    QCOMPARE(result.error(), NeoChatError(NeoChatError::Type::NoRoom, {}));
+    result = EventHandler::dateTime(room, nullptr);
+    QVERIFY(!result.has_value());
+    QCOMPARE(result.error(), NeoChatError(NeoChatError::Type::NoEvent, {}));
 }
 
 void EventHandlerTest::highlighted()

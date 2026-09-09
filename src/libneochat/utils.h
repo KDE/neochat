@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <expected>
+
 #include <QColor>
 #include <QGuiApplication>
 #include <QPalette>
@@ -15,6 +17,29 @@
 #include "enums/powerlevel.h"
 
 using namespace Qt::StringLiterals;
+
+class NeoChatError
+{
+    Q_GADGET
+public:
+    enum Type {
+        NoRoom,
+        NoConnection,
+        NoEvent,
+        NotFound,
+        Other,
+    };
+    NeoChatError(Type type, const QString &errorText);
+
+    bool operator==(const NeoChatError &rhs) const;
+
+private:
+    Type m_type;
+    QString m_errorText;
+};
+
+template<typename T>
+using NeoChatExpected = std::expected<T, NeoChatError>;
 
 class QmlUtils : public QObject
 {

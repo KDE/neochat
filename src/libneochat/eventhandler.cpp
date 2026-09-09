@@ -98,22 +98,20 @@ QString EventHandler::singleLineAuthorDisplayName(const NeoChatRoom *room, const
     return displayName;
 }
 
-NeoChatDateTime EventHandler::dateTime(const NeoChatRoom *room, const RoomEvent *event, bool isPending)
+NeoChatExpected<NeoChatDateTime> EventHandler::dateTime(const NeoChatRoom *room, const RoomEvent *event, bool isPending)
 {
     if (!room) {
-        qCWarning(EventHandling) << __FUNCTION__ << "called with room set to nullptr.";
-        return {};
+        return std::unexpected(NeoChatError(NeoChatError::NoRoom, {}));
     }
     if (!event) {
-        qCWarning(EventHandling) << __FUNCTION__ << "called with event set to nullptr.";
-        return {};
+        return std::unexpected(NeoChatError(NeoChatError::NoEvent, {}));
     }
 
     if (isPending) {
         if (const auto pendingIt = room->findPendingEvent(event->transactionId()); pendingIt != room->pendingEvents().end()) {
             return pendingIt->lastUpdated();
         }
-        return {};
+        return std::unexpected(NeoChatError(NeoChatError::NotFound, u"Pending event not found"_s));
     }
     return event->originTimestamp();
 }

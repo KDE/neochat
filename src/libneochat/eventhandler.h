@@ -10,6 +10,7 @@
 #include "block.h"
 #include "fileinfo.h"
 #include "neochatdatetime.h"
+#include "utils.h"
 
 namespace Quotient
 {
@@ -68,7 +69,7 @@ public:
     /**
      * @brief Return a QDateTime object for the event timestamp.
      */
-    static NeoChatDateTime dateTime(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
+    static NeoChatExpected<NeoChatDateTime> dateTime(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
 
     /**
      * @brief Whether the event should be highlighted in the timeline.
