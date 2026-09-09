@@ -77,7 +77,8 @@ void PostMessageHelper::setThreadRootId(const QString &threadRootId)
 
 void PostMessageHelper::postMessage()
 {
-    if (!m_room || !m_cache) {
+    if (!m_room || !m_cache || m_cache->empty()) {
+        qWarning() << Q_FUNC_INFO << "called with" << m_room << m_cache;
         return;
     }
 
