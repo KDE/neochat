@@ -114,10 +114,10 @@ void EventHandlerTest::nullTime()
 {
     auto result = EventHandler::dateTime(nullptr, nullptr);
     QVERIFY(!result.has_value());
-    QCOMPARE(result.error(), NeoChatError(NeoChatError::Type::NoRoom, {}));
+    QCOMPARE(result.error(), NeoChatError(NeoChatError::Type::NoRoom, {}, {}));
     result = EventHandler::dateTime(room, nullptr);
     QVERIFY(!result.has_value());
-    QCOMPARE(result.error(), NeoChatError(NeoChatError::Type::NoEvent, {}));
+    QCOMPARE(result.error(), NeoChatError(NeoChatError::Type::NoEvent, {}, {}));
 }
 
 void EventHandlerTest::highlighted()

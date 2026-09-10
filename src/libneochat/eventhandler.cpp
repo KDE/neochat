@@ -101,17 +101,17 @@ QString EventHandler::singleLineAuthorDisplayName(const NeoChatRoom *room, const
 NeoChatExpected<NeoChatDateTime> EventHandler::dateTime(const NeoChatRoom *room, const RoomEvent *event, bool isPending)
 {
     if (!room) {
-        return std::unexpected(NeoChatError(NeoChatError::NoRoom, {}));
+        return std::unexpected(MAKE_ERROR(NeoChatError::NoRoom, {}));
     }
     if (!event) {
-        return std::unexpected(NeoChatError(NeoChatError::NoEvent, {}));
+        return std::unexpected(MAKE_ERROR(NeoChatError::NoEvent, {}));
     }
 
     if (isPending) {
         if (const auto pendingIt = room->findPendingEvent(event->transactionId()); pendingIt != room->pendingEvents().end()) {
             return pendingIt->lastUpdated();
         }
-        return std::unexpected(NeoChatError(NeoChatError::NotFound, u"Pending event not found"_s));
+        return std::unexpected(MAKE_ERROR(NeoChatError::NotFound, u"Pending event not found"_s));
     }
     return event->originTimestamp();
 }
