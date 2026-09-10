@@ -16,6 +16,8 @@
 
 #include "enums/powerlevel.h"
 
+#define MAKE_ERROR(type, text) NeoChatError(type, text, QString::fromLatin1(Q_FUNC_INFO))
+
 using namespace Qt::StringLiterals;
 
 class NeoChatError
@@ -29,13 +31,14 @@ public:
         NotFound,
         Other,
     };
-    NeoChatError(Type type, const QString &errorText);
+    NeoChatError(Type type, const QString &errorText, const QString &location);
 
     bool operator==(const NeoChatError &rhs) const;
 
 private:
     Type m_type;
     QString m_errorText;
+    QString m_location;
 };
 
 template<typename T>
