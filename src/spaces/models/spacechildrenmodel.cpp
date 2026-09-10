@@ -313,18 +313,15 @@ QModelIndex SpaceChildrenModel::parent(const QModelIndex &index) const
 
 int SpaceChildrenModel::rowCount(const QModelIndex &parent) const
 {
-    SpaceTreeItem *parentItem;
     if (parent.column() > 0) {
         return 0;
     }
 
-    if (!parent.isValid()) {
-        parentItem = m_rootItem;
-    } else {
-        parentItem = static_cast<SpaceTreeItem *>(parent.internalPointer());
+    if (const auto parentItem = parent.isValid() ? static_cast<SpaceTreeItem *>(parent.internalPointer()) : m_rootItem) {
+        return parentItem->childCount();
     }
 
-    return parentItem->childCount();
+    return 0;
 }
 
 int SpaceChildrenModel::columnCount(const QModelIndex &parent) const

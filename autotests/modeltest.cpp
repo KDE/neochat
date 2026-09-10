@@ -244,6 +244,10 @@ void ModelTest::testLineModel()
 void ModelTest::testSpaceChildrenModel()
 {
     auto model = new SpaceChildrenModel(this);
+    model->setSpace(room);
+    QCOMPARE(model->rowCount(), 0);
+    model->setSpace(nullptr);
+    QCOMPARE(model->rowCount(), 0);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setSpace(room);
