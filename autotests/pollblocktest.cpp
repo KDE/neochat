@@ -27,6 +27,7 @@ private:
 private Q_SLOTS:
     void initTestCase();
     void nullObject();
+    void pollEndWithoutRelation();
     void poll();
 };
 
@@ -68,6 +69,31 @@ void PollBlockTest::poll()
     QCOMPARE(pollBlock.checkMemberSelectedId(connection->userId(), answer0.id), false);
     QCOMPARE(pollBlock.checkMemberSelectedId(connection->userId(), answer1.id), false);
     QCOMPARE(pollBlock.kind(), PollKind::Undisclosed);
+}
+
+void PollBlockTest::pollEndWithoutRelation()
+{
+    auto startEvent = eventCast<const PollStartEvent>(room->messageEvents().at(0).get());
+    auto pollBlock = PollBlock(Poll, startEvent->id(), room, this);
+
+    std::vector<std::unique_ptr<Quotient::RoomEvent>> events;
+    events.push_back(loadEvent<RoomEvent>(QJsonObject{
+        {u"content"_s, QJsonObject()},
+        {u"event_id"_s, u"$12383:example.org"_s},
+        {u"origin_server_ts"_s, 14324654},
+        {u"room_id"_s, u"!jEsUZKDJdhlrceRyVU:example.org"_s},
+        {u"sender"_s, u"@example:example.org"_s},
+        {u"type"_s, u"org.matrix.msc3381.poll.end"_s},
+    }));
+    events.push_back(loadEvent<RoomEvent>(QJsonObject{
+        {u"content"_s, QJsonObject()},
+        {u"event_id"_s, u"$12383123156:example.org"_s},
+        {u"origin_server_ts"_s, 14324654},
+        {u"room_id"_s, u"!jEsUZKDJdhlrceRyVU:example.org"_s},
+        {u"sender"_s, u"@example:example.org"_s},
+        {u"type"_s, u"org.matrix.msc3381.poll.response"_s},
+    }));
+    Q_EMIT room->aboutToAddNewMessages(RoomEventsRange(events.begin(), events.end()));
 }
 
 QTEST_GUILESS_MAIN(PollBlockTest)
