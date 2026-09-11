@@ -15,6 +15,9 @@ using namespace Quotient;
 
 void CustomEmojiModel::setConnection(NeoChatConnection *connection)
 {
+    if (m_connection) {
+        disconnect(m_connection, nullptr, this, nullptr);
+    }
     if (connection == m_connection) {
         return;
     }
@@ -30,6 +33,10 @@ NeoChatConnection *CustomEmojiModel::connection() const
 
 void CustomEmojiModel::fetchEmojis()
 {
+    beginResetModel();
+    m_emojis.clear();
+    endResetModel();
+
     if (!m_connection) {
         return;
     }
@@ -49,8 +56,6 @@ void CustomEmojiModel::fetchEmojis()
     }
 
     beginResetModel();
-    m_emojis.clear();
-
     for (const auto &emoji : emojis.keys()) {
         const auto &data = emojis[emoji];
         if (data["usage"_L1].toArray().contains("emoticon"_L1)) {
@@ -59,7 +64,6 @@ void CustomEmojiModel::fetchEmojis()
             m_emojis << CustomEmoji{e, data.toObject().value("url"_L1).toString(), QRegularExpression(e)};
         }
     }
-
     endResetModel();
 }
 
@@ -67,8 +71,14 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
 {
     using namespace Quotient;
 
-    m_connection->uploadFile(location.toLocalFile()).onResult(this, [name, location, this](const auto &job) {
-        const auto &data = m_connection->accountData("im.ponies.user_emotes"_L1);
+    // We need to pass the connection into the lambda, since it could change while the file is uploading
+    // We also need to do it as a QPointer since it might be deleted.
+    QPointer<NeoChatConnection> connection = m_connection;
+    m_connection->uploadFile(location.toLocalFile()).onResult(this, [name, location, connection](const auto &job) {
+        if (!connection) {
+            return;
+        }
+        const auto &data = connection->accountData("im.ponies.user_emotes"_L1);
         auto json = data != nullptr ? data->contentJson() : QJsonObject();
         auto emojiData = json["images"_L1].toObject();
 
@@ -90,7 +100,7 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
         });
 
         json["images"_L1] = emojiData;
-        m_connection->setAccountData("im.ponies.user_emotes"_L1, json);
+        connection->setAccountData("im.ponies.user_emotes"_L1, json);
     });
 }
 
