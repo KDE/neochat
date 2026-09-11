@@ -437,6 +437,7 @@ void ModelTest::testLocationsModel()
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
+    model->setRoom(nullptr);
 }
 
 void ModelTest::testServerListModel()

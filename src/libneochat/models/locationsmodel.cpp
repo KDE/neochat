@@ -13,6 +13,9 @@ LocationsModel::LocationsModel(QObject *parent)
     qGuiApp->installEventFilter(this);
 
     connect(this, &LocationsModel::roomChanged, this, [this]() {
+        if (!m_room) {
+            return;
+        }
         for (const auto &event : m_room->messageEvents()) {
             if (const auto &roomMessageEvent = event.viewAs<RoomMessageEvent>()) {
                 if (roomMessageEvent->msgtype() == RoomMessageEvent::MsgType::Location) {
