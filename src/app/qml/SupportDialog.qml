@@ -20,7 +20,7 @@ Kirigami.Dialog {
     readonly property SupportController supportController: SupportController {
         connection: root.connection
     }
-    readonly property bool hasSupportResources: supportController.supportPage.length > 0 && supportController.contacts.length > 0
+    readonly property bool hasSupportResources: supportController.supportPage.length > 0 || supportController.contacts.length > 0
 
     title: i18nc("@title Support information", "Support")
     width: Math.min(Kirigami.Units.gridUnit * 30, QQC2.ApplicationWindow.window.width)
