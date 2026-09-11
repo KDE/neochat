@@ -78,12 +78,14 @@ void ImagePacksModel::setRoom(NeoChatRoom *room)
 
 void ImagePacksModel::reloadImages()
 {
+    beginResetModel();
+    m_events.clear();
+    endResetModel();
+
     if (!m_room) {
         return;
     }
     beginResetModel();
-    m_events.clear();
-
     // Load emoticons from the account data
     if (m_room->connection()->hasAccountData("im.ponies.user_emotes"_L1)) {
         auto json = m_room->connection()->accountData("im.ponies.user_emotes"_L1)->contentJson();
