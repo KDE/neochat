@@ -61,7 +61,7 @@ void CustomEmojiModel::fetchEmojis()
         if (data["usage"_L1].toArray().contains("emoticon"_L1)) {
             const auto e = emoji.startsWith(":"_L1) ? emoji : (u":"_s + emoji + u":"_s);
 
-            m_emojis << CustomEmoji{e, data.toObject().value("url"_L1).toString(), QRegularExpression(e)};
+            m_emojis << CustomEmoji{e.toHtmlEscaped(), data.toObject().value("url"_L1).toString()};
         }
     }
     endResetModel();
@@ -203,7 +203,7 @@ QHash<int, QByteArray> CustomEmojiModel::roleNames() const
 QString CustomEmojiModel::preprocessText(QString text)
 {
     for (const auto &emoji : std::as_const(m_emojis)) {
-        text.replace(emoji.regexp,
+        text.replace(emoji.name,
                      uR"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)"_s.arg(emoji.url, emoji.name));
     }
     return text;
