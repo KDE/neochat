@@ -60,16 +60,23 @@ void ServerListModel::checkServer(const QString &url)
     const auto stateConfig = KSharedConfig::openStateConfig();
     const KConfigGroup serverGroup = stateConfig->group(u"Servers"_s);
 
-    if (!serverGroup.hasKey(url)) {
-        if (Quotient::isJobPending(m_checkServerJob)) {
-            m_checkServerJob->abandon();
-        }
-
-        m_checkServerJob = m_connection->callApi<Quotient::QueryPublicRoomsJob>(url, 1);
-        connect(m_checkServerJob, &Quotient::BaseJob::success, this, [this, url] {
-            Q_EMIT serverCheckComplete(url, true);
-        });
+    if (serverGroup.hasKey(url)) {
+        return;
     }
+
+    if (m_checkServerJob) {
+        m_checkServerJob->abandon();
+    }
+
+    if (!m_connection) {
+        qWarning() << Q_FUNC_INFO << "called without connection";
+        return;
+    }
+
+    m_checkServerJob = m_connection->callApi<Quotient::QueryPublicRoomsJob>(url, 1);
+    connect(m_checkServerJob, &Quotient::BaseJob::success, this, [this, url] {
+        Q_EMIT serverCheckComplete(url, true);
+    });
 }
 
 void ServerListModel::addServer(const QString &url)
