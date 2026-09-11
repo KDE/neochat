@@ -25,9 +25,11 @@ ItineraryModel::ItineraryModel(const QUrl &source, QObject *parent)
 
 QVariant ItineraryModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()) {
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid | CheckIndexOption::ParentIsInvalid)) {
+        qWarning() << Q_FUNC_INFO << "called with invalid index" << index << role;
         return {};
     }
+
     auto row = index.row();
     auto data = m_data[row];
     if (role == NameRole) {
