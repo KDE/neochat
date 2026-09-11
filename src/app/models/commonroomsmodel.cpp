@@ -46,6 +46,11 @@ void CommonRoomsModel::setUserId(const QString &userId)
 
 QVariant CommonRoomsModel::data(const QModelIndex &index, int roleName) const
 {
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid | CheckIndexOption::ParentIsInvalid)) {
+        qWarning() << Q_FUNC_INFO << "called with invalid index" << index << roleName;
+        return {};
+    }
+
     auto roomId = m_commonRooms[index.row()];
     const auto room = connection()->room(roomId);
     if (!room) {
