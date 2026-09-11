@@ -292,6 +292,11 @@ bool ChatBarMessageContentModel::hasAttachment() const
     return hasComponentType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video, Blocks::Location});
 }
 
+bool ChatBarMessageContentModel::hasReply() const
+{
+    return hasComponentType(Blocks::Reply);
+}
+
 void ChatBarMessageContentModel::addAttachment(const QUrl &path)
 {
     QString plainText;
@@ -304,7 +309,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     clearModel(ClearModelOptions::KeepReply);
     initializeModel(plainText);
 
-    auto it = insertComponent(m_components.front()->type() == Blocks::Reply ? 1 : 0, blockForFile(path));
+    auto it = insertComponent(hasReply() ? 1 : 0, blockForFile(path));
     const auto componentIndex = index(std::distance(m_components.begin(), it));
     Q_EMIT dataChanged(componentIndex, componentIndex, {BlockRole});
     Q_EMIT hasAttachmentChanged();
@@ -312,7 +317,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
 
 void ChatBarMessageContentModel::addReply(MessageContentModel *blockModel, bool updateCache)
 {
-    if (!hasComponentType(Blocks::Reply)) {
+    if (!hasReply()) {
         insertComponent(0, new Blocks::ReplyBlock(blockModel, this));
     } else {
         if (const auto replyBlock = dynamic_cast<Blocks::ReplyBlock *>(m_components[0])) {
@@ -335,8 +340,7 @@ void ChatBarMessageContentModel::addLocation(qreal latitude, qreal longitude, co
         authorString = author()->displayName();
     }
     initializeModel(u"%1's %2"_s.arg(authorString, assetString));
-    auto it =
-        insertComponent(m_components.front()->type() == Blocks::Reply ? 1 : 0, new Blocks::LocationBlock(Blocks::Location, latitude, longitude, asset, this));
+    auto it = insertComponent(hasReply() ? 1 : 0, new Blocks::LocationBlock(Blocks::Location, latitude, longitude, asset, this));
     const auto componentIndex = index(std::distance(m_components.begin(), it));
     Q_EMIT dataChanged(componentIndex, componentIndex, {BlockRole});
     Q_EMIT hasAttachmentChanged();
@@ -344,7 +348,7 @@ void ChatBarMessageContentModel::addLocation(qreal latitude, qreal longitude, co
 
 void ChatBarMessageContentModel::removeReply()
 {
-    if (m_components[0]->type() == Blocks::Reply) {
+    if (hasReply()) {
         removeComponent(0);
     }
     if (m_replyModel) {
@@ -523,12 +527,12 @@ void ChatBarMessageContentModel::removeComponent(int row, bool removeLast)
 
 void ChatBarMessageContentModel::removeAttachment()
 {
-    if (!hasComponentType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video, Blocks::Location})) {
+    if (!hasAttachment()) {
         return;
     }
 
     auto mediaRow = 0;
-    if (Blocks::isFileType(m_components[1]->type())) {
+    if (hasReply() && Blocks::isFileType(m_components[1]->type())) {
         mediaRow = 1;
     }
     const auto attachmentType = m_components[mediaRow]->type();
@@ -548,7 +552,7 @@ void ChatBarMessageContentModel::setImageOptimization(const bool optimize) const
     }
 
     auto mediaRow = 0;
-    if (Blocks::isFileType(m_components[1]->type())) {
+    if (hasReply() && Blocks::isFileType(m_components[1]->type())) {
         mediaRow = 1;
     }
 
@@ -718,7 +722,7 @@ bool ChatBarMessageContentModel::hasAnyContent() const
 
 void ChatBarMessageContentModel::clearModel(ClearModelOptions options)
 {
-    const auto hadAttachment = hasComponentType({Blocks::File, Blocks::Audio, Blocks::Image, Blocks::Video});
+    const auto hadAttachment = hasAttachment();
 
     beginResetModel();
     for (const auto &component : m_components) {

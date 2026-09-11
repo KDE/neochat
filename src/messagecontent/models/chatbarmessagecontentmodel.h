@@ -121,6 +121,7 @@ public:
     Q_INVOKABLE void resetModel();
 
     bool hasAnyContent() const;
+    bool hasReply() const;
 
     static bool richTextActive;
 
