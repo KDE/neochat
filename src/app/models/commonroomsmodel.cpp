@@ -87,6 +87,10 @@ bool CommonRoomsModel::loading() const
 
 void CommonRoomsModel::reload()
 {
+    beginResetModel();
+    m_commonRooms.clear();
+    endResetModel();
+
     if (!m_connection || m_userId.isEmpty()) {
         return;
     }
