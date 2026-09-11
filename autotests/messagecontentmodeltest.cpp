@@ -31,6 +31,7 @@ private Q_SLOTS:
 
     void missingEvent();
     void hideMedia();
+    void threadModelNonRoomMessageEvent();
 };
 
 void MessageContentModelTest::initTestCase()
@@ -78,6 +79,14 @@ void MessageContentModelTest::hideMedia()
 
     model1.showMedia();
     QCOMPARE(model1.data(model1.index(0), MessageContentModel::MediaHiddenRole), false);
+}
+
+void MessageContentModelTest::threadModelNonRoomMessageEvent()
+{
+    // Only checks that this does not crash
+    auto room = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s);
+    room->postJson(u"org.kde.foo"_s, {});
+    ThreadModel(u"$153456789:example.org"_s, room);
 }
 
 QTEST_MAIN(MessageContentModelTest)

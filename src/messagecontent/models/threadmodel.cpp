@@ -61,7 +61,7 @@ void ThreadModel::checkPending()
 {
     for (const auto &event : std::ranges::reverse_view(m_room->pendingEvents())) {
         if (const auto &roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.event());
-            roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() == m_threadRootId) {
+            roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() == m_threadRootId) {
             addNewEvent(roomMessageEvent);
         }
     }
