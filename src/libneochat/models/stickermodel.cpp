@@ -19,6 +19,11 @@ int StickerModel::rowCount(const QModelIndex &index) const
 }
 QVariant StickerModel::data(const QModelIndex &index, int role) const
 {
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid | CheckIndexOption::ParentIsInvalid)) {
+        qWarning() << Q_FUNC_INFO << "called with invalid index" << index << role;
+        return {};
+    }
+
     const auto &row = index.row();
     const auto &image = m_images[row];
     if (role == UrlRole) {
@@ -112,6 +117,11 @@ void StickerModel::postSticker(int index)
 {
     if (!m_room) {
         qWarning() << "No room";
+    }
+
+    if (index >= m_images.count()) {
+        qWarning() << Q_FUNC_INFO << "index out of bounds" << index << m_images.count();
+        return;
     }
 
     const auto &image = m_images[index];
