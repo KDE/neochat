@@ -46,6 +46,10 @@ void PinnedMessageModel::setLoading(bool loading)
 
 void PinnedMessageModel::fill()
 {
+    beginResetModel();
+    m_pinnedEvents.clear();
+    endResetModel();
+
     if (!m_room) {
         return;
     }
