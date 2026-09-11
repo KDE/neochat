@@ -59,11 +59,8 @@ private Q_SLOTS:
     void nullReplyAuthor();
     void location();
     void nullLocation();
-<<<<<<< HEAD
     void imageAsFile();
-=======
     void testInvalidGeoUri();
->>>>>>> f4814fae3 (Fix crash in invalid geo uris)
 };
 
 void EventHandlerTest::initTestCase()
