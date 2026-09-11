@@ -99,7 +99,12 @@ void CustomEmojiModel::removeEmoji(const QString &name)
     using namespace Quotient;
 
     const auto &data = m_connection->accountData("im.ponies.user_emotes"_L1);
-    Q_ASSERT(data);
+
+    if (!data) {
+        qWarning() << Q_FUNC_INFO << "data not found";
+        return;
+    }
+
     auto json = data->contentJson();
     const QString _name = name.mid(1).chopped(1);
     auto emojiData = json["images"_L1].toObject();
