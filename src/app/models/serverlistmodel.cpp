@@ -101,18 +101,27 @@ void ServerListModel::addServer(const QString &url)
     stateConfig->sync();
 }
 
-void ServerListModel::removeServerAtIndex(int row)
+void ServerListModel::removeServer(const QString &url)
 {
     const auto stateConfig = KSharedConfig::openStateConfig();
     KConfigGroup serverGroup = stateConfig->group(u"Servers"_s);
 
-    serverGroup.deleteEntry(data(index(row), UrlRole).toString());
+    serverGroup.deleteEntry(url);
+    stateConfig->sync();
+
+    const auto server = std::ranges::find_if(m_servers, [url](const auto &server) {
+        return server.url == url;
+    });
+
+    if (server == m_servers.end()) {
+        return;
+    }
+
+    const auto row = std::distance(m_servers.begin(), server);
 
     beginRemoveRows(QModelIndex(), row, row);
     m_servers.removeAt(row);
     endRemoveRows();
-
-    stateConfig->sync();
 }
 
 QHash<int, QByteArray> ServerListModel::roleNames() const

@@ -98,7 +98,7 @@ public:
      *
      * The server will also be removed from local cache.
      */
-    Q_INVOKABLE void removeServerAtIndex(int index);
+    Q_INVOKABLE void removeServer(const QString &url);
 
     [[nodiscard]] NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);

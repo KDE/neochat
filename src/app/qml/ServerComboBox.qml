@@ -86,7 +86,7 @@ QQC2.ComboBox {
                         addServerSheet.open();
                         serverItem.clicked();
                     } else {
-                        serverListModel.removeServerAtIndex(serverItem.index);
+                        serverListModel.removeServer(serverItem.url);
                     }
                 }
             }
