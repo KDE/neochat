@@ -143,6 +143,10 @@ void ServerListModel::setConnection(NeoChatConnection *connection)
 
 void ServerListModel::initialize()
 {
+    beginResetModel();
+    m_servers.clear();
+    endResetModel();
+
     if (m_connection == nullptr) {
         return;
     }
