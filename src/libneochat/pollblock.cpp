@@ -68,9 +68,13 @@ void PollBlock::handleEvent(Quotient::RoomEvent *event)
         return;
     }
 
-    if (event->is<PollEndEvent>()) {
-        const auto endEvent = eventCast<const PollEndEvent>(event);
-        if (endEvent->relatesTo()->eventId != m_pollStartId) {
+    if (const auto endEvent = eventCast<const PollEndEvent>(event)) {
+        const auto relatesTo = endEvent->relatesTo();
+        if (!relatesTo) {
+            qWarning() << "Malformed poll end event" << endEvent->fullJson();
+            return;
+        }
+        if (relatesTo->eventId != m_pollStartId) {
             return;
         }
 
@@ -85,8 +89,8 @@ void PollBlock::handleEvent(Quotient::RoomEvent *event)
             Q_EMIT hasEndedChanged();
         }
     }
-    if (event->is<PollResponseEvent>()) {
-        handleResponse(eventCast<const PollResponseEvent>(event));
+    if (const auto responseEvent = eventCast<const PollResponseEvent>(event)) {
+        handleResponse(responseEvent);
     }
     if (event->contentPart<QJsonObject>("m.relates_to"_L1).contains("rel_type"_L1)
         && event->contentPart<QJsonObject>("m.relates_to"_L1)["rel_type"_L1].toString() == "m.replace"_L1
@@ -102,7 +106,14 @@ void PollBlock::handleResponse(const Quotient::PollResponseEvent *event)
         return;
     }
 
-    if (event->relatesTo()->eventId != m_pollStartId) {
+    const auto relatesTo = event->relatesTo();
+
+    if (!relatesTo) {
+        qWarning() << "Malformed poll response" << event->fullJson();
+        return;
+    }
+
+    if (relatesTo->eventId != m_pollStartId) {
         return;
     }
 
