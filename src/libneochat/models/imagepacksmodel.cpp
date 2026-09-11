@@ -46,8 +46,6 @@ QHash<int, QByteArray> ImagePacksModel::roleNames() const
     return {
         {DisplayNameRole, "name"},
         {AvatarUrlRole, "emoji"},
-        {AttributionRole, "attribution"},
-        {IdRole, "id"},
     };
 }
 

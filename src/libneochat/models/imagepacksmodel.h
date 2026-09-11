@@ -46,8 +46,6 @@ public:
     enum Roles {
         DisplayNameRole = Qt::DisplayRole, /**< The display name of the image pack. */
         AvatarUrlRole, /**< The source mxc URL for the pack avatar. */
-        AttributionRole, /**< The attribution for the pack author(s). */
-        IdRole, /**< The ID of the image pack. */
     };
     Q_ENUM(Roles)
 
