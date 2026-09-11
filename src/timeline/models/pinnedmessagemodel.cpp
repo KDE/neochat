@@ -54,10 +54,12 @@ void PinnedMessageModel::fill()
         return;
     }
 
-    const auto events = m_room->pinnedEventIds();
+    setLoading(true);
 
+    const auto events = m_room->pinnedEventIds();
     for (const auto &event : std::as_const(events)) {
         m_room->connection()->callApi<GetOneRoomEventJob>(m_room->id(), event).then(this, [this](const auto &job) {
+            setLoading(false);
             auto ev = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
             if (!ev) {
                 return;
