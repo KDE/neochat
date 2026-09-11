@@ -147,6 +147,7 @@ void ImagePacksModel::setShowStickers(bool showStickers)
 {
     m_showStickers = showStickers;
     Q_EMIT showStickersChanged();
+    reloadImages();
 }
 
 bool ImagePacksModel::showEmoticons() const
@@ -158,6 +159,7 @@ void ImagePacksModel::setShowEmoticons(bool showEmoticons)
 {
     m_showEmoticons = showEmoticons;
     Q_EMIT showEmoticonsChanged();
+    reloadImages();
 }
 QList<Quotient::ImagePackEventContent::ImagePackImage> ImagePacksModel::images(int index)
 {
