@@ -18,6 +18,11 @@ QHash<int, QByteArray> StateModel::roleNames() const
 }
 QVariant StateModel::data(const QModelIndex &index, int role) const
 {
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid | CheckIndexOption::ParentIsInvalid)) {
+        qWarning() << Q_FUNC_INFO << "called with invalid index" << index << role;
+        return {};
+    }
+
     auto row = index.row();
     switch (role) {
     case TypeRole:
@@ -25,6 +30,10 @@ QVariant StateModel::data(const QModelIndex &index, int role) const
     case EventCountRole:
         return m_stateEvents.values()[row].count();
     case StateKeyRole:
+        if (m_stateEvents.values()[row].isEmpty()) {
+            qWarning() << Q_FUNC_INFO << "no state keys for" << m_stateEvents.keys()[row];
+            return {};
+        }
         return m_stateEvents.values()[row][0];
     }
     return {};
@@ -61,23 +70,35 @@ void StateModel::loadState()
 
 void StateModel::setRoom(NeoChatRoom *room)
 {
+    if (m_room) {
+        disconnect(m_room, nullptr, this, nullptr);
+    }
+
     m_room = room;
     Q_EMIT roomChanged();
     loadState();
 
-    connect(room, &NeoChatRoom::changed, this, [this] {
-        loadState();
-    });
+    connect(room, &NeoChatRoom::changed, this, &StateModel::loadState);
 }
 
 QByteArray StateModel::stateEventJson(const QString &type, const QString &stateKey)
 {
-    return QJsonDocument(m_room->currentState().get(type, stateKey)->fullJson()).toJson();
+    const auto state = m_room->currentState().get(type, stateKey);
+    if (!state) {
+        qWarning() << Q_FUNC_INFO << "state" << type << stateKey << "not found";
+        return {};
+    }
+    return QJsonDocument(state->fullJson()).toJson();
 }
 
 QByteArray StateModel::stateEventContentJson(const QString &type, const QString &stateKey)
 {
-    return QJsonDocument(m_room->currentState().get(type, stateKey)->contentJson()).toJson();
+    const auto state = m_room->currentState().get(type, stateKey);
+    if (!state) {
+        qWarning() << Q_FUNC_INFO << "state" << type << stateKey << "not found";
+        return {};
+    }
+    return QJsonDocument(state->contentJson()).toJson();
 }
 
 #include "moc_statemodel.cpp"
