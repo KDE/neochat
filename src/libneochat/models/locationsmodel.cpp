@@ -94,6 +94,11 @@ QHash<int, QByteArray> LocationsModel::roleNames() const
 
 QVariant LocationsModel::data(const QModelIndex &index, int roleName) const
 {
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid | CheckIndexOption::ParentIsInvalid)) {
+        qWarning() << Q_FUNC_INFO << "called with invalid index" << index << roleName;
+        return {};
+    }
+
     auto row = index.row();
     if (roleName == LongitudeRole) {
         return m_locations[row].longitude;
