@@ -16,7 +16,11 @@ QHash<int, QByteArray> StateKeysModel::roleNames() const
 }
 QVariant StateKeysModel::data(const QModelIndex &index, int role) const
 {
-    Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid));
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid | CheckIndexOption::ParentIsInvalid)) {
+        qWarning() << Q_FUNC_INFO << "called with invalid index" << index << role;
+        return {};
+    }
+
     const auto row = index.row();
     switch (role) {
     case StateKeyRole:
