@@ -126,7 +126,12 @@ void ImagePacksModel::reloadImages()
     // Load emoticons from the current room
     auto events = m_room->currentState().eventsOfType("im.ponies.room_emotes"_L1);
     for (const auto &event : events) {
-        auto packContent = eventCast<const ImagePackEvent>(event)->content();
+        const auto imagePackEvent = eventCast<const ImagePackEvent>(event);
+        if (!imagePackEvent) {
+            qWarning() << "Not an image pack event" << imagePackEvent->fullJson();
+            continue;
+        }
+        const auto packContent = imagePackEvent->content();
         if (packContent.pack.has_value()) {
             if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon"_L1) && showEmoticons())
                 || (packContent.pack->usage->contains("sticker"_L1) && showStickers())) {
