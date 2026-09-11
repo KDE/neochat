@@ -122,6 +122,11 @@ void AccountEmoticonModel::deleteEmoticon(int index)
         return;
     }
 
+    if (index >= m_images->images.count()) {
+        qWarning() << "Trying to remove emoticon at nonexistent index" << index << m_images->images.count();
+        return;
+    }
+
     QJsonObject data;
     m_images->images.removeAt(index);
     m_images->fillJson(&data);
@@ -131,6 +136,11 @@ void AccountEmoticonModel::deleteEmoticon(int index)
 void AccountEmoticonModel::setEmoticonBody(int index, const QString &text)
 {
     if (m_connection == nullptr) {
+        return;
+    }
+
+    if (index >= m_images->images.count()) {
+        qWarning() << "Trying to set body of emoticon at nonexistent index" << index << m_images->images.count();
         return;
     }
 
@@ -146,6 +156,11 @@ void AccountEmoticonModel::setEmoticonShortcode(int index, const QString &shortc
         return;
     }
 
+    if (index >= m_images->images.count()) {
+        qWarning() << "Trying to set shortcode of emoticon at nonexistent index" << index << m_images->images.count();
+        return;
+    }
+
     m_images->images[index].shortcode = shortcode;
     QJsonObject data;
     m_images->fillJson(&data);
@@ -157,6 +172,12 @@ void AccountEmoticonModel::setEmoticonImage(int index, const QUrl &source)
     if (m_connection == nullptr) {
         return;
     }
+
+    if (index >= m_images->images.count()) {
+        qWarning() << "Trying to set image of emoticon at nonexistent index" << index << m_images->images.count();
+        return;
+    }
+
     doSetEmoticonImage(index, source);
 }
 
