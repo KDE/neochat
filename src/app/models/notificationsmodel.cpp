@@ -77,16 +77,16 @@ NeoChatConnection *NotificationsModel::connection() const
 void NotificationsModel::setConnection(NeoChatConnection *connection)
 {
     if (m_connection) {
-        // disconnect things...
+        disconnect(m_connection, nullptr, this, nullptr);
     }
+
+    m_connection = connection;
+    Q_EMIT connectionChanged();
+
     if (!connection) {
         return;
     }
-    m_connection = connection;
-    Q_EMIT connectionChanged();
-    connect(connection, &Connection::syncDone, this, [this]() {
-        loadData();
-    });
+    connect(connection, &Connection::syncDone, this, &NotificationsModel::loadData);
     loadData();
 }
 
