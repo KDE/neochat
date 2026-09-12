@@ -67,6 +67,19 @@ void MessageContentModelTest::hideMedia()
     auto room = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s);
     auto model1 = EventMessageContentModel(room, u"$153456789:example.org"_s);
 
+    QList<QString> hiddenEvents;
+
+    model1.setSetMediaHidden([&hiddenEvents](const QString &eventId, bool hidden) {
+        if (hidden) {
+            hiddenEvents.push_back(eventId);
+        } else {
+            hiddenEvents.removeAll(eventId);
+        }
+    });
+    model1.setMediaShouldBeHidden([&hiddenEvents](const QString &eventId) {
+        return hiddenEvents.contains(eventId);
+    });
+
     room->syncNewEvents(u"test-min-sync.json"_s);
     QCOMPARE(model1.rowCount(), 2);
 
