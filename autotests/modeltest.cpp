@@ -518,6 +518,8 @@ void ModelTest::testLiveLocationsModel()
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
+    model->setRoom(nullptr);
+    qApp->processEvents();
 }
 
 void ModelTest::testRoomSortParameterModel()

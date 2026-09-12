@@ -19,33 +19,26 @@ bool operator<(const LiveLocationData &lhs, const LiveLocationData &rhs)
     return lhs.eventId < rhs.eventId;
 }
 
+void LiveLocationsModel::load()
+{
+    beginResetModel();
+    m_locations.clear();
+    endResetModel();
+    boundingBoxChanged();
+
+    if (!m_room) {
+        return;
+    }
+
+    for (const auto &event : m_room->messageEvents()) {
+        addEvent(event.get());
+    }
+}
+
 LiveLocationsModel::LiveLocationsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(
-        this,
-        &LiveLocationsModel::roomChanged,
-        this,
-        [this]() {
-            beginResetModel();
-            m_locations.clear();
-            endResetModel();
-            for (const auto &event : m_room->messageEvents()) {
-                addEvent(event.get());
-            }
-            connect(m_room, &NeoChatRoom::aboutToAddHistoricalMessages, this, [this](const auto &events) {
-                for (const auto &event : events) {
-                    addEvent(event.get());
-                }
-            });
-            connect(m_room, &NeoChatRoom::aboutToAddNewMessages, this, [this](const auto &events) {
-                for (const auto &event : events) {
-                    addEvent(event.get());
-                }
-            });
-        },
-        Qt::QueuedConnection); // deferred so we are sure the eventId filter is set
-
+    connect(this, &LiveLocationsModel::eventIdChanged, this, &LiveLocationsModel::load);
     connect(this, &LiveLocationsModel::dataChanged, this, &LiveLocationsModel::boundingBoxChanged);
     connect(this, &LiveLocationsModel::rowsInserted, this, &LiveLocationsModel::boundingBoxChanged);
 }
@@ -61,6 +54,11 @@ int LiveLocationsModel::rowCount(const QModelIndex &parent) const
 QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
 {
     if (!checkIndex(index)) {
+        return {};
+    }
+
+    if (!m_room) {
+        qWarning() << Q_FUNC_INFO << "called without room";
         return {};
     }
 
@@ -197,7 +195,22 @@ void LiveLocationsModel::setRoom(NeoChatRoom *room)
     }
 
     m_room = room;
+
+    if (m_room) {
+        connect(m_room, &NeoChatRoom::aboutToAddHistoricalMessages, this, [this](const auto &events) {
+            for (const auto &event : events) {
+                addEvent(event.get());
+            }
+        });
+        connect(m_room, &NeoChatRoom::aboutToAddNewMessages, this, [this](const auto &events) {
+            for (const auto &event : events) {
+                addEvent(event.get());
+            }
+        });
+    }
+
     Q_EMIT roomChanged();
+    load();
 }
 
 #include "moc_livelocationsmodel.cpp"

@@ -28,9 +28,9 @@ class LiveLocationsModel : public QAbstractListModel
     QML_ELEMENT
 
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
-    /** The event id of the beacon start event, ie. the one all suspequent
+    /** The event id of the beacon start event, ie. the one all subsequent
      *  events use to relate to the same beacon.
-     *  If this is set only this specific beacon will be coverd by this model,
+     *  If this is set only this specific beacon will be covered by this model,
      *  if it is empty, all beacons in the room will be covered.
      */
     Q_PROPERTY(QString eventId MEMBER m_eventId NOTIFY eventIdChanged)
@@ -42,8 +42,8 @@ public:
     explicit LiveLocationsModel(QObject *parent = nullptr);
 
     enum Roles {
-        LatitudeRole, /**< Latest latitude of a live locaction beacon. */
-        LongitudeRole, /**< Latest longitude of a live locaction beacon. */
+        LatitudeRole, /**< Latest latitude of a live location beacon. */
+        LongitudeRole, /**< Latest longitude of a live location beacon. */
         AssetRole, /**< Type of location event, e.g. self pin of the user location. */
         AuthorRole, /**< The author of the event. */
         IsLiveRole, /**< Boolean that indicates whether a live location beacon is still live. */
@@ -68,6 +68,7 @@ Q_SIGNALS:
 private:
     void addEvent(const Quotient::RoomEvent *event);
     void updateLocationData(LiveLocationData &&data);
+    void load();
 
     QPointer<NeoChatRoom> m_room;
     QString m_eventId;
