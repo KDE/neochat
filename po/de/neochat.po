@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
+"POT-Creation-Date: 2026-09-12 00:44+0000\n"
 "PO-Revision-Date: 2026-05-31 14:02+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -144,65 +144,65 @@ msgstr "Nur für automatische Tests"
 msgid "Share a URL to Matrix"
 msgstr "Eine Adresse auf Matrix teilen"
 
-#: src/app/notificationsmanager.cpp:145 src/app/notificationsmanager.cpp:377
+#: src/app/notificationsmanager.cpp:149 src/app/notificationsmanager.cpp:381
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Verschlüsselte Nachricht"
 
-#: src/app/notificationsmanager.cpp:222
+#: src/app/notificationsmanager.cpp:226
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:228
+#: src/app/notificationsmanager.cpp:232
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "NeoChat in diesem Raum öffnen"
 
-#: src/app/notificationsmanager.cpp:241 src/timeline/QuickActions.qml:74
+#: src/app/notificationsmanager.cpp:245 src/timeline/QuickActions.qml:74
 #, kde-format
 msgid "Reply"
 msgstr "Antworten"
 
-#: src/app/notificationsmanager.cpp:242
+#: src/app/notificationsmanager.cpp:246
 #, kde-format
 msgid "Reply…"
 msgstr "Antworten …"
 
-#: src/app/notificationsmanager.cpp:293
+#: src/app/notificationsmanager.cpp:297
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 hat Sie in einen Raum eingeladen"
 
-#: src/app/notificationsmanager.cpp:297
+#: src/app/notificationsmanager.cpp:301
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Diese Einladung in NeoChat öffnen"
 
-#: src/app/notificationsmanager.cpp:307
+#: src/app/notificationsmanager.cpp:311
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Annehmen"
 
-#: src/app/notificationsmanager.cpp:308
+#: src/app/notificationsmanager.cpp:312
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Ablehnen"
 
-#: src/app/notificationsmanager.cpp:310
+#: src/app/notificationsmanager.cpp:314
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Ablehnen und Benutzer ignorieren"
 
-#: src/app/notificationsmanager.cpp:370
+#: src/app/notificationsmanager.cpp:374
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:381
+#: src/app/notificationsmanager.cpp:385
 #, kde-format
 msgid "Open NeoChat"
 msgstr "NeoChat öffnen"
@@ -2818,7 +2818,7 @@ msgstr "Benutzerdefiniert"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:116
-#: src/settings/models/permissionsmodel.cpp:222
+#: src/settings/models/permissionsmodel.cpp:223
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -3689,7 +3689,7 @@ msgctxt ""
 msgid "%3 at Lat: %1, Lon: %2"
 msgstr "Breite: %1, Länge: %2"
 
-#: src/libneochat/pollblock.cpp:303
+#: src/libneochat/pollblock.cpp:314
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
@@ -4021,87 +4021,87 @@ msgstr "Passwort bestätigen:"
 msgid "The passwords do not match."
 msgstr "Die Passwörter stimmen nicht überein."
 
-#: src/login/registration.cpp:393
+#: src/login/registration.cpp:398
 #, kde-format
 msgctxt "@info"
 msgid "No server."
 msgstr "Kein Server."
 
-#: src/login/registration.cpp:395
+#: src/login/registration.cpp:400
 #, kde-format
 msgctxt "@info"
 msgid "Checking Server availability."
 msgstr "Server-Verfügbarkeit wird geprüft."
 
-#: src/login/registration.cpp:397
+#: src/login/registration.cpp:402
 #, kde-format
 msgctxt "@info"
 msgid "This is not a valid server."
 msgstr "Dies ist kein gültiger Server."
 
-#: src/login/registration.cpp:399
+#: src/login/registration.cpp:404
 #, kde-format
 msgctxt "@info"
 msgid "Registration for this server is disabled."
 msgstr "Die Registrierung für diesem Server ist deaktiviert."
 
-#: src/login/registration.cpp:401
+#: src/login/registration.cpp:406
 #, kde-format
 msgctxt "@info"
 msgid "Registration for this server requires a registration token."
 msgstr ""
 
-#: src/login/registration.cpp:403
+#: src/login/registration.cpp:408
 #, kde-format
 msgctxt "@info"
 msgid "This server cannot prevalidate registration tokens."
 msgstr ""
 
-#: src/login/registration.cpp:405
+#: src/login/registration.cpp:410
 #, fuzzy, kde-format
 #| msgid "This is not a valid server."
 msgctxt "@info"
 msgid "This is not a valid registration token."
 msgstr "Dies ist kein gültiger Server."
 
-#: src/login/registration.cpp:407
+#: src/login/registration.cpp:412
 #, kde-format
 msgctxt "@info"
 msgid "No username."
 msgstr "Kein Benutzername."
 
-#: src/login/registration.cpp:409
+#: src/login/registration.cpp:414
 #, kde-format
 msgctxt "@info"
 msgid "Checking username availability."
 msgstr "Die Verfügbarkeit des Benutzernamens wird geprüft."
 
-#: src/login/registration.cpp:411
+#: src/login/registration.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "This username is not available."
 msgstr "Dieser Benutzername ist nicht verfügbar."
 
-#: src/login/registration.cpp:413
+#: src/login/registration.cpp:418
 #, kde-format
 msgctxt "@info"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: src/login/registration.cpp:415
+#: src/login/registration.cpp:420
 #, kde-format
 msgctxt "@info"
 msgid "Working"
 msgstr "Arbeitend"
 
-#: src/login/registration.cpp:417
+#: src/login/registration.cpp:422
 #, fuzzy, kde-format
 #| msgid "This is not a valid server."
 msgctxt "@info"
 msgid "Checking registration token."
 msgstr "Dies ist kein gültiger Server."
 
-#: src/login/registration.cpp:419
+#: src/login/registration.cpp:424
 #, fuzzy, kde-format
 #| msgid "Complete the authentication steps in your browser"
 msgctxt "@info"
@@ -4368,14 +4368,14 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Vollbildmodus öffnen"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:332
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 #| msgid "Unpin"
 msgid "pin"
 msgstr "Anpinnen aufheben"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:332
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
