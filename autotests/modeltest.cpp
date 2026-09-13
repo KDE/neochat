@@ -305,7 +305,7 @@ void ModelTest::testWebshortcutModel()
 
 void ModelTest::testTimelineMessageModel()
 {
-    auto model = new TimelineMessageModel();
+    auto model = new TimelineMessageModel(this);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
