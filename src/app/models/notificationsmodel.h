@@ -64,5 +64,5 @@ private:
     void loadData();
     QList<Notification> m_notifications;
     QString m_nextToken;
-    QPointer<Quotient::GetNotificationsJob> m_job;
+    QPointer<Quotient::BaseJob> m_job;
 };

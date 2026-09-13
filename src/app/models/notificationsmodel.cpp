@@ -76,6 +76,16 @@ NeoChatConnection *NotificationsModel::connection() const
 
 void NotificationsModel::setConnection(NeoChatConnection *connection)
 {
+    if (connection == m_connection) {
+        return;
+    }
+
+    beginResetModel();
+    m_notifications.clear();
+    endResetModel();
+    m_nextToken.clear();
+    Q_EMIT nextTokenChanged();
+
     if (m_connection) {
         disconnect(m_connection, nullptr, this, nullptr);
     }
@@ -98,12 +108,17 @@ void NotificationsModel::loadData()
     if (m_job || (!m_notifications.empty() && m_nextToken.isEmpty())) {
         return;
     }
-    m_job = m_connection->callApi<GetNotificationsJob>(m_nextToken);
-    Q_EMIT loadingChanged();
-    connect(m_job, &BaseJob::finished, this, [this]() {
-        m_nextToken = m_job->nextToken();
+    const auto connection = m_connection;
+    m_job = connection->callApi<GetNotificationsJob>(m_nextToken).then(this, [this, connection](const auto job) {
+        m_job = nullptr;
+        Q_EMIT loadingChanged();
+
+        if (connection != m_connection) {
+            return;
+        }
+        m_nextToken = job->nextToken();
         Q_EMIT nextTokenChanged();
-        for (const auto &notification : m_job->notifications()) {
+        for (const auto &notification : job->notifications()) {
             if (std::any_of(notification.actions.constBegin(), notification.actions.constEnd(), [](const QVariant &it) {
                     if (it.canConvert<QVariantMap>()) {
                         if (it.toMap()["set_tweak"_L1] == "highlight"_L1) {
@@ -113,12 +128,12 @@ void NotificationsModel::loadData()
                     return false;
                 })) {
                 const auto &authorId = notification.event->fullJson()["sender"_L1].toString();
-                const auto &room = m_connection->room(notification.roomId);
+                const auto &room = connection->room(notification.roomId);
                 if (!room) {
                     continue;
                 }
                 auto u = room->member(authorId).avatarUrl();
-                auto avatar = u.isEmpty() ? QUrl() : connection()->makeMediaUrl(u);
+                auto avatar = u.isEmpty() ? QUrl() : connection->makeMediaUrl(u);
                 const auto &authorAvatar = avatar.isValid() && avatar.scheme() == u"mxc"_s ? avatar : QUrl();
 
                 const auto &roomEvent = eventCast<const RoomEvent>(notification.event.get());
@@ -129,7 +144,7 @@ void NotificationsModel::loadData()
                 beginInsertRows({}, m_notifications.length(), m_notifications.length());
                 m_notifications += Notification{
                     .roomId = notification.roomId,
-                    .text = room->member(authorId).htmlSafeDisplayName() + (roomEvent->is<StateEvent>() ? u" "_s : u": "_s)
+                    .text = room->member(authorId).htmlSafeDisplayName() + (roomEvent->template is<StateEvent>() ? u" "_s : u": "_s)
                         + EventHandler::plainBody(dynamic_cast<NeoChatRoom *>(room), roomEvent, true),
                     .authorName = room->member(authorId).htmlSafeDisplayName(),
                     .authorAvatar = authorAvatar,
@@ -139,9 +154,8 @@ void NotificationsModel::loadData()
                 endInsertRows();
             }
         }
-        m_job = nullptr;
-        Q_EMIT loadingChanged();
     });
+    Q_EMIT loadingChanged();
 }
 
 bool NotificationsModel::canFetchMore(const QModelIndex &parent) const
