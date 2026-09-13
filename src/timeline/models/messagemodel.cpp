@@ -611,25 +611,12 @@ void MessageModel::refreshEventRoles(int row, const QList<int> &roles)
 
 int MessageModel::refreshEventRoles(const QString &id, const QList<int> &roles)
 {
-    // On 64-bit platforms, difference_type for std containers is long long
-    // but Qt uses int throughout its interfaces; hence casting to int below.
-    int row = -1;
-    // First try pendingEvents because it is almost always very short.
-    const auto pendingIt = m_room->findPendingEvent(id);
-    if (pendingIt != m_room->pendingEvents().end()) {
-        row = int(pendingIt - m_room->pendingEvents().begin());
-    } else {
-        const auto timelineIt = m_room->findInTimeline(id);
-        if (timelineIt == m_room->historyEdge()) {
-            return -1;
-        }
-        row = int(timelineIt - m_room->messageEvents().rbegin()) + timelineServerIndex();
-        if (data(index(row, 0), DelegateTypeRole).toInt() == DelegateType::ReadMarker || data(index(row, 0), DelegateTypeRole).toInt() == DelegateType::Other) {
-            row++;
-        }
+    const auto index = indexForEventId(id);
+    if (!index.isValid()) {
+        return -1;
     }
-    refreshEventRoles(row, roles);
-    return row;
+    refreshEventRoles(index.row(), roles);
+    return index.row();
 }
 
 void MessageModel::refreshLastUserEvents(int baseTimelineRow)
