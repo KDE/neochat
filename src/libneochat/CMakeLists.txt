@@ -86,13 +86,6 @@ ecm_qt_declare_logging_category(LibNeoChat
 )
 
 ecm_qt_declare_logging_category(LibNeoChat
-    HEADER "chatbarlogging.h"
-    IDENTIFIER "ChatBar"
-    CATEGORY_NAME "org.kde.neochat.chatbar"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(LibNeoChat
     HEADER "roomlistlogging.h"
     IDENTIFIER "RoomList"
     CATEGORY_NAME "org.kde.neochat.roomlist"

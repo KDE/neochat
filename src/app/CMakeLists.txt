@@ -39,6 +39,8 @@ qt_add_library(neochat STATIC
     supportcontroller.h
     postmessagehelper.cpp
     postmessagehelper.h
+    completionlistadapters.cpp
+    completionlistadapters.h
 )
 
 # TODO: Switch to Quotient's blurhash implementation when that's merged

@@ -1,9 +1,12 @@
 // SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2026 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #pragma once
 
 #include <QSortFilterProxyModel>
+
+#include "chattextitemhelper.h"
 
 /**
  * @class CompletionProxyModel
@@ -24,9 +27,29 @@
 class CompletionProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
+    /**
+     * @brief The QML text Item that completions are being provided for.
+     */
+    Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
+
+    /**
+     * @brief Whether a completion is currently being typed.
+     */
+    Q_PROPERTY(bool isCompleting READ isCompleting NOTIFY isCompletingChanged)
 
 public:
     using QSortFilterProxyModel::QSortFilterProxyModel;
+
+    ChatTextItemHelper *textItem() const;
+    void setTextItem(ChatTextItemHelper *textItem);
+
+    bool isCompleting() const;
+
+    Q_INVOKABLE void ignoreCurrentCompletion();
+
+    Q_INVOKABLE void insertCompletion(const QString &text, const QUrl &link);
 
     /**
      * @brief Wether a row should be shown or not.
@@ -35,36 +58,14 @@ public:
      */
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
-    /**
-     * @brief Returns true if the value of source_left is less than source_right.
-     *
-     * @sa QSortFilterProxyModel::lessThan
-     */
-    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
-
-    /**
-     * @brief Get the current secondary filter role.
-     */
-    int secondaryFilterRole() const;
-
-    /**
-     * @brief Set the secondary filter role.
-     *
-     * Refer to the source model for what value corresponds to what role.
-     */
-    void setSecondaryFilterRole(int role);
-
-    /**
-     * @brief Get the current text being used to filter the source model.
-     */
-    QString filterText() const;
-
-    /**
-     * @brief Set the text to be used to filter the source model.
-     */
-    void setFilterText(const QString &filterText);
+Q_SIGNALS:
+    void textItemChanged();
+    void isCompletingChanged();
 
 private:
-    int m_secondaryFilterRole = -1;
+    QPointer<ChatTextItemHelper> m_textItem;
+
+    bool m_ignoreCurrentCompletion = false;
+    void updateFilterText();
     QString m_filterText;
 };
