@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2026-08-30 11:48+0200\n"
 "Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2053,25 +2053,25 @@ msgstr "%1 byl(a) vyhozen(a) z této místnosti."
 msgid "Removes the user from the room"
 msgstr "Odstranit uživatele z místnosti"
 
-#: src/chatbar/ChatBar.qml:112
+#: src/chatbar/ChatBar.qml:114
 #, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "Nemáte oprávnění posílat zprávy do této místnosti."
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "Klávesa Enter vloží nový řádek"
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "Klávesa Enter odešle zprávu"
 
-#: src/chatbar/ChatBarCore.qml:121
+#: src/chatbar/ChatBarCore.qml:123
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emotikony a samolepky"
@@ -2100,7 +2100,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Samolepky"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:106
 #, kde-format
 msgctxt "@window:title"
 msgid "Edit Image"
@@ -2683,15 +2683,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Nelze načíst přístupový token: %1"
 
-#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
-#: src/libneochat/block.cpp:438
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:368
+#: src/libneochat/block.cpp:466
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Stahování souboru se nezdařilo."
 
-#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
-#: src/libneochat/block.cpp:439
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:369
+#: src/libneochat/block.cpp:467
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4149,13 +4149,13 @@ msgstr "Jít zpět"
 msgid "%1 started a user verification"
 msgstr "%1 zahájil ověření uživatele"
 
-#: src/messagecontent/CodeComponent.qml:180
+#: src/messagecontent/CodeComponent.qml:161
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Zkopírovat do schránky"
 
-#: src/messagecontent/CodeComponent.qml:192
-#: src/messagecontent/VideoComponent.qml:358
+#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/VideoComponent.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4176,16 +4176,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "Načíst další události"
 
-#: src/messagecontent/FileComponent.qml:82
-#: src/messagecontent/FileComponent.qml:159
+#: src/messagecontent/FileComponent.qml:77
+#: src/messagecontent/FileComponent.qml:154
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Stáhnout"
 
-#: src/messagecontent/FileComponent.qml:95
-#: src/messagecontent/FileComponent.qml:148
+#: src/messagecontent/FileComponent.qml:90
+#: src/messagecontent/FileComponent.qml:143
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4193,22 +4193,22 @@ msgctxt ""
 msgid "Open File"
 msgstr "Otevřít soubor"
 
-#: src/messagecontent/FileComponent.qml:105
+#: src/messagecontent/FileComponent.qml:100
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:109
+#: src/messagecontent/FileComponent.qml:104
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Zastavit stahování"
 
-#: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:129
-#: src/messagecontent/LocationComponent.qml:127
+#: src/messagecontent/FileComponent.qml:163
+#: src/messagecontent/ImageComponent.qml:119
+#: src/messagecontent/LocationComponent.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4236,25 +4236,25 @@ msgstr "Čas přihlášení: %1"
 msgid "Check-out time: %1"
 msgstr "Čas odhlášení: %1"
 
-#: src/messagecontent/ImageComponent.qml:77
+#: src/messagecontent/ImageComponent.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Skrýt obrázek"
 
-#: src/messagecontent/ImageComponent.qml:90
+#: src/messagecontent/ImageComponent.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "Optimize Image"
 msgstr "Optimalizovat obrázek"
 
-#: src/messagecontent/ImageComponent.qml:105
+#: src/messagecontent/ImageComponent.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "Upravit obrázek"
 
-#: src/messagecontent/ImageComponent.qml:205
+#: src/messagecontent/ImageComponent.qml:195
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4290,35 +4290,35 @@ msgid "Loading URL preview…"
 msgstr "Načtení náhledu URL…"
 
 #: src/messagecontent/LoadComponent.qml:33
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "Probíhá načítání…"
 
-#: src/messagecontent/LocationComponent.qml:93
+#: src/messagecontent/LocationComponent.qml:79
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Otevřít externě"
 
-#: src/messagecontent/LocationComponent.qml:107
+#: src/messagecontent/LocationComponent.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Otevřít na celou obrazovku"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, kde-format
 msgid "pin"
 msgstr "připnout"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, kde-format
 msgid "location"
 msgstr "umístění"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:261
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4328,13 +4328,13 @@ msgstr ""
 "Tato zpráva nebyla nalezena, nemáte oprávnění k jejímu zobrazení nebo ji "
 "odeslal uživatel, kterého jste ignorovali"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Načítání odpovědi…"
 
-#: src/messagecontent/PollComponent.qml:119
+#: src/messagecontent/PollComponent.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
@@ -4343,7 +4343,7 @@ msgstr[0] "%1 hlas"
 msgstr[1] "%1 hlasy"
 msgstr[2] "%1 hlasů"
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
@@ -4352,13 +4352,13 @@ msgstr[0] "Na základě hlasu %1 uživatele"
 msgstr[1] "Na základě hlasů %1 uživatelů"
 msgstr[2] "Na základě hlasů %1 uživatelů"
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Ukončeno)"
 
-#: src/messagecontent/ReactionComponent.qml:88
+#: src/messagecontent/ReactionComponent.qml:83
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4370,25 +4370,25 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: src/messagecontent/ReplyComponent.qml:98
+#: src/messagecontent/ReplyComponent.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Zrušit odpověď"
 
-#: src/messagecontent/TextComponent.qml:138
+#: src/messagecontent/TextComponent.qml:133
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Zadat popisek přílohy…"
 
-#: src/messagecontent/TextComponent.qml:140
+#: src/messagecontent/TextComponent.qml:135
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Odeslat šifrovanou zprávu…"
 
-#: src/messagecontent/TextComponent.qml:142
+#: src/messagecontent/TextComponent.qml:137
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4485,24 +4485,24 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Nást. %1"
 
-#: src/messagecontent/VideoComponent.qml:153
+#: src/messagecontent/VideoComponent.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Video"
 msgstr "Skrýt video"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:168
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:237
+#: src/messagecontent/VideoComponent.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Zobrazit video"
 
-#: src/messagecontent/VideoComponent.qml:275
+#: src/messagecontent/VideoComponent.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"

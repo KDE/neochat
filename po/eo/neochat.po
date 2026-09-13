@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2227,27 +2227,27 @@ msgstr "%1 estis forpelita el ĉi tiu ĉambro."
 msgid "Removes the user from the room"
 msgstr "Forigas la uzanton el la ĉambro"
 
-#: src/chatbar/ChatBar.qml:112
+#: src/chatbar/ChatBar.qml:114
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "Vi ne havas la privilegiojn por plenumi ĉi tiun agon"
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, fuzzy, kde-format
 #| msgid "%1 sent a message"
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "%1 sendis mesaĝon"
 
-#: src/chatbar/ChatBarCore.qml:121
+#: src/chatbar/ChatBarCore.qml:123
 #, fuzzy, kde-format
 #| msgid "Emojis & Stickers"
 msgid "Emojis & Stickers"
@@ -2281,7 +2281,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Glumarkoj"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:106
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@window:title"
@@ -2894,15 +2894,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Ne eblas legi alirĵetonon: %1"
 
-#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
-#: src/libneochat/block.cpp:438
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:368
+#: src/libneochat/block.cpp:466
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
-#: src/libneochat/block.cpp:439
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:369
+#: src/libneochat/block.cpp:467
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
@@ -4422,13 +4422,13 @@ msgstr "Reen"
 msgid "%1 started a user verification"
 msgstr "%1 komencis uzant-konfirmon"
 
-#: src/messagecontent/CodeComponent.qml:180
+#: src/messagecontent/CodeComponent.qml:161
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Kopii al tondujo"
 
-#: src/messagecontent/CodeComponent.qml:192
-#: src/messagecontent/VideoComponent.qml:358
+#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/VideoComponent.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4449,16 +4449,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "Alpreni Pliajn Eventojn"
 
-#: src/messagecontent/FileComponent.qml:82
-#: src/messagecontent/FileComponent.qml:159
+#: src/messagecontent/FileComponent.qml:77
+#: src/messagecontent/FileComponent.qml:154
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Elŝutu"
 
-#: src/messagecontent/FileComponent.qml:95
-#: src/messagecontent/FileComponent.qml:148
+#: src/messagecontent/FileComponent.qml:90
+#: src/messagecontent/FileComponent.qml:143
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4466,22 +4466,22 @@ msgctxt ""
 msgid "Open File"
 msgstr "Malfermu Dosieron"
 
-#: src/messagecontent/FileComponent.qml:105
+#: src/messagecontent/FileComponent.qml:100
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:109
+#: src/messagecontent/FileComponent.qml:104
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Ĉesi Elŝuton"
 
-#: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:129
-#: src/messagecontent/LocationComponent.qml:127
+#: src/messagecontent/FileComponent.qml:163
+#: src/messagecontent/ImageComponent.qml:119
+#: src/messagecontent/LocationComponent.qml:113
 #, fuzzy, kde-format
 #| msgid "Remove parent"
 msgctxt "@action:button"
@@ -4510,14 +4510,14 @@ msgstr "Enregistriĝotempo: %1"
 msgid "Check-out time: %1"
 msgstr "Tempo de eliro: %1"
 
-#: src/messagecontent/ImageComponent.qml:77
+#: src/messagecontent/ImageComponent.qml:67
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Agordi Bildon"
 
-#: src/messagecontent/ImageComponent.qml:90
+#: src/messagecontent/ImageComponent.qml:80
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Open Image"
@@ -4525,14 +4525,14 @@ msgctxt "@action:button"
 msgid "Optimize Image"
 msgstr "Malfermi Bildon"
 
-#: src/messagecontent/ImageComponent.qml:105
+#: src/messagecontent/ImageComponent.qml:95
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "Agordi Bildon"
 
-#: src/messagecontent/ImageComponent.qml:205
+#: src/messagecontent/ImageComponent.qml:195
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4569,20 +4569,20 @@ msgid "Loading URL preview…"
 msgstr "Ŝargante antaŭrigardon de URL"
 
 #: src/messagecontent/LoadComponent.qml:33
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "Ŝargante…"
 
-#: src/messagecontent/LocationComponent.qml:93
+#: src/messagecontent/LocationComponent.qml:79
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Malfermi Ekstere"
 
-#: src/messagecontent/LocationComponent.qml:107
+#: src/messagecontent/LocationComponent.qml:93
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Enter Full Screen"
@@ -4590,19 +4590,19 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Eniri Plenan Ekranon"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, kde-format
 msgid "pin"
 msgstr ""
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
 msgid "location"
 msgstr "Lokoj"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:261
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4612,14 +4612,14 @@ msgstr ""
 "Ĉi tiu mesaĝo aŭ ne estis trovita, vi ne havas permeson vidi ĝin, aŭ ĝi "
 "estis sendita de ignorita uzanto"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, fuzzy, kde-format
 #| msgid "Loading reply"
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Ŝargante respondon"
 
-#: src/messagecontent/PollComponent.qml:119
+#: src/messagecontent/PollComponent.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
@@ -4627,7 +4627,7 @@ msgid_plural "%1 Votes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, fuzzy, kde-format
 #| msgid "Based on votes by %1 user"
 #| msgid_plural "Based on votes by %1 users"
@@ -4637,13 +4637,13 @@ msgid_plural "Based on votes by %1 users"
 msgstr[0] "Bazita sur voĉdonoj de %1 uzanto"
 msgstr[1] "Bazita sur voĉdonoj de %1 uzantoj"
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Finis)"
 
-#: src/messagecontent/ReactionComponent.qml:88
+#: src/messagecontent/ReactionComponent.qml:83
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4655,27 +4655,27 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "Respondi"
 
-#: src/messagecontent/ReplyComponent.qml:98
+#: src/messagecontent/ReplyComponent.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Nuligi respondon"
 
-#: src/messagecontent/TextComponent.qml:138
+#: src/messagecontent/TextComponent.qml:133
 #, fuzzy, kde-format
 #| msgid "Set an attachment caption…"
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Agordi kunsendaĵan apudskribon…"
 
-#: src/messagecontent/TextComponent.qml:140
+#: src/messagecontent/TextComponent.qml:135
 #, fuzzy, kde-format
 #| msgid "Send an encrypted message…"
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Sendi ĉifritan mesaĝon…"
 
-#: src/messagecontent/TextComponent.qml:142
+#: src/messagecontent/TextComponent.qml:137
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@placeholder"
@@ -4790,7 +4790,7 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/messagecontent/VideoComponent.qml:153
+#: src/messagecontent/VideoComponent.qml:143
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4800,18 +4800,18 @@ msgctxt "@action:button"
 msgid "Hide Video"
 msgstr "Malfermu Dosieron"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:168
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:237
+#: src/messagecontent/VideoComponent.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Montri Video"
 
-#: src/messagecontent/VideoComponent.qml:275
+#: src/messagecontent/VideoComponent.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -2237,27 +2237,27 @@ msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
 msgid "Removes the user from the room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/chatbar/ChatBar.qml:112
+#: src/chatbar/ChatBar.qml:114
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/chatbar/ChatBarCore.qml:121
+#: src/chatbar/ChatBarCore.qml:123
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgid "Emojis & Stickers"
@@ -2291,7 +2291,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:106
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@window:title"
@@ -2911,15 +2911,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr ""
 
-#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
-#: src/libneochat/block.cpp:438
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:368
+#: src/libneochat/block.cpp:466
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
-#: src/libneochat/block.cpp:439
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:369
+#: src/libneochat/block.cpp:467
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@info Failed to download file: [error message]"
@@ -4519,15 +4519,15 @@ msgstr "ਪਿੱਛੇ"
 msgid "%1 started a user verification"
 msgstr "%1 ਲਈ ਸੱਦਾ ਵਾਪਸ ਲਵੋ"
 
-#: src/messagecontent/CodeComponent.qml:180
+#: src/messagecontent/CodeComponent.qml:161
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy address to clipboard"
 msgid "Copy to clipboard"
 msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
 
-#: src/messagecontent/CodeComponent.qml:192
-#: src/messagecontent/VideoComponent.qml:358
+#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/VideoComponent.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4546,16 +4546,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr ""
 
-#: src/messagecontent/FileComponent.qml:82
-#: src/messagecontent/FileComponent.qml:159
+#: src/messagecontent/FileComponent.qml:77
+#: src/messagecontent/FileComponent.qml:154
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "ਡਾਊਨਲੋਡ"
 
-#: src/messagecontent/FileComponent.qml:95
-#: src/messagecontent/FileComponent.qml:148
+#: src/messagecontent/FileComponent.qml:90
+#: src/messagecontent/FileComponent.qml:143
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4563,22 +4563,22 @@ msgctxt ""
 msgid "Open File"
 msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ"
 
-#: src/messagecontent/FileComponent.qml:105
+#: src/messagecontent/FileComponent.qml:100
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:109
+#: src/messagecontent/FileComponent.qml:104
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "ਡਾਊਨਲੋਡ ਨੂੰ ਰੋਕੋ"
 
-#: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:129
-#: src/messagecontent/LocationComponent.qml:127
+#: src/messagecontent/FileComponent.qml:163
+#: src/messagecontent/ImageComponent.qml:119
+#: src/messagecontent/LocationComponent.qml:113
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@action:button"
@@ -4607,28 +4607,28 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
-#: src/messagecontent/ImageComponent.qml:77
+#: src/messagecontent/ImageComponent.qml:67
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
 
-#: src/messagecontent/ImageComponent.qml:90
+#: src/messagecontent/ImageComponent.qml:80
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:button"
 msgid "Optimize Image"
 msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
 
-#: src/messagecontent/ImageComponent.qml:105
+#: src/messagecontent/ImageComponent.qml:95
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
 
-#: src/messagecontent/ImageComponent.qml:205
+#: src/messagecontent/ImageComponent.qml:195
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:button"
@@ -4667,21 +4667,21 @@ msgid "Loading URL preview…"
 msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/messagecontent/LoadComponent.qml:33
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/messagecontent/LocationComponent.qml:93
+#: src/messagecontent/LocationComponent.qml:79
 #, fuzzy, kde-format
 #| msgid "Open Externally"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "ਬਾਹਰ ਖੋਲ੍ਹੋ"
 
-#: src/messagecontent/LocationComponent.qml:107
+#: src/messagecontent/LocationComponent.qml:93
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Enter Full Screen"
@@ -4689,18 +4689,18 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, kde-format
 msgid "pin"
 msgstr ""
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "location"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:261
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4708,14 +4708,14 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/messagecontent/PollComponent.qml:119
+#: src/messagecontent/PollComponent.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
@@ -4723,7 +4723,7 @@ msgid_plural "%1 Votes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
@@ -4731,13 +4731,13 @@ msgid_plural "Based on votes by %1 users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr ""
 
-#: src/messagecontent/ReactionComponent.qml:88
+#: src/messagecontent/ReactionComponent.qml:83
 #, fuzzy, kde-format
 #| msgid "React"
 msgctxt "@button"
@@ -4751,27 +4751,27 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "ਜਵਾਬ ਦਿਓ"
 
-#: src/messagecontent/ReplyComponent.qml:98
+#: src/messagecontent/ReplyComponent.qml:99
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/messagecontent/TextComponent.qml:138
+#: src/messagecontent/TextComponent.qml:133
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/messagecontent/TextComponent.qml:140
+#: src/messagecontent/TextComponent.qml:135
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/messagecontent/TextComponent.qml:142
+#: src/messagecontent/TextComponent.qml:137
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@placeholder"
@@ -4874,7 +4874,7 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr ""
 
-#: src/messagecontent/VideoComponent.qml:153
+#: src/messagecontent/VideoComponent.qml:143
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4884,19 +4884,19 @@ msgctxt "@action:button"
 msgid "Hide Video"
 msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:168
 #, kde-format
 msgid "Video"
 msgstr "ਵੀਡੀਓ"
 
-#: src/messagecontent/VideoComponent.qml:237
+#: src/messagecontent/VideoComponent.qml:227
 #, fuzzy, kde-format
 #| msgid "Video"
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "ਵੀਡੀਓ"
 
-#: src/messagecontent/VideoComponent.qml:275
+#: src/messagecontent/VideoComponent.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"

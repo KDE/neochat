@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2159,27 +2159,27 @@ msgstr "%1 님이 이 대화방에서 추방당했습니다."
 msgid "Removes the user from the room"
 msgstr "대화방에서 사용자 제거"
 
-#: src/chatbar/ChatBar.qml:112
+#: src/chatbar/ChatBar.qml:114
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "이 작업을 수행하기에 충분한 권한이 없음"
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, fuzzy, kde-format
 #| msgid "%1 sent a message"
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "%1 님이 메시지를 보냄"
 
-#: src/chatbar/ChatBarCore.qml:121
+#: src/chatbar/ChatBarCore.qml:123
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "이모지와 스티커"
@@ -2208,7 +2208,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "스티커"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:106
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@window:title"
@@ -2811,15 +2811,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "접근 토큰을 읽을 수 없음: %1"
 
-#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
-#: src/libneochat/block.cpp:438
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:368
+#: src/libneochat/block.cpp:466
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "파일을 다운로드할 수 없습니다."
 
-#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
-#: src/libneochat/block.cpp:439
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:369
+#: src/libneochat/block.cpp:467
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4312,13 +4312,13 @@ msgstr "뒤로"
 msgid "%1 started a user verification"
 msgstr "%1 님이 사용자 확인을 시작함"
 
-#: src/messagecontent/CodeComponent.qml:180
+#: src/messagecontent/CodeComponent.qml:161
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "클립보드에 복사"
 
-#: src/messagecontent/CodeComponent.qml:192
-#: src/messagecontent/VideoComponent.qml:358
+#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/VideoComponent.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4339,16 +4339,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "더 많은 이벤트 가져오기"
 
-#: src/messagecontent/FileComponent.qml:82
-#: src/messagecontent/FileComponent.qml:159
+#: src/messagecontent/FileComponent.qml:77
+#: src/messagecontent/FileComponent.qml:154
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "다운로드"
 
-#: src/messagecontent/FileComponent.qml:95
-#: src/messagecontent/FileComponent.qml:148
+#: src/messagecontent/FileComponent.qml:90
+#: src/messagecontent/FileComponent.qml:143
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4356,22 +4356,22 @@ msgctxt ""
 msgid "Open File"
 msgstr "파일 열기"
 
-#: src/messagecontent/FileComponent.qml:105
+#: src/messagecontent/FileComponent.qml:100
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:109
+#: src/messagecontent/FileComponent.qml:104
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "다운로드 정지"
 
-#: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:129
-#: src/messagecontent/LocationComponent.qml:127
+#: src/messagecontent/FileComponent.qml:163
+#: src/messagecontent/ImageComponent.qml:119
+#: src/messagecontent/LocationComponent.qml:113
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Remove parent"
@@ -4401,13 +4401,13 @@ msgstr "체크인 시간: %1"
 msgid "Check-out time: %1"
 msgstr "체크아웃 시간: %1"
 
-#: src/messagecontent/ImageComponent.qml:77
+#: src/messagecontent/ImageComponent.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "그림 숨기기"
 
-#: src/messagecontent/ImageComponent.qml:90
+#: src/messagecontent/ImageComponent.qml:80
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Open Image"
@@ -4415,14 +4415,14 @@ msgctxt "@action:button"
 msgid "Optimize Image"
 msgstr "그림 열기"
 
-#: src/messagecontent/ImageComponent.qml:105
+#: src/messagecontent/ImageComponent.qml:95
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "이미지 설정"
 
-#: src/messagecontent/ImageComponent.qml:205
+#: src/messagecontent/ImageComponent.qml:195
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4459,39 +4459,39 @@ msgid "Loading URL preview…"
 msgstr "URL 미리 보기 불러오는 중"
 
 #: src/messagecontent/LoadComponent.qml:33
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "불러오는 중…"
 
-#: src/messagecontent/LocationComponent.qml:93
+#: src/messagecontent/LocationComponent.qml:79
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "외부 프로그램으로 열기"
 
-#: src/messagecontent/LocationComponent.qml:107
+#: src/messagecontent/LocationComponent.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "전체 화면 열기"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 #| msgid "Unpin"
 msgid "pin"
 msgstr "고정 해제"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
 msgid "location"
 msgstr "위치"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:261
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4501,33 +4501,33 @@ msgstr ""
 "이 메시지를 찾지 못했거나, 메시지를 볼 수 있는 권한이 없거나, 무시한 사용자"
 "가 전송했습니다"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "답장 불러오는 중…"
 
-#: src/messagecontent/PollComponent.qml:119
+#: src/messagecontent/PollComponent.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
 msgstr[0] "%1표"
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "사용자 %1명의 투표에 의함"
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(종료됨)"
 
-#: src/messagecontent/ReactionComponent.qml:88
+#: src/messagecontent/ReactionComponent.qml:83
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4539,25 +4539,25 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "답장"
 
-#: src/messagecontent/ReplyComponent.qml:98
+#: src/messagecontent/ReplyComponent.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "답장 취소"
 
-#: src/messagecontent/TextComponent.qml:138
+#: src/messagecontent/TextComponent.qml:133
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "첨부 파일 캡션 설정…"
 
-#: src/messagecontent/TextComponent.qml:140
+#: src/messagecontent/TextComponent.qml:135
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "암호화된 메시지 보내기…"
 
-#: src/messagecontent/TextComponent.qml:142
+#: src/messagecontent/TextComponent.qml:137
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4662,7 +4662,7 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "%1번"
 
-#: src/messagecontent/VideoComponent.qml:153
+#: src/messagecontent/VideoComponent.qml:143
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Open Video"
@@ -4670,18 +4670,18 @@ msgctxt "@action:button"
 msgid "Hide Video"
 msgstr "동영상 열기"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:168
 #, kde-format
 msgid "Video"
 msgstr "비디오"
 
-#: src/messagecontent/VideoComponent.qml:237
+#: src/messagecontent/VideoComponent.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "비디오 보기"
 
-#: src/messagecontent/VideoComponent.qml:275
+#: src/messagecontent/VideoComponent.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"

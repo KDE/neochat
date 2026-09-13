@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2026-08-30 06:32-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2076,25 +2076,25 @@ msgstr "%1 foi removido desta sala."
 msgid "Removes the user from the room"
 msgstr "Remove o usuário da sala"
 
-#: src/chatbar/ChatBar.qml:112
+#: src/chatbar/ChatBar.qml:114
 #, kde-format
 msgctxt "@info:label"
 msgid "You do not have permission to send messages to this room."
 msgstr "Você não tem permissão para enviar mensagens para esta sala."
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, kde-format
 msgctxt "As in enter starts a new line in the chat bar"
 msgid "Enter starts a new line"
 msgstr "A tecla Enter inicia uma nova linha"
 
-#: src/chatbar/ChatBar.qml:140 src/chatbar/SendBar.qml:204
+#: src/chatbar/ChatBar.qml:142 src/chatbar/SendBar.qml:204
 #, kde-format
 msgctxt "As in enter starts send the chat message"
 msgid "Enter sends the message"
 msgstr "A tecla Enter envia a mensagem"
 
-#: src/chatbar/ChatBarCore.qml:121
+#: src/chatbar/ChatBarCore.qml:123
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis & Stickers"
@@ -2123,7 +2123,7 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Stickers"
 
-#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:116
+#: src/chatbar/ImageEditorPage.qml:20 src/messagecontent/ImageComponent.qml:106
 #, kde-format
 msgctxt "@window:title"
 msgid "Edit Image"
@@ -2703,15 +2703,15 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Não foi possível ler o token de acesso: %1"
 
-#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:354
-#: src/libneochat/block.cpp:438
+#: src/libneochat/block.cpp:216 src/libneochat/block.cpp:368
+#: src/libneochat/block.cpp:466
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Falha ao baixar o arquivo."
 
-#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:355
-#: src/libneochat/block.cpp:439
+#: src/libneochat/block.cpp:217 src/libneochat/block.cpp:369
+#: src/libneochat/block.cpp:467
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4169,13 +4169,13 @@ msgstr "Voltar"
 msgid "%1 started a user verification"
 msgstr "%1 iniciou a verificação de usuário"
 
-#: src/messagecontent/CodeComponent.qml:180
+#: src/messagecontent/CodeComponent.qml:161
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
-#: src/messagecontent/CodeComponent.qml:192
-#: src/messagecontent/VideoComponent.qml:358
+#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/VideoComponent.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -4196,16 +4196,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "Obter mais eventos"
 
-#: src/messagecontent/FileComponent.qml:82
-#: src/messagecontent/FileComponent.qml:159
+#: src/messagecontent/FileComponent.qml:77
+#: src/messagecontent/FileComponent.qml:154
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Baixar"
 
-#: src/messagecontent/FileComponent.qml:95
-#: src/messagecontent/FileComponent.qml:148
+#: src/messagecontent/FileComponent.qml:90
+#: src/messagecontent/FileComponent.qml:143
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4213,22 +4213,22 @@ msgctxt ""
 msgid "Open File"
 msgstr "Abrir arquivo"
 
-#: src/messagecontent/FileComponent.qml:105
+#: src/messagecontent/FileComponent.qml:100
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:109
+#: src/messagecontent/FileComponent.qml:104
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Parar de baixar"
 
-#: src/messagecontent/FileComponent.qml:168
-#: src/messagecontent/ImageComponent.qml:129
-#: src/messagecontent/LocationComponent.qml:127
+#: src/messagecontent/FileComponent.qml:163
+#: src/messagecontent/ImageComponent.qml:119
+#: src/messagecontent/LocationComponent.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4256,25 +4256,25 @@ msgstr "Horário de entrada: %1"
 msgid "Check-out time: %1"
 msgstr "Horário do sistema: %1"
 
-#: src/messagecontent/ImageComponent.qml:77
+#: src/messagecontent/ImageComponent.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Ocultar imagem"
 
-#: src/messagecontent/ImageComponent.qml:90
+#: src/messagecontent/ImageComponent.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "Optimize Image"
 msgstr "Otimizar imagem"
 
-#: src/messagecontent/ImageComponent.qml:105
+#: src/messagecontent/ImageComponent.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit Image"
 msgstr "Editar imagem"
 
-#: src/messagecontent/ImageComponent.qml:205
+#: src/messagecontent/ImageComponent.qml:195
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4310,35 +4310,35 @@ msgid "Loading URL preview…"
 msgstr "Carregando visualização da URL…"
 
 #: src/messagecontent/LoadComponent.qml:33
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "Carregando…"
 
-#: src/messagecontent/LocationComponent.qml:93
+#: src/messagecontent/LocationComponent.qml:79
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Abrir externamente"
 
-#: src/messagecontent/LocationComponent.qml:107
+#: src/messagecontent/LocationComponent.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Abrir em tela cheia"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, kde-format
 msgid "pin"
 msgstr "fixar"
 
-#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:337
+#: src/messagecontent/models/chatbarmessagecontentmodel.cpp:351
 #, kde-format
 msgid "location"
 msgstr "localização"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:261
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4348,13 +4348,13 @@ msgstr ""
 "Esta mensagem não foi encontrada, você não tem permissão para visualizá-la "
 "ou ela foi enviada por um usuário ignorado."
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:254
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:284
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Carregando resposta…"
 
-#: src/messagecontent/PollComponent.qml:119
+#: src/messagecontent/PollComponent.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
@@ -4362,7 +4362,7 @@ msgid_plural "%1 Votes"
 msgstr[0] "%1 voto"
 msgstr[1] "%1 votos"
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
@@ -4370,13 +4370,13 @@ msgid_plural "Based on votes by %1 users"
 msgstr[0] "Com base nos votos de %1 usuário"
 msgstr[1] "Com base nos votos de %1 usuários"
 
-#: src/messagecontent/PollComponent.qml:135
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Terminado)"
 
-#: src/messagecontent/ReactionComponent.qml:88
+#: src/messagecontent/ReactionComponent.qml:83
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4388,25 +4388,25 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "Responder"
 
-#: src/messagecontent/ReplyComponent.qml:98
+#: src/messagecontent/ReplyComponent.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Cancelar resposta"
 
-#: src/messagecontent/TextComponent.qml:138
+#: src/messagecontent/TextComponent.qml:133
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Defina uma legenda para o anexo…"
 
-#: src/messagecontent/TextComponent.qml:140
+#: src/messagecontent/TextComponent.qml:135
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Enviar uma mensagem criptografada…"
 
-#: src/messagecontent/TextComponent.qml:142
+#: src/messagecontent/TextComponent.qml:137
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4503,24 +4503,24 @@ msgctxt "Short for train platform"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/messagecontent/VideoComponent.qml:153
+#: src/messagecontent/VideoComponent.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Video"
 msgstr "Ocultar vídeo"
 
-#: src/messagecontent/VideoComponent.qml:178
+#: src/messagecontent/VideoComponent.qml:168
 #, kde-format
 msgid "Video"
 msgstr "Vídeo"
 
-#: src/messagecontent/VideoComponent.qml:237
+#: src/messagecontent/VideoComponent.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Mostrar vídeo"
 
-#: src/messagecontent/VideoComponent.qml:275
+#: src/messagecontent/VideoComponent.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
