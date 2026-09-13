@@ -50,6 +50,11 @@ void PinnedMessageModel::fill()
     m_pinnedEvents.clear();
     endResetModel();
 
+    for (const auto &job : m_jobs) {
+        job->abandon();
+    }
+    m_jobs.clear();
+
     if (!m_room) {
         return;
     }
@@ -59,7 +64,11 @@ void PinnedMessageModel::fill()
     const auto events = m_room->pinnedEventIds();
     for (const auto &event : std::as_const(events)) {
         auto room = m_room;
-        room->connection()->callApi<GetOneRoomEventJob>(room->id(), event).then(this, [this, room](const auto &job) {
+        m_jobs += room->connection()->callApi<GetOneRoomEventJob>(room->id(), event).onResult(this, [this, room](const auto &job) {
+            m_jobs.removeAll(job);
+            if (job->error() != BaseJob::NoError) {
+                return;
+            }
             if (room != m_room) {
                 return;
             }
