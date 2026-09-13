@@ -58,7 +58,7 @@ void SearchModel::runSearch(const QString &batch)
     m_job = job;
     connect(job, &BaseJob::finished, this, [this, job] {
         auto results = job->searchCategories().roomEvents;
-        if (results.has_value()) {
+        if (results.has_value() && !results->results.empty()) {
             beginInsertRows({}, rowCount({}), rowCount({}) + int(results->results.size()) - 1);
             for (const auto &result : results.value().results) {
                 Q_EMIT newEventAdded(result.result.get());
