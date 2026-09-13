@@ -94,7 +94,12 @@ void TimelineMessageModel::connectNewRoom()
                 refreshEventRoles(timelineServerIndex() - 1, {ContentModelRole});
             }
         });
-        connect(m_room, &Room::pendingEventChanged, this, &TimelineMessageModel::fullEventRefresh);
+        connect(m_room, &Room::pendingEventChanged, this, [this](const auto pendingIndex) {
+            const auto index = pendingEventIndexToModelIndex(pendingIndex);
+            if (index >= 0) {
+                refreshEventRoles(index, {ContentModelRole});
+            }
+        });
         connect(m_room, &Room::pendingEventAboutToDiscard, this, [this](int i) {
             const auto pendingIndex = pendingEventIndexToModelIndex(i);
             beginRemoveRows({}, pendingIndex, pendingIndex);
