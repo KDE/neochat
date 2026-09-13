@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
@@ -69,8 +71,10 @@ QQC2.Popup {
     }
 
     function completeCurrent() {
-        model.insertCompletion(completions.currentItem.replacedText, completions.currentItem.hRef);
+        completions.currentItem.click();
     }
+
+    onClosed: root.destroy()
 
     leftPadding: 0
     rightPadding: 0
@@ -93,20 +97,20 @@ QQC2.Popup {
                 id: completionDelegate
 
                 required property int index
-                required property string displayName
+                required property string title
                 required property string subtitle
-                required property string iconName
-                required property string replacedText
+                required property url avatarSource
+                required property string replaceString
                 required property url hRef
 
-                text: displayName
+                text: title
 
                 contentItem: RowLayout {
                     KirigamiComponents.Avatar {
-                        visible: completionDelegate.iconName !== "invalid"
+                        visible: completionDelegate.avatarSource.toString().length > 0
                         Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                         Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                        source: completionDelegate.iconName === "invalid" ? "" : completionDelegate.iconName
+                        source: completionDelegate.avatarSource
                         name: completionDelegate.text
                     }
                     Delegates.SubtitleContentItem {
@@ -117,7 +121,10 @@ QQC2.Popup {
                         subtitleItem.textFormat: Text.PlainText
                     }
                 }
-                onClicked: root.model.insertCompletion(replacedText, hRef)
+                onClicked: {
+                    root.model.insertCompletion(replaceString, hRef);
+                    root.close();
+                }
             }
         }
     }

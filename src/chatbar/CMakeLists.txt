@@ -31,8 +31,16 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         actionsmodel.cpp
         chatbuttonhelper.cpp
         completionmodel.cpp
+        completionlist.cpp
         completionproxymodel.cpp
         styledelegatehelper.cpp
+)
+
+ecm_qt_declare_logging_category(LibNeoChat
+    HEADER "chatbarlogging.h"
+    IDENTIFIER "ChatBar"
+    CATEGORY_NAME "org.kde.neochat.chatbar"
+    DEFAULT_SEVERITY Info
 )
 
 target_include_directories(Chatbar PRIVATE ${CMAKE_BINARY_DIR})
