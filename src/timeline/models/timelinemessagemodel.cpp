@@ -73,7 +73,6 @@ void TimelineMessageModel::connectNewRoom()
             }
         });
         connect(m_room, &Room::pendingEventAboutToMerge, this, [this](RoomEvent *, int i) {
-            Q_EMIT dataChanged(index(i, 0), index(i, 0), {IsPendingRole});
             if (i == 0) {
                 return; // No need to move anything, just refresh
             }
