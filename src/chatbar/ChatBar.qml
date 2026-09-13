@@ -53,6 +53,8 @@ Item {
 
     property alias features: core.features
 
+    property alias completionLists: core.completionLists
+
     signal contentChanged
 
     signal send

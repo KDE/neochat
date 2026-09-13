@@ -312,6 +312,17 @@ Kirigami.Page {
             currentRoom: root.currentRoom
             cache: root.currentRoom?.mainCache ?? null
             authorName: root.currentRoom?.qmlSafeLocalMember().displayName
+            completionLists: [
+                UserCompletionList {
+                    userListModel: RoomManager.userListModel
+                },
+                RoomCompletionList {
+                    roomListModel: RoomManager.roomListModel
+                },
+                ActionsCompletionList {},
+                EmojiCompletionList {},
+                CustomEmojiCompletionList{}
+            ]
 
             onContentChanged: root.currentRoom.sendTypingNotification(!isEmpty)
             onSend: postHelper.postMessage()
@@ -327,6 +338,11 @@ Kirigami.Page {
 
             // Creating a reply (or doing anything in the chat bar) can change the height, but this isn't picked up on the root's onHeightChanged.
             onHeightChanged: root.resetViewSettling()
+
+            UserCompletionList {
+                id: userCompletionList
+                userListModel: RoomManager.userListModel
+            }
 
             PostMessageHelper {
                 id: postHelper

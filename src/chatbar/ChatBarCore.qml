@@ -51,6 +51,8 @@ QQC2.Control {
 
     readonly property bool isEmpty: !model.hasAnyContent
 
+    property list<CompletionList> completionLists: []
+
     signal contentChanged
 
     signal send
@@ -71,23 +73,22 @@ QQC2.Control {
         }
     }
 
-    readonly property CompletionModel completionModel: CompletionModel {
-        textItem: root.model.focusedTextItem
-        roomListModel: RoomManager.roomListModel
-        // We plug in a UserFilterModel in here because it will filter by Join membership for us!
-        userListModel: UserFilterModel {
-            id: userFilterModel
-            sourceModel: RoomManager.userListModel
-            allowEmpty: true // We don't need its built-in sorting here
+    CompletionProxyModel {
+        id: completionFilterModel
+        property CompletionMenu menu: null
+
+        sourceModel: CompletionModel {
+            completionLists: root.completionLists
         }
+        textItem: root.model.focusedTextItem
 
         onIsCompletingChanged: {
             if (!isCompleting) {
                 return;
             }
 
-            let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'CompletionMenu').createObject(root.model.focusedTextItem.textItem, {
-                model: root.completionModel,
+            Qt.createComponent('org.kde.neochat.chatbar', 'CompletionMenu').createObject(root.model.focusedTextItem.textItem, {
+                model: completionFilterModel,
                 keyHelper: root.model.keyHelper
             }).open();
         }

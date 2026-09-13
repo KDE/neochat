@@ -1,26 +1,21 @@
 // SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2026 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #pragma once
 
 #include <QConcatenateTablesProxyModel>
-#include <QQmlEngine>
-#include <QQuickItem>
-#include <QSortFilterProxyModel>
+#include <qqmlintegration.h>
 
-#include "chattextitemhelper.h"
-
-class CompletionProxyModel;
-class UserFilterModel;
-class RoomListModel;
+#include "completionlist.h"
 
 /**
  * @class CompletionModel
  *
- * This class defines the model for suggesting completions in chat text.
+ * This class defines the available completions in the chat bar.
  *
- * This model is able to select the appropriate completion type for the input text
- * and present a list of options that can be presented to the user.
+ * The available completions are derived from one or more CompletionLists added
+ * using the addList() function.
  */
 class CompletionModel : public QAbstractListModel
 {
@@ -28,58 +23,29 @@ class CompletionModel : public QAbstractListModel
     QML_ELEMENT
 
     /**
-     * @brief The QML text Item that completions are being provided for.
+     * @brief The UserListModel to adapt for completions.
      */
-    Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
-
-    /**
-     * @brief The RoomListModel to be used for room completions.
-     */
-    Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged)
-
-    /**
-     * @brief The UserFilterModel to be used for room completions.
-     */
-    Q_PROPERTY(UserFilterModel *userListModel READ userListModel WRITE setUserFilterModel NOTIFY userListModelChanged)
-
-    /**
-     * @brief The UserFilterModel to be used for room completions.
-     */
-    Q_PROPERTY(bool isCompleting READ isCompleting NOTIFY isCompletingChanged)
+    Q_PROPERTY(QList<CompletionList *> completionLists READ completionLists WRITE setCompletionLists NOTIFY completionListsChanged)
 
 public:
-    /**
-     * @brief Defines the different types of completion available.
-     */
-    enum AutoCompletionType {
-        User, /**< A user in the current room. */
-        Room, /**< A matrix room. */
-        Emoji, /**< An emoji. */
-        Command, /**< A / command. */
-        None, /**< No available completion for the current text. */
-    };
-    Q_ENUM(AutoCompletionType)
-
     /**
      * @brief Defines the model roles.
      */
     enum Roles {
-        DisplayNameRole = Qt::DisplayRole, /**< The main text to show. */
+        TitleRole = Qt::DisplayRole, /**< The main text to show. */
         SubtitleRole = Qt::UserRole, /**< The subtitle text to show. */
-        IconNameRole, /**< The icon to show. */
-        ReplacedTextRole, /**< The text to replace the input text with for the completion. */
-        HRefRole, /**< The hyperlink if applicable for the completion. */
+        AvatarSourceRole, /**< The icon to show. */
+        StartSequenceRole, /**< The text sequence that triggers this completion. */
+        MatchSequencesRole, /**< The text sequence(s) to use for filter matching. */
+        ReplaceStringRole, /**< The string to replace the completion with when completing. */
+        HRefRole, /**< The link to add to the replaced string when completing. */
     };
     Q_ENUM(Roles)
 
     explicit CompletionModel(QObject *parent = nullptr);
 
-    ChatTextItemHelper *textItem() const;
-    void setTextItem(ChatTextItemHelper *textItem);
-
-    bool isCompleting() const;
-
-    Q_INVOKABLE void ignoreCurrentCompletion();
+    QList<CompletionList *> completionLists() const;
+    void setCompletionLists(const QList<CompletionList *> &completionLists);
 
     /**
      * @brief Get the given role value at the given index.
@@ -102,44 +68,14 @@ public:
      */
     QHash<int, QByteArray> roleNames() const override;
 
-    RoomListModel *roomListModel() const;
-    void setRoomListModel(RoomListModel *roomListModel);
-
-    UserFilterModel *userListModel() const;
-    void setUserFilterModel(UserFilterModel *userListModel);
-
-    AutoCompletionType autoCompletionType() const;
-    void setAutoCompletionType(AutoCompletionType autoCompletionType);
-
-    Q_INVOKABLE void insertCompletion(const QString &text, const QUrl &link);
-
 Q_SIGNALS:
-    void textItemChanged();
-    void roomListModelChanged();
-    void userListModelChanged();
-    void isCompletingChanged();
+    void completionListsChanged();
 
 private:
-    CompletionProxyModel *modelForCurrentType() const;
-    void connectModelSignals(CompletionProxyModel *model);
-    void disconnectModelSignals(CompletionProxyModel *model);
+    QList<QPointer<CompletionList>> m_lists;
+    std::optional<qsizetype> baseRowForList(CompletionList *list);
+    void listCompletionsAdded(CompletionList *list, qsizetype first, qsizetype last);
+    void listCompletionsRemoved(CompletionList *list, qsizetype first, qsizetype last);
 
-    QPointer<ChatTextItemHelper> m_textItem;
-
-    bool m_ignoreCurrentCompletion = false;
-    int m_textStart = 0;
-    void updateTextStart();
-
-    CompletionProxyModel *m_userFilterModel = nullptr;
-    CompletionProxyModel *m_commandFilterModel = nullptr;
-    CompletionProxyModel *m_roomFilterModel = nullptr;
-    CompletionProxyModel *m_emojiFilterModel = nullptr;
-
-    AutoCompletionType m_autoCompletionType = None;
-
-    void updateCompletion();
-
-    UserFilterModel *m_userListModel = nullptr;
-    RoomListModel *m_roomListModel = nullptr;
-    QConcatenateTablesProxyModel *m_emojiModel = nullptr;
+    std::optional<Completion> completionAtRow(qsizetype row) const;
 };
