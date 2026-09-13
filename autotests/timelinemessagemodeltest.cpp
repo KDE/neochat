@@ -36,6 +36,7 @@ private Q_SLOTS:
     void pendingEvent();
     void disconnect();
     void idToRow();
+    void pendingEventDiscardOrder();
 
     void cleanup();
 };
@@ -216,6 +217,38 @@ void TimelineMessageModelTest::cleanup()
     delete model;
     model = nullptr;
     QCOMPARE(model, nullptr);
+}
+
+void TimelineMessageModelTest::pendingEventDiscardOrder()
+{
+    QSignalSpy spyRemove(model, SIGNAL(rowsRemoved(const QModelIndex &, int, int)));
+    auto room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s);
+    model->setRoom(room);
+    QCOMPARE(model->rowCount(), 0);
+#if Quotient_VERSION_MINOR > 9
+    const auto txnA = room->postText(u"Message A"_s);
+    const auto txnB = room->postText(u"Message B"_s);
+#else
+    const auto txnA = room->postPlainText(u"Message A"_s);
+    const auto txnB = room->postPlainText(u"Message B"_s);
+#endif
+    QCOMPARE(model->rowCount(), 2);
+    // Pending events are stored oldest -> newest in Quotient, while
+    // TimelineMessageModel exposes them newest -> oldest:
+    // pendingEvents(): [A, B]
+    // model rows: [B, A]
+    // Therefore discarding A (pending index 0) must remove model row 1.
+    QCOMPARE(model->data(model->index(0), TimelineMessageModel::EventIdRole), txnB);
+    QCOMPARE(model->data(model->index(1), TimelineMessageModel::EventIdRole), txnA);
+    spyRemove.clear();
+
+    room->discardMessage(txnA);
+    QCOMPARE(spyRemove.count(), 1);
+    const auto signal = spyRemove.at(0);
+    QCOMPARE(signal.at(1).toInt(), 1);
+    QCOMPARE(signal.at(2).toInt(), 1);
+    QCOMPARE(model->rowCount(), 1);
+    QCOMPARE(model->data(model->index(0), TimelineMessageModel::EventIdRole), txnB);
 }
 
 QTEST_MAIN(TimelineMessageModelTest)
