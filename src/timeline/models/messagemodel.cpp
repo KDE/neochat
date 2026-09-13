@@ -35,7 +35,7 @@ MessageModel::MessageModel(QObject *parent)
 {
     qGuiApp->installEventFilter(this);
 
-    connect(this, &MessageModel::newEventAdded, this, &MessageModel::createEventObjects, Qt::QueuedConnection);
+    connect(this, &MessageModel::newEventAdded, this, &MessageModel::createEventObjects);
 
     connect(this, &MessageModel::modelAboutToReset, this, [this]() {
         m_resetting = true;
