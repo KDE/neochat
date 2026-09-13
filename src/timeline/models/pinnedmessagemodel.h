@@ -59,4 +59,5 @@ private:
     bool m_loading = false;
 
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_pinnedEvents;
+    QList<Quotient::BaseJob *> m_jobs;
 };
