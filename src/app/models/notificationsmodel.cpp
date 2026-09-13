@@ -24,7 +24,17 @@ int NotificationsModel::rowCount(const QModelIndex &parent) const
 
 QVariant NotificationsModel::data(const QModelIndex &index, int role) const
 {
-    auto row = index.row();
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid | CheckIndexOption::ParentIsInvalid)) {
+        qWarning() << Q_FUNC_INFO << "called with invalid index" << index << role;
+        return {};
+    }
+
+    if (!m_connection) {
+        qWarning() << Q_FUNC_INFO << "called with nullptr connection";
+        return {};
+    }
+
+    const auto row = index.row();
     if (row < 0 || row >= m_notifications.count()) {
         return {};
     }
