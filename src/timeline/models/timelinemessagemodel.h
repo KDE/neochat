@@ -48,6 +48,12 @@ private:
     std::optional<std::reference_wrapper<const Quotient::RoomEvent>> getEventForIndex(QModelIndex index) const override;
 
     int timelineServerIndex() const override;
+    /**
+     * @brief Converts a pending event index (as it comes from libQuotient) to a model index.
+     * Notably, the order is reversed between libQuotient and the model
+     * (in libQuotient, 0 is the oldest pending event, while in the model, 0 is the newest pending event)
+     */
+    [[nodiscard]] int pendingEventIndexToModelIndex(int pendingIndex) const;
 
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
     bool m_initialized = false;

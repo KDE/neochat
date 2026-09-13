@@ -93,9 +93,17 @@ void TimelineMessageModel::connectNewRoom()
                 refreshEventRoles(timelineServerIndex() - 1, {ContentModelRole});
             }
         });
-        connect(m_room, &Room::pendingEventChanged, this, &TimelineMessageModel::fullEventRefresh);
+        connect(m_room, &Room::pendingEventChanged, this, [this](const auto pendingIndex) {
+            const auto index = pendingEventIndexToModelIndex(pendingIndex);
+            if (index >= 0) {
+                refreshEventRoles(index, {ContentModelRole});
+            }
+        });
         connect(m_room, &Room::pendingEventAboutToDiscard, this, [this](int i) {
-            beginRemoveRows({}, i, i);
+            const auto pendingIndex = pendingEventIndexToModelIndex(i);
+            if (pendingIndex >= 0) {
+                beginRemoveRows({}, pendingIndex, pendingIndex);
+            }
         });
         connect(m_room, &Room::pendingEventDiscarded, this, &TimelineMessageModel::endRemoveRows);
         connect(m_room, &Room::fullyReadMarkerMoved, this, [this](const QString &fromEventId, const QString &toEventId) {
@@ -156,6 +164,11 @@ void TimelineMessageModel::connectNewRoom()
 int TimelineMessageModel::timelineServerIndex() const
 {
     return m_room ? int(m_room->pendingEvents().size()) : 0;
+}
+
+int TimelineMessageModel::pendingEventIndexToModelIndex(int pendingIndex) const
+{
+    return timelineServerIndex() - 1 - pendingIndex;
 }
 
 std::optional<std::reference_wrapper<const RoomEvent>> TimelineMessageModel::getEventForIndex(QModelIndex index) const
