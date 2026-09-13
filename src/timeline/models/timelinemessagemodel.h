@@ -47,8 +47,6 @@ private:
 
     std::optional<std::reference_wrapper<const Quotient::RoomEvent>> getEventForIndex(QModelIndex index) const override;
 
-    int rowBelowInserted = -1;
-
     int timelineServerIndex() const override;
 
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
