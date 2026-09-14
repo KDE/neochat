@@ -92,8 +92,9 @@ QQC2.ScrollView {
     ListView {
         id: messageListView
 
+
         // HACK: Use this instead of atYEnd to handle cases like -643.2 at height of 643 not being counted as "at the beginning"
-        readonly property bool closeToYEnd: -Math.round(contentY) <= height
+        readonly property bool closeToYEnd: -Math.floor(contentY) <= Math.floor(height)
 
         onHeightChanged: {
             // HACK: Fix a bug where Qt doesn't resettle the view properly when the pinned messages changes our height
