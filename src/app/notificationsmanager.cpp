@@ -172,8 +172,10 @@ bool NotificationsManager::shouldPostNotification(QPointer<NeoChatConnection> co
     // should not be shown.
     // This is set up so that if the application is inactive, the notification will
     // always be posted, even if the room is the current room.
+    // Apparently Qt considers apps that don't have a window (i.e., are in the tray) to be active, so we have to explicitely check that
     if (RoomManager::instance().currentRoom() && room->id() == RoomManager::instance().currentRoom()->id()
-        && QGuiApplication::applicationState() == Qt::ApplicationActive) {
+        && QGuiApplication::applicationState() == Qt::ApplicationActive && WindowController::instance().window()
+        && WindowController::instance().window()->isVisible()) {
         return false;
     }
 
