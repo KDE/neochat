@@ -101,7 +101,7 @@ ColumnLayout {
                         Layout.fillWidth: true
 
                         text: answerDelegate.answerText
-                        wrapMode: QQC2.Label.WordWrap
+                        wrapMode: QQC2.Label.Wrap
                     }
                     Kirigami.Icon {
                         Layout.alignment: Qt.AlignTop
