@@ -44,8 +44,16 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
         return false;
     }
 
-    return sourceModel()->data(index, RoomListModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
-        && sourceModel()->data(index, RoomListModel::IsSpaceRole).toBool() == false;
+    if (sourceModel()->data(index, RoomListModel::IsSpaceRole).toBool()) {
+        return false;
+    }
+
+    for (const auto role : {RoomListModel::DisplayNameRole, RoomListModel::CanonicalAliasRole}) {
+        if (sourceModel()->data(index, role).toString().contains(m_filterText, Qt::CaseInsensitive)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 #include "moc_sortfilterroomlistmodel.cpp"
