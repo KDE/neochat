@@ -50,7 +50,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     }
 
     if (!m_connection) {
-        qWarning() << Q_FUNC_INFO << "caleld nullptr connection";
+        qWarning() << Q_FUNC_INFO << "called nullptr connection";
         return {};
     }
 
