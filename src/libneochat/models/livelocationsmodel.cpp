@@ -24,7 +24,7 @@ void LiveLocationsModel::load()
     beginResetModel();
     m_locations.clear();
     endResetModel();
-    boundingBoxChanged();
+    Q_EMIT boundingBoxChanged();
 
     if (!m_room) {
         return;
