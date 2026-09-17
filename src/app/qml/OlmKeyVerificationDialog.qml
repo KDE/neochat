@@ -163,8 +163,6 @@ Kirigami.Page {
                     return "";
                 }
             }
-            isDone: root.session.state === KeyVerificationSession.DONE
-            onDone: root.closeDialog()
         }
     }
 
