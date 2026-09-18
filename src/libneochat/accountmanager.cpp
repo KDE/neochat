@@ -60,6 +60,14 @@ void AccountManager::loadAccountsFromCache()
             Quotient::AccountSettings account{accountId};
             auto connection = new NeoChatConnection(account.homeserver());
             m_connectionsLoading[accountId] = connection;
+            connect(connection, &NeoChatConnection::unrecoverableCryptoError, this, [this, connection] {
+                Q_EMIT unrecoverableCryptoError(connection->userId());
+            });
+            connect(connection, &NeoChatConnection::loggedOut, this, [this, connection, accountId]() {
+                m_accountsLoading.removeAll(connection->userId());
+                m_connectionsLoading.remove(accountId);
+                Q_EMIT accountsLoadingChanged();
+            });
             connect(connection, &NeoChatConnection::connected, this, [this, connection, accountId] {
                 connection->loadState();
                 if (connection->allRooms().size() == 0 || connection->allRooms().at(0)->currentState().get<Quotient::RoomCreateEvent>()) {
@@ -266,6 +274,11 @@ bool AccountManager::dropRegistry(NeoChatConnection *connection)
     m_accountRegistry->drop(connection);
     Q_EMIT connectionDropped(connection);
     return true;
+}
+
+NeoChatConnection *AccountManager::loadingConnection(const QString &userId) const
+{
+    return m_connectionsLoading[userId];
 }
 
 #include "moc_accountmanager.cpp"

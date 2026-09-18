@@ -111,6 +111,8 @@ public:
      */
     Q_INVOKABLE [[nodiscard]] QString translateToSaveDirectory(const QUrl &selectedFile, const QUrl &currentFolder) const;
 
+    Q_INVOKABLE NeoChatConnection *loadingConnection(const QString &userId) const;
+
 private:
     explicit Controller(QObject *parent = nullptr);
 
@@ -144,4 +146,6 @@ Q_SIGNALS:
     void accountsLoadingChanged();
 
     void globalUrlPreviewDefaultChanged();
+
+    void unrecoverableCryptoError(const QString &userId);
 };

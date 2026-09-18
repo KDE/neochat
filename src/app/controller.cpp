@@ -215,6 +215,7 @@ void Controller::setAccountManager(AccountManager *manager)
     connect(m_accountManager, &AccountManager::connectionAdded, this, &Controller::initConnection);
     connect(m_accountManager, &AccountManager::connectionDropped, this, &Controller::teardownConnection);
     connect(m_accountManager, &AccountManager::activeConnectionChanged, this, &Controller::initActiveConnection);
+    connect(m_accountManager, &AccountManager::unrecoverableCryptoError, this, &Controller::unrecoverableCryptoError);
 }
 
 void Controller::initConnection(NeoChatConnection *connection)
@@ -391,6 +392,11 @@ QString Controller::translateToSaveDirectory(const QUrl &selectedFile, const QUr
     }
 
     return currentFolder.toString();
+}
+
+NeoChatConnection *Controller::loadingConnection(const QString &userId) const
+{
+    return m_accountManager->loadingConnection(userId);
 }
 
 #include "moc_controller.cpp"

@@ -56,6 +56,11 @@ public:
      */
     void dropConnection(NeoChatConnection *connection);
 
+    /**
+     * @brief Get a connection that's currently loading
+     */
+    NeoChatConnection *loadingConnection(const QString &userId) const;
+
 Q_SIGNALS:
     /**
      * @brief Request a error message be shown to the user.
@@ -86,6 +91,9 @@ Q_SIGNALS:
      * @brief The primary connection being displayed in the rest of the app has changed.
      */
     void activeConnectionChanged(NeoChatConnection *oldConnection, NeoChatConnection *newConnection);
+
+Q_SIGNALS:
+    void unrecoverableCryptoError(const QString &userId);
 
 private:
     QPointer<Quotient::AccountRegistry> m_accountRegistry;

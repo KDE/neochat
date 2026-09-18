@@ -281,6 +281,37 @@ Kirigami.Page {
         }
     }
 
+    Connections {
+        target: Controller
+        function onUnrecoverableCryptoError(userId: string): void {
+            let dialog = cryptoErrorDialog.createObject(root, {
+                userId: userId,
+            }) as Kirigami.PromptDialog;
+            dialog.open();
+        }
+    }
+
+    Component {
+        id: cryptoErrorDialog
+        Kirigami.PromptDialog {
+            id: dialog
+            property string userId
+            title: i18nc("@title", "Error")
+            width: Math.min(root.width, Kirigami.Units.gridUnit * 24)
+            subtitle: i18nc("@info", "NeoChat failed to load the cryptographic keys for %1. Please log in to the account again.", userId)
+            customFooterActions: [
+                Kirigami.Action {
+                    text: i18nc("@action:button", "Log out")
+                    onTriggered: {
+                        let connection = Controller.loadingConnection(dialog.userId);
+                        connection.logout(true);
+                        dialog.close();
+                    }
+                }
+            ]
+        }
+    }
+
     Component.onCompleted: {
         LoginHelper.init();
         (root.currentStep as LoginStep).forceActiveFocus();
