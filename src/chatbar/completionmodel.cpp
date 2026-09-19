@@ -116,7 +116,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
     if (role == TitleRole) {
         return completion->title;
     }
-    if (role == SubtitleRole) {
+    if (role == DescriptionRole) {
         return completion->description;
     }
     if (role == AvatarSourceRole) {
@@ -153,7 +153,7 @@ QHash<int, QByteArray> CompletionModel::roleNames() const
 {
     return {
         {TitleRole, "title"},
-        {SubtitleRole, "subtitle"},
+        {DescriptionRole, "description"},
         {AvatarSourceRole, "avatarSource"},
         {ReplaceStringRole, "replaceString"},
         {HRefRole, "hRef"},

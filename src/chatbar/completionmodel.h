@@ -33,7 +33,7 @@ public:
      */
     enum Roles {
         TitleRole = Qt::DisplayRole, /**< The main text to show. */
-        SubtitleRole = Qt::UserRole, /**< The subtitle text to show. */
+        DescriptionRole = Qt::UserRole, /**< The subtitle text to show. */
         AvatarSourceRole, /**< The icon to show. */
         StartSequenceRole, /**< The text sequence that triggers this completion. */
         MatchSequencesRole, /**< The text sequence(s) to use for filter matching. */
