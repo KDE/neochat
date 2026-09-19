@@ -855,7 +855,7 @@ void TextHandlerTest::receiveEmote()
 
 void TextHandlerTest::getNextTokenTypeCrash()
 {
-    QCOMPARE(TextHandler::getNextTokenType(QStringLiteral("<"), 0, {}, TextHandler::Type::Text), TextHandler::Type::Text);
+    QCOMPARE(TextHandler().nextTokenType(QStringLiteral("<"), 0, {}, TextHandler::Type::Text), TextHandler::Type::Text);
 }
 
 QTEST_MAIN(TextHandlerTest)
