@@ -98,7 +98,7 @@ QQC2.Popup {
 
                 required property int index
                 required property string title
-                required property string subtitle
+                required property string description
                 required property url avatarSource
                 required property string replaceString
                 required property url hRef
@@ -117,7 +117,7 @@ QQC2.Popup {
                         itemDelegate: completionDelegate
                         labelItem.textFormat: Text.PlainText
                         labelItem.clip: true // Intentional to limit insane Unicode in display names
-                        subtitle: completionDelegate.subtitle ?? ""
+                        subtitle: completionDelegate.description ?? ""
                         subtitleItem.textFormat: Text.PlainText
                     }
                 }

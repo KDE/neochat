@@ -129,6 +129,12 @@ ecm_add_test(
     TEST_NAME clipboardtest
 )
 
+ecm_add_test(
+    completionmodeltest.cpp
+    LINK_LIBRARIES neochat Chatbar Qt::Test
+    TEST_NAME completionmodeltest
+)
+
 macro(add_qml_tests)
     if (WIN32)
         set(_extra_args -platform offscreen)
