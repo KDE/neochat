@@ -12,15 +12,4 @@ CompletionList::~CompletionList()
 {
 }
 
-qsizetype CompletionList::size() const
-{
-    return 0;
-}
-
-std::optional<Completion> CompletionList::at(qsizetype i) const
-{
-    Q_UNUSED(i)
-    return std::nullopt;
-}
-
 #include "moc_completionlist.cpp"

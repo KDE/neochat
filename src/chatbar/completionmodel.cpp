@@ -81,7 +81,7 @@ void CompletionModel::listCompletionsRemoved(CompletionList *list, qsizetype fir
     endInsertRows();
 }
 
-std::optional<Completion> CompletionModel::completionAtRow(qsizetype row) const
+QVariant CompletionModel::dataAtRow(qsizetype row, int role) const
 {
     auto localRow = row;
     const auto it = std::ranges::find_if(m_lists, [&localRow](CompletionList *list) {
@@ -92,9 +92,9 @@ std::optional<Completion> CompletionModel::completionAtRow(qsizetype row) const
         return false;
     });
     if (it == m_lists.end()) {
-        return std::nullopt;
+        return {};
     }
-    return (*it)->at(localRow);
+    return (*it)->data(localRow, role);
 }
 
 QVariant CompletionModel::data(const QModelIndex &index, int role) const
@@ -108,34 +108,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const auto completion = completionAtRow(index.row());
-    if (!completion) {
-        return {};
-    }
-
-    if (role == TitleRole) {
-        return completion->title;
-    }
-    if (role == DescriptionRole) {
-        return completion->description;
-    }
-    if (role == AvatarSourceRole) {
-        return completion->avatarSource;
-    }
-    if (role == StartSequenceRole) {
-        return completion->startsequence;
-    }
-    if (role == MatchSequencesRole) {
-        return completion->matchSequences;
-    }
-    if (role == ReplaceStringRole) {
-        return completion->replaceString;
-    }
-    if (role == HRefRole) {
-        return completion->hRef;
-    }
-
-    return {};
+    return dataAtRow(index.row(), role);
 }
 
 int CompletionModel::rowCount(const QModelIndex &parent) const

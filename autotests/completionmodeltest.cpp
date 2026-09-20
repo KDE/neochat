@@ -5,7 +5,6 @@
 #include <QObject>
 #include <QSignalSpy>
 #include <QTest>
-#include <qurl.h>
 
 #include "completionlist.h"
 #include "completionmodel.h"
@@ -28,20 +27,29 @@ public:
         return m_size;
     }
 
-    std::optional<Completion> at(qsizetype i) const override
+    QVariant data(qsizetype row, int role = Qt::DisplayRole) const override
     {
-        if (i < 0 || i >= m_size) {
-            return std::nullopt;
+        if (row < 0 || row >= m_size) {
+            return {};
         }
-        return Completion{
-            .title = u"Title %1 Index %2"_s.arg(m_listName, QString::number(i)),
-            .description = u"Description %1 Index %2"_s.arg(m_listName, QString::number(i)),
-            .avatarSource = QUrl(u"Avatar %1 Index %2"_s.arg(m_listName, QString::number(i))),
-            .startsequence = u"Start Sequence %1 Index %2"_s.arg(m_listName, QString::number(i)),
-            .matchSequences = {u"Match Sequence %1 Index %2"_s.arg(m_listName, QString::number(i))},
-            .replaceString = u"Replace String %1 Index %2"_s.arg(m_listName, QString::number(i)),
-            .hRef = QUrl(u"hRef %1 Index %2"_s.arg(m_listName, QString::number(i))),
-        };
+        switch (role) {
+        case CompletionModel::TitleRole:
+            return u"Title %1 Index %2"_s.arg(m_listName, QString::number(row));
+        case CompletionModel::DescriptionRole:
+            return u"Description %1 Index %2"_s.arg(m_listName, QString::number(row));
+        case CompletionModel::AvatarSourceRole:
+            return QUrl(u"Avatar %1 Index %2"_s.arg(m_listName, QString::number(row)));
+        case CompletionModel::StartSequenceRole:
+            return u"Start Sequence %1 Index %2"_s.arg(m_listName, QString::number(row));
+        case CompletionModel::MatchSequencesRole:
+            return QStringList{u"Match Sequence %1 Index %2"_s.arg(m_listName, QString::number(row))};
+        case CompletionModel::ReplaceStringRole:
+            return u"Replace String %1 Index %2"_s.arg(m_listName, QString::number(row));
+        case CompletionModel::HRefRole:
+            return QUrl(u"hRef %1 Index %2"_s.arg(m_listName, QString::number(row)));
+        default:
+            return {};
+        }
     }
 
 private:

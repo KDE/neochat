@@ -75,8 +75,6 @@ QQC2.Control {
 
     CompletionProxyModel {
         id: completionFilterModel
-        property CompletionMenu menu: null
-
         sourceModel: CompletionModel {
             completionLists: root.completionLists
         }

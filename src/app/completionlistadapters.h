@@ -25,7 +25,7 @@ public:
 
     qsizetype size() const override;
 
-    std::optional<Completion> at(qsizetype i) const override;
+    QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
 
 Q_SIGNALS:
     void userListModelChanged();
@@ -52,7 +52,7 @@ public:
 
     qsizetype size() const override;
 
-    std::optional<Completion> at(qsizetype i) const override;
+    QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
 
 Q_SIGNALS:
     void roomListModelChanged();
@@ -71,7 +71,7 @@ public:
 
     qsizetype size() const override;
 
-    std::optional<Completion> at(qsizetype i) const override;
+    QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
 };
 
 class EmojiCompletionList : public CompletionList
@@ -84,7 +84,7 @@ public:
 
     qsizetype size() const override;
 
-    std::optional<Completion> at(qsizetype i) const override;
+    QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
 };
 
 class CustomEmojiCompletionList : public CompletionList
@@ -97,5 +97,5 @@ public:
 
     qsizetype size() const override;
 
-    std::optional<Completion> at(qsizetype i) const override;
+    QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
 };

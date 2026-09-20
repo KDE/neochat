@@ -65,8 +65,8 @@ void CompletionProxyModel::updateFilterText()
     }
     const auto newFilterText = cursor.selectedText().trimmed();
     if (newFilterText != m_filterText) {
-        m_filterText = newFilterText;
         beginFilterChange();
+        m_filterText = newFilterText;
         endFilterChange();
         const bool isCompleting = rowCount() > 0;
         if (m_textItem->isCompleting != isCompleting) {

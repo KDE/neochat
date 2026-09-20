@@ -23,7 +23,7 @@ class CompletionModel : public QAbstractListModel
     QML_ELEMENT
 
     /**
-     * @brief The UserListModel to adapt for completions.
+     * @brief The CompletionLists to get completions from.
      */
     Q_PROPERTY(QList<CompletionList *> completionLists READ completionLists WRITE setCompletionLists NOTIFY completionListsChanged)
 
@@ -77,5 +77,5 @@ private:
     void listCompletionsAdded(CompletionList *list, qsizetype first, qsizetype last);
     void listCompletionsRemoved(CompletionList *list, qsizetype first, qsizetype last);
 
-    std::optional<Completion> completionAtRow(qsizetype row) const;
+    QVariant dataAtRow(qsizetype row, int role = Qt::DisplayRole) const;
 };

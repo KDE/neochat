@@ -2,9 +2,12 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "completionlistadapters.h"
+
 #include "actionsmodel.h"
+#include "completionmodel.h"
 #include "models/customemojimodel.h"
 #include "models/emojimodel.h"
+#include "models/roomlistmodel.h"
 
 using namespace Qt::StringLiterals;
 
@@ -50,23 +53,31 @@ qsizetype UserCompletionList::size() const
     return m_userListModel->rowCount();
 }
 
-std::optional<Completion> UserCompletionList::at(qsizetype i) const
+QVariant UserCompletionList::data(qsizetype row, int role) const
 {
     if (!m_userListModel) {
-        return std::nullopt;
+        return {};
     }
-    const auto index = m_userListModel->index(i);
-    const auto displayName = index.data(UserListModel::DisplayNameRole).toString();
-    const auto userId = index.data(UserListModel::UserIdRole).toString();
-    return Completion{
-        .title = displayName,
-        .description = userId,
-        .avatarSource = index.data(UserListModel::AvatarRole).toUrl(),
-        .startsequence = u"@"_s,
-        .matchSequences = {displayName, userId.last(userId.size() - 1)},
-        .replaceString = displayName,
-        .hRef = QUrl(u"https://matrix.to/#/%1"_s.arg(userId)),
-    };
+    const auto index = m_userListModel->index(row);
+    switch (role) {
+    case CompletionModel::TitleRole:
+    case CompletionModel::ReplaceStringRole:
+        return index.data(UserListModel::DisplayNameRole);
+    case CompletionModel::DescriptionRole:
+        return index.data(UserListModel::UserIdRole);
+    case CompletionModel::AvatarSourceRole:
+        return index.data(UserListModel::AvatarRole);
+    case CompletionModel::StartSequenceRole:
+        return u"@"_s;
+    case CompletionModel::MatchSequencesRole: {
+        const auto userId = index.data(UserListModel::UserIdRole).toString();
+        return QStringList{index.data(UserListModel::DisplayNameRole).toString(), userId.last(userId.size() - 1)};
+    }
+    case CompletionModel::HRefRole:
+        return QUrl(u"https://matrix.to/#/%1"_s.arg(index.data(UserListModel::UserIdRole).toString()));
+    default:
+        return {};
+    }
 }
 
 RoomCompletionList::RoomCompletionList(QObject *parent)
@@ -111,27 +122,36 @@ qsizetype RoomCompletionList::size() const
     return m_roomListModel->rowCount();
 }
 
-std::optional<Completion> RoomCompletionList::at(qsizetype i) const
+QVariant RoomCompletionList::data(qsizetype row, int role) const
 {
     if (!m_roomListModel) {
-        return std::nullopt;
+        return {};
     }
-    const auto index = m_roomListModel->index(i);
-    const auto displayName = index.data(RoomListModel::DisplayNameRole).toString();
-    const auto canonicalAlias = index.data(RoomListModel::CanonicalAliasRole).toString();
-    QStringList matchSequences = {displayName};
-    if (!canonicalAlias.isEmpty()) {
-        matchSequences += canonicalAlias.last(canonicalAlias.size() - 1);
+    const auto index = m_roomListModel->index(row);
+    switch (role) {
+    case CompletionModel::TitleRole:
+        return index.data(RoomListModel::DisplayNameRole);
+    case CompletionModel::DescriptionRole:
+        return index.data(RoomListModel::CanonicalAliasRole);
+    case CompletionModel::AvatarSourceRole:
+        return index.data(RoomListModel::AvatarRole).toUrl();
+    case CompletionModel::StartSequenceRole:
+        return u"#"_s;
+    case CompletionModel::MatchSequencesRole: {
+        QStringList matchSequences = {index.data(RoomListModel::DisplayNameRole).toString()};
+        const auto canonicalAlias = index.data(RoomListModel::CanonicalAliasRole).toString();
+        if (!canonicalAlias.isEmpty()) {
+            matchSequences += canonicalAlias.last(canonicalAlias.size() - 1);
+        }
+        return matchSequences;
     }
-    return Completion{
-        .title = displayName,
-        .description = canonicalAlias,
-        .avatarSource = index.data(RoomListModel::AvatarRole).toUrl(),
-        .startsequence = u"#"_s,
-        .matchSequences = matchSequences,
-        .replaceString = canonicalAlias,
-        .hRef = QUrl(u"https://matrix.to/#/%1"_s.arg(canonicalAlias)),
-    };
+    case CompletionModel::ReplaceStringRole:
+        return index.data(RoomListModel::CanonicalAliasRole);
+    case CompletionModel::HRefRole:
+        return QUrl(u"https://matrix.to/#/%1"_s.arg(index.data(RoomListModel::CanonicalAliasRole).toString()));
+    default:
+        return {};
+    }
 }
 
 ActionsCompletionList::ActionsCompletionList(QObject *parent)
@@ -150,19 +170,27 @@ qsizetype ActionsCompletionList::size() const
     return ActionsModel::instance().rowCount();
 }
 
-std::optional<Completion> ActionsCompletionList::at(qsizetype i) const
+QVariant ActionsCompletionList::data(qsizetype row, int role) const
 {
-    const auto index = ActionsModel::instance().index(i);
-    const auto prefix = index.data(ActionsModel::Prefix).toString();
-    return Completion{
-        .title = u"%1 %2"_s.arg(prefix, index.data(ActionsModel::Parameters).toString()),
-        .description = index.data(ActionsModel::Description).toString(),
-        .avatarSource = {},
-        .startsequence = u"/"_s,
-        .matchSequences = {prefix},
-        .replaceString = u"/%1"_s.arg(prefix),
-        .hRef = {},
-    };
+    const auto index = ActionsModel::instance().index(row);
+    switch (role) {
+    case CompletionModel::TitleRole:
+        return u"%1 %2"_s.arg(index.data(ActionsModel::Prefix).toString(), index.data(ActionsModel::Parameters).toString());
+    case CompletionModel::DescriptionRole:
+        return index.data(ActionsModel::Description).toString();
+    case CompletionModel::AvatarSourceRole:
+        return {};
+    case CompletionModel::StartSequenceRole:
+        return u"/"_s;
+    case CompletionModel::MatchSequencesRole:
+        return QStringList{index.data(ActionsModel::Prefix).toString()};
+    case CompletionModel::ReplaceStringRole:
+        return u"/%1"_s.arg(index.data(ActionsModel::Prefix).toString());
+    case CompletionModel::HRefRole:
+        return {};
+    default:
+        return {};
+    }
 }
 
 EmojiCompletionList::EmojiCompletionList(QObject *parent)
@@ -181,23 +209,31 @@ qsizetype EmojiCompletionList::size() const
     return EmojiModel::instance().rowCount();
 }
 
-std::optional<Completion> EmojiCompletionList::at(qsizetype i) const
+QVariant EmojiCompletionList::data(qsizetype row, int role) const
 {
-    const auto index = EmojiModel::instance().index(i);
-    const auto unicode = index.data(EmojiModel::UnicodeRole).toString();
-    const auto shortName = index.data(EmojiModel::ShortNameRole).toString();
-    auto shortNameNoColon = shortName;
-    shortNameNoColon.removeFirst();
-    shortNameNoColon.removeLast();
-    return Completion{
-        .title = u"%1 %2"_s.arg(unicode, shortName),
-        .description = index.data(EmojiModel::DescriptionRole).toString(),
-        .avatarSource = {},
-        .startsequence = u":"_s,
-        .matchSequences = {unicode, shortNameNoColon},
-        .replaceString = unicode,
-        .hRef = {},
-    };
+    const auto index = EmojiModel::instance().index(row);
+    switch (role) {
+    case CompletionModel::TitleRole:
+        return u"%1 %2"_s.arg(index.data(EmojiModel::UnicodeRole).toString(), index.data(EmojiModel::ShortNameRole).toString());
+    case CompletionModel::DescriptionRole:
+        return index.data(EmojiModel::DescriptionRole);
+    case CompletionModel::AvatarSourceRole:
+        return {};
+    case CompletionModel::StartSequenceRole:
+        return u":"_s;
+    case CompletionModel::MatchSequencesRole: {
+        auto shortNameNoColon = index.data(EmojiModel::ShortNameRole).toString();
+        shortNameNoColon.removeFirst();
+        shortNameNoColon.removeLast();
+        return QStringList{index.data(EmojiModel::UnicodeRole).toString(), shortNameNoColon};
+    }
+    case CompletionModel::ReplaceStringRole:
+        return index.data(EmojiModel::UnicodeRole);
+    case CompletionModel::HRefRole:
+        return {};
+    default:
+        return {};
+    }
 }
 
 CustomEmojiCompletionList::CustomEmojiCompletionList(QObject *parent)
@@ -216,23 +252,31 @@ qsizetype CustomEmojiCompletionList::size() const
     return CustomEmojiModel::instance().rowCount();
 }
 
-std::optional<Completion> CustomEmojiCompletionList::at(qsizetype i) const
+QVariant CustomEmojiCompletionList::data(qsizetype row, int role) const
 {
-    const auto index = CustomEmojiModel::instance().index(i);
-    const auto name = index.data(CustomEmojiModel::Name).toString();
-    auto nameNoColon = name;
-    nameNoColon.removeFirst();
-    nameNoColon.removeLast();
-    const auto url = index.data(CustomEmojiModel::MxcUrl).toUrl();
-    return Completion{
-        .title = name,
-        .description = index.data(EmojiModel::DescriptionRole).toString(),
-        .avatarSource = url,
-        .startsequence = u":"_s,
-        .matchSequences = {nameNoColon},
-        .replaceString = name,
-        .hRef = {},
-    };
+    const auto index = CustomEmojiModel::instance().index(row);
+    switch (role) {
+    case CompletionModel::TitleRole:
+        return index.data(CustomEmojiModel::Name);
+    case CompletionModel::DescriptionRole:
+        return index.data(CustomEmojiModel::DescriptionRole);
+    case CompletionModel::AvatarSourceRole:
+        return index.data(CustomEmojiModel::MxcUrl);
+    case CompletionModel::StartSequenceRole:
+        return u":"_s;
+    case CompletionModel::MatchSequencesRole: {
+        auto nameNoColon = index.data(CustomEmojiModel::Name).toString();
+        nameNoColon.removeFirst();
+        nameNoColon.removeLast();
+        return QStringList{nameNoColon};
+    }
+    case CompletionModel::ReplaceStringRole:
+        return index.data(CustomEmojiModel::Name);
+    case CompletionModel::HRefRole:
+        return {};
+    default:
+        return {};
+    }
 }
 
 #include "moc_completionlistadapters.cpp"

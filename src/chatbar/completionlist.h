@@ -7,16 +7,6 @@
 #include <QTextDocumentFragment>
 #include <qqmlintegration.h>
 
-struct Completion {
-    QString title;
-    QString description;
-    QUrl avatarSource;
-    QString startsequence;
-    QStringList matchSequences;
-    QString replaceString;
-    QUrl hRef;
-};
-
 class CompletionList : public QObject
 {
     Q_OBJECT
@@ -29,7 +19,7 @@ public:
     /**
      * @brief Return the number of Completions in the list.
      */
-    virtual qsizetype size() const;
+    virtual qsizetype size() const = 0;
 
     /**
      * @brief Return the Completion at the given index.
@@ -38,7 +28,7 @@ public:
      *
      * @sa Completion
      */
-    virtual std::optional<Completion> at(qsizetype i) const;
+    virtual QVariant data(qsizetype row, int role = Qt::DisplayRole) const = 0;
 
 Q_SIGNALS:
     void completionsAdded(CompletionList *list, qsizetype first, qsizetype last);

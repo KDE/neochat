@@ -321,7 +321,7 @@ Kirigami.Page {
                 },
                 ActionsCompletionList {},
                 EmojiCompletionList {},
-                CustomEmojiCompletionList{}
+                CustomEmojiCompletionList {}
             ]
 
             onContentChanged: root.currentRoom.sendTypingNotification(!isEmpty)
@@ -338,11 +338,6 @@ Kirigami.Page {
 
             // Creating a reply (or doing anything in the chat bar) can change the height, but this isn't picked up on the root's onHeightChanged.
             onHeightChanged: root.resetViewSettling()
-
-            UserCompletionList {
-                id: userCompletionList
-                userListModel: RoomManager.userListModel
-            }
 
             PostMessageHelper {
                 id: postHelper
