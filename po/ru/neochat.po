@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 02:39+0000\n"
+"POT-Creation-Date: 2026-09-20 02:44+0000\n"
 "PO-Revision-Date: 2026-07-15 11:00+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -137,65 +137,65 @@ msgstr "Используется только для автотестов"
 msgid "Share a URL to Matrix"
 msgstr "Опубликовать ссылку в Matrix"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:373
+#: src/app/notificationsmanager.cpp:145 src/app/notificationsmanager.cpp:379
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Зашифрованное сообщение"
 
-#: src/app/notificationsmanager.cpp:218
+#: src/app/notificationsmanager.cpp:224
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:224
+#: src/app/notificationsmanager.cpp:230
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/app/notificationsmanager.cpp:237 src/timeline/QuickActions.qml:74
+#: src/app/notificationsmanager.cpp:243 src/timeline/QuickActions.qml:74
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
 
-#: src/app/notificationsmanager.cpp:238
+#: src/app/notificationsmanager.cpp:244
 #, kde-format
 msgid "Reply…"
 msgstr "Ответить…"
 
-#: src/app/notificationsmanager.cpp:289
+#: src/app/notificationsmanager.cpp:295
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 пригласил(а) вас в комнату"
 
-#: src/app/notificationsmanager.cpp:293
+#: src/app/notificationsmanager.cpp:299
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Открыть это приглашение в NeoChat"
 
-#: src/app/notificationsmanager.cpp:303
+#: src/app/notificationsmanager.cpp:309
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Принять"
 
-#: src/app/notificationsmanager.cpp:304
+#: src/app/notificationsmanager.cpp:310
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Отклонить"
 
-#: src/app/notificationsmanager.cpp:306
+#: src/app/notificationsmanager.cpp:312
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Отклонить и игнорировать пользователя"
 
-#: src/app/notificationsmanager.cpp:366
+#: src/app/notificationsmanager.cpp:372
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:377
+#: src/app/notificationsmanager.cpp:383
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Открыть NeoChat"
@@ -2477,7 +2477,7 @@ msgstr "Другой"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:115
-#: src/settings/models/permissionsmodel.cpp:222
+#: src/settings/models/permissionsmodel.cpp:223
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -3652,18 +3652,18 @@ msgstr "Не удалось создать комнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не удалось создать пространство: %1"
 
-#: src/libneochat/neochatroom.cpp:1282
+#: src/libneochat/neochatroom.cpp:1284
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Жалоба отправлена."
 
-#: src/libneochat/neochatroom.cpp:1643 src/libneochat/neochatroom.cpp:1663
+#: src/libneochat/neochatroom.cpp:1651 src/libneochat/neochatroom.cpp:1671
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Широта: %1, долгота: %2"
 
-#: src/libneochat/neochatroom.cpp:1647
+#: src/libneochat/neochatroom.cpp:1655
 #, kde-format
 msgctxt ""
 "%3 is the description of the location, e.g. username's pin, 'Lat' and 'Lon' "
@@ -3671,7 +3671,7 @@ msgctxt ""
 msgid "%3 at Lat: %1, Lon: %2"
 msgstr "%3, широта: %1, долгота: %2"
 
-#: src/libneochat/pollblock.cpp:303
+#: src/libneochat/pollblock.cpp:314
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
@@ -3868,7 +3868,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/libneochat/texthandler.cpp:626
+#: src/libneochat/texthandler.cpp:627
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>У этого события нет содержимого.</i>"
@@ -4011,37 +4011,37 @@ msgstr "Проверка пароля:"
 msgid "The passwords do not match."
 msgstr "Пароли не совпадают."
 
-#: src/login/registration.cpp:393
+#: src/login/registration.cpp:398
 #, kde-format
 msgctxt "@info"
 msgid "No server."
 msgstr "Сервер отсутствует."
 
-#: src/login/registration.cpp:395
+#: src/login/registration.cpp:400
 #, kde-format
 msgctxt "@info"
 msgid "Checking Server availability."
 msgstr "Проверка доступности сервера."
 
-#: src/login/registration.cpp:397
+#: src/login/registration.cpp:402
 #, kde-format
 msgctxt "@info"
 msgid "This is not a valid server."
 msgstr "Этот сервер является некорректным."
 
-#: src/login/registration.cpp:399
+#: src/login/registration.cpp:404
 #, kde-format
 msgctxt "@info"
 msgid "Registration for this server is disabled."
 msgstr "На этом сервере отключена регистрация."
 
-#: src/login/registration.cpp:401
+#: src/login/registration.cpp:406
 #, kde-format
 msgctxt "@info"
 msgid "Registration for this server requires a registration token."
 msgstr "Для регистрации на этом сервере требуется токен регистрации."
 
-#: src/login/registration.cpp:403
+#: src/login/registration.cpp:408
 #, kde-format
 msgctxt "@info"
 msgid "This server cannot prevalidate registration tokens."
@@ -4049,49 +4049,49 @@ msgstr ""
 "На этом сервере не выполняется предварительная проверка регистрационных "
 "токенов."
 
-#: src/login/registration.cpp:405
+#: src/login/registration.cpp:410
 #, kde-format
 msgctxt "@info"
 msgid "This is not a valid registration token."
 msgstr "Указан недопустимый регистрационный токен."
 
-#: src/login/registration.cpp:407
+#: src/login/registration.cpp:412
 #, kde-format
 msgctxt "@info"
 msgid "No username."
 msgstr "Имя пользователя отсутствует."
 
-#: src/login/registration.cpp:409
+#: src/login/registration.cpp:414
 #, kde-format
 msgctxt "@info"
 msgid "Checking username availability."
 msgstr "Проверка доступности имени пользователя."
 
-#: src/login/registration.cpp:411
+#: src/login/registration.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "This username is not available."
 msgstr "Это имя пользователя недоступно."
 
-#: src/login/registration.cpp:413
+#: src/login/registration.cpp:418
 #, kde-format
 msgctxt "@info"
 msgid "Continue"
 msgstr "Продолжить"
 
-#: src/login/registration.cpp:415
+#: src/login/registration.cpp:420
 #, kde-format
 msgctxt "@info"
 msgid "Working"
 msgstr "Выполняется"
 
-#: src/login/registration.cpp:417
+#: src/login/registration.cpp:422
 #, kde-format
 msgctxt "@info"
 msgid "Checking registration token."
 msgstr "Проверка маркера регистрации."
 
-#: src/login/registration.cpp:419
+#: src/login/registration.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Waiting for login confirmation in your browser."
@@ -8021,31 +8021,31 @@ msgid ""
 "this point."
 msgstr "Это начало чата. Более ранних сообщений нет."
 
-#: src/timeline/TimelineView.qml:242 src/timeline/TimelineView.qml:268
+#: src/timeline/TimelineView.qml:243 src/timeline/TimelineView.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Перейти к первому непрочитанному сообщению"
 
-#: src/timeline/TimelineView.qml:242
+#: src/timeline/TimelineView.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Перейти к самому старому загруженному сообщению"
 
-#: src/timeline/TimelineView.qml:268
+#: src/timeline/TimelineView.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "Перейти к следующему непрочитанному выделению"
 
-#: src/timeline/TimelineView.qml:299
+#: src/timeline/TimelineView.qml:300
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Перейти к последнему сообщению"
 
-#: src/timeline/TimelineView.qml:333
+#: src/timeline/TimelineView.qml:334
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
