@@ -71,6 +71,11 @@ QString CacheItem::toString() const
     return {};
 }
 
+QString CacheItem::toPlainString() const
+{
+    return {};
+}
+
 BasicTextCacheItem::BasicTextCacheItem(Type type, const QString &display)
     : CacheItem(type)
     , display(display)
@@ -130,6 +135,11 @@ QString TextCacheItem::toString() const
 
     textOut = trimNewline(textOut).trimmed();
     return type == Quote ? formatQuote(textOut) : textOut;
+}
+
+QString TextCacheItem::toPlainString() const
+{
+    return content.toPlainText();
 }
 
 CodeCacheItem::CodeCacheItem(Type type, const QTextDocumentFragment &content, const QString &language)
@@ -306,6 +316,19 @@ QString Cache::toString() const
         }
     }
 
+    return text;
+}
+
+QString Cache::toPlainString() const
+{
+    QString text;
+    std::ranges::for_each(m_items, [&text](const std::unique_ptr<CacheItem> &item) {
+        const auto addString = item->toPlainString();
+        if (!text.isEmpty() && !addString.isEmpty()) {
+            text += u"\n\n"_s;
+        }
+        text += addString;
+    });
     return text;
 }
 

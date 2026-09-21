@@ -752,4 +752,10 @@ void ChatBarMessageContentModel::clearModel(ClearModelOptions options)
     }
 }
 
+void ChatBarMessageContentModel::clear()
+{
+    clearModel();
+    initializeModel();
+}
+
 #include "moc_chatbarmessagecontentmodel.cpp"

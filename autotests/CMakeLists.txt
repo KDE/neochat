@@ -154,6 +154,7 @@ add_executable(qmltest qmltest.cpp
     chatkeyhelpertesthelper.h
     chatmarkdownhelpertestwrapper.h
     chattextitemhelpertesthelper.h
+    chatbarcoretesthelper.h
 )
 qt_add_qml_module(qmltest URI NeoChatTestUtils)
 
@@ -163,12 +164,19 @@ target_link_libraries(qmltest
     Qt6::QuickTest
     LibNeoChat
     LibNeoChatplugin
+    MessageContent
+    MessageContentplugin
+    Chatbar
+    Chatbarplugin
+    neochat
+    neochatplugin
 )
 
 add_qml_tests(
     chattextitemhelpertest.qml
     chatmarkdownhelpertest.qml
     chatkeyhelpertest.qml
+    chatbarcoretest.qml
 )
 
 add_test(NAME neochat-self-test COMMAND neochat --self-test)

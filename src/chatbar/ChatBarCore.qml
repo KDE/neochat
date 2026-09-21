@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
+import org.kde.neochat.messagecontent as Content
 
 QQC2.Control {
     id: root
@@ -26,7 +27,7 @@ QQC2.Control {
 
     required property real maxAvailableWidth
 
-    readonly property ChatBarMessageContentModel model: ChatBarMessageContentModel {
+    readonly property Content.ChatBarMessageContentModel model: Content.ChatBarMessageContentModel {
         cache: root.cache
         authorName: root.authorName
         sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
@@ -64,6 +65,10 @@ QQC2.Control {
     signal unhandledUp(modifiers: int)
 
     signal cancel
+
+    function clear(option: int): void {
+        model.clear();
+    }
 
     Connections {
         target: NeoChatConfig
