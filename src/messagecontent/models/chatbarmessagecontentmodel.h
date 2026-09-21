@@ -132,6 +132,8 @@ public:
     bool hasAnyContent() const;
     bool hasReply() const;
 
+    Q_INVOKABLE void clear();
+
     static bool richTextActive;
 
 Q_SIGNALS:

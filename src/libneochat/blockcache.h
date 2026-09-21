@@ -31,6 +31,11 @@ public:
      */
     virtual QString toString() const;
 
+    /**
+     * @brief Return the contents of the CacheItem as a single plain text string.
+     */
+    virtual QString toPlainString() const;
+
     static bool richTextActive;
 };
 
@@ -68,6 +73,7 @@ public:
     bool hasSpoiler;
 
     QString toString() const override;
+    QString toPlainString() const override;
 };
 
 /**
@@ -304,6 +310,11 @@ public:
      * @brief Return the contents of the Cache as a single string.
      */
     QString toString() const;
+
+    /**
+     * @brief Return the contents of the CacheItem as a single plain text string.
+     */
+    QString toPlainString() const;
 
 private:
     CacheItems m_items;
