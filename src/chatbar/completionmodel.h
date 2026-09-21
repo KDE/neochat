@@ -68,6 +68,8 @@ public:
      */
     QHash<int, QByteArray> roleNames() const override;
 
+    void setCurrentText(const QString &currentText);
+
 Q_SIGNALS:
     void completionListsChanged();
 
@@ -76,6 +78,8 @@ private:
     std::optional<qsizetype> baseRowForList(CompletionList *list);
     void listCompletionsAdded(CompletionList *list, qsizetype first, qsizetype last);
     void listCompletionsRemoved(CompletionList *list, qsizetype first, qsizetype last);
+
+    QString m_currentText;
 
     QVariant dataAtRow(qsizetype row, int role = Qt::DisplayRole) const;
 };

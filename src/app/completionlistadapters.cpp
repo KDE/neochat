@@ -8,6 +8,7 @@
 #include "models/customemojimodel.h"
 #include "models/emojimodel.h"
 #include "models/roomlistmodel.h"
+#include <qcontainerfwd.h>
 
 using namespace Qt::StringLiterals;
 
@@ -68,16 +69,29 @@ QVariant UserCompletionList::data(qsizetype row, int role) const
     case CompletionModel::AvatarSourceRole:
         return index.data(UserListModel::AvatarRole);
     case CompletionModel::StartSequenceRole:
-        return u"@"_s;
+        return startSequence();
     case CompletionModel::MatchSequencesRole: {
+        QStringList matchSequences;
         const auto userId = index.data(UserListModel::UserIdRole).toString();
-        return QStringList{index.data(UserListModel::DisplayNameRole).toString(), userId.last(userId.size() - 1)};
+        if (!userId.isEmpty()) {
+            matchSequences.append(userId);
+        }
+        const auto displayName = index.data(UserListModel::DisplayNameRole).toString();
+        if (!displayName.isEmpty()) {
+            matchSequences.append(displayName);
+        }
+        return matchSequences;
     }
     case CompletionModel::HRefRole:
         return QUrl(u"https://matrix.to/#/%1"_s.arg(index.data(UserListModel::UserIdRole).toString()));
     default:
         return {};
     }
+}
+
+QString UserCompletionList::startSequence() const
+{
+    return u"@"_s;
 }
 
 RoomCompletionList::RoomCompletionList(QObject *parent)
@@ -136,13 +150,14 @@ QVariant RoomCompletionList::data(qsizetype row, int role) const
     case CompletionModel::AvatarSourceRole:
         return index.data(RoomListModel::AvatarRole).toUrl();
     case CompletionModel::StartSequenceRole:
-        return u"#"_s;
+        return startSequence();
     case CompletionModel::MatchSequencesRole: {
-        QStringList matchSequences = {index.data(RoomListModel::DisplayNameRole).toString()};
         const auto canonicalAlias = index.data(RoomListModel::CanonicalAliasRole).toString();
-        if (!canonicalAlias.isEmpty()) {
-            matchSequences += canonicalAlias.last(canonicalAlias.size() - 1);
+        if (canonicalAlias.isEmpty()) {
+            return QStringList();
         }
+        QStringList matchSequences = {index.data(RoomListModel::DisplayNameRole).toString()};
+        matchSequences += canonicalAlias.last(canonicalAlias.length() - startSequence().length());
         return matchSequences;
     }
     case CompletionModel::ReplaceStringRole:
@@ -152,6 +167,11 @@ QVariant RoomCompletionList::data(qsizetype row, int role) const
     default:
         return {};
     }
+}
+
+QString RoomCompletionList::startSequence() const
+{
+    return u"#"_s;
 }
 
 ActionsCompletionList::ActionsCompletionList(QObject *parent)
@@ -181,7 +201,7 @@ QVariant ActionsCompletionList::data(qsizetype row, int role) const
     case CompletionModel::AvatarSourceRole:
         return {};
     case CompletionModel::StartSequenceRole:
-        return u"/"_s;
+        return startSequence();
     case CompletionModel::MatchSequencesRole:
         return QStringList{index.data(ActionsModel::Prefix).toString()};
     case CompletionModel::ReplaceStringRole:
@@ -191,6 +211,11 @@ QVariant ActionsCompletionList::data(qsizetype row, int role) const
     default:
         return {};
     }
+}
+
+QString ActionsCompletionList::startSequence() const
+{
+    return u"/"_s;
 }
 
 EmojiCompletionList::EmojiCompletionList(QObject *parent)
@@ -220,7 +245,7 @@ QVariant EmojiCompletionList::data(qsizetype row, int role) const
     case CompletionModel::AvatarSourceRole:
         return {};
     case CompletionModel::StartSequenceRole:
-        return u":"_s;
+        return startSequence();
     case CompletionModel::MatchSequencesRole: {
         auto shortNameNoColon = index.data(EmojiModel::ShortNameRole).toString();
         shortNameNoColon.removeFirst();
@@ -234,6 +259,11 @@ QVariant EmojiCompletionList::data(qsizetype row, int role) const
     default:
         return {};
     }
+}
+
+QString EmojiCompletionList::startSequence() const
+{
+    return u":"_s;
 }
 
 CustomEmojiCompletionList::CustomEmojiCompletionList(QObject *parent)
@@ -263,7 +293,7 @@ QVariant CustomEmojiCompletionList::data(qsizetype row, int role) const
     case CompletionModel::AvatarSourceRole:
         return index.data(CustomEmojiModel::MxcUrl);
     case CompletionModel::StartSequenceRole:
-        return u":"_s;
+        return startSequence();
     case CompletionModel::MatchSequencesRole: {
         auto nameNoColon = index.data(CustomEmojiModel::Name).toString();
         nameNoColon.removeFirst();
@@ -277,6 +307,11 @@ QVariant CustomEmojiCompletionList::data(qsizetype row, int role) const
     default:
         return {};
     }
+}
+
+QString CustomEmojiCompletionList::startSequence() const
+{
+    return u":"_s;
 }
 
 #include "moc_completionlistadapters.cpp"

@@ -24,8 +24,8 @@ public:
     void setUserListModel(UserListModel *userListModel);
 
     qsizetype size() const override;
-
     QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
+    QString startSequence() const override;
 
 Q_SIGNALS:
     void userListModelChanged();
@@ -51,8 +51,8 @@ public:
     void setRoomListModel(RoomListModel *roomListModel);
 
     qsizetype size() const override;
-
     QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
+    QString startSequence() const override;
 
 Q_SIGNALS:
     void roomListModelChanged();
@@ -70,8 +70,8 @@ public:
     explicit ActionsCompletionList(QObject *parent = nullptr);
 
     qsizetype size() const override;
-
     QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
+    QString startSequence() const override;
 };
 
 class EmojiCompletionList : public CompletionList
@@ -83,8 +83,8 @@ public:
     explicit EmojiCompletionList(QObject *parent = nullptr);
 
     qsizetype size() const override;
-
     QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
+    QString startSequence() const override;
 };
 
 class CustomEmojiCompletionList : public CompletionList
@@ -96,6 +96,6 @@ public:
     explicit CustomEmojiCompletionList(QObject *parent = nullptr);
 
     qsizetype size() const override;
-
     QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
+    QString startSequence() const override;
 };

@@ -30,6 +30,11 @@ public:
      */
     virtual QVariant data(qsizetype row, int role = Qt::DisplayRole) const = 0;
 
+    /**
+     * @brief Return the start sequence of Completions in the list.
+     */
+    virtual QString startSequence() const = 0;
+
 Q_SIGNALS:
     void completionsAdded(CompletionList *list, qsizetype first, qsizetype last);
 

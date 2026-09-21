@@ -67,6 +67,9 @@ void CompletionProxyModel::updateFilterText()
     if (newFilterText != m_filterText) {
         beginFilterChange();
         m_filterText = newFilterText;
+        if (const auto completionModel = dynamic_cast<CompletionModel *>(sourceModel())) {
+            completionModel->setCurrentText(newFilterText);
+        }
         endFilterChange();
         const bool isCompleting = rowCount() > 0;
         if (m_textItem->isCompleting != isCompleting) {
@@ -143,7 +146,8 @@ bool CompletionProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &so
     const auto startSequence = sourceIndex.data(CompletionModel::StartSequenceRole).toString();
     const auto noStartFilterText = m_filterText.last(m_filterText.size() - startSequence.size());
     const auto matchSequences = sourceIndex.data(CompletionModel::MatchSequencesRole).toStringList();
-    return m_filterText.startsWith(startSequence) && std::ranges::any_of(matchSequences, [noStartFilterText](const QString &matchSequence) {
+    return !matchSequences.isEmpty() && m_filterText.startsWith(startSequence)
+        && std::ranges::any_of(matchSequences, [noStartFilterText](const QString &matchSequence) {
                return matchSequence.startsWith(noStartFilterText);
            });
 }

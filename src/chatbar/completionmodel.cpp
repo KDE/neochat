@@ -56,7 +56,9 @@ std::optional<qsizetype> CompletionModel::baseRowForList(CompletionList *list)
     qsizetype baseRow = 0;
     auto it = m_lists.begin();
     while (it != listIt) {
-        baseRow += (*it)->size();
+        if (m_currentText.startsWith((*it)->startSequence())) {
+            baseRow += (*it)->size();
+        }
     }
     return baseRow;
 }
@@ -84,7 +86,10 @@ void CompletionModel::listCompletionsRemoved(CompletionList *list, qsizetype fir
 QVariant CompletionModel::dataAtRow(qsizetype row, int role) const
 {
     auto localRow = row;
-    const auto it = std::ranges::find_if(m_lists, [&localRow](CompletionList *list) {
+    const auto it = std::ranges::find_if(m_lists, [this, &localRow](CompletionList *list) {
+        if (!m_currentText.startsWith(list->startSequence())) {
+            return false;
+        }
         if (localRow < list->size()) {
             return true;
         }
@@ -114,10 +119,15 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
 int CompletionModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
+    if (m_currentText.isEmpty()) {
+        return 0;
+    }
 
     qsizetype rows = 0;
-    std::ranges::for_each(m_lists, [&rows](CompletionList *list) {
-        rows += list->size();
+    std::ranges::for_each(m_lists, [this, &rows](CompletionList *list) {
+        if (m_currentText.startsWith(list->startSequence())) {
+            rows += list->size();
+        }
     });
     return rows;
 }
@@ -131,6 +141,13 @@ QHash<int, QByteArray> CompletionModel::roleNames() const
         {ReplaceStringRole, "replaceString"},
         {HRefRole, "hRef"},
     };
+}
+
+void CompletionModel::setCurrentText(const QString &currentText)
+{
+    beginResetModel();
+    m_currentText = currentText;
+    endResetModel();
 }
 
 #include "moc_completionmodel.cpp"

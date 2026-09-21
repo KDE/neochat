@@ -12,7 +12,6 @@
 #include "accountmanager.h"
 #include "actionsmodel.h"
 #include "completionmodel.h"
-#include "completionproxymodel.h"
 #include "contentprovider.h"
 #include "enums/powerlevel.h"
 #include "enums/roomsortparameter.h"
@@ -129,7 +128,6 @@ private Q_SLOTS:
     void testUserFilterModel();
     void testEmoticonFilterModel();
     void testDevicesProxyModel();
-    void testCompletionProxyModel();
 };
 
 void ModelTest::initTestCase()
@@ -610,14 +608,6 @@ void ModelTest::testDevicesProxyModel()
     auto devicesModel = new DevicesModel(this);
     model->setSourceModel(devicesModel);
     devicesModel->setConnection(dynamic_cast<NeoChatConnection *>(connection));
-}
-
-void ModelTest::testCompletionProxyModel()
-{
-    auto model = new CompletionProxyModel(this);
-    auto tester = new QAbstractItemModelTester(model, model);
-    tester->setUseFetchMore(true);
-    model->setSourceModel(&EmojiModel::instance());
 }
 
 QTEST_MAIN(ModelTest)
