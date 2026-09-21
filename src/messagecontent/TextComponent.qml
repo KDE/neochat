@@ -180,7 +180,7 @@ TextEdit {
         active: root.editable
         asynchronous: true
 
-        QtObject {
+        Item {
             readonly property Sonnet.Settings settings: Sonnet.Settings {}
             readonly property Sonnet.SpellcheckHighlighter highlighter: Sonnet.SpellcheckHighlighter {
                 document: root.textDocument
