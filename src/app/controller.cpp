@@ -393,4 +393,9 @@ QString Controller::translateToSaveDirectory(const QUrl &selectedFile, const QUr
     return currentFolder.toString();
 }
 
+void Controller::crash() const
+{
+    static_cast<QObject *>(nullptr)->objectName();
+}
+
 #include "moc_controller.cpp"

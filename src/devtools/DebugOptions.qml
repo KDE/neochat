@@ -44,4 +44,12 @@ FormCard.FormCard {
             NeoChatConfig.save();
         }
     }
+    FormCard.FormDelegateSeparator {}
+
+    FormCard.FormButtonDelegate {
+        text: i18nc("@action:button", "Crash")
+        description: i18nc("@action:button", "Crash the application")
+        onClicked: Controller.crash()
+    }
+
 }

@@ -111,6 +111,8 @@ public:
      */
     Q_INVOKABLE [[nodiscard]] QString translateToSaveDirectory(const QUrl &selectedFile, const QUrl &currentFolder) const;
 
+    Q_INVOKABLE void crash() const;
+
 private:
     explicit Controller(QObject *parent = nullptr);
 
