@@ -19,7 +19,6 @@
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
 #else
-#include <KCrash>
 #include <QApplication>
 #endif
 
@@ -35,6 +34,7 @@
 #include <KWindowSystem>
 #endif
 
+#include <KCrash>
 #include <KIconTheme>
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
@@ -168,11 +168,10 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.neochat"_s));
 
-#ifndef Q_OS_ANDROID
+    KCrash::initialize();
     KCrash::setErrorTags({
         {u"libquotient_version"_s, Quotient::versionString()},
     });
-#endif
 
     Connection::setEncryptionDefault(true);
     Connection::setDirectChatEncryptionDefault(true);

@@ -66,7 +66,7 @@ if (QT_KNOWN_POLICY_QTP0004)
 qt_policy(SET QTP0004 NEW)
 endif ()
 
-find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons ItemModels ColorScheme IconThemes)
+find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons ItemModels ColorScheme IconThemes Crash)
 set_package_properties(KF6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
@@ -89,7 +89,7 @@ if(ANDROID)
     )
 else()
     find_package(Qt6 ${QT_MIN_VERSION} COMPONENTS Widgets)
-    find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle KIO WindowSystem Crash)
+    find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle KIO WindowSystem)
     find_package(KF6SyntaxHighlighting ${KF_MIN_VERSION} REQUIRED)
     set_package_properties(KF6QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME

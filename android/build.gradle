@@ -27,6 +27,7 @@ apply from: '../ecm-version.gradle'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'io.sentry:sentry-android-core:8.43.0'
 }
 
 android {

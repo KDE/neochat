@@ -183,7 +183,7 @@ target_sources(neochat-app PRIVATE ${NEOCHAT_ICON})
 
 if(NOT ANDROID)
     target_sources(neochat PRIVATE trayicon.cpp trayicon.h)
-    target_link_libraries(neochat PUBLIC KF6::WindowSystem KF6::Crash)
+    target_link_libraries(neochat PUBLIC KF6::WindowSystem)
     target_compile_definitions(neochat PUBLIC -DHAVE_WINDOWSYSTEM)
 endif()
 
@@ -219,6 +219,7 @@ target_link_libraries(neochat PUBLIC
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::CoreAddons
+    KF6::Crash
     KF6::ItemModels
     KF6::I18nQml
     KirigamiApp
