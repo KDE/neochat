@@ -79,6 +79,13 @@ if (${QuotientQt6_VERSION_MINOR} LESS 10)
 endif()
 
 ecm_qt_declare_logging_category(LibNeoChat
+    HEADER "generallogging.h"
+    IDENTIFIER "General"
+    CATEGORY_NAME "org.kde.neochat.general"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(LibNeoChat
     HEADER "blocklogging.h"
     IDENTIFIER "BlocksLog"
     CATEGORY_NAME "org.kde.neochat.blocks"

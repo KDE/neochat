@@ -17,12 +17,12 @@
 
 using namespace Quotient;
 
-NeoChatError::NeoChatError(Type type, const QString &errorText, const QString &location)
+NeoChatError::NeoChatError(Type type, const QString &errorText, const QString &location, const QLoggingCategory &category)
     : m_type(type)
     , m_errorText(errorText)
     , m_location(location)
 {
-    qWarning() << "Error:" << type << errorText << "at" << location;
+    qCWarning(category) << "Error:" << type << errorText << "at" << location;
 }
 
 bool NeoChatError::operator==(const NeoChatError &rhs) const

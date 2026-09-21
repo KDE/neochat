@@ -16,7 +16,10 @@
 
 #include "enums/powerlevel.h"
 
+#include "generallogging.h"
+
 #define MAKE_ERROR(type, text) NeoChatError(type, text, QString::fromLatin1(Q_FUNC_INFO))
+#define MAKE_ERROR_WITH_CATEGORY(type, text, category) NeoChatError(type, text, QString::fromLatin1(Q_FUNC_INFO), category)
 
 using namespace Qt::StringLiterals;
 
@@ -31,7 +34,7 @@ public:
         NotFound,
         Other,
     };
-    NeoChatError(Type type, const QString &errorText, const QString &location);
+    NeoChatError(Type type, const QString &errorText, const QString &location, const QLoggingCategory &category = General());
 
     bool operator==(const NeoChatError &rhs) const;
 
