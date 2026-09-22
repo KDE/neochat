@@ -56,18 +56,15 @@ QQC2.Control {
     bottomPadding: 0
 
     contentItem: RowLayout {
-        id: contentRow
         spacing: Kirigami.Units.smallSpacing
 
         Rectangle {
-            id: separator
             Layout.fillHeight: true
             width: Kirigami.Units.smallSpacing
             color: Kirigami.Theme.highlightColor
             radius: Kirigami.Units.cornerRadius
         }
         Image {
-            id: previewImage
             Layout.preferredWidth: root.defaultHeight
             Layout.preferredHeight: root.defaultHeight
             Layout.maximumWidth: root.defaultHeight

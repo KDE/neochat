@@ -35,22 +35,24 @@ QQC2.Control {
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
+    Layout.minimumHeight: root.defaultHeight
 
-    contentItem : RowLayout {
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
+
+    contentItem: RowLayout {
         spacing: Kirigami.Units.smallSpacing
 
         Rectangle {
             Layout.fillHeight: true
             width: Kirigami.Units.smallSpacing
             color: Kirigami.Theme.highlightColor
+            radius: Kirigami.Units.cornerRadius
         }
-        QQC2.BusyIndicator {}
-        Kirigami.Heading {
+        QQC2.BusyIndicator {
             Layout.fillWidth: true
-            Layout.minimumHeight: root.defaultHeight
-            verticalAlignment: Text.AlignVCenter
-            level: 2
-            text: i18nc("As in the app is loading the link preview", "Loading URL preview…")
         }
     }
 
