@@ -179,6 +179,7 @@ ColumnLayout {
                 }
 
                 clip: true
+                alternatingRows: false
 
                 model: SpaceChildSortFilterModel {
                     id: spaceChildSortFilterModel

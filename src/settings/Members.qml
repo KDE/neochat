@@ -9,7 +9,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kitemmodels
 
@@ -18,7 +17,7 @@ import org.kde.neochat
 FormCard.FormCardPage {
     id: root
 
-    property NeoChatRoom room
+    required property NeoChatRoom room
 
     title: i18nc("@title:window", "Members")
 
@@ -49,7 +48,7 @@ FormCard.FormCardPage {
                 Keys.onUpPressed: userListView.decrementCurrentIndex()
                 Keys.onDownPressed: userListView.incrementCurrentIndex()
 
-                onAccepted: (userListView.itemAtIndex(userListView.currentIndex) as Delegates.RoundedItemDelegate).action.trigger()
+                onAccepted: (userListView.itemAtIndex(userListView.currentIndex) as QQC2.ItemDelegate).action.trigger()
             }
             QQC2.Popup {
                 id: userListSearchPopup
@@ -110,7 +109,7 @@ FormCard.FormCardPage {
                             }
                         }
 
-                        delegate: Delegates.RoundedItemDelegate {
+                        delegate: QQC2.ItemDelegate {
                             id: userListItem
 
                             required property string userId
@@ -120,8 +119,11 @@ FormCard.FormCardPage {
                             required property string powerLevelString
 
                             text: name
+                            width: ListView.view.width
 
                             contentItem: RowLayout {
+                                spacing: Kirigami.Units.smallSpacing
+
                                 KirigamiComponents.Avatar {
                                     Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium
@@ -129,11 +131,12 @@ FormCard.FormCardPage {
                                     name: userListItem.name
                                 }
 
-                                Delegates.SubtitleContentItem {
-                                    itemDelegate: userListItem
+                                Kirigami.TitleSubtitle {
+                                    title: userListItem.text
                                     subtitle: userListItem.userId
-                                    labelItem.textFormat: Text.PlainText
-                                    subtitleItem.textFormat: Text.PlainText
+                                    textFormat: Text.PlainText
+                                    font: userListItem.font
+                                    selected: userListItem.highlighted || userListItem.down
                                     Layout.fillWidth: true
                                 }
 

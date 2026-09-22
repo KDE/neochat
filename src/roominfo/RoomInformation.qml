@@ -8,7 +8,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat.libneochat
@@ -90,7 +89,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
             }
 
-            Delegates.RoundedItemDelegate {
+            QQC2.ItemDelegate {
                 id: searchButton
                 visible: !root.room.isSpace
                 icon.name: "search-symbolic"
@@ -108,7 +107,7 @@ QQC2.ScrollView {
                 }
             }
 
-            Delegates.RoundedItemDelegate {
+            QQC2.ItemDelegate {
                 visible: root.room.isDirectChat()
                 icon.name: "security-low-symbolic"
                 text: i18nc("@action:button", "Verify user")
@@ -118,7 +117,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
             }
 
-            Delegates.RoundedItemDelegate {
+            QQC2.ItemDelegate {
                 id: widgetsButton
                 visible: !root.room.isSpace
                 icon.name: "extension-symbolic"
@@ -134,7 +133,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
             }
 
-            Delegates.RoundedItemDelegate {
+            QQC2.ItemDelegate {
                 id: locationsButton
                 visible: !root.room.isSpace
                 icon.name: "mark-location-symbolic"
@@ -150,7 +149,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
             }
 
-            Delegates.RoundedItemDelegate {
+            QQC2.ItemDelegate {
                 id: pinnedMessagesButton
                 // On mobile the pinned message at the top is hidden, so we need this button in that case.
                 visible: !root.room.isSpace && Kirigami.Settings.isMobile
@@ -169,7 +168,7 @@ QQC2.ScrollView {
                 }
             }
 
-            Delegates.RoundedItemDelegate {
+            QQC2.ItemDelegate {
                 text: i18nc("@action:inmenu", "Inspect Room Data")
                 icon.name: "tools"
                 visible: NeoChatConfig.developerTools
@@ -188,7 +187,7 @@ QQC2.ScrollView {
                 })
             }
 
-            Delegates.RoundedItemDelegate {
+            QQC2.ItemDelegate {
                 id: leaveButton
                 icon.name: "arrow-left-symbolic"
                 text: root.room.isSpace ? i18nc("@action:button", "Leave Space…") : i18nc("@action:button", "Leave Room…")
@@ -271,7 +270,7 @@ QQC2.ScrollView {
             text: section
         }
 
-        delegate: Delegates.RoundedItemDelegate {
+        delegate: QQC2.ItemDelegate {
             id: userDelegate
 
             required property int index
@@ -285,6 +284,7 @@ QQC2.ScrollView {
             implicitHeight: Kirigami.Units.gridUnit * 2
 
             text: name
+            width: ListView.view.width
 
             KeyNavigation.tab: navigationBar.tabGroup.checkedButton
             KeyNavigation.backtab: index === 0 ? userList.headerItem.userListSearchField : null
@@ -294,6 +294,8 @@ QQC2.ScrollView {
             }
 
             contentItem: RowLayout {
+                spacing: Kirigami.Units.smallSpacing
+
                 KirigamiComponents.Avatar {
                     visible: NeoChatConfig.showAvatarInRoomInfo
                     implicitWidth: height

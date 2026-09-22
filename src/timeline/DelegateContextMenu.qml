@@ -12,7 +12,6 @@ import QtQuick.Dialogs as Dialogs
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -118,7 +117,7 @@ KirigamiComponents.ConvergentContextMenu {
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
             Repeater {
                 model: EmojiModel.quickReactions
-                delegate: Delegates.RoundedItemDelegate {
+                delegate: QQC2.ItemDelegate {
                     id: qrEmojiDelegate
 
                     required property string shortName
@@ -149,7 +148,7 @@ KirigamiComponents.ConvergentContextMenu {
                 }
             }
             // Pick emoji menu button
-            Delegates.RoundedItemDelegate {
+            QQC2.ItemDelegate {
                 id: emojiDelegate
 
                 Layout.fillWidth: true

@@ -10,7 +10,6 @@ import QtQuick.Controls as QQC2
 import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat.libneochat as LibNeoChat
@@ -93,7 +92,7 @@ QQC2.Popup {
             highlightMoveDuration: 0
             clip: true
             onCountChanged: currentIndex = 0
-            delegate: Delegates.RoundedItemDelegate {
+            delegate: QQC2.ItemDelegate {
                 id: completionDelegate
 
                 required property int index
@@ -104,6 +103,8 @@ QQC2.Popup {
                 required property url hRef
 
                 text: title
+                width: ListView.view.width
+                highlighted: ListView.isCurrentItem
 
                 contentItem: RowLayout {
                     KirigamiComponents.Avatar {
@@ -113,12 +114,14 @@ QQC2.Popup {
                         source: completionDelegate.avatarSource
                         name: completionDelegate.text
                     }
-                    Delegates.SubtitleContentItem {
-                        itemDelegate: completionDelegate
-                        labelItem.textFormat: Text.PlainText
-                        labelItem.clip: true // Intentional to limit insane Unicode in display names
+                    Kirigami.TitleSubtitle {
+                        title: completionDelegate.text
+                        clip: true // Intentional to limit insane Unicode in display names
                         subtitle: completionDelegate.description ?? ""
-                        subtitleItem.textFormat: Text.PlainText
+                        font: completionDelegate.font
+                        selected: completionDelegate.highlighted || completionDelegate.down
+                        textFormat: Text.PlainText
+                        Layout.fillWidth: true
                     }
                 }
                 onClicked: {

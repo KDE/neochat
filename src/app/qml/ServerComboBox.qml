@@ -8,7 +8,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -35,7 +34,7 @@ QQC2.ComboBox {
         connection: root.connection
     }
 
-    delegate: Delegates.RoundedItemDelegate {
+    delegate: QQC2.ItemDelegate {
         id: serverItem
 
         required property int index
@@ -46,6 +45,7 @@ QQC2.ComboBox {
 
         text: isAddServerDelegate ? i18nc("@action:button", "Add New Server") : url
         highlighted: index === root.highlightedIndex
+        width: ListView.view.width
 
         topInset: index === 0 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
         bottomInset: index === ListView.view.count - 1 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
@@ -58,9 +58,11 @@ QQC2.ComboBox {
         contentItem: RowLayout {
             spacing: Kirigami.Units.smallSpacing
 
-            Delegates.SubtitleContentItem {
-                itemDelegate: serverItem
+            Kirigami.TitleSubtitle {
+                title: serverItem.text
                 subtitle: serverItem.isHomeServer ? i18nc("@info", "Home Server") : ""
+                font: serverItem.font
+                selected: serverItem.highlighted || serverItem.down
                 Layout.fillWidth: true
             }
 

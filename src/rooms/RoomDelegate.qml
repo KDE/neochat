@@ -6,11 +6,10 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
-Delegates.RoundedItemDelegate {
+QQC2.ItemDelegate {
     id: root
 
     required property int index
@@ -34,7 +33,6 @@ Delegates.RoundedItemDelegate {
 
     property Component leading: null
 
-    dropAreaHovered: dropArea.containsDrag
     font.weight: root.hasUnreadMessages ? Font.Bold : Font.Normal
 
     Accessible.name: root.displayName
@@ -113,6 +111,7 @@ Delegates.RoundedItemDelegate {
             subtitle: NeoChatConfig.compactRoomList ? "" : root.subtitleText
             font: root.font
             textFormat: Text.PlainText
+            selected: root.highlighted || root.down
         }
         Kirigami.Icon {
             source: "notifications-disabled"

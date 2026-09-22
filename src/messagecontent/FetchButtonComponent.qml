@@ -3,16 +3,16 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
 /**
  * @brief A component to show a reply button for threads in a message bubble.
  */
-Delegates.RoundedItemDelegate {
+QQC2.ItemDelegate {
     id: root
 
     /**

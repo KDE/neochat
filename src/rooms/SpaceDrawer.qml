@@ -91,7 +91,7 @@ QQC2.Control {
 
                     activeFocusOnTab: true
 
-                    checked: RoomManager.currentSpace.length === 0
+                    highlighted: RoomManager.currentSpace.length === 0
                     onSelected: RoomManager.currentSpace = ""
                 }
                 AvatarTabButton {
@@ -146,7 +146,7 @@ QQC2.Control {
 
                     activeFocusOnTab: true
 
-                    checked: RoomManager.currentSpace === "DM"
+                    highlighted: RoomManager.currentSpace === "DM"
                     onSelected: RoomManager.currentSpace = "DM"
                 }
 
@@ -177,7 +177,7 @@ QQC2.Control {
                         onSelected: {
                             RoomManager.currentSpace = spaceDelegate.roomId;
                         }
-                        checked: RoomManager.currentSpace === roomId
+                        highlighted: RoomManager.currentSpace === roomId
                         onContextMenuRequested: root.createContextMenu(currentRoom)
                     }
                 }

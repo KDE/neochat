@@ -6,11 +6,10 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
-Delegates.RoundedItemDelegate {
+QQC2.ItemDelegate {
     id: root
 
     required property TreeView treeView

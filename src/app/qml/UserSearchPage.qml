@@ -8,7 +8,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as Components
 
 import org.kde.neochat
@@ -39,7 +38,7 @@ SearchPage {
         connection: root.connection
     }
 
-    modelDelegate: Delegates.RoundedItemDelegate {
+    modelDelegate: QQC2.ItemDelegate {
         id: userDelegate
         required property string userId
         required property string displayName
@@ -47,6 +46,7 @@ SearchPage {
         required property var directChatExists
 
         text: displayName
+        width: ListView.view.width
 
         onClicked: {
             root.connection.requestDirectChat(userDelegate.userId);
@@ -74,10 +74,13 @@ SearchPage {
                 source: userDelegate.avatarUrl
                 name: userDelegate.displayName
             }
-            Delegates.SubtitleContentItem {
-                itemDelegate: userDelegate
+            Kirigami.TitleSubtitle {
+                title: userDelegate.text
                 subtitle: userDelegate.userId
-                labelItem.textFormat: Text.PlainText
+                font: userDelegate.font
+                selected: userDelegate.highlighted || userDelegate.down
+                textFormat: Text.PlainText
+                Layout.fillWidth: true
             }
             QQC2.Label {
                 visible: userDelegate.directChatExists

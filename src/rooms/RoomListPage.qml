@@ -11,7 +11,6 @@ import QtQml.Models
 import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -144,6 +143,7 @@ Kirigami.Page {
 
                 clip: true
                 reuseItems: false
+                alternatingRows: false
 
                 model: RoomManager.sortFilterRoomTreeModel
 
@@ -203,7 +203,7 @@ Kirigami.Page {
 
                     DelegateChoice {
                         roleValue: "addDirect"
-                        delegate: Delegates.RoundedItemDelegate {
+                        delegate: QQC2.ItemDelegate {
                             text: root.collapsed && !Kirigami.Settings.isMobile ? "" : i18nc("@action:button", "Find your friends")
                             icon.name: "list-add-user"
                             icon.width: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)

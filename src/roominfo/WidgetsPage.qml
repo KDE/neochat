@@ -6,7 +6,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat.libneochat
 
@@ -34,13 +33,15 @@ Kirigami.ScrollablePage {
             room: root.room
         }
 
-        delegate: Delegates.RoundedItemDelegate {
+        delegate: QQC2.ItemDelegate {
             id: del
 
             required text
             required property url url
             required property string type
             required property int index
+
+            width: ListView.view.width
 
             // Can we actually use the jitsi logo without being infringing any
             // trademarks?
@@ -52,13 +53,21 @@ Kirigami.ScrollablePage {
 
             contentItem: RowLayout {
                 spacing: Kirigami.Units.smallSpacing
-                Delegates.SubtitleContentItem {
+                Kirigami.IconTitleSubtitle {
                     Layout.fillWidth: true
 
-                    iconItem.visible: true
-                    itemDelegate: del
+                    icon: icon.fromControlsIcon(del.icon)
+                    title: del.text
                     subtitle: del.url
-                    labelItem.textFormat: Text.PlainText
+                    selected: del.highlighted || del.down
+                    font: del.font
+
+                    // TODO: Remove when we can depend on Kirigami 6.31
+                    Component.onCompleted: {
+                        if (textFormat !== undefined) {
+                            textFormat = Text.PlainText;
+                        }
+                    }
                 }
 
                 QQC2.ToolButton {

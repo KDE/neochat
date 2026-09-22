@@ -9,7 +9,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -92,13 +91,14 @@ SearchPage {
     }
 
     modelDelegate: ExplorerDelegate {
+        width: ListView.view.width
         onRoomSelected: (roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
             root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
             root.closeDialog();
         }
     }
 
-    listHeaderDelegate: Delegates.RoundedItemDelegate {
+    listHeaderDelegate: QQC2.ItemDelegate {
         id: delegate
 
         onClicked: _private.openManualRoomDialog()
@@ -109,11 +109,14 @@ SearchPage {
         icon.name: "compass"
         icon.width: Kirigami.Units.gridUnit * 2
         icon.height: Kirigami.Units.gridUnit * 2
+        width: ListView.view.width
 
         contentItem: Kirigami.IconTitleSubtitle {
             icon: icon.fromControlsIcon(delegate.icon)
             title: delegate.text
             subtitle: i18n("If you already know a room's address or alias, and it isn't shown here.")
+            font: delegate.font
+            selected: delegate.highlighted || delegate.down
         }
     }
 

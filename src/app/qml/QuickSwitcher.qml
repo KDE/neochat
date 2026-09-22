@@ -49,6 +49,7 @@ Kirigami.SearchDialog {
     parent: QQC2.Overlay.overlay
 
     delegate: RoomDelegate {
+        width: ListView.view.width
         connection: root.connection
         onClicked: root.close()
         showConfigure: false

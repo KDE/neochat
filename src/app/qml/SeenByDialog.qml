@@ -7,7 +7,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -41,7 +40,7 @@ Kirigami.Dialog {
                     }
                 }
 
-                delegate: Delegates.RoundedItemDelegate {
+                delegate: QQC2.ItemDelegate {
                     id: userDelegate
 
                     required property string displayName
@@ -50,6 +49,7 @@ Kirigami.Dialog {
                     required property string userId
 
                     implicitHeight: Kirigami.Units.gridUnit * 2
+                    width: ListView.view.width
 
                     text: displayName
                     highlighted: false

@@ -5,9 +5,8 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
-Delegates.RoundedItemDelegate {
+QQC2.ItemDelegate {
     id: root
 
     property url source

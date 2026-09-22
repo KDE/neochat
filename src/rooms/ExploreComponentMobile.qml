@@ -8,7 +8,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -116,7 +115,7 @@ Kirigami.NavigationTabBar {
             id: create
             ColumnLayout {
                 spacing: 0
-                Delegates.RoundedItemDelegate {
+                QQC2.ItemDelegate {
                     id: createRoomButton
                     Layout.fillWidth: true
                     text: i18nc("@action:button", "Create a Room")
@@ -133,7 +132,7 @@ Kirigami.NavigationTabBar {
                         onTriggered: createRoomButton.clicked()
                     }
                 }
-                Delegates.RoundedItemDelegate {
+                QQC2.ItemDelegate {
                     Layout.fillWidth: true
                     text: i18nc("@action:button", "Create a Space")
                     icon.name: "list-add"

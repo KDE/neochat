@@ -10,7 +10,6 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.kirigamiaddons.components as KirigamiComponents
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -42,9 +41,8 @@ Kirigami.Dialog {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
 
-        footer: Delegates.RoundedItemDelegate {
+        footer: QQC2.ItemDelegate {
             id: addDelegate
-            width: parent.width
             highlighted: focus && !accountView.addAccount.pressed
             Component.onCompleted: accountView.addAccount = this
             icon {
@@ -53,11 +51,20 @@ Kirigami.Dialog {
                 height: Kirigami.Units.iconSizes.smallMedium
             }
             text: i18nc("@button: login to or register a new account.", "Add Account")
-            contentItem: Delegates.SubtitleContentItem {
-                itemDelegate: addDelegate
+            width: ListView.view.width
+            contentItem: Kirigami.IconTitleSubtitle {
+                title: addDelegate.text
                 subtitle: i18nc("@info", "Log in or create a new account")
-                labelItem.textFormat: Text.PlainText
-                subtitleItem.textFormat: Text.PlainText
+                font: addDelegate.font
+                selected: addDelegate.highlighted || addDelegate.down
+                icon: icon.fromControlsIcon(addDelegate.icon)
+
+                // TODO: Remove when we can depend on Kirigami 6.31
+                Component.onCompleted: {
+                    if (textFormat !== undefined) {
+                        textFormat = Text.PlainText;
+                    }
+                }
             }
 
             onClicked: {
@@ -95,8 +102,8 @@ Kirigami.Dialog {
                 accountView.decrementCurrentIndex();
             }
         }
-        Keys.onEnterPressed: ((accountView.currentItem ?? accountView.footerItem) as Delegates.RoundedItemDelegate).clicked()
-        Keys.onReturnPressed: ((accountView.currentItem ?? accountView.footerItem) as Delegates.RoundedItemDelegate).clicked()
+        Keys.onEnterPressed: ((accountView.currentItem ?? accountView.footerItem) as QQC2.ItemDelegate).clicked()
+        Keys.onReturnPressed: ((accountView.currentItem ?? accountView.footerItem) as QQC2.ItemDelegate).clicked()
 
         onVisibleChanged: {
             for (let i = 0; i < accountView.count; i++) {
@@ -107,13 +114,14 @@ Kirigami.Dialog {
             }
         }
 
-        delegate: Delegates.RoundedItemDelegate {
+        delegate: QQC2.ItemDelegate {
             id: userDelegate
 
             required property NeoChatConnection connection
 
-            width: parent.width
+            width: ListView.view.width
             text: connection.localUser.displayName
+            highlighted: focus && !accountView.addAccount.pressed
 
             contentItem: RowLayout {
                 KirigamiComponents.Avatar {
@@ -127,11 +135,13 @@ Kirigami.Dialog {
                     name: userDelegate.connection.localUser.displayName ?? userDelegate.connection.localUser.id
                 }
 
-                Delegates.SubtitleContentItem {
-                    itemDelegate: userDelegate
+                Kirigami.TitleSubtitle {
+                    title: userDelegate.text
                     subtitle: userDelegate.connection.localUser.id
-                    labelItem.textFormat: Text.PlainText
-                    subtitleItem.textFormat: Text.PlainText
+                    textFormat: Text.PlainText
+                    font: userDelegate.font
+                    selected: userDelegate.highlighted || userDelegate.down
+                    Layout.fillWidth: true
                 }
             }
 

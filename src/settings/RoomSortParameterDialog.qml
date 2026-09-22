@@ -8,7 +8,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -43,16 +42,19 @@ Kirigami.Dialog {
                 id: roomSortParameterModel
             }
 
-            delegate: Delegates.RoundedItemDelegate {
+            delegate: QQC2.ItemDelegate {
                 id: parameterDelegate
                 required property string name
                 required property string description
                 required property int index
 
-                width: parent?.width ?? 0
+                width: ListView.view.width
 
                 contentItem: RowLayout {
+                    spacing: Kirigami.Units.smallSpacing
+
                     ColumnLayout {
+                        spacing: Kirigami.Units.smallSpacing
                         Layout.fillWidth: true
 
                         QQC2.Label {
@@ -105,7 +107,7 @@ Kirigami.Dialog {
                 }
             }
 
-            footer: Delegates.RoundedItemDelegate {
+            footer: QQC2.ItemDelegate {
                 text: i18nc("@action:button", "Add parameter")
                 icon.name: "list-add"
 
@@ -140,7 +142,7 @@ Kirigami.Dialog {
 
                     model: roomSortParameterModel.allParameterModel()
 
-                    delegate: Delegates.RoundedItemDelegate {
+                    delegate: QQC2.ItemDelegate {
                         id: addParameterDelegate
                         required property string name
                         required property string description
@@ -150,9 +152,11 @@ Kirigami.Dialog {
 
                         text: addParameterDelegate.name
 
-                        contentItem: Delegates.SubtitleContentItem {
-                            itemDelegate: addParameterDelegate
+                        contentItem: Kirigami.TitleSubtitle {
+                            title: addParameterDelegate.text
                             subtitle: addParameterDelegate.description
+                            font: addParameterDelegate.font
+                            selected: addParameterDelegate.highlighted || addParameterDelegate.down
                         }
 
                         onClicked: {

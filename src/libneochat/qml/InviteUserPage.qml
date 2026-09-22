@@ -8,7 +8,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
@@ -54,7 +53,7 @@ SearchPage {
         connection: root.room.connection as NeoChatConnection
     }
 
-    modelDelegate: Delegates.RoundedItemDelegate {
+    modelDelegate: QQC2.ItemDelegate {
         id: delegate
 
         required property string userId
@@ -71,10 +70,12 @@ SearchPage {
                 name: delegate.displayName
             }
 
-            Delegates.SubtitleContentItem {
-                itemDelegate: delegate
+            Kirigami.TitleSubtitle {
+                title: delegate.text
                 subtitle: delegate.userId
-                labelItem.textFormat: Text.PlainText
+                textFormat: Text.PlainText
+                font: delegate.font
+                selected: delegate.highlighted || delegate.down
             }
 
             QQC2.ToolButton {

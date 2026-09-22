@@ -9,7 +9,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kitemmodels
 
@@ -18,11 +17,11 @@ import org.kde.neochat
 FormCard.FormCardPage {
     id: root
 
-    property NeoChatRoom room
+    required property NeoChatRoom room
 
     title: i18nc('@title:window', 'Permissions')
 
-    readonly property bool loading: permissions.count === 0 && !root.room.roomCreatorHasUltimatePowerLevel()
+    readonly property bool loading: !root.room.roomCreatorHasUltimatePowerLevel()
 
     readonly property PowerLevelModel powerLevelModel: PowerLevelModel {
         showMute: false
