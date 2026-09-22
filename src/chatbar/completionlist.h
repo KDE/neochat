@@ -11,6 +11,7 @@ class CompletionList : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     explicit CompletionList(QObject *parent = nullptr);
