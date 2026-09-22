@@ -334,15 +334,15 @@ Blocks::BlockPtrs EventMessageContentModel::messageContentComponents(bool isThre
 #if Quotient_VERSION_MINOR > 9
     if (!m_isReply && event->isReply()) {
         blocks.push_back(new Blocks::ReplyBlock(new EventMessageContentModel(m_room, event->replyEventId(), true, false, this), this));
+    }
 #else
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
-    if (!roomMessageEvent) {
-        return {};
+    if (roomMessageEvent) {
+        if (!m_isReply && roomMessageEvent->isReply()) {
+            blocks.push_back(new Blocks::ReplyBlock(new EventMessageContentModel(m_room, roomMessageEvent->replyEventId(), true, false, this), this));
+        }
     }
-    if (!m_isReply && roomMessageEvent->isReply()) {
-        blocks.push_back(new Blocks::ReplyBlock(new EventMessageContentModel(m_room, roomMessageEvent->replyEventId(), true, false, this), this));
 #endif
-    }
 
     if (m_isEditing) {
         blocks.push_back(new Blocks::ChatBarBlock(m_room->editCache(), {}, this));

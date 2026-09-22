@@ -759,11 +759,14 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Room
 #if Quotient_VERSION_MINOR > 9
     Blocks::Type type = Blocks::typeForEvent(*event, event->isReply());
 #else
-    const auto roomMessageEvent = eventCast<const RoomMessageEvent>(event);
-    if (!roomMessageEvent) {
-        return {};
+    Blocks::Type type;
+    bool isReplaced = false;
+    if (const auto roomMessageEvent = eventCast<const RoomMessageEvent>(event); roomMessageEvent != nullptr) {
+        type = Blocks::typeForEvent(*roomMessageEvent, roomMessageEvent->isReply());
+        isReplaced = roomMessageEvent->isReplaced();
+    } else {
+        type = Blocks::typeForEvent(*event, false);
     }
-    Blocks::Type type = Blocks::typeForEvent(*roomMessageEvent, roomMessageEvent->isReply());
 #endif
     switch (type) {
     case Blocks::Text: {
@@ -774,7 +777,7 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Room
 #if Quotient_VERSION_MINOR > 9
                                             event->isReplaced(),
 #else
-                                            roomMessageEvent->isReplaced(),
+                                           isReplaced,
 #endif
                                             false,
                                             parent);
@@ -794,7 +797,7 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Room
 #if Quotient_VERSION_MINOR > 9
                                                                  event->isReplaced(),
 #else
-                                                                 roomMessageEvent->isReplaced(),
+                                                                 isReplaced,
 #endif
                                                                  false,
                                                                  parent));
