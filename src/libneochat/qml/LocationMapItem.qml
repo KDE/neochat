@@ -7,7 +7,7 @@ import QtLocation
 import QtPositioning
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.components as KirigamiComponents
 
 /** Location marker for any of the shared location maps. */
 MapQuickItem {

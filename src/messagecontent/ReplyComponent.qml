@@ -9,7 +9,7 @@ import Qt.labs.qmlmodels
 
 import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 
