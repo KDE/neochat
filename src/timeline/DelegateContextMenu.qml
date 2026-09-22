@@ -335,6 +335,7 @@ KirigamiComponents.ConvergentContextMenu {
             } else if (root.blockType === Blocks.Video) {
                 return i18nc("@action:inmenu", "Hide Video");
             }
+            return "";
         }
         icon.name: "view-visible-off-symbolic"
 
@@ -349,6 +350,7 @@ KirigamiComponents.ConvergentContextMenu {
             } else if (root.blockType === Blocks.Video) {
                 return i18nc("@action:inmenu", "Show Video");
             }
+            return "";
         }
         icon.name: "view-visible-symbolic"
 
@@ -367,6 +369,7 @@ KirigamiComponents.ConvergentContextMenu {
             } else {
                 return i18nc("@action:inmenu", "Copy File");
             }
+            return "";
         }
         icon.name: "edit-copy"
         onTriggered: {
