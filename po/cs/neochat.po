@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 02:44+0000\n"
-"PO-Revision-Date: 2026-07-10 11:24+0200\n"
+"PO-Revision-Date: 2026-09-21 19:48+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/app/controller.cpp:188
 #, kde-format
@@ -275,19 +275,19 @@ msgstr "Přihlášení"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Start a chat"
-msgstr "Zahájit chat"
+msgstr "Zahájit konverzaci"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:21
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to start a chat with %1?"
-msgstr "Přejete si začít chat s %1?"
+msgstr "Přejete si začít konverzaci s %1?"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:30
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Chat"
-msgstr "Zahájit chat"
+msgstr "Zahájit konverzaci"
 
 #: src/app/qml/ChooseRoomDialog.qml:17
 #, kde-format
@@ -555,7 +555,7 @@ msgstr "%1 vás pozval do této místnosti na %2."
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Tento uživatel vás pozval k chatu na %1."
+msgstr "Tento uživatel vás pozval ke konverzaci na %1."
 
 #: src/app/qml/InvitationView.qml:114
 #, kde-format
@@ -2271,7 +2271,7 @@ msgstr "Volání"
 #, kde-format
 msgctxt "@option:check Enable the rich text chat bar"
 msgid "Rich Chat Bar"
-msgstr "Rozšířená lišta chatu"
+msgstr "Rozšířená lišta konverzace"
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -2307,7 +2307,7 @@ msgstr "ID místnosti: %1"
 msgctxt ""
 "@option:check Toggle for whether this room is considered a direct chat or not"
 msgid "Direct Chat"
-msgstr "Přímý chat"
+msgstr "Přímá konverzace"
 
 #: src/devtools/RoomData.qml:60
 #, kde-format
@@ -4529,7 +4529,7 @@ msgstr "Žádná sdílená poloha"
 msgctxt ""
 "@info 'Send a Location' should share the same name as the chat bar button"
 msgid "Share a location by using 'Send a Location' in the chat bar."
-msgstr "Sdílejte polohu pomocí funkce 'Odeslat polohu' v liště chatu."
+msgstr "Sdílejte polohu pomocí funkce 'Odeslat polohu' v liště konverzace."
 
 #: src/roominfo/RoomDrawer.qml:122 src/roominfo/RoomDrawerPage.qml:51
 #, kde-format
@@ -4776,7 +4776,7 @@ msgstr "Vytvořit prostor"
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr "Pozvánka pro vás na chat"
+msgstr "Pozvánka pro vás ke konverzaci"
 
 #: src/rooms/models/roomtreemodel.cpp:372
 #, kde-format
@@ -5342,7 +5342,7 @@ msgstr "Použít kompaktní seznam místností"
 #, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr "Změna velikosti písma v chatu"
+msgstr "Změna velikosti písma v konverzaci"
 
 #: src/settings/AppearanceSettingsPage.qml:64
 #, kde-format
@@ -5371,7 +5371,7 @@ msgstr "Kompaktní"
 #: src/settings/AppearanceSettingsPage.qml:269
 #, kde-format
 msgid "Use transparent chat page"
-msgstr "Použít průhlednou stránku pro chat"
+msgstr "Použít průhlednou stránku pro konverzaci"
 
 # Přechod sklouznutí má posunovače, kde vlevo (žádný výběr) znamená průhlednost a vpravo (výběr 100 %) znamená neprůhlednost.
 #
@@ -5386,7 +5386,7 @@ msgstr "Průhlednost"
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 "Tato funkce je k dispozici pouze v případě, že je povolena průhledná stránka "
-"chatu."
+"konverzace."
 
 #: src/settings/AppearanceSettingsPage.qml:327
 #, kde-format
@@ -5402,7 +5402,7 @@ msgstr "Zobrazit avatary"
 #: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
-msgstr "V chatu"
+msgstr "V konverzaci"
 
 #: src/settings/AppearanceSettingsPage.qml:352
 #, kde-format
@@ -6155,22 +6155,22 @@ msgstr "Zapnout upozornění pro tento účet"
 #: src/settings/models/pushrulemodel.cpp:18
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
-msgstr "Zprávy v soukromých chatech"
+msgstr "Zprávy v soukromých konverzacích"
 
 #: src/settings/models/pushrulemodel.cpp:19
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
-msgstr "Šifrované zprávy v soukromých chatech"
+msgstr "Šifrované zprávy v soukromých konverzacích"
 
 #: src/settings/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Messages in group chats"
-msgstr "Zprávy ve skupinových chatech"
+msgstr "Zprávy ve skupinových konverzacích"
 
 #: src/settings/models/pushrulemodel.cpp:21
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
-msgstr "Zprávy v šifrovaných skupinových chatech"
+msgstr "Zprávy v šifrovaných skupinových konverzacích"
 
 #: src/settings/models/pushrulemodel.cpp:22
 msgctxt "Notification type"
@@ -6538,7 +6538,7 @@ msgstr "Šifrování"
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr "Zapnout šifrování v nových chatech"
+msgstr "Zapnout šifrování v nových konverzacích"
 
 #: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
@@ -7987,7 +7987,8 @@ msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
 msgstr ""
-"Toto je začátek chatu. Od tohoto místa již žádné starší zprávy neexistují."
+"Toto je začátek konverzace. Od tohoto místa již žádné starší zprávy "
+"neexistují."
 
 #: src/timeline/TimelineView.qml:243 src/timeline/TimelineView.qml:269
 #, kde-format
