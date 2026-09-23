@@ -47,20 +47,15 @@ void CompletionModel::setCompletionLists(const QList<CompletionList *> &completi
 
 std::optional<qsizetype> CompletionModel::baseRowForList(CompletionList *list)
 {
-    const auto listIt = std::ranges::find_if(m_lists, [list](const QPointer<CompletionList> &mlist) {
-        return list == mlist.get();
-    });
-    if (listIt == m_lists.end()) {
-        return std::nullopt;
-    }
     qsizetype baseRow = 0;
-    auto it = m_lists.begin();
-    while (it != listIt) {
-        if (m_currentText.startsWith((*it)->startSequence())) {
-            baseRow += (*it)->size();
+    for (const QPointer<CompletionList> &listPtr : m_lists) {
+        if (listPtr.get() == list) {
+            return baseRow;
+        } else if (m_currentText.startsWith(listPtr->startSequence())) {
+            baseRow += listPtr->size();
         }
     }
-    return baseRow;
+    return std::nullopt;
 }
 
 void CompletionModel::listCompletionsAdded(CompletionList *list, qsizetype first, qsizetype last)
