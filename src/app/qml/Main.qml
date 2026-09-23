@@ -166,7 +166,7 @@ Kirigami.ApplicationWindow {
             NeoChatConfig.save();
         }
 
-        handleClosedIcon.source: "documentinfo-symbolic"
+        handleClosedIcon.name: "documentinfo-symbolic"
         handleClosedToolTip: i18nc("@action:button", "Show Room Information")
 
         // Default icon is fine, only need to override the tooltip text
