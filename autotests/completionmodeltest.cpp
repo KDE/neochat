@@ -58,6 +58,17 @@ public:
         return m_listName;
     }
 
+    void setSize(qsizetype size)
+    {
+        if (size > m_size) {
+            Q_EMIT CompletionList::completionsAdded(this, m_size, size - 1);
+            m_size = size;
+        } else if (size < m_size) {
+            Q_EMIT CompletionList::completionsRemoved(this, size, m_size - 1);
+            m_size = size;
+        }
+    }
+
 private:
     qsizetype m_size;
     QString m_listName;
@@ -82,7 +93,9 @@ void CompletionModelTest::multipleLists()
     const auto list2 = new TestCompletionList(this, 3, u"2"_s);
     const auto list3 = new TestCompletionList(this, 5, u"3"_s);
     const auto list4 = new TestCompletionList(this, 2, u"3"_s);
-    model->setCompletionLists({list1, list2, list3, list4});
+    // large fake data to make sure to produce invalid indexes if wrongly considered part of the model data
+    const auto list5 = new TestCompletionList(this, 1000, u"5"_s);
+    model->setCompletionLists({list1, list2, list3, list4, list5});
 
     QCOMPARE(model->rowCount(), 0);
 
@@ -130,6 +143,13 @@ void CompletionModelTest::multipleLists()
     QCOMPARE(model->index(5).data(CompletionModel::MatchSequencesRole), QStringList{u"Match Sequence 3 Index 0"_s});
     QCOMPARE(model->index(5).data(CompletionModel::ReplaceStringRole), u"Replace String 3 Index 0"_s);
     QCOMPARE(model->index(5).data(CompletionModel::HRefRole), QUrl(u"hRef 3 Index 0"_s));
+
+    // These should not cause any change visible in the QAbstractItemModel interface of CompletionModel, in particular
+    // no signals or calls that mention indexes not actually in the model.
+    list5->setSize(2000);
+    QCOMPARE(model->rowCount(), 7);
+    list5->setSize(500);
+    QCOMPARE(model->rowCount(), 7);
 }
 
 void CompletionModelTest::longCurrentText()

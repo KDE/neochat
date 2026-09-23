@@ -47,6 +47,9 @@ void CompletionModel::setCompletionLists(const QList<CompletionList *> &completi
 
 std::optional<qsizetype> CompletionModel::baseRowForList(CompletionList *list)
 {
+    if (m_currentText.isEmpty() || !m_currentText.startsWith(list->startSequence())) {
+        return std::nullopt;
+    }
     qsizetype baseRow = 0;
     for (const QPointer<CompletionList> &listPtr : m_lists) {
         if (listPtr.get() == list) {
