@@ -51,6 +51,10 @@ Delegates.RoundedItemDelegate {
     Keys.onEnterPressed: clicked()
     Keys.onReturnPressed: clicked()
 
+    QQC2.ToolTip.visible: collapsed && hovered
+    QQC2.ToolTip.text: displayName
+    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
     TapHandler {
         acceptedButtons: Qt.RightButton
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus

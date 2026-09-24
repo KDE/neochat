@@ -170,7 +170,7 @@ Kirigami.Page {
                     font: Kirigami.Theme.smallFont
                 }
 
-                // NOTE: For any future delegate spelunkers, please *keep the delegate heights in sync*.
+                // NOTE: For any future delegate spelunkers, please *keep delegate heights the same*.
                 // If you fail to do so, weird scrolling behavior begins to manifest.
                 delegate: DelegateChooser {
                     role: "delegateType"
