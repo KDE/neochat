@@ -165,7 +165,13 @@ QQC2.Control {
                         Layout.preferredHeight: width - Kirigami.Units.smallSpacing
                         Layout.maximumHeight: width - Kirigami.Units.smallSpacing
 
-                        text: displayName
+                        text: {
+                            if (spaceDelegate.showNotificationLabel) {
+                                return i18ncp("@button This space (such as 'KDE community'') has X number of notifications)", "%2 (%1 notification)", "%2 (%1 notifications)", spaceDelegate.currentRoom.childrenNotificationCount, spaceDelegate.displayName);
+                            }
+
+                            return spaceDelegate.displayName;
+                        }
                         source: avatar
 
                         notificationCount: spaceDelegate.currentRoom.childrenNotificationCount
