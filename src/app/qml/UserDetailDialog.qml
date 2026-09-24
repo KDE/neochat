@@ -430,18 +430,16 @@ Kirigami.Dialog {
                 visible: root.profileFieldsHelper.loading
             }
 
-            Kirigami.Chip {
+            QQC2.Label {
                 id: timezoneChip
                 visible: !root.profileFieldsHelper.loading && root.profileFieldsHelper.localTime.length > 0
                 text: root.profileFieldsHelper.localTime
-                closable: false
-                checkable: false
             }
         }
 
         Kirigami.Heading {
             text: i18nc("@title The set of common rooms between your current user and the one shown", "Mutual Rooms")
-            level: 4
+            level: 2
             visible: !root.isSelf && root.connection.canCheckMutualRooms
 
             Layout.topMargin: Kirigami.Units.largeSpacing
@@ -505,7 +503,7 @@ Kirigami.Dialog {
 
         Kirigami.Heading {
             text: i18nc("@title Private note for this user", "Private Note")
-            level: 4
+            level: 2
 
             Layout.topMargin: Kirigami.Units.largeSpacing
         }
