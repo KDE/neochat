@@ -182,6 +182,13 @@ void NeoChatConnection::connectSignals()
             Q_EMIT ownSessionVerified();
         },
         Qt::SingleShotConnection);
+
+    connect(this, &NeoChatConnection::userVerified, this, [this](const auto &userId) {
+        if (userId == this->userId()) {
+            Q_EMIT ownSessionVerified();
+        }
+    });
+    ;
 }
 
 int NeoChatConnection::badgeNotificationCount() const
