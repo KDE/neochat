@@ -187,6 +187,7 @@ Kirigami.Dialog {
                 Kirigami.Action {
                     text: i18nc("@action:intoolbar Search for this user's messages.", "Search Messages…")
                     icon.name: "search-symbolic"
+                    visible: root.room
 
                     onTriggered: {
                         ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
