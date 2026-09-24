@@ -110,6 +110,7 @@ public:
     bool isValid() const;
 
     bool operator==(const QDateTime &right) const;
+    bool operator==(const NeoChatDateTime &) const = default;
 
 private:
     QDateTime m_dateTime;
