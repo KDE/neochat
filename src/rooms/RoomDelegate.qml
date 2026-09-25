@@ -33,6 +33,10 @@ QQC2.ItemDelegate {
 
     property Component leading: null
 
+    leftInset: Math.ceil(horizontalPadding / 2)
+    rightInset: Math.ceil(horizontalPadding / 2)
+    topInset: Math.ceil(verticalPadding / 2)
+    bottomInset: Math.ceil(verticalPadding / 2)
     font.weight: root.hasUnreadMessages ? Font.Bold : Font.Normal
 
     Accessible.name: root.displayName
