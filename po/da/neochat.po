@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-09-26 00:45+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -1078,7 +1078,7 @@ msgid "No room found"
 msgstr "Send besked"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
-#: src/rooms/SpaceDrawer.qml:281
+#: src/rooms/SpaceDrawer.qml:287
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1574,7 +1574,7 @@ msgctxt "@title The user's timezone"
 msgid "Timezone"
 msgstr "Tidslinje:"
 
-#: src/app/qml/UserDetailDialog.qml:443
+#: src/app/qml/UserDetailDialog.qml:441
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgctxt ""
@@ -1582,14 +1582,14 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Værelsesnavn:"
 
-#: src/app/qml/UserDetailDialog.qml:465
+#: src/app/qml/UserDetailDialog.qml:463
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@info:label"
 msgid "No rooms in common"
 msgstr "Send besked"
 
-#: src/app/qml/UserDetailDialog.qml:500
+#: src/app/qml/UserDetailDialog.qml:498
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1599,14 +1599,14 @@ msgid_plural "and %1 more…"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/app/qml/UserDetailDialog.qml:507
+#: src/app/qml/UserDetailDialog.qml:505
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Lydløs"
 
-#: src/app/qml/UserDetailDialog.qml:519
+#: src/app/qml/UserDetailDialog.qml:517
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -5154,13 +5154,13 @@ msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "Lydløs"
 
-#: src/rooms/RoomDelegate.qml:123
+#: src/rooms/RoomDelegate.qml:127
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Lydløs"
 
-#: src/rooms/RoomDelegate.qml:154
+#: src/rooms/RoomDelegate.qml:158
 #, kde-format
 msgid "Configure room"
 msgstr ""
@@ -5256,28 +5256,38 @@ msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Send besked"
 
-#: src/rooms/SpaceDrawer.qml:195
+#: src/rooms/SpaceDrawer.qml:170
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt ""
+"@button This space (such as 'KDE community'') has X number of notifications)"
+msgid "%2 (%1 notification)"
+msgid_plural "%2 (%1 notifications)"
+msgstr[0] "Indstillinger"
+msgstr[1] "Indstillinger"
+
+#: src/rooms/SpaceDrawer.qml:201
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Gå med"
 
-#: src/rooms/SpaceDrawer.qml:239
+#: src/rooms/SpaceDrawer.qml:245
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Lydløs"
 
-#: src/rooms/SpaceDrawer.qml:253
+#: src/rooms/SpaceDrawer.qml:259
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Værelsesnavn:"
 
-#: src/rooms/SpaceDrawer.qml:264
+#: src/rooms/SpaceDrawer.qml:270
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:button Create a new room"
@@ -8206,156 +8216,156 @@ msgctxt "@action:inmenu"
 msgid "Hide Video"
 msgstr "Chat"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:349
 #, fuzzy, kde-format
 #| msgid "Username"
 msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "Brugernavn"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:351
 #, fuzzy, kde-format
 #| msgid "Username"
 msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "Brugernavn"
 
-#: src/timeline/DelegateContextMenu.qml:362
+#: src/timeline/DelegateContextMenu.qml:364
 #, fuzzy, kde-format
 #| msgid "Username"
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Brugernavn"
 
-#: src/timeline/DelegateContextMenu.qml:364
+#: src/timeline/DelegateContextMenu.qml:366
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Kopiér"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:368
 #, fuzzy, kde-format
 #| msgid "Username"
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Brugernavn"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:370
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Kopiér"
 
-#: src/timeline/DelegateContextMenu.qml:378
+#: src/timeline/DelegateContextMenu.qml:381
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopiér"
 
-#: src/timeline/DelegateContextMenu.qml:386
+#: src/timeline/DelegateContextMenu.qml:389
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopiér"
 
-#: src/timeline/DelegateContextMenu.qml:392
+#: src/timeline/DelegateContextMenu.qml:395
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopiér"
 
-#: src/timeline/DelegateContextMenu.qml:400
+#: src/timeline/DelegateContextMenu.qml:403
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:405
+#: src/timeline/DelegateContextMenu.qml:408
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Send besked"
 
-#: src/timeline/DelegateContextMenu.qml:406
+#: src/timeline/DelegateContextMenu.qml:409
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Send besked"
 
-#: src/timeline/DelegateContextMenu.qml:408
+#: src/timeline/DelegateContextMenu.qml:411
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:412
+#: src/timeline/DelegateContextMenu.qml:415
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Send besked"
 
-#: src/timeline/DelegateContextMenu.qml:424
+#: src/timeline/DelegateContextMenu.qml:427
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:447
+#: src/timeline/DelegateContextMenu.qml:450
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Annullér"
 
-#: src/timeline/DelegateContextMenu.qml:455
+#: src/timeline/DelegateContextMenu.qml:458
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:458
+#: src/timeline/DelegateContextMenu.qml:461
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:478
+#: src/timeline/DelegateContextMenu.qml:481
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:478
+#: src/timeline/DelegateContextMenu.qml:481
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:491
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Send besked"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:491
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Send besked"
 
-#: src/timeline/DelegateContextMenu.qml:501
+#: src/timeline/DelegateContextMenu.qml:504
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"

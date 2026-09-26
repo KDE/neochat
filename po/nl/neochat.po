@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-09-26 00:45+0000\n"
 "PO-Revision-Date: 2026-09-22 11:22+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1026,7 +1026,7 @@ msgid "No room found"
 msgstr "Geen room gevonden"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
-#: src/rooms/SpaceDrawer.qml:281
+#: src/rooms/SpaceDrawer.qml:287
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
@@ -1489,20 +1489,20 @@ msgctxt "@title The user's timezone"
 msgid "Timezone"
 msgstr "Tijdzone"
 
-#: src/app/qml/UserDetailDialog.qml:443
+#: src/app/qml/UserDetailDialog.qml:441
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Gezamenlijke rooms"
 
-#: src/app/qml/UserDetailDialog.qml:465
+#: src/app/qml/UserDetailDialog.qml:463
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
 msgstr "Geen gezamenlijke rooms"
 
-#: src/app/qml/UserDetailDialog.qml:500
+#: src/app/qml/UserDetailDialog.qml:498
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1512,13 +1512,13 @@ msgid_plural "and %1 more…"
 msgstr[0] "en 1 meer…"
 msgstr[1] "en %1 meer…"
 
-#: src/app/qml/UserDetailDialog.qml:507
+#: src/app/qml/UserDetailDialog.qml:505
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Privé notitie"
 
-#: src/app/qml/UserDetailDialog.qml:519
+#: src/app/qml/UserDetailDialog.qml:517
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -4927,12 +4927,12 @@ msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "Room verlaten…"
 
-#: src/rooms/RoomDelegate.qml:123
+#: src/rooms/RoomDelegate.qml:127
 #, kde-format
 msgid "Muted room"
 msgstr "Gedempte room"
 
-#: src/rooms/RoomDelegate.qml:154
+#: src/rooms/RoomDelegate.qml:158
 #, kde-format
 msgid "Configure room"
 msgstr "Room configureren"
@@ -5024,25 +5024,39 @@ msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Direct bericht"
 
-#: src/rooms/SpaceDrawer.qml:195
+#: src/rooms/SpaceDrawer.qml:170
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button Home space for the uncategorized rooms. Please keep this "
+#| "consistent across all usages."
+#| msgid "Home (%1 notification)"
+#| msgid_plural "Home (%1 notifications)"
+msgctxt ""
+"@button This space (such as 'KDE community'') has X number of notifications)"
+msgid "%2 (%1 notification)"
+msgid_plural "%2 (%1 notifications)"
+msgstr[0] "Home (%1 melding)"
+msgstr[1] "Home (%1 meldingen)"
+
+#: src/rooms/SpaceDrawer.qml:201
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Aan %1 deelnemen"
 
-#: src/rooms/SpaceDrawer.qml:239
+#: src/rooms/SpaceDrawer.qml:245
 #, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Aanmaken"
 
-#: src/rooms/SpaceDrawer.qml:253
+#: src/rooms/SpaceDrawer.qml:259
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Nieuwe room…"
 
-#: src/rooms/SpaceDrawer.qml:264
+#: src/rooms/SpaceDrawer.qml:270
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
@@ -7835,141 +7849,141 @@ msgctxt "@action:inmenu"
 msgid "Hide Video"
 msgstr "Video verbergen"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:349
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "Afbeelding tonen"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:351
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "Video tonen"
 
-#: src/timeline/DelegateContextMenu.qml:362
+#: src/timeline/DelegateContextMenu.qml:364
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Afbeelding kopiëren"
 
-#: src/timeline/DelegateContextMenu.qml:364
+#: src/timeline/DelegateContextMenu.qml:366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Audio kopiëren"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Video kopiëren"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Bestand kopiëren"
 
-#: src/timeline/DelegateContextMenu.qml:378
+#: src/timeline/DelegateContextMenu.qml:381
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Koppelingsadres kopiëren"
 
-#: src/timeline/DelegateContextMenu.qml:386
+#: src/timeline/DelegateContextMenu.qml:389
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Tekst kopiëren"
 
-#: src/timeline/DelegateContextMenu.qml:392
+#: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Koppeling naar bericht kopiëren"
 
-#: src/timeline/DelegateContextMenu.qml:400
+#: src/timeline/DelegateContextMenu.qml:403
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Rapporteren…"
 
-#: src/timeline/DelegateContextMenu.qml:405
+#: src/timeline/DelegateContextMenu.qml:408
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Bericht rapporteren"
 
-#: src/timeline/DelegateContextMenu.qml:406
+#: src/timeline/DelegateContextMenu.qml:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Optioneel een reden geven om dit bericht te rapporteren"
 
-#: src/timeline/DelegateContextMenu.qml:408
+#: src/timeline/DelegateContextMenu.qml:411
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Rapporteer"
 
-#: src/timeline/DelegateContextMenu.qml:412
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Bericht rapporteren"
 
-#: src/timeline/DelegateContextMenu.qml:424
+#: src/timeline/DelegateContextMenu.qml:427
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Zoeken naar '%1'"
 
-#: src/timeline/DelegateContextMenu.qml:447
+#: src/timeline/DelegateContextMenu.qml:450
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Websnelkoppelingen configureren…"
 
-#: src/timeline/DelegateContextMenu.qml:455
+#: src/timeline/DelegateContextMenu.qml:458
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Tekst hardop lezen"
 
-#: src/timeline/DelegateContextMenu.qml:458
+#: src/timeline/DelegateContextMenu.qml:461
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 zei %2"
 
-#: src/timeline/DelegateContextMenu.qml:478
+#: src/timeline/DelegateContextMenu.qml:481
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Pin losmaken"
 
-#: src/timeline/DelegateContextMenu.qml:478
+#: src/timeline/DelegateContextMenu.qml:481
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Pin"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:491
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Selectie van bericht ongedaan maken"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:491
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Bericht selecteren"
 
-#: src/timeline/DelegateContextMenu.qml:501
+#: src/timeline/DelegateContextMenu.qml:504
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"

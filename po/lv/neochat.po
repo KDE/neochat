@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-09-26 00:45+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -1072,7 +1072,7 @@ msgid "No room found"
 msgstr "Neviena istaba nav atrasta"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
-#: src/rooms/SpaceDrawer.qml:281
+#: src/rooms/SpaceDrawer.qml:287
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1588,7 +1588,7 @@ msgctxt "@title The user's timezone"
 msgid "Timezone"
 msgstr "Laika josla"
 
-#: src/app/qml/UserDetailDialog.qml:443
+#: src/app/qml/UserDetailDialog.qml:441
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "One mutual room"
@@ -1598,7 +1598,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "%1 kopīga istaba"
 
-#: src/app/qml/UserDetailDialog.qml:465
+#: src/app/qml/UserDetailDialog.qml:463
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "No rooms found"
@@ -1606,7 +1606,7 @@ msgctxt "@info:label"
 msgid "No rooms in common"
 msgstr "Istabas nav atrastas"
 
-#: src/app/qml/UserDetailDialog.qml:500
+#: src/app/qml/UserDetailDialog.qml:498
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1620,7 +1620,7 @@ msgstr[0] " un vēl %1"
 msgstr[1] " un vēl %1"
 msgstr[2] " un vēl %1"
 
-#: src/app/qml/UserDetailDialog.qml:507
+#: src/app/qml/UserDetailDialog.qml:505
 #, fuzzy, kde-format
 #| msgctxt "@info:label"
 #| msgid "Private"
@@ -1628,7 +1628,7 @@ msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Privāts"
 
-#: src/app/qml/UserDetailDialog.qml:519
+#: src/app/qml/UserDetailDialog.qml:517
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -5136,12 +5136,12 @@ msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "Pamest istabu…"
 
-#: src/rooms/RoomDelegate.qml:123
+#: src/rooms/RoomDelegate.qml:127
 #, kde-format
 msgid "Muted room"
 msgstr "Apklusināta istaba"
 
-#: src/rooms/RoomDelegate.qml:154
+#: src/rooms/RoomDelegate.qml:158
 #, kde-format
 msgid "Configure room"
 msgstr "Konfigurēt istabu"
@@ -5238,13 +5238,24 @@ msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Privātas ziņas"
 
-#: src/rooms/SpaceDrawer.qml:195
+#: src/rooms/SpaceDrawer.qml:170
+#, fuzzy, kde-format
+#| msgid "Unmute notifications"
+msgctxt ""
+"@button This space (such as 'KDE community'') has X number of notifications)"
+msgid "%2 (%1 notification)"
+msgid_plural "%2 (%1 notifications)"
+msgstr[0] "Atskaņot paziņojumus"
+msgstr[1] "Atskaņot paziņojumus"
+msgstr[2] "Atskaņot paziņojumus"
+
+#: src/rooms/SpaceDrawer.qml:201
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Pievienoties „%1“"
 
-#: src/rooms/SpaceDrawer.qml:239
+#: src/rooms/SpaceDrawer.qml:245
 #, fuzzy, kde-format
 #| msgctxt "@action:button Create new room"
 #| msgid "Create"
@@ -5252,7 +5263,7 @@ msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Izveidot"
 
-#: src/rooms/SpaceDrawer.qml:253
+#: src/rooms/SpaceDrawer.qml:259
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Room…"
@@ -5260,7 +5271,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Jauna grupa…"
 
-#: src/rooms/SpaceDrawer.qml:264
+#: src/rooms/SpaceDrawer.qml:270
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Space…"
@@ -8178,7 +8189,7 @@ msgctxt "@action:inmenu"
 msgid "Hide Video"
 msgstr "Atvērt video"
 
-#: src/timeline/DelegateContextMenu.qml:348
+#: src/timeline/DelegateContextMenu.qml:349
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Image"
@@ -8186,7 +8197,7 @@ msgctxt "@action:inmenu"
 msgid "Show Image"
 msgstr "Rādīt attēlu"
 
-#: src/timeline/DelegateContextMenu.qml:350
+#: src/timeline/DelegateContextMenu.qml:351
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Video"
@@ -8194,62 +8205,62 @@ msgctxt "@action:inmenu"
 msgid "Show Video"
 msgstr "Rādīt video"
 
-#: src/timeline/DelegateContextMenu.qml:362
+#: src/timeline/DelegateContextMenu.qml:364
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Kopēt attēlu"
 
-#: src/timeline/DelegateContextMenu.qml:364
+#: src/timeline/DelegateContextMenu.qml:366
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Kopēt audio"
 
-#: src/timeline/DelegateContextMenu.qml:366
+#: src/timeline/DelegateContextMenu.qml:368
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Kopēt video"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:370
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Kopēt datni"
 
-#: src/timeline/DelegateContextMenu.qml:378
+#: src/timeline/DelegateContextMenu.qml:381
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopēt saites adresi"
 
-#: src/timeline/DelegateContextMenu.qml:386
+#: src/timeline/DelegateContextMenu.qml:389
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopēt tekstu"
 
-#: src/timeline/DelegateContextMenu.qml:392
+#: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopēt ziņojuma saiti"
 
-#: src/timeline/DelegateContextMenu.qml:400
+#: src/timeline/DelegateContextMenu.qml:403
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Ziņot…"
 
-#: src/timeline/DelegateContextMenu.qml:405
+#: src/timeline/DelegateContextMenu.qml:408
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Ziņot par ziņu"
 
-#: src/timeline/DelegateContextMenu.qml:406
+#: src/timeline/DelegateContextMenu.qml:409
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -8257,70 +8268,70 @@ msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Iemesls ziņošanai par šo ziņu"
 
-#: src/timeline/DelegateContextMenu.qml:408
+#: src/timeline/DelegateContextMenu.qml:411
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Ziņot"
 
-#: src/timeline/DelegateContextMenu.qml:412
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Ziņot par ziņu"
 
-#: src/timeline/DelegateContextMenu.qml:424
+#: src/timeline/DelegateContextMenu.qml:427
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Meklēt „%1“"
 
-#: src/timeline/DelegateContextMenu.qml:447
+#: src/timeline/DelegateContextMenu.qml:450
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Konfigurēt tīmekļa saīsnes…"
 
-#: src/timeline/DelegateContextMenu.qml:455
+#: src/timeline/DelegateContextMenu.qml:458
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Nolasīt skaļi tekstu"
 
-#: src/timeline/DelegateContextMenu.qml:458
+#: src/timeline/DelegateContextMenu.qml:461
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 teica %2"
 
-#: src/timeline/DelegateContextMenu.qml:478
+#: src/timeline/DelegateContextMenu.qml:481
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Atspraust"
 
-#: src/timeline/DelegateContextMenu.qml:478
+#: src/timeline/DelegateContextMenu.qml:481
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Piespraust"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:491
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Privātas ziņas"
 
-#: src/timeline/DelegateContextMenu.qml:488
+#: src/timeline/DelegateContextMenu.qml:491
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Privātas ziņas"
 
-#: src/timeline/DelegateContextMenu.qml:501
+#: src/timeline/DelegateContextMenu.qml:504
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
