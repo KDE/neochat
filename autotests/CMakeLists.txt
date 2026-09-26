@@ -176,7 +176,12 @@ add_qml_tests(
     chattextitemhelpertest.qml
     chatmarkdownhelpertest.qml
     chatkeyhelpertest.qml
-    chatbarcoretest.qml
 )
+
+if (Qt6_VERSION GREATER_EQUAL "6.12")
+    add_qml_tests(
+        chatbarcoretest.qml
+    )
+endif()
 
 add_test(NAME neochat-self-test COMMAND neochat --self-test)
