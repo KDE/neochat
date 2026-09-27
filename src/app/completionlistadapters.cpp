@@ -3,12 +3,13 @@
 
 #include "completionlistadapters.h"
 
+#include <KEmoji/Category>
+#include <KEmoji/Dict>
+#include <KEmoji/Emoji>
+
 #include "actionsmodel.h"
 #include "completionmodel.h"
-#include "models/customemojimodel.h"
-#include "models/emojimodel.h"
 #include "models/roomlistmodel.h"
-#include <qcontainerfwd.h>
 
 using namespace Qt::StringLiterals;
 
@@ -220,40 +221,45 @@ QString ActionsCompletionList::startSequence() const
 
 EmojiCompletionList::EmojiCompletionList(QObject *parent)
     : CompletionList(parent)
+    , m_emojiModel(new KEmoji::Model(this))
 {
-    connect(&EmojiModel::instance(), &EmojiModel::rowsInserted, this, [this](const QModelIndex &, int first, int last) {
+    m_emojiModel->setEmojis(KEmoji::Dict::instance().emojis());
+    connect(&KEmoji::Dict::instance(), &KEmoji::Dict::emojisChanged, this, [this](QList<KEmoji::Categories::Category> categories) {
+        if (categories.contains(KEmoji::Categories::All)) {
+            m_emojiModel->setEmojis(KEmoji::Dict::instance().emojis());
+        }
+    });
+
+    connect(m_emojiModel, &KEmoji::Model::rowsInserted, this, [this](const QModelIndex &, int first, int last) {
         Q_EMIT completionsAdded(this, first, last);
     });
-    connect(&EmojiModel::instance(), &EmojiModel::rowsRemoved, this, [this](const QModelIndex &, int first, int last) {
+    connect(m_emojiModel, &KEmoji::Model::rowsRemoved, this, [this](const QModelIndex &, int first, int last) {
         Q_EMIT completionsRemoved(this, first, last);
     });
 }
 
 qsizetype EmojiCompletionList::size() const
 {
-    return EmojiModel::instance().rowCount();
+    return m_emojiModel->rowCount();
 }
 
 QVariant EmojiCompletionList::data(qsizetype row, int role) const
 {
-    const auto index = EmojiModel::instance().index(row);
+    const auto &emoji = m_emojiModel->index(row).data(KEmoji::Model::EmojiRole).value<KEmoji::Emoji>();
     switch (role) {
     case CompletionModel::TitleRole:
-        return u"%1 %2"_s.arg(index.data(EmojiModel::UnicodeRole).toString(), index.data(EmojiModel::ShortNameRole).toString());
+        return emoji.toString(Qt::RichText);
     case CompletionModel::DescriptionRole:
-        return index.data(EmojiModel::DescriptionRole);
+        return emoji.name();
     case CompletionModel::AvatarSourceRole:
         return {};
     case CompletionModel::StartSequenceRole:
         return startSequence();
     case CompletionModel::MatchSequencesRole: {
-        auto shortNameNoColon = index.data(EmojiModel::ShortNameRole).toString();
-        shortNameNoColon.removeFirst();
-        shortNameNoColon.removeLast();
-        return QStringList{index.data(EmojiModel::UnicodeRole).toString(), shortNameNoColon};
+        return QStringList{emoji.unicode(), emoji.name()};
     }
     case CompletionModel::ReplaceStringRole:
-        return index.data(EmojiModel::UnicodeRole);
+        return emoji.toString(Qt::RichText);
     case CompletionModel::HRefRole:
         return {};
     default:
@@ -262,54 +268,6 @@ QVariant EmojiCompletionList::data(qsizetype row, int role) const
 }
 
 QString EmojiCompletionList::startSequence() const
-{
-    return u":"_s;
-}
-
-CustomEmojiCompletionList::CustomEmojiCompletionList(QObject *parent)
-    : CompletionList(parent)
-{
-    connect(&CustomEmojiModel::instance(), &CustomEmojiModel::rowsInserted, this, [this](const QModelIndex &, int first, int last) {
-        Q_EMIT completionsAdded(this, first, last);
-    });
-    connect(&CustomEmojiModel::instance(), &CustomEmojiModel::rowsRemoved, this, [this](const QModelIndex &, int first, int last) {
-        Q_EMIT completionsRemoved(this, first, last);
-    });
-}
-
-qsizetype CustomEmojiCompletionList::size() const
-{
-    return CustomEmojiModel::instance().rowCount();
-}
-
-QVariant CustomEmojiCompletionList::data(qsizetype row, int role) const
-{
-    const auto index = CustomEmojiModel::instance().index(row);
-    switch (role) {
-    case CompletionModel::TitleRole:
-        return index.data(CustomEmojiModel::Name);
-    case CompletionModel::DescriptionRole:
-        return index.data(CustomEmojiModel::DescriptionRole);
-    case CompletionModel::AvatarSourceRole:
-        return index.data(CustomEmojiModel::MxcUrl);
-    case CompletionModel::StartSequenceRole:
-        return startSequence();
-    case CompletionModel::MatchSequencesRole: {
-        auto nameNoColon = index.data(CustomEmojiModel::Name).toString();
-        nameNoColon.removeFirst();
-        nameNoColon.removeLast();
-        return QStringList{nameNoColon};
-    }
-    case CompletionModel::ReplaceStringRole:
-        return index.data(CustomEmojiModel::Name);
-    case CompletionModel::HRefRole:
-        return {};
-    default:
-        return {};
-    }
-}
-
-QString CustomEmojiCompletionList::startSequence() const
 {
     return u":"_s;
 }

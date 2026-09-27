@@ -320,8 +320,7 @@ Kirigami.Page {
                     roomListModel: RoomManager.roomListModel
                 },
                 ActionsCompletionList {},
-                EmojiCompletionList {},
-                CustomEmojiCompletionList {}
+                EmojiCompletionList {}
             ]
 
             onContentChanged: root.currentRoom.sendTypingNotification(!isEmpty)

@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <KEmoji/Model>
+
 #include "completionlist.h"
 #include "models/roomlistmodel.h"
 #include "models/userlistmodel.h"
@@ -85,17 +87,7 @@ public:
     qsizetype size() const override;
     QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
     QString startSequence() const override;
-};
 
-class CustomEmojiCompletionList : public CompletionList
-{
-    Q_OBJECT
-    QML_ELEMENT
-
-public:
-    explicit CustomEmojiCompletionList(QObject *parent = nullptr);
-
-    qsizetype size() const override;
-    QVariant data(qsizetype row, int role = Qt::DisplayRole) const override;
-    QString startSequence() const override;
+private:
+    KEmoji::Model *m_emojiModel;
 };

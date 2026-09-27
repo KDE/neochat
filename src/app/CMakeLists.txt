@@ -224,6 +224,7 @@ target_link_libraries(neochat PUBLIC
     KF6::Crash
     KF6::ItemModels
     KF6::I18nQml
+    KEmoji::KEmoji
     KirigamiApp
     KirigamiAddonsComponents
     QuotientQt6

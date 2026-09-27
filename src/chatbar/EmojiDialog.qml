@@ -63,7 +63,7 @@ QQC2.Popup {
     padding: 2
 
     implicitHeight: Kirigami.Units.gridUnit * 20 + 2 * padding
-    width: Math.min(emojiPicker.cellWidth * 8 + emojiPicker.scrollBarWidth + leftPadding + rightPadding + 8, QQC2.ApplicationWindow.window?.width)
+    width: Math.min(emojiPicker.cellWidth * 10 + emojiPicker.scrollBarWidth + leftPadding + rightPadding + 10, QQC2.ApplicationWindow.window?.width)
     contentItem: EmojiPicker {
         id: emojiPicker
         height: 400

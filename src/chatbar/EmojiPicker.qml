@@ -7,7 +7,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.kemoji
+import org.kde.kemoji as KEmoji
 
 import org.kde.neochat
 
@@ -23,8 +23,11 @@ ColumnLayout {
 
     readonly property int scrollBarWidth: grid.QQC2.ScrollBar.vertical.width
     readonly property int cellWidth: emojiGrid.cellWidth
+    readonly property int categoryIconSize: Math.round(Kirigami.Units.gridUnit * 2.5)
 
     signal chosen(string emoji)
+
+    spacing: 0
 
     onActiveFocusChanged: if (activeFocus) {
         searchField.forceActiveFocus();
@@ -60,12 +63,13 @@ ColumnLayout {
 
     QQC2.ScrollView {
         Layout.fillWidth: true
-        Layout.preferredHeight: Kirigami.Units.gridUnit * 2 + QQC2.ScrollBar.horizontal.height
+        Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5 + QQC2.ScrollBar.horizontal.height
         QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
         Layout.alignment: Qt.AlignVCenter
 
         ListView {
             id: categories
+            spacing: 0
             clip: true
             focus: true
             orientation: ListView.Horizontal
@@ -86,16 +90,7 @@ ColumnLayout {
             interactive: width !== contentWidth
 
             model: Dict.categories
-            delegate: QQC2.ToolButton {
-                required property var modelData
-                display: QQC2.Button.IconOnly
-                action: CategoryAction {
-                    category: modelData
-                }
-                QQC2.ToolTip.text: action.text
-                QQC2.ToolTip.visible: hovered
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            }
+            delegate: emojiCategoryDelegate
         }
     }
 
@@ -124,9 +119,31 @@ ColumnLayout {
         EmojiGrid {
             id: emojiGrid
 
-            emojiPixelSize: Kirigami.Units.iconSizes.medium
+            font {
+                family: "emoji"
+                pixelSize: Kirigami.Units.iconSizes.smallMedium
+            }
             clip: true
-            // onChosen: unicode => root.chosen(unicode)
+
+            onClicked: emoji => root.chosen(emoji.toString(Qt.RichText))
+        }
+    }
+
+    Component {
+        id: emojiCategoryDelegate
+        Kirigami.NavigationTabButton {
+            required property var modelData
+            KEmoji.Category.category: modelData
+            width: root.categoryIconSize
+            height: width
+            display: QQC2.Button.IconOnly
+            text: KEmoji.Category.name
+            icon.name: KEmoji.Category.iconName
+            checked: modelData === emojiGrid.model.currentCategory
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: hovered
+            onClicked: emojiGrid.model.currentCategory = modelData
         }
     }
 
