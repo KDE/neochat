@@ -77,4 +77,5 @@ private:
     QList<QString> m_bindings;
 
     void refreshBindStatus();
+    quint64 m_generation = 0;
 };

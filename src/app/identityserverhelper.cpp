@@ -60,6 +60,7 @@ IdentityServerHelper::IdServerStatus IdentityServerHelper::status() const
 
 void IdentityServerHelper::checkUrl()
 {
+    m_generation++;
     if (m_idServerCheckRequest != nullptr) {
         m_idServerCheckRequest->abort();
         m_idServerCheckRequest.clear();
@@ -84,9 +85,13 @@ void IdentityServerHelper::checkUrl()
         return;
     }
 
+    const auto generation = m_generation;
     QNetworkRequest request(requestUrl);
     m_idServerCheckRequest = Quotient::NetworkAccessManager::instance()->get(request);
-    connect(m_idServerCheckRequest, &QNetworkReply::finished, this, [this]() {
+    connect(m_idServerCheckRequest, &QNetworkReply::finished, this, [this, generation]() {
+        if (generation != m_generation) {
+            return;
+        }
         if (m_idServerCheckRequest->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 200) {
             m_status = Valid;
             Q_EMIT statusChanged();

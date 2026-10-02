@@ -41,6 +41,8 @@ void PublicRoomListModel::setConnection(NeoChatConnection *connection)
         return;
     }
 
+    m_generation++;
+
     beginResetModel();
 
     nextBatch = QString();
@@ -81,6 +83,8 @@ void PublicRoomListModel::setServer(const QString &value)
         return;
     }
 
+    m_generation++;
+
     m_server = value;
 
     beginResetModel();
@@ -115,6 +119,8 @@ void PublicRoomListModel::setSearchText(const QString &value)
         return;
     }
 
+    m_generation++;
+
     m_searchText = value;
     Q_EMIT searchTextChanged();
 
@@ -138,6 +144,9 @@ void PublicRoomListModel::setShowOnlySpaces(bool showOnlySpaces)
     if (showOnlySpaces == m_showOnlySpaces) {
         return;
     }
+
+    m_generation++;
+
     m_showOnlySpaces = showOnlySpaces;
     Q_EMIT showOnlySpacesChanged();
 
@@ -187,7 +196,11 @@ void PublicRoomListModel::next(int limit)
     job = m_connection->callApi<NeoChatQueryPublicRoomsJob>(m_server, limit, nextBatch, QueryPublicRoomsJob::Filter{m_searchText, roomTypes});
     Q_EMIT searchingChanged();
 
-    connect(job, &BaseJob::finished, this, [this] {
+    const auto generation = m_generation;
+    connect(job, &BaseJob::finished, this, [this, generation] {
+        if (generation != m_generation) {
+            return;
+        }
         if (!attempted) {
             beginResetModel();
             rooms.clear();

@@ -85,4 +85,5 @@ private:
     QPointer<QNetworkReply> m_idServerCheckRequest;
 
     void checkUrl();
+    quint64 m_generation = 0;
 };

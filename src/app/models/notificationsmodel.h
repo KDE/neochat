@@ -65,4 +65,5 @@ private:
     QList<Notification> m_notifications;
     QString m_nextToken;
     QPointer<Quotient::BaseJob> m_job;
+    quint64 m_generation = 0;
 };

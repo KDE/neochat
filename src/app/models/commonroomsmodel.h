@@ -56,4 +56,5 @@ private:
     QString m_userId;
     QList<QString> m_commonRooms;
     bool m_loading = false;
+    quint64 m_generation = 0;
 };

@@ -153,6 +153,7 @@ private:
     Quotient::QueryPublicRoomsJob *job = nullptr;
     QString m_redirectedText;
     QString m_errorText;
+    quint64 m_generation = 0;
 
 Q_SIGNALS:
     void connectionChanged();

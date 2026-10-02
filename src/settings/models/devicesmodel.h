@@ -97,4 +97,5 @@ private:
     std::optional<int> findDevice(const QString &deviceId) const;
     QList<Quotient::Device> m_devices;
     QPointer<NeoChatConnection> m_connection;
+    quint64 m_generation = 0;
 };

@@ -65,6 +65,8 @@ bool SpaceChildrenModel::loading() const
 
 void SpaceChildrenModel::refreshModel()
 {
+    m_generation++;
+
     for (const auto &job : m_currentJobs) {
         if (job) {
             job->abandon();
@@ -88,10 +90,15 @@ void SpaceChildrenModel::refreshModel()
     m_rootItem =
         new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()), nullptr, m_space->id(), m_space->displayName(), m_space->canonicalAlias());
     endResetModel();
-    m_currentJobs.append(
-        m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), std::nullopt, std::nullopt, 1).then(this, [this](const auto &job) {
-            insertChildren(job->rooms());
-        }));
+    const auto generation = m_generation;
+    m_currentJobs.append(m_space->connection()
+                             ->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), std::nullopt, std::nullopt, 1)
+                             .then(this, [this, generation](const auto &job) {
+                                 if (generation != m_generation) {
+                                     return;
+                                 }
+                                 insertChildren(job->rooms());
+                             }));
 }
 
 void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJob::SpaceHierarchyRoomsChunk> children, const QModelIndex &parent)
@@ -114,6 +121,7 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
         children.erase(children.begin());
     }
 
+    const auto generation = m_generation;
     beginInsertRows(parent, parentItem->childCount(), parentItem->childCount() + children.size() - 1);
     for (auto &child : children) {
         if (child.roomId == m_space->id() || child.roomId == parentItem->id()) {
@@ -136,7 +144,10 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
             if (child.childrenState.size() > 0) {
                 m_currentJobs.append(m_space->connection()
                                          ->callApi<Quotient::GetSpaceHierarchyJob>(child.roomId, std::nullopt, std::nullopt, 1)
-                                         .then(this, [this, parent, insertRow](const auto &job) {
+                                         .then(this, [this, parent, insertRow, generation](const auto &job) {
+                                             if (generation != m_generation) {
+                                                 return;
+                                             }
                                              insertChildren(job->rooms(), index(insertRow, 0, parent));
                                          }));
             }

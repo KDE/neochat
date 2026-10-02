@@ -36,14 +36,19 @@ QList<SupportContact> SupportController::contacts() const
 
 void SupportController::load()
 {
+    m_generation++;
     if (!m_connection) {
         qWarning() << "Tried to load support information without a valid connection?";
         return;
     }
 
+    const auto generation = m_generation;
     m_connection->callApi<GetWellknownSupportJob>()
         .onResult(this,
-                  [this](const auto &job) {
+                  [this, generation](const auto &job) {
+                      if (generation != m_generation) {
+                          return;
+                      }
                       m_supportPage = job->supportPage();
                       m_contacts.reserve(job->contacts().size());
                       for (const auto &contact : job->contacts()) {
@@ -56,8 +61,12 @@ void SupportController::load()
 
                       Q_EMIT loaded();
                   })
-        .onFailure(this, [this](const auto &job) {
+        .onFailure(this, [this, generation](const auto &job) {
             Q_UNUSED(job)
+
+            if (m_generation != generation) {
+                return;
+            }
 
             // Just do nothing, our properties will be empty.
             Q_EMIT loaded();

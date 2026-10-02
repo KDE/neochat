@@ -26,6 +26,7 @@ void SearchModel::setSearchText(const QString &searchText)
 
 void SearchModel::runSearch(const QString &batch)
 {
+    m_generation++;
     if (!m_room) {
         qWarning() << "SearchModel: No room";
         return;
@@ -54,9 +55,13 @@ void SearchModel::runSearch(const QString &batch)
         .groupings = std::nullopt,
     };
 
+    const auto generation = m_generation;
     auto job = m_room->connection()->callApi<SearchJob>(SearchJob::Categories{criteria}, batch);
     m_job = job;
-    connect(job, &BaseJob::finished, this, [this, job] {
+    connect(job, &BaseJob::finished, this, [this, job, generation] {
+        if (generation != m_generation) {
+            return;
+        }
         auto results = job->searchCategories().roomEvents;
         if (results.has_value() && !results->results.empty()) {
             beginInsertRows({}, rowCount({}), rowCount({}) + int(results->results.size()) - 1);

@@ -22,6 +22,7 @@ DevicesModel::DevicesModel(QObject *parent)
 
 void DevicesModel::fetchDevices()
 {
+    m_generation++;
     beginResetModel();
     m_devices.clear();
     endResetModel();
@@ -30,9 +31,10 @@ void DevicesModel::fetchDevices()
         return;
     }
 
+    const auto generation = m_generation;
     auto connection = m_connection;
-    m_connection->callApi<GetDevicesJob>().onResult(this, [this, connection](const auto &job) {
-        if (connection != m_connection) {
+    m_connection->callApi<GetDevicesJob>().onResult(this, [this, connection, generation](const auto &job) {
+        if (generation != m_generation) {
             return;
         }
         beginResetModel();

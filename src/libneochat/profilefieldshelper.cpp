@@ -62,6 +62,10 @@ bool ProfileFieldsHelper::loading() const
 
 void ProfileFieldsHelper::load()
 {
+    m_generation++;
+    m_loading = false;
+    Q_EMIT loadingChanged();
+
     if (!m_connection || m_userId.isEmpty()) {
         return;
     }
@@ -73,16 +77,23 @@ void ProfileFieldsHelper::load()
 
     setLoading(true);
 
+    const auto generation = m_generation;
     m_connection->callApi<NeoChatGetProfileFieldJob>(BackgroundRequest, m_userId, QStringLiteral("m.tz"))
         .then(
             this,
-            [this](const auto &job) {
+            [this, generation](const auto &job) {
+                if (generation != m_generation) {
+                    return;
+                }
                 m_timezone = job->value();
                 Q_EMIT localTimeChanged();
                 m_fetchedTimezone = true;
                 checkIfFinished();
             },
-            [this] {
+            [this, generation] {
+                if (generation != m_generation) {
+                    return;
+                }
                 m_fetchedTimezone = true;
                 checkIfFinished();
             });

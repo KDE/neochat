@@ -43,6 +43,7 @@ void LoginHelper::init()
     m_ssoUrl = QUrl();
 
     connect(this, &LoginHelper::matrixIdChanged, this, [this]() {
+        m_generation++;
         setHomeserverReachable(false);
         QRegularExpression validator(u"^\\@?[a-zA-Z0-9\\._=\\-/]+\\:[a-zA-Z0-9\\-]+(\\.[a-zA-Z0-9\\-]+)*(\\:[0-9]+)?$"_s);
         if (!validator.match(m_matrixId).hasMatch()) {
@@ -64,12 +65,16 @@ void LoginHelper::init()
         if (!m_connection) {
             m_connection = new NeoChatConnection();
         }
+        const auto generation = m_generation;
         m_connection->resolveServer(m_matrixId);
         connect(
             m_connection.get(),
             &Connection::loginFlowsChanged,
             this,
-            [this]() {
+            [this, generation]() {
+                if (generation != m_generation) {
+                    return;
+                }
                 setHomeserverReachable(true);
                 m_testing = false;
                 Q_EMIT testingChanged();
@@ -191,12 +196,16 @@ QUrl LoginHelper::ssoUrl() const
 
 void LoginHelper::loginWithSso()
 {
+    const auto generation = m_generation;
     m_connection->resolveServer(m_matrixId);
     connect(
         m_connection.get(),
         &Connection::loginFlowsChanged,
         this,
-        [this]() {
+        [this, generation]() {
+            if (generation != m_generation) {
+                return;
+            }
             SsoSession *session = m_connection->prepareForSso(m_deviceName);
             m_ssoUrl = session->ssoUrl();
             Q_EMIT ssoUrlChanged();

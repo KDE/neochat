@@ -159,4 +159,5 @@ private:
     bool m_invalidPassword = false;
     explicit LoginHelper(QObject *parent = nullptr);
     ~LoginHelper() override;
+    quint64 m_generation = 0;
 };

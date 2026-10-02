@@ -24,6 +24,7 @@ void UserDirectoryListModel::setConnection(NeoChatConnection *connection)
     if (m_connection == connection) {
         return;
     }
+    m_generation++;
 
     beginResetModel();
 
@@ -56,6 +57,7 @@ void UserDirectoryListModel::setSearchText(const QString &value)
     if (m_searchText == value) {
         return;
     }
+    m_generation++;
 
     m_searchText = value;
     Q_EMIT searchTextChanged();
@@ -93,7 +95,12 @@ void UserDirectoryListModel::search(int limit)
     m_job = m_connection->callApi<SearchUserDirectoryJob>(m_searchText, limit);
     Q_EMIT searchingChanged();
 
-    connect(m_job, &BaseJob::finished, this, [this] {
+    const auto generation = m_generation;
+
+    connect(m_job, &BaseJob::finished, this, [this, generation] {
+        if (generation != m_generation) {
+            return;
+        }
         attempted = true;
 
         if (m_job->status() == BaseJob::Success) {

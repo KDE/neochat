@@ -28,6 +28,9 @@ void ThreePIdAddHelper::setConnection(NeoChatConnection *connection)
     if (m_connection == connection) {
         return;
     }
+
+    m_generation++;
+
     m_connection = connection;
     Q_EMIT connectionChanged();
 }
@@ -86,6 +89,8 @@ void ThreePIdAddHelper::setNewCountryCode(const QString &newCountryCode)
 
 void ThreePIdAddHelper::initiateNewIdAdd()
 {
+    m_generation++;
+
     if (m_newId.isEmpty()) {
         return;
     }
@@ -105,7 +110,13 @@ void ThreePIdAddHelper::emailTokenJob()
     data.sendAttempt = 0;
 
     const auto job = m_connection->callApi<Quotient::RequestTokenTo3PIDEmailJob>(data);
-    connect(job, &Quotient::BaseJob::finished, this, &ThreePIdAddHelper::tokenJobFinished);
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::finished, this, [this, generation, job] {
+        if (generation != m_generation) {
+            return;
+        }
+        tokenJobFinished(job);
+    });
 }
 
 void ThreePIdAddHelper::msisdnTokenJob()
@@ -118,7 +129,13 @@ void ThreePIdAddHelper::msisdnTokenJob()
     data.sendAttempt = 0;
 
     const auto job = m_connection->callApi<Quotient::RequestTokenTo3PIDMSISDNJob>(data);
-    connect(job, &Quotient::BaseJob::finished, this, &ThreePIdAddHelper::tokenJobFinished);
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::finished, this, [this, generation, job] {
+        if (generation != m_generation) {
+            return;
+        }
+        tokenJobFinished(job);
+    });
 }
 
 void ThreePIdAddHelper::tokenJobFinished(Quotient::BaseJob *job)
@@ -141,7 +158,11 @@ ThreePIdAddHelper::ThreePIdStatus ThreePIdAddHelper::newIdStatus() const
 void ThreePIdAddHelper::finalizeNewIdAdd(const QString &password)
 {
     const auto job = m_connection->callApi<Add3PIDJob>(m_newIdSecret, m_newIdSid);
-    connect(job, &Quotient::BaseJob::result, this, [this, job, password] {
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::result, this, [this, job, password, generation] {
+        if (generation != m_generation) {
+            return;
+        }
         m_newIdStatus = Authentication;
         Q_EMIT newIdStatusChanged();
 
@@ -153,14 +174,20 @@ void ThreePIdAddHelper::finalizeNewIdAdd(const QString &password)
             authData.type = "m.login.password"_L1;
             authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->userId()}};
             const auto innerJob = m_connection->callApi<Add3PIDJob>(m_newIdSecret, m_newIdSid, authData);
-            connect(innerJob, &Quotient::BaseJob::success, this, [this]() {
+            connect(innerJob, &Quotient::BaseJob::success, this, [this, generation]() {
+                if (generation != m_generation) {
+                    return;
+                }
                 m_newIdSecret.clear();
                 m_newIdSid.clear();
                 m_newIdStatus = Success;
                 Q_EMIT newIdStatusChanged();
                 Q_EMIT threePIdAdded();
             });
-            connect(innerJob, &Quotient::BaseJob::failure, this, [innerJob, this]() {
+            connect(innerJob, &Quotient::BaseJob::failure, this, [innerJob, generation, this]() {
+                if (generation != m_generation) {
+                    return;
+                }
                 if (innerJob->jsonData()["errcode"_L1] == "M_FORBIDDEN"_L1) {
                     m_newIdStatus = AuthFailure;
                     Q_EMIT newIdStatusChanged();
@@ -179,7 +206,11 @@ void ThreePIdAddHelper::finalizeNewIdAdd(const QString &password)
 void ThreePIdAddHelper::remove3PId(const QString &threePId, const QString &type)
 {
     const auto job = m_connection->callApi<Quotient::Delete3pidFromAccountJob>(type, threePId);
-    connect(job, &Quotient::BaseJob::success, this, [this]() {
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::success, this, [this, generation]() {
+        if (generation != m_generation) {
+            return;
+        }
         Q_EMIT threePIdRemoved();
     });
 }
@@ -187,7 +218,11 @@ void ThreePIdAddHelper::remove3PId(const QString &threePId, const QString &type)
 void ThreePIdAddHelper::unbind3PId(const QString &threePId, const QString &type)
 {
     const auto job = m_connection->callApi<Quotient::Unbind3pidFromAccountJob>(type, threePId);
-    connect(job, &Quotient::BaseJob::success, this, [this]() {
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::success, this, [this, generation]() {
+        if (generation != m_generation) {
+            return;
+        }
         Q_EMIT threePIdUnbound();
     });
 }

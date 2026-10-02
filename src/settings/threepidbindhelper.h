@@ -153,4 +153,5 @@ private:
     void tokenRequestFinished(QNetworkReply *reply);
 
     static QJsonObject parseJson(const QByteArray &json);
+    quint64 m_generation = 0;
 };

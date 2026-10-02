@@ -60,4 +60,5 @@ private:
 
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_pinnedEvents;
     QList<Quotient::BaseJob *> m_jobs;
+    quint64 m_generation = 0;
 };

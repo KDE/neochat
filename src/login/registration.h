@@ -192,4 +192,7 @@ private:
     void setStatus(Status status);
 
     Registration();
+
+    quint64 m_tokenGeneration = 0;
+    quint64 m_usernameGeneration = 0;
 };
