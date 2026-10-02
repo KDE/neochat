@@ -304,7 +304,11 @@ void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
                                                                QString(),
                                                                pushConditions,
                                                                roomId.isEmpty() ? keyword : QString());
-    connect(job, &Quotient::BaseJob::failure, this, [job, keyword]() {
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::failure, this, [job, keyword, generation, this]() {
+        if (generation != m_generation) {
+            return;
+        }
         qWarning() << "Unable to set push rule for keyword %1: "_L1.arg(keyword) << job->errorString();
     });
 }
@@ -323,15 +327,27 @@ void PushRuleModel::removeKeyword(const QString &keyword)
 
     auto kind = PushRuleKind::kindString(m_rules[index].kind);
     auto job = m_connection->callApi<Quotient::DeletePushRuleJob>(kind, m_rules[index].id);
-    connect(job, &Quotient::BaseJob::failure, this, [this, job, index]() {
-        qWarning() << "Unable to remove push rule for keyword %1: "_L1.arg(m_rules[index].id) << job->errorString();
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::failure, this, [this, job, index, generation]() {
+        if (generation != m_generation) {
+            return;
+        }
+        if (index < m_rules.length()) {
+            qWarning() << "Unable to remove push rule for keyword %1: "_L1.arg(m_rules[index].id) << job->errorString();
+        } else {
+            qWarning() << "Unable to remove push rule for unknown keyword";
+        }
     });
 }
 
 void PushRuleModel::setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled)
 {
     auto job = m_connection->callApi<Quotient::IsPushRuleEnabledJob>(kind, ruleId);
-    connect(job, &Quotient::BaseJob::success, this, [job, kind, ruleId, enabled, this]() {
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::success, this, [job, kind, ruleId, enabled, generation, this]() {
+        if (generation != m_generation) {
+            return;
+        }
         if (job->enabled() != enabled) {
             m_connection->callApi<Quotient::SetPushRuleEnabledJob>(kind, ruleId, enabled);
         }
@@ -434,6 +450,7 @@ void PushRuleModel::setConnection(NeoChatConnection *connection)
     if (connection == m_connection) {
         return;
     }
+    m_generation++;
     m_connection = connection;
     Q_EMIT connectionChanged();
 

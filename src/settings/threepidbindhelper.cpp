@@ -33,6 +33,9 @@ void ThreePIdBindHelper::setConnection(NeoChatConnection *connection)
     if (m_connection == connection) {
         return;
     }
+
+    m_generation++;
+
     m_connection = connection;
     Q_EMIT connectionChanged();
 }
@@ -93,12 +96,17 @@ void ThreePIdBindHelper::setNewCountryCode(const QString &newCountryCode)
 
 void ThreePIdBindHelper::initiateNewIdBind()
 {
+    m_generation++;
     if (m_newId.isEmpty() || m_connection == nullptr || !m_connection->hasIdentityServer()) {
         return;
     }
 
+    const auto generation = m_generation;
     const auto openIdJob = m_connection->callApi<Quotient::RequestOpenIdTokenJob>(m_connection->userId());
-    connect(openIdJob, &Quotient::BaseJob::success, this, [this, openIdJob]() {
+    connect(openIdJob, &Quotient::BaseJob::success, this, [this, openIdJob, generation]() {
+        if (generation != m_generation) {
+            return;
+        }
         const auto requestUrl = QUrl(m_connection->identityServer().toString() + u"/_matrix/identity/v2/account/register"_s);
         if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
             m_bindStatus = AuthFailure;
@@ -108,7 +116,10 @@ void ThreePIdBindHelper::initiateNewIdBind()
 
         QNetworkRequest request(requestUrl);
         auto newRequest = Quotient::NetworkAccessManager::instance()->post(request, QJsonDocument(openIdJob->jsonData()).toJson());
-        connect(newRequest, &QNetworkReply::finished, this, [this, newRequest]() {
+        connect(newRequest, &QNetworkReply::finished, this, [this, newRequest, generation]() {
+            if (generation != m_generation) {
+                return;
+            }
             QJsonObject replyJson = parseJson(newRequest->readAll());
             m_identityServerToken = replyJson["token"_L1].toString();
 
@@ -123,7 +134,10 @@ void ThreePIdBindHelper::initiateNewIdBind()
             validationRequest.setRawHeader("Authorization", "Bearer " + m_identityServerToken.toLatin1());
 
             auto tokenRequest = Quotient::NetworkAccessManager::instance()->post(validationRequest, validationRequestData());
-            connect(tokenRequest, &QNetworkReply::finished, this, [this, tokenRequest]() {
+            connect(tokenRequest, &QNetworkReply::finished, this, [this, tokenRequest, generation]() {
+                if (generation != m_generation) {
+                    return;
+                }
                 tokenRequestFinished(tokenRequest);
             });
         });
@@ -191,12 +205,19 @@ QString ThreePIdBindHelper::bindStatusString() const
 void ThreePIdBindHelper::finalizeNewIdBind()
 {
     const auto job = m_connection->callApi<Quotient::Bind3PIDJob>(m_newIdSecret, m_connection->identityServer().host(), m_identityServerToken, m_newIdSid);
-    connect(job, &Quotient::BaseJob::success, this, [this] {
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::success, this, [this, generation] {
+        if (generation != m_generation) {
+            return;
+        }
         m_bindStatus = Success;
         Q_EMIT bindStatusChanged();
         Q_EMIT threePIdBound();
     });
-    connect(job, &Quotient::BaseJob::failure, this, [this, job]() {
+    connect(job, &Quotient::BaseJob::failure, this, [this, job, generation]() {
+        if (generation != m_generation) {
+            return;
+        }
         if (job->jsonData()["errcode"_L1] == "M_SESSION_NOT_VALIDATED"_L1) {
             m_bindStatus = VerificationFailure;
             Q_EMIT bindStatusChanged();
@@ -210,7 +231,11 @@ void ThreePIdBindHelper::finalizeNewIdBind()
 void ThreePIdBindHelper::unbind3PId(const QString &threePId, const QString &type)
 {
     const auto job = m_connection->callApi<Quotient::Unbind3pidFromAccountJob>(type, threePId);
-    connect(job, &Quotient::BaseJob::success, this, [this]() {
+    const auto generation = m_generation;
+    connect(job, &Quotient::BaseJob::success, this, [this, generation]() {
+        if (generation != m_generation) {
+            return;
+        }
         cancel();
         Q_EMIT threePIdUnbound();
     });

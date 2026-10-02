@@ -67,4 +67,5 @@ private:
     bool m_loading = true;
     QString m_timezone;
     bool m_fetchedTimezone = false;
+    quint64 m_generation = 0;
 };

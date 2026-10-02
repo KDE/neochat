@@ -46,6 +46,7 @@ void PinnedMessageModel::setLoading(bool loading)
 
 void PinnedMessageModel::fill()
 {
+    m_generation++;
     beginResetModel();
     m_pinnedEvents.clear();
     endResetModel();
@@ -61,10 +62,14 @@ void PinnedMessageModel::fill()
 
     setLoading(true);
 
+    const auto generation = m_generation;
     const auto events = m_room->pinnedEventIds();
     for (const auto &event : std::as_const(events)) {
         auto room = m_room;
-        m_jobs += room->connection()->callApi<GetOneRoomEventJob>(room->id(), event).onResult(this, [this, room](const auto &job) {
+        m_jobs += room->connection()->callApi<GetOneRoomEventJob>(room->id(), event).onResult(this, [this, room, generation](const auto &job) {
+            if (generation != m_generation) {
+                return;
+            }
             m_jobs.removeAll(job);
             if (job->error() != BaseJob::NoError) {
                 return;

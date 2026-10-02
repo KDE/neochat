@@ -86,4 +86,5 @@ private:
     bool m_searching = false;
     QString m_senderId;
     QString m_nextBatch;
+    quint64 m_generation = 0;
 };

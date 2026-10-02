@@ -92,6 +92,10 @@ bool CommonRoomsModel::loading() const
 
 void CommonRoomsModel::reload()
 {
+    m_generation++;
+    m_loading = false;
+    Q_EMIT loadingChanged();
+
     beginResetModel();
     m_commonRooms.clear();
     endResetModel();
@@ -112,9 +116,13 @@ void CommonRoomsModel::reload()
     m_loading = true;
     Q_EMIT loadingChanged();
 
+    const auto generation = m_generation;
     m_connection->callApi<NeochatGetCommonRoomsJob>(m_userId)
         .then(this,
-              [this](const auto job) {
+              [this, generation](const auto job) {
+                  if (generation != m_generation) {
+                      return;
+                  }
                   const auto &replyData = job->jsonData();
                   beginResetModel();
                   for (const auto &roomId : replyData[u"joined"_s].toArray()) {
@@ -126,7 +134,10 @@ void CommonRoomsModel::reload()
                   m_loading = false;
                   Q_EMIT loadingChanged();
               })
-        .onFailure(this, [this] {
+        .onFailure(this, [this, generation] {
+            if (generation != m_generation) {
+                return;
+            }
             m_loading = false;
             Q_EMIT loadingChanged();
         });

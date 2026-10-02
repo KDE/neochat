@@ -123,4 +123,5 @@ private:
     void populateSpaceHierarchy(const QString &spaceId);
     void addBatch(const QString &spaceId, Quotient::GetSpaceHierarchyJob *job);
     QPointer<NeoChatConnection> m_connection;
+    quint64 m_generation = 0;
 };

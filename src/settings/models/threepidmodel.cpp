@@ -29,6 +29,8 @@ void ThreePIdModel::setConnection(NeoChatConnection *connection)
         return;
     }
 
+    m_generation++;
+
     if (m_connection != nullptr) {
         m_connection->disconnect(this);
     }
@@ -88,8 +90,13 @@ void ThreePIdModel::refreshModel()
         if (m_job.isRunning()) {
             m_job.cancel();
         }
+
+        const auto generation = m_generation;
         m_job = m_connection->callApi<Quotient::GetAccount3PIDsJob>();
-        connect(m_job, &Quotient::BaseJob::success, this, [this]() {
+        connect(m_job, &Quotient::BaseJob::success, this, [this, generation]() {
+            if (generation != m_generation) {
+                return;
+            }
             beginResetModel();
             m_threePIds = m_job->threepids();
             endResetModel();
@@ -105,8 +112,12 @@ void ThreePIdModel::refreshBindStatus()
         return;
     }
 
+    const auto generation = m_generation;
     const auto openIdJob = m_connection->callApi<Quotient::RequestOpenIdTokenJob>(m_connection->userId());
-    connect(openIdJob, &Quotient::BaseJob::success, this, [this, openIdJob]() {
+    connect(openIdJob, &Quotient::BaseJob::success, this, [this, openIdJob, generation]() {
+        if (generation != m_generation) {
+            return;
+        }
         const auto requestUrl = QUrl(m_connection->identityServer().toString() + u"/_matrix/identity/v2/account/register"_s);
         if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
             return;
@@ -114,7 +125,10 @@ void ThreePIdModel::refreshBindStatus()
 
         QNetworkRequest request(requestUrl);
         auto newRequest = Quotient::NetworkAccessManager::instance()->post(request, QJsonDocument(openIdJob->jsonData()).toJson());
-        connect(newRequest, &QNetworkReply::finished, this, [this, newRequest]() {
+        connect(newRequest, &QNetworkReply::finished, this, [this, newRequest, generation]() {
+            if (generation != m_generation) {
+                return;
+            }
             QJsonObject replyJson = QJsonDocument::fromJson(newRequest->readAll()).object();
             const auto identityServerToken = replyJson["token"_L1].toString();
 
@@ -127,7 +141,10 @@ void ThreePIdModel::refreshBindStatus()
             hashRequest.setRawHeader("Authorization", "Bearer " + identityServerToken.toLatin1());
 
             auto hashReply = Quotient::NetworkAccessManager::instance()->get(hashRequest);
-            connect(hashReply, &QNetworkReply::finished, this, [this, identityServerToken, hashReply]() {
+            connect(hashReply, &QNetworkReply::finished, this, [this, identityServerToken, hashReply, generation]() {
+                if (generation != m_generation) {
+                    return;
+                }
                 QJsonObject replyJson = QJsonDocument::fromJson(hashReply->readAll()).object();
                 const auto lookupPepper = replyJson["lookup_pepper"_L1].toString();
 
@@ -150,7 +167,10 @@ void ThreePIdModel::refreshBindStatus()
                 requestData["addresses"_L1] = idLookups;
 
                 auto lookupReply = Quotient::NetworkAccessManager::instance()->post(lookupRequest, QJsonDocument(requestData).toJson(QJsonDocument::Compact));
-                connect(lookupReply, &QNetworkReply::finished, this, [this, lookupReply]() {
+                connect(lookupReply, &QNetworkReply::finished, this, [this, lookupReply, generation]() {
+                    if (generation != m_generation) {
+                        return;
+                    }
                     beginResetModel();
                     m_bindings.clear();
 

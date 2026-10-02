@@ -129,5 +129,6 @@ private:
     void setNotificationRuleActions(const QString &kind, const QString &ruleId, PushRuleAction::Action action);
     PushRuleAction::Action variantToAction(const QList<QVariant> &actions, bool enabled);
     QList<QVariant> actionToVariant(PushRuleAction::Action action, const QString &sound = u"default"_s);
+    quint64 m_generation = 0;
 };
 Q_DECLARE_METATYPE(PushRuleModel *)

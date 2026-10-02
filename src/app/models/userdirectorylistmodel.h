@@ -103,4 +103,5 @@ private:
     QList<Quotient::SearchUserDirectoryJob::User> users;
 
     Quotient::SearchUserDirectoryJob *m_job = nullptr;
+    quint64 m_generation = 0;
 };

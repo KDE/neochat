@@ -150,4 +150,5 @@ private:
     void msisdnTokenJob();
 
     void tokenJobFinished(Quotient::BaseJob *job);
+    quint64 m_generation = 0;
 };

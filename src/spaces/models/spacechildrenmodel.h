@@ -145,4 +145,5 @@ private:
     void refreshModel();
 
     void insertChildren(std::vector<Quotient::GetSpaceHierarchyJob::SpaceHierarchyRoomsChunk> children, const QModelIndex &parent = QModelIndex());
+    quint64 m_generation = 0;
 };

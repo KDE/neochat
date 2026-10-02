@@ -90,6 +90,8 @@ void NotificationsModel::setConnection(NeoChatConnection *connection)
         return;
     }
 
+    m_generation++;
+
     beginResetModel();
     m_notifications.clear();
     endResetModel();
@@ -118,14 +120,16 @@ void NotificationsModel::loadData()
     if (m_job || (!m_notifications.empty() && m_nextToken.isEmpty())) {
         return;
     }
-    const auto connection = m_connection;
-    m_job = connection->callApi<GetNotificationsJob>(m_nextToken).then(this, [this, connection](const auto job) {
+
+    const auto generation = m_generation;
+    m_job = m_connection->callApi<GetNotificationsJob>(m_nextToken).then(this, [this, generation](const auto job) {
+        if (generation != m_generation) {
+            return;
+        }
+
         m_job = nullptr;
         Q_EMIT loadingChanged();
 
-        if (connection != m_connection) {
-            return;
-        }
         m_nextToken = job->nextToken();
         Q_EMIT nextTokenChanged();
         for (const auto &notification : job->notifications()) {
@@ -138,12 +142,12 @@ void NotificationsModel::loadData()
                     return false;
                 })) {
                 const auto &authorId = notification.event->fullJson()["sender"_L1].toString();
-                const auto &room = connection->room(notification.roomId);
+                const auto &room = m_connection->room(notification.roomId);
                 if (!room) {
                     continue;
                 }
                 auto u = room->member(authorId).avatarUrl();
-                auto avatar = u.isEmpty() ? QUrl() : connection->makeMediaUrl(u);
+                auto avatar = u.isEmpty() ? QUrl() : m_connection->makeMediaUrl(u);
                 const auto &authorAvatar = avatar.isValid() && avatar.scheme() == u"mxc"_s ? avatar : QUrl();
 
                 const auto &roomEvent = eventCast<const RoomEvent>(notification.event.get());

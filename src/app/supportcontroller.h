@@ -47,4 +47,5 @@ private:
     QPointer<NeoChatConnection> m_connection = nullptr;
     QList<SupportContact> m_contacts;
     QString m_supportPage;
+    quint64 m_generation = 0;
 };

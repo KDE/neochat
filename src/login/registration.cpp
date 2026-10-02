@@ -271,6 +271,7 @@ QString Registration::registrationToken() const
 
 void Registration::testRegistrationToken()
 {
+    m_tokenGeneration++;
     if (status() <= ServerNoRegistration) {
         return;
     }
@@ -285,7 +286,11 @@ void Registration::testRegistrationToken()
         return;
     }
 
-    m_testValidityJob = m_connection->callApi<RegistrationTokenValidityJob>(m_registrationToken).onResult(this, [this]() {
+    auto generation = m_tokenGeneration;
+    m_testValidityJob = m_connection->callApi<RegistrationTokenValidityJob>(m_registrationToken).onResult(this, [this, generation]() {
+        if (generation != m_tokenGeneration) {
+            return;
+        }
         if (m_testValidityJob->error() == BaseJob::StatusCode::NotFound) {
             setStatus(NoRegistrationTokenPrevalidation);
         } else {
@@ -307,6 +312,7 @@ QString Registration::username() const
 
 void Registration::testUsername()
 {
+    m_usernameGeneration++;
     if (status() <= ServerNoRegistration) {
         return;
     }
@@ -319,9 +325,13 @@ void Registration::testUsername()
         return;
     }
 
-    m_usernameJob = m_connection->callApi<CheckUsernameAvailabilityJob>(m_username);
-    connect(m_usernameJob, &BaseJob::result, this, [this]() {
-        setStatus(m_usernameJob->error() == BaseJob::StatusCode::Success && *m_usernameJob->available() ? Ready : UsernameTaken);
+    auto job = m_usernameJob = m_connection->callApi<CheckUsernameAvailabilityJob>(m_username);
+    const auto generation = m_usernameGeneration;
+    connect(m_usernameJob, &BaseJob::result, this, [this, generation, job]() {
+        if (generation != m_usernameGeneration) {
+            return;
+        }
+        setStatus(job->error() == BaseJob::StatusCode::Success && *job->available() ? Ready : UsernameTaken);
     });
 }
 
