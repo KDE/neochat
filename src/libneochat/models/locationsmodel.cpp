@@ -13,6 +13,10 @@ LocationsModel::LocationsModel(QObject *parent)
     qGuiApp->installEventFilter(this);
 
     connect(this, &LocationsModel::roomChanged, this, [this]() {
+        beginResetModel();
+        m_locations.clear();
+        endResetModel();
+
         if (!m_room) {
             return;
         }
