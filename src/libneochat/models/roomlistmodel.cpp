@@ -47,16 +47,14 @@ void RoomListModel::setConnection(NeoChatConnection *connection)
     if (m_connection) {
         m_connection->disconnect(this);
     }
-    if (!connection) {
-        qCDebug(RoomList) << "Removing current connection";
-        m_connection = nullptr;
-        beginResetModel();
-        m_rooms.clear();
-        endResetModel();
-        return;
-    }
 
     m_connection = connection;
+
+    Q_EMIT connectionChanged();
+
+    if (!connection) {
+        return;
+    }
 
     for (NeoChatRoom *room : std::as_const(m_rooms)) {
         room->disconnect(this);
@@ -82,8 +80,6 @@ void RoomListModel::setConnection(NeoChatConnection *connection)
     });
 
     doResetModel();
-
-    Q_EMIT connectionChanged();
 }
 
 void RoomListModel::doResetModel()
