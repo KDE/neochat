@@ -13,10 +13,10 @@ RoomTreeItem::RoomTreeItem(TreeData data, RoomTreeItem *parent)
 bool RoomTreeItem::operator==(const RoomTreeItem &other) const
 {
     if (std::holds_alternative<NeoChatRoomType::Types>(m_data) && std::holds_alternative<NeoChatRoomType::Types>(other.data())) {
-        return std::get<NeoChatRoomType::Types>(m_data) == std::get<NeoChatRoomType::Types>(m_data);
+        return std::get<NeoChatRoomType::Types>(m_data) == std::get<NeoChatRoomType::Types>(other.data());
     }
     if (std::holds_alternative<NeoChatRoom *>(m_data) && std::holds_alternative<NeoChatRoom *>(other.data())) {
-        return std::get<NeoChatRoom *>(m_data)->id() == std::get<NeoChatRoom *>(m_data)->id();
+        return std::get<NeoChatRoom *>(m_data)->id() == std::get<NeoChatRoom *>(other.data())->id();
     }
     return false;
 }
