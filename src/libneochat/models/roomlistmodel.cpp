@@ -12,20 +12,18 @@
 #include "roomlistlogging.h"
 #include "spacehierarchycache.h"
 
-#include <KLocalizedString>
-
 using namespace Quotient;
 
 Q_DECLARE_METATYPE(Quotient::JoinState)
 
-std::function<bool(const Quotient::RoomEvent *)> RoomListModel::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
+std::function<bool(const RoomEvent *)> RoomListModel::m_hiddenFilter = [](const RoomEvent *) -> bool {
     return false;
 };
 
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
+    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this] {
         if (!m_rooms.isEmpty()) {
             Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {IsChildSpaceRole});
         }
@@ -56,7 +54,7 @@ void RoomListModel::setConnection(NeoChatConnection *connection)
         return;
     }
 
-    for (NeoChatRoom *room : std::as_const(m_rooms)) {
+    for (const auto room : std::as_const(m_rooms)) {
         room->disconnect(this);
     }
 
@@ -65,12 +63,11 @@ void RoomListModel::setConnection(NeoChatConnection *connection)
     connect(connection, &Connection::joinedRoom, this, &RoomListModel::updateRoom);
     connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
     connect(connection, &Connection::aboutToDeleteRoom, this, &RoomListModel::deleteRoom);
-    connect(connection, &Connection::directChatsListChanged, this, [this, connection](Quotient::DirectChatsMap additions, Quotient::DirectChatsMap removals) {
-        auto refreshRooms = [this, &connection](Quotient::DirectChatsMap rooms) {
+    connect(connection, &Connection::directChatsListChanged, this, [this, connection](const auto &additions, const auto &removals) {
+        auto refreshRooms = [this, &connection](const DirectChatsMap &rooms) {
             for (const QString &roomID : std::as_const(rooms)) {
-                auto room = connection->room(roomID);
-                if (room) {
-                    refresh(static_cast<NeoChatRoom *>(room));
+                if (const auto room = dynamic_cast<NeoChatRoom *>(connection->room(roomID))) {
+                    refresh(room);
                 }
             }
         };
@@ -95,19 +92,19 @@ void RoomListModel::doResetModel()
 
 NeoChatRoom *RoomListModel::roomAt(int row) const
 {
-    auto room = m_rooms.at(row);
+    const auto room = m_rooms.at(row);
     QQmlEngine::setObjectOwnership(room, QQmlEngine::CppOwnership);
     return room;
 }
 
 void RoomListModel::doAddRoom(Room *r)
 {
-    Q_ASSERT(r);
-    if (!r) {
+    const auto room = dynamic_cast<NeoChatRoom *>(r);
+    Q_ASSERT(room);
+    if (!room) {
         qCCritical(RoomList) << "Attempt to add nullptr to the room list";
         return;
     }
-    const auto room = static_cast<NeoChatRoom *>(r);
     m_rooms.append(room);
     connectRoomSignals(room);
     Q_EMIT roomAdded(room);
@@ -118,7 +115,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::displaynameChanged, this, [this, room] {
         refresh(room, {DisplayNameRole});
     });
-    connect(room, &Room::changed, this, [this, room](Room::Changes changes) {
+    connect(room, &Room::changed, this, [this, room](const Room::Changes changes) {
         if (changes & (Room::Change::UnreadStats | Room::Change::Highlights)) {
             refresh(room, {ContextNotificationCountRole, HasHighlightNotificationsRole, NotificationCountRole});
         }
@@ -162,7 +159,7 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
         // That doesn't look right but technically we still can do it.
     }
     // Ok, we're through with pre-checks, now for the real thing.
-    auto newRoom = static_cast<NeoChatRoom *>(room);
+    auto newRoom = dynamic_cast<NeoChatRoom *>(room);
     const auto it = std::ranges::find_if(m_rooms, [prev, newRoom](const NeoChatRoom *r) {
         return r == prev || r == newRoom;
     });
@@ -182,15 +179,15 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
     }
 }
 
-void RoomListModel::deleteRoom(Room *room)
+void RoomListModel::deleteRoom(const Room *room)
 {
     qCDebug(RoomList) << "Deleting room" << room->id();
-    const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
+    const auto it = std::ranges::find(m_rooms, room);
     if (it == m_rooms.end()) {
         return; // Already deleted, nothing to do
     }
     qCDebug(RoomList) << "Erasing room" << room->id();
-    const int row = it - m_rooms.begin();
+    const auto row = std::distance(m_rooms.begin(), it);
     beginRemoveRows(QModelIndex(), row, row);
     m_rooms.erase(it);
     endRemoveRows();
@@ -207,12 +204,12 @@ int RoomListModel::rowCount(const QModelIndex &parent) const
 QVariant RoomListModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
-        return QVariant();
+        return {};
     }
 
     if (index.row() >= m_rooms.count()) {
         qCWarning(RoomList) << __FUNCTION__ << "called with invalid index" << index << m_rooms.count();
-        return QVariant();
+        return {};
     }
     NeoChatRoom *room = m_rooms.at(index.row());
     if (role == DisplayNameRole || role == Qt::DisplayRole) {
@@ -282,17 +279,17 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         }
     }
 
-    return QVariant();
+    return {};
 }
 
 void RoomListModel::refresh(NeoChatRoom *room, const QList<int> &roles)
 {
-    const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
+    const auto it = std::ranges::find(m_rooms, room);
     if (it == m_rooms.end()) {
         qCCritical(RoomList) << "Room" << room->id() << "not found in the room list";
         return;
     }
-    const auto idx = index(it - m_rooms.begin());
+    const auto idx = index(std::distance(m_rooms.begin(), it));
     Q_EMIT dataChanged(idx, idx, roles);
 }
 
@@ -335,9 +332,9 @@ int RoomListModel::rowForRoom(NeoChatRoom *room) const
     return m_rooms.indexOf(room);
 }
 
-void RoomListModel::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)
+void RoomListModel::setHiddenFilter(const std::function<bool(const RoomEvent *)> &hiddenFilter)
 {
-    RoomListModel::m_hiddenFilter = hiddenFilter;
+    m_hiddenFilter = hiddenFilter;
 }
 
 #include "moc_roomlistmodel.cpp"
