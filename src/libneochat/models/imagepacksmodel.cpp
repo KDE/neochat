@@ -128,7 +128,7 @@ void ImagePacksModel::reloadImages()
     for (const auto &event : events) {
         const auto imagePackEvent = eventCast<const ImagePackEvent>(event);
         if (!imagePackEvent) {
-            qWarning() << "Not an image pack event" << imagePackEvent->fullJson();
+            qWarning() << "Not an image pack event" << event->fullJson();
             continue;
         }
         const auto packContent = imagePackEvent->content();
