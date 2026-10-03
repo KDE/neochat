@@ -71,18 +71,19 @@ void PushRuleModel::updateNotificationRules(const QString &type)
         return;
     }
 
-    const QJsonObject ruleDataJson = m_connection->accountDataJson(u"m.push_rules"_s);
-    const Quotient::PushRuleset ruleData = Quotient::fromJson<Quotient::PushRuleset>(ruleDataJson["global"_L1].toObject());
-
     beginResetModel();
     m_rules.clear();
 
-    // Doing this 5 times because PushRuleset is a struct.
-    setRules(ruleData.override, PushRuleKind::Override);
-    setRules(ruleData.content, PushRuleKind::Content);
-    setRules(ruleData.room, PushRuleKind::Room);
-    setRules(ruleData.sender, PushRuleKind::Sender);
-    setRules(ruleData.underride, PushRuleKind::Underride);
+    if (m_connection) {
+        const auto ruleDataJson = m_connection->accountDataJson(u"m.push_rules"_s);
+        const auto &[content, override, room, sender, underride] = Quotient::fromJson<Quotient::PushRuleset>(ruleDataJson["global"_L1].toObject());
+        // Doing this 5 times because PushRuleset is a struct.
+        setRules(override, PushRuleKind::Override);
+        setRules(content, PushRuleKind::Content);
+        setRules(room, PushRuleKind::Room);
+        setRules(sender, PushRuleKind::Sender);
+        setRules(underride, PushRuleKind::Underride);
+    }
 
     Q_EMIT globalNotificationsEnabledChanged();
     Q_EMIT globalNotificationsSetChanged();
@@ -434,13 +435,20 @@ void PushRuleModel::setConnection(NeoChatConnection *connection)
     if (connection == m_connection) {
         return;
     }
+
+    if (m_connection) {
+        disconnect(m_connection, nullptr, this, nullptr);
+    }
+
     m_connection = connection;
     Q_EMIT connectionChanged();
 
-    if (m_connection) {
-        connect(m_connection, &NeoChatConnection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
-        updateNotificationRules(u"m.push_rules"_s);
+    updateNotificationRules(u"m.push_rules"_s);
+
+    if (!m_connection) {
+        return;
     }
+    connect(m_connection, &NeoChatConnection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
 }
 
 #include "moc_pushrulemodel.cpp"
