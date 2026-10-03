@@ -96,12 +96,17 @@ void AccountEmoticonModel::setConnection(NeoChatConnection *connection)
 
     m_connection = connection;
     Q_EMIT connectionChanged();
-    connect(m_connection, &Connection::accountDataChanged, this, [this](QString type) {
+    reloadEmoticons();
+
+    if (!m_connection) {
+        return;
+    }
+
+    connect(m_connection, &Connection::accountDataChanged, this, [this](const auto &type) {
         if (type == u"im.ponies.user_emotes"_s) {
             reloadEmoticons();
         }
     });
-    reloadEmoticons();
 }
 
 void AccountEmoticonModel::reloadEmoticons()
