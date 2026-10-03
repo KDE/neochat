@@ -102,13 +102,13 @@ public:
      */
     Q_INVOKABLE NeoChatRoom *roomByAliasOrId(const QString &aliasOrId);
 
-    static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
+    static void setHiddenFilter(const std::function<bool(const Quotient::RoomEvent *)> &hiddenFilter);
 
 private Q_SLOTS:
     void doResetModel();
     void doAddRoom(Quotient::Room *room);
     void updateRoom(Quotient::Room *room, Quotient::Room *prev);
-    void deleteRoom(Quotient::Room *room);
+    void deleteRoom(const Quotient::Room *room);
     void refresh(NeoChatRoom *room, const QList<int> &roles = {});
 
 private:
