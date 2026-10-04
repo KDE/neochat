@@ -97,6 +97,7 @@ private Q_SLOTS:
 void TextHandlerTest::initTestCase()
 {
     connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
+    connection->setParent(this);
     connection->setAccountData(u"im.ponies.user_emotes"_s,
                                QJsonObject{{"images"_L1,
                                             QJsonObject{{"test"_L1,
