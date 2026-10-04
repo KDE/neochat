@@ -41,6 +41,8 @@ qt_add_library(neochat STATIC
     postmessagehelper.h
     completionlistadapters.cpp
     completionlistadapters.h
+    stickerlisthelper.cpp
+    stickerlisthelper.h
 )
 
 # TODO: Switch to Quotient's blurhash implementation when that's merged
@@ -228,6 +230,7 @@ target_link_libraries(neochat PUBLIC
     KirigamiApp
     KirigamiAddonsComponents
     QuotientQt6
+    Chatbar
     Login
     Rooms
     MessageContent

@@ -182,9 +182,7 @@ KirigamiComponents.ConvergentContextMenu {
                 Component {
                     id: emojiDialog
 
-                    EmojiDialog {
-                        currentRoom: root.room
-                    }
+                    EmojiDialog {}
                 }
             }
         }

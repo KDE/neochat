@@ -21,7 +21,6 @@
 #include "models/devicesproxymodel.h"
 #include "models/emoticonfiltermodel.h"
 #include "models/eventmessagecontentmodel.h"
-#include "models/imagepacksmodel.h"
 #include "models/linemodel.h"
 #include "models/livelocationsmodel.h"
 #include "models/locationsmodel.h"
@@ -42,7 +41,6 @@
 #include "models/statefiltermodel.h"
 #include "models/statekeysmodel.h"
 #include "models/statemodel.h"
-#include "models/stickermodel.h"
 #include "models/threadmodel.h"
 #include "models/threepidmodel.h"
 #include "models/userdirectorylistmodel.h"
@@ -98,9 +96,7 @@ private Q_SLOTS:
     void testStateKeysModel();
     void testPinnedMessageModel();
     void testUserListModel();
-    void testStickerModel();
     void testPowerLevelModel();
-    void testImagePacksModel();
     void testCompletionModel();
     void testRoomListModel();
     void testCommonRoomsModel();
@@ -362,35 +358,11 @@ void ModelTest::testUserListModel()
     model->setRoom(room);
 }
 
-void ModelTest::testStickerModel()
-{
-    auto model = new StickerModel(this);
-    auto tester = new QAbstractItemModelTester(model, model);
-    tester->setUseFetchMore(true);
-    model->setPackIndex(0);
-    model->setRoom(room);
-    auto imagePacksModel = new ImagePacksModel(this);
-    model->setModel(imagePacksModel);
-    imagePacksModel->setRoom(room);
-    imagePacksModel->setShowEmoticons(true);
-    imagePacksModel->setShowStickers(true);
-}
-
 void ModelTest::testPowerLevelModel()
 {
     auto model = new PowerLevelModel(this);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-}
-
-void ModelTest::testImagePacksModel()
-{
-    auto model = new ImagePacksModel(this);
-    auto tester = new QAbstractItemModelTester(model, model);
-    tester->setUseFetchMore(true);
-    model->setRoom(room);
-    model->setShowEmoticons(true);
-    model->setShowStickers(true);
 }
 
 void ModelTest::testCompletionModel()

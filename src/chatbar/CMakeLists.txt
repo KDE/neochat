@@ -13,7 +13,7 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         SendBar.qml
         CompletionMenu.qml
         PieProgressBar.qml
-        EmojiPicker.qml
+        EmojiCategoryGrid.qml
         EmojiDialog.qml
         StylePicker.qml
         StyleDelegate.qml
@@ -30,6 +30,8 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         completionmodel.cpp
         completionlist.cpp
         completionproxymodel.cpp
+        stickermodel.cpp
+        stickerlist.cpp
         styledelegatehelper.cpp
     IMPORTS
         org.kde.kemoji

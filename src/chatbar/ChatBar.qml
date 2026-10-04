@@ -55,9 +55,13 @@ Item {
 
     property alias completionLists: core.completionLists
 
+    property alias stickerLists: core.stickerLists
+
     signal contentChanged
 
     signal send
+
+    signal sendSticker(packIndex: int, stickerIndex: int)
 
     signal sendPoll(kind: int, question: string, answers: list<string>)
 
@@ -107,6 +111,7 @@ Item {
 
             onContentChanged: root.contentChanged()
             onSend: root.send()
+            onSendSticker: (packIndex, stickerIndex) => root.sendSticker(packIndex, stickerIndex)
             onSendPoll: (kind, question, answers) => root.sendPoll(kind, question, answers)
             onSendVoiceMessage: recorder => root.sendVoiceMessage(recorder)
             onUnhandledUp: modifiers => root.unhandledUp(modifiers)

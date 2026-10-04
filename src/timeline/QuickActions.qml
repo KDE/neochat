@@ -63,9 +63,7 @@ RowLayout {
 
         Component {
             id: emojiDialog
-            EmojiDialog {
-                currentRoom: root.room
-            }
+            EmojiDialog {}
         }
     }
     QQC2.Button {

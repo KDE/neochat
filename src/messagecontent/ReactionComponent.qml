@@ -119,8 +119,6 @@ Flow {
     Component {
         id: emojiDialog
 
-        EmojiDialog {
-            currentRoom: root.Message.room
-        }
+        EmojiDialog {}
     }
 }

@@ -13,6 +13,7 @@
 #include "blockreply.h"
 #include "events/pollevent.h"
 #include "models/eventmessagecontentmodel.h"
+#include "stickermodel.h"
 #include "texthandler.h"
 
 PostMessageHelper::PostMessageHelper(QObject *parent)
@@ -74,6 +75,27 @@ void PostMessageHelper::setThreadRootId(const QString &threadRootId)
     }
     m_threadRootId = threadRootId;
     Q_EMIT threadRootIdChanged();
+}
+
+QList<StickerList *> PostMessageHelper::stickerLists() const
+{
+    QList<StickerList *> lists;
+    std::ranges::for_each(m_lists, [&lists](const QPointer<StickerList> &list) {
+        lists.append(list.get());
+    });
+    return lists;
+}
+
+void PostMessageHelper::setStickerLists(const QList<StickerList *> &stickerLists)
+{
+    if (stickerLists == this->stickerLists()) {
+        return;
+    }
+    m_lists.clear();
+    std::ranges::for_each(stickerLists, [this](StickerList *list) {
+        m_lists.append(list);
+    });
+    Q_EMIT stickerListsChanged();
 }
 
 void PostMessageHelper::postMessage()
@@ -177,6 +199,45 @@ void PostMessageHelper::postMessage()
     // We want to strip Matrix links here because it matches Element behavior, but more importantly is less annoying in bridged chats.
     m_room->post<Quotient::RoomMessageEvent>(body, *msgType, std::move(content), relatesTo);
     m_cache->clear();
+}
+
+void PostMessageHelper::postSticker(int packIndex, int stickerIndex)
+{
+    if (!m_room) {
+        qWarning() << Q_FUNC_INFO << "called with no room";
+        return;
+    }
+    if (packIndex < 0 || packIndex >= m_lists.size() || stickerIndex < 0 || stickerIndex >= m_lists[packIndex]->size()) {
+        qWarning() << Q_FUNC_INFO << "pack or sticker index out of bounds" << packIndex << stickerIndex;
+        return;
+    }
+
+    const auto &list = m_lists[packIndex];
+    auto body = list->data(stickerIndex, StickerModel::DescriptionRole).toString();
+    if (body.isEmpty()) {
+        body = list->data(stickerIndex, StickerModel::ShortCodeRole).toString();
+    }
+    QJsonObject infoJson;
+    const auto pixelSize = list->data(stickerIndex, StickerModel::PixelSizeRole).toSize();
+    if (!pixelSize.isEmpty()) {
+        infoJson["w"_L1] = pixelSize.width();
+        infoJson["h"_L1] = pixelSize.height();
+    }
+    const auto mimeType = list->data(stickerIndex, StickerModel::MimeRole).value<QMimeType>().name();
+    if (!mimeType.isEmpty()) {
+        infoJson["mimetype"_L1] = list->data(stickerIndex, StickerModel::MimeRole).value<QMimeType>().name();
+    }
+    const auto size = list->data(stickerIndex, StickerModel::SizeRole).toInt();
+    if (size > 0) {
+        infoJson["size"_L1] = list->data(stickerIndex, StickerModel::SizeRole).toInt();
+    }
+    // TODO thumbnail
+    QJsonObject content{
+        {"body"_L1, body},
+        {"url"_L1, list->data(stickerIndex, StickerModel::SourceRole).toUrl().toString()},
+        {"info"_L1, infoJson},
+    };
+    m_room->postJson("m.sticker"_L1, content);
 }
 
 void PostMessageHelper::postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers)

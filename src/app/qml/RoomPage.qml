@@ -322,9 +322,11 @@ Kirigami.Page {
                 ActionsCompletionList {},
                 EmojiCompletionList {}
             ]
+            stickerLists: stickerListHelper.stickerLists
 
             onContentChanged: root.currentRoom.sendTypingNotification(!isEmpty)
             onSend: postHelper.postMessage()
+            onSendSticker: (packIndex, stickerIndex) => postHelper.postSticker(packIndex, stickerIndex)
             onSendPoll: (kind, question, answers) => postHelper.postPoll(kind, question, answers)
             onSendVoiceMessage: recorder => postHelper.postVoiceMessage(recorder)
             onUnhandledUp: modifiers => {
@@ -342,6 +344,12 @@ Kirigami.Page {
                 id: postHelper
                 room: root.currentRoom
                 cache: root.currentRoom?.mainCache ?? null
+                stickerLists: stickerListHelper.stickerLists
+            }
+
+            StickerListHelper {
+                id: stickerListHelper
+                room: root.currentRoom
             }
 
             function addReply(eventId: string): void {

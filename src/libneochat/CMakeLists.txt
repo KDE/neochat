@@ -47,7 +47,6 @@ target_sources(LibNeoChat PRIVATE
     jobs/neochatreportroomjob.cpp
     jobs/neochatreportuserjob.cpp
     jobs/neochatauthmetadatajob.cpp
-    models/imagepacksmodel.cpp
     models/itinerarymodel.cpp
     models/livelocationsmodel.cpp
     models/locationsmodel.cpp
@@ -55,7 +54,6 @@ target_sources(LibNeoChat PRIVATE
     models/pollanswermodel.cpp
     models/reactionmodel.cpp
     models/roomlistmodel.cpp
-    models/stickermodel.cpp
     models/userfiltermodel.cpp
     models/userlistmodel.cpp
     models/widgetmodel.cpp

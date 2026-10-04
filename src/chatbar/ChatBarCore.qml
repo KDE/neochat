@@ -53,9 +53,13 @@ QQC2.Control {
 
     property list<CompletionList> completionLists: []
 
+    property list<StickerList> stickerLists: []
+
     signal contentChanged
 
     signal send
+
+    signal sendSticker(packIndex: int, stickerIndex: int)
 
     signal sendPoll(kind: int, question: string, answers: list<string>)
 
@@ -133,15 +137,18 @@ QQC2.Control {
                     }
                     dialog = Qt.createComponent('org.kde.neochat.chatbar', 'EmojiDialog').createObject(root, {
                         modal: false,
-                        includeCustom: true,
+                        stickerLists: root.stickerLists,
+                        // includeCustom: true,
                         closeOnChosen: false,
-                        currentRoom: root.room,
-                    });
+                    }) as EmojiDialog;
                     dialog.y =  -dialog.implicitHeight - Kirigami.Units.smallSpacing;
-                    dialog.onChosen.connect((emoji) => {
+                    dialog.chosen.connect((emoji) => {
                         richEditBar.chatButtonHelper.insertText(emoji);
                     });
-                    dialog.onClosed.connect(() => {
+                    dialog.stickerChosen.connect((packIndex, stickerIndex) => {
+                        root.sendSticker(packIndex, stickerIndex);
+                    })
+                    dialog.closed.connect(() => {
                         dialog = null;
                     });
                     dialog.open();

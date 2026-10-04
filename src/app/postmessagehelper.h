@@ -8,6 +8,7 @@
 
 #include "blockcache.h"
 #include "neochatroom.h"
+#include "stickerlist.h"
 
 class QMediaRecorder;
 
@@ -24,6 +25,13 @@ class PostMessageHelper : public QObject
 
     Q_PROPERTY(QString threadRootId READ threadRootId WRITE setThreadRootId NOTIFY threadRootIdChanged)
 
+    /**
+     * @brief The StickerLists to get stickers from.
+     *
+     * @sa StickerList
+     */
+    Q_PROPERTY(QList<StickerList *> stickerLists READ stickerLists WRITE setStickerLists NOTIFY stickerListsChanged)
+
 public:
     explicit PostMessageHelper(QObject *parent = nullptr);
 
@@ -37,7 +45,12 @@ public:
     QString threadRootId() const;
     void setThreadRootId(const QString &threadRootId);
 
+    [[nodiscard]] QList<StickerList *> stickerLists() const;
+    void setStickerLists(const QList<StickerList *> &stickerLists);
+
     Q_INVOKABLE void postMessage();
+
+    Q_INVOKABLE void postSticker(int packIndex, int stickerIndex);
 
     Q_INVOKABLE void postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers);
 
@@ -48,10 +61,12 @@ Q_SIGNALS:
     void cacheChanged();
     void editIdChanged();
     void threadRootIdChanged();
+    void stickerListsChanged();
 
 private:
     QPointer<NeoChatRoom> m_room;
     Blocks::Cache *m_cache = nullptr;
     QString m_editId = {};
     QString m_threadRootId = {};
+    QList<QPointer<StickerList>> m_lists;
 };
