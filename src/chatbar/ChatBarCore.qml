@@ -32,6 +32,7 @@ QQC2.Control {
         sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
 
         onContentChanged: root.contentChanged()
+        onUserTyped: root.userTyped()
         onUnhandledUp: modifiers => root.unhandledUp(modifiers)
     }
 
@@ -54,6 +55,8 @@ QQC2.Control {
     property list<CompletionList> completionLists: []
 
     signal contentChanged
+
+    signal userTyped
 
     signal send
 

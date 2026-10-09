@@ -143,6 +143,7 @@ Q_SIGNALS:
     void sendMessageWithEnterChanged();
 
     void contentChanged();
+    void userTyped();
 
     /**
      * @brief There is an unhandled up key press.

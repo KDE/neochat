@@ -57,6 +57,8 @@ Item {
 
     signal contentChanged
 
+    signal userTyped
+
     signal send
 
     signal sendPoll(kind: int, question: string, answers: list<string>)
@@ -106,6 +108,7 @@ Item {
             visible: !root.currentRoom.readOnly
 
             onContentChanged: root.contentChanged()
+            onUserTyped: root.userTyped();
             onSend: root.send()
             onSendPoll: (kind, question, answers) => root.sendPoll(kind, question, answers)
             onSendVoiceMessage: recorder => root.sendVoiceMessage(recorder)

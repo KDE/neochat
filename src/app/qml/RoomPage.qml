@@ -324,7 +324,7 @@ Kirigami.Page {
                 CustomEmojiCompletionList {}
             ]
 
-            onContentChanged: root.currentRoom.sendTypingNotification(!isEmpty)
+            onUserTyped: root.currentRoom.sendTypingNotification(!isEmpty)
             onSend: postHelper.postMessage()
             onSendPoll: (kind, question, answers) => postHelper.postPoll(kind, question, answers)
             onSendVoiceMessage: recorder => postHelper.postVoiceMessage(recorder)
