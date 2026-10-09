@@ -245,6 +245,7 @@ void ChatBarMessageContentModel::connectTextItem(ChatTextItemHelper *chattextite
         removeComponent(helper);
     });
     connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::contentChanged);
+    connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::userTyped);
 }
 
 ChatTextItemHelper *ChatBarMessageContentModel::textItemForComponent(Blocks::Block *component) const
