@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-26 00:45+0000\n"
-"PO-Revision-Date: 2026-09-26 09:55+0200\n"
+"PO-Revision-Date: 2026-10-09 15:24+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -413,7 +413,7 @@ msgstr "Применить"
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
-"Подтвердите, что приведённые ниже эмодзи отображаются на обоих устройствах в "
+"Подтвердите, что приведённые ниже эмодзи показываются на обоих устройствах в "
 "одинаковом порядке."
 
 #: src/app/qml/EmojiSas.qml:44
@@ -628,7 +628,7 @@ msgstr "Отказаться"
 #: src/app/qml/OlmKeyVerificationDialog.qml:151
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr "Ожидается принятие проверки на этом устройстве."
+msgstr "Ожидается принятие проверки на другом устройстве."
 
 #: src/app/qml/KeyVerificationDialog.qml:182
 #, kde-format
@@ -940,7 +940,7 @@ msgstr "Запустить"
 #: src/devtools/RoomData.qml:123
 #, kde-format
 msgid "Event Source"
-msgstr "Источник событий"
+msgstr "Источник события"
 
 #: src/app/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -1924,7 +1924,7 @@ msgstr "<отображаемое имя>"
 
 #: src/chatbar/actionsmodel.cpp:289
 msgid "Changes your global display name"
-msgstr "Изменить своё отображаемое имя"
+msgstr "Изменить своё общее отображаемое имя"
 
 #: src/chatbar/actionsmodel.cpp:296 src/chatbar/actionsmodel.cpp:303
 msgid "Changes your display name in this room"
@@ -2451,7 +2451,7 @@ msgstr "Данные учётной записи"
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
-msgstr "Источник событий"
+msgstr "Источник события"
 
 #: src/devtools/AccountData.qml:42
 #, kde-format
@@ -3058,7 +3058,7 @@ msgstr "удалил(а) %1 из комнаты"
 #: src/libneochat/eventhandler.cpp:385
 #, kde-format
 msgid "banned %1 from the room"
-msgstr "заблокировал(а) %1 в этой комнате"
+msgstr "заблокировал(а) %1 в комнате"
 
 #: src/libneochat/eventhandler.cpp:387
 #, kde-format
@@ -3068,7 +3068,7 @@ msgstr "заблокировал(а) %1 в комнате: %2"
 #: src/libneochat/eventhandler.cpp:390
 #, kde-format
 msgid "self-banned from the room"
-msgstr "заблокировал(а) себя в этой комнате"
+msgstr "заблокировал(а) себя в комнате"
 
 #: src/libneochat/eventhandler.cpp:394
 #, kde-format
@@ -3355,7 +3355,7 @@ msgstr "%1 заблокировал(а) пользователя в этой к�
 #: src/libneochat/eventhandler.cpp:625
 #, kde-format
 msgid "%1 self-banned from the room"
-msgstr "%1 заблокировал(а) себя в этой комнате"
+msgstr "%1 заблокировал(а) себя в комнате"
 
 #: src/libneochat/eventhandler.cpp:628
 #, kde-format
@@ -3602,10 +3602,10 @@ msgstr[3] " и ещё %1"
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 пользователь использовали %3"
-msgstr[1] "%2 пользователя использовали %3"
-msgstr[2] "%2 пользователей использовали %3"
-msgstr[3] "%2 пользователь использовал %3"
+msgstr[0] "%2 отреагировали: %3"
+msgstr[1] "%2 отреагировали: %3"
+msgstr[2] "%2 отреагировали: %3"
+msgstr[3] "%2 отреагировал(а): %3"
 
 #: src/libneochat/models/timezonemodel.cpp:21
 #, kde-format
@@ -5847,7 +5847,7 @@ msgid ""
 "These are the default notification settings for all rooms. You can customize "
 "notifications per-room in the room list or room settings."
 msgstr ""
-"Это стандартные настройки уведомлений для всех комнат. Настройки уведомлений "
+"Это стандартные параметры уведомлений для всех комнат. Параметры уведомлений "
 "для конкретной комнаты можно изменить в списке комнат или в параметрах "
 "комнаты."
 
@@ -6312,7 +6312,7 @@ msgstr "Важность"
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "В первую очередь отображаются комнаты с непрочитанными уведомлениями."
+msgstr "В первую очередь показываются комнаты с непрочитанными уведомлениями."
 
 #: src/settings/NeoChatGeneralPage.qml:96
 #, kde-format
@@ -6330,7 +6330,7 @@ msgstr "Последние события"
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr "Комнаты с последними событиями отображаются первыми."
+msgstr "Комнаты с последними событиями показываются первыми."
 
 #: src/settings/NeoChatGeneralPage.qml:118
 #, kde-format
@@ -6676,7 +6676,7 @@ msgstr "Стикеры и эмодзи"
 #: src/settings/NeoChatSettingsView.qml:91
 #, kde-format
 msgid "Network Proxy"
-msgstr "Тип прокси"
+msgstr "Прокси-сервер"
 
 #: src/settings/NeoChatSettingsView.qml:97
 #, kde-format
@@ -7001,7 +7001,7 @@ msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
-msgstr "Предпросмотр ссылок отключён в настройках оформления"
+msgstr "Предпросмотр ссылок отключён в параметрах оформления"
 
 #: src/settings/RoomGeneralPage.qml:206
 #, kde-format
