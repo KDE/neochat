@@ -71,7 +71,7 @@ target_sources(LibNeoChat PRIVATE
 
 configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
 
-if (${QuotientQt6_VERSION_MINOR} LESS 10)
+if ("${QuotientQt6_VERSION_MINOR}" LESS 10)
     target_sources(LibNeoChat PRIVATE
             events/joinrulesevent.cpp
             events/joinrulesevent.h
