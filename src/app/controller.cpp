@@ -253,8 +253,10 @@ void Controller::teardownConnection(NeoChatConnection *connection)
 
 void Controller::initActiveConnection(NeoChatConnection *oldConnection, NeoChatConnection *newConnection)
 {
+    // Only what is connected below, the links from initConnection() must stay
     if (oldConnection) {
-        oldConnection->disconnect(this);
+        disconnect(oldConnection, &NeoChatConnection::errorOccurred, this, nullptr);
+        disconnect(oldConnection, &NeoChatConnection::badgeNotificationCountChanged, this, nullptr);
     }
 
     if (newConnection) {

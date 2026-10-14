@@ -29,6 +29,7 @@ private Q_SLOTS:
     void initTestCase();
     void testMaximizeMedia();
     void testResolveMatrixLinks();
+    void testRoomLeftAfterSwitch();
 };
 
 void RoomManagerTest::initTestCase()
@@ -135,6 +136,19 @@ void RoomManagerTest::testResolveMatrixLinks()
     const QSignalSpy askToJoinSpy(&RoomManager::instance(), &RoomManager::askJoinRoom);
     RoomManager::instance().resolveResource(QStringLiteral("matrix:r/testbuild:matrix.org"), QStringLiteral("join"));
     QTRY_COMPARE(askToJoinSpy.size(), 1);
+}
+
+void RoomManagerTest::testRoomLeftAfterSwitch()
+{
+    // As made by Controller::initConnection(), must survive switching away and back
+    connect(connection, &NeoChatConnection::roomAboutToBeLeft, &RoomManager::instance(), &RoomManager::roomLeft);
+    RoomManager::instance().setConnection(nullptr);
+    RoomManager::instance().setConnection(connection);
+    RoomManager::instance().resolveResource(room->id());
+    QCOMPARE(RoomManager::instance().currentRoom(), room);
+
+    Q_EMIT connection->roomAboutToBeLeft(room->id());
+    QCOMPARE(RoomManager::instance().currentRoom(), nullptr);
 }
 
 QTEST_MAIN(RoomManagerTest)

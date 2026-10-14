@@ -525,8 +525,12 @@ void RoomManager::setConnection(NeoChatConnection *connection)
         return;
     }
 
+    // Only what is connected below, the link to roomLeft() from Controller::initConnection() must stay
     if (m_connection != nullptr) {
-        m_connection->disconnect(this);
+        disconnect(m_connection, &NeoChatConnection::showMessage, this, &RoomManager::showMessage);
+        disconnect(m_connection, &NeoChatConnection::createdRoom, this, nullptr);
+        disconnect(m_connection, &NeoChatConnection::directChatAvailable, this, nullptr);
+        disconnect(m_connection, &NeoChatConnection::joinedRoom, this, nullptr);
     }
 
     m_connection = connection;
