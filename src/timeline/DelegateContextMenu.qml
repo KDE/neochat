@@ -142,9 +142,9 @@ KirigamiComponents.ConvergentContextMenu {
                     }
 
                     onClicked: {
+                        EmojiModel.emojiUsed(shortName);
                         root.room.toggleReaction(root.eventId, unicode);
                         root.close();
-                        EmojiModel.emojiUsed(shortName);
                     }
                 }
             }

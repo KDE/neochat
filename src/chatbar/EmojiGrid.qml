@@ -62,11 +62,11 @@ QQC2.ScrollView {
             onClicked: {
                 if (root.stickers) {
                     root.stickerChosen(model.index);
-                }
-                root.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode);
-                if (!root.stickers) {
+                } else {
+                    // Record before emitting chosen, as handlers may close and destroy this grid
                     EmojiModel.emojiUsed(modelData.shortName);
                 }
+                root.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode);
             }
             Keys.onSpacePressed: pressAndHold()
             onPressAndHold: {
