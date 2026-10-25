@@ -37,8 +37,6 @@ Kirigami.Dialog {
             text: i18nc("@action:button Create new space", "Create")
             enabled: roomNameField.text.length > 0
 
-            onClicked: root.accept()
-
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
     }
