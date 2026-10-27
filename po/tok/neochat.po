@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:49+0000\n"
+"POT-Creation-Date: 2026-10-27 00:59+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -283,6 +283,68 @@ msgstr "o ante e toki"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "o kama insa"
+
+#: src/app/qml/ActionCollectionManager.qml:13
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "NeoChat"
+msgctxt "@info"
+msgid "NeoChat"
+msgstr "ilo toki NeoChat"
+
+#: src/app/qml/ActionCollectionManager.qml:17
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "menu item that opens a UI element called the 'Quick Switcher', which "
+#| "offers a fast keyboard-based interface for switching in between chats."
+#| msgid "Open Quick Switcher"
+msgctxt "@label"
+msgid "Open Quick Switcher"
+msgstr "o open e ilo tawa"
+
+#: src/app/qml/ActionCollectionManager.qml:24
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "menu item that opens a UI element called the 'Quick Switcher', which "
+#| "offers a fast keyboard-based interface for switching in between chats."
+#| msgid "Open Quick Switcher"
+msgctxt "@label"
+msgid "Open Account Switcher"
+msgstr "o open e ilo tawa"
+
+#: src/app/qml/ActionCollectionManager.qml:31
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@label"
+msgid "Search Messages in Current Room"
+msgstr "o ante e toki"
+
+#: src/app/qml/ActionCollectionManager.qml:38
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@label"
+msgid "Go to Previous Room"
+msgstr "o pali e tomo toki"
+
+#: src/app/qml/ActionCollectionManager.qml:46
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@label"
+msgid "Go to Next Room"
+msgstr "o pali e tomo toki"
+
+#: src/app/qml/ActionCollectionManager.qml:54
+#, kde-format
+msgctxt "@label"
+msgid "Go to Previous Unread Room"
+msgstr ""
+
+#: src/app/qml/ActionCollectionManager.qml:61
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@label"
+msgid "Go to Next Unread Room"
+msgstr "o pali e tomo toki"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:18
 #, fuzzy, kde-format
@@ -735,32 +797,32 @@ msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "nimi tomo"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr ""
 
-#: src/app/qml/Main.qml:173
+#: src/app/qml/Main.qml:260
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr ""
 
-#: src/app/qml/Main.qml:222
+#: src/app/qml/Main.qml:309
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@title"
 msgid "Loading"
 msgstr "mi pali…"
 
-#: src/app/qml/Main.qml:288
+#: src/app/qml/Main.qml:347
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/app/qml/Main.qml:328 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:380 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1058,14 +1120,14 @@ msgctxt "@action:button"
 msgid "Insert link"
 msgstr ""
 
-#: src/app/qml/QuickSwitcher.qml:30
+#: src/app/qml/QuickSwitcher.qml:25
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "o pana e toki"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
+#: src/app/qml/QuickSwitcher.qml:28 src/rooms/RoomListPage.qml:250
 #: src/rooms/SpaceDrawer.qml:287
 #, fuzzy, kde-format
 #| msgid "Create a Room"
@@ -1099,38 +1161,38 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:101
+#: src/app/qml/RoomPage.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:104
+#: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:104
+#: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:196
+#: src/app/qml/RoomPage.qml:145 src/app/qml/UserDetailDialog.qml:196
 #: src/roominfo/RoomInformation.qml:106
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:156
+#: src/app/qml/RoomPage.qml:158
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:215 src/roominfo/RoomInformation.qml:167
+#: src/app/qml/RoomPage.qml:217 src/roominfo/RoomInformation.qml:167
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Send message"
@@ -1138,7 +1200,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "o pana e toki"
 
-#: src/app/qml/RoomPage.qml:301
+#: src/app/qml/RoomPage.qml:303
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Quit NeoChat"
@@ -1146,20 +1208,20 @@ msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "o pini e ilo toki NeoChat"
 
-#: src/app/qml/RoomPage.qml:302
+#: src/app/qml/RoomPage.qml:304
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:382
+#: src/app/qml/RoomPage.qml:384
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "ilo NeoChat li jo ala e linluwi. o pana e ona tawa ilo."
 
-#: src/app/qml/RoomPage.qml:414
+#: src/app/qml/RoomPage.qml:416
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@title:dialog"
@@ -6277,64 +6339,6 @@ msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr ""
 
-#: src/settings/KeyboardShortcutsPage.qml:12
-#, kde-format
-msgctxt "@title:window"
-msgid "Keyboard Shortcuts"
-msgstr ""
-
-#: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
-msgctxt "@info:label"
-msgid "Open Quick Switcher"
-msgstr "o open e ilo tawa"
-
-#: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
-msgctxt "@info:label"
-msgid "Open Account Switcher"
-msgstr "o open e ilo tawa"
-
-#: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgctxt "@info:label"
-msgid "Search Messages in Current Room"
-msgstr "o ante e toki"
-
-#: src/settings/KeyboardShortcutsPage.qml:33
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Previous Room"
-msgstr ""
-
-#: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@info:label"
-msgid "Go to Next Room"
-msgstr "o pali e tomo toki"
-
-#: src/settings/KeyboardShortcutsPage.qml:43
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Previous Unread Room"
-msgstr ""
-
-#: src/settings/KeyboardShortcutsPage.qml:48
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Next Unread Room"
-msgstr ""
-
 #: src/settings/Members.qml:23
 #, kde-format
 msgctxt "@title:window"
@@ -8796,10 +8800,6 @@ msgstr[3] ""
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Room Address"
 #~ msgstr "o tu e lipu tawa lipu jo"
-
-#~ msgctxt "menu"
-#~ msgid "NeoChat"
-#~ msgstr "ilo toki NeoChat"
 
 #, fuzzy
 #~| msgid "Room Name"

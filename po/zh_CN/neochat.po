@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:49+0000\n"
+"POT-Creation-Date: 2026-10-27 00:59+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -273,6 +273,69 @@ msgstr "登录或创建一个新账户"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "登录"
+
+#: src/app/qml/ActionCollectionManager.qml:13
+#, fuzzy, kde-format
+#| msgid "NeoChat"
+msgctxt "@info"
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/qml/ActionCollectionManager.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Open Quick Switcher"
+msgctxt "@label"
+msgid "Open Quick Switcher"
+msgstr "打开快速切换器"
+
+#: src/app/qml/ActionCollectionManager.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Open Account Switcher"
+msgctxt "@label"
+msgid "Open Account Switcher"
+msgstr "打开账户切换器"
+
+#: src/app/qml/ActionCollectionManager.qml:31
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Search Messages in Current Room"
+msgctxt "@label"
+msgid "Search Messages in Current Room"
+msgstr "在当前聊天室中搜索消息"
+
+#: src/app/qml/ActionCollectionManager.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Previous Room"
+msgctxt "@label"
+msgid "Go to Previous Room"
+msgstr "到前一个房间"
+
+#: src/app/qml/ActionCollectionManager.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Next Room"
+msgctxt "@label"
+msgid "Go to Next Room"
+msgstr "到后一个房间"
+
+#: src/app/qml/ActionCollectionManager.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Previous Unread Room"
+msgctxt "@label"
+msgid "Go to Previous Unread Room"
+msgstr "到前一个未读房间"
+
+#: src/app/qml/ActionCollectionManager.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Next Unread Room"
+msgctxt "@label"
+msgid "Go to Next Unread Room"
+msgstr "到后一个未读房间"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:18
 #, kde-format
@@ -694,31 +757,31 @@ msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Emoji 验证"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "显示房间信息"
 
-#: src/app/qml/Main.qml:173
+#: src/app/qml/Main.qml:260
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "关闭房间信息面板"
 
-#: src/app/qml/Main.qml:222
+#: src/app/qml/Main.qml:309
 #, kde-format
 msgctxt "@title"
 msgid "Loading"
 msgstr ""
 
-#: src/app/qml/Main.qml:288
+#: src/app/qml/Main.qml:347
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "会话验证"
 
-#: src/app/qml/Main.qml:328 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:380 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1008,13 +1071,13 @@ msgctxt "@action:button"
 msgid "Insert link"
 msgstr "插入链接"
 
-#: src/app/qml/QuickSwitcher.qml:30
+#: src/app/qml/QuickSwitcher.qml:25
 #, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "未找到聊天室"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
+#: src/app/qml/QuickSwitcher.qml:28 src/rooms/RoomListPage.qml:250
 #: src/rooms/SpaceDrawer.qml:287
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1048,63 +1111,63 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/app/qml/RoomPage.qml:101
+#: src/app/qml/RoomPage.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "加入 Jitsi 会议…"
 
-#: src/app/qml/RoomPage.qml:104
+#: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "开始 Jitsi 会议…"
 
-#: src/app/qml/RoomPage.qml:104
+#: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "您无权发起 Jitsi 会议"
 
-#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:196
+#: src/app/qml/RoomPage.qml:145 src/app/qml/UserDetailDialog.qml:196
 #: src/roominfo/RoomInformation.qml:106
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "搜索"
 
-#: src/app/qml/RoomPage.qml:156
+#: src/app/qml/RoomPage.qml:158
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "该聊天室包含您所在家服务器的官方消息。"
 
-#: src/app/qml/RoomPage.qml:215 src/roominfo/RoomInformation.qml:167
+#: src/app/qml/RoomPage.qml:217 src/roominfo/RoomInformation.qml:167
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "置顶消息"
 
-#: src/app/qml/RoomPage.qml:301
+#: src/app/qml/RoomPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "欢迎使用 NeoChat"
 
-#: src/app/qml/RoomPage.qml:302
+#: src/app/qml/RoomPage.qml:304
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "选择或加入一个房间以开始"
 
-#: src/app/qml/RoomPage.qml:382
+#: src/app/qml/RoomPage.qml:384
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 处于离线状态。请检查您的网络连接。"
 
-#: src/app/qml/RoomPage.qml:414
+#: src/app/qml/RoomPage.qml:416
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -5884,54 +5947,6 @@ msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "无效的密钥备份数据"
 
-#: src/settings/KeyboardShortcutsPage.qml:12
-#, kde-format
-msgctxt "@title:window"
-msgid "Keyboard Shortcuts"
-msgstr "键盘快捷键"
-
-#: src/settings/KeyboardShortcutsPage.qml:18
-#, kde-format
-msgctxt "@info:label"
-msgid "Open Quick Switcher"
-msgstr "打开快速切换器"
-
-#: src/settings/KeyboardShortcutsPage.qml:23
-#, kde-format
-msgctxt "@info:label"
-msgid "Open Account Switcher"
-msgstr "打开账户切换器"
-
-#: src/settings/KeyboardShortcutsPage.qml:28
-#, kde-format
-msgctxt "@info:label"
-msgid "Search Messages in Current Room"
-msgstr "在当前聊天室中搜索消息"
-
-#: src/settings/KeyboardShortcutsPage.qml:33
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Previous Room"
-msgstr "到前一个房间"
-
-#: src/settings/KeyboardShortcutsPage.qml:38
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Next Room"
-msgstr "到后一个房间"
-
-#: src/settings/KeyboardShortcutsPage.qml:43
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Previous Unread Room"
-msgstr "到前一个未读房间"
-
-#: src/settings/KeyboardShortcutsPage.qml:48
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Next Unread Room"
-msgstr "到后一个未读房间"
-
 #: src/settings/Members.qml:23
 #, kde-format
 msgctxt "@title:window"
@@ -7958,3 +7973,7 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
+
+#~ msgctxt "@title:window"
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "键盘快捷键"

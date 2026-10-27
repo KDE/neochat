@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:49+0000\n"
+"POT-Creation-Date: 2026-10-27 00:59+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -268,6 +268,69 @@ msgstr "Prihlásiť sa alebo vytvoriť nové konto"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Prihlásenie"
+
+#: src/app/qml/ActionCollectionManager.qml:13
+#, fuzzy, kde-format
+#| msgid "NeoChat"
+msgctxt "@info"
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/qml/ActionCollectionManager.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Open Quick Switcher"
+msgctxt "@label"
+msgid "Open Quick Switcher"
+msgstr "Open Quick Switcher"
+
+#: src/app/qml/ActionCollectionManager.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Open Account Switcher"
+msgctxt "@label"
+msgid "Open Account Switcher"
+msgstr "Otvoriť prepínač kont"
+
+#: src/app/qml/ActionCollectionManager.qml:31
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Search Messages in Current Room"
+msgctxt "@label"
+msgid "Search Messages in Current Room"
+msgstr "Hľadať správy v aktuálnej miestnosti"
+
+#: src/app/qml/ActionCollectionManager.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Previous Room"
+msgctxt "@label"
+msgid "Go to Previous Room"
+msgstr "Prejsť na predchádzajúcu miestnost"
+
+#: src/app/qml/ActionCollectionManager.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Next Room"
+msgctxt "@label"
+msgid "Go to Next Room"
+msgstr "Prejsť na ďalšiu miestnosť"
+
+#: src/app/qml/ActionCollectionManager.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Previous Unread Room"
+msgctxt "@label"
+msgid "Go to Previous Unread Room"
+msgstr "Prejsť na predchádzajúcu neprečítanú miestnost"
+
+#: src/app/qml/ActionCollectionManager.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Next Unread Room"
+msgctxt "@label"
+msgid "Go to Next Unread Room"
+msgstr "Prejsť na nasledujúcu neprečítanú miestnost"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:18
 #, kde-format
@@ -696,31 +759,31 @@ msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Overenie pomocou emoji"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Informácie o miestnosti"
 
-#: src/app/qml/Main.qml:173
+#: src/app/qml/Main.qml:260
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Zavrieť panel informácií o miestnosti"
 
-#: src/app/qml/Main.qml:222
+#: src/app/qml/Main.qml:309
 #, kde-format
 msgctxt "@title"
 msgid "Loading"
 msgstr "Načítavam"
 
-#: src/app/qml/Main.qml:288
+#: src/app/qml/Main.qml:347
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Zobraziť upozornenia"
 
-#: src/app/qml/Main.qml:328 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:380 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1014,13 +1077,13 @@ msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Vložiť odkaz"
 
-#: src/app/qml/QuickSwitcher.qml:30
+#: src/app/qml/QuickSwitcher.qml:25
 #, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Miestnosť nebola nájdená"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
+#: src/app/qml/QuickSwitcher.qml:28 src/rooms/RoomListPage.qml:250
 #: src/rooms/SpaceDrawer.qml:287
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1055,63 +1118,63 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorovať"
 
-#: src/app/qml/RoomPage.qml:101
+#: src/app/qml/RoomPage.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "Join Jitsi meeting…"
 
-#: src/app/qml/RoomPage.qml:104
+#: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "Start Jitsi meeting…"
 
-#: src/app/qml/RoomPage.qml:104
+#: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Nemáte oprávnenie spúšťať stretnutia Jitsi"
 
-#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:196
+#: src/app/qml/RoomPage.qml:145 src/app/qml/UserDetailDialog.qml:196
 #: src/roominfo/RoomInformation.qml:106
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Hľadať"
 
-#: src/app/qml/RoomPage.qml:156
+#: src/app/qml/RoomPage.qml:158
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "Táto miestnost obsahuje oficiálne správy z vášho domovského servera."
 
-#: src/app/qml/RoomPage.qml:215 src/roominfo/RoomInformation.qml:167
+#: src/app/qml/RoomPage.qml:217 src/roominfo/RoomInformation.qml:167
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Pripnuté správy"
 
-#: src/app/qml/RoomPage.qml:301
+#: src/app/qml/RoomPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Vitajte v Matrixe"
 
-#: src/app/qml/RoomPage.qml:302
+#: src/app/qml/RoomPage.qml:304
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Vyberte alebo sa pripojte k miestnosti a začnite"
 
-#: src/app/qml/RoomPage.qml:382
+#: src/app/qml/RoomPage.qml:384
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je offline. Skontrolujte svoje sieťové pripojenie."
 
-#: src/app/qml/RoomPage.qml:414
+#: src/app/qml/RoomPage.qml:416
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -5942,54 +6005,6 @@ msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "Invalid key backup data"
 
-#: src/settings/KeyboardShortcutsPage.qml:12
-#, kde-format
-msgctxt "@title:window"
-msgid "Keyboard Shortcuts"
-msgstr "Keyboard Shortcuts"
-
-#: src/settings/KeyboardShortcutsPage.qml:18
-#, kde-format
-msgctxt "@info:label"
-msgid "Open Quick Switcher"
-msgstr "Open Quick Switcher"
-
-#: src/settings/KeyboardShortcutsPage.qml:23
-#, kde-format
-msgctxt "@info:label"
-msgid "Open Account Switcher"
-msgstr "Otvoriť prepínač kont"
-
-#: src/settings/KeyboardShortcutsPage.qml:28
-#, kde-format
-msgctxt "@info:label"
-msgid "Search Messages in Current Room"
-msgstr "Hľadať správy v aktuálnej miestnosti"
-
-#: src/settings/KeyboardShortcutsPage.qml:33
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Previous Room"
-msgstr "Prejsť na predchádzajúcu miestnost"
-
-#: src/settings/KeyboardShortcutsPage.qml:38
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Next Room"
-msgstr "Prejsť na ďalšiu miestnosť"
-
-#: src/settings/KeyboardShortcutsPage.qml:43
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Previous Unread Room"
-msgstr "Prejsť na predchádzajúcu neprečítanú miestnost"
-
-#: src/settings/KeyboardShortcutsPage.qml:48
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Next Unread Room"
-msgstr "Prejsť na nasledujúcu neprečítanú miestnost"
-
 #: src/settings/Members.qml:23
 #, kde-format
 msgctxt "@title:window"
@@ -8064,6 +8079,10 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
+
+#~ msgctxt "@title:window"
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "Keyboard Shortcuts"
 
 #~ msgctxt ""
 #~ "@action:button The 'normal' view of NeoChat including the room list"

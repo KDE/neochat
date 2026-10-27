@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:49+0000\n"
+"POT-Creation-Date: 2026-10-27 00:59+0000\n"
 "PO-Revision-Date: 2026-04-17 19:53+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -277,6 +277,69 @@ msgstr "Prisijunkite arba susikurkite naują paskyrą"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Prisijungti"
+
+#: src/app/qml/ActionCollectionManager.qml:13
+#, fuzzy, kde-format
+#| msgid "NeoChat"
+msgctxt "@info"
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/qml/ActionCollectionManager.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Open Account Switcher"
+msgctxt "@label"
+msgid "Open Quick Switcher"
+msgstr "Atverti paskyros perjungiklį"
+
+#: src/app/qml/ActionCollectionManager.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Open Account Switcher"
+msgctxt "@label"
+msgid "Open Account Switcher"
+msgstr "Atverti paskyros perjungiklį"
+
+#: src/app/qml/ActionCollectionManager.qml:31
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Search Messages in Current Room"
+msgctxt "@label"
+msgid "Search Messages in Current Room"
+msgstr "Ieškoti žinučių dabartiniame kambaryje"
+
+#: src/app/qml/ActionCollectionManager.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Previous Room"
+msgctxt "@label"
+msgid "Go to Previous Room"
+msgstr "Eiti į ankstesnį kambarį"
+
+#: src/app/qml/ActionCollectionManager.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Next Room"
+msgctxt "@label"
+msgid "Go to Next Room"
+msgstr "Eiti į kitą kambarį"
+
+#: src/app/qml/ActionCollectionManager.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Previous Unread Room"
+msgctxt "@label"
+msgid "Go to Previous Unread Room"
+msgstr "Eiti į ankstesnį neskaitytą kambarį"
+
+#: src/app/qml/ActionCollectionManager.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Go to Next Unread Room"
+msgctxt "@label"
+msgid "Go to Next Unread Room"
+msgstr "Eiti į kitą kambarį"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:18
 #, kde-format
@@ -708,32 +771,32 @@ msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr ""
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Rodyti kambario informaciją"
 
-#: src/app/qml/Main.qml:173
+#: src/app/qml/Main.qml:260
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr ""
 
-#: src/app/qml/Main.qml:222
+#: src/app/qml/Main.qml:309
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgctxt "@title"
 msgid "Loading"
 msgstr "Įkeliama"
 
-#: src/app/qml/Main.qml:288
+#: src/app/qml/Main.qml:347
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/app/qml/Main.qml:328 src/app/qml/ShareAction.qml:72
+#: src/app/qml/Main.qml:380 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1040,13 +1103,13 @@ msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Įterpti nuorodą"
 
-#: src/app/qml/QuickSwitcher.qml:30
+#: src/app/qml/QuickSwitcher.qml:25
 #, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr ""
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:250
+#: src/app/qml/QuickSwitcher.qml:28 src/rooms/RoomListPage.qml:250
 #: src/rooms/SpaceDrawer.qml:287
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
@@ -1081,63 +1144,63 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Nepaisyti"
 
-#: src/app/qml/RoomPage.qml:101
+#: src/app/qml/RoomPage.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "Prisijungti prie Jitsi susitikimo…"
 
-#: src/app/qml/RoomPage.qml:104
+#: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "Pradėti Jitsi susitikimą…"
 
-#: src/app/qml/RoomPage.qml:104
+#: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Jūs neturite leidimo pradėti Jitsi susitikimą"
 
-#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:196
+#: src/app/qml/RoomPage.qml:145 src/app/qml/UserDetailDialog.qml:196
 #: src/roominfo/RoomInformation.qml:106
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Paieška"
 
-#: src/app/qml/RoomPage.qml:156
+#: src/app/qml/RoomPage.qml:158
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:215 src/roominfo/RoomInformation.qml:167
+#: src/app/qml/RoomPage.qml:217 src/roominfo/RoomInformation.qml:167
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Prisegtos žinutės"
 
-#: src/app/qml/RoomPage.qml:301
+#: src/app/qml/RoomPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Jus sveikina NeoChat"
 
-#: src/app/qml/RoomPage.qml:302
+#: src/app/qml/RoomPage.qml:304
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Norėdami pradėti, pasirinkite arba prisijunkite prie kambario"
 
-#: src/app/qml/RoomPage.qml:382
+#: src/app/qml/RoomPage.qml:384
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat neprisijungusi prie interneto. Patikrinkite tinklo ryšį."
 
-#: src/app/qml/RoomPage.qml:414
+#: src/app/qml/RoomPage.qml:416
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -6057,54 +6120,6 @@ msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr ""
 
-#: src/settings/KeyboardShortcutsPage.qml:12
-#, kde-format
-msgctxt "@title:window"
-msgid "Keyboard Shortcuts"
-msgstr "Spartieji klavišai"
-
-#: src/settings/KeyboardShortcutsPage.qml:18
-#, kde-format
-msgctxt "@info:label"
-msgid "Open Quick Switcher"
-msgstr ""
-
-#: src/settings/KeyboardShortcutsPage.qml:23
-#, kde-format
-msgctxt "@info:label"
-msgid "Open Account Switcher"
-msgstr "Atverti paskyros perjungiklį"
-
-#: src/settings/KeyboardShortcutsPage.qml:28
-#, kde-format
-msgctxt "@info:label"
-msgid "Search Messages in Current Room"
-msgstr "Ieškoti žinučių dabartiniame kambaryje"
-
-#: src/settings/KeyboardShortcutsPage.qml:33
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Previous Room"
-msgstr "Eiti į ankstesnį kambarį"
-
-#: src/settings/KeyboardShortcutsPage.qml:38
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Next Room"
-msgstr "Eiti į kitą kambarį"
-
-#: src/settings/KeyboardShortcutsPage.qml:43
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Previous Unread Room"
-msgstr "Eiti į ankstesnį neskaitytą kambarį"
-
-#: src/settings/KeyboardShortcutsPage.qml:48
-#, kde-format
-msgctxt "@info:label"
-msgid "Go to Next Unread Room"
-msgstr "Eiti į kitą kambarį"
-
 #: src/settings/Members.qml:23
 #, kde-format
 msgctxt "@title:window"
@@ -8191,6 +8206,10 @@ msgstr[0] "%2 rašo"
 msgstr[1] "%2 rašo"
 msgstr[2] "%2 rašo"
 msgstr[3] "%2 rašo"
+
+#~ msgctxt "@title:window"
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "Spartieji klavišai"
 
 #~ msgctxt "@action:intoolbar Message this user directly"
 #~ msgid "Message"
