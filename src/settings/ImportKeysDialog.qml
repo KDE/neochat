@@ -8,13 +8,14 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
-import io.github.quotient_im.libquotient
 import org.kde.neochat
 
 FormCard.FormCardPage {
     id: root
 
     required property NeoChatConnection connection
+
+    property string backupFile: ""
 
     signal success
 
@@ -33,14 +34,14 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             id: fileButton
             text: i18nc("@action:button", "Choose backup file")
-            description: ""
+            description: root.backupFile
             icon.name: "cloud-upload"
             onClicked: {
                 let dialog = Qt.createComponent("QtQuick.Dialogs", "FileDialog").createObject(root, {
                     fileMode: FileDialog.OpenFile
                 });
                 dialog.accepted.connect(() => {
-                    fileButton.description = dialog.selectedFile.toString().substring(7);
+                    root.backupFile = dialog.selectedFile.toString();
                 });
                 dialog.open();
             }
@@ -54,14 +55,14 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Import keys")
-            enabled: fileButton.description.length > 0 && passphraseField.text.length > 0
+            enabled: root.backupFile.length > 0 && passphraseField.text.length > 0
             onClicked: {
                 banner.visible = false;
-                let error = KeyImport.importKeys(Controller.loadFileContent(fileButton.description), passphraseField.text, root.connection);
+                let error = KeyImport.importKeys(Controller.loadFileContent(root.backupFile), passphraseField.text, root.connection);
                 passphraseField.text = "";
                 if (error === KeyImport.Success) {
                     root.success();
-                    root.closeDialog();
+                    root.Kirigami.PageStack.pageStack.layers.pop();
                 } else if (error === KeyImport.InvalidPassphrase) {
                     banner.text = i18nc("@info", "Invalid passphrase");
                     banner.type = Kirigami.MessageType.Error;
