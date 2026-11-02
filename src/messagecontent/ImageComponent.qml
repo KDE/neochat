@@ -182,7 +182,7 @@ Item {
                 fillMode: Image.PreserveAspectFit
                 autoTransform: true
 
-                paused: !QQC2.ApplicationWindow.window.active
+                paused: !QQC2.ApplicationWindow.window.active && !hoverHandler.hovered
             }
         }
 
