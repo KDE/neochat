@@ -60,6 +60,15 @@ public:
         return RichFormat::formatsAtCursor(cursor) == formats;
     }
 
+    Q_INVOKABLE bool hasBackgroundAtCursor()
+    {
+        const auto cursor = m_textItem->textCursor();
+        if (cursor.isNull()) {
+            return false;
+        }
+        return cursor.charFormat().hasProperty(QTextFormat::BackgroundBrush);
+    }
+
     Q_INVOKABLE void clear()
     {
         auto cursor = m_textItem->textCursor();

@@ -313,6 +313,7 @@ private:
     std::optional<int> lineLength(int lineNumber) const;
 
     void mergeTextFormatOnCursor(RichFormat::Format format, QTextCursor cursor);
+    void clearInlineCodeFormatOnCursor(QTextCursor cursor);
     void mergeStyleFormatOnCursor(RichFormat::Format format, QTextCursor cursor);
     void mergeListFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor);
     NestedListHelper m_nestedListHelper;

@@ -512,9 +512,16 @@ void ChatTextItemHelper::mergeTextFormatOnCursor(RichFormat::Format format, QTex
     }
 
     const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
-    const auto charFormat = RichFormat::charFormatForFormat(format, RichFormat::hasFormat(cursor, format), theme->alternateBackgroundColor());
+    const auto invert = RichFormat::hasFormat(cursor, format);
+    const auto charFormat = RichFormat::charFormatForFormat(format, invert, theme->alternateBackgroundColor());
     if (!cursor.hasSelection()) {
         cursor.select(QTextCursor::WordUnderCursor);
+    }
+
+    if (format == RichFormat::InlineCode && invert) {
+        clearInlineCodeFormatOnCursor(cursor);
+        Q_EMIT charFormatChanged();
+        return;
     }
 
     if (!cursor.hasSelection() && isEmpty()) {
@@ -526,6 +533,35 @@ void ChatTextItemHelper::mergeTextFormatOnCursor(RichFormat::Format format, QTex
         cursor.mergeCharFormat(charFormat);
     }
     Q_EMIT charFormatChanged();
+}
+
+void ChatTextItemHelper::clearInlineCodeFormatOnCursor(QTextCursor cursor)
+{
+    const auto clearFormat = [](auto charFormat) {
+        charFormat.clearProperty(QTextFormat::FontFamilies);
+        charFormat.clearProperty(QTextFormat::FontFixedPitch);
+        charFormat.clearBackground();
+        return charFormat;
+    };
+
+    if (!cursor.hasSelection() && isEmpty()) {
+        cursor.setBlockCharFormat(clearFormat(cursor.blockCharFormat()));
+        return;
+    }
+    if (!cursor.hasSelection()) {
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    }
+
+    const auto start = cursor.selectionStart();
+    const auto end = cursor.selectionEnd();
+    cursor.beginEditBlock();
+    for (auto position = start; position < end; ++position) {
+        cursor.setPosition(position + 1);
+        const auto charFormat = clearFormat(cursor.charFormat());
+        cursor.setPosition(position, QTextCursor::KeepAnchor);
+        cursor.setCharFormat(charFormat);
+    }
+    cursor.endEditBlock();
 }
 
 void ChatTextItemHelper::mergeStyleFormatOnCursor(RichFormat::Format format, QTextCursor cursor)

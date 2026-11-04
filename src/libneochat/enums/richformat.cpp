@@ -103,8 +103,7 @@ QTextCharFormat RichFormat::charFormatForFormat(Format format, bool invert, cons
     }
     if (format == InlineCode) {
         if (invert) {
-            charFormat.setFont({});
-            charFormat.setBackground({});
+            charFormat.setFontFixedPitch(false);
         } else {
             charFormat.setFontFamilies({u"monospace"_s});
             charFormat.setFontFixedPitch(!invert);

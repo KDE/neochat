@@ -98,6 +98,16 @@ TestCase {
         compare(spyUnhandledFormat.count, data.unhandled);
     }
 
+    function test_textAfterInlineCode(): void {
+        const input = "` f ` a";
+        for (let i = 0; i < input.length; i++) {
+            keyClick(input[i]);
+        }
+        compare(chatMarkdownHelper.checkText(" f  a"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        compare(chatMarkdownHelper.hasBackgroundAtCursor(), false);
+    }
+
     function text_code_newline(): void {
         spyUnhandledFormat.clear();
         compare(spyUnhandledFormat.count, 0);
