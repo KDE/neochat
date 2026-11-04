@@ -11,6 +11,7 @@ struct Changes {
         QStringList initialMembers;
         QString roomId;
         QStringList tags;
+        QString directChatWith;
     };
     QList<NewRoom> newRooms;
 
@@ -58,7 +59,13 @@ public:
      * Create a room and place the user with id matrixId in it.
      * Returns the room's id
      */
-    QString createRoom(const QString &matrixId);
+    QString createRoom(const QString &matrixId, const QStringList &tags = {});
+
+    /**
+     * Create a direct chat between the user with id matrixId and otherUserId.
+     * Returns the room's id
+     */
+    QString createDirectChat(const QString &matrixId, const QString &otherUserId);
 
     void inviteUser(const QString &roomId, const QString &matrixId);
     void banUser(const QString &roomId, const QString &matrixId);

@@ -3,6 +3,8 @@
 
 #include "server.h"
 
+#include <algorithm>
+
 #include <QFile>
 #include <QHttpServerResponder>
 #include <QJsonArray>
@@ -131,14 +133,28 @@ void Server::start()
     }
 }
 
-QString Server::createRoom(const QString &matrixId)
+QString Server::createRoom(const QString &matrixId, const QStringList &tags)
 {
     const auto roomId = generateRoomId();
     Changes changes;
     changes.newRooms += Changes::NewRoom{
         .initialMembers = {matrixId},
         .roomId = {roomId},
+        .tags = tags,
+    };
+    m_state += changes;
+    return roomId;
+}
+
+QString Server::createDirectChat(const QString &matrixId, const QString &otherUserId)
+{
+    const auto roomId = generateRoomId();
+    Changes changes;
+    changes.newRooms += Changes::NewRoom{
+        .initialMembers = {matrixId, otherUserId},
+        .roomId = {roomId},
         .tags = {},
+        .directChatWith = otherUserId,
     };
     m_state += changes;
     return roomId;
@@ -384,10 +400,31 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
     }
 
     QJsonObject syncData = {
-        // {u"account_data"_s, QJsonObject {}},
         // {u"presence"_s, QJsonObject {}},
         {u"next_batch"_s, QString::number(m_state.size())},
     };
+
+    // m.direct always contains the full list of direct chats, so send it whenever one was added.
+    const auto hasNewDirectChat = std::ranges::any_of(changes, [](const Changes &change) {
+        return std::ranges::any_of(change.newRooms, [](const Changes::NewRoom &newRoom) {
+            return !newRoom.directChatWith.isEmpty();
+        });
+    });
+    if (hasNewDirectChat) {
+        QJsonObject directChats;
+        for (const auto &change : std::as_const(m_state)) {
+            for (const auto &newRoom : change.newRooms) {
+                if (!newRoom.directChatWith.isEmpty()) {
+                    auto rooms = directChats[newRoom.directChatWith].toArray();
+                    rooms += newRoom.roomId;
+                    directChats[newRoom.directChatWith] = rooms;
+                }
+            }
+        }
+        syncData[u"account_data"_s] = QJsonObject{
+            {u"events"_s, QJsonArray{QJsonObject{{u"type"_s, u"m.direct"_s}, {u"content"_s, directChats}}}},
+        };
+    }
 
     QJsonObject rooms;
     if (!joinRooms.isEmpty()) {

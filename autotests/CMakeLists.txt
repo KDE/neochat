@@ -88,6 +88,12 @@ ecm_add_test(
 )
 
 ecm_add_test(
+    roomlistordertest.cpp
+    LINK_LIBRARIES neochat Qt::Test neochat_server
+    TEST_NAME roomlistordertest
+)
+
+ecm_add_test(
     roommanagertest.cpp
     LINK_LIBRARIES neochat Qt::Test Chatbar neochat_server
     TEST_NAME roommanagertest

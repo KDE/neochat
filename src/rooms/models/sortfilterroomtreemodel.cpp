@@ -33,22 +33,32 @@ bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QMo
     }
 
     // Ensure "Find your friends" is at the top where its discoverable
-    if (sourceModel()->data(source_left, RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::AddDirect && m_mode == DirectChats
-        && sourceModel()->rowCount(sourceModel()->index(NeoChatRoomType::Direct, 0)) > 0) {
-        return true;
+    const auto isPinnedAddDirect = [this](const QModelIndex &index) {
+        return sourceModel()->data(index, RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::AddDirect && m_mode == DirectChats
+            && sourceModel()->rowCount(sourceModel()->index(NeoChatRoomType::Direct, 0)) > 0;
+    };
+    if (isPinnedAddDirect(source_left) != isPinnedAddDirect(source_right)) {
+        return isPinnedAddDirect(source_left);
     }
 
-    // Don't sort the top level categories, unless there's a server notice with unread messages.
+    // Keep the top level categories in their fixed order, unless there's a server notice with unread messages.
     if (!source_left.parent().isValid() || !source_right.parent().isValid()) {
-        if (source_left.row() == NeoChatRoomType::ServerNotice) {
-            for (int i = 0; i < treeModel->rowCount(source_left); i++) {
-                auto room = treeModel->connection()->room(treeModel->index(i, 0, source_left).data(RoomTreeModel::RoomIdRole).toString());
+        const auto isUnreadServerNotice = [treeModel](const QModelIndex &category) {
+            if (category.row() != NeoChatRoomType::ServerNotice) {
+                return false;
+            }
+            for (int i = 0; i < treeModel->rowCount(category); i++) {
+                auto room = treeModel->connection()->room(treeModel->index(i, 0, category).data(RoomTreeModel::RoomIdRole).toString());
                 if (room && room->unreadStats().notableCount > 0) {
                     return true;
                 }
             }
+            return false;
+        };
+        if (isUnreadServerNotice(source_left) != isUnreadServerNotice(source_right)) {
+            return isUnreadServerNotice(source_left);
         }
-        return false;
+        return source_left.row() < source_right.row();
     }
 
     const auto leftRoom = dynamic_cast<NeoChatRoom *>(treeModel->connection()->room(source_left.data(RoomTreeModel::RoomIdRole).toString()));
