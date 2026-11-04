@@ -10,6 +10,7 @@
 class QTextBlockFormat;
 class QTextCharFormat;
 class QTextCursor;
+class QTextDocument;
 
 using namespace Qt::StringLiterals;
 
@@ -120,6 +121,15 @@ public:
      * @sa Format, QTextCursor
      */
     static QList<Format> formatsAtCursor(const QTextCursor &cursor);
+
+    /**
+     * @brief Make the font properties of all text in the document explicit.
+     *
+     * QTextDocument::toMarkdown() resolves unset font properties against the application font,
+     * so a monospace, bold or italic system font would make all text code, bold or italic.
+     * Call this before converting to markdown; properties that are actually set are kept.
+     */
+    static void makeFontPropertiesExplicit(QTextDocument &doc);
 
 private:
     /**

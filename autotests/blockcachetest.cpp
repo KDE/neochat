@@ -1,7 +1,10 @@
 // SPDX-FileCopyrightText: 2026 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+#include <QFontDatabase>
+#include <QGuiApplication>
 #include <QObject>
+#include <QScopeGuard>
 #include <QTest>
 #include <QTextCursor>
 #include <QTextList>
@@ -23,6 +26,9 @@ private Q_SLOTS:
     void listTest();
 
     void disabledRichTextMention();
+
+    void applicationFontTest_data();
+    void applicationFontTest();
 };
 
 void BlockCacheTest::toStringTest_data()
@@ -137,6 +143,46 @@ void BlockCacheTest::disabledRichTextMention()
     QCOMPARE(cache.toString(), u"[test user [with bracket]](https://matrix.to/#/@test:test.org)"_s);
 
     Blocks::CacheItem::richTextActive = true;
+}
+
+// BUG: 516615
+void BlockCacheTest::applicationFontTest_data()
+{
+    QTest::addColumn<QFont>("applicationFont");
+
+    const auto families = QFontDatabase::families();
+    const auto monospace = std::ranges::find_if(families, [](const auto &family) {
+        return QFontDatabase::isFixedPitch(family);
+    });
+    if (monospace != families.end()) {
+        QTest::newRow("monospace") << QFont(*monospace);
+    }
+    QFont bold;
+    bold.setBold(true);
+    QTest::newRow("bold") << bold;
+    QFont italic;
+    italic.setItalic(true);
+    QTest::newRow("italic") << italic;
+    QFont underlineStrikeOut;
+    underlineStrikeOut.setUnderline(true);
+    underlineStrikeOut.setStrikeOut(true);
+    QTest::newRow("underline and strikeout") << underlineStrikeOut;
+}
+
+void BlockCacheTest::applicationFontTest()
+{
+    QFETCH(QFont, applicationFont);
+
+    // The application font must not leak into the sent markdown, only explicit formatting.
+    const auto restoreFont = qScopeGuard([font = QGuiApplication::font()] {
+        QGuiApplication::setFont(font);
+    });
+    QGuiApplication::setFont(applicationFont);
+
+    const auto markdown = u"plain **bold** *italic* `code` ~~strike~~"_s;
+    Cache cache;
+    cache.append(std::make_unique<TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromMarkdown(markdown)));
+    QCOMPARE(cache.toString(), markdown);
 }
 
 QTEST_MAIN(BlockCacheTest)

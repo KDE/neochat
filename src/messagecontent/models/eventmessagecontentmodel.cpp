@@ -16,6 +16,7 @@
 #include "blockreply.h"
 #include "contentprovider.h"
 #include "enums/blocktype.h"
+#include "enums/richformat.h"
 #include "eventhandler.h"
 #include "filepreview.h"
 #include "messagecontentlogging.h"
@@ -530,6 +531,7 @@ void EventMessageContentModel::fillEditCache()
     if (!richTextActive) {
         auto doc = QTextDocument();
         doc.setHtml(EventHandler::rawMessageBody(*event).replace(u'\n', u""_s));
+        RichFormat::makeFontPropertiesExplicit(doc);
         auto cursor = QTextCursor(&doc);
         QString escapedText;
         while (!cursor.atEnd()) {

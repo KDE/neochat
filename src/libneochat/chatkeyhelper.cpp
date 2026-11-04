@@ -284,7 +284,10 @@ bool ChatKeyHelper::cutText()
     if (cursor.isNull()) {
         return false;
     }
-    auto convertedMarkdown = cursor.selection().toMarkdown();
+    QTextDocument selection;
+    QTextCursor(&selection).insertFragment(cursor.selection());
+    RichFormat::makeFontPropertiesExplicit(selection);
+    auto convertedMarkdown = selection.toMarkdown();
     TextHandler::markdownToHtml(convertedMarkdown);
     TextHandler::cleanHtml(convertedMarkdown);
     TextHandler::cleanParas(convertedMarkdown);

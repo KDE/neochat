@@ -8,6 +8,7 @@
 #include "blocktype.h"
 #include "chattextitemhelper.h"
 #include "fileinfo.h"
+#include "richformat.h"
 
 using namespace Blocks;
 
@@ -119,6 +120,7 @@ QString TextCacheItem::toString() const
     auto doc = QTextDocument();
     auto cursor = QTextCursor(&doc);
     cursor.insertFragment(content);
+    RichFormat::makeFontPropertiesExplicit(doc);
     cursor.movePosition(QTextCursor::Start);
     while (!cursor.atEnd()) {
         cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);

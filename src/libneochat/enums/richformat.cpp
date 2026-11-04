@@ -3,10 +3,12 @@
 
 #include "richformat.h"
 
+#include <QFontDatabase>
 #include <QFontInfo>
 #include <QTextBlockFormat>
 #include <QTextCharFormat>
 #include <QTextCursor>
+#include <QTextDocument>
 
 #include <KLocalizedString>
 
@@ -222,6 +224,48 @@ QList<RichFormat::Format> RichFormat::formatsAtCursor(const QTextCursor &cursor)
         formats += OrderedList;
     }
     return formats;
+}
+
+void RichFormat::makeFontPropertiesExplicit(QTextDocument &doc)
+{
+    static const auto neutralFormat = [] {
+        const auto families = QFontDatabase::families();
+        const auto proportional = std::ranges::find_if(families, [](const QString &family) {
+            return !QFontDatabase::isFixedPitch(family);
+        });
+
+        QTextCharFormat format;
+        format.setFontFamilies({proportional != families.end() ? *proportional : u"sans-serif"_s});
+        format.setFontWeight(QFont::Normal);
+        format.setFontItalic(false);
+        format.setFontUnderline(false);
+        format.setFontStrikeOut(false);
+        return format;
+    }();
+
+    struct Change {
+        int start;
+        int end;
+        QTextCharFormat format;
+    };
+
+    // Collect first, since changing formats changes the fragments.
+    QList<Change> changes;
+    for (auto block = doc.begin(); block.isValid(); block = block.next()) {
+        for (auto it = block.begin(); !it.atEnd(); ++it) {
+            const auto fragment = it.fragment();
+            auto format = neutralFormat;
+            format.merge(fragment.charFormat());
+            changes.append({.start = fragment.position(), .end = fragment.position() + fragment.length(), .format = std::move(format)});
+        }
+    }
+
+    QTextCursor cursor(&doc);
+    for (const auto &[start, end, format] : std::as_const(changes)) {
+        cursor.setPosition(start);
+        cursor.setPosition(end, QTextCursor::KeepAnchor);
+        cursor.setCharFormat(format);
+    }
 }
 
 #include "moc_richformat.cpp"

@@ -635,7 +635,10 @@ QString ChatTextItemHelper::markdownText() const
     if (!doc) {
         return {};
     }
-    return trim(doc->toMarkdown(QTextDocument::MarkdownDialectGitHub));
+
+    const std::unique_ptr<QTextDocument> copy(doc->clone());
+    RichFormat::makeFontPropertiesExplicit(*copy);
+    return trim(copy->toMarkdown(QTextDocument::MarkdownDialectGitHub));
 }
 
 QString ChatTextItemHelper::plainText() const
