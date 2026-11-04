@@ -83,6 +83,11 @@ void Registration::registerAccount()
             {"type"_L1, "m.login.terms"_L1},
             {"session"_L1, m_session},
         };
+    } else if (nextStep() == "m.login.dummy"_L1) {
+        authData = QJsonObject{
+            {"type"_L1, "m.login.dummy"_L1},
+            {"session"_L1, m_session},
+        };
     } else if (nextStep() == "m.login.email.identity"_L1) {
         authData = QJsonObject{
             {"type"_L1, "m.login.email.identity"_L1},
@@ -128,13 +133,17 @@ void Registration::registerAccount()
             return;
         }
 
-        if (job->status() == BaseJob::Unauthorised && nextStep() == "m.login.registration_token"_L1) {
+        const auto &data = job->jsonData();
+
+        // The server also answers with 401 when the token was accepted and further stages are required,
+        // so only treat the token as invalid if the stage wasn't completed.
+        if (job->status() == BaseJob::Unauthorised && nextStep() == "m.login.registration_token"_L1
+            && !data["completed"_L1].toArray().contains("m.login.registration_token"_L1)) {
             // Only reachable if validity endpoint is not implemented by homeserver.
             setStatus(InvalidRegistrationToken);
             return;
         }
 
-        const auto &data = job->jsonData();
         m_session = data["session"_L1].toString();
         const auto &params = data["params"_L1].toObject();
 
@@ -154,6 +163,10 @@ void Registration::registerAccount()
         }
 
         setNextStep(selectedFlow[data["completed"_L1].toArray().size()].toString());
+        if (nextStep() == "m.login.dummy"_L1) {
+            registerAccount();
+            return;
+        }
         m_recaptchaSiteKey = params["m.login.recaptcha"_L1]["public_key"_L1].toString();
         Q_EMIT recaptchaSiteKeyChanged();
         m_terms.clear();
