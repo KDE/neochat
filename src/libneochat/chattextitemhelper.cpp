@@ -4,7 +4,9 @@
 #include "chattextitemhelper.h"
 #include "richformat.h"
 
+#include <QFontInfo>
 #include <QQuickTextDocument>
+#include <QTextBlock>
 #include <QTextCursor>
 
 #include <Kirigami/Platform/PlatformTheme>
@@ -124,6 +126,7 @@ void ChatTextItemHelper::initialize()
     int finalCursorPos = cursor.position();
     if (doc->isEmpty() && !m_initialFragment.isEmpty()) {
         cursor.insertFragment(m_initialFragment);
+        formatInlineCode(*doc);
         if (cursor.blockFormat().bottomMargin() > 0) {
             auto blockFormat = cursor.blockFormat();
             blockFormat.setBottomMargin(0);
@@ -154,6 +157,32 @@ void ChatTextItemHelper::initialize()
     cursor.endEditBlock();
 
     m_initializingChars = false;
+}
+
+void ChatTextItemHelper::formatInlineCode(QTextDocument &doc) const
+{
+    // Inline code loaded from HTML, e.g. when editing a message, only has a monospace font.
+    // Give it the same format as inline code that is typed in the chat bar.
+    const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+    const auto codeFormat = RichFormat::charFormatForFormat(RichFormat::InlineCode, false, theme->alternateBackgroundColor());
+
+    QList<std::pair<int, int>> ranges;
+    for (auto block = doc.begin(); block.isValid(); block = block.next()) {
+        for (auto it = block.begin(); !it.atEnd(); ++it) {
+            const auto format = it.fragment().charFormat();
+            // Only check explicitly set fonts, otherwise a monospace application font would turn everything into code.
+            if (format.fontFixedPitch() || (format.hasProperty(QTextFormat::FontFamilies) && QFontInfo(format.font()).fixedPitch())) {
+                ranges.append({it.fragment().position(), it.fragment().position() + it.fragment().length()});
+            }
+        }
+    }
+
+    QTextCursor cursor(&doc);
+    for (const auto &[start, end] : std::as_const(ranges)) {
+        cursor.setPosition(start);
+        cursor.setPosition(end, QTextCursor::KeepAnchor);
+        cursor.mergeCharFormat(codeFormat);
+    }
 }
 
 QTextDocument *ChatTextItemHelper::document() const

@@ -308,6 +308,7 @@ private:
     QString m_fixedEndChars = {};
     QTextDocumentFragment m_initialFragment = {};
     void initialize();
+    void formatInlineCode(QTextDocument &doc) const;
     bool m_initializingChars = false;
 
     std::optional<int> lineLength(int lineNumber) const;

@@ -53,6 +53,7 @@ TestCase {
 
     function init(): void {
         testHelper.setFixedChars("", "");
+        testHelper.setInitialHtml("");
         textEdit.clear();
         textEdit2.clear();
         spyItem.clear();
@@ -354,5 +355,19 @@ TestCase {
         compare(textEdit.activeFocus, false);
         testHelper.forceActiveFocus();
         compare(textEdit.activeFocus, true);
+    }
+
+    // BUG: 524891
+    function test_initialInlineCode(): void {
+        if (!testHelper.fixedFontIsFixedPitch()) {
+            skip("The fixed font used for <code> isn't fixed pitch on this platform");
+        }
+        testHelper.setInitialHtml("a <code>b[c]</code> d");
+        compare(textEdit.getText(0, textEdit.length), "a b[c] d");
+        verify(!testHelper.isInlineCode(0));
+        verify(testHelper.isInlineCode(2));
+        verify(testHelper.isInlineCode(5));
+        verify(!testHelper.isInlineCode(6));
+        verify(!testHelper.isInlineCode(7));
     }
 }

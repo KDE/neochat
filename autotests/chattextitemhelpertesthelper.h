@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <QFontDatabase>
+#include <QFontInfo>
 #include <QObject>
 #include <QQuickItem>
 #include <QQuickTextDocument>
@@ -10,6 +12,7 @@
 #include <QTextDocumentFragment>
 
 #include "chattextitemhelper.h"
+#include "enums/richformat.h"
 
 class ChatTextItemHelperTestHelper : public QObject
 {
@@ -31,6 +34,33 @@ public:
     ChatTextItemHelper *textItem() const
     {
         return m_textItem;
+    }
+
+    Q_INVOKABLE bool fixedFontIsFixedPitch() const
+    {
+        return QFontInfo(QFontDatabase::systemFont(QFontDatabase::FixedFont)).fixedPitch();
+    }
+
+    Q_INVOKABLE void setInitialHtml(const QString &html)
+    {
+        if (!m_textItem) {
+            return;
+        }
+        m_textItem->setInitialFragment(QTextDocumentFragment::fromHtml(html));
+    }
+
+    /**
+     * @brief Whether the character at the given position has the inline code format of the chat bar.
+     */
+    Q_INVOKABLE bool isInlineCode(int position) const
+    {
+        if (!m_textItem || !m_textItem->document()) {
+            return false;
+        }
+        QTextCursor cursor(m_textItem->document());
+        // The format at the cursor is that of the character before it.
+        cursor.setPosition(position + 1);
+        return RichFormat::hasFormat(cursor, RichFormat::InlineCode) && cursor.charFormat().hasProperty(QTextFormat::BackgroundBrush);
     }
 
     Q_INVOKABLE void setFixedChars(const QString &startChars, const QString &endChars)
