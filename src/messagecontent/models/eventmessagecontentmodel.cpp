@@ -528,6 +528,19 @@ void EventMessageContentModel::fillEditCache()
         return;
     }
 
+    // Show the attachment of a media message in the chat bar, followed by its caption.
+    if (const auto mediaBlock = EventHandler::blockForMediaEvent(m_room, event, this)) {
+        m_room->editCache()->append(mediaBlock->toCacheItem());
+        mediaBlock->deleteLater();
+
+        // Without a caption the body is just the file name, which shouldn't become editable text.
+        // https://spec.matrix.org/latest/client-server-api/#media-captions
+        const auto filename = event->contentJson()["filename"_L1].toString();
+        if (filename.isEmpty() || filename == event->contentJson()["body"_L1].toString()) {
+            return;
+        }
+    }
+
     if (!richTextActive) {
         auto doc = QTextDocument();
         doc.setHtml(EventHandler::rawMessageBody(*event).replace(u'\n', u""_s));

@@ -30,6 +30,13 @@ Item {
     required property bool editable
 
     /**
+     * @brief Whether the image is a local file that is going to be uploaded.
+     *
+     * When editing a message the image has already been sent, so it can't be optimized, edited or removed.
+     */
+    readonly property bool isLocalFile: root.block.source.toString().startsWith("file:")
+
+    /**
      * The maximum height of the image. Can be left undefined most of the times. Passed to MediaSizeHelper::contentMaxHeight.
      */
     property var contentMaxHeight: editable ? Kirigami.Units.gridUnit * 8 : undefined
@@ -75,7 +82,7 @@ Item {
             QQC2.Button {
                 id: qualityButton
 
-                visible: root.editable
+                visible: root.editable && root.isLocalFile
                 icon.name: "quickwizard-symbolic"
                 text:  i18nc("@action:button", "Optimize Image")
                 display: QQC2.Button.IconOnly
@@ -90,7 +97,7 @@ Item {
             }
             QQC2.Button {
                 id: editImageButton
-                visible: root.editable
+                visible: root.editable && root.isLocalFile
                 icon.name: "document-edit"
                 text: i18nc("@action:button", "Edit Image")
                 display: QQC2.AbstractButton.IconOnly
@@ -114,7 +121,7 @@ Item {
             }
             QQC2.Button {
                 id: cancelButton
-                visible: root.editable
+                visible: root.editable && root.isLocalFile
                 display: QQC2.AbstractButton.IconOnly
                 text: i18nc("@action:button", "Remove attachment")
                 icon.name: "dialog-close"

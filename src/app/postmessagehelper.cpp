@@ -15,6 +15,46 @@
 #include "models/eventmessagecontentmodel.h"
 #include "texthandler.h"
 
+namespace
+{
+/**
+ * Build the content of an m.replace event that changes the caption of a media
+ * (image, file, audio or video) message.
+ *
+ * libQuotient only puts the body and the HTML into m.new_content, which would
+ * turn the edited message into a plain text message and drop the attachment.
+ * So keep the media fields (url or file, info, filename and msgtype) of the
+ * original message and only replace the caption.
+ *
+ * Like when the media is first sent, the caption is only a plain body.
+ */
+QJsonObject mediaEditContent(const Quotient::RoomMessageEvent &originalEvent, const QString &caption)
+{
+    using namespace Quotient;
+
+    auto newContent = originalEvent.contentJson();
+    newContent.remove(RelatesToKey);
+    newContent.remove(NewContentKey);
+    newContent.remove(FormatKey);
+    newContent.remove(FormattedBodyKey);
+
+    // Without a caption the body is the file name.
+    // https://spec.matrix.org/latest/client-server-api/#media-captions
+    auto filename = newContent["filename"_L1].toString();
+    if (filename.isEmpty()) {
+        filename = originalEvent.plainBody();
+        newContent.insert("filename"_L1, filename);
+    }
+    newContent.insert(BodyKey, caption.isEmpty() ? filename : caption);
+
+    auto content = newContent;
+    content.insert(BodyKey, QString(u"* "_s + newContent[BodyKey].toString()));
+    content.insert(NewContentKey, newContent);
+    content.insert(RelatesToKey, toJson(EventRelation::replace(originalEvent.id())));
+    return content;
+}
+}
+
 PostMessageHelper::PostMessageHelper(QObject *parent)
     : QObject(parent)
 {
@@ -100,7 +140,18 @@ void PostMessageHelper::postMessage()
         relatesTo = Quotient::EventRelation::replyTo(replyId);
     }
 
-    if (Blocks::isFileType(m_cache->at(0)->type)) {
+    // When editing a media message, the attachment in the cache is the one already sent,
+    // so it must be kept rather than uploaded again.
+    const Quotient::RoomMessageEvent *editedMediaMessage = nullptr;
+    if (!m_editId.isEmpty() && m_threadRootId.isEmpty()) {
+        const auto [editedEvent, _] = m_room->getEvent(m_editId);
+        if (const auto editedMessage = Quotient::eventCast<const Quotient::RoomMessageEvent>(editedEvent);
+            editedMessage && editedMessage->has<Quotient::EventContent::FileContentBase>()) {
+            editedMediaMessage = editedMessage;
+        }
+    }
+
+    if (!editedMediaMessage && Blocks::isFileType(m_cache->at(0)->type)) {
         QUrl source;
         QString filename;
         if (const auto imageItem = dynamic_cast<const Blocks::ImageCacheItem *>(m_cache->at(0)); imageItem != nullptr) {
@@ -144,6 +195,17 @@ void PostMessageHelper::postMessage()
         }
 
         m_room->uploadFile(source, filename, relatesTo);
+        m_cache->clear();
+        return;
+    }
+
+    if (editedMediaMessage) {
+        const bool hasCaption = std::ranges::any_of(*m_cache, [](const Blocks::CacheItemPtr &item) {
+            return !Blocks::isFileType(item->type) && !item->toString().isEmpty();
+        });
+        // Without a caption the cache's text falls back to the file name of the attachment's URL,
+        // which for an already sent attachment isn't the real file name.
+        m_room->postJson(Quotient::RoomMessageEvent::TypeId, mediaEditContent(*editedMediaMessage, hasCaption ? m_cache->toString() : QString()));
         m_cache->clear();
         return;
     }

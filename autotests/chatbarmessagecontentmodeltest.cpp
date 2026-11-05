@@ -9,6 +9,7 @@
 #include <Quotient/connection.h>
 
 #include "block.h"
+#include "blockcache.h"
 #include "enums/blocktype.h"
 #include "models/eventmessagecontentmodel.h"
 #include "neochatconnection.h"
@@ -33,6 +34,8 @@ private Q_SLOTS:
     void missingEvent();
     void addLocationTest();
     void addAttachmentToReply();
+    void removeAttachmentTest();
+    void keepSentAttachmentTest();
 };
 
 void ChatBarMessageContentModelTest::checkEmptyChatbar(const ChatBarMessageContentModel &model)
@@ -80,6 +83,36 @@ void ChatBarMessageContentModelTest::addAttachmentToReply()
     QCOMPARE(model.rowCount(), 2);
     model.addAttachment(QUrl(QString::fromUtf8(__FILE__)));
     QCOMPARE(model.rowCount(), 3);
+}
+
+void ChatBarMessageContentModelTest::removeAttachmentTest()
+{
+    auto model = ChatBarMessageContentModel(this);
+    model.addAttachment(QUrl::fromLocalFile(QString::fromUtf8(__FILE__)));
+    QCOMPARE(model.rowCount(), 2);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::ComponentTypeRole), Blocks::File);
+
+    model.removeAttachment();
+    checkEmptyChatbar(model);
+}
+
+void ChatBarMessageContentModelTest::keepSentAttachmentTest()
+{
+    // When editing a media message, the chat bar shows the attachment that has already been sent.
+    Blocks::Cache cache;
+    cache.append(std::make_unique<Blocks::ImageCacheItem>(Blocks::Image, QUrl(u"mxc://example.org/JWEIFJgwEIhweiWJE"_s), u"cat.png"_s, Blocks::ImageInfo{}));
+    cache.append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromPlainText(u"A picture of a cat"_s)));
+
+    auto model = ChatBarMessageContentModel(this);
+    model.setCache(&cache);
+    QCOMPARE(model.rowCount(), 2);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::ComponentTypeRole), Blocks::Image);
+
+    // It belongs to the message being edited, so it can't be removed.
+    model.removeAttachment();
+    QCOMPARE(model.rowCount(), 2);
+    QCOMPARE(model.data(model.index(0), MessageContentModel::ComponentTypeRole), Blocks::Image);
+    QVERIFY(model.hasAttachment());
 }
 
 QTEST_MAIN(ChatBarMessageContentModelTest)

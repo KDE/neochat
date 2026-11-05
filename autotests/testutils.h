@@ -28,6 +28,16 @@ public:
         Room::updateData(std::move(data), fromCache);
     }
 
+    /**
+     * @brief Add the given events to the room's timeline, as if they arrived in a sync.
+     */
+    void syncNewEvents(Quotient::RoomEvents &&events)
+    {
+        Quotient::SyncRoomData roomData(id(), Quotient::JoinState::Join, {});
+        roomData.timeline = std::move(events);
+        update(std::move(roomData));
+    }
+
     void syncNewEvents(const QString &syncFileName)
     {
         if (!syncFileName.isEmpty()) {

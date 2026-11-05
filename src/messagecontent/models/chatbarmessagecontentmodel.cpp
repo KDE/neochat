@@ -547,6 +547,11 @@ void ChatBarMessageContentModel::removeAttachment()
     if (hasReply() && Blocks::isFileType(m_components[1]->type())) {
         mediaRow = 1;
     }
+    // An attachment that has already been sent belongs to the message being edited and can't be removed.
+    if (const auto urlBlock = dynamic_cast<const Blocks::UrlBlock *>(m_components[mediaRow]); urlBlock && !urlBlock->source().isLocalFile()) {
+        return;
+    }
+
     const auto attachmentType = m_components[mediaRow]->type();
     removeComponent(mediaRow);
     if (attachmentType == Blocks::Location) {

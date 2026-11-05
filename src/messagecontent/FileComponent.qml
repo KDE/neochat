@@ -158,7 +158,8 @@ ColumnLayout {
 
         QQC2.Button {
             id: cancelButton
-            visible: root.editable
+            // When editing a message the file has already been sent and can't be removed.
+            visible: root.editable && root.block.source.toString().startsWith("file:")
             display: QQC2.AbstractButton.IconOnly
             text: i18nc("@action:button", "Remove attachment")
             icon.name: "dialog-close"
