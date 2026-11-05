@@ -507,6 +507,42 @@ inline QString trimmedTrailing(QString string)
     return string;
 }
 
+inline QString removeNewlinesOutsidePre(const QString &html)
+{
+    static const QRegularExpression preRegex(u"<pre[\\s>].*?</pre>"_s,
+                                             QRegularExpression::CaseInsensitiveOption | QRegularExpression::DotMatchesEverythingOption);
+    QString result;
+    qsizetype lastEnd = 0;
+    auto it = preRegex.globalMatch(html);
+    while (it.hasNext()) {
+        const auto match = it.next();
+        result += html.mid(lastEnd, match.capturedStart() - lastEnd).remove(u'\n');
+        result += match.captured();
+        lastEnd = match.capturedEnd();
+    }
+    result += html.mid(lastEnd).remove(u'\n');
+    return result;
+}
+
+// QTextDocument doesn't keep the language of code blocks, so get it from the HTML, in the order the code blocks appear.
+inline QStringList codeBlockLanguages(const QString &html)
+{
+    static const QRegularExpression preRegex(u"<pre[\\s>].*?</pre>"_s,
+                                             QRegularExpression::CaseInsensitiveOption | QRegularExpression::DotMatchesEverythingOption);
+    static const QRegularExpression languageRegex(u"<code[^>]*class=\"[^\"]*language-([^\"\\s]+)"_s, QRegularExpression::CaseInsensitiveOption);
+    QStringList languages;
+    auto it = preRegex.globalMatch(html);
+    while (it.hasNext()) {
+        languages += languageRegex.match(it.next().captured()).captured(1);
+    }
+    return languages;
+}
+
+inline bool isCodeBlock(const QTextBlock &block)
+{
+    return block.blockFormat().nonBreakableLines() || block.blockFormat().hasProperty(QTextFormat::BlockCodeFence);
+}
+
 inline QString trimNewline(QString string)
 {
     while (string.startsWith(u"\n"_s)) {
@@ -530,11 +566,36 @@ void EventMessageContentModel::fillEditCache()
 
     if (!richTextActive) {
         auto doc = QTextDocument();
-        doc.setHtml(EventHandler::rawMessageBody(*event).replace(u'\n', u""_s));
+        const auto html = EventHandler::rawMessageBody(*event);
+        const auto languages = codeBlockLanguages(html);
+        qsizetype codeBlockIndex = 0;
+        doc.setHtml(removeNewlinesOutsidePre(html));
         RichFormat::makeFontPropertiesExplicit(doc);
         auto cursor = QTextCursor(&doc);
         QString escapedText;
         while (!cursor.atEnd()) {
+            if (isCodeBlock(cursor.block())) {
+                // Each line of a code block is its own QTextBlock, so collect all of them into one fenced block.
+                const auto language = languages.value(codeBlockIndex++);
+                QStringList lines;
+                lines += cursor.block().text();
+                while (cursor.block().next().isValid() && isCodeBlock(cursor.block().next())) {
+                    cursor.movePosition(QTextCursor::NextBlock);
+                    lines += cursor.block().text();
+                }
+                while (!lines.isEmpty() && lines.constLast().isEmpty()) {
+                    lines.removeLast();
+                }
+                if (!escapedText.isEmpty()) {
+                    escapedText += u"\n\n"_s;
+                }
+                escapedText += u"```%1\n%2\n```"_s.arg(language, lines.join(u'\n'));
+                if (!cursor.movePosition(QTextCursor::NextBlock)) {
+                    break;
+                }
+                continue;
+            }
+
             cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
             auto nextText = trimmedTrailing(trimNewline(cursor.selection().toMarkdown()));
             if (!cursor.currentList()) {
