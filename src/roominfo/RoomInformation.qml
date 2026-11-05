@@ -297,10 +297,8 @@ QQC2.ScrollView {
                 KirigamiComponents.Avatar {
                     visible: NeoChatConfig.showAvatarInRoomInfo
                     implicitWidth: height
-                    sourceSize {
-                        height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                        width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                    }
+                    Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                    Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
                     source: userDelegate.avatar
                     name: userDelegate.userId
                     color: userDelegate.color

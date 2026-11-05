@@ -119,10 +119,8 @@ Kirigami.Dialog {
                 KirigamiComponents.Avatar {
                     implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                     implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                    sourceSize {
-                        width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                        height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                    }
+                    Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                    Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                     source: userDelegate.connection.localUser.avatarUrl.toString().length > 0 ? userDelegate.connection.makeMediaUrl(userDelegate.connection.localUser.avatarUrl) : ""
                     name: userDelegate.connection.localUser.displayName ?? userDelegate.connection.localUser.id
                 }
