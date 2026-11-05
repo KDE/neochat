@@ -3,8 +3,6 @@
 
 #include "timelinemodel.h"
 
-#include <Quotient/qt_connection_util.h>
-
 #include "enums/delegatetype.h"
 
 TimelineModel::TimelineModel(QObject *parent)
@@ -76,19 +74,6 @@ void TimelineBeginningModel::setRoom(NeoChatRoom *room)
 
     m_room = room;
 
-    if (m_room != nullptr) {
-        Quotient::connectUntil(m_room.get(), &Quotient::Room::eventsHistoryJobChanged, this, [this]() {
-            if (m_room && m_room->allHistoryLoaded()) {
-                if (!m_room->successorId().isEmpty()) {
-                    beginInsertRows({}, 1, 1);
-                    endInsertRows();
-                }
-                return true;
-            }
-            return false;
-        });
-    }
-
     endResetModel();
 }
 
@@ -148,17 +133,18 @@ void TimelineEndModel::setRoom(NeoChatRoom *room)
     m_room = room;
 
     if (m_room != nullptr) {
-        Quotient::connectUntil(m_room.get(), &Quotient::Room::eventsHistoryJobChanged, this, [this]() {
-            if (m_room && m_room->allHistoryLoaded()) {
+        connect(
+            m_room,
+            &Quotient::Room::allHistoryLoadedChanged,
+            this,
+            [this] {
                 Q_EMIT dataChanged(index(0, 0), index(0, 0), {DelegateTypeRole});
                 if (!m_room->predecessorId().isEmpty()) {
                     beginInsertRows({}, 1, 1);
                     endInsertRows();
                 }
-                return true;
-            }
-            return false;
-        });
+            },
+            Qt::SingleShotConnection);
     }
 
     endResetModel();
