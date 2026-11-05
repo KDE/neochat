@@ -5,6 +5,7 @@
 
 #include <QGuiApplication>
 #include <QMimeData>
+#include <QTextDocument>
 
 #include "chattextitemhelper.h"
 #include "clipboard.h"
@@ -327,7 +328,13 @@ bool ChatKeyHelper::pasteAttachments()
 
 bool ChatKeyHelper::pasteText()
 {
-    const auto text = richTextActive ? Clipboard().richText(Clipboard::ConvertMarkdown) : Clipboard().plainText();
+    QString text;
+    if (richTextActive) {
+        text = Clipboard().richText(Clipboard::ConvertMarkdown);
+    } else if (const auto plainText = Clipboard().plainText(); !plainText.isEmpty()) {
+        // The pasted text is parsed as HTML, so plain text needs to be converted to keep line breaks and whitespace.
+        text = Qt::convertFromPlainText(plainText);
+    }
     if (!text.isEmpty()) {
         Q_EMIT textPasted(text);
         return true;

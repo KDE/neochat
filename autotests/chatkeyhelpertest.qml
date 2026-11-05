@@ -33,6 +33,12 @@ TestCase {
     }
 
     SignalSpy {
+        id: spyPasted
+        target: testHelper.keyHelper
+        signalName: "textPasted"
+    }
+
+    SignalSpy {
         id: spyUp
         target: testHelper.keyHelper
         signalName: "unhandledUp"
@@ -62,6 +68,8 @@ TestCase {
         spyDown.clear();
         spyDelete.clear();
         spyBackSpace.clear();
+        spyPasted.clear();
+        testHelper.richTextActive = true;
         textEdit.forceActiveFocus();
     }
 
@@ -479,5 +487,40 @@ TestCase {
         textEdit.select(3, 0);
         keyClick(Qt.Key_Backspace);
         compare(textEdit.length, 0);
+    }
+
+    function test_pasteMultiline_data() {
+        return [
+            {tag: "rich", richTextActive: true},
+            {tag: "plain", richTextActive: false},
+        ];
+    }
+
+    // https://bugs.kde.org/show_bug.cgi?id=527631
+    function test_pasteMultiline(data): void {
+        testHelper.richTextActive = data.richTextActive;
+        testHelper.setClipboardText("These\nShould\nBe\nOn\nTheir\nOwn Lines");
+        keyClick(Qt.Key_V, Qt.ControlModifier);
+        compare(spyPasted.count, 1);
+        compare(testHelper.blocksPlainText(spyPasted.signalArguments[0][0]), ["These\nShould\nBe\nOn\nTheir\nOwn Lines"]);
+    }
+
+    function test_pastePlainEscapesHtml(): void {
+        testHelper.richTextActive = false;
+        testHelper.setClipboardText("<b>not bold</b>");
+        keyClick(Qt.Key_V, Qt.ControlModifier);
+        compare(spyPasted.count, 1);
+        compare(testHelper.blocksPlainText(spyPasted.signalArguments[0][0]), ["<b>not bold</b>"]);
+    }
+
+    function test_pasteEmpty_data() {
+        return test_pasteMultiline_data();
+    }
+
+    function test_pasteEmpty(data): void {
+        testHelper.richTextActive = data.richTextActive;
+        testHelper.clearClipboard();
+        keyClick(Qt.Key_V, Qt.ControlModifier);
+        compare(spyPasted.count, 0);
     }
 }

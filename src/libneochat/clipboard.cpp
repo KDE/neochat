@@ -61,6 +61,9 @@ bool Clipboard::hasUriList() const
 QList<QUrl> Clipboard::uriList() const
 {
     const auto mimeData = m_clipboard->mimeData();
+    if (!mimeData) {
+        return {};
+    }
     if (mimeData->hasUrls()) {
         return mimeData->urls();
     }
@@ -95,6 +98,9 @@ QUrl Clipboard::saveImage() const
 QString Clipboard::plainText() const
 {
     const auto mimeData = m_clipboard->mimeData();
+    if (!mimeData) {
+        return {};
+    }
     if (mimeData->hasHtml()) {
         return QTextDocumentFragment::fromHtml(mimeData->html()).toPlainText();
     } else {
@@ -105,6 +111,9 @@ QString Clipboard::plainText() const
 QString Clipboard::richText(PasteMode mode) const
 {
     const auto mimeData = m_clipboard->mimeData();
+    if (!mimeData) {
+        return {};
+    }
     if (mimeData->hasHtml()) {
         auto richText = mimeData->html();
         TextHandler::cleanHtml(richText);
