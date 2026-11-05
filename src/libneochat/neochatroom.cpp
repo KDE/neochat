@@ -45,11 +45,12 @@
 #include "clipboard.h"
 #include "eventhandler.h"
 #include "filetransferpseudojob.h"
+#include "jobs/neochatreportroomjob.h"
 #include "neochatconnection.h"
 #include "roomlastmessageprovider.h"
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
-#include "jobs/neochatreportroomjob.h"
+#include "utils.h"
 
 #include <KFileUtils>
 
@@ -1226,7 +1227,7 @@ void NeoChatRoom::loadPinnedMessage()
         // Cut off body at the first newline or break.
         // Note that we can't depend on QML doing this because we explicitly want the pinned message to be rich text (to support custom emojis)
         const auto indexOfFirstNewline = body.indexOf(QLatin1Char('\n'));
-        const auto indexOfFirstBreak = body.indexOf(QLatin1String("<br>"));
+        const auto indexOfFirstBreak = body.indexOf(TextRegex::richTextLineBreak);
 
         if (indexOfFirstBreak != -1 && indexOfFirstNewline != -1) {
             const auto index = std::min(indexOfFirstBreak, indexOfFirstNewline);

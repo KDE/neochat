@@ -195,8 +195,7 @@ Kirigami.Page {
 
                 QQC2.Label {
                     text: root.currentRoom?.pinnedMessage ?? ""
-                    maximumLineCount: 1
-                    elide: Text.ElideRight
+                    wrapMode: Text.Wrap
                     textFormat: Text.RichText
 
                     onLinkActivated: link => UrlHelper.openUrl(link)
