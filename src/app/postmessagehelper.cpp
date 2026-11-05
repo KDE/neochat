@@ -100,10 +100,11 @@ void PostMessageHelper::postMessage()
         relatesTo = Quotient::EventRelation::replyTo(replyId);
     }
 
-    if (Blocks::isFileType(m_cache->at(0)->type)) {
+    const qsizetype attachmentIndex = isReply ? 1 : 0;
+    if (const auto attachmentItem = m_cache->at(attachmentIndex); attachmentItem && Blocks::isFileType(attachmentItem->type)) {
         QUrl source;
         QString filename;
-        if (const auto imageItem = dynamic_cast<const Blocks::ImageCacheItem *>(m_cache->at(0)); imageItem != nullptr) {
+        if (const auto imageItem = dynamic_cast<const Blocks::ImageCacheItem *>(attachmentItem); imageItem != nullptr) {
             if (imageItem->optimize) {
                 QImage image(imageItem->source.toLocalFile());
 
@@ -138,7 +139,7 @@ void PostMessageHelper::postMessage()
                 filename = m_cache->toString();
             }
         } else {
-            const auto fileCacheItem = dynamic_cast<const Blocks::UrlCacheItem *>(m_cache->at(0));
+            const auto fileCacheItem = dynamic_cast<const Blocks::UrlCacheItem *>(attachmentItem);
             source = fileCacheItem->source;
             filename = m_cache->toString();
         }

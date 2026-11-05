@@ -8,6 +8,8 @@
 #include "testutils.h"
 
 #include "blockcache.h"
+#include "blockreply.h"
+#include "models/eventmessagecontentmodel.h"
 #include "postmessagehelper.h"
 
 using namespace Quotient;
@@ -26,6 +28,8 @@ private Q_SLOTS:
     void sendMessageTest();
     void editMessageTest();
     void threadMessageTest();
+    void sendFileTest();
+    void replyWithFileTest();
 };
 
 void PostMessageHelperTest::initTestCase()
@@ -98,6 +102,48 @@ void PostMessageHelperTest::threadMessageTest()
     QCOMPARE(pendingEvt->relatesTo().has_value(), true);
     QCOMPARE(pendingEvt->relatesTo()->eventId, "$153456789:example.org"_L1);
     QCOMPARE(pendingEvt->relatesTo()->type, "m.thread"_L1);
+}
+
+void PostMessageHelperTest::sendFileTest()
+{
+    const auto numPending = room->pendingEvents().size();
+
+    Blocks::Cache cache;
+    cache.append(std::make_unique<Blocks::UrlCacheItem>(Blocks::File, QUrl::fromLocalFile(QStringLiteral(DATA_DIR) + u"/TestText.txt"_s)));
+
+    auto helper = PostMessageHelper(this);
+    helper.setRoom(room);
+    helper.setCache(&cache);
+
+    helper.postMessage();
+    QCOMPARE(room->pendingEvents().size(), numPending + 1);
+    const auto pendingEvt = eventCast<const RoomMessageEvent>(room->pendingEvents()[room->pendingEvents().size() - 1].event());
+    QVERIFY(pendingEvt != nullptr);
+    QCOMPARE(pendingEvt->msgtype(), MessageEventType::File);
+    QCOMPARE(pendingEvt->plainBody(), u"TestText.txt"_s);
+    QVERIFY(!pendingEvt->relatesTo().has_value());
+}
+
+void PostMessageHelperTest::replyWithFileTest()
+{
+    const auto numPending = room->pendingEvents().size();
+    Blocks::Cache cache;
+    cache.append(std::make_unique<Blocks::ReplyCacheItem>(new EventMessageContentModel(room, u"$153456789:example.org"_s, true)));
+    cache.append(std::make_unique<Blocks::UrlCacheItem>(Blocks::File, QUrl::fromLocalFile(QStringLiteral(DATA_DIR) + u"/TestText.txt"_s)));
+
+    auto helper = PostMessageHelper(this);
+    helper.setRoom(room);
+    helper.setCache(&cache);
+
+    helper.postMessage();
+    QCOMPARE(room->pendingEvents().size(), numPending + 1);
+    const auto pendingEvt = eventCast<const RoomMessageEvent>(room->pendingEvents()[room->pendingEvents().size() - 1].event());
+    QVERIFY(pendingEvt != nullptr);
+    QCOMPARE(pendingEvt->msgtype(), MessageEventType::File);
+    QCOMPARE(pendingEvt->plainBody(), u"TestText.txt"_s);
+    QVERIFY(pendingEvt->relatesTo().has_value());
+    QCOMPARE(pendingEvt->relatesTo()->eventId, "$153456789:example.org"_L1);
+    QCOMPARE(pendingEvt->relatesTo()->type, EventRelation::ReplyType);
 }
 
 QTEST_MAIN(PostMessageHelperTest)
