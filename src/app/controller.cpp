@@ -166,26 +166,6 @@ Controller::Controller(QObject *parent)
         sigaction(sig, &sa, nullptr);
     }
 #endif
-
-#ifdef HAVE_KUNIFIEDPUSH
-    auto connector = new KUnifiedPush::Connector(QGuiApplication::desktopFileName());
-    connect(connector, &KUnifiedPush::Connector::endpointChanged, this, [this](const QString &endpoint) {
-        m_endpoint = endpoint;
-        if (!m_accountManager) {
-            return;
-        }
-        for (auto &quotientConnection : m_accountManager->accounts()->accounts()) {
-            auto connection = dynamic_cast<NeoChatConnection *>(quotientConnection);
-            connection->setupPushNotifications(endpoint);
-        }
-    });
-    m_endpoint = connector->endpoint();
-
-    connector->registerClient(
-        i18nc("The reason for using push notifications, as in: '[Push notifications are used for] Receiving notifications for new messages'",
-              "Receiving push notifications"));
-
-#endif
 }
 
 Controller &Controller::instance()
@@ -228,9 +208,7 @@ void Controller::initConnection(NeoChatConnection *connection)
         &NeoChatConnection::syncDone,
         this,
         [this, connection] {
-            if (!m_endpoint.isEmpty()) {
-                connection->setupPushNotifications(m_endpoint);
-            }
+            connection->setupPushNotifications();
         },
         Qt::SingleShotConnection);
     connect(connection, &NeoChatConnection::syncDone, this, [this, connection]() {
