@@ -70,7 +70,7 @@ FormCard.FormCardPage {
             text: i18nc("@action:button", "Configure System Notifications…")
             visible: root.connection.enableDeviceNotifications && root.connection.inKDESession()
 
-            // TODO: replace with proper KNotifications API in the future and when we can depend on it!
+            // TODO: replace with proper KNotifications API found in 6.29
             onClicked: Qt.openUrlExternally("systemsettings:/kcm_notifications/--notifyrc neochat")
         }
     }
@@ -82,42 +82,27 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications && root.connection.pushNotificationsAvailable
 
-        FormCard.AbstractFormDelegate {
-            id: pushNotificationsStatusDelegate
+        FormCard.FormSwitchDelegate {
+            id: enableBackgroundNotificationsDelegate
 
-            contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing
-                Kirigami.Icon {
-                    source: {
-                        if (root.connection.pushNotificationsAvailable && !root.connection.enablePushNotifications) {
-                            "data-warning"
-                        } else {
-                            "data-information"
-                        }
-                    }
+            text: i18nc("@option:check", "Enable notifications while closed")
+            description: {
+                if (root.connection.pushNotificationsMissingGateway) {
+                    return i18nc("@info:label", "The configured push provider is not compatible with Matrix.");
                 }
-                QQC2.Label {
-                    text: {
-                        if (root.connection.pushNotificationsAvailable) {
-                            if (root.connection.enablePushNotifications) {
-                                return i18nc("@info:label", "Notifications can appear even when NeoChat isn't running.");
-                            } else {
-                                return i18nc("@info:label", "The configured push distributor does not have a Matrix gateway.");
-                            }
-                        }
-                        return ""; // this section would be hidden anyway!
-                    }
-                    wrapMode: Text.WordWrap
-
-                    Layout.fillWidth: true
-                }
+                return "";
             }
+            enabled: !root.connection.pushNotificationsMissingGateway
+            checked: root.connection.enablePushNotifications
+            onToggled: root.connection.enablePushNotifications = checked
         }
+
         FormCard.FormDelegateSeparator {
-            above: pushNotificationsStatusDelegate
+            above: enableBackgroundNotificationsDelegate
             below: backgroundNotificationsDelegate
             visible: root.connection.inKDESession()
         }
+
         FormCard.FormButtonDelegate {
             id: backgroundNotificationsDelegate
 

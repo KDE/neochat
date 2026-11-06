@@ -3,8 +3,7 @@
 
 #pragma once
 
-#include <QObject>
-#include <QQmlEngine>
+#include <KSharedConfig>
 
 #include <QCoroTask>
 #include <Quotient/connection.h>
@@ -14,6 +13,13 @@
 #include "enums/messagetype.h"
 #include "enums/pushrule.h"
 #include "linkpreviewer.h"
+
+#ifdef HAVE_KUNIFIEDPUSH
+namespace KUnifiedPush
+{
+class Connector;
+}
+#endif
 
 class NeoChatConnection : public Quotient::Connection
 {
@@ -80,9 +86,14 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(bool pushNotificationsAvailable READ pushNotificationsAvailable CONSTANT)
 
     /**
-     * @brief Whether we successfully set up push notifications with the server.
+     * @brief If the user enabled background/push notifications.
      */
-    Q_PROPERTY(bool enablePushNotifications READ enablePushNotifications NOTIFY enablePushNotificationsChanged)
+    Q_PROPERTY(bool enablePushNotifications READ enablePushNotifications WRITE setEnablePushNotifications NOTIFY enablePushNotificationsChanged)
+
+    /**
+     * @brief Whether the configured push provider endpoint has a gateway.
+     */
+    Q_PROPERTY(bool pushNotificationsMissingGateway READ pushNotificationsMissingGateway NOTIFY pushNotificationsMissingGatewayChanged)
 
     /**
      * @brief True if this connection is a verified session.
@@ -218,12 +229,20 @@ public:
     qsizetype directChatInvites() const;
     qsizetype roomInvites() const;
 
-    // note: this is intentionally a copied QString because
-    // the reference could be destroyed before the task is finished
-    QCoro::Task<void> setupPushNotifications(QString endpoint);
+    /**
+     * @brief If supported, creates the KUnifiedPush connector.
+     */
+    void createPushConnector();
+
+    /**
+     * @brief If supported, handles setting up/tearing down registration for push notifications.
+     */
+    QCoro::Task<void> setupPushNotifications();
 
     bool pushNotificationsAvailable() const;
     bool enablePushNotifications() const;
+    void setEnablePushNotifications(bool enabled);
+    bool pushNotificationsMissingGateway() const;
 
     bool supportsProfileFields() const;
 
@@ -296,6 +315,7 @@ Q_SIGNALS:
     void canCheckMutualRoomsChanged();
     void canEraseDataChanged();
     void enablePushNotificationsChanged();
+    void pushNotificationsMissingGatewayChanged();
     void accountManagementUriChanged();
     void supportsProfileFieldsChanged();
     void pusherDataAvailable(const QString &json);
@@ -349,4 +369,9 @@ private:
     QStringList m_allowedFields;
     QStringList m_disallowedFields;
     bool m_syncDone = false;
+#ifdef HAVE_KUNIFIEDPUSH
+    KUnifiedPush::Connector *m_connector = nullptr;
+#endif
+    KSharedConfig::Ptr m_config;
+    bool m_pushNotificationsMissingGateway = false;
 };

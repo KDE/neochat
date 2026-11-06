@@ -125,7 +125,6 @@ private:
 #ifndef Q_OS_ANDROID
     QPointer<TrayIcon> m_trayIcon;
 #endif
-    QString m_endpoint;
 
     NotificationsManager m_notificationsManager;
     KSharedConfig::Ptr m_config;
