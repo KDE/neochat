@@ -181,7 +181,8 @@ QQC2.Control {
                         }
                     }
 
-                    width: chatScrollView.width
+                    // availableWidth accounts for the scrollbar; keep a small gap at the right edge.
+                    width: chatScrollView.availableWidth - Kirigami.Units.smallSpacing
                     spacing: Kirigami.Units.smallSpacing
 
                     Repeater {
