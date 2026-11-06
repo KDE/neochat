@@ -29,6 +29,10 @@ import org.kde.neochat
 QQC2.ScrollView {
     id: root
 
+    // HACK: Prevent the ListView from constructing delegates during loading.
+    // After resizing to the appropriate height, items can be rendered normally.
+    implicitHeight: 0
+
     /**
      * @brief The current room that user is viewing.
      */
