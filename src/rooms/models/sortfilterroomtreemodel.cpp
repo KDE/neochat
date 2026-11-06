@@ -139,9 +139,10 @@ QString SortFilterRoomTreeModel::activeSpaceId() const
 
 void SortFilterRoomTreeModel::setActiveSpaceId(const QString &spaceId)
 {
+    beginFilterChange();
     m_activeSpaceId = spaceId;
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
     Q_EMIT activeSpaceIdChanged();
-    invalidate();
 }
 
 void SortFilterRoomTreeModel::setCurrentRoom(NeoChatRoom *room)
@@ -161,9 +162,10 @@ void SortFilterRoomTreeModel::setMode(SortFilterRoomTreeModel::Mode mode)
         return;
     }
 
+    beginFilterChange();
     m_mode = mode;
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
     Q_EMIT modeChanged();
-    invalidate();
 }
 
 QModelIndex SortFilterRoomTreeModel::currentRoomIndex() const
