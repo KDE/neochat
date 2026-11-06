@@ -86,6 +86,9 @@ QQC2.Control {
             Kirigami.Heading {
                 id: linkPreviewTitle
                 Layout.fillWidth: true
+                // Size by the full title rather than the elided one. The elided text depends on
+                // our width, so letting it drive the layout creates an endless polish loop.
+                Layout.preferredWidth: titleTextMetrics.advanceWidth
                 level: 3
                 wrapMode: Text.Wrap
                 textFormat: Text.RichText
