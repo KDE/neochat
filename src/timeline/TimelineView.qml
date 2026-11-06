@@ -94,7 +94,7 @@ QQC2.ScrollView {
 
 
         // HACK: Use this instead of atYEnd to handle cases like -643.2 at height of 643 not being counted as "at the beginning"
-        readonly property bool closeToYEnd: -Math.floor(contentY) <= Math.floor(height)
+        readonly property bool closeToYEnd: -contentY - height < 1
 
         onHeightChanged: {
             // HACK: Fix a bug where Qt doesn't resettle the view properly when the pinned messages changes our height
