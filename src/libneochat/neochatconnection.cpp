@@ -18,6 +18,7 @@
 #include <Quotient/quotient_common.h>
 #include <qt6keychain/keychain.h>
 
+#include <KConfigGroup>
 #include <KLocalizedString>
 #include <QGuiApplication>
 
@@ -35,6 +36,7 @@
 #include <QCoroNetwork>
 #include <Quotient/csapi/pusher.h>
 #include <Quotient/networkaccessmanager.h>
+#include <kunifiedpush/connector.h>
 #endif
 
 using namespace Quotient;
@@ -45,12 +47,14 @@ PushRuleAction::Action NeoChatConnection::m_defaultAction = PushRuleAction::Unkn
 
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
+    , m_config(KSharedConfig::openStateConfig())
 {
     connectSignals();
 }
 
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
     : Connection(server, parent)
+    , m_config(KSharedConfig::openStateConfig())
 {
     connectSignals();
 }
@@ -519,10 +523,51 @@ qsizetype NeoChatConnection::roomInvites() const
     });
 }
 
-QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
+void NeoChatConnection::createPushConnector()
 {
 #ifdef HAVE_KUNIFIEDPUSH
-    QUrl gatewayEndpoint(endpoint);
+    // TODO: use userId to make the connector unique between connectors
+    // (this requires changes in Controller::listenForNotifications!)
+    m_connector = new KUnifiedPush::Connector(QGuiApplication::desktopFileName());
+    connect(m_connector, &KUnifiedPush::Connector::endpointChanged, this, &NeoChatConnection::setupPushNotifications);
+
+    m_pushNotificationsEnabled = m_config->group(userId()).readEntry(u"EnablePushNotifications"_s, true);
+#endif
+}
+
+QCoro::Task<void> NeoChatConnection::setupPushNotifications()
+{
+#ifdef HAVE_KUNIFIEDPUSH
+    if (!m_connector) {
+        createPushConnector();
+    }
+
+    const auto clearEndpoint = [this] {
+        callApi<PostPusherJob>(u"main"_s,
+                               QString(),
+                               QGuiApplication::desktopFileName(),
+                               QCoreApplication::applicationName(),
+                               deviceId(),
+                               QString(), // profileTag is intentionally left empty for now, it's optional
+                               u"en-US"_s,
+                               PostPusherJob::PusherData{},
+                               false);
+    };
+
+    if (!m_pushNotificationsEnabled) {
+        m_connector->unregisterClient();
+
+        // Clear pusher on the Matrix server before we leave
+        clearEndpoint();
+
+        co_return;
+    }
+
+    m_connector->registerClient(
+        i18nc("The reason for using push notifications, as in: '[Push notifications are used for] Receiving notifications for new messages'",
+              "Receiving push notifications"));
+
+    QUrl gatewayEndpoint(m_connector->endpoint());
     gatewayEndpoint.setPath(u"/_matrix/push/v1/notify"_s);
 
     QNetworkRequest checkGateway(gatewayEndpoint);
@@ -532,8 +577,12 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
     // This is because Matrix does not natively support UnifiedPush
     const auto &replyJson = QJsonDocument::fromJson(reply->readAll()).object();
 
+    m_pushNotificationsMissingGateway = false;
+    Q_EMIT pushNotificationsMissingGatewayChanged();
+
     if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == u"matrix"_s) {
-        callApi<PostPusherJob>(endpoint,
+        // Create/update a new pusher
+        callApi<PostPusherJob>(u"main"_s,
                                u"http"_s,
                                QGuiApplication::desktopFileName(),
                                QCoreApplication::applicationName(),
@@ -544,14 +593,16 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
                                false);
 
         qCInfo(GENERAL) << "Successfully registered for push notifications.";
-        m_pushNotificationsEnabled = true;
     } else {
+        // Don't send it to the old endpoint!
+        clearEndpoint();
+
+        m_pushNotificationsMissingGateway = true;
+        Q_EMIT pushNotificationsMissingGatewayChanged();
+
         qCWarning(GENERAL) << "There's no gateway, not setting up push notifications.";
-        m_pushNotificationsEnabled = false;
     }
-    Q_EMIT enablePushNotificationsChanged();
 #else
-    Q_UNUSED(endpoint)
     co_return;
 #endif
 }
@@ -613,6 +664,25 @@ bool NeoChatConnection::pushNotificationsAvailable() const
 bool NeoChatConnection::enablePushNotifications() const
 {
     return m_pushNotificationsEnabled;
+}
+
+void NeoChatConnection::setEnablePushNotifications(const bool enabled)
+{
+    if (m_pushNotificationsEnabled == enabled) {
+        return;
+    }
+
+    m_pushNotificationsEnabled = enabled;
+    Q_EMIT enablePushNotificationsChanged();
+
+    m_config->group(userId()).writeEntry(u"EnablePushNotifications"_s, enabled);
+
+    setupPushNotifications();
+}
+
+bool NeoChatConnection::pushNotificationsMissingGateway() const
+{
+    return m_pushNotificationsMissingGateway;
 }
 
 bool NeoChatConnection::isVerifiedSession() const
