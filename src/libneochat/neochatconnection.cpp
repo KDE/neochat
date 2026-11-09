@@ -561,6 +561,13 @@ QString NeoChatConnection::accountDataJsonString(const QString &type) const
     return QString::fromUtf8(QJsonDocument(accountDataJson(type)).toJson());
 }
 
+void NeoChatConnection::requestPusherData()
+{
+    callApi<GetPushersJob>(ForegroundRequest).onResult(this, [this](const auto &job) {
+        Q_EMIT pusherDataAvailable(QString::fromUtf8(QJsonDocument(job->jsonData()).toJson()));
+    });
+}
+
 LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
 {
     if (!m_globalUrlPreviewDefault) {

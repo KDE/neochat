@@ -183,6 +183,11 @@ public:
      */
     Q_INVOKABLE QString accountDataJsonString(const QString &type) const;
 
+    /**
+     * @brief Get the account's pusher data formatted as a JSON string.
+     */
+    Q_INVOKABLE void requestPusherData();
+
     Q_INVOKABLE Quotient::KeyImport::Error exportMegolmSessions(const QString &passphrase, const QString &path);
 
     qsizetype directChatNotifications() const;
@@ -293,6 +298,7 @@ Q_SIGNALS:
     void enablePushNotificationsChanged();
     void accountManagementUriChanged();
     void supportsProfileFieldsChanged();
+    void pusherDataAvailable(const QString &json);
 
     /**
      * @brief Request a message be shown to the user of the given type.
