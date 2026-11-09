@@ -26,7 +26,17 @@ ColumnLayout {
 
     property bool showAvatar: NeoChatConfig.showAvatarInRoomInfo
 
+    /**
+     * @brief The currently shown maximized QR code, if any.
+     */
+    property QrCodeMaximizeComponent qrCodeMaximize: null
+
     spacing: 0
+
+    // When the roomdrawer gets destroyed, the context becomes
+    // invalid while the popup stays open, leaving a modal popup that can't be closed
+    // anymore and blocks all input. Make sure it goes away together with us.
+    Component.onDestruction: root.qrCodeMaximize?.destroy()
 
     RowLayout {
         Layout.fillWidth: true
@@ -108,13 +118,20 @@ ColumnLayout {
             }
 
             onClicked: {
-                const map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
+                const code = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                     text: barcode.content,
                     title: root.room ? root.room.displayName : "",
                     subtitle: root.room ? root.room.id : "",
                     avatarSource: root.room ? root.room.avatarMediaUrl : ""
                 }) as QrCodeMaximizeComponent;
-                map.open();
+                code.closed.connect(() => {
+                    if (root.qrCodeMaximize === code) {
+                        root.qrCodeMaximize = null;
+                    }
+                    code.destroy();
+                });
+                root.qrCodeMaximize = code;
+                code.open();
             }
 
             QQC2.ToolTip.visible: hovered
