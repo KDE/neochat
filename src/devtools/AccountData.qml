@@ -18,6 +18,19 @@ ColumnLayout {
 
     required property NeoChatConnection connection
 
+    Connections {
+        target: connection
+
+        function onPusherDataAvailable(json: string): void {
+            (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+                sourceText: json
+            }, {
+                title: i18nc("@title:window", "Event Source"),
+                width: Kirigami.Units.gridUnit * 25
+            })
+        }
+    }
+
     FormCard.FormHeader {
         title: i18nc("@title:group", "Account Data")
     }
@@ -34,6 +47,12 @@ ColumnLayout {
                     width: Kirigami.Units.gridUnit * 25
                 })
             }
+        }
+    }
+    FormCard.FormCard {
+        FormCard.FormButtonDelegate {
+            text: i18nc("@info Push data for this client", "Pushers")
+            onClicked: root.connection.requestPusherData()
         }
     }
     FormCard.FormCard {
