@@ -92,9 +92,6 @@ Components.AbstractMaximizeComponent {
 
             Kirigami.SpellCheck.enabled: false
 
-            onWidthChanged: lineModel.resetModel()
-            onHeightChanged: lineModel.resetModel()
-
             SyntaxHighlighter {
                 property string definitionName: Repository.definitionForName(root.language).name
                 textEdit: definitionName == "None" ? null : codeTextEdit

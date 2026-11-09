@@ -57,19 +57,17 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    /**
-     * @brief Reset the model.
-     *
-     * This needs to be called when the QQuickTextDocument container changes width
-     * or height as this may change line heights due to wrapping.
-     *
-     * @sa QQuickTextDocument
-     */
-    Q_INVOKABLE void resetModel();
-
 Q_SIGNALS:
     void documentChanged();
 
 private:
+    void connectDocumentLayout();
+    void updateBlockCount(int blockCount);
+    void scheduleLineHeightUpdate();
+
     QPointer<QTextDocument> m_document = nullptr;
+    QPointer<QAbstractTextDocumentLayout> m_documentLayout = nullptr;
+    // Cached so the model only changes its row count between beginResetModel() and endResetModel().
+    int m_blockCount = 0;
+    bool m_lineHeightUpdatePending = false;
 };

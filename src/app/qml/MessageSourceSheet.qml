@@ -77,9 +77,6 @@ Kirigami.Page {
             // opt-out of whatever spell checker a styled TextArea might come with
             Kirigami.SpellCheck.enabled: false
 
-            onWidthChanged: lineModel.resetModel()
-            onHeightChanged: lineModel.resetModel()
-
             SyntaxHighlighter {
                 textEdit: sourceTextArea
                 definition: "JSON"
