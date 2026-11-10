@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-07 00:57+0000\n"
-"PO-Revision-Date: 2026-09-27 22:44+0200\n"
+"POT-Creation-Date: 2026-11-10 00:57+0000\n"
+"PO-Revision-Date: 2026-10-28 10:56+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Poedit 3.10\n"
 
 #: src/app/controller.cpp:186
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "Client per il protocollo di comunicazione matrix"
 #: src/app/main.cpp:183
 #, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "Supporta schema URL matrix:"
+msgstr "Supporta lo schema di URL matrix:"
 
 #: src/app/main.cpp:184
 #, kde-format
@@ -271,64 +271,49 @@ msgid "Login"
 msgstr "Accesso"
 
 #: src/app/qml/ActionCollectionManager.qml:13
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgctxt "@info"
 msgid "NeoChat"
 msgstr "NeoChat"
 
 #: src/app/qml/ActionCollectionManager.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@label"
 msgid "Open Quick Switcher"
 msgstr "Apri il selettore rapido"
 
 #: src/app/qml/ActionCollectionManager.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Open Account Switcher"
+#, kde-format
 msgctxt "@label"
 msgid "Open Account Switcher"
-msgstr "Apri selettore degli account"
+msgstr "Apri il selettore degli account"
 
 #: src/app/qml/ActionCollectionManager.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Search Messages in Current Room"
+#, kde-format
 msgctxt "@label"
 msgid "Search Messages in Current Room"
 msgstr "Cerca messaggi nella stanza attuale"
 
 #: src/app/qml/ActionCollectionManager.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Go to Previous Room"
+#, kde-format
 msgctxt "@label"
 msgid "Go to Previous Room"
-msgstr "Vai alla precedente"
+msgstr "Vai alla stanza precedente"
 
 #: src/app/qml/ActionCollectionManager.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Go to Next Room"
+#, kde-format
 msgctxt "@label"
 msgid "Go to Next Room"
 msgstr "Vai alla stanza successiva"
 
 #: src/app/qml/ActionCollectionManager.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Go to Previous Unread Room"
+#, kde-format
 msgctxt "@label"
 msgid "Go to Previous Unread Room"
 msgstr "Vai alla stanza non letta precedente"
 
 #: src/app/qml/ActionCollectionManager.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Go to Next Unread Room"
+#, kde-format
 msgctxt "@label"
 msgid "Go to Next Unread Room"
 msgstr "Vai alla stanza non letta successiva"
@@ -744,7 +729,7 @@ msgstr "**%1** verificato correttamente"
 #, kde-format
 msgctxt "@info"
 msgid "Waiting for remote party to confirm verification"
-msgstr "In attesa della conferma di verifica da parte della parte remota."
+msgstr "In attesa della conferma di verifica da parte della parte remota"
 
 #: src/app/qml/KeyVerificationDialog.qml:229
 #: src/app/qml/OlmKeyVerificationDialog.qml:176
@@ -806,7 +791,7 @@ msgstr "La chiave di ripristino non era corretta."
 #, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Chiavi di cifratura ripristinate"
+msgstr "Chiavi di cifratura ripristinate."
 
 #: src/app/qml/ManageKeyStorageDialog.qml:49
 #, kde-format
@@ -1123,13 +1108,13 @@ msgstr "Ignora"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr "Partecipa alla riunione Jitsi..."
+msgstr "Partecipa alla riunione Jitsi…"
 
 #: src/app/qml/RoomPage.qml:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr "Avvia la riunione di Jitsi..."
+msgstr "Avvia la riunione di Jitsi…"
 
 #: src/app/qml/RoomPage.qml:105
 #, kde-format
@@ -1989,7 +1974,7 @@ msgstr "Richiede di unirsi alla stanza specificata"
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr "Se già nella stanza %1"
+msgstr "Se già nella stanza %1."
 
 #: src/chatbar/actionsmodel.cpp:267 src/chatbar/actionsmodel.cpp:274
 msgid "[<room alias or id>]"
@@ -3875,7 +3860,7 @@ msgctxt "@info:label"
 msgid "No public rooms"
 msgstr "Nessuna stanza pubblica"
 
-#: src/libneochat/qml/GroupChatDrawerHeader.qml:75
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:85
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
@@ -4418,7 +4403,7 @@ msgstr "pin"
 #: src/messagecontent/models/chatbarmessagecontentmodel.cpp:352
 #, kde-format
 msgid "location"
-msgstr "Località"
+msgstr "località"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:262
 #, kde-format
@@ -4480,7 +4465,7 @@ msgstr "Annulla la risposta"
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
-msgstr "Imposta una didascalia per l'allegato..."
+msgstr "Imposta una didascalia per l'allegato…"
 
 #: src/messagecontent/TextComponent.qml:135
 #, kde-format
@@ -4767,7 +4752,7 @@ msgstr "Cerca messaggi"
 #: src/roominfo/RoomSearchPage.qml:58
 #, kde-format
 msgid "Find messages…"
-msgstr "Trova messaggi..."
+msgstr "Trova messaggi…"
 
 #: src/roominfo/RoomSearchPage.qml:59
 #, kde-format
@@ -6442,7 +6427,7 @@ msgstr "Editor"
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
-"usa la sintassi s/testo/sostituzione per modificare il tuo ultimo messaggio"
+"Usa la sintassi s/testo/sostituzione per modificare il tuo ultimo messaggio"
 
 #: src/settings/NeoChatGeneralPage.qml:263
 #, kde-format
@@ -7105,7 +7090,7 @@ msgstr "Questa stanza continua un'altra conversazione."
 #, kde-format
 msgctxt "@action:button"
 msgid "See older messages…"
-msgstr "Vedi i messaggi più datati..."
+msgstr "Vedi i messaggi più datati…"
 
 #: src/settings/RoomGeneralPage.qml:331
 #, kde-format
@@ -7725,7 +7710,7 @@ msgstr "Invita allo spazio…"
 #, kde-format
 msgctxt "@button"
 msgid "Add to Space…"
-msgstr "Aggiungi allo spazio..."
+msgstr "Aggiungi allo spazio…"
 
 #: src/spaces/SpaceHomePage.qml:100
 #, kde-format
@@ -7846,7 +7831,7 @@ msgstr "Salva immagine…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
-msgstr "Salva audio..."
+msgstr "Salva audio…"
 
 #: src/timeline/DelegateContextMenu.qml:317
 #, kde-format
@@ -8040,7 +8025,7 @@ msgstr "Questa stanza continua un'altra conversazione."
 #: src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
-msgstr "Vedi i messaggi più datati..."
+msgstr "Vedi i messaggi più datati…"
 
 #: src/timeline/QuickActions.qml:41
 #, kde-format
