@@ -51,11 +51,14 @@ RemoteActions Runner::Actions()
 
 RemoteMatches Runner::Match(const QString &searchTerm)
 {
+    RemoteMatches matches;
+    if (searchTerm.trimmed().isEmpty()) {
+        return matches;
+    }
+
     m_model->setFilterText(searchTerm);
 
-    RemoteMatches matches;
-
-    for (int i = 0; i < m_model->rowCount(); ++i) {
+    for (int i = 0; i < std::min(m_model->rowCount(), 20); ++i) {
         RemoteMatch match;
 
         const QString name = m_model->data(m_model->index(i, 0), RoomListModel::DisplayNameRole).toString();
