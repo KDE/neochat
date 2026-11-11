@@ -68,7 +68,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
                     text += i18nc("Separate the usernames of users", " and ");
                 }
             }
-            text += m_room->member(reaction.authors.at(i)).displayName();
+            text += m_room->member(reaction.authors.at(i)).htmlSafeDisplayName();
         }
 
         if (reaction.authors.count() > 3) {
@@ -85,12 +85,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
     }
 
     if (role == HasLocalMember) {
-        for (auto author : reaction.authors) {
-            if (author == m_room->localMember().id()) {
-                return true;
-            }
-        }
-        return false;
+        return reaction.authors.contains(m_room->localMember().id());
     }
 
     return {};
@@ -136,15 +131,8 @@ void ReactionModel::updateReactions()
         endResetModel();
         return;
     }
-    auto i = reactions.constBegin();
-    while (i != reactions.constEnd()) {
-        QStringList members;
-        for (const auto &member : i.value()) {
-            members.append(member);
-        }
-
-        m_reactions.append(ReactionModel::Reaction{i.key(), members});
-        ++i;
+    for (const auto &[reaction, members] : reactions.asKeyValueRange()) {
+        m_reactions.append(ReactionModel::Reaction{reaction, members});
     }
 
     endResetModel();
