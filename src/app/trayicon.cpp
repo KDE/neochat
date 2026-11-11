@@ -15,10 +15,10 @@ using namespace Qt::StringLiterals;
 
 TrayIcon::TrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
+    , m_menu(std::make_unique<QMenu>())
 {
     setIcon(QIcon::fromTheme(u"org.kde.neochat.tray"_s));
-    QMenu *menu = new QMenu();
-    auto viewAction_ = new QAction(i18n("Show"), parent);
+    auto viewAction_ = new QAction(i18nc("@action:inmenu Show the NeoChat window", "Show"), m_menu.get());
 
     connect(viewAction_, &QAction::triggered, this, [] {
         WindowController::instance().toggleWindow();
@@ -29,17 +29,17 @@ TrayIcon::TrayIcon(QObject *parent)
         }
     });
 
-    menu->addAction(viewAction_);
+    m_menu->addAction(viewAction_);
 
-    menu->addSeparator();
+    m_menu->addSeparator();
 
-    auto quitAction = new QAction(i18n("Quit"), parent);
+    auto quitAction = new QAction(i18nc("@action:inmenu Quit NeoChat", "Quit"), m_menu.get());
     quitAction->setIcon(QIcon::fromTheme(u"application-exit"_s));
     connect(quitAction, &QAction::triggered, QCoreApplication::instance(), QCoreApplication::quit);
 
-    menu->addAction(quitAction);
+    m_menu->addAction(quitAction);
 
-    setContextMenu(menu);
+    setContextMenu(m_menu.get());
 }
 
 #include "moc_trayicon.cpp"

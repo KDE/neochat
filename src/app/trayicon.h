@@ -5,7 +5,10 @@
 
 // Modified from mujx/nheko's TrayIcon.
 
+#include <QMenu>
 #include <QSystemTrayIcon>
+
+#include <memory>
 
 /**
  * @class TrayIcon
@@ -21,4 +24,8 @@ class TrayIcon : public QSystemTrayIcon
     Q_OBJECT
 public:
     TrayIcon(QObject *parent = nullptr);
+
+private:
+    // QSystemTrayIcon doesn't take ownership of the menu
+    std::unique_ptr<QMenu> m_menu;
 };
