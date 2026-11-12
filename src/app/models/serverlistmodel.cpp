@@ -74,8 +74,8 @@ void ServerListModel::checkServer(const QString &url)
     }
 
     m_checkServerJob = m_connection->callApi<Quotient::QueryPublicRoomsJob>(url, 1);
-    connect(m_checkServerJob, &Quotient::BaseJob::success, this, [this, url] {
-        Q_EMIT serverCheckComplete(url, true);
+    connect(m_checkServerJob, &Quotient::BaseJob::result, this, [this, job = m_checkServerJob.get(), url] {
+        Q_EMIT serverCheckComplete(url, job->status().good());
     });
 }
 
@@ -84,7 +84,7 @@ void ServerListModel::addServer(const QString &url)
     const auto stateConfig = KSharedConfig::openStateConfig();
     KConfigGroup serverGroup = stateConfig->group(u"Servers"_s);
 
-    if (!serverGroup.hasKey(url)) {
+    if (!serverGroup.hasKey(url) && !m_servers.isEmpty()) {
         Server newServer = Server{
             url,
             false,
@@ -172,12 +172,14 @@ void ServerListModel::initialize()
         false,
     });
     // Add matrix.org
-    m_servers.append(Server{
-        u"matrix.org"_s,
-        false,
-        false,
-        false,
-    });
+    if (m_connection->domain() != u"matrix.org"_s) {
+        m_servers.append(Server{
+            u"matrix.org"_s,
+            false,
+            false,
+            false,
+        });
+    }
     // Add each of the saved custom servers
     for (const auto &i : serverGroup.keyList()) {
         m_servers.append(Server{
