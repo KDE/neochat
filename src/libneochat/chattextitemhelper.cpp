@@ -169,7 +169,7 @@ bool ChatTextItemHelper::isEmpty() const
 {
     auto cursor = textCursor();
     if (cursor.isNull()) {
-        return false;
+        return m_initialFragment.isEmpty();
     }
     return markdownText().length() == 0 && !cursor.currentList();
 }
