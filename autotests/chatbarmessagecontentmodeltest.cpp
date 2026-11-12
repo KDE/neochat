@@ -3,12 +3,15 @@
 
 #include "models/chatbarmessagecontentmodel.h"
 
+#include <memory>
+
 #include <QObject>
 #include <QSignalSpy>
 
 #include <Quotient/connection.h>
 
 #include "block.h"
+#include "blockcache.h"
 #include "enums/blocktype.h"
 #include "models/eventmessagecontentmodel.h"
 #include "neochatconnection.h"
@@ -33,6 +36,9 @@ private Q_SLOTS:
     void missingEvent();
     void addLocationTest();
     void addAttachmentToReply();
+    void unattachedTextIsEmpty();
+    void clearUpdatesCache_data();
+    void clearUpdatesCache();
 };
 
 void ChatBarMessageContentModelTest::checkEmptyChatbar(const ChatBarMessageContentModel &model)
@@ -80,6 +86,47 @@ void ChatBarMessageContentModelTest::addAttachmentToReply()
     QCOMPARE(model.rowCount(), 2);
     model.addAttachment(QUrl(QString::fromUtf8(__FILE__)));
     QCOMPARE(model.rowCount(), 3);
+}
+
+void ChatBarMessageContentModelTest::unattachedTextIsEmpty()
+{
+    // No delegate has attached an editor yet, so emptiness must come from the initial content.
+    ChatBarMessageContentModel model;
+    QVERIFY(!model.hasAnyContent());
+
+    Blocks::TextBlock emptyBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(QString()), false, nullptr);
+    QVERIFY(emptyBlock.isEmpty());
+
+    Blocks::TextBlock filledBlock(Blocks::Text, QTextDocumentFragment::fromPlainText(u"pasted"_s), false, nullptr);
+    QVERIFY(!filledBlock.isEmpty());
+}
+
+void ChatBarMessageContentModelTest::clearUpdatesCache_data()
+{
+    QTest::addColumn<bool>("resetModel");
+    QTest::newRow("clear") << false;
+    QTest::newRow("reset") << true;
+}
+
+void ChatBarMessageContentModelTest::clearUpdatesCache()
+{
+    QFETCH(bool, resetModel);
+
+    Blocks::Cache cache;
+    cache.append(std::make_unique<Blocks::TextCacheItem>(Blocks::Text, QTextDocumentFragment::fromPlainText(u"previous draft"_s)));
+    ChatBarMessageContentModel model;
+    model.setCache(&cache);
+    QCOMPARE(cache.toPlainString(), u"previous draft"_s);
+
+    if (resetModel) {
+        model.resetModel();
+    } else {
+        model.clear();
+    }
+
+    checkEmptyChatbar(model);
+    QVERIFY(cache.toPlainString().isEmpty());
+    QVERIFY(cache.toString().isEmpty());
 }
 
 QTEST_MAIN(ChatBarMessageContentModelTest)

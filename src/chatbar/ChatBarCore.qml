@@ -69,7 +69,7 @@ QQC2.Control {
 
     signal cancel
 
-    function clear(option: int): void {
+    function clear(): void {
         model.clear();
     }
 

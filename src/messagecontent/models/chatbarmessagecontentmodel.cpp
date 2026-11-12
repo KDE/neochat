@@ -705,8 +705,7 @@ void ChatBarMessageContentModel::updateCache() const
 
 void ChatBarMessageContentModel::resetModel()
 {
-    clearModel();
-    initializeModel();
+    clear();
     refocusCurrentComponent();
 }
 
@@ -757,6 +756,7 @@ void ChatBarMessageContentModel::clear()
 {
     clearModel();
     initializeModel();
+    updateCache();
 }
 
 #include "moc_chatbarmessagecontentmodel.cpp"

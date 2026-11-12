@@ -28,8 +28,11 @@ TestCase {
     }
 
     function cleanup(): void {
+        const oldTextItem = core.model.focusedTextItem;
         core.clear();
+        verify(core.model.focusedTextItem !== oldTextItem, "Clearing must replace the text helper");
         verify(core.isEmpty);
+        compare(helper.cachePlainString(core.cache), "");
     }
 
     function test_typing_data() {
