@@ -52,15 +52,15 @@ Kirigami.Page {
 
         model: root.model
         anchors.fill: parent
-        onStateChanged: {
+        onJobStateChanged: {
             root.Kirigami.PageStack.closeDialog();
-            if (state === Purpose.PurposeJobController.Finished) {
+            if (jobState === Purpose.PurposeJobController.Finished) {
                 if (jobView.job?.output?.url?.length > 0) {
                     sharingSuccess.text = i18nc("@info", "Shared url for image is <a href='%1'>%1</a>", jobView.job.output.url);
                     sharingSuccess.sendEvent();
                     Clipboard.saveText(jobView.job.output.url);
                 }
-            } else if (state === Purpose.PurposeJobController.Error) {
+            } else if (jobState === Purpose.PurposeJobController.Error) {
                 // Show failure notification
                 sharingFailed.sendEvent();
             }
