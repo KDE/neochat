@@ -166,6 +166,8 @@ QQC2.ComboBox {
                 property bool isValidServer: false
 
                 onTextChanged: {
+                    // Wait for the check of the new text
+                    isValidServer = false;
                     if (acceptableInput) {
                         serverListModel.checkServer(text);
                     }
@@ -178,8 +180,8 @@ QQC2.ComboBox {
                 Connections {
                     target: serverListModel
                     function onServerCheckComplete(url, valid) {
-                        if (url == serverUrlField.text && valid) {
-                            serverUrlField.isValidServer = true;
+                        if (url === serverUrlField.text) {
+                            serverUrlField.isValidServer = valid;
                         }
                     }
                 }
