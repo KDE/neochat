@@ -285,7 +285,7 @@ FormCard.FormCardPage {
         FormCard.AbstractFormDelegate {
             id: transparencyDelegate
             visible: WindowController.hasWindowSystem && NeoChatConfig.blur
-            enabled: !NeoChatConfig.isTransparancyImmutable
+            enabled: !NeoChatConfig.isTransparencyImmutable
             background: Item {}
             contentItem: ColumnLayout {
                 QQC2.Label {
