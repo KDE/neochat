@@ -100,6 +100,14 @@ void EventMessageContentModel::initializeModel()
             }
         }
     });
+#if Quotient_VERSION_MINOR > 9
+    // E.g. a m.room_key.withheld notice explains why the event can't be decrypted
+    connect(m_room, &Room::decryptionFailureChanged, this, [this](const QString &eventId) {
+        if (eventId == m_eventId) {
+            resetContent();
+        }
+    });
+#endif
     connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
         resetContent();
     });
