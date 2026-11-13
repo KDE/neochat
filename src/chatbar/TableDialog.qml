@@ -8,6 +8,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQuick.Dialogs
+import org.kde.ki18n
 
 FormCard.FormCardDialog {
     id: root
@@ -15,18 +16,18 @@ FormCard.FormCardDialog {
     readonly property alias rows: rowsSpinBox.value
     readonly property alias cols: colsSpinBox.value
 
-    title: i18nc("@title:window", "Insert Table")
+    title: KI18n.i18nc("@title:window", "Insert Table")
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     FormCard.FormSpinBoxDelegate {
         id: rowsSpinBox
-        label: i18nc("@label:textbox", "Number of Rows:")
+        label: KI18n.i18nc("@label:textbox", "Number of Rows:")
     }
 
     FormCard.FormDelegateSeparator {}
 
     FormCard.FormSpinBoxDelegate {
         id: colsSpinBox
-        label: i18nc("@label:textbox", "Number of Columns:")
+        label: KI18n.i18nc("@label:textbox", "Number of Columns:")
     }
 }

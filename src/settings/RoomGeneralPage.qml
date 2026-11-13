@@ -14,6 +14,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
@@ -21,7 +22,7 @@ FormCard.FormCardPage {
     property NeoChatRoom room
     required property NeoChatConnection connection
 
-    title: i18nc("@title", "General")
+    title: KI18n.i18nc("@title", "General")
 
     KirigamiComponents.Avatar {
         id: avatar
@@ -36,7 +37,7 @@ FormCard.FormCardPage {
             enabled: root.room.canSendState("m.room.avatar")
             visible: enabled
             icon.name: "cloud-upload"
-            text: i18nc("@action:button", "Update avatar")
+            text: KI18n.i18nc("@action:button", "Update avatar")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -65,7 +66,7 @@ FormCard.FormCardPage {
 
         FormCard.FormTextFieldDelegate {
             id: roomNameField
-            label: i18nc("@label:textbox Room name", "Name:")
+            label: KI18n.i18nc("@label:textbox Room name", "Name:")
             text: root.room.name
             readOnly: !root.room.canSendState("m.room.name")
         }
@@ -74,7 +75,7 @@ FormCard.FormCardPage {
 
         FormCard.FormTextAreaDelegate {
             id: roomTopicField
-            label: i18nc("@label:textobx Room topic", "Topic:")
+            label: KI18n.i18nc("@label:textobx Room topic", "Topic:")
             text: root.room.topic
             readOnly: !root.room.canSendState("m.room.topic")
             onTextChanged: roomTopicField.text = text
@@ -86,7 +87,7 @@ FormCard.FormCardPage {
 
         FormCard.FormButtonDelegate {
             visible: !roomNameField.readOnly || !roomTopicField.readOnly
-            text: i18nc("@action:button", "Save")
+            text: KI18n.i18nc("@action:button", "Save")
             icon.name: "document-save-symbolic"
             onClicked: {
                 if (root.room.name != roomNameField.text) {
@@ -100,12 +101,12 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Aliases")
+        title: KI18n.i18nc("@title", "Aliases")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
             visible: root.room.aliases.length <= 0
-            text: i18nc("@info", "No canonical alias set")
+            text: KI18n.i18nc("@info", "No canonical alias set")
         }
         Repeater {
             id: altAliasRepeater
@@ -122,7 +123,7 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         id: setCanonicalAliasButton
                         visible: altAliasDelegate.modelData !== root.room.canonicalAlias && root.room.canSendState("m.room.canonical_alias")
-                        text: i18nc("@action:button", "Make this alias the room's canonical alias")
+                        text: KI18n.i18nc("@action:button", "Make this alias the room's canonical alias")
                         icon.name: "checkmark"
                         display: QQC2.AbstractButton.IconOnly
 
@@ -135,7 +136,7 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         id: deleteButton
                         visible: root.room.canSendState("m.room.canonical_alias")
-                        text: i18nc("@action:button", "Delete alias")
+                        text: KI18n.i18nc("@action:button", "Delete alias")
                         icon.name: "edit-delete-remove"
                         display: QQC2.AbstractButton.IconOnly
 
@@ -157,7 +158,7 @@ FormCard.FormCardPage {
 
                     Layout.fillWidth: true
 
-                    placeholderText: i18nc("The new alias (room address) to be added to a room", "#new_alias:server.org")
+                    placeholderText: KI18n.i18nc("The new alias (room address) to be added to a room", "#new_alias:server.org")
 
                     rightActions: Kirigami.Action {
                         icon.name: "edit-clear"
@@ -174,7 +175,7 @@ FormCard.FormCardPage {
                 QQC2.Button {
                     id: addButton
 
-                    text: i18nc("@action:button", "Add new alias")
+                    text: KI18n.i18nc("@action:button", "Add new alias")
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly
@@ -191,19 +192,19 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Link Previews")
+        title: KI18n.i18nc("@title", "Link Previews")
     }
     Kirigami.InlineMessage {
         Layout.fillWidth: true
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
         Layout.bottomMargin: Kirigami.Units.largeSpacing
         Layout.alignment: Qt.AlignHCenter
-        text: i18nc("As in the user has switched off showing previews of hyperlinks in timeline messages", "Link previews are disabled globally in Appearance settings")
+        text: KI18n.i18nc("As in the user has switched off showing previews of hyperlinks in timeline messages", "Link previews are disabled globally in Appearance settings")
         type: Kirigami.MessageType.Information
         visible: !NeoChatConfig.showLinkPreview
         actions: Kirigami.Action {
             icon.name: "checkmark-symbolic"
-            text: i18nc("@action:button Enable link previews globally", "Enable")
+            text: KI18n.i18nc("@action:button Enable link previews globally", "Enable")
             onTriggered: {
                 NeoChatConfig.showLinkPreview = true;
                 NeoChatConfig.save();
@@ -215,21 +216,21 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             visible: NeoChatConfig.showLinkPreview
-            text: i18nc("@label:checkbox", "Enable link previews for this room")
+            text: KI18n.i18nc("@label:checkbox", "Enable link previews for this room")
             // Most users won't see the above setting so tell them the default.
-            description: root.room.defaultUrlPreviewState ? i18nc("@info", "Link previews were enabled by default by the room admins.") : i18nc("@info", "Link previews were disabled by default by the room admins.")
+            description: root.room.defaultUrlPreviewState ? KI18n.i18nc("@info", "Link previews were enabled by default by the room admins.") : KI18n.i18nc("@info", "Link previews were disabled by default by the room admins.")
             checked: root.room.urlPreviewEnabled
             onToggled: root.room.urlPreviewEnabled = checked
         }
         FormCard.FormCheckDelegate {
-            text: i18nc("@label:checkbox", "Enable link previews by default")
+            text: KI18n.i18nc("@label:checkbox", "Enable link previews by default")
             checked: root.room.defaultUrlPreviewState
             visible: root.room.canSendState("org.matrix.room.preview_urls")
             onToggled: root.room.defaultUrlPreviewState = checked
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title", "Official Parent Spaces")
+        title: KI18n.i18nc("@title", "Official Parent Spaces")
     }
     FormCard.FormCard {
         Repeater {
@@ -262,12 +263,12 @@ FormCard.FormCardPage {
                 contentItem.children: RowLayout {
                     QQC2.Label {
                         visible: root.room.canonicalParent === officalParentDelegate.modelData
-                        text: i18nc("@action:button", "Canonical")
+                        text: KI18n.i18nc("@action:button", "Canonical")
                     }
                     QQC2.ToolButton {
                         visible: root.room.canSendState("m.space.parent") && root.room.canonicalParent !== officalParentDelegate.modelData
                         display: QQC2.AbstractButton.IconOnly
-                        text: i18nc("@action:button", "Make canonical parent")
+                        text: KI18n.i18nc("@action:button", "Make canonical parent")
                         icon.name: "checkmark"
                         onClicked: root.room.canonicalParent = officalParentDelegate.modelData
 
@@ -278,7 +279,7 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         visible: officalParentDelegate?.space.canSendState("m.space.child") && root.room.canSendState("m.space.parent")
                         display: QQC2.AbstractButton.IconOnly
-                        text: i18nc("@action:button", "Remove parent")
+                        text: KI18n.i18nc("@action:button", "Remove parent")
                         icon.name: "edit-delete-remove"
                         onClicked: root.room.removeParent(officalParentDelegate.modelData)
 
@@ -291,11 +292,11 @@ FormCard.FormCardPage {
         }
         FormCard.FormTextDelegate {
             visible: officalParentRepeater.count <= 0
-            text: i18nc("@info", "This room has no official parent spaces.")
+            text: KI18n.i18nc("@info", "This room has no official parent spaces.")
         }
         FormCard.FormButtonDelegate {
             visible: root.room.canSendState("m.space.parent")
-            text: i18nc("@action:button", "Add new official parent")
+            text: KI18n.i18nc("@action:button", "Add new official parent")
             onClicked: (selectParentDialog.createObject(QQC2.Overlay.overlay) as SelectParentDialog).open()
 
             Component {
@@ -312,11 +313,11 @@ FormCard.FormCardPage {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
         Layout.topMargin: Kirigami.Units.largeSpacing
         Layout.alignment: Qt.AlignHCenter
-        text: i18nc("@info", "This room continues another conversation.")
+        text: KI18n.i18nc("@info", "This room continues another conversation.")
         type: Kirigami.MessageType.Information
         visible: root.room.predecessorId
         actions: Kirigami.Action {
-            text: i18nc("@action:button", "See older messages…")
+            text: KI18n.i18nc("@action:button", "See older messages…")
             onTriggered: {
                 RoomManager.resolveResource(root.room.predecessorId);
                 root.close();
@@ -328,11 +329,11 @@ FormCard.FormCardPage {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
         Layout.topMargin: Kirigami.Units.largeSpacing
         Layout.alignment: Qt.AlignHCenter
-        text: i18nc("@info", "This room has been replaced.")
+        text: KI18n.i18nc("@info", "This room has been replaced.")
         type: Kirigami.MessageType.Information
         visible: root.room.successorId
         actions: Kirigami.Action {
-            text: i18nc("@action:button", "See new room…")
+            text: KI18n.i18nc("@action:button", "See new room…")
             onTriggered: {
                 RoomManager.resolveResource(root.room.successorId);
                 root.close();

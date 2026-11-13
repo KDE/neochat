@@ -9,6 +9,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.components
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -20,7 +21,7 @@ Kirigami.Dialog {
     topPadding: 0
     bottomPadding: 0
 
-    title: i18nc("@title Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
+    title: KI18n.i18nc("@title Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
 
@@ -48,7 +49,7 @@ Kirigami.Dialog {
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Join")
+            text: KI18n.i18nc("@action:button", "Join")
             icon.name: "list-add-symbolic"
             onClicked: {
                 SpaceHierarchyCache.recommendedSpaceHidden = true;
@@ -58,7 +59,7 @@ Kirigami.Dialog {
         }
         FormCard.FormButtonDelegate {
             icon.name: "mail-thread-ignored-symbolic"
-            text: i18nc("@action:button", "Ignore")
+            text: KI18n.i18nc("@action:button", "Ignore")
             onClicked: {
                 SpaceHierarchyCache.recommendedSpaceHidden = true;
                 root.close();

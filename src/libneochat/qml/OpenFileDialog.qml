@@ -3,12 +3,13 @@
 
 import QtQuick
 import QtQuick.Dialogs
+import org.kde.ki18n
 
 FileDialog {
     id: root
 
     signal chosen(string path)
 
-    title: i18nc("@title:dialog", "Select a File")
+    title: KI18n.i18nc("@title:dialog", "Select a File")
     onAccepted: root.chosen(selectedFile)
 }

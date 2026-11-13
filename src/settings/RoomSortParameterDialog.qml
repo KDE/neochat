@@ -11,10 +11,11 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
-    title: i18nc("@title:dialog", "Custom Room Sort Order")
+    title: KI18n.i18nc("@title:dialog", "Custom Room Sort Order")
 
     width: Math.min(parent.width, Kirigami.Units.gridUnit * 24)
     height: Math.min(parent.height, Kirigami.Units.gridUnit * 24)
@@ -57,7 +58,7 @@ Kirigami.Dialog {
 
                         QQC2.Label {
                             Layout.fillWidth: true
-                            text: parameterDelegate.index == 0 ? i18nc("As in first sort chat rooms by the parameter", "first:") : i18nc("As in then sort chat rooms by the parameter", "then:")
+                            text: parameterDelegate.index == 0 ? KI18n.i18nc("As in first sort chat rooms by the parameter", "first:") : KI18n.i18nc("As in then sort chat rooms by the parameter", "then:")
                         }
                         Kirigami.Heading {
                             Layout.fillWidth: true
@@ -73,7 +74,7 @@ Kirigami.Dialog {
                         }
                     }
                     QQC2.ToolButton {
-                        text: i18nc("@button", "Up")
+                        text: KI18n.i18nc("@button", "Up")
                         icon.name: "arrow-up"
                         display: QQC2.AbstractButton.IconOnly
                         onClicked: roomSortParameterModel.moveRowUp(parameterDelegate.index)
@@ -83,7 +84,7 @@ Kirigami.Dialog {
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
                     QQC2.ToolButton {
-                        text: i18nc("@button", "Down")
+                        text: KI18n.i18nc("@button", "Down")
                         icon.name: "arrow-down"
                         display: QQC2.AbstractButton.IconOnly
                         onClicked: roomSortParameterModel.moveRowDown(parameterDelegate.index)
@@ -93,7 +94,7 @@ Kirigami.Dialog {
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
                     QQC2.ToolButton {
-                        text: i18nc("@button", "Remove")
+                        text: KI18n.i18nc("@button", "Remove")
                         icon.name: "list-remove"
                         display: QQC2.AbstractButton.IconOnly
                         onClicked: roomSortParameterModel.removeRow(parameterDelegate.index)
@@ -106,7 +107,7 @@ Kirigami.Dialog {
             }
 
             footer: Delegates.RoundedItemDelegate {
-                text: i18nc("@action:button", "Add parameter")
+                text: KI18n.i18nc("@action:button", "Add parameter")
                 icon.name: "list-add"
 
                 onClicked: (addParameterDialogComponent.createObject(root) as Kirigami.Dialog).open()
@@ -119,7 +120,7 @@ Kirigami.Dialog {
 
         Kirigami.Dialog {
             id: addParameterDialog
-            title: i18nc("@title:dialog", "Select Parameter to Add")
+            title: KI18n.i18nc("@title:dialog", "Select Parameter to Add")
 
             width: Math.min(parent.width, Kirigami.Units.gridUnit * 24)
             height: Math.min(parent.height, Kirigami.Units.gridUnit * 24)

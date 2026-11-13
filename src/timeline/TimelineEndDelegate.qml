@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.ki18n
 
 TimelineDelegate {
     id: root
@@ -66,7 +67,7 @@ TimelineDelegate {
 
                 Kirigami.Heading {
                     Layout.fillWidth: true
-                    text: root.room ? root.room.displayName : i18n("No name")
+                    text: root.room ? root.room.displayName : KI18n.i18n("No name")
                     textFormat: Text.PlainText
                     wrapMode: Text.Wrap
                 }
@@ -87,7 +88,7 @@ TimelineDelegate {
             Layout.rightMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
 
-            text: i18n("This is the beginning of the chat. There are no historical messages beyond this point.")
+            text: KI18n.i18n("This is the beginning of the chat. There are no historical messages beyond this point.")
             wrapMode: Text.Wrap
             visible: !root.room.predecessorId
 

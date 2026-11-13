@@ -7,11 +7,12 @@ import QtQuick.Layouts
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormComboBoxDelegate {
     id: root
 
-    text: i18n("Color theme")
+    text: KI18n.i18n("Color theme")
     textRole: "display"
     valueRole: "display"
     model: ColorSchemer.model

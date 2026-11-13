@@ -9,11 +9,12 @@ import org.kde.kirigami as Kirigami
 import org.kde.prison.scanner as Prison
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
 
-    title: i18nc("@title", "Scan a QR Code")
+    title: KI18n.i18nc("@title", "Scan a QR Code")
 
     required property NeoChatConnection connection
     padding: 0
@@ -38,7 +39,7 @@ Kirigami.Page {
         visible: devices.videoInputs.length === 0
 
         Kirigami.PlaceholderMessage {
-            text: i18nc("@info", "No Camera Connected")
+            text: KI18n.i18nc("@info", "No Camera Connected")
             anchors.centerIn: parent
         }
     }

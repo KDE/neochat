@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show that part of a message is loading.
@@ -30,7 +31,7 @@ RowLayout {
         Layout.fillWidth: true
         verticalAlignment: Text.AlignVCenter
         level: 2
-        text: (root.block?.display.length ?? 0 )> 0 ? root.block.display : i18nc("@info Loading this message", "Loading…")
+        text: (root.block?.display.length ?? 0 )> 0 ? root.block.display : KI18n.i18nc("@info Loading this message", "Loading…")
     }
 }
 

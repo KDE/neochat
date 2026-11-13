@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -16,16 +17,16 @@ ColumnLayout {
     required property NeoChatConnection connection
 
     FormCard.FormHeader {
-        title: i18n("Server Capabilities")
+        title: KI18n.i18n("Server Capabilities")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            text: i18n("Can change password")
+            text: KI18n.i18n("Can change password")
             description: root.connection.canChangePassword
         }
     }
     FormCard.FormHeader {
-        title: i18n("Default Room Version")
+        title: KI18n.i18n("Default Room Version")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
@@ -33,7 +34,7 @@ ColumnLayout {
         }
     }
     FormCard.FormHeader {
-        title: i18n("Available Room Versions")
+        title: KI18n.i18n("Available Room Versions")
     }
     FormCard.FormCard {
         Repeater {

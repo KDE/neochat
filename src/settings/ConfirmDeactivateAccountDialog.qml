@@ -8,14 +8,15 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.PromptDialog {
     id: root
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title:dialog", "Confirm Account Deactivation")
-    subtitle: i18n("Your account will be permanently disabled.\nThis cannot be undone.\nYour Matrix ID will not be available for new accounts.\nYour messages will stay available.")
+    title: KI18n.i18nc("@title:dialog", "Confirm Account Deactivation")
+    subtitle: KI18n.i18n("Your account will be permanently disabled.\nThis cannot be undone.\nYour Matrix ID will not be available for new accounts.\nYour messages will stay available.")
 
     dialogType: Kirigami.PromptDialog.Warning
     standardButtons: QQC2.Dialog.Cancel
@@ -25,7 +26,7 @@ Kirigami.PromptDialog {
     mainItem: ColumnLayout {
         FormCard.FormTextFieldDelegate {
             id: passwordField
-            label: i18nc("@label:textbox", "Password")
+            label: KI18n.i18nc("@label:textbox", "Password")
             echoMode: TextInput.Password
             horizontalPadding: 0
             bottomPadding: 0
@@ -33,15 +34,15 @@ Kirigami.PromptDialog {
 
         FormCard.FormCheckDelegate {
             id: eraseDelegate
-            text: i18nc("@label:checkbox", "Erase Data")
-            description: i18nc("@info", "Request your server to delete as much user data as possible.")
+            text: KI18n.i18nc("@label:checkbox", "Erase Data")
+            description: KI18n.i18nc("@info", "Request your server to delete as much user data as possible.")
             visible: connection.canEraseData
         }
     }
 
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
-            text: i18n("Deactivate account")
+            text: KI18n.i18n("Deactivate account")
             icon.name: "emblem-warning"
             enabled: passwordField.text.length > 0
 

@@ -11,6 +11,7 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.prison
 
 import org.kde.neochat
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -82,7 +83,7 @@ ColumnLayout {
 
             Kirigami.Heading {
                 Layout.fillWidth: true
-                text: root.room ? root.room.displayName : i18n("No name")
+                text: root.room ? root.room.displayName : KI18n.i18n("No name")
                 clip: true // Intentional to limit insane Unicode in display names
                 textFormat: Text.PlainText
                 wrapMode: Text.Wrap

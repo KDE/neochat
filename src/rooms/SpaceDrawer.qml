@@ -12,6 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.ki18n
 
 QQC2.Control {
     id: root
@@ -56,7 +57,7 @@ QQC2.Control {
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
                     Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
-                    text: hasCountableNotifications ? i18ncp("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home (%1 notification)", "Home (%1 notifications)", countedNotifications) : i18nc("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home")
+                    text: hasCountableNotifications ? KI18n.i18ncp("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home (%1 notification)", "Home (%1 notifications)", countedNotifications) : KI18n.i18nc("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home")
                     contentItem: Kirigami.Icon {
                         source: "go-home-symbolic"
 
@@ -107,10 +108,10 @@ QQC2.Control {
 
                     text: {
                         if (directChatButton.hasCountableNotifications) {
-                            return i18ncp("@button View all one-on-one chats.", "Direct Messages (%1 notification)", "Direct Messages (%1 notifications)", directChatButton.countedNotifications);
+                            return KI18n.i18ncp("@button View all one-on-one chats.", "Direct Messages (%1 notification)", "Direct Messages (%1 notifications)", directChatButton.countedNotifications);
                         }
 
-                        return i18nc("@button View all one-on-one chats.", "Direct Messages");
+                        return KI18n.i18nc("@button View all one-on-one chats.", "Direct Messages");
                     }
                     contentItem: Kirigami.Icon {
                         source: "system-users-symbolic"
@@ -167,7 +168,7 @@ QQC2.Control {
 
                         text: {
                             if (spaceDelegate.showNotificationLabel) {
-                                return i18ncp("@button This space (such as 'KDE community'') has X number of notifications)", "%2 (%1 notification)", "%2 (%1 notifications)", spaceDelegate.currentRoom.childrenNotificationCount, spaceDelegate.displayName);
+                                return KI18n.i18ncp("@button This space (such as 'KDE community'') has X number of notifications)", "%2 (%1 notification)", "%2 (%1 notifications)", spaceDelegate.currentRoom.childrenNotificationCount, spaceDelegate.displayName);
                             }
 
                             return spaceDelegate.displayName;
@@ -198,7 +199,7 @@ QQC2.Control {
 
                     visible: SpaceHierarchyCache.recommendedSpaceId.length > 0 && !root.connection.room(SpaceHierarchyCache.recommendedSpaceId) && !SpaceHierarchyCache.recommendedSpaceHidden
 
-                    text: i18nc("Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
+                    text: KI18n.i18nc("Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
                     source: SpaceHierarchyCache.recommendedSpaceAvatar.toString().length > 0 ? root.connection.makeMediaUrl(SpaceHierarchyCache.recommendedSpaceAvatar) : ""
                     onSelected: {
                         (recommendedSpaceDialogComponent.createObject(QQC2.Overlay.overlay, {
@@ -242,7 +243,7 @@ QQC2.Control {
                     Layout.preferredHeight: width - Kirigami.Units.smallSpacing
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
 
-                    text: i18nc("@action:button Create a new room or space", "Create")
+                    text: KI18n.i18nc("@action:button Create a new room or space", "Create")
                     contentItem: Kirigami.Icon {
                         source: "list-add"
                     }
@@ -256,7 +257,7 @@ QQC2.Control {
                         id: menu
 
                         Kirigami.Action {
-                            text: i18nc("@action:button Create a new room", "New Room…")
+                            text: KI18n.i18nc("@action:button Create a new room", "New Room…")
                             icon.name: "list-add-symbolic"
 
                             onTriggered: {
@@ -267,7 +268,7 @@ QQC2.Control {
                         }
 
                         Kirigami.Action {
-                            text: i18nc("@action:button Create a new room", "New Space…")
+                            text: KI18n.i18nc("@action:button Create a new room", "New Space…")
                             icon.name: "list-add-symbolic"
 
                             onTriggered: {
@@ -284,7 +285,7 @@ QQC2.Control {
                     Layout.preferredHeight: width - Kirigami.Units.smallSpacing
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
 
-                    text: i18nc("@action:button Explore public rooms and spaces", "Explore")
+                    text: KI18n.i18nc("@action:button Explore public rooms and spaces", "Explore")
                     contentItem: Kirigami.Icon {
                         source: "compass"
                     }

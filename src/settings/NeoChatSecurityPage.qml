@@ -11,13 +11,14 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title:window", "Security & Safety")
+    title: KI18n.i18nc("@title:window", "Security & Safety")
 
     header: Kirigami.InlineMessage {
         id: banner
@@ -31,20 +32,20 @@ FormCard.FormCardPage {
         Layout.topMargin: Kirigami.Units.largeSpacing * 4
         FormCard.FormButtonDelegate {
             id: ignoredUsersDelegate
-            text: i18nc("@action:button", "Ignored Users")
+            text: KI18n.i18nc("@action:button", "Ignored Users")
             icon.name: "im-invisible-user"
             onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(ignoredUsersDialogComponent);
         }
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Messages")
+        title: KI18n.i18nc("@title:group", "Messages")
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
             id: showLinkPreviewDelegate
-            text: i18nc("@label:checkbox", "Show link previews")
-            description: i18nc("@info:label", "You can customize this per-room under room settings. If unchecked, disables link previews in every room.")
+            text: KI18n.i18nc("@label:checkbox", "Show link previews")
+            description: KI18n.i18nc("@info:label", "You can customize this per-room under room settings. If unchecked, disables link previews in every room.")
             checked: NeoChatConfig.showLinkPreview
             onToggled: {
                 NeoChatConfig.showLinkPreview = checked;
@@ -57,7 +58,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormCheckDelegate {
             id: typingNotificationsDelegate
-            text: i18nc("@label:checkbox", "Send typing notifications")
+            text: KI18n.i18nc("@label:checkbox", "Send typing notifications")
             checked: NeoChatConfig.typingNotifications
             enabled: !NeoChatConfig.isTypingNotificationsImmutable
             onToggled: {
@@ -71,7 +72,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormCheckDelegate {
             id: publicReceiptsDelegate
-            text: i18nc("@option:check", "Send read receipts")
+            text: KI18n.i18nc("@option:check", "Send read receipts")
             checked: NeoChatConfig.publicReadReceipts
             enabled: !NeoChatConfig.isPublicReadReceiptsImmutable
             visible: Controller.libquotientMinorVersion >= 10
@@ -86,8 +87,8 @@ FormCard.FormCardPage {
         }
         FormCard.FormCheckDelegate {
             id: hideImagesDelegate
-            text: i18nc("@label:checkbox", "Hide images and videos by default")
-            description: i18nc("@info", "When this option is enabled, images and videos are only shown after a button is clicked.")
+            text: KI18n.i18nc("@label:checkbox", "Hide images and videos by default")
+            description: KI18n.i18nc("@info", "When this option is enabled, images and videos are only shown after a button is clicked.")
             checked: NeoChatConfig.hideImages
             enabled: !NeoChatConfig.isHideImagesImmutable
             onToggled: {
@@ -97,19 +98,19 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Invites")
+        title: KI18n.i18nc("@title:group", "Invites")
     }
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
-            text: i18nc("@info:label", "Everyone")
+            text: KI18n.i18nc("@info:label", "Everyone")
             checked: !NeoChatConfig.rejectUnknownInvites && !root.connection.blockAllInvites
-            description: i18nc("@info:description", "Anyone can send you invites.")
+            description: KI18n.i18nc("@info:description", "Anyone can send you invites.")
         }
 
         FormCard.FormRadioDelegate {
             id: rejectInvitationsDelegate
-            text: i18nc("@option:check", "Known users")
-            description: root.connection.canCheckMutualRooms ? i18nc("@info", "Only users you share a room with can send you invites.") : i18nc("@info", "Your server does not support this setting.")
+            text: KI18n.i18nc("@option:check", "Known users")
+            description: root.connection.canCheckMutualRooms ? KI18n.i18nc("@info", "Only users you share a room with can send you invites.") : KI18n.i18nc("@info", "Your server does not support this setting.")
             checked: NeoChatConfig.rejectUnknownInvites
             enabled: !NeoChatConfig.isRejectUnknownInvitesImmutable && root.connection.canCheckMutualRooms
             onCheckedChanged: {
@@ -119,21 +120,21 @@ FormCard.FormCardPage {
         }
 
         FormCard.FormRadioDelegate {
-            text: i18nc("@info:label", "No one")
+            text: KI18n.i18nc("@info:label", "No one")
             checked: root.connection.blockAllInvites
             enabled: root.connection.supportsMatrixSpecVersion("v1.18")
-            description: root.connection.supportsMatrixSpecVersion("v1.18") ? i18nc("@info:description", "No one can send you invites.") : i18nc("@info", "Your server does not support this setting.")
+            description: root.connection.supportsMatrixSpecVersion("v1.18") ? KI18n.i18nc("@info:description", "No one can send you invites.") : KI18n.i18nc("@info", "Your server does not support this setting.")
             onCheckedChanged: root.connection.blockAllInvites = checked
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Encryption")
+        title: KI18n.i18nc("@title:group", "Encryption")
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
             id: preferEncryptionDelegate
-            text: i18nc("@option:check", "Turn on encryption in new chats")
-            description: i18nc("@info", "If enabled, NeoChat will use encryption when starting new direct messages.")
+            text: KI18n.i18nc("@option:check", "Turn on encryption in new chats")
+            description: KI18n.i18nc("@info", "If enabled, NeoChat will use encryption when starting new direct messages.")
             checked: NeoChatConfig.preferUsingEncryption
             enabled: !NeoChatConfig.isPreferUsingEncryptionImmutable
             onToggled: {
@@ -147,8 +148,8 @@ FormCard.FormCardPage {
         }
         FormCard.FormButtonDelegate {
             id: secretBackupDelegate
-            text: i18nc("@action:inmenu", "Manage Key Storage")
-            description: i18nc("@info", "Import or unlock encryption keys from other devices.")
+            text: KI18n.i18nc("@action:inmenu", "Manage Key Storage")
+            description: KI18n.i18nc("@info", "Import or unlock encryption keys from other devices.")
             icon.name: "unlock"
             onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'ManageKeyStorageDialog'), {
                 connection: root.connection
@@ -160,15 +161,15 @@ FormCard.FormCardPage {
         }
         FormCard.FormButtonDelegate {
             id: importKeysDelegate
-            text: i18nc("@action:button", "Import Keys")
-            description: i18nc("@info", "Import encryption keys from a backup file.")
+            text: KI18n.i18nc("@action:button", "Import Keys")
+            description: KI18n.i18nc("@info", "Import encryption keys from a backup file.")
             icon.name: "document-import"
             onClicked: {
                 let dialog = root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent("org.kde.neochat.settings", "ImportKeysDialog"), {
                     connection: root.connection
                 });
                 dialog.success.connect(() => {
-                    banner.text = i18nc("@info", "Keys imported successfully");
+                    banner.text = KI18n.i18nc("@info", "Keys imported successfully");
                     banner.type = Kirigami.MessageType.Positive;
                     banner.visible = true;
                 });
@@ -181,8 +182,8 @@ FormCard.FormCardPage {
         }
         FormCard.FormButtonDelegate {
             id: exportKeysDelegate
-            text: i18nc("@action:button", "Export Keys")
-            description: i18nc("@info", "Export this device's encryption keys to a file.")
+            text: KI18n.i18nc("@action:button", "Export Keys")
+            description: KI18n.i18nc("@info", "Export this device's encryption keys to a file.")
             icon.name: "document-export"
             onClicked: {
                 root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent("org.kde.neochat.settings", "ExportKeysDialog"), {

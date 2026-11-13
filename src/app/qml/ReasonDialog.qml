@@ -7,6 +7,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -30,7 +31,7 @@ Kirigami.Page {
         type: Kirigami.MessageType.Information
         position: Kirigami.InlineMessage.Position.Header
 
-        text: xi18nc("@info", "This report will <strong>only</strong> be sent to the administrators of <link>%1</link> (your server).", root.connection?.domain)
+        text: KI18n.xi18nc("@info", "This report will <strong>only</strong> be sent to the administrators of <link>%1</link> (your server).", root.connection?.domain)
     }
 
     QQC2.TextArea {
@@ -69,7 +70,7 @@ Kirigami.Page {
             }
             QQC2.Button {
                 icon.name: "dialog-cancel-symbolic"
-                text: i18nc("@action", "Cancel")
+                text: KI18n.i18nc("@action", "Cancel")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
                 onClicked: root.Kirigami.PageStack.closeDialog()
             }

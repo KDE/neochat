@@ -9,11 +9,12 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
-    title: i18nc("@title:window", "Proxy")
+    title: KI18n.i18nc("@title:window", "Proxy")
     property int currentType
     property bool proxyConfigChanged: false
 
@@ -22,7 +23,7 @@ FormCard.FormCardPage {
 
         FormCard.FormRadioDelegate {
             id: systemDefault
-            text: i18n("System Default")
+            text: KI18n.i18n("System Default")
             checked: root.currentType === 0
             enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
@@ -34,7 +35,7 @@ FormCard.FormCardPage {
 
         FormCard.FormRadioDelegate {
             id:noProxy
-            text: i18n("No Proxy")
+            text: KI18n.i18n("No Proxy")
             checked: root.currentType === 3
             enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
@@ -46,7 +47,7 @@ FormCard.FormCardPage {
 
         FormCard.FormRadioDelegate {
             id: http
-            text: i18n("HTTP")
+            text: KI18n.i18n("HTTP")
             checked: root.currentType === 1
             enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
@@ -58,7 +59,7 @@ FormCard.FormCardPage {
 
         FormCard.FormRadioDelegate {
             id: socks5
-            text: i18n("Socks5")
+            text: KI18n.i18n("Socks5")
             checked: root.currentType === 2
             enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
@@ -68,7 +69,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Proxy Settings")
+        title: KI18n.i18n("Proxy Settings")
     }
 
     FormCard.FormCard {
@@ -77,7 +78,7 @@ FormCard.FormCardPage {
 
         FormCard.FormTextFieldDelegate {
             id: hostField
-            label: i18n("Host")
+            label: KI18n.i18n("Host")
             text: NeoChatConfig.proxyHost
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
@@ -90,7 +91,7 @@ FormCard.FormCardPage {
             Layout.fillWidth: true
             contentItem: RowLayout {
                 QQC2.Label {
-                    text: i18n("Port")
+                    text: KI18n.i18n("Port")
                     Layout.fillWidth: true
                 }
                 QQC2.SpinBox {
@@ -111,7 +112,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator { below: portField; above: userField }
         FormCard.FormTextFieldDelegate {
             id: userField
-            label: i18n("User")
+            label: KI18n.i18n("User")
             text: NeoChatConfig.proxyUser
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
@@ -121,7 +122,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator { below: userField; above: passwordField }
         FormCard.FormTextFieldDelegate {
             id: passwordField
-            label: i18n("Password")
+            label: KI18n.i18n("Password")
             text: NeoChatConfig.proxyPassword
             echoMode: TextInput.Password
             inputMethodHints: Qt.ImhUrlCharactersOnly
@@ -139,7 +140,7 @@ FormCard.FormCardPage {
             }
 
             QQC2.Button  {
-                text: i18n("Apply")
+                text: KI18n.i18n("Apply")
                 icon.name: "dialog-ok-apply-symbolic"
                 enabled: root.currentType !== NeoChatConfig.proxyType || root.proxyConfigChanged
                 onClicked: {

@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 import org.kde.neochat.timeline
+import org.kde.ki18n
 
 Kirigami.InlineMessage {
     id: root
@@ -23,32 +24,32 @@ Kirigami.InlineMessage {
     type: Kirigami.MessageType.Positive
     icon.name: "edit-select-all-symbolic"
 
-    text: i18nc("@info", "Selected Messages: %1", root.messageModel?.selectedMessageCount)
+    text: KI18n.i18nc("@info", "Selected Messages: %1", root.messageModel?.selectedMessageCount)
 
     actions: [
         Kirigami.Action {
-            text: i18nc("@action:button", "Copy Conversation")
+            text: KI18n.i18nc("@action:button", "Copy Conversation")
             icon.name: "edit-copy"
             onTriggered: {
                 Clipboard.saveText(root.messageModel.getFormattedSelectedMessages())
                 let window = (root.QQC2.ApplicationWindow.window as Main)
-                window.showPassiveNotification(i18nc("@info", "Conversation copied to clipboard"));
+                window.showPassiveNotification(KI18n.i18nc("@info", "Conversation copied to clipboard"));
             }
         },
         Kirigami.Action {
-            text: i18nc("@action:button", "Delete Messages")
+            text: KI18n.i18nc("@action:button", "Delete Messages")
             icon.name: "trash-empty-symbolic"
             icon.color: Kirigami.Theme.negativeTextColor
             enabled: root.messageModel?.canDeleteSelectedMessages
             onTriggered: {
                 let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                    title: i18nc("@title:dialog", "Remove Messages"),
-                    placeholder: i18nc("@info:placeholder", "Optionally give a reason for removing these messages"),
-                    actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
+                    title: KI18n.i18nc("@title:dialog", "Remove Messages"),
+                    placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for removing these messages"),
+                    actionText: KI18n.i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
                     icon: "delete",
                     reporting: false,
                 }, {
-                    title: i18nc("@title:dialog", "Remove Messages"),
+                    title: KI18n.i18nc("@title:dialog", "Remove Messages"),
                     width: Kirigami.Units.gridUnit * 25
                 }) as ReasonDialog;
                 dialog.accepted.connect(reason => {

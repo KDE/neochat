@@ -7,6 +7,7 @@ import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.ki18n
 
 /**
  * @brief A component for a hotel itinerary reservation.
@@ -62,11 +63,11 @@ ItineraryReservationComponent {
             wrapMode: Text.WordWrap
         }
         QQC2.Label {
-            text: i18n("Check-in time: %1", root.startTime)
+            text: KI18n.i18n("Check-in time: %1", root.startTime)
             color: Kirigami.Theme.textColor
         }
         QQC2.Label {
-            text: i18n("Check-out time: %1", root.endTime)
+            text: KI18n.i18n("Check-out time: %1", root.endTime)
             color: Kirigami.Theme.textColor
         }
 

@@ -9,6 +9,7 @@ import QtPositioning
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat.libneochat
+import org.kde.ki18n
 
 ApplicationWindow {
     id: root
@@ -22,7 +23,7 @@ ApplicationWindow {
     flags: Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
     visibility: Qt.WindowFullScreen
 
-    title: i18n("View Location")
+    title: KI18n.i18n("View Location")
 
     Shortcut {
         sequence: "Escape"
@@ -69,7 +70,7 @@ ApplicationWindow {
         anchors.top: parent.top
         anchors.right: parent.right
 
-        text: i18n("Close")
+        text: KI18n.i18n("Close")
         icon.name: "dialog-close"
         display: AbstractButton.IconOnly
 

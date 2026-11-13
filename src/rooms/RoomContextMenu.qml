@@ -11,6 +11,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.settings
+import org.kde.ki18n
 
 /**
  * Context menu when clicking on a room in the room list
@@ -42,7 +43,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("@action:inmenu", "Mark as Read")
+        text: KI18n.i18nc("@action:inmenu", "Mark as Read")
         icon.name: "checkmark"
         enabled: root.room.notificationCount > 0 || root.room.highlightCount > 0
         onTriggered: root.room.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts)
@@ -53,11 +54,11 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Notifications")
+        text: KI18n.i18nc("@action:inmenu", "Notifications")
         icon.name: "notifications"
 
         Kirigami.Action {
-            text: i18nc("@action:inmenu Notification 'Default Settings'", "Default Settings")
+            text: KI18n.i18nc("@action:inmenu Notification 'Default Settings'", "Default Settings")
             icon.name: "globe"
             checkable: true
             autoExclusive: true
@@ -69,7 +70,7 @@ KirigamiComponents.ConvergentContextMenu {
         }
 
         Kirigami.Action {
-            text: i18nc("As in 'notify for all messages'", "All Messages")
+            text: KI18n.i18nc("As in 'notify for all messages'", "All Messages")
             icon.name: "notifications"
             checkable: true
             autoExclusive: true
@@ -81,7 +82,7 @@ KirigamiComponents.ConvergentContextMenu {
         }
 
         Kirigami.Action {
-            text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'", "@Mentions and Keywords")
+            text: KI18n.i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'", "@Mentions and Keywords")
             icon.name: "im-user"
             checkable: true
             autoExclusive: true
@@ -93,7 +94,7 @@ KirigamiComponents.ConvergentContextMenu {
         }
 
         Kirigami.Action {
-            text: i18nc("As in 'do not notify for any messages'", "None")
+            text: KI18n.i18nc("As in 'do not notify for any messages'", "None")
             icon.name: "notifications-disabled"
             checkable: true
             autoExclusive: true
@@ -106,13 +107,13 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: root.room.isFavourite ? i18nc("@action:inmenu", "Remove from Favorites") : i18nc("@action:inmenu", "Add to Favorites")
+        text: root.room.isFavourite ? KI18n.i18nc("@action:inmenu", "Remove from Favorites") : KI18n.i18nc("@action:inmenu", "Add to Favorites")
         icon.name: root.room.isFavourite ? "rating" : "rating-unrated"
         onTriggered: root.room.isFavourite ? root.room.removeTag("m.favourite") : root.room.addTag("m.favourite", 1.0)
     }
 
     QQC2.Action {
-        text: root.room.isLowPriority ? i18nc("@action:inmenu", "Reprioritize") : i18nc("@action:inmenu", "Deprioritize")
+        text: root.room.isLowPriority ? KI18n.i18nc("@action:inmenu", "Reprioritize") : KI18n.i18nc("@action:inmenu", "Deprioritize")
         icon.name: root.room.isLowPriority ? "arrow-up-symbolic" : "arrow-down-symbolic"
         onTriggered: root.room.isLowPriority ? root.room.removeTag("m.lowpriority") : root.room.addTag("m.lowpriority", 1.0)
     }
@@ -122,7 +123,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Copy Room Link")
+        text: KI18n.i18nc("@action:inmenu", "Copy Room Link")
         icon.name: "edit-copy"
         visible: !root.room.isDirectChat() && root.room.joinRuleString !== "invite"
         onTriggered: {
@@ -137,7 +138,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("@action:inmenu", "Room Settings")
+        text: KI18n.i18nc("@action:inmenu", "Room Settings")
         icon.name: 'settings-configure-symbolic'
         onTriggered: {
             RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
@@ -149,19 +150,19 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:button 'Report' as in 'Report this room to the administrators'", "Report…")
+        text: KI18n.i18nc("@action:button 'Report' as in 'Report this room to the administrators'", "Report…")
         icon.name: "dialog-warning-symbolic"
         visible: root.connection.supportsMatrixSpecVersion("v1.13")
         onTriggered: {
             let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                title: i18nc("@title:dialog", "Report Room"),
-                placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this room"),
+                title: KI18n.i18nc("@title:dialog", "Report Room"),
+                placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for reporting this room"),
                 icon: "dialog-warning-symbolic",
-                actionText: i18nc("@action:button 'Report' as in 'Report this room to the administrators'", "Report"),
+                actionText: KI18n.i18nc("@action:button 'Report' as in 'Report this room to the administrators'", "Report"),
                 reporting: true,
                 connection: root.connection,
             }, {
-                title: i18nc("@title", "Report Room"),
+                title: KI18n.i18nc("@title", "Report Room"),
                 width: Kirigami.Units.gridUnit * 25
             }) as ReasonDialog;
             dialog.accepted.connect(reason => {
@@ -171,7 +172,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("@action:inmenu", "Leave Room…")
+        text: KI18n.i18nc("@action:inmenu", "Leave Room…")
         icon.name: "go-previous"
         onTriggered: {
             (Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {

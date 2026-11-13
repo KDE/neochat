@@ -170,6 +170,7 @@ target_link_libraries(qmltest
     Chatbarplugin
     neochat
     neochatplugin
+    KF6::I18nQml
 )
 
 add_qml_tests(

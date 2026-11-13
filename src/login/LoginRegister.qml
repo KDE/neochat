@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -22,7 +23,7 @@ LoginStep {
     FormCard.FormButtonDelegate {
         id: loginButton
         icon.name: "user-symbolic"
-        text: i18nc("@action:button", "Login")
+        text: KI18n.i18nc("@action:button", "Login")
         onClicked: root.processed("Login")
     }
 
@@ -30,7 +31,7 @@ LoginStep {
 
     FormCard.FormButtonDelegate {
         icon.name: "network-server-symbolic"
-        text: i18nc("@action:button", "Register")
+        text: KI18n.i18nc("@action:button", "Register")
         onClicked: root.processed("Homeserver")
     }
 }

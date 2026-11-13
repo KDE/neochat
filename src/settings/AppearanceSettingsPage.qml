@@ -11,14 +11,15 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
-    title: i18nc("@title:window", "Appearance")
+    title: KI18n.i18nc("@title:window", "Appearance")
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "General")
+        title: KI18n.i18nc("@title:group", "General")
     }
     FormCard.FormCard {
         Loader {
@@ -36,7 +37,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: compactRoomListDelegate
-            text: i18n("Use compact room list")
+            text: KI18n.i18n("Use compact room list")
             checked: NeoChatConfig.compactRoomList
             onToggled: {
                 NeoChatConfig.compactRoomList = checked;
@@ -57,11 +58,11 @@ FormCard.FormCardPage {
             background: Item {}
             contentItem: ColumnLayout {
                 QQC2.Label {
-                    text: i18nc("@label Font size for text in the chat pane", "Chat font scaling")
+                    text: KI18n.i18nc("@label Font size for text in the chat pane", "Chat font scaling")
                     Layout.fillWidth: true
                 }
                 QQC2.Label {
-                    text: i18nc("@label:slider Current font scale percentage. %1 is the numeric percentage value, the second % is the symbol e.g. 120%", "%1%", Math.round(NeoChatConfig.fontScale * 100))
+                    text: KI18n.i18nc("@label:slider Current font scale percentage. %1 is the numeric percentage value, the second % is the symbol e.g. 120%", "%1%", Math.round(NeoChatConfig.fontScale * 100))
                     Layout.fillWidth: true
                 }
                 QQC2.Slider {
@@ -80,7 +81,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Message Layout")
+        title: KI18n.i18nc("@title:group", "Message Layout")
     }
     FormCard.FormCard {
         FormCard.AbstractFormDelegate {
@@ -174,7 +175,7 @@ FormCard.FormCardPage {
                         }
                     ]
 
-                    text: i18n("Bubbles")
+                    text: KI18n.i18n("Bubbles")
                     checked: !NeoChatConfig.compactLayout
                     QQC2.ButtonGroup.group: themeGroup
                     enabled: !NeoChatConfig.isCompactLayoutImmutable
@@ -243,7 +244,7 @@ FormCard.FormCardPage {
                             }
                         }
                     ]
-                    text: i18n("Compact")
+                    text: KI18n.i18n("Compact")
                     checked: NeoChatConfig.compactLayout
                     QQC2.ButtonGroup.group: themeGroup
                     enabled: !NeoChatConfig.isCompactLayoutImmutable
@@ -266,7 +267,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: hasWindowSystemDelegate
-            text: i18n("Use transparent chat page")
+            text: KI18n.i18n("Use transparent chat page")
             enabled: !NeoChatConfig.compactLayout && !NeoChatConfig.isBlurImmutable
             visible: WindowController.hasWindowSystem && !NeoChatConfig.compactLayout
             checked: NeoChatConfig.blur
@@ -289,7 +290,7 @@ FormCard.FormCardPage {
             background: Item {}
             contentItem: ColumnLayout {
                 QQC2.Label {
-                    text: i18n("Transparency")
+                    text: KI18n.i18n("Transparency")
                     Layout.fillWidth: true
                 }
                 QQC2.Slider {
@@ -308,7 +309,7 @@ FormCard.FormCardPage {
                         id: sliderHover
                     }
                     QQC2.ToolTip.visible: sliderHover.hovered && !enabled
-                    QQC2.ToolTip.text: i18n("Only enabled if the transparent chat page is enabled.")
+                    QQC2.ToolTip.text: KI18n.i18n("Only enabled if the transparent chat page is enabled.")
                 }
                 QQC2.Label {
                     text: Math.round(NeoChatConfig.transparency * 100) + "%"
@@ -324,7 +325,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: showLocalMessagesOnRightDelegate
-            text: i18n("Show your messages on the right")
+            text: KI18n.i18n("Show your messages on the right")
             checked: NeoChatConfig.showLocalMessagesOnRight
             enabled: !NeoChatConfig.isShowLocalMessagesOnRightImmutable && !NeoChatConfig.compactLayout
             visible: !NeoChatConfig.compactLayout
@@ -336,11 +337,11 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Show Avatars")
+        title: KI18n.i18nc("@title", "Show Avatars")
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
-            text: i18n("In chat")
+            text: KI18n.i18n("In chat")
             checked: NeoChatConfig.showAvatarInTimeline
             onToggled: {
                 NeoChatConfig.showAvatarInTimeline = checked;
@@ -349,7 +350,7 @@ FormCard.FormCardPage {
             enabled: !NeoChatConfig.isShowAvatarInTimelineImmutable
         }
         FormCard.FormCheckDelegate {
-            text: i18n("In sidebar")
+            text: KI18n.i18n("In sidebar")
             checked: NeoChatConfig.showAvatarInRoomDrawer
             enabled: !NeoChatConfig.isShowAvatarInRoomDrawerImmutable
             onToggled: {
@@ -358,7 +359,7 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormCheckDelegate {
-            text: i18nc("@label:checkbox", "In room information")
+            text: KI18n.i18nc("@label:checkbox", "In room information")
             checked: NeoChatConfig.showAvatarInRoomInfo
             enabled: !NeoChatConfig.isShowAvatarInRoomInfoImmutable
             onToggled: {

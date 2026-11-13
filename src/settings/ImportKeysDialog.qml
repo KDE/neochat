@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
@@ -19,7 +20,7 @@ FormCard.FormCardPage {
 
     signal success
 
-    title: i18nc("@title:window", "Import Keys")
+    title: KI18n.i18nc("@title:window", "Import Keys")
 
     header: Kirigami.InlineMessage {
         id: banner
@@ -33,7 +34,7 @@ FormCard.FormCardPage {
         Layout.topMargin: Kirigami.Units.largeSpacing
         FormCard.FormButtonDelegate {
             id: fileButton
-            text: i18nc("@action:button", "Choose backup file")
+            text: KI18n.i18nc("@action:button", "Choose backup file")
             description: root.backupFile
             icon.name: "cloud-upload"
             onClicked: {
@@ -49,12 +50,12 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
         FormCard.FormTextFieldDelegate {
             id: passphraseField
-            label: i18nc("@label:textbox", "Passphrase:")
+            label: KI18n.i18nc("@label:textbox", "Passphrase:")
             echoMode: TextInput.Password
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Import keys")
+            text: KI18n.i18nc("@action:button", "Import keys")
             enabled: root.backupFile.length > 0 && passphraseField.text.length > 0
             onClicked: {
                 banner.visible = false;
@@ -64,15 +65,15 @@ FormCard.FormCardPage {
                     root.success();
                     root.Kirigami.PageStack.pageStack.layers.pop();
                 } else if (error === KeyImport.InvalidPassphrase) {
-                    banner.text = i18nc("@info", "Invalid passphrase");
+                    banner.text = KI18n.i18nc("@info", "Invalid passphrase");
                     banner.type = Kirigami.MessageType.Error;
                     banner.visible = true;
                 } else if (error === KeyImport.InvalidData) {
-                    banner.text = i18nc("@info", "Invalid key backup data");
+                    banner.text = KI18n.i18nc("@info", "Invalid key backup data");
                     banner.type = Kirigami.MessageType.Error;
                     banner.visible = true;
                 } else {
-                    banner.text = i18nc("@info", "Unknown error");
+                    banner.text = KI18n.i18nc("@info", "Unknown error");
                     banner.type = Kirigami.MessageType.Error;
                     banner.visible = true;
                 }

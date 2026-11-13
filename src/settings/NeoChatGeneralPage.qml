@@ -11,22 +11,23 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 import org.kde.neochat.devtools
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title:window", "General")
+    title: KI18n.i18nc("@title:window", "General")
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "General Settings")
+        title: KI18n.i18nc("@title:group", "General Settings")
         visible: Qt.platform.os !== "android"
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
             id: closeDelegate
-            text: i18n("Show in System Tray")
+            text: KI18n.i18n("Show in System Tray")
             checked: NeoChatConfig.systemTray
             visible: Controller.supportSystemTray
             enabled: !NeoChatConfig.isSystemTrayImmutable
@@ -43,7 +44,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: minimizeDelegate
-            text: i18n("Minimize to system tray on startup")
+            text: KI18n.i18n("Minimize to system tray on startup")
             checked: NeoChatConfig.minimizeToSystemTrayOnStartup
             visible: Controller.supportSystemTray && !Kirigami.Settings.isMobile && NeoChatConfig.systemTray
             enabled: NeoChatConfig.systemTray && !NeoChatConfig.isMinimizeToSystemTrayOnStartupImmutable
@@ -61,7 +62,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: categorizeDelegate
-            text: i18nc("@option:check Show all rooms in the 'Home' space. Keep this consistent with the same translation you use for that space.", "Show all rooms in \"Home\" space")
+            text: KI18n.i18nc("@option:check Show all rooms in the 'Home' space. Keep this consistent with the same translation you use for that space.", "Show all rooms in \"Home\" space")
             checked: NeoChatConfig.allRoomsInHome
             enabled: !NeoChatConfig.isAllRoomsInHomeImmutable
             onToggled: {
@@ -72,18 +73,18 @@ FormCard.FormCardPage {
 
     }
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Room List Sort Order")
+        title: KI18n.i18nc("@title:group", "Room List Sort Order")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            text: i18nc("@info:label", "Hidden events are not considered as recent activity when sorting rooms.")
+            text: KI18n.i18nc("@info:label", "Hidden events are not considered as recent activity when sorting rooms.")
         }
 
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormRadioDelegate {
-            text: i18nc("As in 'sort something based on last activity'", "Importance")
-            description: i18nc("@info", "Rooms with unread notifications will be shown first.")
+            text: KI18n.i18nc("As in 'sort something based on last activity'", "Importance")
+            description: KI18n.i18nc("@info", "Rooms with unread notifications will be shown first.")
             checked: NeoChatConfig.sortOrder === 1
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
@@ -93,7 +94,7 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("As in 'sort something alphabetically'", "Alphabetical")
+            text: KI18n.i18nc("As in 'sort something alphabetically'", "Alphabetical")
             checked: NeoChatConfig.sortOrder === 0
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
@@ -103,8 +104,8 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("As in 'sort something based on the last event'", "Newest Events")
-            description: i18nc("@info", "Rooms with the newest events will be shown first.")
+            text: KI18n.i18nc("As in 'sort something based on the last event'", "Newest Events")
+            description: KI18n.i18nc("@info", "Rooms with the newest events will be shown first.")
             checked: NeoChatConfig.sortOrder === 2
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
@@ -115,7 +116,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormRadioDelegate {
             id: openCustomRoomSortButton
-            text: i18nc("@option:radio", "Custom")
+            text: KI18n.i18nc("@option:radio", "Custom")
             checked: NeoChatConfig.sortOrder === 3
             enabled: !NeoChatConfig.isSortOrderImmutable
             onClicked: {
@@ -124,33 +125,33 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title", "Timeline")
+        title: KI18n.i18nc("@title", "Timeline")
     }
     FormCard.FormCard {
         FormCard.FormComboBoxDelegate {
             id: markAsReadCombo
-            text: i18n("Mark messages as read when:")
+            text: KI18n.i18n("Mark messages as read when:")
             textRole: "name"
             valueRole: "value"
             model: [
                 {
-                    name: i18n("Never"),
+                    name: KI18n.i18n("Never"),
                     value: 0
                 },
                 {
-                    name: i18nc("@item:inlistbox As in mark messages in the room as read when entering the room", "Entering the room"),
+                    name: KI18n.i18nc("@item:inlistbox As in mark messages in the room as read when entering the room", "Entering the room"),
                     value: 1
                 },
                 {
-                    name: i18nc("@item:inlistbox As in mark messages in the room as read when entering the room and all messages are visible on screen", "Entering the room and all unread messages are visible"),
+                    name: KI18n.i18nc("@item:inlistbox As in mark messages in the room as read when entering the room and all messages are visible on screen", "Entering the room and all unread messages are visible"),
                     value: 2
                 },
                 {
-                    name: i18nc("@item:inlistbox As in mark messages in the room as read when exiting the room", "Exiting the room"),
+                    name: KI18n.i18nc("@item:inlistbox As in mark messages in the room as read when exiting the room", "Exiting the room"),
                     value: 3
                 },
                 {
-                    name: i18nc("@item:inlistbox As in mark messages in the room as read when exiting the room and all messages are visible on screen", "Exiting the room and all unread messages are visible"),
+                    name: KI18n.i18nc("@item:inlistbox As in mark messages in the room as read when exiting the room and all messages are visible on screen", "Exiting the room and all unread messages are visible"),
                     value: 4
                 }
             ]
@@ -165,7 +166,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: showDeletedMessages
-            text: i18n("Show deleted messages")
+            text: KI18n.i18n("Show deleted messages")
             checked: NeoChatConfig.showDeletedMessages
             enabled: !NeoChatConfig.isShowDeletedMessagesImmutable
             onToggled: {
@@ -181,7 +182,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: showStateEvents
-            text: i18n("Show state events")
+            text: KI18n.i18n("Show state events")
             checked: NeoChatConfig.showStateEvent
             enabled: !NeoChatConfig.isShowStateEventImmutable
             onToggled: {
@@ -199,7 +200,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: showLeaveJoinEventDelegate
             visible: NeoChatConfig.showStateEvent
-            text: i18n("Show leave and join events")
+            text: KI18n.i18n("Show leave and join events")
             checked: NeoChatConfig.showLeaveJoinEvent
             enabled: !NeoChatConfig.isShowLeaveJoinEventImmutable
             onToggled: {
@@ -217,7 +218,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: showNameDelegate
             visible: NeoChatConfig.showStateEvent
-            text: i18n("Show name change events")
+            text: KI18n.i18n("Show name change events")
             checked: NeoChatConfig.showRename
             enabled: !NeoChatConfig.isShowRenameImmutable
             onToggled: {
@@ -235,7 +236,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: showAvatarChangeDelegate
             visible: NeoChatConfig.showStateEvent
-            text: i18n("Show avatar update events")
+            text: KI18n.i18n("Show avatar update events")
             checked: NeoChatConfig.showAvatarUpdate
             enabled: !NeoChatConfig.isShowAvatarUpdateImmutable
             onToggled: {
@@ -245,12 +246,12 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18nc("Chat Editor", "Editor")
+        title: KI18n.i18nc("Chat Editor", "Editor")
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
             id: quickEditCheckbox
-            text: i18n("Use s/text/replacement syntax to edit your last message")
+            text: KI18n.i18n("Use s/text/replacement syntax to edit your last message")
             checked: NeoChatConfig.allowQuickEdit
             enabled: !NeoChatConfig.isAllowQuickEditImmutable
             onToggled: {
@@ -260,12 +261,12 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18n("Developer Settings")
+        title: KI18n.i18n("Developer Settings")
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
             id: enableDeveloperToolsDelegate
-            text: i18n("Enable developer tools")
+            text: KI18n.i18n("Enable developer tools")
             checked: NeoChatConfig.developerTools
             enabled: !NeoChatConfig.isDeveloperToolsImmutable
             onToggled: {
@@ -281,28 +282,28 @@ FormCard.FormCardPage {
             id: openDeveloperToolsDelegate
             visible: NeoChatConfig.developerTools
             icon.name: "tools"
-            text: i18n("Open Developer Tools")
+            text: KI18n.i18n("Open Developer Tools")
             onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
                 connection: root.connection
             }, {
-                title: i18n("Developer Tools")
+                title: KI18n.i18n("Developer Tools")
             });
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Default Settings")
+        title: KI18n.i18nc("@title:group", "Default Settings")
     }
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
             icon.name: "kt-restore-defaults-symbolic"
-            text: i18nc("@action:button", "Reset all configuration values to their default…")
+            text: KI18n.i18nc("@action:button", "Reset all configuration values to their default…")
             onClicked: resetDialog.open()
         }
     }
     Kirigami.PromptDialog {
         id: resetDialog
-        title: i18nc("@title:dialog", "Reset Configuration")
-        subtitle: i18nc("@info", "Do you really want to reset all options to their default values?")
+        title: KI18n.i18nc("@title:dialog", "Reset Configuration")
+        subtitle: KI18n.i18nc("@info", "Do you really want to reset all options to their default values?")
         standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
         onAccepted: Controller.revertToDefaultConfig()
         anchors.centerIn: QQC2.Overlay.overlay

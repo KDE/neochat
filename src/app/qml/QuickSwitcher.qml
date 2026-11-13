@@ -9,6 +9,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.SearchDialog {
     id: root
@@ -22,10 +23,10 @@ Kirigami.SearchDialog {
 
     onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
     model: RoomManager.sortFilterRoomListModel
-    emptyText: i18nc("Placeholder message", "No room found")
+    emptyText: KI18n.i18nc("Placeholder message", "No room found")
     Kirigami.Action {
         id: exploreRoomAction
-        text: i18nc("@action:button Explore public rooms and spaces", "Explore")
+        text: KI18n.i18nc("@action:button Explore public rooms and spaces", "Explore")
         icon.name: "compass"
         onTriggered: {
             root.close()

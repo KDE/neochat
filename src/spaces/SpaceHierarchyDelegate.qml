@@ -11,6 +11,7 @@ import org.kde.kirigamiaddons.labs.components as Components
 
 import org.kde.neochat
 import org.kde.neochat.libneochat
+import org.kde.ki18n
 
 Item {
     id: root
@@ -91,7 +92,7 @@ Item {
                     }
                     QQC2.Label {
                         visible: root.isJoined || root.isSuggested
-                        text: root.isJoined ? i18n("Joined") : i18n("Suggested")
+                        text: root.isJoined ? KI18n.i18n("Joined") : KI18n.i18n("Suggested")
                         color: root.isJoined ? Kirigami.Theme.linkColor : Kirigami.Theme.disabledTextColor
                     }
                 }
@@ -100,7 +101,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 
-                    text: root.topic.length > 0 ? i18ncp("number of room members", "%1 member - ", "%1 members - ", root.memberCount) + root.topic : i18ncp("number of room members", "%1 member", "%1 members", root.memberCount)
+                    text: root.topic.length > 0 ? KI18n.i18ncp("number of room members", "%1 member - ", "%1 members - ", root.memberCount) + root.topic : KI18n.i18ncp("number of room members", "%1 member", "%1 members", root.memberCount)
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
                     textFormat: Text.PlainText
@@ -109,7 +110,7 @@ Item {
             }
             QQC2.ToolButton {
                 visible: root.isSpace && root.canAddChildren
-                text: i18nc("@button", "Add new room")
+                text: KI18n.i18nc("@button", "Add new room")
                 icon.name: "list-add"
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: root.createRoom()
@@ -120,7 +121,7 @@ Item {
             }
             QQC2.ToolButton {
                 visible: root.canRemove
-                text: i18nc("@button", "Remove…")
+                text: KI18n.i18nc("@button", "Remove…")
                 icon.name: "list-remove"
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
@@ -140,7 +141,7 @@ Item {
             }
             QQC2.ToolButton {
                 visible: root.parentRoom?.canSendState("m.space.child") ?? false
-                text: root.isSuggested ? i18nc("@button", "Don't Suggest") : i18nc("@button", "Make Suggested")
+                text: root.isSuggested ? KI18n.i18nc("@button", "Don't Suggest") : KI18n.i18nc("@button", "Make Suggested")
                 icon.name: root.isSuggested ? "window-unpin-symbolic" : "window-pin-symbolic"
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: root.parentRoom.toggleChildSuggested(root.roomId)

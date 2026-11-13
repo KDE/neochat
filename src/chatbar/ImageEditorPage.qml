@@ -8,6 +8,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kquickimageeditor as KQuickImageEditor
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -17,7 +18,7 @@ Kirigami.Page {
 
     signal newPathChanged(string newPath)
 
-    title: i18nc("@window:title", "Edit Image")
+    title: KI18n.i18nc("@window:title", "Edit Image")
     globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
     leftPadding: 0
@@ -39,7 +40,7 @@ Kirigami.Page {
             QQC2.Button {
                 id: saveButton
 
-                text: i18nc("@action:button Accept image modification", "Save")
+                text: KI18n.i18nc("@action:button Accept image modification", "Save")
                 icon.name: "document-save"
 
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ApplyRole
@@ -57,7 +58,7 @@ Kirigami.Page {
             QQC2.Button {
                 id: undoButton
 
-                text: i18nc("@action:button Undo modification", "Undo")
+                text: KI18n.i18nc("@action:button Undo modification", "Undo")
                 icon.name: "edit-undo"
                 enabled: imageDoc.edited
 
@@ -130,30 +131,30 @@ Kirigami.Page {
                 Kirigami.Action {
                     icon.name: "dialog-ok"
                     visible: root.resizing
-                    text: i18nc("@action:button Crop an image", "Crop")
+                    text: KI18n.i18nc("@action:button Crop an image", "Crop")
                     onTriggered: root.crop()
                 },
                 Kirigami.Action {
                     icon.name: "object-rotate-left"
-                    text: i18nc("@action:button Rotate an image to the left", "Rotate left")
+                    text: KI18n.i18nc("@action:button Rotate an image to the left", "Rotate left")
                     onTriggered: imageDoc.rotate(-90)
                     visible: !root.resizing
                 },
                 Kirigami.Action {
                     icon.name: "object-rotate-right"
-                    text: i18nc("@action:button Rotate an image to the right", "Rotate right")
+                    text: KI18n.i18nc("@action:button Rotate an image to the right", "Rotate right")
                     onTriggered: imageDoc.rotate(90)
                     visible: !root.resizing
                 },
                 Kirigami.Action {
                     icon.name: "object-flip-vertical"
-                    text: i18nc("@action:button Mirror an image vertically", "Flip")
+                    text: KI18n.i18nc("@action:button Mirror an image vertically", "Flip")
                     onTriggered: imageDoc.mirror(false, true)
                     visible: !root.resizing
                 },
                 Kirigami.Action {
                     icon.name: "object-flip-horizontal"
-                    text: i18nc("@action:button Mirror an image horizontally", "Mirror")
+                    text: KI18n.i18nc("@action:button Mirror an image horizontally", "Mirror")
                     onTriggered: imageDoc.mirror(true, false)
                     visible: !root.resizing
                 }

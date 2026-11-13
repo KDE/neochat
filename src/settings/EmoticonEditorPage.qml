@@ -13,6 +13,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
@@ -26,10 +27,10 @@ FormCard.FormCardPage {
     property bool newEmoticon: false
     required property var emoticonType
 
-    title: emoticonType === EmoticonFormCard.Stickers ? (newEmoticon ? i18nc("@title:window", "Add Sticker") : i18nc("@title:window", "Edit Sticker")) : (newEmoticon ? i18nc("@title:window", "Add Emoji") : i18nc("@title:window", "Edit Emoji"))
+    title: emoticonType === EmoticonFormCard.Stickers ? (newEmoticon ? KI18n.i18nc("@title:window", "Add Sticker") : KI18n.i18nc("@title:window", "Edit Sticker")) : (newEmoticon ? KI18n.i18nc("@title:window", "Add Emoji") : KI18n.i18nc("@title:window", "Edit Emoji"))
 
     FormCard.FormHeader {
-        title: root.emoticonType === EmoticonFormCard.Stickers ? i18nc("@info:group", "Sticker") : i18nc("@info:group", "Emoji")
+        title: root.emoticonType === EmoticonFormCard.Stickers ? KI18n.i18nc("@info:group", "Sticker") : KI18n.i18nc("@info:group", "Emoji")
     }
     FormCard.FormCard {
         FormCard.AbstractFormDelegate {
@@ -58,7 +59,7 @@ FormCard.FormCardPage {
                         anchors.right: parent.right
                         anchors.bottom: parent.bottom
                         onClicked: mouseArea.clicked()
-                        text: image.source != "" ? i18n("Change Image") : i18n("Set Image")
+                        text: image.source != "" ? KI18n.i18n("Change Image") : KI18n.i18n("Set Image")
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.visible: hovered
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -96,19 +97,19 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormTextFieldDelegate {
-            label: i18n("Shortcode:")
+            label: KI18n.i18n("Shortcode:")
             text: root.shortcode
             onTextChanged: root.shortcode = text
         }
         FormCard.FormTextFieldDelegate {
-            label: i18n("Description:")
+            label: KI18n.i18n("Description:")
             text: root.description
             onTextChanged: root.description = text
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             id: save
-            text: i18n("Save")
+            text: KI18n.i18n("Save")
             icon.name: "document-save"
             enabled: !root.newEmoticon || (image.source.toString().length > 0 && root.shortcode && root.description)
             onClicked: {

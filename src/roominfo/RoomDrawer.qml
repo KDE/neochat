@@ -13,6 +13,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline as Timeline
 import org.kde.neochat.settings as Settings
+import org.kde.ki18n
 
 Kirigami.OverlayDrawer {
     id: root
@@ -119,7 +120,7 @@ Kirigami.OverlayDrawer {
                             id: settingsButton
 
                             display: QQC2.AbstractButton.IconOnly
-                            text: i18nc("@action:button", "Room settings")
+                            text: KI18n.i18nc("@action:button", "Room settings")
                             icon.name: 'settings-configure-symbolic'
 
                             QQC2.ToolTip.text: text
@@ -170,12 +171,12 @@ Kirigami.OverlayDrawer {
                     actions: [
                         Kirigami.Action {
                             id: infoAction
-                            text: i18n("Information")
+                            text: KI18n.i18n("Information")
                             icon.name: "documentinfo"
                             onTriggered: drawerItemLoader.sourceComponent = roomInformation
                         },
                         Kirigami.Action {
-                            text: i18n("Media")
+                            text: KI18n.i18n("Media")
                             icon.name: "mail-attachment-symbollic"
                             onTriggered: drawerItemLoader.sourceComponent = roomMedia
                         }

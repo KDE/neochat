@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -22,7 +23,7 @@ Kirigami.Dialog {
     }
     readonly property bool hasSupportResources: supportController.supportPage.length > 0 || supportController.contacts.length > 0
 
-    title: i18nc("@title Support information", "Support")
+    title: KI18n.i18nc("@title Support information", "Support")
     width: Math.min(Kirigami.Units.gridUnit * 30, QQC2.ApplicationWindow.window.width)
 
     ColumnLayout {
@@ -32,8 +33,8 @@ Kirigami.Dialog {
             id: explanationTextDelegate
 
             text: root.hasSupportResources ?
-                i18nc("@info:label %1 is the domain of the server", "Official support resources provided by %1:", root.connection.domain)
-                : i18nc("@info:label %1 is the domain of the server", "%1 has no support resources.", root.connection.domain)
+                KI18n.i18nc("@info:label %1 is the domain of the server", "Official support resources provided by %1:", root.connection.domain)
+                : KI18n.i18nc("@info:label %1 is the domain of the server", "%1 has no support resources.", root.connection.domain)
         }
 
         FormCard.FormDelegateSeparator {
@@ -46,7 +47,7 @@ Kirigami.Dialog {
             id: openSupportPageDelegate
 
             icon.name: "help-contents-symbolic"
-            text: i18nc("@action:button Open support webpage", "Open Support")
+            text: KI18n.i18nc("@action:button Open support webpage", "Open Support")
             url: root.supportController.supportPage
             visible: root.supportController.supportPage.length > 0
         }
@@ -81,9 +82,9 @@ Kirigami.Dialog {
                         text: {
                             // Translate known keys
                             if (contactDelegate.role === "m.role.admin") {
-                                return i18nc("@info:label Adminstrator contact", "Admin")
+                                return KI18n.i18nc("@info:label Adminstrator contact", "Admin")
                             } else if (contactDelegate.role === "m.role.security") {
-                                return i18nc("@info:label Security contact", "Security")
+                                return KI18n.i18nc("@info:label Security contact", "Security")
                             }
                             return contactDelegate.role;
                         }
@@ -103,7 +104,7 @@ Kirigami.Dialog {
 
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         QQC2.ToolTip.visible: hovered
-                        QQC2.ToolTip.text: i18nc("@info:tooltip %1 is a Matrix ID", "Contact via Matrix (%1)", contactDelegate.matrixId)
+                        QQC2.ToolTip.text: KI18n.i18nc("@info:tooltip %1 is a Matrix ID", "Contact via Matrix (%1)", contactDelegate.matrixId)
                     }
 
                     QQC2.ToolButton {
@@ -114,7 +115,7 @@ Kirigami.Dialog {
 
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         QQC2.ToolTip.visible: hovered
-                        QQC2.ToolTip.text: i18nc("@info:tooltip %1 is an e-mail address", "Contact via e-mail (%1)", contactDelegate.emailAddress)
+                        QQC2.ToolTip.text: KI18n.i18nc("@info:tooltip %1 is an e-mail address", "Contact via e-mail (%1)", contactDelegate.emailAddress)
                     }
                 }
             }

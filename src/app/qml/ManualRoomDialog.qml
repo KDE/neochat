@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -24,7 +25,7 @@ Kirigami.Dialog {
      */
     signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
-    title: i18nc("@title", "Manually Enter a Room")
+    title: KI18n.i18nc("@title", "Manually Enter a Room")
     showCloseButton: false
     standardButtons: QQC2.Dialog.Cancel
 
@@ -72,18 +73,18 @@ Kirigami.Dialog {
                 }
             }
 
-            label: i18n("Room ID or Alias:")
+            label: KI18n.i18n("Room ID or Alias:")
             statusMessage: {
                 if (text.length > 0 && !correctStart) {
-                    return i18n("Must start with # for an alias or ! for an ID");
+                    return KI18n.i18n("Must start with # for an alias or ! for an ID");
                 }
                 if (timer.running) {
                     return "";
                 }
                 if (text.length > 0 && !isValidText) {
-                    return i18n("The input is not a valid room ID or alias");
+                    return KI18n.i18n("The input is not a valid room ID or alias");
                 }
-                return correctStart ? "" : i18n("Must start with # for an alias or ! for an ID");
+                return correctStart ? "" : KI18n.i18n("Must start with # for an alias or ! for an ID");
             }
             status: text.length > 0 ? Kirigami.MessageType.Error : Kirigami.MessageType.Information
 
@@ -107,7 +108,7 @@ Kirigami.Dialog {
 
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
-            text: i18nc("@action:button Join this room/space", "Join")
+            text: KI18n.i18nc("@action:button Join this room/space", "Join")
             icon.name: "checkmark"
             enabled: roomIdAliasText.isValidText
 

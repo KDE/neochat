@@ -12,6 +12,7 @@ import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a video from a message.
@@ -140,7 +141,7 @@ Video {
         anchors.margins: Kirigami.Units.smallSpacing
         visible: root.state !== "hidden"
         icon.name: "view-hidden"
-        text: i18nc("@action:button", "Hide Video")
+        text: KI18n.i18nc("@action:button", "Hide Video")
         display: QQC2.Button.IconOnly
         z: 10
         onClicked: Message.contentModel?.hideMedia()
@@ -165,7 +166,7 @@ Video {
 
         visible: false
         color: "white"
-        text: i18n("Video")
+        text: KI18n.i18n("Video")
         font.pixelSize: 16
 
         padding: 8
@@ -224,7 +225,7 @@ Video {
 
         QQC2.Button {
             anchors.centerIn: parent
-            text: i18nc("@action:button", "Show Video")
+            text: KI18n.i18nc("@action:button", "Show Video")
             onClicked: Message.contentModel?.showMedia()
         }
     }
@@ -262,7 +263,7 @@ Video {
                 QQC2.ToolTip.visible: hovered
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 QQC2.ToolTip.timeout: Kirigami.Units.toolTipDelay
-                QQC2.ToolTip.text: i18nc("@action:button", "Volume")
+                QQC2.ToolTip.text: KI18n.i18nc("@action:button", "Volume")
 
                 onClicked: {
                     if (root.volume > 0) {
@@ -345,7 +346,7 @@ Video {
                 id: maximizeButton
                 display: QQC2.AbstractButton.IconOnly
 
-                text: i18nc("@action:button", "Maximize")
+                text: KI18n.i18nc("@action:button", "Maximize")
                 icon.name: "view-fullscreen"
                 onClicked: {
                     root.Message.timeline.interactive = false;

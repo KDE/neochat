@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a reply button for threads in a message bubble.
@@ -28,7 +29,7 @@ Delegates.RoundedItemDelegate {
     highlighted: true
 
     icon.name: "mail-reply-custom"
-    text: i18nc("@action:button", "Reply")
+    text: KI18n.i18nc("@action:button", "Reply")
 
     onClicked: {
         RoomManager.requestReply("", root.threadRoot);

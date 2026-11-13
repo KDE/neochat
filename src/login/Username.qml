@@ -7,6 +7,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -17,10 +18,10 @@ LoginStep {
 
     FormCard.FormTextFieldDelegate {
         id: usernameField
-        label: i18n("Username:")
+        label: KI18n.i18n("Username:")
         placeholderText: "user"
         onTextChanged: timer.restart()
-        statusMessage: Registration.status === Registration.UsernameTaken ? i18n("Username unavailable") : ""
+        statusMessage: Registration.status === Registration.UsernameTaken ? KI18n.i18n("Username unavailable") : ""
         Keys.onReturnPressed: {
             if (root.nextAction.enabled) {
                 root.nextAction.trigger();
@@ -35,7 +36,7 @@ LoginStep {
     }
 
     nextAction: Kirigami.Action {
-        text: Registration.status === Registration.TestingUsername ? i18n("Loading") : null
+        text: Registration.status === Registration.TestingUsername ? KI18n.i18n("Loading") : null
 
         onTriggered: root.processed("RegisterPassword")
         enabled: Registration.status === Registration.Ready

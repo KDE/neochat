@@ -13,6 +13,7 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -27,7 +28,7 @@ Kirigami.Dialog {
     standardButtons: Kirigami.Dialog.NoButton
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
-    title: i18nc("@title: dialog to switch between logged in accounts", "Switch Account")
+    title: KI18n.i18nc("@title: dialog to switch between logged in accounts", "Switch Account")
 
     onVisibleChanged: if (visible) {
         accountView.forceActiveFocus()
@@ -52,10 +53,10 @@ Kirigami.Dialog {
                 width: Kirigami.Units.iconSizes.smallMedium
                 height: Kirigami.Units.iconSizes.smallMedium
             }
-            text: i18nc("@button: login to or register a new account.", "Add Account")
+            text: KI18n.i18nc("@button: login to or register a new account.", "Add Account")
             contentItem: Delegates.SubtitleContentItem {
                 itemDelegate: addDelegate
-                subtitle: i18nc("@info", "Log in or create a new account")
+                subtitle: KI18n.i18nc("@info", "Log in or create a new account")
                 labelItem.textFormat: Text.PlainText
                 subtitleItem.textFormat: Text.PlainText
             }
@@ -63,7 +64,7 @@ Kirigami.Dialog {
             onClicked: {
                 root.close();
                 ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'), {}, {
-                    title: i18nc("@title:window", "Login")
+                    title: KI18n.i18nc("@title:window", "Login")
                 });
             }
             Keys.onUpPressed: {

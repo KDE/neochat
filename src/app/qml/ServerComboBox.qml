@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 QQC2.ComboBox {
     id: root
@@ -44,7 +45,7 @@ QQC2.ComboBox {
         required property bool isHomeServer
         required property bool isDeletable
 
-        text: isAddServerDelegate ? i18nc("@action:button", "Add New Server") : url
+        text: isAddServerDelegate ? KI18n.i18nc("@action:button", "Add New Server") : url
         highlighted: index === root.highlightedIndex
 
         topInset: index === 0 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
@@ -60,14 +61,14 @@ QQC2.ComboBox {
 
             Delegates.SubtitleContentItem {
                 itemDelegate: serverItem
-                subtitle: serverItem.isHomeServer ? i18nc("@info", "Home Server") : ""
+                subtitle: serverItem.isHomeServer ? KI18n.i18nc("@info", "Home Server") : ""
                 Layout.fillWidth: true
             }
 
             QQC2.ToolButton {
                 visible: serverItem.isAddServerDelegate || serverItem.isDeletable
                 icon.name: serverItem.isAddServerDelegate ? "list-add" : "dialog-close"
-                text: serverItem.isAddServerDelegate ? i18nc("@action:button", "Add new server") : i18nc("@action:button", "Remove server")
+                text: serverItem.isAddServerDelegate ? KI18n.i18nc("@action:button", "Add new server") : KI18n.i18nc("@action:button", "Remove server")
                 Accessible.name: text
                 display: QQC2.AbstractButton.IconOnly
 
@@ -111,7 +112,7 @@ QQC2.ComboBox {
 
         width: Math.min(Kirigami.Units.gridUnit * 15, QQC2.ApplicationWindow.window.width)
 
-        title: i18nc("@title:window", "Add server")
+        title: KI18n.i18nc("@title:window", "Add server")
 
         horizontalPadding: Kirigami.Units.largeSpacing
 
@@ -138,11 +139,11 @@ QQC2.ComboBox {
                 text: {
                     if (serverUrlField.length > 0) {
                         if (!serverUrlField.acceptableInput) {
-                            return i18nc("@info", "The entered text is not a valid url");
+                            return KI18n.i18nc("@info", "The entered text is not a valid url");
                         }
 
                         if (!serverUrlField.isValidServer) {
-                            return i18nc("@info", "This server cannot be resolved or has already been added");
+                            return KI18n.i18nc("@info", "This server cannot be resolved or has already been added");
                         }
                     }
 
@@ -153,7 +154,7 @@ QQC2.ComboBox {
             QQC2.Label {
                 Layout.fillWidth: true
 
-                text: i18nc("@label", "Server URL:")
+                text: KI18n.i18nc("@label", "Server URL:")
             }
 
             QQC2.TextField {
@@ -187,7 +188,7 @@ QQC2.ComboBox {
         }
 
         customFooterActions: Kirigami.Action {
-            text: i18nc("@action:button", "OK")
+            text: KI18n.i18nc("@action:button", "OK")
             enabled: serverUrlField.acceptableInput && serverUrlField.isValidServer
             onTriggered: {
                 serverListModel.addServer(serverUrlField.text);

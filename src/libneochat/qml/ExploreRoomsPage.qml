@@ -12,6 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief Component for finding rooms for the public list.
@@ -50,7 +51,7 @@ SearchPage {
      */
     signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
-    title: i18nc("@action:title Explore public rooms and spaces", "Explore")
+    title: KI18n.i18nc("@action:title Explore public rooms and spaces", "Explore")
     customPlaceholderText: {
         if (publicRoomListModel.redirectedText.length > 0)
             return publicRoomListModel.redirectedText;
@@ -70,7 +71,7 @@ SearchPage {
             icon.name: "globe"
             display: QQC2.Button.IconOnly
             checkable: true
-            text: i18nc("@action:button", "Only show spaces")
+            text: KI18n.i18nc("@action:button", "Only show spaces")
             enabled: root.enableSearch
 
             QQC2.ToolTip.visible: hovered
@@ -104,7 +105,7 @@ SearchPage {
         onClicked: _private.openManualRoomDialog()
 
         activeFocusOnTab: false // We handle moving to this item via up/down arrows, otherwise the tab order is wacky
-        text: i18n("Enter a Room Manually")
+        text: KI18n.i18n("Enter a Room Manually")
         visible: root.customPlaceholderText.length === 0
         icon.name: "compass"
         icon.width: Kirigami.Units.gridUnit * 2
@@ -113,7 +114,7 @@ SearchPage {
         contentItem: Kirigami.IconTitleSubtitle {
             icon: icon.fromControlsIcon(delegate.icon)
             title: delegate.text
-            subtitle: i18n("If you already know a room's address or alias, and it isn't shown here.")
+            subtitle: KI18n.i18n("If you already know a room's address or alias, and it isn't shown here.")
         }
     }
 
@@ -125,9 +126,9 @@ SearchPage {
         indeterminate: true
     }
 
-    searchFieldPlaceholder: i18n("Find a room…")
-    noResultPlaceholderMessage: i18nc("@info:label", "No public rooms found")
-    noSearchPlaceholderMessage: i18nc("@info:label", "No public rooms")
+    searchFieldPlaceholder: KI18n.i18n("Find a room…")
+    noResultPlaceholderMessage: KI18n.i18nc("@info:label", "No public rooms found")
+    noSearchPlaceholderMessage: KI18n.i18nc("@info:label", "No public rooms")
 
     Component {
         id: manualRoomDialog

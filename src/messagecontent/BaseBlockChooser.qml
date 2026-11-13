@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 import org.kde.neochat.libneochat
+import org.kde.ki18n
 
 /**
  * @brief Select a message component based on a Blocks.Type.
@@ -186,7 +187,7 @@ DelegateChooser {
         delegate: MimeComponent {
             mimeIconSource: "security-high"
             required property var model
-            label: i18n("%1 started a user verification", model.author.htmlSafeDisplayName)
+            label: KI18n.i18n("%1 started a user verification", model.author.htmlSafeDisplayName)
         }
     }
 

@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.syntaxhighlighting
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -25,17 +26,17 @@ Kirigami.Page {
     rightPadding: 0
     bottomPadding: 0
 
-    title: i18nc("@title As in 'edit the state of this room'", "Edit State")
+    title: KI18n.i18nc("@title As in 'edit the state of this room'", "Edit State")
 
     actions: [
         Kirigami.Action {
-            text: i18nc("@action", "Revert changes")
+            text: KI18n.i18nc("@action", "Revert changes")
             icon.name: "document-revert"
             onTriggered: sourceTextArea.text = root.sourceText
             enabled: sourceTextArea.text !== root.sourceText
         },
         Kirigami.Action {
-            text: i18nc("@action As in 'Apply the changes'", "Apply")
+            text: KI18n.i18nc("@action As in 'Apply the changes'", "Apply")
             icon.name: "document-edit"
             onTriggered: {
                 root.room.setRoomState(root.type, root.stateKey, sourceTextArea.text);

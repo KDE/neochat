@@ -10,6 +10,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -25,7 +26,7 @@ Kirigami.Dialog {
     standardButtons: Kirigami.Dialog.NoButton
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
-    title: i18nc("@title:dialog", "Join Room")
+    title: KI18n.i18nc("@title:dialog", "Join Room")
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -63,7 +64,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Join room")
+            text: KI18n.i18nc("@action:button", "Join room")
             icon.name: "irc-join-channel"
             onClicked: {
                 RoomManager.resolveResource(root.room, "join_confirmed");

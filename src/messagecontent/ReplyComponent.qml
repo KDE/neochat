@@ -12,6 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a message that has been replied to.
@@ -96,7 +97,7 @@ QQC2.Control {
 
         visible: root.editable
         display: QQC2.AbstractButton.IconOnly
-        text: i18nc("@action:button", "Cancel reply")
+        text: KI18n.i18nc("@action:button", "Cancel reply")
         icon.name: "dialog-close"
         onClicked: root.Message.contentModel.removeReply();
         QQC2.ToolTip.text: text

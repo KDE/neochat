@@ -10,18 +10,19 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 SearchPage {
     id: root
 
-    title: i18nc("@title", "Choose a Room")
+    title: KI18n.i18nc("@title", "Choose a Room")
 
     showSearchButton: false
 
     signal chosen(list<string> roomIds)
 
     property bool multiple: false
-    property string actionText: i18nc("@action", "Select")
+    property string actionText: KI18n.i18nc("@action", "Select")
     property string icon: "dialog-ok-symbolic"
     required property NeoChatConnection connection
 
@@ -81,7 +82,7 @@ SearchPage {
             }
             QQC2.Button {
                 icon.name: "dialog-cancel-symbolic"
-                text: i18nc("@action", "Cancel")
+                text: KI18n.i18nc("@action", "Cancel")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
                 onClicked: root.Kirigami.PageStack.closeDialog()
             }

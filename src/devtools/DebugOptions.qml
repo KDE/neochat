@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCard {
     id: root
@@ -15,28 +16,28 @@ FormCard.FormCard {
     Layout.topMargin: Kirigami.Units.largeSpacing
 
     FormCard.FormCheckDelegate {
-        text: i18nc("@option:check", "Show hidden events in the timeline")
+        text: KI18n.i18nc("@option:check", "Show hidden events in the timeline")
         checked: NeoChatConfig.showAllEvents
 
         onToggled: NeoChatConfig.showAllEvents = checked
     }
     FormCard.FormCheckDelegate {
-        text: i18nc("@option:check", "Allow sending relations to any event in the timeline")
-        description: i18nc("@info", "This includes state events")
+        text: KI18n.i18nc("@option:check", "Allow sending relations to any event in the timeline")
+        description: KI18n.i18nc("@info", "This includes state events")
         checked: NeoChatConfig.relateAnyEvent
 
         onToggled: NeoChatConfig.relateAnyEvent = checked
     }
     FormCard.FormCheckDelegate {
         id: roomAccountDataVisibleCheck
-        text: i18nc("@option:check", "Always allow device verification")
-        description: i18n("Allow the user to start a verification session with devices that were already verified")
+        text: KI18n.i18nc("@option:check", "Always allow device verification")
+        description: KI18n.i18n("Allow the user to start a verification session with devices that were already verified")
         checked: NeoChatConfig.alwaysVerifyDevice
 
         onToggled: NeoChatConfig.alwaysVerifyDevice = checked
     }
     FormCard.FormCheckDelegate {
-        text: i18nc("@option:check", "Show focus in window header")
+        text: KI18n.i18nc("@option:check", "Show focus in window header")
         checked: NeoChatConfig.windowTitleFocus
 
         onToggled: {
@@ -47,8 +48,8 @@ FormCard.FormCard {
     FormCard.FormDelegateSeparator {}
 
     FormCard.FormButtonDelegate {
-        text: i18nc("@action:button", "Crash")
-        description: i18nc("@action:button", "Crash the application")
+        text: KI18n.i18nc("@action:button", "Crash")
+        description: KI18n.i18nc("@action:button", "Crash the application")
         onClicked: Controller.crash()
     }
 

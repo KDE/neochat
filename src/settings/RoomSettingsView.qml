@@ -7,6 +7,7 @@ import QtQuick
 import org.kde.kirigamiaddons.settings as KirigamiSettings
 
 import org.kde.neochat
+import org.kde.ki18n
 
 KirigamiSettings.ConfigurationView {
     id: root
@@ -23,9 +24,9 @@ KirigamiSettings.ConfigurationView {
         root._room = room;
         root._connection = room.connection;
         if (type === RoomSettingsView.Type.Space) {
-            root.title = i18nc("@title:window", "Space Settings");
+            root.title = KI18n.i18nc("@title:window", "Space Settings");
         } else {
-            root.title = i18nc("@title:window", "Room Settings");
+            root.title = KI18n.i18nc("@title:window", "Room Settings");
         }
         open();
     }
@@ -34,7 +35,7 @@ KirigamiSettings.ConfigurationView {
     modules: [
         KirigamiSettings.ConfigurationModule {
             moduleId: "general"
-            text: i18nc("@title", "General")
+            text: KI18n.i18nc("@title", "General")
             icon.name: "settings-configure"
             page: () => Qt.createComponent("org.kde.neochat.settings", "RoomGeneralPage")
             initialProperties: () => {
@@ -46,7 +47,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "security"
-            text: i18nc("@title", "Security")
+            text: KI18n.i18nc("@title", "Security")
             icon.name: "security-low"
             page: () => Qt.createComponent("org.kde.neochat.settings", "RoomSecurityPage")
             initialProperties: () => {
@@ -57,7 +58,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "members"
-            text: i18nc("@title", "Members")
+            text: KI18n.i18nc("@title", "Members")
             icon.name: "system-users-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "Members")
             initialProperties: () => {
@@ -68,7 +69,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "permissions"
-            text: i18nc("@title", "Permissions")
+            text: KI18n.i18nc("@title", "Permissions")
             icon.name: "visibility"
             page: () => Qt.createComponent("org.kde.neochat.settings", "Permissions")
             initialProperties: () => {
@@ -79,7 +80,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "notifications"
-            text: i18nc("@title", "Notifications")
+            text: KI18n.i18nc("@title", "Notifications")
             icon.name: "notifications"
             page: () => Qt.createComponent("org.kde.neochat.settings", "PushNotification")
             initialProperties: () => {
@@ -90,7 +91,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "profile"
-            text: i18nc("@title", "Profile")
+            text: KI18n.i18nc("@title", "Profile")
             icon.name: "user-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "RoomProfile")
             initialProperties: () => {
@@ -101,7 +102,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "advanced"
-            text: i18nc("@title", "Advanced")
+            text: KI18n.i18nc("@title", "Advanced")
             icon.name: "document-properties-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "RoomAdvancedPage")
             initialProperties: () => {

@@ -10,14 +10,15 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
-    title: i18nc("@title:window", "Devices")
+    title: KI18n.i18nc("@title:window", "Devices")
 
     background: Kirigami.PlaceholderMessage {
-        text: i18n("Loading…")
+        text: KI18n.i18n("Loading…")
         visible: !thisDeviceCard.visible
     }
 
@@ -29,7 +30,7 @@ FormCard.FormCardPage {
 
     DevicesCard {
         id: thisDeviceCard
-        title: i18nc("@info:group", "This Device")
+        title: KI18n.i18nc("@info:group", "This Device")
         type: DevicesModel.This
         showVerifyButton: false
         devicesModel: root.devicesModel
@@ -41,27 +42,27 @@ FormCard.FormCardPage {
             id: verifyThisDeviceDelegate
 
             icon.name: !root.connection.isVerifiedSession ? "security-low" : "security-high"
-            text: i18nc("@action:button", "Verify This Device")
-            description: !root.connection.isVerifiedSession ? i18nc("@info:description", "This device is marked as insecure until it's verified by another device. It's recommended to verify as soon as possible.")
-                            : i18nc("@info:description", "This device is marked as secure.")
+            text: KI18n.i18nc("@action:button", "Verify This Device")
+            description: !root.connection.isVerifiedSession ? KI18n.i18nc("@info:description", "This device is marked as insecure until it's verified by another device. It's recommended to verify as soon as possible.")
+                            : KI18n.i18nc("@info:description", "This device is marked as secure.")
             visible: !root.connection.isVerifiedSession || NeoChatConfig.alwaysVerifyDevice
             onClicked: root.connection.startSelfVerification()
         }
     }
     DevicesCard {
-        title: i18nc("@info:group", "Verified Devices")
+        title: KI18n.i18nc("@info:group", "Verified Devices")
         type: DevicesModel.Verified
         showVerifyButton: true
         devicesModel: root.devicesModel
     }
     DevicesCard {
-        title: i18nc("@info:group", "Unverified Devices")
+        title: KI18n.i18nc("@info:group", "Unverified Devices")
         type: DevicesModel.Unverified
         showVerifyButton: true
         devicesModel: root.devicesModel
     }
     DevicesCard {
-        title: i18nc("@info:group", "Devices without Encryption Support")
+        title: KI18n.i18nc("@info:group", "Devices without Encryption Support")
         type: DevicesModel.Unencrypted
         showVerifyButton: false
         devicesModel: root.devicesModel
@@ -77,7 +78,7 @@ FormCard.FormCardPage {
         Layout.fillWidth: true
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
         Layout.alignment: Qt.AlignHCenter
-        text: i18n("Please login to view the signed-in devices for your account.")
+        text: KI18n.i18n("Please login to view the signed-in devices for your account.")
         type: Kirigami.MessageType.Information
         visible: !root.connection
     }

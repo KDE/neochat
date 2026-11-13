@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as Components
+import org.kde.ki18n
 
 Delegates.RoundedItemDelegate {
     id: root
@@ -67,12 +68,12 @@ Delegates.RoundedItemDelegate {
                     id: spaceLabel
                     Layout.fillWidth: true
                     visible: root.isSpace
-                    text: i18nc("@info:label A matrix space", "Space")
+                    text: KI18n.i18nc("@info:label A matrix space", "Space")
                     color: Kirigami.Theme.linkColor
                 }
                 QQC2.Label {
                     visible: root.isJoined || root.justJoined
-                    text: i18n("Joined")
+                    text: KI18n.i18n("Joined")
                     color: Kirigami.Theme.linkColor
                 }
             }

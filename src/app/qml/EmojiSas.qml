@@ -7,6 +7,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -23,7 +24,7 @@ ColumnLayout {
     }
     QQC2.Label {
         Layout.fillWidth: true
-        text: i18n("Confirm the emoji below are displayed on both devices, in the same order.")
+        text: KI18n.i18n("Confirm the emoji below are displayed on both devices, in the same order.")
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.Wrap
     }
@@ -41,12 +42,12 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignHCenter
         QQC2.Button {
-            text: i18n("They match")
+            text: KI18n.i18n("They match")
             icon.name: "dialog-ok"
             onClicked: root.accept()
         }
         QQC2.Button {
-            text: i18n("They don't match")
+            text: KI18n.i18n("They don't match")
             icon.name: "dialog-cancel"
             onClicked: root.reject()
         }

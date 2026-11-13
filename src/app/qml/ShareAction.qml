@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.purpose as Purpose
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * Action that allows a user to share data with other apps and services
@@ -21,8 +22,8 @@ Kirigami.Action {
     id: root
 
     icon.name: "emblem-shared-symbolic"
-    text: i18nc("@action:button", "Share")
-    tooltip: i18nc("@info:tooltip", "Share the selected media")
+    text: KI18n.i18nc("@action:button", "Share")
+    tooltip: KI18n.i18nc("@info:tooltip", "Share the selected media")
 
     /**
      * This property holds the input data for purpose.
@@ -69,7 +70,7 @@ Kirigami.Action {
                     index: index,
                     model: root._instantiator.model
                 }, {
-                    title: i18nc("@title", "Share")
+                    title: KI18n.i18nc("@title", "Share")
                 });
                 root.room.fileTransferCompleted.disconnect(share);
             }

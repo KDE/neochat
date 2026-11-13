@@ -10,6 +10,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kitemmodels
 
 import org.kde.neochat
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -55,18 +56,18 @@ ColumnLayout {
                         }
                         QQC2.ToolButton {
                             visible: root.connection.hasIdentityServer && threePIdDelegate.isBound
-                            text: i18nc("@action:button", "Hide")
+                            text: KI18n.i18nc("@action:button", "Hide")
                             icon.name: "hide_table_row"
                             onClicked: threePIdBindHelper.unbind3PId(threePIdDelegate.address, threePIdDelegate.medium)
                         }
                         QQC2.ToolButton {
                             visible: threePIdBindHelper.bindStatus === ThreePIdBindHelper.Ready && root.connection.hasIdentityServer && !threePIdDelegate.isBound
-                            text: i18nc("@action:button", "Share")
+                            text: KI18n.i18nc("@action:button", "Share")
                             icon.name: "send-to-symbolic"
                             onClicked: threePIdBindHelper.bindStatus === ThreePIdBindHelper.Verification ? threePIdBindHelper.finalizeNewIdBind() : threePIdBindHelper.initiateNewIdBind()
                         }
                         QQC2.ToolButton {
-                            text: i18nc("@action:button", "Remove")
+                            text: KI18n.i18nc("@action:button", "Remove")
                             icon.name: "edit-delete-remove"
                             onClicked: threePIdAddHelper.remove3PId(threePIdDelegate.address, threePIdDelegate.medium)
                         }
@@ -85,12 +86,12 @@ ColumnLayout {
                             Layout.fillWidth: true
                         }
                         QQC2.ToolButton {
-                            text: i18nc("@action:button", "Complete")
+                            text: KI18n.i18nc("@action:button", "Complete")
                             icon.name: "answer-correct"
                             onClicked: threePIdBindHelper.finalizeNewIdBind()
                         }
                         QQC2.ToolButton {
-                            text: i18nc("@action:button", "Cancel")
+                            text: KI18n.i18nc("@action:button", "Cancel")
                             icon.name: "edit-delete-remove"
                             onClicked: threePIdBindHelper.cancel()
                         }
@@ -133,7 +134,7 @@ ColumnLayout {
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Authentication ||
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.AuthFailure ||
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.VerificationFailure
-            label: i18nc("@label:textbox", "Country Code for new phone number")
+            label: KI18n.i18nc("@label:textbox", "Country Code for new phone number")
 
             Connections {
                 target: threePIdModel
@@ -149,17 +150,17 @@ ColumnLayout {
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Authentication ||
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.AuthFailure ||
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.VerificationFailure
-            label: root.medium === "email" ? i18nc("@label:textbox", "New Email Address:") : i18nc("@label:textbox", "New Phone Number:")
+            label: root.medium === "email" ? KI18n.i18nc("@label:textbox", "New Email Address:") : KI18n.i18nc("@label:textbox", "New Phone Number:")
 
             statusMessage: switch(threePIdAddHelper.newIdStatus) {
             case ThreePIdAddHelper.Verification:
-                return i18n("%1. Please follow the instructions there and then click the button below", root.medium == "email" ? i18n("We've sent you an email") : i18n("We've sent you a text message"));
+                return KI18n.i18n("%1. Please follow the instructions there and then click the button below", root.medium == "email" ? KI18n.i18n("We've sent you an email") : KI18n.i18n("We've sent you a text message"));
             case ThreePIdAddHelper.Invalid:
-                return root.medium == "email" ? i18n("The entered email is not valid") : i18n("The entered phone number is not valid");
+                return root.medium == "email" ? KI18n.i18n("The entered email is not valid") : KI18n.i18n("The entered phone number is not valid");
             case ThreePIdAddHelper.AuthFailure:
-                return i18n("Incorrect password entered");
+                return KI18n.i18n("Incorrect password entered");
             case ThreePIdAddHelper.VerificationFailure:
-                return root.medium == "email" ? i18n("The email has not been verified. Please go to the email and follow the instructions there and then click the button below") : i18n("The phone number has not been verified. Please go to the text message and follow the instructions there and then click the button below");
+                return root.medium == "email" ? KI18n.i18n("The email has not been verified. Please go to the email and follow the instructions there and then click the button below") : KI18n.i18n("The phone number has not been verified. Please go to the text message and follow the instructions there and then click the button below");
             default:
                 return "";
             }
@@ -186,7 +187,7 @@ ColumnLayout {
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             icon.name: threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Ready ? "list-add-symbolic" : ""
-            text: threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Ready ? i18nc("@action:button Add new email or phone number", "Add") : i18nc("@action:button", "Continue")
+            text: threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Ready ? KI18n.i18nc("@action:button Add new email or phone number", "Add") : KI18n.i18nc("@action:button", "Continue")
             onClicked: _private.openPasswordSheet()
         }
         FormCard.FormButtonDelegate {
@@ -194,7 +195,7 @@ ColumnLayout {
                      threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Authentication ||
                      threePIdAddHelper.newIdStatus == ThreePIdAddHelper.AuthFailure ||
                      threePIdAddHelper.newIdStatus == ThreePIdAddHelper.VerificationFailure
-            text: i18nc("@action:button As in 'go back'", "Back")
+            text: KI18n.i18nc("@action:button As in 'go back'", "Back")
             onClicked: threePIdAddHelper.back()
         }
     }

@@ -10,18 +10,19 @@ import org.kde.kirigamiaddons.labs.components as Components
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat.libneochat as LibNeoChat
+import org.kde.ki18n
 
 Components.AbstractMaximizeComponent {
     id: root
 
     signal locationChosen(latitude: real, longitude: real, asset: string)
 
-    title: i18n("Choose a Location")
+    title: KI18n.i18n("Choose a Location")
 
     actions: [
         Kirigami.Action {
             icon.name: "map-globe-symbolic"
-            text: i18nc("@action:intoolbar Set the location seleted by the user as the one to send", "Select this location")
+            text: KI18n.i18nc("@action:intoolbar Set the location seleted by the user as the one to send", "Select this location")
             onTriggered: {
                 root.locationChosen(mapView.locationMapItem.latitude, mapView.locationMapItem.longitude, "m.pin");
                 root.close();
@@ -29,13 +30,13 @@ Components.AbstractMaximizeComponent {
             enabled: mapView.map.mapItems.length > 0
         },
         Kirigami.Action {
-            text: i18nc("@action:intoolbar Re-center the map onto the set location", "Re-Center")
+            text: KI18n.i18nc("@action:intoolbar Re-center the map onto the set location", "Re-Center")
             icon.name: "snap-bounding-box-center-symbolic"
             onTriggered: mapView.map.fitViewportToMapItems([mapView.locationMapItem])
             enabled: mapView.map.mapItems.length > 0
         },
         Kirigami.Action {
-            text: i18nc("@action:intoolbar Determine the device's location", "Set to current location")
+            text: KI18n.i18nc("@action:intoolbar Determine the device's location", "Set to current location")
             icon.name: "mark-location-symbolic"
             enabled: positionSource.valid
             onTriggered: positionSource.update()

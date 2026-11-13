@@ -11,6 +11,7 @@ import org.kde.config as KConfig
 import org.kde.neochat
 import org.kde.neochat.login
 import org.kde.neochat.settings
+import org.kde.ki18n
 
 Kirigami.ApplicationWindow {
     id: root
@@ -254,10 +255,10 @@ Kirigami.ApplicationWindow {
         }
 
         handleClosedIcon.name: "documentinfo-symbolic"
-        handleClosedToolTip: i18nc("@action:button", "Show Room Information")
+        handleClosedToolTip: KI18n.i18nc("@action:button", "Show Room Information")
 
         // Default icon is fine, only need to override the tooltip text
-        handleOpenToolTip: i18nc("@action:button", "Close Room Information Drawer")
+        handleOpenToolTip: KI18n.i18nc("@action:button", "Close Room Information Drawer")
 
         modal: (!root.wideScreen || !enabled)
         onEnabledChanged: drawerOpen = enabled && !modal
@@ -306,7 +307,7 @@ Kirigami.ApplicationWindow {
     }
 
     readonly property Kirigami.Page loadingPage : Kirigami.Page {
-        title: i18nc("@title", "Loading")
+        title: KI18n.i18nc("@title", "Loading")
         globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
         parent: states
@@ -344,7 +345,7 @@ Kirigami.ApplicationWindow {
                 session: session,
                 connection: root.connection,
             }, {
-                title: i18nc("@title:window", "Session Verification")
+                title: KI18n.i18nc("@title:window", "Session Verification")
             });
         }
         function onUserConsentRequired(url) {
@@ -377,7 +378,7 @@ Kirigami.ApplicationWindow {
         const dialog = root.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
             connection: root.connection
         }, {
-            title: i18nc("@title", "Share"),
+            title: KI18n.i18nc("@title", "Share"),
             width: Kirigami.Units.gridUnit * 25
         })
         dialog.chosen.connect(function(targetRoomIds) {

@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -17,13 +18,13 @@ LoginStep {
 
     FormCard.FormButtonDelegate {
         id: loginPasswordButton
-        text: i18nc("@action:button", "Login with password")
+        text: KI18n.i18nc("@action:button", "Login with password")
         onClicked: root.processed("Password")
     }
 
     FormCard.FormButtonDelegate {
         id: loginSsoButton
-        text: i18nc("@action:button", "Login with single sign-on")
+        text: KI18n.i18nc("@action:button", "Login with single sign-on")
         onClicked: root.processed("Sso")
     }
 }

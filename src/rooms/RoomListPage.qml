@@ -14,6 +14,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -204,7 +205,7 @@ Kirigami.Page {
                     DelegateChoice {
                         roleValue: "addDirect"
                         delegate: Delegates.RoundedItemDelegate {
-                            text: root.collapsed && !Kirigami.Settings.isMobile ? "" : i18nc("@action:button", "Find your friends")
+                            text: root.collapsed && !Kirigami.Settings.isMobile ? "" : KI18n.i18nc("@action:button", "Find your friends")
                             icon.name: "list-add-user"
                             icon.width: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
                             icon.height: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
@@ -212,7 +213,7 @@ Kirigami.Page {
                             onClicked: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                                 connection: root.connection
                             }, {
-                                title: i18nc("@title", "Find your friends")
+                                title: KI18n.i18nc("@title", "Find your friends")
                             })
                         }
                     }
@@ -238,16 +239,16 @@ Kirigami.Page {
         width: scrollView.width - Kirigami.Units.largeSpacing * 4
         visible: treeView.rows == 0
         text: if (RoomManager.sortFilterRoomTreeModel.filterText.length > 0) {
-            return RoomManager.currentSpace === "DM" ? i18nc("@info", "No friends found") : i18nc("@info", "No rooms found");
+            return RoomManager.currentSpace === "DM" ? KI18n.i18nc("@info", "No friends found") : KI18n.i18nc("@info", "No rooms found");
         } else {
-            return RoomManager.currentSpace === "DM" ? i18nc("@info", "You haven't added any of your friends yet, click below to search for them.") : i18nc("@info", "Join some rooms to get started");
+            return RoomManager.currentSpace === "DM" ? KI18n.i18nc("@info", "You haven't added any of your friends yet, click below to search for them.") : KI18n.i18nc("@info", "Join some rooms to get started");
         }
         helpfulAction: RoomManager.currentSpace === "DM" ? userSearchAction : exploreRoomAction
 
         Kirigami.Action {
             id: exploreRoomAction
             icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "compass"
-            text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18nc("@action:button Search public directory for this room", "Search for Room") : i18nc("@action:button Explore public rooms and spaces", "Explore")
+            text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? KI18n.i18nc("@action:button Search public directory for this room", "Search for Room") : KI18n.i18nc("@action:button Explore public rooms and spaces", "Explore")
             onTriggered: {
                 let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                     connection: root.connection
@@ -261,11 +262,11 @@ Kirigami.Page {
         Kirigami.Action {
             id: userSearchAction
             icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add-user"
-            text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18nc("@action:button", "Search in friend directory") : i18nc("@action:button", "Find your friends")
+            text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? KI18n.i18nc("@action:button", "Search in friend directory") : KI18n.i18nc("@action:button", "Find your friends")
             onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                 connection: root.connection
             }, {
-                title: i18nc("@title", "Find your friends")
+                title: KI18n.i18nc("@title", "Find your friends")
             })
         }
     }

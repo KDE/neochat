@@ -12,6 +12,7 @@ import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as Components
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief Component for finding users from the public list.
@@ -30,7 +31,7 @@ SearchPage {
      */
     required property NeoChatConnection connection
 
-    title: i18nc("@action:title", "Find User")
+    title: KI18n.i18nc("@action:title", "Find User")
 
     Component.onCompleted: focusSearch()
 
@@ -55,7 +56,7 @@ SearchPage {
 
         QQC2.ContextMenu.menu: QQC2.Menu {
             QQC2.MenuItem {
-                text: i18nc("@action:inmenu", "Copy User ID")
+                text: KI18n.i18nc("@action:inmenu", "Copy User ID")
                 icon.name: "username-copy"
                 onTriggered: {
                     Clipboard.saveText(userDelegate.userId)
@@ -81,22 +82,22 @@ SearchPage {
             }
             QQC2.Label {
                 visible: userDelegate.directChatExists
-                text: i18nc("@info", "Direct Messages")
+                text: KI18n.i18nc("@info", "Direct Messages")
                 textFormat: Text.PlainText
                 color: Kirigami.Theme.positiveTextColor
             }
         }
     }
 
-    searchFieldPlaceholder: i18nc("@info:placeholder", "Find your friends…")
-    noSearchPlaceholderMessage: i18nc("@info:placeholder", "Enter text to start searching for your friends")
-    noResultPlaceholderMessage: i18nc("@info:label", "No matches found")
+    searchFieldPlaceholder: KI18n.i18nc("@info:placeholder", "Find your friends…")
+    noSearchPlaceholderMessage: KI18n.i18nc("@info:placeholder", "Enter text to start searching for your friends")
+    noResultPlaceholderMessage: KI18n.i18nc("@info:label", "No matches found")
 
     noSearchHelpfulAction: noResultHelpfulAction
 
     noResultHelpfulAction: Kirigami.Action {
         icon.name: "list-add-user"
-        text: i18nc("@action:button", "Enter a User ID")
+        text: KI18n.i18nc("@action:button", "Enter a User ID")
         onTriggered: _private.openManualUserDialog()
         tooltip: text
     }

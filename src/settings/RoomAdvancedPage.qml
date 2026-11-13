@@ -11,24 +11,25 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     property NeoChatRoom room
 
-    title: i18nc("@window:title", "Advanced")
+    title: KI18n.i18nc("@window:title", "Advanced")
 
     FormCard.FormCard {
         Layout.topMargin: Kirigami.Units.gridUnit
 
         FormCard.FormTextDelegate {
             id: roomIdDelegate
-            text: i18nc("@info:label", "Room ID")
+            text: KI18n.i18nc("@info:label", "Room ID")
             description: root.room.id
 
             contentItem.children: QQC2.Button {
-                text: i18nc("@action:button", "Copy room ID to clipboard")
+                text: KI18n.i18nc("@action:button", "Copy room ID to clipboard")
                 icon.name: "edit-copy"
                 display: QQC2.AbstractButton.IconOnly
 
@@ -47,13 +48,13 @@ FormCard.FormCardPage {
         }
         FormCard.FormTextDelegate {
             id: roomVersionDelegate
-            text: i18nc("@info:label", "Room Version")
+            text: KI18n.i18nc("@info:label", "Room Version")
             description: root.room.version
 
             contentItem.children: QQC2.Button {
                 visible: root.room.canSwitchVersions()
                 enabled: root.room.version < root.room.maxRoomVersion
-                text: i18nc("@action:button", "Upgrade Room…")
+                text: KI18n.i18nc("@action:button", "Upgrade Room…")
                 icon.name: "arrow-up-double"
 
                 onClicked: {
@@ -71,7 +72,7 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Room Creators")
+        title: KI18n.i18nc("@title:group", "Room Creators")
         visible: creatorModel.count > 0 // This shouldn't be possible, but this is meant for libQuotient <0.10
 
         Layout.topMargin: Kirigami.Units.largeSpacing
@@ -100,11 +101,11 @@ FormCard.FormCardPage {
 
         width: Kirigami.Units.gridUnit * 16
 
-        title: i18nc("@title", "Upgrade the Room")
+        title: KI18n.i18nc("@title", "Upgrade the Room")
         ColumnLayout {
             FormCard.FormSpinBoxDelegate {
                 id: spinBox
-                label: i18nc("@label:spinbox", "Select new version")
+                label: KI18n.i18nc("@label:spinbox", "Select new version")
                 from: root.room.version
                 to: root.room.maxRoomVersion
                 value: root.room.version
@@ -112,7 +113,7 @@ FormCard.FormCardPage {
         }
         customFooterActions: [
             Kirigami.Action {
-                text: i18nc("@action:button", "Confirm")
+                text: KI18n.i18nc("@action:button", "Confirm")
                 icon.name: "dialog-ok"
                 onTriggered: {
                     root.room.switchVersion(spinBox.value);

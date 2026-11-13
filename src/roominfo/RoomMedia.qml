@@ -8,6 +8,7 @@ import Qt.labs.qmlmodels
 
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline as Timeline
+import org.kde.ki18n
 
 /**
  * @brief Component for visualising the loaded media items in the room.
@@ -26,7 +27,7 @@ QQC2.ScrollView {
     /**
     * @brief The title that should be displayed for this component if available.
     */
-    readonly property string title: i18nc("@action:title", "Room Media")
+    readonly property string title: KI18n.i18nc("@action:title", "Room Media")
 
     /**
      * @brief The current room that user is viewing.

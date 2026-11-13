@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a link preview loading from a message.
@@ -50,7 +51,7 @@ QQC2.Control {
             Layout.minimumHeight: root.defaultHeight
             verticalAlignment: Text.AlignVCenter
             level: 2
-            text: i18nc("As in the app is loading the link preview", "Loading URL preview…")
+            text: KI18n.i18nc("As in the app is loading the link preview", "Loading URL preview…")
         }
     }
 
@@ -58,7 +59,7 @@ QQC2.Control {
         id: closeButton
         anchors.right: parent.right
         anchors.top: parent.top
-        text: i18nc("As in remove the link preview so it's no longer shown", "Remove preview")
+        text: KI18n.i18nc("As in remove the link preview so it's no longer shown", "Remove preview")
         icon.name: "dialog-close"
         display: QQC2.AbstractButton.IconOnly
 

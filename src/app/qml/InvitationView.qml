@@ -13,6 +13,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -50,7 +51,7 @@ ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
 
             QQC2.Label {
-                text: i18nc("@info:label 'Username' has invited you to this room at 'timestamp'.", "%1 has invited you to this room at %2.", root.invitingMember.displayName, root.inviteTimestamp)
+                text: KI18n.i18nc("@info:label 'Username' has invited you to this room at 'timestamp'.", "%1 has invited you to this room at %2.", root.invitingMember.displayName, root.inviteTimestamp)
 
                 Layout.alignment: Qt.AlignHCenter
             }
@@ -96,7 +97,7 @@ ColumnLayout {
             }
 
             QQC2.Label {
-                text: i18nc("@info:label This user invited you to chat at 'timestamp'", "This user invited you to chat at %1.", root.inviteTimestamp)
+                text: KI18n.i18nc("@info:label This user invited you to chat at 'timestamp'", "This user invited you to chat at %1.", root.inviteTimestamp)
 
                 Layout.alignment: Qt.AlignHCenter
             }
@@ -111,7 +112,7 @@ ColumnLayout {
             id: acceptInviteDelegate
 
             icon.name: "dialog-ok-symbolic"
-            text: i18nc("@action:button Accept this invite", "Accept Invite")
+            text: KI18n.i18nc("@action:button Accept this invite", "Accept Invite")
             focus: true
 
             onClicked: root.currentRoom.acceptInvitation()
@@ -126,7 +127,7 @@ ColumnLayout {
             id: rejectInviteDelegate
 
             icon.name: "dialog-cancel-symbolic"
-            text: i18nc("@action:button Reject this invite", "Reject Invite")
+            text: KI18n.i18nc("@action:button Reject this invite", "Reject Invite")
 
             onClicked: root.currentRoom.forget()
         }
@@ -142,7 +143,7 @@ ColumnLayout {
             id: viewProfileDelegate
 
             icon.name: "user-properties-symbolic"
-            text: i18nc("@action:button View this user's profile", "View %1's Profile", root.invitingMember.displayName)
+            text: KI18n.i18nc("@action:button View this user's profile", "View %1's Profile", root.invitingMember.displayName)
 
             onClicked: RoomManager.resolveResource(root.currentRoom.invitingUserId)
         }
@@ -156,7 +157,7 @@ ColumnLayout {
             id: ignoreUserDelegate
 
             icon.name: "list-remove-symbolic"
-            text: i18nc("@action:button Ignore the user", "Ignore %1 and Reject Invite", root.invitingMember.displayName)
+            text: KI18n.i18nc("@action:button Ignore the user", "Ignore %1 and Reject Invite", root.invitingMember.displayName)
 
             onClicked: {
                 root.currentRoom.forget()
@@ -195,7 +196,7 @@ ColumnLayout {
 
             QQC2.Label {
                 color: Kirigami.Theme.disabledTextColor
-                text: xi18nc("@info:label Ensure you are referring to the same translation used for that settings page", "You can reject invitations from unknown users under the <interface>Security & Safety</interface> settings.")
+                text: KI18n.xi18nc("@info:label Ensure you are referring to the same translation used for that settings page", "You can reject invitations from unknown users under the <interface>Security & Safety</interface> settings.")
                 wrapMode: Text.WordWrap
 
                 // + 5 to prevent it from wrapping unnecessarily

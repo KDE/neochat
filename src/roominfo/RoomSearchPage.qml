@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline
+import org.kde.ki18n
 
 /**
  * @brief Component for finding messages in a room.
@@ -37,7 +38,7 @@ SearchPage {
     // This requires client-side search we don't implement yet
     readonly property bool canSearch: !room.usesEncryption
 
-    title: i18nc("@action:title", "Search Messages")
+    title: KI18n.i18nc("@action:title", "Search Messages")
 
     model: SearchModel {
         id: searchModel
@@ -55,11 +56,11 @@ SearchPage {
         messageModel: searchModel
     }
 
-    searchFieldPlaceholder: i18n("Find messages…")
-    noSearchPlaceholderMessage: senderId.length > 0 ? i18nc("@info:placeholder", "Enter text to start searching %1's messages", root.senderId) : i18nc("@info:placeholder", "Enter text to start searching")
-    noResultPlaceholderMessage: i18n("No messages found")
+    searchFieldPlaceholder: KI18n.i18n("Find messages…")
+    noSearchPlaceholderMessage: senderId.length > 0 ? KI18n.i18nc("@info:placeholder", "Enter text to start searching %1's messages", root.senderId) : KI18n.i18nc("@info:placeholder", "Enter text to start searching")
+    noResultPlaceholderMessage: KI18n.i18n("No messages found")
     customPlaceholderIcon: "lock-symbolic"
-    customPlaceholderText: !canSearch ? i18n("Cannot search in encrypted rooms") : ""
+    customPlaceholderText: !canSearch ? KI18n.i18n("Cannot search in encrypted rooms") : ""
     enableSearch: canSearch
 
     listVerticalLayoutDirection: ListView.BottomToTop

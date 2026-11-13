@@ -13,6 +13,7 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.settings
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -26,7 +27,7 @@ Kirigami.Page {
 
     signal connectionChosen
 
-    title: i18n("Welcome")
+    title: KI18n.i18n("Welcome")
     globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
     header: QQC2.Control {
@@ -74,7 +75,7 @@ Kirigami.Page {
             Kirigami.Heading {
                 id: welcomeMessage
 
-                text: i18n("NeoChat")
+                text: KI18n.i18n("NeoChat")
 
                 Layout.alignment: Qt.AlignHCenter
                 Layout.topMargin: Kirigami.Units.largeSpacing
@@ -82,7 +83,7 @@ Kirigami.Page {
 
             FormCard.FormHeader {
                 id: existingAccountsHeader
-                title: i18nc("@title", "Continue with an existing account")
+                title: KI18n.i18nc("@title", "Continue with an existing account")
                 visible: (loadedAccounts.count > 0 || loadingAccounts.count > 0) && root._showExisting
                 maximumWidth: Kirigami.Units.gridUnit * 20
             }
@@ -116,7 +117,7 @@ Kirigami.Page {
                         }
 
                         trailing: QQC2.ToolButton {
-                            text: i18nc("@action:button", "Log out of this account")
+                            text: KI18n.i18nc("@action:button", "Log out of this account")
                             icon.name: "im-kick-user"
                             display: QQC2.Button.IconOnly
 
@@ -138,7 +139,7 @@ Kirigami.Page {
 
                         required property string modelData
 
-                        text: i18nc("As in 'this account is still loading'", "%1 (loading)", loadingDelegate.modelData)
+                        text: KI18n.i18nc("As in 'this account is still loading'", "%1 (loading)", loadingDelegate.modelData)
 
                         leading: QQC2.BusyIndicator {
                             implicitWidth: Kirigami.Units.iconSizes.medium
@@ -146,7 +147,7 @@ Kirigami.Page {
                         }
 
                         trailing: QQC2.ToolButton {
-                            text: i18nc("@action:button", "Log out of this account")
+                            text: KI18n.i18nc("@action:button", "Log out of this account")
                             icon.name: "im-kick-user"
                             display: QQC2.Button.IconOnly
 
@@ -169,7 +170,7 @@ Kirigami.Page {
             }
 
             FormCard.FormHeader {
-                title: i18nc("@title", "Log in or Create a New Account")
+                title: KI18n.i18nc("@title", "Log in or Create a New Account")
                 maximumWidth: Kirigami.Units.gridUnit * 20
             }
 
@@ -249,7 +250,7 @@ Kirigami.Page {
 
                 FormCard.FormButtonDelegate {
                     id: continueButton
-                    text: (root.currentStep as LoginStep).nextAction && (root.currentStep as LoginStep).nextAction.text ? (root.currentStep as LoginStep).nextAction.text : i18nc("@action:button", "Continue")
+                    text: (root.currentStep as LoginStep).nextAction && (root.currentStep as LoginStep).nextAction.text ? (root.currentStep as LoginStep).nextAction.text : KI18n.i18nc("@action:button", "Continue")
                     visible: (root.currentStep as LoginStep).nextAction
                     onClicked: (root.currentStep as LoginStep).nextAction.trigger()
                     enabled: (root.currentStep as LoginStep).nextAction ? (root.currentStep as LoginStep).nextAction.enabled : false
@@ -262,7 +263,7 @@ Kirigami.Page {
                 visible: root.showSettings || previousButtonDelegate.visible
 
                 FormCard.FormButtonDelegate {
-                    text: i18nc("@action:button", "Settings")
+                    text: KI18n.i18nc("@action:button", "Settings")
                     icon.name: "settings-configure"
                     visible: root.showSettings
                     onClicked: NeoChatSettingsView.open()
@@ -271,7 +272,7 @@ Kirigami.Page {
                 FormCard.FormButtonDelegate {
                     id: previousButtonDelegate
 
-                    text: i18nc("@action:button", "Go Back")
+                    text: KI18n.i18nc("@action:button", "Go Back")
                     visible: (root.currentStep as LoginStep).previousAction
                     onClicked: (root.currentStep as LoginStep).previousAction.trigger()
                     enabled: (root.currentStep as LoginStep).previousAction ? (root.currentStep as LoginStep).previousAction.enabled : false

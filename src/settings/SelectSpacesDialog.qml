@@ -12,6 +12,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as Components
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -32,7 +33,7 @@ Kirigami.Dialog {
     bottomPadding: 0
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
-    title: i18nc("@title", "Select Spaces")
+    title: KI18n.i18nc("@title", "Select Spaces")
 
     standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
     onAccepted: {

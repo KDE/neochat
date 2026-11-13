@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component for an encrypted message that can't be decrypted.
@@ -15,7 +16,7 @@ TextEdit {
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
 
-    text: i18n("This message is encrypted and the sender has not shared the key with this device.")
+    text: KI18n.i18n("This message is encrypted and the sender has not shared the key with this device.")
     color: Kirigami.Theme.disabledTextColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor

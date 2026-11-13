@@ -12,6 +12,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.settings
+import org.kde.ki18n
 
 KirigamiComponents.ConvergentContextMenu {
     id: root
@@ -24,24 +25,24 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:button", "Open Profile")
+        text: KI18n.i18nc("@action:button", "Open Profile")
         icon.name: "im-user-symbolic"
         onTriggered: RoomManager.resolveResource(root.connection.localUserId, "qr") // Use "qr" action to make sure a room isn't passed, see RoomManager::visitUser
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Scan a QR Code")
+        text: KI18n.i18nc("@action:inmenu", "Scan a QR Code")
         icon.name: "document-scan-symbolic"
         visible: devices.videoInputs.length > 0
         onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "QrScannerPage"), {
             connection: root.connection
         }, {
-            title: i18nc("@title", "Scan a QR Code")
+            title: KI18n.i18nc("@title", "Scan a QR Code")
         })
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Notification Settings")
+        text: KI18n.i18nc("@action:inmenu", "Notification Settings")
         icon.name: "notifications"
         onTriggered: {
             NeoChatSettingsView.open('notifications');
@@ -49,20 +50,20 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Open Developer Tools")
+        text: KI18n.i18nc("@action:inmenu", "Open Developer Tools")
         icon.name: "tools"
         visible: NeoChatConfig.developerTools
         onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
             connection: root.connection
         }, {
-            title: i18nc("@title:window", "Developer Tools"),
+            title: KI18n.i18nc("@title:window", "Developer Tools"),
             width: Kirigami.Units.gridUnit * 50,
             height: Kirigami.Units.gridUnit * 42
         })
     }
     
     Kirigami.Action {
-        text: i18nc("@action:inmenu Open support dialog", "Support")
+        text: KI18n.i18nc("@action:inmenu Open support dialog", "Support")
         icon.name: "help-contents-symbolic"
         onTriggered: {
             (Qt.createComponent("org.kde.neochat", "SupportDialog").createObject(QQC2.Overlay.overlay, {
@@ -76,7 +77,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Switch Account")
+        text: KI18n.i18nc("@action:inmenu", "Switch Account")
         icon.name: "system-switch-user"
         onTriggered: (Qt.createComponent("org.kde.neochat", "AccountSwitchDialog").createObject(QQC2.Overlay.overlay, {
             connection: root.connection

@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat.libneochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -25,7 +26,7 @@ Kirigami.Dialog {
 
     required property bool isDeclaredParent
 
-    title: i18nc("@title", "Remove Child")
+    title: KI18n.i18nc("@title", "Remove Child")
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
 
@@ -36,14 +37,14 @@ Kirigami.Dialog {
     contentItem: ColumnLayout {
         spacing: 0
         FormCard.FormTextDelegate {
-            text: i18n("The child %1 will be removed from the space %2", root.displayName, root.parentDisplayName)
+            text: KI18n.i18n("The child %1 will be removed from the space %2", root.displayName, root.parentDisplayName)
             textItem.wrapMode: Text.Wrap
         }
         FormCard.FormCheckDelegate {
             id: removeOfficalCheck
             visible: root.isDeclaredParent
             enabled: root.canSetParent
-            text: i18n("The current space is the official parent of this room, should this be cleared?")
+            text: KI18n.i18n("The current space is the official parent of this room, should this be cleared?")
             checked: root.canSetParent
         }
     }

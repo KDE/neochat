@@ -13,6 +13,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigami.actioncollection as AC
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -99,10 +100,10 @@ Kirigami.Page {
 
             tooltip: {
                 if (hasExistingMeeting) {
-                    return i18nc("@action:button", "Join Jitsi meeting…");
+                    return KI18n.i18nc("@action:button", "Join Jitsi meeting…");
                 }
 
-                return canStartNewMeeting ? i18nc("@action:button", "Start Jitsi meeting…") : i18nc("@action:button", "You do not have permissions to start Jitsi meetings")
+                return canStartNewMeeting ? KI18n.i18nc("@action:button", "Start Jitsi meeting…") : KI18n.i18nc("@action:button", "You do not have permissions to start Jitsi meetings")
             }
             icon {
                 name: "camera-video-symbolic"
@@ -142,7 +143,7 @@ Kirigami.Page {
             ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
                 room: root.currentRoom
             }, {
-                title: i18nc("@action:title", "Search")
+                title: KI18n.i18nc("@action:title", "Search")
             });
         }
     }
@@ -155,7 +156,7 @@ Kirigami.Page {
         }
 
         if (root.currentRoom?.tagNames.includes("m.server_notice")) {
-            banner.text = i18nc("@info", "This room contains official messages from your homeserver.")
+            banner.text = KI18n.i18nc("@info", "This room contains official messages from your homeserver.")
             banner.show("message");
         } else {
             banner.hideIf("message");
@@ -213,7 +214,7 @@ Kirigami.Page {
                 onTapped: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
                     room: root.currentRoom
                 }, {
-                    title: i18nc("@title", "Pinned Messages")
+                    title: KI18n.i18nc("@title", "Pinned Messages")
                 });
             }
         }
@@ -299,8 +300,8 @@ Kirigami.Page {
         anchors.centerIn: parent
         sourceComponent: Kirigami.PlaceholderMessage {
             icon.name: "org.kde.neochat"
-            text: i18nc("@title", "Welcome to NeoChat")
-            explanation: i18nc("@info:usagetip", "Select or join a room to get started")
+            text: KI18n.i18nc("@title", "Welcome to NeoChat")
+            explanation: KI18n.i18nc("@info:usagetip", "Select or join a room to get started")
         }
     }
 
@@ -380,7 +381,7 @@ Kirigami.Page {
 
         function onIsOnlineChanged(): void {
             if (!root.currentRoom.connection.isOnline) {
-                banner.text = i18nc("@info:status", "NeoChat is offline. Please check your network connection.");
+                banner.text = KI18n.i18nc("@info:status", "NeoChat is offline. Please check your network connection.");
                 banner.type = Kirigami.MessageType.Error;
                 banner.show("offline");
             } else {
@@ -412,7 +413,7 @@ Kirigami.Page {
             (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                 sourceText: root.currentRoom.getEventJsonSource(eventId)
             }, {
-                title: i18nc("@title:dialog", "Message Source"),
+                title: KI18n.i18nc("@title:dialog", "Message Source"),
                 width: Kirigami.Units.gridUnit * 25
             });
         }

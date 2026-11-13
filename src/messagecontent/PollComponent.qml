@@ -12,6 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a poll from a message.
@@ -111,7 +112,7 @@ ColumnLayout {
 
                         visible: root.block.kind == PollKind.Disclosed || root.block.hasEnded
                         horizontalAlignment: Text.AlignRight
-                        text: i18ncp("@info", "%1 Vote", "%1 Votes", answerDelegate.count)
+                        text: KI18n.i18ncp("@info", "%1 Vote", "%1 Votes", answerDelegate.count)
                     }
                 }
                 QQC2.ProgressBar {
@@ -127,7 +128,7 @@ ColumnLayout {
 
     QQC2.Label {
         visible: root.block.kind == PollKind.Disclosed || root.block.hasEnded
-        text: i18ncp("@info", "Based on votes by %1 user", "Based on votes by %1 users", root.block.totalCount) + (root.block.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
+        text: KI18n.i18ncp("@info", "Based on votes by %1 user", "Based on votes by %1 users", root.block.totalCount) + (root.block.hasEnded ? (" " + KI18n.i18nc("as in 'this vote has ended'", "(Ended)")) : "")
         font.pointSize: questionLabel.font.pointSize * 0.8
     }
 }

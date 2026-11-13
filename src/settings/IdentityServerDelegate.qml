@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.AbstractFormDelegate {
     id: root
@@ -36,17 +37,17 @@ FormCard.AbstractFormDelegate {
                 Layout.fillWidth: true
                 visible: root.editServerUrl
 
-                Accessible.description: i18n("New identity server url")
+                Accessible.description: KI18n.i18n("New identity server url")
 
                 rightActions: [
                     Kirigami.Action {
-                        text: i18nc("@action:button", "Cancel editing identity server url")
+                        text: KI18n.i18nc("@action:button", "Cancel editing identity server url")
                         icon.name: "edit-delete-remove"
                         onTriggered: editIdServerButton.toggle()
                     },
                     Kirigami.Action {
                         enabled: identityServerHelper.status == IdentityServerHelper.Valid
-                        text: i18nc("@action:button", "Confirm new identity server url")
+                        text: KI18n.i18nc("@action:button", "Confirm new identity server url")
                         icon.name: "checkmark"
                         visible: editUrlField.text !== root.text
                         onTriggered: {
@@ -70,9 +71,9 @@ FormCard.AbstractFormDelegate {
                 Layout.fillWidth: true
                 text: switch(identityServerHelper.status) {
                 case IdentityServerHelper.Invalid:
-                    return i18n("The entered url is not a valid identity server");
+                    return KI18n.i18n("The entered url is not a valid identity server");
                 case IdentityServerHelper.Match:
-                    return i18n("The entered url is already configured as your identity server");
+                    return KI18n.i18n("The entered url is already configured as your identity server");
                 default:
                     return "";
                 }
@@ -95,7 +96,7 @@ FormCard.AbstractFormDelegate {
         QQC2.ToolButton {
             id: editIdServerButton
             display: QQC2.AbstractButton.IconOnly
-            text: i18nc("@action:button", "Edit identity server url")
+            text: KI18n.i18nc("@action:button", "Edit identity server url")
             icon.name: "document-edit"
             checkable: true
             onCheckedChanged: {
@@ -116,7 +117,7 @@ FormCard.AbstractFormDelegate {
             id: removeIdServerButton
             visible: root.connection.hasIdentityServer
             display: QQC2.AbstractButton.IconOnly
-            text: i18nc("@action:button", "Remove identity server")
+            text: KI18n.i18nc("@action:button", "Remove identity server")
             icon.name: "edit-delete-remove"
             onClicked: {
                 identityServerHelper.clearIdentityServer();

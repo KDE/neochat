@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 TimelineDelegate {
     id: root
@@ -23,10 +24,10 @@ TimelineDelegate {
 
     contentItem: Kirigami.InlineMessage {
         visible: true
-        text: i18n("This room continues another conversation.")
+        text: KI18n.i18n("This room continues another conversation.")
         type: Kirigami.MessageType.Information
         actions: Kirigami.Action {
-            text: i18n("See older messages…")
+            text: KI18n.i18n("See older messages…")
             onTriggered: RoomManager.resolveResource(root.room.predecessorId)
         }
     }

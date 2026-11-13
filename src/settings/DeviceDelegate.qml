@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.AbstractFormDelegate {
     id: root
@@ -50,7 +51,7 @@ FormCard.AbstractFormDelegate {
 
             QQC2.Label {
                 Layout.fillWidth: true
-                text: root.timestamp.length > 0 ? i18nc("@label (Device ID), Last activity: (timestamp)", "%1, Last activity: %2", root.id, root.timestamp) : root.id
+                text: root.timestamp.length > 0 ? KI18n.i18nc("@label (Device ID), Last activity: (timestamp)", "%1, Last activity: %2", root.id, root.timestamp) : root.id
                 color: Kirigami.Theme.disabledTextColor
                 font: Kirigami.Theme.smallFont
                 elide: Text.ElideRight
@@ -59,7 +60,7 @@ FormCard.AbstractFormDelegate {
         }
         Kirigami.ActionTextField {
             id: nameField
-            Accessible.description: i18n("New device name")
+            Accessible.description: KI18n.i18n("New device name")
             Layout.fillWidth: true
             Layout.preferredHeight: deviceLabel.implicitHeight
             visible: root.editDeviceName
@@ -68,14 +69,14 @@ FormCard.AbstractFormDelegate {
 
             rightActions: [
                 Kirigami.Action {
-                    text: i18n("Cancel editing display name")
+                    text: KI18n.i18n("Cancel editing display name")
                     icon.name: "edit-delete-remove"
                     onTriggered: {
                         root.editDeviceName = false;
                     }
                 },
                 Kirigami.Action {
-                    text: i18n("Confirm new display name")
+                    text: KI18n.i18n("Confirm new display name")
                     icon.name: "checkmark"
                     visible: nameField.text !== root.displayName
                     onTriggered: {
@@ -88,7 +89,7 @@ FormCard.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            text: i18nc("@action:button", "Edit device name")
+            text: KI18n.i18nc("@action:button", "Edit device name")
             icon.name: "document-edit"
             onClicked: root.editDeviceName = true
             QQC2.ToolTip.text: text
@@ -98,7 +99,7 @@ FormCard.AbstractFormDelegate {
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
             visible: root.showVerifyButton && (root.type !== DevicesModel.Verified || NeoChatConfig.alwaysVerifyDevice)
-            text: i18nc("@action:button", "Verify device")
+            text: KI18n.i18nc("@action:button", "Verify device")
             icon.name: "security-low-symbolic"
             onClicked: root.devicesModel.connection.startKeyVerificationSession(root.devicesModel.connection.localUserId, root.id)
 
@@ -116,14 +117,14 @@ FormCard.AbstractFormDelegate {
                 id: verifyHover
             }
             QQC2.ToolTip {
-                text: i18nc("This device is verified", "Verified")
+                text: KI18n.i18nc("This device is verified", "Verified")
                 delay: Kirigami.Units.toolTipDelay
                 visible: verifyHover.hovered
             }
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            text: i18nc("@action:button", "Logout device…")
+            text: KI18n.i18nc("@action:button", "Logout device…")
             icon.name: "edit-delete-remove"
             onClicked: {
                 passwordSheet.deviceId = root.id;
@@ -143,7 +144,7 @@ FormCard.AbstractFormDelegate {
 
         preferredWidth: Kirigami.Units.gridUnit * 24
 
-        title: i18nc("@title:dialog", "Remove device")
+        title: KI18n.i18nc("@title:dialog", "Remove device")
 
         standardButtons: QQC2.Dialog.Cancel
 
@@ -151,7 +152,7 @@ FormCard.AbstractFormDelegate {
 
         contentItem: FormCard.FormTextFieldDelegate {
             id: passwordField
-            label: i18n("Password:")
+            label: KI18n.i18n("Password:")
             echoMode: TextInput.Password
         }
 
@@ -162,7 +163,7 @@ FormCard.AbstractFormDelegate {
 
         footer: QQC2.DialogButtonBox {
             QQC2.Button {
-                text: i18nc("@action:button As in 'Remove this device'", "Remove")
+                text: KI18n.i18nc("@action:button As in 'Remove this device'", "Remove")
                 icon.name: "delete"
 
                 onClicked: passwordSheet.close()

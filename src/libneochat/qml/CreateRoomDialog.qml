@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -19,7 +20,7 @@ Kirigami.Dialog {
 
     signal newChild(string childName)
 
-    title: i18nc("@title", "Create Room")
+    title: KI18n.i18nc("@title", "Create Room")
     implicitWidth: Kirigami.Units.gridUnit * 20
     showCloseButton: false
     standardButtons: QQC2.Dialog.Cancel
@@ -32,7 +33,7 @@ Kirigami.Dialog {
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
             icon.name: "list-add-symbolic"
-            text: i18nc("@action:button Create new room", "Create")
+            text: KI18n.i18nc("@action:button Create new room", "Create")
             enabled: roomNameField.text.length > 0
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
@@ -45,29 +46,29 @@ Kirigami.Dialog {
 
         FormCard.FormRadioDelegate {
             id: privateTypeDelegate
-            text: i18nc("@info:label", "Private")
-            description: i18nc("@info:description", "This room can only be joined with an invite.")
+            text: KI18n.i18nc("@info:label", "Private")
+            description: KI18n.i18nc("@info:description", "This room can only be joined with an invite.")
             checked: true
         }
 
         FormCard.FormRadioDelegate {
             id: publicTypeDelegate
-            text: i18nc("@info:label", "Public")
-            description: i18nc("@info:description", "This room can be found and joined by anyone.")
+            text: KI18n.i18nc("@info:label", "Public")
+            description: KI18n.i18nc("@info:description", "This room can be found and joined by anyone.")
         }
 
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormTextFieldDelegate {
             id: roomNameField
-            label: i18nc("@info:label Name of the room", "Name:")
-            placeholderText: i18nc("@info:placeholder Placeholder for room name", "New Room")
+            label: KI18n.i18nc("@info:label Name of the room", "Name:")
+            placeholderText: KI18n.i18nc("@info:placeholder Placeholder for room name", "New Room")
         }
 
         FormCard.FormTextFieldDelegate {
             id: roomAddressField
-            label: i18nc("@info:label Address or alias to refer to the room by", "Address:")
-            placeholderText: i18nc("@info:placeholder Placeholder address for the room", "new-room")
+            label: KI18n.i18nc("@info:label Address or alias to refer to the room by", "Address:")
+            placeholderText: KI18n.i18nc("@info:placeholder Placeholder address for the room", "new-room")
             visible: publicTypeDelegate.checked
         }
     }

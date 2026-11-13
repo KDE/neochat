@@ -11,6 +11,7 @@ import QtMultimedia
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 RowLayout {
     id: root
@@ -33,13 +34,13 @@ RowLayout {
         text: {
             if (Kirigami.Settings.isMobile) {
                 if (RoomManager.currentSpace === '') {
-                    return i18nc("@title Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home");
+                    return KI18n.i18nc("@title Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home");
                 } else if(RoomManager.currentSpace === 'DM') {
-                    return i18nc("@title", "Direct Messages");
+                    return KI18n.i18nc("@title", "Direct Messages");
                 }
                 return root.connection.room(RoomManager.currentSpace)?.displayName;
             }
-            return i18nc("@title List of rooms", "Rooms");
+            return KI18n.i18nc("@title List of rooms", "Rooms");
         }
     }
     Item {
@@ -52,7 +53,7 @@ RowLayout {
         display: QQC2.AbstractButton.IconOnly
         onClicked: root.search();
         icon.name: "search"
-        text: i18nc("@action", "Search Rooms")
+        text: KI18n.i18nc("@action", "Search Rooms")
 
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.text: text
@@ -62,7 +63,7 @@ RowLayout {
     QQC2.ToolButton {
         display: QQC2.Button.IconOnly
         visible: Kirigami.Settings.isMobile
-        text: i18nc("@action:button", "Open Settings")
+        text: KI18n.i18nc("@action:button", "Open Settings")
         icon.name: "settings-configure-symbolic"
         onClicked: NeoChatSettingsView.open()
 

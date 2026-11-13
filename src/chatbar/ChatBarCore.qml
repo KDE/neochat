@@ -12,6 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
 import org.kde.neochat.messagecontent as Content
+import org.kde.ki18n
 
 QQC2.Control {
     id: root
@@ -127,7 +128,7 @@ QQC2.Control {
                 property EmojiDialog dialog
 
                 icon.name: "smiley"
-                text: i18n("Emojis & Stickers")
+                text: KI18n.i18n("Emojis & Stickers")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
                 checked: dialog !== null

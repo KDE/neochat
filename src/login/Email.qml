@@ -7,6 +7,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -17,7 +18,7 @@ LoginStep {
 
     FormCard.FormTextFieldDelegate {
         id: emailField
-        label: i18n("Add an e-mail address:")
+        label: KI18n.i18n("Add an e-mail address:")
         placeholderText: "user@example.com"
         onTextChanged: Registration.email = text
         Keys.onReturnPressed: {
@@ -29,14 +30,14 @@ LoginStep {
 
     FormCard.FormTextDelegate {
         id: confirmMessage
-        text: i18n("Confirm e-mail address")
+        text: KI18n.i18n("Confirm e-mail address")
         visible: false
-        description: i18n("A confirmation e-mail has been sent to your address. Please continue here <b>after</b> clicking on the confirmation link in the e-mail")
+        description: KI18n.i18n("A confirmation e-mail has been sent to your address. Please continue here <b>after</b> clicking on the confirmation link in the e-mail")
     }
 
     FormCard.FormButtonDelegate {
         id: resendButton
-        text: i18nc("@button", "Re-send confirmation e-mail")
+        text: KI18n.i18nc("@button", "Re-send confirmation e-mail")
         onClicked: Registration.registerEmail()
         visible: false
     }

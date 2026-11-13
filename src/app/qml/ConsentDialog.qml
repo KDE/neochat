@@ -7,6 +7,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -18,17 +19,17 @@ Kirigami.Dialog {
     leftPadding: Kirigami.Units.largeSpacing
     rightPadding: Kirigami.Units.largeSpacing
 
-    title: i18nc("@title:dialog", "User Consent")
+    title: KI18n.i18nc("@title:dialog", "User Consent")
 
     contentItem: QQC2.Label {
-        text: i18nc("@info", "Your homeserver requires you to agree to its terms and conditions before being able to use it. Please click the button below to read them.")
+        text: KI18n.i18nc("@info", "Your homeserver requires you to agree to its terms and conditions before being able to use it. Please click the button below to read them.")
         wrapMode: Text.WordWrap
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
     }
     customFooterActions: [
         Kirigami.Action {
-            text: i18nc("@action:button", "Open")
+            text: KI18n.i18nc("@action:button", "Open")
             icon.name: "internet-services"
             onTriggered: {
                 UrlHelper.openUrl(root.url);

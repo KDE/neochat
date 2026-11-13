@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.NavigationTabBar {
     id: root
@@ -31,21 +32,21 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             id: homeAction
 
-            text: i18nc("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home")
+            text: KI18n.i18nc("@action:button Home space for the uncategorized rooms. Please keep this consistent across all usages.", "Home")
             icon.name: "go-home-symbolic"
             checked: true
         },
         Kirigami.Action {
             id: notificationsAction
 
-            text: i18nc("@action:button View all notifications for this account", "Notifications")
+            text: KI18n.i18nc("@action:button View all notifications for this account", "Notifications")
             icon.name: "notifications-symbolic"
 
             onTriggered: {
                 (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
                     connection: root.connection
                 }, {
-                    title: i18nc("@title", "Notifications"),
+                    title: KI18n.i18nc("@title", "Notifications"),
                     modality: Qt.NonModal
                 })
                 homeAction.checked = true; // Reset back to Home
@@ -54,7 +55,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             id: accountAction
 
-            text: i18nc("@action:button Open the account menu", "Account")
+            text: KI18n.i18nc("@action:button Open the account menu", "Account")
             icon.name: "im-user-symbolic"
 
             onTriggered: {
@@ -119,7 +120,7 @@ Kirigami.NavigationTabBar {
                 Delegates.RoundedItemDelegate {
                     id: createRoomButton
                     Layout.fillWidth: true
-                    text: i18nc("@action:button", "Create a Room")
+                    text: KI18n.i18nc("@action:button", "Create a Room")
                     icon.name: "system-users-symbolic"
                     onClicked: {
                         (Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
@@ -135,7 +136,7 @@ Kirigami.NavigationTabBar {
                 }
                 Delegates.RoundedItemDelegate {
                     Layout.fillWidth: true
-                    text: i18nc("@action:button", "Create a Space")
+                    text: KI18n.i18nc("@action:button", "Create a Space")
                     icon.name: "list-add"
                     onClicked: {
                         (Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {

@@ -7,6 +7,7 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline
+import org.kde.ki18n
 
 /**
  * @brief Component for showing the pinned messages in a room.
@@ -19,7 +20,7 @@ Kirigami.ScrollablePage {
      */
     required property NeoChatRoom room
 
-    title: i18nc("@title", "Pinned Messages")
+    title: KI18n.i18nc("@title", "Pinned Messages")
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
     Kirigami.Theme.inherit: false
@@ -42,7 +43,7 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             icon.name: "pin-symbolic"
             anchors.centerIn: parent
-            text: i18nc("@info:placeholder", "No Pinned Messages")
+            text: KI18n.i18nc("@info:placeholder", "No Pinned Messages")
             visible: listView.count === 0
         }
 

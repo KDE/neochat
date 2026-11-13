@@ -12,6 +12,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.settings as Settings
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -31,19 +32,19 @@ ColumnLayout {
         KirigamiComponents.ConvergentContextMenu {
             Kirigami.Action {
                 icon.name: "list-add-symbolic"
-                text: i18nc("@action:inmenu", "New Room…")
+                text: KI18n.i18nc("@action:inmenu", "New Room…")
                 onTriggered: _private.createRoom(root.room.id)
             }
 
             Kirigami.Action {
                 icon.name: "list-add-symbolic"
-                text: i18nc("@action:inmenu", "New Space…")
+                text: KI18n.i18nc("@action:inmenu", "New Space…")
                 onTriggered: _private.createSpace(root.room.id)
             }
 
             Kirigami.Action {
                 icon.name: "search-symbolic"
-                text: i18nc("@action:inmenu", "Existing Room…")
+                text: KI18n.i18nc("@action:inmenu", "Existing Room…")
                 onTriggered: _private.selectExisting(root.room.id)
             }
         }
@@ -78,26 +79,26 @@ ColumnLayout {
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 QQC2.Button {
                     visible: root.room.canSendState("invite")
-                    text: i18nc("@button Invite user to this space", "Invite to Space…")
+                    text: KI18n.i18nc("@button Invite user to this space", "Invite to Space…")
                     icon.name: "list-add-user"
                     onClicked: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'InviteUserPage'), {
                         room: root.room
                     }, {
-                        title: i18nc("@title", "Invite a User")
+                        title: KI18n.i18nc("@title", "Invite a User")
                     })
                 }
                 QQC2.Button {
                     id: addNewButton
 
                     visible: root.room.canSendState("m.space.child")
-                    text: i18nc("@button", "Add to Space…")
+                    text: KI18n.i18nc("@button", "Add to Space…")
                     icon.name: "list-add"
                     onClicked: {
                         (roomMenuComponent.createObject(addNewButton) as KirigamiComponents.ConvergentContextMenu).popup();
                     }
                 }
                 QQC2.Button {
-                    text: i18nc("@action:button", "Leave this Space…")
+                    text: KI18n.i18nc("@action:button", "Leave this Space…")
                     icon.name: "go-previous"
                     onClicked: (Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
                         room: root.room
@@ -107,19 +108,19 @@ ColumnLayout {
                     Layout.fillWidth: true
                 }
                 QQC2.Button {
-                    text: i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report…")
+                    text: KI18n.i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report…")
                     icon.name: "dialog-warning-symbolic"
                     visible: root.room.connection.supportsMatrixSpecVersion("v1.13")
                     onClicked: {
                         let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                            title: i18nc("@title:dialog", "Report Space"),
-                            placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this space"),
+                            title: KI18n.i18nc("@title:dialog", "Report Space"),
+                            placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for reporting this space"),
                             icon: "dialog-warning-symbolic",
-                            actionText: i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report"),
+                            actionText: KI18n.i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report"),
                             reporting: true,
                             connection: root.room.connection,
                         }, {
-                            title: i18nc("@title", "Report Space"),
+                            title: KI18n.i18nc("@title", "Report Space"),
                             width: Kirigami.Units.gridUnit * 25
                         }) as ReasonDialog;
                         dialog.accepted.connect(reason => {
@@ -131,7 +132,7 @@ ColumnLayout {
                     id: settingsButton
 
                     display: QQC2.AbstractButton.IconOnly
-                    text: i18nc("'Space' is a matrix space", "Space Settings")
+                    text: KI18n.i18nc("'Space' is a matrix space", "Space Settings")
                     onClicked: {
                         Settings.RoomSettingsView.openRoomSettings(root.room, Settings.RoomSettingsView.Space);
                         drawer.close();
@@ -201,8 +202,8 @@ ColumnLayout {
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             visible: spaceTree.rows === 0 && spaceChildSortFilterModel.filterText.length === 0
-            text: i18nc("@title", "This Space is empty")
-            explanation: i18nc("@info", "Add rooms to this Space to get started.")
+            text: KI18n.i18nc("@title", "This Space is empty")
+            explanation: KI18n.i18nc("@info", "Add rooms to this Space to get started.")
         }
     }
     QQC2.Control {

@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
+import org.kde.ki18n
 
 QQC2.ScrollView {
     id: root
@@ -87,7 +88,7 @@ QQC2.ScrollView {
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             icon.name: root.stickers ? "stickers" : "preferences-desktop-emoticons"
-            text: root.stickers ? i18nc("@info", "No stickers") : i18nc("@info", "No emojis")
+            text: root.stickers ? KI18n.i18nc("@info", "No stickers") : KI18n.i18nc("@info", "No emojis")
             visible: emojis.count === 0
         }
     }
