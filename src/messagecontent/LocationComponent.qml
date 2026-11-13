@@ -10,6 +10,7 @@ import QtPositioning
 
 import org.kde.neochat
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 /**
  * @brief A component to show a location from a message.
@@ -76,7 +77,7 @@ ColumnLayout {
 
             QQC2.Button {
                 visible: !root.editable
-                text: i18nc("@action:button Open the location in an external program", "Open Externally")
+                text: KI18n.i18nc("@action:button Open the location in an external program", "Open Externally")
                 icon.name: "open-link-symbolic"
                 display: QQC2.AbstractButton.IconOnly
 
@@ -90,7 +91,7 @@ ColumnLayout {
             QQC2.Button {
                 visible: !root.editable
                 icon.name: "view-fullscreen"
-                text: i18nc("@action:button", "Open Fullscreen")
+                text: KI18n.i18nc("@action:button", "Open Fullscreen")
                 display: QQC2.AbstractButton.IconOnly
 
                 onClicked: {
@@ -110,7 +111,7 @@ ColumnLayout {
                 id: cancelButton
                 visible: root.editable
                 display: QQC2.AbstractButton.IconOnly
-                text: i18nc("@action:button", "Remove attachment")
+                text: KI18n.i18nc("@action:button", "Remove attachment")
                 icon.name: "dialog-close"
                 onClicked: root.Message.contentModel?.removeAttachment()
                 QQC2.ToolTip.text: text

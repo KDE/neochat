@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCard {
     id: root
@@ -15,7 +16,7 @@ FormCard.FormCard {
     Layout.topMargin: Kirigami.Units.largeSpacing
 
     FormCard.FormCheckDelegate {
-        text: i18nc("@option:check Enable the matrix feature for audio and video calling", "Calls")
+        text: KI18n.i18nc("@option:check Enable the matrix feature for audio and video calling", "Calls")
         checked: NeoChatConfig.calls
 
         onToggled: {
@@ -24,7 +25,7 @@ FormCard.FormCard {
         }
     }
     FormCard.FormCheckDelegate {
-        text: i18nc("@option:check Enable the rich text chat bar", "Rich Chat Bar")
+        text: KI18n.i18nc("@option:check Enable the rich text chat bar", "Rich Chat Bar")
         checked: NeoChatConfig.richChatBar
 
         onToggled: {

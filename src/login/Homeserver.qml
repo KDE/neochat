@@ -7,6 +7,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -17,12 +18,12 @@ LoginStep {
 
     FormCard.FormTextFieldDelegate {
         id: urlField
-        label: i18n("Server Url:")
+        label: KI18n.i18n("Server Url:")
         validator: RegularExpressionValidator {
             regularExpression: /([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9]+(:[0-9]+)?/
         }
         onTextChanged: timer.restart()
-        statusMessage: Registration.status === Registration.ServerNoRegistration ? i18n("Registration is disabled on this server.") : ""
+        statusMessage: Registration.status === Registration.ServerNoRegistration ? KI18n.i18n("Registration is disabled on this server.") : ""
         Keys.onReturnPressed: {
             if (root.nextAction.enabled) {
                 root.nextAction.trigger();
@@ -37,7 +38,7 @@ LoginStep {
     }
 
     nextAction: Kirigami.Action {
-        text: Registration.testing ? i18n("Loading") : Registration.status === Registration.Oidc ? i18nc("@action:button", "Continue in Browser") : null
+        text: Registration.testing ? KI18n.i18n("Loading") : Registration.status === Registration.Oidc ? KI18n.i18nc("@action:button", "Continue in Browser") : null
         enabled: Registration.status > Registration.ServerNoRegistration
         onTriggered: {
             if (Registration.status === Registration.Oidc) {

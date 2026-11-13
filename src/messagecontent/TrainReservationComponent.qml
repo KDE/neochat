@@ -7,6 +7,7 @@ import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.ki18n
 
 /**
  * @brief A component for a train itinerary reservation component.
@@ -121,7 +122,7 @@ ItineraryReservationComponent {
                             let platform = root.departurePlatform;
 
                             if (platform) {
-                                return i18nc("Short for train platform", "Pl. %1", platform);
+                                return KI18n.i18nc("Short for train platform", "Pl. %1", platform);
                             } else {
                                 return "";
                             }
@@ -188,7 +189,7 @@ ItineraryReservationComponent {
                             let platform = root.arrivalPlatform;
 
                             if (platform) {
-                                return i18nc("Short for train platform", "Pl. %1", platform);
+                                return KI18n.i18nc("Short for train platform", "Pl. %1", platform);
                             } else {
                                 return "";
                             }

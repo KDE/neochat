@@ -11,6 +11,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.prison
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -53,7 +54,7 @@ Kirigami.Dialog {
     standardButtons: Kirigami.Dialog.NoButton
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
-    title: i18nc("@title:menu Account details dialog", "Account Details")
+    title: KI18n.i18nc("@title:menu Account details dialog", "Account Details")
 
     header: null
 
@@ -152,7 +153,7 @@ Kirigami.Dialog {
 
             actions: [
                 Kirigami.Action {
-                    text: root.connection.directChatExists(root.user) ? i18nc("@action:intoolbar Open existing direct message", "Open Chat") : i18nc("@action:intoolbar Message this user directly", "Start Chat")
+                    text: root.connection.directChatExists(root.user) ? KI18n.i18nc("@action:intoolbar Open existing direct message", "Open Chat") : KI18n.i18nc("@action:intoolbar Message this user directly", "Start Chat")
                     icon.name: "document-send-symbolic"
                     visible: !root.isSelf
 
@@ -162,7 +163,7 @@ Kirigami.Dialog {
                     }
                 },
                 Kirigami.Action {
-                    text: i18nc("@action:intoolbar Edit This Account", "Edit")
+                    text: KI18n.i18nc("@action:intoolbar Edit This Account", "Edit")
                     icon.name: "document-edit"
                     visible: root.isSelf
 
@@ -170,7 +171,7 @@ Kirigami.Dialog {
                 },
                 Kirigami.Action {
                     icon.name: "im-invisible-user-symbolic"
-                    text: root.connection.isIgnored(root.user.id) ? i18nc("@action:intoolbar Unignore or 'unblock' this user", "Unignore") : i18nc("@action:intoolbar Ignore or 'block' this user", "Ignore")
+                    text: root.connection.isIgnored(root.user.id) ? KI18n.i18nc("@action:intoolbar Unignore or 'unblock' this user", "Unignore") : KI18n.i18nc("@action:intoolbar Ignore or 'block' this user", "Ignore")
                     visible: !root.isSelf
 
                     onTriggered: {
@@ -179,13 +180,13 @@ Kirigami.Dialog {
                     }
                 },
                 Kirigami.Action {
-                    text: i18nc("@action:intoolbar Copy shareable link for this user", "Copy Link")
+                    text: KI18n.i18nc("@action:intoolbar Copy shareable link for this user", "Copy Link")
                     icon.name: "username-copy-symbolic"
 
                     onTriggered: Clipboard.saveText(root.shareUrl)
                 },
                 Kirigami.Action {
-                    text: i18nc("@action:intoolbar Search for this user's messages.", "Search Messages…")
+                    text: KI18n.i18nc("@action:intoolbar Search for this user's messages.", "Search Messages…")
                     icon.name: "search-symbolic"
 
                     onTriggered: {
@@ -193,26 +194,26 @@ Kirigami.Dialog {
                         room: root.room,
                         senderId: root.user.id
                     }, {
-                        title: i18nc("@action:title", "Search")
+                        title: KI18n.i18nc("@action:title", "Search")
                     });
                         root.close();
                     }
                 },
                 Kirigami.Action {
-                    text: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report…")
+                    text: KI18n.i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report…")
                     icon.name: "dialog-warning-symbolic"
                     visible: root.connection.supportsMatrixSpecVersion("v1.13")
 
                     onTriggered: {
                         let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                        title: i18nc("@title:dialog", "Report User"),
-                        placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this user"),
+                        title: KI18n.i18nc("@title:dialog", "Report User"),
+                        placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for reporting this user"),
                         icon: "dialog-warning-symbolic",
-                        actionText: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report"),
+                        actionText: KI18n.i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report"),
                         reporting: true,
                         connection: root.connection,
                     }, {
-                        title: i18nc("@title", "Report User"),
+                        title: KI18n.i18nc("@title", "Report User"),
                         width: Kirigami.Units.gridUnit * 25
                     }) as ReasonDialog;
                         dialog.accepted.connect(reason => {
@@ -223,7 +224,7 @@ Kirigami.Dialog {
                 Kirigami.Action {
                     visible: root.room
 
-                    text: i18nc("@action:button", "View Main Profile")
+                    text: KI18n.i18nc("@action:button", "View Main Profile")
                     icon.name: "user-properties-symbolic"
                     onTriggered: {
                         root.oldRoom = root.room;
@@ -233,7 +234,7 @@ Kirigami.Dialog {
                 Kirigami.Action {
                     visible: !root.room && root.oldRoom
 
-                    text: i18nc("@action:button", "View Room Profile")
+                    text: KI18n.i18nc("@action:button", "View Room Profile")
                     icon.name: "user-properties-symbolic"
                     onTriggered: {
                         root.room = root.oldRoom;
@@ -244,7 +245,7 @@ Kirigami.Dialog {
         }
 
         Kirigami.Heading {
-            text: i18nc("@title Moderation actions for this user", "Moderation")
+            text: KI18n.i18nc("@title Moderation actions for this user", "Moderation")
             level: 2
             visible: root.isRoomProfile && moderationToolbar.actions.filter(function (it) { return it.visible; }).length > 0
 
@@ -269,18 +270,18 @@ Kirigami.Dialog {
                         return false;
                     }
 
-                    text: i18nc("@action:button Kick the user from the room", "Kick…")
+                    text: KI18n.i18nc("@action:button Kick the user from the room", "Kick…")
                     icon.name: "im-kick-user"
                     onTriggered: {
                         let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                            title: i18nc("@title:dialog", "Kick User"),
-                            placeholder: i18nc("@info:placeholder", "Optionally give a reason for kicking this user"),
-                            actionText: i18nc("@action:button 'Kick' as in 'Kick this user from the room'", "Kick"),
+                            title: KI18n.i18nc("@title:dialog", "Kick User"),
+                            placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for kicking this user"),
+                            actionText: KI18n.i18nc("@action:button 'Kick' as in 'Kick this user from the room'", "Kick"),
                             icon: "im-kick-user",
                             reporting: false,
                             connection: root.connection,
                         }, {
-                            title: i18nc("@title:dialog", "Kick User"),
+                            title: KI18n.i18nc("@title:dialog", "Kick User"),
                             width: Kirigami.Units.gridUnit * 25
                         });
                         dialog.accepted.connect(reason => {
@@ -297,19 +298,19 @@ Kirigami.Dialog {
                         return false;
                     }
 
-                    text: i18nc("@action:button Ban this user from the room", "Ban…")
+                    text: KI18n.i18nc("@action:button Ban this user from the room", "Ban…")
                     icon.name: "im-ban-user"
                     icon.color: Kirigami.Theme.negativeTextColor
                     onTriggered: {
                         let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                            title: i18nc("@title:dialog", "Ban User"),
-                            placeholder: i18nc("@info:placeholder", "Optionally give a reason for banning this user"),
-                            actionText: i18nc("@action:button 'Ban' as in 'Ban this user'", "Ban"),
+                            title: KI18n.i18nc("@title:dialog", "Ban User"),
+                            placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for banning this user"),
+                            actionText: KI18n.i18nc("@action:button 'Ban' as in 'Ban this user'", "Ban"),
                             icon: "im-ban-user",
                             reporting: false,
                             connection: root.connection,
                         }, {
-                            title: i18nc("@title:dialog", "Ban User"),
+                            title: KI18n.i18nc("@title:dialog", "Ban User"),
                             width: Kirigami.Units.gridUnit * 25
                         });
                         dialog.accepted.connect(reason => {
@@ -326,7 +327,7 @@ Kirigami.Dialog {
                         return false;
                     }
 
-                    text: i18nc("@action:button Unban the user from this room", "Unban")
+                    text: KI18n.i18nc("@action:button Unban the user from this room", "Unban")
                     icon.name: "im-irc"
                     icon.color: Kirigami.Theme.negativeTextColor
                     onTriggered: {
@@ -337,19 +338,19 @@ Kirigami.Dialog {
                 Kirigami.Action {
                     visible: (root.user.id === root.connection.localUserId || (root.room?.canSendState("redact") ?? false))
 
-                    text: i18nc("@action:button Remove messages from the user in this room", "Remove Messages…")
+                    text: KI18n.i18nc("@action:button Remove messages from the user in this room", "Remove Messages…")
                     icon.name: "delete"
                     icon.color: Kirigami.Theme.negativeTextColor
                     onTriggered: {
                         let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                            title: i18nc("@title:dialog", "Remove Messages"),
-                            placeholder: i18nc("@info:placeholder", "Optionally give a reason for removing this user's recent messages"),
-                            actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
+                            title: KI18n.i18nc("@title:dialog", "Remove Messages"),
+                            placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for removing this user's recent messages"),
+                            actionText: KI18n.i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
                             icon: "delete",
                             reporting: false,
                             connection: root.connection,
                         }, {
-                            title: i18nc("@title", "Remove Messages"),
+                            title: KI18n.i18nc("@title", "Remove Messages"),
                             width: Kirigami.Units.gridUnit * 25
                         });
                         dialog.accepted.connect(reason => {
@@ -362,7 +363,7 @@ Kirigami.Dialog {
         }
 
         Kirigami.Heading {
-            text: i18nc("@title Role such as 'Admin' or 'Moderator' for this user", "Power Level")
+            text: KI18n.i18nc("@title Role such as 'Admin' or 'Moderator' for this user", "Power Level")
             level: 2
             visible: root.isRoomProfile
 
@@ -386,7 +387,7 @@ Kirigami.Dialog {
                     }
                     return false;
                 }
-                text: i18nc("@action:button Set the power level (such as 'Admin') for this user", "Set Power Level")
+                text: KI18n.i18nc("@action:button Set the power level (such as 'Admin') for this user", "Set Power Level")
                 icon.name: "document-edit-symbolic"
                 display: QQC2.AbstractButton.IconOnly
 
@@ -413,7 +414,7 @@ Kirigami.Dialog {
         }
 
         Kirigami.Heading {
-            text: i18nc("@title The user's timezone", "Timezone")
+            text: KI18n.i18nc("@title The user's timezone", "Timezone")
             level: 2
             visible: root.connection.supportsProfileFields ? root.profileFieldsHelper.loading || root.profileFieldsHelper.localTime.length > 0 : false
 
@@ -438,7 +439,7 @@ Kirigami.Dialog {
         }
 
         Kirigami.Heading {
-            text: i18nc("@title The set of common rooms between your current user and the one shown", "Mutual Rooms")
+            text: KI18n.i18nc("@title The set of common rooms between your current user and the one shown", "Mutual Rooms")
             level: 2
             visible: !root.isSelf && root.connection.canCheckMutualRooms
 
@@ -460,7 +461,7 @@ Kirigami.Dialog {
 
             QQC2.Label {
                 visible: roomRepeater.count === 0 && !root.model.loading
-                text: i18nc("@info:label", "No rooms in common")
+                text: KI18n.i18nc("@info:label", "No rooms in common")
                 verticalAlignment: Text.AlignVCenter
 
                 Layout.preferredHeight: Kirigami.Units.iconSizes.medium
@@ -495,14 +496,14 @@ Kirigami.Dialog {
             }
 
             QQC2.Label {
-                text: i18ncp("@info:label And '%1' more rooms you have in common with this user, but are not shown", "and 1 more…", "and %1 more…", root.limiterModel.extraCount)
+                text: KI18n.i18ncp("@info:label And '%1' more rooms you have in common with this user, but are not shown", "and 1 more…", "and %1 more…", root.limiterModel.extraCount)
                 visible: root.limiterModel.extraCount > 0
                 color: Kirigami.Theme.disabledTextColor
             }
         }
 
         Kirigami.Heading {
-            text: i18nc("@title Private note for this user", "Private Note")
+            text: KI18n.i18nc("@title Private note for this user", "Private Note")
             level: 2
 
             Layout.topMargin: Kirigami.Units.largeSpacing
@@ -514,7 +515,7 @@ Kirigami.Dialog {
             text: root.connection.noteForUser(root.user.id)
             textFormat: TextEdit.PlainText
             wrapMode: TextEdit.Wrap
-            placeholderText: i18nc("@info:placeholder", "Only visible to you")
+            placeholderText: KI18n.i18nc("@info:placeholder", "Only visible to you")
 
             onTextEdited: editTimer.restart()
 

@@ -12,28 +12,29 @@ import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.ki18n
 
 SearchPage {
     id: root
 
     property NeoChatRoom room
 
-    title: i18nc("@title:dialog", "Invite a User")
+    title: KI18n.i18nc("@title:dialog", "Invite a User")
 
-    searchFieldPlaceholder: i18nc("@info:placeholder", "Find a user…")
-    noResultPlaceholderMessage: i18nc("@info:placeholder", "No users found")
+    searchFieldPlaceholder: KI18n.i18nc("@info:placeholder", "Find a user…")
+    noResultPlaceholderMessage: KI18n.i18nc("@info:placeholder", "No users found")
 
-    noSearchPlaceholderMessage: i18nc("@placeholder", "Enter text to start searching for users")
+    noSearchPlaceholderMessage: KI18n.i18nc("@placeholder", "Enter text to start searching for users")
 
     headerTrailing: QQC2.Button {
         icon.name: "list-add"
         display: QQC2.Button.IconOnly
         enabled: root.model.searchText.match(/@(.+):(.+)/g) && !root.room.containsUser(root.model.searchText)
 
-        text: i18nc("@action:button", "Invite this User")
+        text: KI18n.i18nc("@action:button", "Invite this User")
 
         QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.text: root.room.containsUser(root.model.searchText) ? i18nc("@info:tooltip", "User is either already a member or has been invited") : text
+        QQC2.ToolTip.text: root.room.containsUser(root.model.searchText) ? KI18n.i18nc("@info:tooltip", "User is either already a member or has been invited") : text
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         onClicked: root.room.inviteToRoom(root.model.searchText);
@@ -43,7 +44,7 @@ SearchPage {
 
     noResultHelpfulAction: Kirigami.Action {
         icon.name: "list-add-user"
-        text: i18nc("@action:button", "Enter a User ID")
+        text: KI18n.i18nc("@action:button", "Enter a User ID")
         onTriggered: _private.openManualUserDialog()
         tooltip: text
     }
@@ -83,7 +84,7 @@ SearchPage {
                 readonly property bool inRoom: root.room && root.room.containsUser(delegate.userId)
 
                 icon.name: "document-send"
-                text: i18nc("@action:button", "Send invitation")
+                text: KI18n.i18nc("@action:button", "Send invitation")
                 opacity: inRoom ? 0.5 : 1
                 enabled: !inRoom
 
@@ -92,7 +93,7 @@ SearchPage {
                     root.room.inviteToRoom(delegate.userId);
                 }
 
-                QQC2.ToolTip.text: !inRoom ? text : i18nc("@info:tooltip", "User is either already a member or has been invited")
+                QQC2.ToolTip.text: !inRoom ? text : KI18n.i18nc("@info:tooltip", "User is either already a member or has been invited")
                 QQC2.ToolTip.visible: inviteButton.hovered
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }

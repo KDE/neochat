@@ -7,6 +7,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -17,12 +18,12 @@ LoginStep {
     FormCard.FormTextFieldDelegate {
         id: passwordField
 
-        label: i18n("Password:")
+        label: KI18n.i18n("Password:")
         onTextChanged: LoginHelper.password = text
         enabled: !LoginHelper.isLoggingIn
         echoMode: TextInput.Password
-        Accessible.name: i18n("Password")
-        statusMessage: LoginHelper.isInvalidPassword ? i18n("Invalid username or password") : ""
+        Accessible.name: KI18n.i18n("Password")
+        statusMessage: LoginHelper.isInvalidPassword ? KI18n.i18n("Invalid username or password") : ""
 
         Keys.onReturnPressed: {
             root.nextAction.trigger();
@@ -30,7 +31,7 @@ LoginStep {
     }
 
     nextAction: Kirigami.Action {
-        text: i18nc("@action:button", "Login")
+        text: KI18n.i18nc("@action:button", "Login")
         enabled: passwordField.text.length > 0 && !LoginHelper.isLoggingIn
         onTriggered: {
             root.clearError();

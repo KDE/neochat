@@ -10,11 +10,12 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
-    title: i18nc("@title:window", "Export Keys")
+    title: KI18n.i18nc("@title:window", "Export Keys")
 
     required property NeoChatConnection connection
 
@@ -30,16 +31,16 @@ FormCard.FormCardPage {
         Layout.topMargin: Kirigami.Units.largeSpacing
         FormCard.FormTextFieldDelegate {
             id: passphraseField
-            label: i18nc("@label:textbox", "Passphrase:")
+            label: KI18n.i18nc("@label:textbox", "Passphrase:")
             echoMode: TextInput.Password
         }
         FormCard.FormTextDelegate {
-            text: i18n("A passphrase to secure your key backup. It should not be your account password.")
+            text: KI18n.i18n("A passphrase to secure your key backup. It should not be your account password.")
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             enabled: passphraseField.text.length > 0
-            text: i18nc("@action:button", "Export keys")
+            text: KI18n.i18nc("@action:button", "Export keys")
             onClicked: {
                 let dialog = saveDialog.createObject(root);
                 dialog.accepted.connect(() => {
@@ -47,11 +48,11 @@ FormCard.FormCardPage {
                     let error = root.connection.exportMegolmSessions(passphraseField.text, dialog.selectedFile);
                     passphraseField.text = "";
                     if (error === KeyImport.Success) {
-                        banner.text = i18nc("@info", "Keys exported successfully");
+                        banner.text = KI18n.i18nc("@info", "Keys exported successfully");
                         banner.type = Kirigami.MessageType.Positive;
                         banner.visible = true;
                     } else {
-                        banner.text = i18nc("@info", "Unknown error");
+                        banner.text = KI18n.i18nc("@info", "Unknown error");
                         banner.type = Kirigami.MessageType.Error;
                         banner.visible = true;
                     }

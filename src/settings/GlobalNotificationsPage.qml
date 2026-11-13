@@ -12,13 +12,14 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kitemmodels
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title:window", "Notifications")
+    title: KI18n.i18nc("@title:window", "Notifications")
 
     readonly property PushRuleModel pushRuleModel: PushRuleModel {
         connection: root.connection
@@ -27,7 +28,7 @@ FormCard.FormCardPage {
     actions: [
         Kirigami.Action {
             displayComponent: QQC2.Switch {
-                text: i18nc("@option:check Whether notifications are enabled for this account", "Enabled for this account")
+                text: KI18n.i18nc("@option:check Whether notifications are enabled for this account", "Enabled for this account")
                 checkable: true
                 checked: root.pushRuleModel.globalNotificationsEnabled
                 enabled: root.pushRuleModel.globalNotificationsSet
@@ -39,7 +40,7 @@ FormCard.FormCardPage {
     background: Item {
         Kirigami.PlaceholderMessage {
             icon.name: "notifications"
-            text: i18nc("@info:placeholder", "Notifications Disabled")
+            text: KI18n.i18nc("@info:placeholder", "Notifications Disabled")
             visible: !root.pushRuleModel.globalNotificationsEnabled
 
             anchors.centerIn: parent
@@ -54,7 +55,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: enableDeviceNotificationsDelegate
 
-            text: i18nc("@option:check", "Enable notifications for this device")
+            text: KI18n.i18nc("@option:check", "Enable notifications for this device")
             checked: root.connection.enableDeviceNotifications
             onToggled: root.connection.enableDeviceNotifications = checked
         }
@@ -67,7 +68,7 @@ FormCard.FormCardPage {
             id: configureSystemNotificationsDelegate
 
             icon.name: "configure-symbolic"
-            text: i18nc("@action:button", "Configure System Notifications…")
+            text: KI18n.i18nc("@action:button", "Configure System Notifications…")
             visible: root.connection.enableDeviceNotifications && root.connection.inKDESession()
 
             // TODO: replace with proper KNotifications API in the future and when we can depend on it!
@@ -76,7 +77,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group Background/push notifications", "Background Notifications")
+        title: KI18n.i18nc("@title:group Background/push notifications", "Background Notifications")
         visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications && root.connection.pushNotificationsAvailable
     }
     FormCard.FormCard {
@@ -100,9 +101,9 @@ FormCard.FormCardPage {
                     text: {
                         if (root.connection.pushNotificationsAvailable) {
                             if (root.connection.enablePushNotifications) {
-                                return i18nc("@info:label", "Notifications can appear even when NeoChat isn't running.");
+                                return KI18n.i18nc("@info:label", "Notifications can appear even when NeoChat isn't running.");
                             } else {
-                                return i18nc("@info:label", "The configured push distributor does not have a Matrix gateway.");
+                                return KI18n.i18nc("@info:label", "The configured push distributor does not have a Matrix gateway.");
                             }
                         }
                         return ""; // this section would be hidden anyway!
@@ -122,7 +123,7 @@ FormCard.FormCardPage {
             id: backgroundNotificationsDelegate
 
             icon.name: "configure-symbolic"
-            text: i18nc("@action:button", "Configure Background Notifications…")
+            text: KI18n.i18nc("@action:button", "Configure Background Notifications…")
             visible: root.connection.inKDESession()
 
             onClicked: Qt.openUrlExternally("systemsettings:/kcm_push_notifications")
@@ -130,7 +131,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Room Notifications")
+        title: KI18n.i18nc("@title:group", "Room Notifications")
         visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {
@@ -143,7 +144,7 @@ FormCard.FormCardPage {
                     source: "data-information"
                 }
                 QQC2.Label {
-                    text: i18nc("@info", "These are the default notification settings for all rooms. You can customize notifications per-room in the room list or room settings.")
+                    text: KI18n.i18nc("@info", "These are the default notification settings for all rooms. You can customize notifications per-room in the room list or room settings.")
                     wrapMode: Text.WordWrap
 
                     Layout.fillWidth: true
@@ -170,7 +171,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group Mention notifications", "Mentions")
+        title: KI18n.i18nc("@title:group Mention notifications", "Mentions")
         visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {
@@ -190,7 +191,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Keywords")
+        title: KI18n.i18nc("@title:group", "Keywords")
         visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {
@@ -218,7 +219,7 @@ FormCard.FormCardPage {
 
                     Layout.fillWidth: true
 
-                    placeholderText: i18n("Keyword…")
+                    placeholderText: KI18n.i18n("Keyword…")
                     enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown
 
                     rightActions: Kirigami.Action {
@@ -237,7 +238,7 @@ FormCard.FormCardPage {
                 QQC2.Button {
                     id: addButton
 
-                    text: i18n("Add keyword")
+                    text: KI18n.i18n("Add keyword")
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly
@@ -258,7 +259,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Invites")
+        title: KI18n.i18nc("@title:group", "Invites")
         visible: root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {
@@ -278,7 +279,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Unknown")
+        title: KI18n.i18nc("@title:group", "Unknown")
         visible: unknownModel.rowCount() > 0 && root.pushRuleModel.globalNotificationsEnabled && root.connection.enableDeviceNotifications
     }
     FormCard.FormCard {

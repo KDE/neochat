@@ -7,6 +7,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
@@ -14,7 +15,7 @@ FormCard.FormCardPage {
     property bool processing: false
     required property NeoChatConnection connection
 
-    title: i18nc("@title:window", "Manage Key Storage")
+    title: KI18n.i18nc("@title:window", "Manage Key Storage")
 
     topPadding: Kirigami.Units.gridUnit
     leftPadding: 0
@@ -33,49 +34,49 @@ FormCard.FormCardPage {
         function onKeyBackupError(): void {
             securityKeyField.clear()
             root.processing = false
-            banner.text = i18nc("@info:status", "The recovery key was not correct.")
+            banner.text = KI18n.i18nc("@info:status", "The recovery key was not correct.")
             banner.visible = true
         }
 
         function onKeyBackupUnlocked(): void {
             root.processing = false
-            banner.text = i18nc("@info:status", "Encryption keys restored.")
+            banner.text = KI18n.i18nc("@info:status", "Encryption keys restored.")
             banner.type = Kirigami.MessageType.Positive
             banner.visible = true
         }
 
         function onBackupFinished(result: int): void {
             banner.type = result === NeoChatConnection.Success ? Kirigami.MessageType.Positive : Kirigami.MessageType.Error
-            banner.text = result === NeoChatConnection.Success ? i18nc("@info", "Loaded keys from backup") : i18nc("@info", "Failed to load keys from backup")
+            banner.text = result === NeoChatConnection.Success ? KI18n.i18nc("@info", "Loaded keys from backup") : KI18n.i18nc("@info", "Failed to load keys from backup")
             banner.visible = true;
             root.processing = false;
         }
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Verify Session")
+        title: KI18n.i18nc("@title", "Verify Session")
         visible: !root.connection.isVerifiedSession // If you've already verified there is nothing to...verify
     }
     FormCard.FormCard {
         visible: !root.connection.isVerifiedSession
         FormCard.FormTextDelegate {
-            description: i18nc("@info:description", "It's recommended to verify this session from another device, if possible. You can do so under the Devices page.")
+            description: KI18n.i18nc("@info:description", "It's recommended to verify this session from another device, if possible. You can do so under the Devices page.")
         }
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Unlock using Recovery Key")
+        title: KI18n.i18nc("@title", "Unlock using Recovery Key")
         visible: !root.connection.isVerifiedSession || Controller.libquotientMinorVersion >= 10 && (!root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable)  // If you've already verified there is nothing to unlock, but we might not have all private keys
     }
     FormCard.FormCard {
         visible: !root.connection.isVerifiedSession || Controller.libquotientMinorVersion >= 10 && (!root.connection.allPrivateCSKeysAvailable || !root.connection.isBackupDecryptionKeyAvailable)
 
         FormCard.FormTextDelegate {
-            description: i18nc("@info", "If you have a recovery key (also known as a “security key” or “backup passphrase”), enter it below or upload it as a file.")
+            description: KI18n.i18nc("@info", "If you have a recovery key (also known as a “security key” or “backup passphrase”), enter it below or upload it as a file.")
         }
         FormCard.FormTextFieldDelegate {
             id: securityKeyField
-            label: i18nc("@label:textbox", "Recovery Key:")
+            label: KI18n.i18nc("@label:textbox", "Recovery Key:")
             echoMode: TextInput.Password
         }
         FormCard.FormDelegateSeparator {
@@ -84,7 +85,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormButtonDelegate {
             id: uploadSecurityKeyButton
-            text: i18nc("@action:button", "Upload From File")
+            text: KI18n.i18nc("@action:button", "Upload From File")
             icon.name: "cloud-upload"
             enabled: !root.processing
             onClicked: {
@@ -98,7 +99,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormButtonDelegate {
             id: unlockSecurityKeyButton
-            text: i18nc("@action:button", "Unlock")
+            text: KI18n.i18nc("@action:button", "Unlock")
             icon.name: "unlock"
             enabled: securityKeyField.text.length > 0 && !root.processing
             onClicked: {
@@ -109,14 +110,14 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Unlock from Cross-Signing")
+        title: KI18n.i18nc("@title", "Unlock from Cross-Signing")
         visible: root.connection.isVerifiedSession && (Controller.libquotientMinorVersion < 10 || (!root.connection.allPrivateCSKeysAvailable ||  !root.connection.isBackupDecryptionKeyAvailable)) // This is only functional when verified and useless when we already have private keys
     }
     FormCard.FormCard {
         visible: root.connection.isVerifiedSession && (Controller.libquotientMinorVersion < 10 || (!root.connection.allPrivateCSKeysAvailable ||  !root.connection.isBackupDecryptionKeyAvailable))
         FormCard.FormTextDelegate {
             id: crossSigningText
-            description: i18nc("@info", "If you have previously verified this device, you request encryption keys from other verified devices.")
+            description: KI18n.i18nc("@info", "If you have previously verified this device, you request encryption keys from other verified devices.")
         }
         FormCard.FormDelegateSeparator {
             above: crossSigningText
@@ -125,7 +126,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             id: unlockCrossSigningButton
             icon.name: "emblem-shared-symbolic"
-            text: i18nc("@action:button", "Request From Other Devices")
+            text: KI18n.i18nc("@action:button", "Request From Other Devices")
             enabled: !root.processing && root.connection.isVerifiedSession
             onClicked: {
                 root.processing = true
@@ -135,13 +136,13 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Decryption Key Backup")
+        title: KI18n.i18nc("@title", "Decryption Key Backup")
         visible: Controller.libquotientMinorVersion > 9 && root.connection.isVerifiedSession // This is only functional when verified
     }
     FormCard.FormCard {
         visible: Controller.libquotientMinorVersion > 9 && root.connection.isVerifiedSession
         FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Load Decryption Keys from Backup")
+            text: KI18n.i18nc("@action:button", "Load Decryption Keys from Backup")
             enabled: root.connection.isBackupDecryptionKeyAvailable && !root.processing
             onClicked: {
                 root.connection.importFromBackup()

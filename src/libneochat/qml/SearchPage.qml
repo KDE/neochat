@@ -6,6 +6,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 /**
  * @brief Component for a generic search page.
@@ -178,7 +179,7 @@ Kirigami.ScrollablePage {
                     icon.name: "search"
                     display: QQC2.Button.IconOnly
                     visible: root.showSearchButton
-                    text: i18nc("@action:button", "Search")
+                    text: KI18n.i18nc("@action:button", "Search")
                     enabled: root.enableSearch
 
                     onClicked: {

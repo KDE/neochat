@@ -14,13 +14,14 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kitemmodels
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     property NeoChatRoom room
 
-    title: i18nc("@title:window", "Members")
+    title: KI18n.i18nc("@title:window", "Members")
 
     readonly property bool loading: permissions.count === 0 && !root.room.roomCreatorHasUltimatePowerLevel()
 
@@ -29,7 +30,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Privileged Members")
+        title: KI18n.i18nc("@title", "Privileged Members")
         visible: !root.loading
     }
     FormCard.FormCard {
@@ -163,7 +164,7 @@ FormCard.FormCardPage {
                         }
 
                         QQC2.Label {
-                            text: i18nc("@info", "No users found.")
+                            text: KI18n.i18nc("@info", "No users found.")
                             visible: userListView.count === 0
 
                             anchors {
@@ -238,7 +239,7 @@ FormCard.FormCardPage {
         implicitHeight: root.height * 0.9
         Kirigami.LoadingPlaceholder {
             anchors.centerIn: parent
-            text: i18nc("@placeholder", "Loading…")
+            text: KI18n.i18nc("@placeholder", "Loading…")
         }
     }
 }

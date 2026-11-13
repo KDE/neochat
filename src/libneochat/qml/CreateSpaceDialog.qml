@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -19,7 +20,7 @@ Kirigami.Dialog {
 
     signal newChild(string childName)
 
-    title: i18nc("@title", "Create a Space")
+    title: KI18n.i18nc("@title", "Create a Space")
     implicitWidth: Kirigami.Units.gridUnit * 20
     showCloseButton: false
     standardButtons: QQC2.Dialog.Cancel
@@ -34,7 +35,7 @@ Kirigami.Dialog {
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
             icon.name: "list-add-symbolic"
-            text: i18nc("@action:button Create new space", "Create")
+            text: KI18n.i18nc("@action:button Create new space", "Create")
             enabled: roomNameField.text.length > 0
 
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
@@ -46,8 +47,8 @@ Kirigami.Dialog {
 
         FormCard.FormTextFieldDelegate {
             id: roomNameField
-            label: i18nc("@info:label Name of the space", "Name:")
-            placeholderText: i18nc("@info:placeholder", "New Space")
+            label: KI18n.i18nc("@info:label Name of the space", "Name:")
+            placeholderText: KI18n.i18nc("@info:placeholder", "New Space")
         }
     }
 }

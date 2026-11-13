@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -19,18 +20,18 @@ ColumnLayout {
     required property NeoChatConnection connection
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Choose Room")
+        title: KI18n.i18nc("@title", "Choose Room")
     }
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
-            text: root.room?.displayNameForHtml ?? i18nc("@info", "No room selected")
-            description: i18nc("@info", "Click to choose a room");
+            text: root.room?.displayNameForHtml ?? KI18n.i18nc("@info", "No room selected")
+            description: KI18n.i18nc("@info", "Click to choose a room");
 
             onClicked: {
                 let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
                     connection: root.connection,
                 }, {
-                    title: i18nc("@title:dialog", "Choose Room"),
+                    title: KI18n.i18nc("@title:dialog", "Choose Room"),
                     width: Kirigami.Units.gridUnit * 24
                 });
                 dialog.chosen.connect(ids => root.room = root.connection.room(ids[0]))
@@ -39,12 +40,12 @@ ColumnLayout {
         FormCard.FormDelegateSeparator {}
         FormCard.FormTextDelegate {
             visible: root.room
-            text: i18n("Room Id: %1", root.room.id)
+            text: KI18n.i18n("Room Id: %1", root.room.id)
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormCheckDelegate {
             visible: root.room && Controller.libquotientMinorVersion >= 10
-            text: i18nc("@option:check Toggle for whether this room is considered a direct chat or not", "Direct Chat")
+            text: KI18n.i18nc("@option:check Toggle for whether this room is considered a direct chat or not", "Direct Chat")
             checked: root.room.isDirectChat()
             enabled: root.room.totalMemberCount === 2
             onCheckedChanged: {
@@ -57,7 +58,7 @@ ColumnLayout {
         }
     }
     FormCard.FormHeader {
-        title: i18n("Room Account Data")
+        title: KI18n.i18n("Room Account Data")
         visible: roomAccountData.count > 0
     }
     FormCard.FormCard {
@@ -71,7 +72,7 @@ ColumnLayout {
                 onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                     sourceText: root.room.roomAcountDataJson(text)
                 }, {
-                    title: i18n("Event Source"),
+                    title: KI18n.i18n("Event Source"),
                     width: Kirigami.Units.gridUnit * 25
                 })
             }
@@ -79,7 +80,7 @@ ColumnLayout {
     }
     FormCard.FormHeader {
         id: stateEventListHeader
-        title: i18n("Room State")
+        title: KI18n.i18n("Room State")
         visible: roomState.count > 0
     }
     FormCard.FormCard {
@@ -96,7 +97,7 @@ ColumnLayout {
                 required property int eventCount
                 required property string stateKey
                 text: type
-                description: i18ncp("'Event' being some JSON data, not something physically happening.", "%1 event of this type", "%1 events of this type", eventCount)
+                description: KI18n.i18ncp("'Event' being some JSON data, not something physically happening.", "%1 event of this type", "%1 events of this type", eventCount)
                 onClicked: {
                     if (eventCount === 1) {
                         root.openEventSource(type, stateKey);
@@ -105,7 +106,7 @@ ColumnLayout {
                             room: root.room,
                             eventType: type
                         }, {
-                            title: i18nc("'Event' being some JSON data, not something physically happening.", "Event Information")
+                            title: KI18n.i18nc("'Event' being some JSON data, not something physically happening.", "Event Information")
                         });
                     }
                 }
@@ -120,7 +121,7 @@ ColumnLayout {
             type: type,
             stateKey: stateKey,
         }, {
-            title: i18n("Event Source"),
+            title: KI18n.i18n("Event Source"),
             width: Kirigami.Units.gridUnit * 25
         });
     }

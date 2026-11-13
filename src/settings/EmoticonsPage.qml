@@ -7,16 +7,17 @@ import QtQuick.Layouts
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title:window", "Stickers & Emojis")
+    title: KI18n.i18nc("@title:window", "Stickers & Emojis")
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Emojis")
+        title: KI18n.i18nc("@title:group", "Emojis")
     }
     EmoticonFormCard {
         emoticonType: EmoticonFormCard.Emojis
@@ -24,7 +25,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Stickers")
+        title: KI18n.i18nc("@title:group", "Stickers")
     }
     EmoticonFormCard {
         emoticonType: EmoticonFormCard.Stickers

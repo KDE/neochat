@@ -13,6 +13,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.sonnet as Sonnet
 
 import org.kde.neochat
+import org.kde.ki18n
 
 QQC2.Menu {
     id: root
@@ -98,7 +99,7 @@ QQC2.Menu {
         visible: root.__showSpellcheckActions() && suggestionInstantiator.count === 0
         action: Kirigami.Action {
             enabled: false
-            text: root.spellcheckHighlighter ? i18nc("As in no suggestion for spellcheck to fix spelling", "No Suggestions for \"%1\"", root.spellcheckHighlighter.wordUnderMouse) : ""
+            text: root.spellcheckHighlighter ? KI18n.i18nc("As in no suggestion for spellcheck to fix spelling", "No Suggestions for \"%1\"", root.spellcheckHighlighter.wordUnderMouse) : ""
         }
     }
     QQC2.MenuSeparator {
@@ -107,7 +108,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         visible: root.__showSpellcheckActions()
         action: Kirigami.Action {
-            text: root.spellcheckHighlighter ? i18nc("As in add the word %1 to spellcheck dictionary", "Add \"%1\" to Dictionary", root.spellcheckHighlighter.wordUnderMouse) : ""
+            text: root.spellcheckHighlighter ? KI18n.i18nc("As in add the word %1 to spellcheck dictionary", "Add \"%1\" to Dictionary", root.spellcheckHighlighter.wordUnderMouse) : ""
 
             onTriggered: {
                 root.runOnMenuClose = () => {
@@ -119,7 +120,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         visible: root.__showSpellcheckActions()
         action: Kirigami.Action {
-            text: i18nc("@action:inmenu", "Ignore")
+            text: KI18n.i18nc("@action:inmenu", "Ignore")
             onTriggered: {
                 root.runOnMenuClose = () => {
                     root.spellcheckHighlighter.ignoreWord(root.spellcheckHighlighter.wordUnderMouse);
@@ -132,7 +133,7 @@ QQC2.Menu {
         checked: if (root.spellcheckHighlighter) {
             return root.spellcheckHighlighter.active;
         }
-        text: i18nc("@action:inmenu", "Spell Check")
+        text: KI18n.i18nc("@action:inmenu", "Spell Check")
 
         onToggled: {
             if (root.spellcheckHighlighter) {
@@ -144,7 +145,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: Kirigami.Action {
             icon.name: "edit-undo-symbolic"
-            text: i18nc("@action:inmenu", "Undo")
+            text: KI18n.i18nc("@action:inmenu", "Undo")
             shortcut: StandardKey.Undo
         }
         enabled: root.target?.canUndo ?? false
@@ -157,7 +158,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: Kirigami.Action {
             icon.name: "edit-redo-symbolic"
-            text: i18nc("@action:inmenu", "Redo")
+            text: KI18n.i18nc("@action:inmenu", "Redo")
             shortcut: StandardKey.Redo
         }
         enabled: root.target?.canRedo ?? false
@@ -171,7 +172,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: Kirigami.Action {
             icon.name: "edit-cut-symbolic"
-            text: i18nc("@action:inmenu", "Cut")
+            text: KI18n.i18nc("@action:inmenu", "Cut")
             shortcut: StandardKey.Cut
         }
         enabled: root.__hasSelectedText()
@@ -184,7 +185,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: Kirigami.Action {
             icon.name: "edit-copy-symbolic"
-            text: i18nc("@action:inmenu", "Copy")
+            text: KI18n.i18nc("@action:inmenu", "Copy")
             shortcut: StandardKey.Copy
         }
         enabled: root.__hasSelectedText()
@@ -198,7 +199,7 @@ QQC2.Menu {
         id: pasteItem
         action: Kirigami.Action {
             icon.name: "edit-paste-symbolic"
-            text: i18nc("@action:inmenu", "Paste")
+            text: KI18n.i18nc("@action:inmenu", "Paste")
             shortcut: StandardKey.Paste
         }
         enabled: (target?.canPaste ?? false)
@@ -221,7 +222,7 @@ QQC2.Menu {
             id: plainButton
             visible: NeoChatConfig.richChatBar
             icon.name: "font"
-            text: i18nc("@action:inmenu", "Paste as Plain Text")
+            text: KI18n.i18nc("@action:inmenu", "Paste as Plain Text")
             display: QQC2.ToolButton.IconOnly
 
             onClicked: {
@@ -238,7 +239,7 @@ QQC2.Menu {
             id: markdownButton
             visible: NeoChatConfig.richChatBar
             icon.name: "xml-text-new-symbolic"
-            text: i18nc("@action:inmenu", "Paste as Markdown Text")
+            text: KI18n.i18nc("@action:inmenu", "Paste as Markdown Text")
             display: QQC2.ToolButton.IconOnly
 
             onClicked: {
@@ -256,7 +257,7 @@ QQC2.Menu {
             visible: NeoChatConfig.richChatBar
             enabled: Clipboard.hasRichText
             icon.name: "format-text-code-symbolic"
-            text: i18nc("@action:inmenu", "Paste as Rich Text")
+            text: KI18n.i18nc("@action:inmenu", "Paste as Rich Text")
             display: QQC2.ToolButton.IconOnly
 
             onClicked: {
@@ -277,7 +278,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: Kirigami.Action {
             icon.name: "edit-delete-symbolic"
-            text: i18nc("@action:inmenu", "Delete")
+            text: KI18n.i18nc("@action:inmenu", "Delete")
             shortcut: StandardKey.Delete
         }
         enabled: root.__hasSelectedText()
@@ -291,7 +292,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         action: Kirigami.Action {
             icon.name: "edit-select-all-symbolic"
-            text: i18nc("@action:inmenu", "Select All")
+            text: KI18n.i18nc("@action:inmenu", "Select All")
             shortcut: StandardKey.SelectAll
         }
         visible: root.target !== null

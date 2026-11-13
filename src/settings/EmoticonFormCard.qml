@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCard {
     id: root
@@ -57,7 +58,7 @@ FormCard.FormCard {
                     proxyModel: emoticonFilterModel,
                     emoticonType: root.emoticonType
                 }, {
-                    title: root.emoticonType === EmoticonFormCard.Emojis ? i18nc("@title", "Edit Emoji") : i18nc("@title", "Edit Sticker")
+                    title: root.emoticonType === EmoticonFormCard.Emojis ? KI18n.i18nc("@title", "Edit Emoji") : KI18n.i18nc("@title", "Edit Sticker")
                 })
 
                 contentItem: ColumnLayout {
@@ -75,7 +76,7 @@ FormCard.FormCard {
                     }
                     QQC2.Label {
                         id: descriptionLabel
-                        text: stickerDelegate.body ?? i18nc("As in 'This sticker/emoji has no description'", "No Description")
+                        text: stickerDelegate.body ?? KI18n.i18nc("As in 'This sticker/emoji has no description'", "No Description")
                         horizontalAlignment: Qt.AlignHCenter
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
@@ -107,7 +108,7 @@ FormCard.FormCard {
                 newEmoticon: true,
                 emoticonType: root.emoticonType
             }, {
-                title: root.emoticonType === EmoticonFormCard.Emojis ? i18nc("@title", "Add Emoji") : i18nc("@title", "Add Sticker")
+                title: root.emoticonType === EmoticonFormCard.Emojis ? KI18n.i18nc("@title", "Add Emoji") : KI18n.i18nc("@title", "Add Sticker")
             })
             contentItem: ColumnLayout {
                 spacing: 0
@@ -116,7 +117,7 @@ FormCard.FormCard {
                     Layout.fillWidth: true
                 }
                 QQC2.Label {
-                    text: root.emoticonType === EmoticonFormCard.Emojis ? i18n("Add Emoji") : i18n("Add Sticker")
+                    text: root.emoticonType === EmoticonFormCard.Emojis ? KI18n.i18n("Add Emoji") : KI18n.i18n("Add Sticker")
                     horizontalAlignment: Qt.AlignHCenter
                     Layout.fillWidth: true
                 }

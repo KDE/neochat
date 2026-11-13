@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.syntaxhighlighting
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Components.AbstractMaximizeComponent {
     id: root
@@ -36,7 +37,7 @@ Components.AbstractMaximizeComponent {
 
     actions: [
         Kirigami.Action {
-            text: i18nc("@action", "Copy to clipboard")
+            text: KI18n.i18nc("@action", "Copy to clipboard")
             icon.name: "edit-copy"
             onTriggered: Clipboard.saveText(root.codeText)
         }

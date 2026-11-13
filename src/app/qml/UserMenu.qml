@@ -11,6 +11,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.neochat
 import org.kde.neochat.settings
 import org.kde.neochat.devtools
+import org.kde.ki18n
 
 KirigamiComponents.ConvergentContextMenu {
     id: root
@@ -59,13 +60,13 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("@action:button", "Open Profile")
+        text: KI18n.i18nc("@action:button", "Open Profile")
         icon.name: "im-user-symbolic"
         onTriggered: RoomManager.resolveResource(root.author.uri)
     }
 
     QQC2.Action {
-        text: i18nc("@action:button", "Mention")
+        text: KI18n.i18nc("@action:button", "Mention")
         icon.name: "username-copy-symbolic"
         onTriggered: {
             RoomManager.currentRoom.mainCache.mentionAdded(root.author.disambiguatedName, "https://matrix.to/#/" + root.author.id);

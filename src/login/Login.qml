@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -22,10 +23,10 @@ LoginStep {
 
     FormCard.FormTextFieldDelegate {
         id: matrixIdField
-        label: i18n("Matrix ID:")
+        label: KI18n.i18n("Matrix ID:")
         text: LoginHelper.matrixId
         placeholderText: "@user:example.org"
-        Accessible.name: i18n("Matrix ID")
+        Accessible.name: KI18n.i18n("Matrix ID")
         onTextChanged: {
             LoginHelper.matrixId = text;
         }
@@ -36,7 +37,7 @@ LoginStep {
     }
 
     nextAction: Kirigami.Action {
-        text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ? i18n("Loading…") : i18nc("@action:button", "Continue")
+        text: LoginHelper.isLoggedIn ? KI18n.i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ? KI18n.i18n("Loading…") : KI18n.i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
                 root.processed("LoginMethod");

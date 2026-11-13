@@ -9,13 +9,14 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat.libneochat
+import org.kde.ki18n
 
 Kirigami.ScrollablePage {
     id: root
 
     required property NeoChatRoom room
 
-    title: i18nc("@title", "Extensions")
+    title: KI18n.i18nc("@title", "Extensions")
 
     ListView {
         id: extView
@@ -25,7 +26,7 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             icon.name: "extension-symbolic"
-            text: i18nc("@placeholder", "No extensions")
+            text: KI18n.i18nc("@placeholder", "No extensions")
             visible: extView.count === 0
         }
 
@@ -64,7 +65,7 @@ Kirigami.ScrollablePage {
                 QQC2.ToolButton {
                     action: Kirigami.Action {
                         icon.name: "delete-symbolic"
-                        tooltip: i18nc("@action:button", "Remove widget")
+                        tooltip: KI18n.i18nc("@action:button", "Remove widget")
                         onTriggered: widgetModel.removeWidget(del.index)
                     }
                 }

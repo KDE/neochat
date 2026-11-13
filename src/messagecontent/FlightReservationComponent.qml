@@ -7,6 +7,7 @@ import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.ki18n
 
 /**
  * @brief A component for a flight itinerary reservation.
@@ -70,7 +71,7 @@ ItineraryReservationComponent {
 
         QQC2.Label {
             Layout.fillWidth: true
-            text: i18nc("flight departure, %1 is airport, %2 is time", "Departure from %1",
+            text: KI18n.i18nc("flight departure, %1 is airport, %2 is time", "Departure from %1",
                 root.departureLocation)
             color: Kirigami.Theme.textColor
             wrapMode: Text.WordWrap
@@ -87,7 +88,7 @@ ItineraryReservationComponent {
 
         QQC2.Label {
             Layout.fillWidth: true
-            text: i18nc("flight arrival, %1 is airport, %2 is time", "Arrival at %1",
+            text: KI18n.i18nc("flight arrival, %1 is airport, %2 is time", "Arrival at %1",
                 root.arrivalLocation)
             color: Kirigami.Theme.textColor
             wrapMode: Text.WordWrap

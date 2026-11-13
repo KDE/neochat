@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.syntaxhighlighting
 
 import org.kde.neochat
+import org.kde.ki18n
 
 QQC2.Control {
     id: root
@@ -155,7 +156,7 @@ QQC2.Control {
 
         QQC2.Button {
             icon.name: "edit-copy"
-            text: i18n("Copy to clipboard")
+            text: KI18n.i18n("Copy to clipboard")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: Clipboard.saveText(codeText.text);
@@ -167,7 +168,7 @@ QQC2.Control {
         QQC2.Button {
             visible: Message.contentModel?.dateTime.isValid ?? false
             icon.name: "view-fullscreen"
-            text: i18nc("@action:button", "Maximize")
+            text: KI18n.i18nc("@action:button", "Maximize")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: RoomManager.maximizeCode(Message.contentModel?.author, Message.contentModel?.dateTime, codeText.text, root.block.language);

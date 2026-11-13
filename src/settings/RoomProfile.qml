@@ -9,13 +9,14 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     property NeoChatRoom room
 
-    title: i18nc('@title:window', 'Profile')
+    title: KI18n.i18nc('@title:window', 'Profile')
 
     function setDisplayName(): void {
         root.room.connection.localUser.rename(displayNameDelegate.text, root.room);
@@ -26,7 +27,7 @@ FormCard.FormCardPage {
 
         FormCard.FormTextDelegate {
             id: noticeLabel
-            text: i18nc("@info", "Customize your profile only for this room.")
+            text: KI18n.i18nc("@info", "Customize your profile only for this room.")
         }
         FormCard.FormDelegateSeparator {
             above: noticeLabel
@@ -34,7 +35,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormTextFieldDelegate {
             id: displayNameDelegate
-            label: i18nc("@label:textbox", "Display Name")
+            label: KI18n.i18nc("@label:textbox", "Display Name")
             text: root.room.member(root.room.connection.localUserId).displayName
         }
     }
@@ -44,13 +45,13 @@ FormCard.FormCardPage {
 
         FormCard.FormButtonDelegate {
             icon.name: "document-save-symbolic"
-            text: i18nc("@action:button Save profile", "Save")
+            text: KI18n.i18nc("@action:button Save profile", "Save")
             onClicked: root.setDisplayName()
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             icon.name: "kt-restore-defaults-symbolic"
-            text: i18nc("@action:button", "Reset to Default")
+            text: KI18n.i18nc("@action:button", "Reset to Default")
             onClicked: {
                 displayNameDelegate.text = root.room.connection.localUser.displayName;
                 root.setDisplayName();

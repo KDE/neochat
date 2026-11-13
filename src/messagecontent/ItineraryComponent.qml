@@ -10,6 +10,7 @@ import Qt.labs.qmlmodels
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a preview of a file that can integrate with KDE itinerary.
@@ -51,7 +52,7 @@ ColumnLayout {
     }
     QQC2.Button {
         icon.name: "map-globe"
-        text: i18nc("@action", "Send to KDE Itinerary")
+        text: KI18n.i18nc("@action", "Send to KDE Itinerary")
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.text: text
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay

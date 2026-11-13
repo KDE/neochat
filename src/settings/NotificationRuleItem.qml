@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.AbstractFormDelegate {
     id: root
@@ -67,7 +68,7 @@ FormCard.AbstractFormDelegate {
             QQC2.Button {
                 id: onButton
 
-                text: onButton.checked ? i18n("Disable notifications") : i18n("Enable notifications")
+                text: onButton.checked ? KI18n.i18n("Disable notifications") : KI18n.i18n("Enable notifications")
                 Accessible.name: text
                 icon.name: checked ? "notifications" : "notifications-disabled"
                 display: QQC2.AbstractButton.IconOnly
@@ -89,7 +90,7 @@ FormCard.AbstractFormDelegate {
             QQC2.Button {
                 id: noisyButton
 
-                text: noisyButton.checked ? i18n("Mute notifications") : i18n("Unmute notifications")
+                text: noisyButton.checked ? KI18n.i18n("Mute notifications") : KI18n.i18n("Unmute notifications")
                 Accessible.name: text
                 icon.name: checked ? "audio-volume-high" : "audio-volume-muted"
                 display: QQC2.AbstractButton.IconOnly
@@ -110,7 +111,7 @@ FormCard.AbstractFormDelegate {
             QQC2.Button {
                 id: highlightButton
 
-                text: highlightButton.checked ? i18nc("As in clicking this button will switch off highlights for messages that match this rule", "Disable message highlights") : i18nc("As in clicking this button will switch on highlights for messages that match this rule", "Enable message highlights")
+                text: highlightButton.checked ? KI18n.i18nc("As in clicking this button will switch off highlights for messages that match this rule", "Disable message highlights") : KI18n.i18nc("As in clicking this button will switch on highlights for messages that match this rule", "Enable message highlights")
                 Accessible.name: text
                 icon.name: "draw-highlight"
                 display: QQC2.AbstractButton.IconOnly
@@ -132,7 +133,7 @@ FormCard.AbstractFormDelegate {
             QQC2.Button {
                 id: deleteButton
 
-                Accessible.name: i18n("Delete keyword")
+                Accessible.name: KI18n.i18n("Delete keyword")
                 icon.name: "edit-delete-remove"
 
                 visible: root.deletable

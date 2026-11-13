@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.syntaxhighlighting
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -39,11 +40,11 @@ Kirigami.Page {
         }
     }
 
-    title: i18n("Event Source")
+    title: KI18n.i18n("Event Source")
 
     actions: [
         Kirigami.Action {
-            text: i18nc("@action As in 'edit the state of this room'", "Edit state")
+            text: KI18n.i18nc("@action As in 'edit the state of this room'", "Edit state")
             icon.name: "document-edit"
             visible: root.allowEdit
             enabled: root.room.canSendState(root.type) && (!root.stateKey.startsWith("@") || root.stateKey === root.room.connection.localUserId) && root.type !== "m.room.create"
@@ -53,7 +54,7 @@ Kirigami.Page {
                 stateKey: root.stateKey,
                 sourceText: root.contentJson,
             }, {
-                title: i18nc("@title As in 'edit the state of this room'", "Edit State")
+                title: KI18n.i18nc("@title As in 'edit the state of this room'", "Edit State")
             })
         }
     ]

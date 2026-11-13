@@ -10,6 +10,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as Components
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A dialog to select a parent space to add to a given room.
@@ -22,7 +23,7 @@ Kirigami.Dialog {
      */
     required property NeoChatRoom room
 
-    title: i18nc("@title", "Select new official parent")
+    title: KI18n.i18nc("@title", "Select new official parent")
     showCloseButton: false
     standardButtons: QQC2.Dialog.Cancel
 
@@ -38,14 +39,14 @@ Kirigami.Dialog {
         spacing: 0
         FormCard.FormButtonDelegate {
             visible: !chosenRoomDelegate.visible
-            text: i18nc("@action:button", "Pick room")
+            text: KI18n.i18nc("@action:button", "Pick room")
             onClicked: {
                 let dialog = QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                     connection: root.room.connection,
                     showOnlySpaces: true,
                     showOnlySpacesButton: false
                 }, {
-                    title: i18nc("@title", "Choose Parent Space")
+                    title: KI18n.i18nc("@title", "Choose Parent Space")
                 });
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
@@ -94,7 +95,7 @@ Kirigami.Dialog {
                         }
                         QQC2.Label {
                             visible: chosenRoomDelegate.isJoined
-                            text: i18n("Joined")
+                            text: KI18n.i18n("Joined")
                             color: Kirigami.Theme.linkColor
                         }
                     }
@@ -145,19 +146,19 @@ Kirigami.Dialog {
         FormCard.FormCheckDelegate {
             id: existingOfficialCheck
             property NeoChatRoom space: root.room.connection.room(chosenRoomDelegate.roomId)
-            text: i18n("Set this room as a child of the space %1", space?.displayName ?? "")
+            text: KI18n.i18n("Set this room as a child of the space %1", space?.displayName ?? "")
             checked: enabled
 
             enabled: chosenRoomDelegate.visible && space && space.canSendState("m.space.child")
         }
         FormCard.FormTextDelegate {
             visible: chosenRoomDelegate.visible && !root.room.canModifyParent(chosenRoomDelegate.roomId)
-            text: existingOfficialCheck.space ? (existingOfficialCheck.space.isSpace ? i18n("You do not have a high enough privilege level in the parent to set this state") : i18n("The selected room is not a space")) : i18n("You do not have the privileges to complete this action")
+            text: existingOfficialCheck.space ? (existingOfficialCheck.space.isSpace ? KI18n.i18n("You do not have a high enough privilege level in the parent to set this state") : KI18n.i18n("The selected room is not a space")) : KI18n.i18n("You do not have the privileges to complete this action")
             textItem.color: Kirigami.Theme.negativeTextColor
         }
         FormCard.FormCheckDelegate {
             id: makeCanonicalCheck
-            text: i18n("Make this space the canonical parent")
+            text: KI18n.i18n("Make this space the canonical parent")
             checked: enabled
 
             enabled: chosenRoomDelegate.visible
@@ -167,7 +168,7 @@ Kirigami.Dialog {
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
             enabled: chosenRoomDelegate.visible && root.room.canModifyParent(chosenRoomDelegate.roomId)
-            text: i18nc("@action:button", "Ok")
+            text: KI18n.i18nc("@action:button", "Ok")
             icon.name: "dialog-ok"
 
             onClicked: root.accept()

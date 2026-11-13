@@ -6,14 +6,15 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.PromptDialog {
     id: root
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title:dialog", "Sign out")
-    subtitle: i18n("Are you sure you want to sign out?")
+    title: KI18n.i18nc("@title:dialog", "Sign out")
+    subtitle: KI18n.i18n("Are you sure you want to sign out?")
     dialogType: Kirigami.PromptDialog.Warning
     standardButtons: QQC2.Dialog.Cancel
 
@@ -21,7 +22,7 @@ Kirigami.PromptDialog {
 
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
-            text: i18nc("@action:button", "Sign out")
+            text: KI18n.i18nc("@action:button", "Sign out")
 
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }

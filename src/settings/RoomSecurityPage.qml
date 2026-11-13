@@ -12,17 +12,18 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     property NeoChatRoom room
-    property string needUpgradeRoom: i18nc("@info", "You need to upgrade this room to a newer version to enable this setting.")
+    property string needUpgradeRoom: KI18n.i18nc("@info", "You need to upgrade this room to a newer version to enable this setting.")
 
-    title: i18nc("@title", "Security")
+    title: KI18n.i18nc("@title", "Security")
 
     FormCard.FormHeader {
-        title: i18nc("@option:check", "Encryption")
+        title: KI18n.i18nc("@option:check", "Encryption")
     }
     FormCard.FormCard {
         FormCard.AbstractFormDelegate {
@@ -34,7 +35,7 @@ FormCard.FormCardPage {
                     source: "lock"
                 }
                 QQC2.Label {
-                    text: i18nc("@info", "This room uses encryption.")
+                    text: KI18n.i18nc("@info", "This room uses encryption.")
                     wrapMode: Text.WordWrap
 
                     Layout.fillWidth: true
@@ -45,8 +46,8 @@ FormCard.FormCardPage {
             id: enableEncryptionSwitch
 
             icon.name: "lock-symbolic"
-            text: i18nc("@action:button Enable encryption in this room", "Enable Encryption…")
-            description: i18nc("@info:description", "Once enabled, encryption cannot be disabled.")
+            text: KI18n.i18nc("@action:button Enable encryption in this room", "Enable Encryption…")
+            description: KI18n.i18nc("@info:description", "Once enabled, encryption cannot be disabled.")
             enabled: root.room.canEncryptRoom
             visible: !root.room.usesEncryption
 
@@ -57,12 +58,12 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@option:check", "Access")
+        title: KI18n.i18nc("@option:check", "Access")
     }
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
-            text: i18nc("@option:check", "Private (invite only)")
-            description: i18nc("@info", "Only invited people can join.")
+            text: KI18n.i18nc("@option:check", "Private (invite only)")
+            description: KI18n.i18nc("@info", "Only invited people can join.")
             checked: root.room.joinRuleString === "invite"
             enabled: root.room.canSendState("m.room.join_rules")
             onCheckedChanged: if (checked && root.room.joinRuleString != "invite") {
@@ -70,8 +71,8 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("@option:check", "Space members")
-            description: i18nc("@info", "Anyone in the selected spaces can find and join.") + (!["8", "9", "10", "11", "12"].includes(root.room.version) ? `\n${root.needUpgradeRoom}` : "")
+            text: KI18n.i18nc("@option:check", "Space members")
+            description: KI18n.i18nc("@info", "Anyone in the selected spaces can find and join.") + (!["8", "9", "10", "11", "12"].includes(root.room.version) ? `\n${root.needUpgradeRoom}` : "")
             checked: root.room.joinRuleString === "restricted"
             enabled: root.room.canSendState("m.room.join_rules") && ["8", "9", "10", "11", "12"].includes(root.room.version)
             onCheckedChanged: if (checked && root.room.joinRuleString != "restricted") {
@@ -80,7 +81,7 @@ FormCard.FormCardPage {
 
             contentItem.children: QQC2.Button {
                 visible: root.room.joinRuleString === "restricted"
-                text: i18nc("@action:button", "Select spaces")
+                text: KI18n.i18nc("@action:button", "Select spaces")
                 icon.name: "list-add"
 
                 onClicked: (selectSpacesDialog.createObject(QQC2.Overlay.overlay) as SelectSpacesDialog).open()
@@ -98,8 +99,8 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("@option:check", "Knock")
-            description: i18nc("@info", "People not in the room need to request an invite to join the room.") + (!["7", "8", "9", "10", "11", "12"].includes(root.room.version) ? `\n${root.needUpgradeRoom}` : "")
+            text: KI18n.i18nc("@option:check", "Knock")
+            description: KI18n.i18nc("@info", "People not in the room need to request an invite to join the room.") + (!["7", "8", "9", "10", "11", "12"].includes(root.room.version) ? `\n${root.needUpgradeRoom}` : "")
             checked: root.room.joinRuleString === "knock"
             // https://spec.matrix.org/v1.4/rooms/#feature-matrix
             enabled: root.room.canSendState("m.room.join_rules") && ["7", "8", "9", "10", "11", "12"].includes(root.room.version)
@@ -108,8 +109,8 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("@option:check", "Public")
-            description: i18nc("@option:check", "Anyone can find and join.")
+            text: KI18n.i18nc("@option:check", "Public")
+            description: KI18n.i18nc("@option:check", "Anyone can find and join.")
             checked: root.room.joinRuleString === "public"
             enabled: root.room.canSendState("m.room.join_rules")
             onCheckedChanged: if (checked && root.room.joinRuleString != "public") {
@@ -119,12 +120,12 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@option:check", "Message history visibility")
+        title: KI18n.i18nc("@option:check", "Message history visibility")
     }
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
-            text: i18nc("@option:check", "Anyone")
-            description: i18nc("@option:check", "Anyone, regardless of whether they have joined, can view history.")
+            text: KI18n.i18nc("@option:check", "Anyone")
+            description: KI18n.i18nc("@option:check", "Anyone, regardless of whether they have joined, can view history.")
             checked: root.room.historyVisibility === "world_readable"
             enabled: root.room.canSendState("m.room.history_visibility")
             onCheckedChanged: if (checked) {
@@ -132,8 +133,8 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("@option:check", "Members only")
-            description: i18nc("@option:check", "All members can view the entire message history, even before they joined.")
+            text: KI18n.i18nc("@option:check", "Members only")
+            description: KI18n.i18nc("@option:check", "All members can view the entire message history, even before they joined.")
             checked: root.room.historyVisibility === "shared"
             enabled: root.room.canSendState("m.room.history_visibility")
             onCheckedChanged: if (checked) {
@@ -141,8 +142,8 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("@option:check", "Members only (since invite)")
-            description: i18nc("@option:check", "New members can view the message history from the point they were invited to the room.")
+            text: KI18n.i18nc("@option:check", "Members only (since invite)")
+            description: KI18n.i18nc("@option:check", "New members can view the message history from the point they were invited to the room.")
             checked: root.room.historyVisibility === "invited"
             enabled: root.room.canSendState("m.room.history_visibility")
             onCheckedChanged: if (checked) {
@@ -150,8 +151,8 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("@option:check", "Members only (since joining)")
-            description: i18nc("@option:check", "New members can view the message history from the point they joined the room.")
+            text: KI18n.i18nc("@option:check", "Members only (since joining)")
+            description: KI18n.i18nc("@option:check", "New members can view the message history from the point they joined the room.")
             checked: root.room.historyVisibility === "joined"
             enabled: root.room.canSendState("m.room.history_visibility")
             onCheckedChanged: if (checked) {

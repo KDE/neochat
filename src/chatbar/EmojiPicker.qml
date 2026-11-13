@@ -8,6 +8,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -52,14 +53,14 @@ ColumnLayout {
             Kirigami.Action {
                 id: emojis
                 icon.name: "smiley"
-                text: i18nc("@action:button", "Emojis")
+                text: KI18n.i18nc("@action:button", "Emojis")
                 checked: true
                 onTriggered: root.selectedType = 0
             },
             Kirigami.Action {
                 id: stickers
                 icon.name: "stickers"
-                text: i18nc("@action:button", "Stickers")
+                text: KI18n.i18nc("@action:button", "Stickers")
                 onTriggered: root.selectedType = 1
             }
         ]

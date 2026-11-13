@@ -12,6 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 ColumnLayout {
     id: root
@@ -19,7 +20,7 @@ ColumnLayout {
     required property NeoChatConnection connection
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Account Data")
+        title: KI18n.i18nc("@title:group", "Account Data")
     }
     FormCard.FormCard {
         Repeater {
@@ -30,7 +31,7 @@ ColumnLayout {
                 onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                     sourceText: root.connection.accountDataJsonString(modelData)
                 }, {
-                    title: i18nc("@title:window", "Event Source"),
+                    title: KI18n.i18nc("@title:window", "Event Source"),
                     width: Kirigami.Units.gridUnit * 25
                 })
             }
@@ -39,16 +40,16 @@ ColumnLayout {
     FormCard.FormCard {
         FormCard.FormSwitchDelegate {
             id: showAccessTokenCheckbox
-            text: i18nc("@info", "Show Access Token")
-            description: i18n("This should not be shared with anyone, even other users. This token gives full access to your account.")
+            text: KI18n.i18nc("@info", "Show Access Token")
+            description: KI18n.i18n("This should not be shared with anyone, even other users. This token gives full access to your account.")
         }
         FormCard.FormTextDelegate {
-            text: i18nc("@info", "Access Token")
+            text: KI18n.i18nc("@info", "Access Token")
             description: root.connection.accessToken
             visible: showAccessTokenCheckbox.checked
 
             contentItem.children: QQC2.Button {
-                text: i18nc("@action:button", "Copy access token to clipboard")
+                text: KI18n.i18nc("@action:button", "Copy access token to clipboard")
                 icon.name: "edit-copy"
                 display: QQC2.AbstractButton.IconOnly
 

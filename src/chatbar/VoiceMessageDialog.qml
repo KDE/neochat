@@ -12,6 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.coreaddons
 
 import org.kde.neochat
+import org.kde.ki18n
 
 QQC2.Dialog {
     id: root
@@ -27,12 +28,12 @@ QQC2.Dialog {
 
     standardButtons: QQC2.DialogButtonBox.Cancel
 
-    title: i18nc("@title:dialog", "Record Voice Message")
+    title: KI18n.i18nc("@title:dialog", "Record Voice Message")
 
     contentItem: ColumnLayout {
         QQC2.RoundButton {
             icon.name: voiceRecorder.recording ? "media-playback-stop" : "media-record"
-            text: voiceRecorder.recording ? i18nc("@action:button Stop audio recording", "Stop Recording") : i18nc("@action:button Start audio recording", "Start Recording")
+            text: voiceRecorder.recording ? KI18n.i18nc("@action:button Stop audio recording", "Stop Recording") : KI18n.i18nc("@action:button Start audio recording", "Start Recording")
             Layout.preferredHeight: Kirigami.Units.gridUnit * 4
             Layout.preferredWidth: Kirigami.Units.gridUnit * 4
             Layout.alignment: Qt.AlignHCenter
@@ -44,20 +45,20 @@ QQC2.Dialog {
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
             QQC2.Label {
-                text: i18nc("@info Duration being the length of an audio recording", "Duration: %1", Format.formatDuration(voiceRecorder.recorder.duration))
+                text: KI18n.i18nc("@info Duration being the length of an audio recording", "Duration: %1", Format.formatDuration(voiceRecorder.recorder.duration))
             }
         }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
-            text: i18nc("@info", "Voice message recording requires a newer Qt version than is currently installed on this system.")
+            text: KI18n.i18nc("@info", "Voice message recording requires a newer Qt version than is currently installed on this system.")
             visible: !voiceRecorder.isSupported
         }
     }
 
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
-            text: i18nc("@action:button Send the voice message", "Send")
+            text: KI18n.i18nc("@action:button Send the voice message", "Send")
             icon.name: "document-send"
             enabled: !voiceRecorder.recording && voiceRecorder.recorder.duration > 0 && voiceRecorder.isSupported
 

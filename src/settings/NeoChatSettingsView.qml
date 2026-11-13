@@ -9,6 +9,7 @@ import org.kde.kirigamiaddons.settings as KirigamiSettings
 import QtQuick.Layouts
 
 import org.kde.neochat
+import org.kde.ki18n
 
 KirigamiSettings.ConfigurationView {
     id: root
@@ -19,7 +20,7 @@ KirigamiSettings.ConfigurationView {
     modules: [
         KirigamiSettings.ConfigurationModule {
             moduleId: "general"
-            text: i18n("General")
+            text: KI18n.i18n("General")
             icon.name: "org.kde.neochat.tray"
             page: () => Qt.createComponent("org.kde.neochat.settings", "NeoChatGeneralPage")
             initialProperties: () => {
@@ -30,13 +31,13 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "appearance"
-            text: i18n("Appearance")
+            text: KI18n.i18n("Appearance")
             icon.name: "preferences-desktop-theme-global-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "AppearanceSettingsPage")
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "notifications"
-            text: i18n("Notifications")
+            text: KI18n.i18n("Notifications")
             icon.name: "preferences-desktop-notification-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "GlobalNotificationsPage")
             initialProperties: () => {
@@ -48,7 +49,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "security"
-            text: i18nc("@title", "Security & Safety")
+            text: KI18n.i18nc("@title", "Security & Safety")
             icon.name: "preferences-security-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "NeoChatSecurityPage")
             initialProperties: () => {
@@ -60,7 +61,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "devices"
-            text: i18n("Devices")
+            text: KI18n.i18n("Devices")
             icon.name: "computer-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "DevicesPage")
             visible: root.connection !== null
@@ -68,14 +69,14 @@ KirigamiSettings.ConfigurationView {
         KirigamiSettings.ConfigurationModule {
             id: accountsModule
             moduleId: "accounts"
-            text: i18n("Accounts")
+            text: KI18n.i18n("Accounts")
             icon.name: "preferences-system-users-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "AccountsPage")
             visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "emoticons"
-            text: i18n("Stickers & Emojis")
+            text: KI18n.i18n("Stickers & Emojis")
             icon.name: "preferences-desktop-emoticons-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "EmoticonsPage")
             initialProperties: () => {
@@ -88,29 +89,29 @@ KirigamiSettings.ConfigurationView {
         KirigamiSettings.SpellcheckingConfigurationModule {},
         KirigamiSettings.ConfigurationModule {
             moduleId: "networkProxy"
-            text: i18n("Network Proxy")
+            text: KI18n.i18n("Network Proxy")
             icon.name: "network-connect-symbolic"
             page: () => Qt.createComponent("org.kde.neochat.settings", "NetworkProxyPage")
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "keyboardShortcuts"
-            text: i18n("Keyboard Shortcuts")
+            text: KI18n.i18n("Keyboard Shortcuts")
             icon.name: "input-keyboard-symbolic"
             page: () => Qt.createComponent("org.kde.kirigami.actioncollection", "ShortcutsEditor")
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutNeochat"
-            text: i18n("About NeoChat")
+            text: KI18n.i18n("About NeoChat")
             icon.name: "help-about-symbolic"
             page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage")
-            category: i18nc("@title:group", "About")
+            category: KI18n.i18nc("@title:group", "About")
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutKDE"
-            text: i18n("About KDE")
+            text: KI18n.i18n("About KDE")
             icon.name: "kde-symbolic"
             page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage")
-            category: i18nc("@title:group", "About")
+            category: KI18n.i18nc("@title:group", "About")
         }
     ]
 

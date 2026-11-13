@@ -11,6 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.ScrollablePage {
     id: root
@@ -19,7 +20,7 @@ Kirigami.ScrollablePage {
     required property NeoChatConnection connection
     property alias currentTabIndex: tabBar.currentIndex
 
-    title: i18nc("@title", "Developer Tools")
+    title: KI18n.i18nc("@title", "Developer Tools")
 
     leftPadding: 0
     rightPadding: 0
@@ -30,27 +31,27 @@ Kirigami.ScrollablePage {
         readonly property real tabWidth: tabBar.width / tabBar.count
 
         QQC2.TabButton {
-            text: i18nc("@title:tab", "Debug Options")
+            text: KI18n.i18nc("@title:tab", "Debug Options")
 
             implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
-            text: i18nc("@title:tab", "Room Data")
+            text: KI18n.i18nc("@title:tab", "Room Data")
 
             implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
-            text: i18nc("@title:tab", "Server Info")
+            text: KI18n.i18nc("@title:tab", "Server Info")
 
             implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
-            text: i18nc("@title:tab", "Account Data")
+            text: KI18n.i18nc("@title:tab", "Account Data")
 
             implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
-            text: i18nc("@title:tab", "Feature Flags")
+            text: KI18n.i18nc("@title:tab", "Feature Flags")
 
             implicitWidth: tabBar.tabWidth
         }

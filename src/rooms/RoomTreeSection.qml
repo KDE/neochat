@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Delegates.RoundedItemDelegate {
     id: root
@@ -70,7 +71,7 @@ Delegates.RoundedItemDelegate {
                     width: Kirigami.Units.iconSizes.small
                     height: Kirigami.Units.iconSizes.small
                 }
-                text: root.expanded ? i18nc("Collapse <section name>", "Collapse %1", root.displayName) : i18nc("Expand <section name", "Expand %1", root.displayName)
+                text: root.expanded ? KI18n.i18nc("Collapse <section name>", "Collapse %1", root.displayName) : KI18n.i18nc("Expand <section name", "Expand %1", root.displayName)
                 display: QQC2.Button.IconOnly
 
                 activeFocusOnTab: false

@@ -10,6 +10,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Flow {
     id: root
@@ -80,7 +81,7 @@ Flow {
         width: Math.round(Kirigami.Units.gridUnit * 1.5)
         height: Math.round(Kirigami.Units.gridUnit * 1.5)
 
-        text: i18nc("@button", "React")
+        text: KI18n.i18nc("@button", "React")
 
         contentItem: Kirigami.Icon {
             source: "smiley-add-symbolic"

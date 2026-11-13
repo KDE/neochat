@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 RowLayout {
     id: root
@@ -38,7 +39,7 @@ RowLayout {
     QQC2.Button {
         id: reactButton
         visible: root.availableWidth > overflowButton.implicitWidth + root.spacing + reactButton.implicitWidth
-        text: i18n("React")
+        text: KI18n.i18n("React")
         icon.name: "smiley-add-symbolic"
         display: QQC2.ToolButton.IconOnly
         onClicked: {
@@ -71,7 +72,7 @@ RowLayout {
     QQC2.Button {
         id: replyButton
         visible: !root.room.readOnly && root.availableWidth > overflowButton.implicitWidth + reactButton.implicitWidth + replyButton.implicitWidth + root.spacing
-        text: i18n("Reply")
+        text: KI18n.i18n("Reply")
         icon.name: "mail-replied-symbolic"
         display: QQC2.Button.IconOnly
         onClicked: {
@@ -84,7 +85,7 @@ RowLayout {
     }
     QQC2.Button {
         id: overflowButton
-        text: i18n("Message menu")
+        text: KI18n.i18n("Message menu")
         icon.name: "overflow-menu"
         onClicked: _private.showMessageMenu()
         display: QQC2.ToolButton.IconOnly

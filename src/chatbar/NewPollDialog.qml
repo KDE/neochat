@@ -13,6 +13,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -20,7 +21,7 @@ Kirigami.Dialog {
     signal sendPoll(kind: int, question: string, answers: list<string>)
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
-    title: i18nc("@title: create new poll in the room", "Create Poll")
+    title: KI18n.i18nc("@title: create new poll in the room", "Create Poll")
     showCloseButton: false
     standardButtons: QQC2.Dialog.Cancel
 
@@ -32,13 +33,13 @@ Kirigami.Dialog {
         FormCard.FormComboBoxDelegate {
             id: pollTypeCombo
 
-            text: i18nc("@label The type of poll to create", "Show Results:")
+            text: KI18n.i18nc("@label The type of poll to create", "Show Results:")
             currentIndex: 0
             textRole: "text"
             valueRole: "value"
             model: [
-                { value: PollKind.Disclosed, text: i18nc("@item:inlistbox Show results after a user votes", "After Voting") },
-                { value: PollKind.Undisclosed, text: i18nc("@item:inlistbox Show results after the poll ends", "After Poll Ends") }
+                { value: PollKind.Disclosed, text: KI18n.i18nc("@item:inlistbox Show results after a user votes", "After Voting") },
+                { value: PollKind.Undisclosed, text: KI18n.i18nc("@item:inlistbox Show results after the poll ends", "After Poll Ends") }
             ]
         }
         FormCard.AbstractFormDelegate {
@@ -49,7 +50,7 @@ Kirigami.Dialog {
                 visible: true
                 type: Kirigami.MessageType.Information
                 position: Kirigami.InlineMessage.Position.Inline
-                text: i18nc("@info", "Votes are not anonymous and will be visible to everyone in the room.")
+                text: KI18n.i18nc("@info", "Votes are not anonymous and will be visible to everyone in the room.")
             }
         }
         FormCard.FormDelegateSeparator {
@@ -58,8 +59,8 @@ Kirigami.Dialog {
         }
         FormCard.FormTextFieldDelegate {
             id: questionTextField
-            label: i18nc("@label", "Question:")
-            placeholderText: i18nc("@info:placeholder Example poll question", "What's your favorite food?")
+            label: KI18n.i18nc("@label", "Question:")
+            placeholderText: KI18n.i18nc("@info:placeholder Example poll question", "What's your favorite food?")
         }
         FormCard.FormDelegateSeparator {
             above: questionTextField
@@ -105,7 +106,7 @@ Kirigami.Dialog {
                         id: optionLabel
 
                         Layout.fillWidth: true
-                        text: i18nc("As in first answer option to the poll", "Option %1:", optionDelegate.index + 1)
+                        text: KI18n.i18nc("As in first answer option to the poll", "Option %1:", optionDelegate.index + 1)
                         elide: Text.ElideRight
                         wrapMode: Text.Wrap
                         Accessible.ignored: true
@@ -121,11 +122,11 @@ Kirigami.Dialog {
                                 optionModel.set(optionDelegate.index, {optionText: text})
                                 optionModel.allValuesSetChanged()
                             }
-                            placeholderText: i18nc("@placeholder", "Enter option")
+                            placeholderText: KI18n.i18nc("@placeholder", "Enter option")
                         }
                         QQC2.ToolButton {
                             display: QQC2.AbstractButton.IconOnly
-                            text: i18nc("@action:button", "Remove option")
+                            text: KI18n.i18nc("@action:button", "Remove option")
                             icon.name: "edit-delete-remove"
                             enabled: optionRepeater.count > 2 // Don't allow removing the last two options
 
@@ -146,7 +147,7 @@ Kirigami.Dialog {
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
             enabled: optionModel.allValuesSet && questionTextField.text.length > 0
-            text: i18nc("@action:button", "Send")
+            text: KI18n.i18nc("@action:button", "Send")
             icon.name: "document-send"
 
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
@@ -154,7 +155,7 @@ Kirigami.Dialog {
 
         QQC2.Button {
             icon.name: "list-add"
-            text: i18nc("@action:button Add new poll option", "Add Option")
+            text: KI18n.i18nc("@action:button Add new poll option", "Add Option")
 
             onClicked: optionModel.append({optionText: ""})
 

@@ -12,6 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
 import org.kde.neochat.messagecontent as MessageContent
+import org.kde.ki18n
 
 pragma ComponentBehavior: Bound
 
@@ -57,7 +58,7 @@ RowLayout {
         let warningDialog = Qt.createComponent('org.kde.kirigami', 'PromptDialog').createObject(QQC2.Overlay.overlay, {
             dialogType: Kirigami.PromptDialog.Warning,
             title: attachmentButton.text,
-            subtitle: i18nc("@Warning: that any rich text in the chat bar will be switched for the plain text equivalent.", "Attachments can only have plain text captions, all rich formatting will be removed"),
+            subtitle: KI18n.i18nc("@Warning: that any rich text in the chat bar will be switched for the plain text equivalent.", "Attachments can only have plain text captions, all rich formatting will be removed"),
             standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
         }) as Kirigami.Dialog;
         warningDialog.onAccepted.connect(() => {
@@ -90,7 +91,7 @@ RowLayout {
 
         visible: root.maxAvailableWidth < root.overflowWidth && (root.features.sendAttachment || root.features.sendLocation || root.features.sendPoll || root.features.sendVoice)
         icon.name: "list-add-symbolic"
-        text: i18nc("@action:button", "Add to message")
+        text: KI18n.i18nc("@action:button", "Add to message")
         display: QQC2.AbstractButton.IconOnly
         checkable: true
         checked: overflowMenu !== null
@@ -120,25 +121,25 @@ RowLayout {
                 QQC2.MenuItem {
                     visible: !root.contentModel.hasAttachment && root.features.sendAttachment
                     icon.name: "mail-attachment"
-                    text: i18nc("@action:button", "Attach an image or file")
+                    text: KI18n.i18nc("@action:button", "Attach an image or file")
                     onTriggered: root.addAttachment()
                 }
                 QQC2.MenuItem {
                     visible: root.features.sendLocation
                     icon.name: "globe"
-                    text: i18nc("@action:button", "Send a Location")
+                    text: KI18n.i18nc("@action:button", "Send a Location")
                     onTriggered: root.openLocationChooser()
                 }
                 QQC2.MenuItem {
                     visible: root.features.sendPoll
                     icon.name: "amarok_playcount"
-                    text: i18nc("@action:button", "Create a Poll")
+                    text: KI18n.i18nc("@action:button", "Create a Poll")
                     onTriggered: root.openNewPollDialog();
                 }
                 QQC2.MenuItem {
                     visible: root.features.sendVoice
                     icon.name: "microphone"
-                    text: i18nc("@action:button", "Send a Voice Message")
+                    text: KI18n.i18nc("@action:button", "Send a Voice Message")
                     onTriggered: root.openVoiceDialog();
                 }
             }
@@ -152,7 +153,7 @@ RowLayout {
         id: attachmentButton
         visible: !root.contentModel.hasAttachment && root.features.sendAttachment && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "mail-attachment"
-        text: i18nc("@action:button", "Attach an image or file")
+        text: KI18n.i18nc("@action:button", "Attach an image or file")
         display: QQC2.AbstractButton.IconOnly
 
         onClicked: root.addAttachment()
@@ -165,7 +166,7 @@ RowLayout {
         id: mapButton
         visible: root.features.sendLocation && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "globe"
-        text: i18nc("@action:button", "Send a Location")
+        text: KI18n.i18nc("@action:button", "Send a Location")
         display: QQC2.AbstractButton.IconOnly
 
         onClicked: root.openLocationChooser();
@@ -177,7 +178,7 @@ RowLayout {
         id: pollButton
         visible: root.features.sendPoll && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "amarok_playcount"
-        text: i18nc("@action:button", "Create a Poll")
+        text: KI18n.i18nc("@action:button", "Create a Poll")
         display: QQC2.AbstractButton.IconOnly
 
         onClicked: root.openNewPollDialog();
@@ -188,7 +189,7 @@ RowLayout {
     QQC2.ToolButton {
         visible: root.features.sendVoice && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "microphone"
-        text: i18nc("@action:button", "Send a Voice Message")
+        text: KI18n.i18nc("@action:button", "Send a Voice Message")
         display: QQC2.AbstractButton.IconOnly
         onClicked: root.openVoiceDialog();
         QQC2.ToolTip.visible: hovered
@@ -199,9 +200,9 @@ RowLayout {
     QQC2.ToolButton {
         icon.name: "edit-select-text-symbolic"
         text: if (NeoChatConfig.richChatBar) {
-            return NeoChatConfig.sendMessageWith === 1 ? i18nc("@action:button", "Hide Rich Text Controls") : i18nc("@action:button", "Show Rich Text Controls");
+            return NeoChatConfig.sendMessageWith === 1 ? KI18n.i18nc("@action:button", "Hide Rich Text Controls") : KI18n.i18nc("@action:button", "Show Rich Text Controls");
         } else {
-            return NeoChatConfig.sendMessageWith === 1 ? i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : i18nc("As in enter starts send the chat message", "Enter sends the message")
+            return NeoChatConfig.sendMessageWith === 1 ? KI18n.i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : KI18n.i18nc("As in enter starts send the chat message", "Enter sends the message")
         }
         display: QQC2.AbstractButton.IconOnly
         checkable: true
@@ -216,7 +217,7 @@ RowLayout {
     QQC2.ToolButton {
         id: sendButton
         icon.name: "document-send"
-        text: i18nc("@action:button", "Send message")
+        text: KI18n.i18nc("@action:button", "Send message")
         display: QQC2.AbstractButton.IconOnly
         enabled: root.contentModel.hasAnyContent
 
@@ -229,7 +230,7 @@ RowLayout {
         id: cancelButton
         visible: root.features.cancel
         display: QQC2.AbstractButton.IconOnly
-        text: i18nc("@action:button", "Cancel")
+        text: KI18n.i18nc("@action:button", "Cancel")
         icon.name: "dialog-close"
         onClicked: root.cancel()
 

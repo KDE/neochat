@@ -15,6 +15,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief The menu for most message types.
@@ -156,7 +157,7 @@ KirigamiComponents.ConvergentContextMenu {
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 2.5
                 Layout.fillHeight: true
 
-                QQC2.ToolTip.text: i18nc("@info:tooltip Pick specific emoji for a reaction", "Pick Reaction")
+                QQC2.ToolTip.text: KI18n.i18nc("@info:tooltip Pick specific emoji for a reaction", "Pick Reaction")
                 QQC2.ToolTip.visible: hovered
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
@@ -198,7 +199,7 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         id: replyAction
         visible: !root.room.readOnly && (root.blockType !== Blocks.Other || NeoChatConfig.relateAnyEvent)
-        text: i18nc("@action:inmenu", "Reply")
+        text: KI18n.i18nc("@action:inmenu", "Reply")
         icon.name: "mail-replied-symbolic"
         onTriggered: {
             let threadRoot = root.room.rootIdForThread(root.eventId);
@@ -215,7 +216,7 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         id: replyThreadAction
         visible: (root.blockType !== Blocks.Other || NeoChatConfig.relateAnyEvent)
-        text: i18nc("@action:inmenu", "Reply in Thread")
+        text: KI18n.i18nc("@action:inmenu", "Reply in Thread")
         icon.name: "dialog-messages"
         onTriggered: {
             RoomManager.requestReply("", root.room.eventIsThreaded(root.eventId) ? root.room.rootIdForThread(root.eventId) : root.eventId);
@@ -226,7 +227,7 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         id: editAction
         visible: !root.hasFileContent && root.author.isLocalMember && root.blockType === Blocks.Text
-        text: i18n("Edit")
+        text: KI18n.i18n("Edit")
         icon.name: "document-edit"
         onTriggered: root.messageModel.editMessage(root.eventId)
     }
@@ -234,19 +235,19 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         id: removeAction
         visible: (root.author.isLocalMember || root.room.canSendState("redact")) && root.blockType !== Blocks.Other
-        text: i18nc("@action:button", "Remove…")
+        text: KI18n.i18nc("@action:button", "Remove…")
         icon.name: "edit-delete-remove"
         icon.color: "red"
         onTriggered: {
             let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                title: i18nc("@title:dialog", "Remove Message"),
-                placeholder: i18nc("@info:placeholder", "Optionally give a reason for removing this message"),
-                actionText: i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
+                title: KI18n.i18nc("@title:dialog", "Remove Message"),
+                placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for removing this message"),
+                actionText: KI18n.i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
                 icon: "delete",
                 reporting: false,
                 connection: root.connection,
             }, {
-                title: i18nc("@title:dialog", "Remove Message"),
+                title: KI18n.i18nc("@title:dialog", "Remove Message"),
                 width: Kirigami.Units.gridUnit * 25
             });
             dialog.accepted.connect(reason => {
@@ -264,16 +265,16 @@ KirigamiComponents.ConvergentContextMenu {
         readonly property var disallowedMatrixTypes: ["org.matrix.msc3381.poll.start", "org.matrix.msc3381.poll.end"]
 
         visible: root.blockType !== Blocks.Other && !disallowedMatrixTypes.includes(root.matrixType)
-        text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
+        text: KI18n.i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
         icon.name: "mail-forward-symbolic"
         onTriggered: {
             let page = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
                 connection: root.connection,
                 multiple: true,
-                actionText: i18nc("@action:button As in 'Forward this message'", "Forward"),
+                actionText: KI18n.i18nc("@action:button As in 'Forward this message'", "Forward"),
                 icon: "mail-forward-symbolic",
             }, {
-                title: i18nc("@title", "Forward Message"),
+                title: KI18n.i18nc("@title", "Forward Message"),
                 width: Kirigami.Units.gridUnit * 25
             });
             page.chosen.connect(function (targetRoomIds) {
@@ -291,13 +292,13 @@ KirigamiComponents.ConvergentContextMenu {
         visible: root.hasFileContent
         text: {
             if (root.blockType === Blocks.Image) {
-                return i18nc("@action:inmenu", "Open Image");
+                return KI18n.i18nc("@action:inmenu", "Open Image");
             } else if (root.blockType === Blocks.Audio) {
-                return i18nc("@action:inmenu", "Open Audio");
+                return KI18n.i18nc("@action:inmenu", "Open Audio");
             } else if (root.blockType === Blocks.Video) {
-                return i18nc("@action:inmenu", "Open Video");
+                return KI18n.i18nc("@action:inmenu", "Open Video");
             } else {
-                return i18nc("@action:inmenu", "Open File");
+                return KI18n.i18nc("@action:inmenu", "Open File");
             }
         }
         icon.name: "document-open"
@@ -310,13 +311,13 @@ KirigamiComponents.ConvergentContextMenu {
         visible: root.hasFileContent
         text: {
             if (root.blockType === Blocks.Image) {
-                return i18nc("@action:inmenu", "Save Image…");
+                return KI18n.i18nc("@action:inmenu", "Save Image…");
             } else if (root.blockType === Blocks.Audio) {
-                return i18nc("@action:inmenu", "Save Audio…");
+                return KI18n.i18nc("@action:inmenu", "Save Audio…");
             } else if (root.blockType === Blocks.Video) {
-                return i18nc("@action:inmenu", "Save Video…");
+                return KI18n.i18nc("@action:inmenu", "Save Video…");
             } else {
-                return i18nc("@action:inmenu", "Save File…");
+                return KI18n.i18nc("@action:inmenu", "Save File…");
             }
         }
         icon.name: "document-save"
@@ -331,9 +332,9 @@ KirigamiComponents.ConvergentContextMenu {
         visible: (root.blockType === Blocks.Image || root.blockType === Blocks.Video) && !root.messageModel?.isMediaHidden(root.eventId)
         text: {
             if (root.blockType === Blocks.Image) {
-                return i18nc("@action:inmenu", "Hide Image");
+                return KI18n.i18nc("@action:inmenu", "Hide Image");
             } else if (root.blockType === Blocks.Video) {
-                return i18nc("@action:inmenu", "Hide Video");
+                return KI18n.i18nc("@action:inmenu", "Hide Video");
             }
             return "";
         }
@@ -346,9 +347,9 @@ KirigamiComponents.ConvergentContextMenu {
         visible: (root.blockType === Blocks.Image || root.blockType === Blocks.Video) && root.messageModel?.isMediaHidden(root.eventId)
         text: {
             if (root.blockType === Blocks.Image) {
-                return i18nc("@action:inmenu", "Show Image");
+                return KI18n.i18nc("@action:inmenu", "Show Image");
             } else if (root.blockType === Blocks.Video) {
-                return i18nc("@action:inmenu", "Show Video");
+                return KI18n.i18nc("@action:inmenu", "Show Video");
             }
             return "";
         }
@@ -361,13 +362,13 @@ KirigamiComponents.ConvergentContextMenu {
         visible: root.hasFileContent
         text: {
             if (root.blockType === Blocks.Image) {
-                return i18nc("@action:inmenu", "Copy Image");
+                return KI18n.i18nc("@action:inmenu", "Copy Image");
             } else if (root.blockType === Blocks.Audio) {
-                return i18nc("@action:inmenu", "Copy Audio");
+                return KI18n.i18nc("@action:inmenu", "Copy Audio");
             } else if (root.blockType === Blocks.Video) {
-                return i18nc("@action:inmenu", "Copy Video");
+                return KI18n.i18nc("@action:inmenu", "Copy Video");
             } else {
-                return i18nc("@action:inmenu", "Copy File");
+                return KI18n.i18nc("@action:inmenu", "Copy File");
             }
             return "";
         }
@@ -378,7 +379,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Copy Link Address")
+        text: KI18n.i18nc("@action:inmenu", "Copy Link Address")
         icon.name: "edit-copy"
         visible: root.hoveredLink.length > 0
         onTriggered: Clipboard.saveText(root.hoveredLink)
@@ -386,13 +387,13 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         visible: !root.hasFileContent
-        text: i18nc("@action:inmenu", "Copy Text")
+        text: KI18n.i18nc("@action:inmenu", "Copy Text")
         icon.name: "edit-copy"
         onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.selectedText : root.plainText)
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Copy Message Link")
+        text: KI18n.i18nc("@action:inmenu", "Copy Message Link")
         icon.name: "link-symbolic"
         onTriggered: {
             Clipboard.saveText("https://matrix.to/#/" + root.room.id + "/" + root.eventId);
@@ -400,19 +401,19 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report…")
+        text: KI18n.i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report…")
         icon.name: "dialog-warning-symbolic"
         visible: !root.author.isLocalMember
         onTriggered: {
             let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                title: i18nc("@title:dialog", "Report Message"),
-                placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this message"),
+                title: KI18n.i18nc("@title:dialog", "Report Message"),
+                placeholder: KI18n.i18nc("@info:placeholder", "Optionally give a reason for reporting this message"),
                 icon: "dialog-warning-symbolic",
-                actionText: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report"),
+                actionText: KI18n.i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report"),
                 reporting: true,
                 connection: root.connection,
             }, {
-                title: i18nc("@title", "Report Message"),
+                title: KI18n.i18nc("@title", "Report Message"),
                 width: Kirigami.Units.gridUnit * 25
             });
             dialog.accepted.connect(reason => {
@@ -424,7 +425,7 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         id: webShortcutModelAction
 
-        text: i18nc("@action:inmenu", "Search for '%1'", webShortcutModel.trunkatedSearchText)
+        text: KI18n.i18nc("@action:inmenu", "Search for '%1'", webShortcutModel.trunkatedSearchText)
         icon.name: "search-symbolic"
         visible: !root.hasFileContent && webShortcutModel.enabled
 
@@ -447,7 +448,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Configure Web Shortcuts…")
+        text: KI18n.i18nc("@action:inmenu", "Configure Web Shortcuts…")
         icon.name: "configure"
         visible: !Controller.isFlatpak && webShortcutModel.enabled && webShortcutModelAction.visible
         onTriggered: webShortcutModel.configureWebShortcuts()
@@ -455,10 +456,10 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         visible: !root.hasFileContent
-        text: i18nc("@action:inmenu", "Read Text Aloud")
+        text: KI18n.i18nc("@action:inmenu", "Read Text Aloud")
         icon.name: "audio-speakers-symbolic"
         onTriggered: {
-            TextToSpeechHelper.speak(i18nc("@info text-to-speech %1 is author %2 is message text", "%1 said %2", root.author.displayName, root.plainText))
+            TextToSpeechHelper.speak(KI18n.i18nc("@info text-to-speech %1 is author %2 is message text", "%1 said %2", root.author.displayName, root.plainText))
         }
     }
 
@@ -478,7 +479,7 @@ KirigamiComponents.ConvergentContextMenu {
         readonly property bool pinned: root.room.isEventPinned(root.eventId)
 
         visible: root.room.canSendState("m.room.pinned_events") && root.blockType !== Blocks.Other
-        text: pinned ? i18nc("@action:button 'Unpin' as in 'Unpin this message'", "Unpin") : i18nc("@action:button 'Pin' as in 'Pin the message in the room'", "Pin")
+        text: pinned ? KI18n.i18nc("@action:button 'Unpin' as in 'Unpin this message'", "Unpin") : KI18n.i18nc("@action:button 'Pin' as in 'Pin the message in the room'", "Pin")
         icon.name: pinned ? "window-unpin-symbolic" : "pin-symbolic"
         onTriggered: pinned ? root.room.unpinEvent(root.eventId) : root.room.pinEvent(root.eventId)
     }
@@ -488,7 +489,7 @@ KirigamiComponents.ConvergentContextMenu {
         readonly property bool selected: canSelect && typeof root.messageModel?.isMessageSelected === "function" && root.messageModel?.isMessageSelected(root.eventId)
 
         visible: root.blockType !== Blocks.Other && canSelect
-        text: root.messageModel?.selectedMessageCount > 0 && selected ? i18nc("@action:inmenu", "Deselect Message") : i18nc("@action:inmenu", "Select Message")
+        text: root.messageModel?.selectedMessageCount > 0 && selected ? KI18n.i18nc("@action:inmenu", "Deselect Message") : KI18n.i18nc("@action:inmenu", "Select Message")
         icon.name: "edit-select-all-symbolic"
         onTriggered: root.messageModel.toggleMessageSelection(root.eventId)
     }
@@ -501,7 +502,7 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         id: viewSourceAction
         visible: NeoChatConfig.developerTools
-        text: i18nc("@action:inmenu", "View Source")
+        text: KI18n.i18nc("@action:inmenu", "View Source")
         icon.name: "code-context"
         onTriggered: RoomManager.viewEventSource(root.eventId)
     }

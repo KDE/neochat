@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.sonnet as Sonnet
 
 import org.kde.neochat
+import org.kde.ki18n
 
 pragma ComponentBehavior: Bound
 
@@ -130,11 +131,11 @@ TextEdit {
         height: root.height - (root.topPadding + root.bottomPadding)
 
         text: if (root.Message.contentModel?.hasAttachment) {
-            i18nc("@placeholder", "Set an attachment caption…")
+            KI18n.i18nc("@placeholder", "Set an attachment caption…")
         } else if (root.Message.room?.usesEncryption) {
-            i18nc("@placeholder", "Send an encrypted message…")
+            KI18n.i18nc("@placeholder", "Send an encrypted message…")
         } else {
-            i18nc("@placeholder", "Send a message…")
+            KI18n.i18nc("@placeholder", "Send a message…")
         }
         font: root.font
         color: Kirigami.Theme.disabledTextColor

@@ -13,6 +13,7 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat.libneochat
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief Component for visualising the room information.
@@ -43,7 +44,7 @@ QQC2.ScrollView {
     /**
      * @brief The title that should be displayed for this component if available.
      */
-    readonly property string title: root.room.isSpace ? i18nc("@action:title", "Space Members") : i18nc("@action:title", "Room Information")
+    readonly property string title: root.room.isSpace ? KI18n.i18nc("@action:title", "Space Members") : KI18n.i18nc("@action:title", "Room Information")
 
     signal resolveResource(string idOrUri, string action)
 
@@ -88,7 +89,7 @@ QQC2.ScrollView {
 
             Kirigami.ListSectionHeader {
                 visible: !root.room.isSpace
-                text: i18nc("Room actions", "Actions")
+                text: KI18n.i18nc("Room actions", "Actions")
                 activeFocusOnTab: false
 
                 Layout.fillWidth: true
@@ -98,7 +99,7 @@ QQC2.ScrollView {
                 id: searchButton
                 visible: !root.room.isSpace
                 icon.name: "search-symbolic"
-                text: i18nc("@action:button", "Search Messages")
+                text: KI18n.i18nc("@action:button", "Search Messages")
                 activeFocusOnTab: true
 
                 Layout.fillWidth: true
@@ -107,7 +108,7 @@ QQC2.ScrollView {
                     ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
                         room: root.room
                     }, {
-                        title: i18nc("@action:title", "Search")
+                        title: KI18n.i18nc("@action:title", "Search")
                     });
                 }
             }
@@ -115,7 +116,7 @@ QQC2.ScrollView {
             Delegates.RoundedItemDelegate {
                 visible: root.room.isDirectChat()
                 icon.name: "security-low-symbolic"
-                text: i18nc("@action:button", "Verify user")
+                text: KI18n.i18nc("@action:button", "Verify user")
 
                 onClicked: root.room.startVerification()
 
@@ -126,13 +127,13 @@ QQC2.ScrollView {
                 id: widgetsButton
                 visible: !root.room.isSpace
                 icon.name: "extension-symbolic"
-                text: i18nc("@action:button", "Extensions")
+                text: KI18n.i18nc("@action:button", "Extensions")
                 activeFocusOnTab: true
 
                 onClicked: ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'WidgetsPage'), {
                     room: root.room
                 }, {
-                    title: i18nc("@title:window", "Extensions")
+                    title: KI18n.i18nc("@title:window", "Extensions")
                 })
 
                 Layout.fillWidth: true
@@ -142,13 +143,13 @@ QQC2.ScrollView {
                 id: locationsButton
                 visible: !root.room.isSpace
                 icon.name: "mark-location-symbolic"
-                text: i18nc("@action:button", "Shared Locations")
+                text: KI18n.i18nc("@action:button", "Shared Locations")
                 activeFocusOnTab: true
 
                 onClicked: ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'LocationsPage'), {
                     room: root.room
                 }, {
-                    title: i18nc("Locations on a map", "Locations")
+                    title: KI18n.i18nc("Locations on a map", "Locations")
                 })
 
                 Layout.fillWidth: true
@@ -159,7 +160,7 @@ QQC2.ScrollView {
                 // On mobile the pinned message at the top is hidden, so we need this button in that case.
                 visible: !root.room.isSpace && Kirigami.Settings.isMobile
                 icon.name: "pin-symbolic"
-                text: i18nc("@action:button", "Pinned Messages")
+                text: KI18n.i18nc("@action:button", "Pinned Messages")
                 activeFocusOnTab: true
 
                 Layout.fillWidth: true
@@ -168,13 +169,13 @@ QQC2.ScrollView {
                     ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
                         room: root.room
                     }, {
-                        title: i18nc("@title", "Pinned Messages")
+                        title: KI18n.i18nc("@title", "Pinned Messages")
                     });
                 }
             }
 
             Delegates.RoundedItemDelegate {
-                text: i18nc("@action:inmenu", "Inspect Room Data")
+                text: KI18n.i18nc("@action:inmenu", "Inspect Room Data")
                 icon.name: "tools"
                 visible: NeoChatConfig.developerTools
                 activeFocusOnTab: true
@@ -186,7 +187,7 @@ QQC2.ScrollView {
                     currentTabIndex: 1, // Room data tab
                     room: root.room
                 }, {
-                    title: i18nc("@title:window", "Developer Tools"),
+                    title: KI18n.i18nc("@title:window", "Developer Tools"),
                     width: Kirigami.Units.gridUnit * 50,
                     height: Kirigami.Units.gridUnit * 42
                 })
@@ -195,7 +196,7 @@ QQC2.ScrollView {
             Delegates.RoundedItemDelegate {
                 id: leaveButton
                 icon.name: "arrow-left-symbolic"
-                text: root.room.isSpace ? i18nc("@action:button", "Leave Space…") : i18nc("@action:button", "Leave Room…")
+                text: root.room.isSpace ? KI18n.i18nc("@action:button", "Leave Space…") : KI18n.i18nc("@action:button", "Leave Room…")
                 activeFocusOnTab: true
 
                 Layout.fillWidth: true
@@ -208,7 +209,7 @@ QQC2.ScrollView {
             }
 
             Kirigami.ListSectionHeader {
-                text: i18n("Members")
+                text: KI18n.i18n("Members")
                 activeFocusOnTab: false
                 spacing: 0
                 visible: !root.room.isDirectChat()
@@ -223,18 +224,18 @@ QQC2.ScrollView {
                         ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage'), {
                             room: root.room
                         }, {
-                            title: i18nc("@title", "Invite a User")
+                            title: KI18n.i18nc("@title", "Invite a User")
                         });
                     }
 
-                    QQC2.ToolTip.text: i18n("Invite user to room")
+                    QQC2.ToolTip.text: KI18n.i18n("Invite user to room")
                     QQC2.ToolTip.visible: hovered
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
 
                 QQC2.Label {
                     Layout.alignment: Qt.AlignRight
-                    text: root.room ? i18ncp("@info", "%1 member", "%1 members", root.room.joinedCount) : i18n("No member count")
+                    text: root.room ? KI18n.i18ncp("@info", "%1 member", "%1 members", root.room.joinedCount) : KI18n.i18n("No member count")
                 }
             }
 

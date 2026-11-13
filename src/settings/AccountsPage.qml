@@ -13,13 +13,14 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     property NeoChatConnection initialAccount
 
-    title: i18nc("@title:window", "Accounts")
+    title: KI18n.i18nc("@title:window", "Accounts")
 
     Component.onCompleted: if (initialAccount) {
         intialAccountTimer.restart()
@@ -32,12 +33,12 @@ FormCard.FormCardPage {
         onTriggered: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
             connection: root.initialAccount
         }, {
-            title: i18n("Account editor")
+            title: KI18n.i18n("Account editor")
         })
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Accounts")
+        title: KI18n.i18nc("@title:group", "Accounts")
     }
     FormCard.FormCard {
         Repeater {
@@ -49,7 +50,7 @@ FormCard.FormCardPage {
                 onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
                     connection: accountDelegate.connection
                 }, {
-                    title: i18n("Account editor")
+                    title: KI18n.i18n("Account editor")
                 })
 
                 contentItem: RowLayout {
@@ -87,7 +88,7 @@ FormCard.FormCardPage {
                     }
 
                     QQC2.ToolButton {
-                        text: i18n("Logout…")
+                        text: KI18n.i18n("Logout…")
                         icon.name: "im-kick-user"
                         onClicked: (confirmLogoutDialogComponent.createObject(root.QQC2.Overlay.overlay) as ConfirmLogoutDialog).open()
                     }
@@ -117,7 +118,7 @@ FormCard.FormCardPage {
 
         FormCard.FormButtonDelegate {
             id: addAccountDelegate
-            text: i18n("Add Account")
+            text: KI18n.i18n("Add Account")
             icon.name: "list-add"
             onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'), { showSettings: false })
         }

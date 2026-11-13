@@ -15,6 +15,7 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
+import org.kde.ki18n
 
 /**
  * @brief A component for typing and sending chat messages.
@@ -116,7 +117,7 @@ Item {
         }
         QQC2.Label {
             visible: root.currentRoom.readOnly
-            text: i18nc("@info:label", "You do not have permission to send messages to this room.")
+            text: KI18n.i18nc("@info:label", "You do not have permission to send messages to this room.")
             color: Kirigami.Theme.disabledTextColor
             elide: Text.ElideRight
 
@@ -144,7 +145,7 @@ Item {
                 Layout.preferredHeight: fontMetrics.height // Prevent layout shifts with the typing indicator loading/unloading
             }
             QQC2.Label {
-                text: NeoChatConfig.sendMessageWith === 1 ? i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : i18nc("As in enter starts send the chat message", "Enter sends the message")
+                text: NeoChatConfig.sendMessageWith === 1 ? KI18n.i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : KI18n.i18nc("As in enter starts send the chat message", "Enter sends the message")
                 horizontalAlignment: Text.AlignRight
                 font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale * 0.75
                 visible: !root.currentRoom.readOnly

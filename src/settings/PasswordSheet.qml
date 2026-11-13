@@ -7,13 +7,14 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
 
     signal submitPassword(string password)
 
-    title: i18nc("@title:dialog", "Enter password")
+    title: KI18n.i18nc("@title:dialog", "Enter password")
 
     preferredWidth: Kirigami.Units.gridUnit * 24
 
@@ -27,7 +28,7 @@ Kirigami.Dialog {
     ColumnLayout {
         FormCard.FormTextFieldDelegate {
             id: passwordField
-            label: i18nc("@label:textbox", "Password:")
+            label: KI18n.i18nc("@label:textbox", "Password:")
             echoMode: TextInput.Password
         }
     }

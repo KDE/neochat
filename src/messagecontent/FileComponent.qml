@@ -14,6 +14,7 @@ import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a file from a message.
@@ -74,7 +75,7 @@ ColumnLayout {
                     openButton.onClicked: openSavedFile()
                     downloadButton {
                         icon.name: "download"
-                        QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
+                        QQC2.ToolTip.text: KI18n.i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
                         onClicked: saveFileAs()
                     }
                 }
@@ -87,7 +88,7 @@ ColumnLayout {
                     openButton.visible: false
                     downloadButton {
                         icon.name: "document-open"
-                        QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
+                        QQC2.ToolTip.text: KI18n.i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
                         onClicked: openSavedFile()
                     }
                 }
@@ -97,11 +98,11 @@ ColumnLayout {
                 when: root.block.fileTransferInfo.active ?? false
 
                 PropertyChanges {
-                    sizeLabel.text: i18nc("file download progress", "%1 / %2", Format.formatByteSize(root.block.fileTransferInfo.progress), Format.formatByteSize(root.block.fileTransferInfo.total))
+                    sizeLabel.text: KI18n.i18nc("file download progress", "%1 / %2", Format.formatByteSize(root.block.fileTransferInfo.progress), Format.formatByteSize(root.block.fileTransferInfo.total))
                     openButton.visible: false
                     downloadButton {
                         icon.name: "media-playback-stop"
-                        QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
+                        QQC2.ToolTip.text: KI18n.i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
                         onClicked: Message.room.cancelFileTransfer(root.Message.contentModel?.eventId ?? "")
                     }
                 }
@@ -140,7 +141,7 @@ ColumnLayout {
                 root.Message.room.downloadTempFile(root.Message.contentModel?.eventId ?? "", root.block.filename);
             }
 
-            QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
+            QQC2.ToolTip.text: KI18n.i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
@@ -151,7 +152,7 @@ ColumnLayout {
             icon.name: "download"
             onClicked: root.saveFileAs()
 
-            QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
+            QQC2.ToolTip.text: KI18n.i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
@@ -160,7 +161,7 @@ ColumnLayout {
             id: cancelButton
             visible: root.editable
             display: QQC2.AbstractButton.IconOnly
-            text: i18nc("@action:button", "Remove attachment")
+            text: KI18n.i18nc("@action:button", "Remove attachment")
             icon.name: "dialog-close"
             onClicked: root.Message.contentModel?.removeAttachment()
             QQC2.ToolTip.text: text

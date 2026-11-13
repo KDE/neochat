@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
@@ -20,7 +21,7 @@ FormCard.FormCardPage {
     title: root.eventType
 
     FormCard.FormHeader {
-        title: i18nc("The name of one instance of a state of configuration. Unless you really know what you're doing, best leave this untranslated.", "State Keys")
+        title: KI18n.i18nc("The name of one instance of a state of configuration. Unless you really know what you're doing, best leave this untranslated.", "State Keys")
     }
     FormCard.FormCard {
         Repeater {
@@ -46,7 +47,7 @@ FormCard.FormCardPage {
             type: root.eventType,
             stateKey: stateKey
         }, {
-            title: i18nc("@title:window", "Event Source"),
+            title: KI18n.i18nc("@title:window", "Event Source"),
             width: Kirigami.Units.gridUnit * 25
         });
     }

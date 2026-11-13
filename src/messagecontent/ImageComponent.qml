@@ -12,6 +12,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show the image from a message.
@@ -64,7 +65,7 @@ Item {
                 // For tiny images, having the button looks super buggy at their size
                 visible: !root.block.imageHidden && !root.editable && root.width >= hideButton.width && root.height >= hideButton.height
                 icon.name: "view-hidden"
-                text: i18nc("@action:button", "Hide Image")
+                text: KI18n.i18nc("@action:button", "Hide Image")
                 display: QQC2.Button.IconOnly
                 onClicked: Message.contentModel?.hideMedia()
 
@@ -77,7 +78,7 @@ Item {
 
                 visible: root.editable
                 icon.name: "quickwizard-symbolic"
-                text:  i18nc("@action:button", "Optimize Image")
+                text:  KI18n.i18nc("@action:button", "Optimize Image")
                 display: QQC2.Button.IconOnly
                 checkable: true
                 checked: root.block.optimize
@@ -92,7 +93,7 @@ Item {
                 id: editImageButton
                 visible: root.editable
                 icon.name: "document-edit"
-                text: i18nc("@action:button", "Edit Image")
+                text: KI18n.i18nc("@action:button", "Edit Image")
                 display: QQC2.AbstractButton.IconOnly
 
                 Component {
@@ -103,7 +104,7 @@ Item {
                 }
 
                 onClicked: {
-                    let imageEditor = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(imageEditorPage, {}, { title: i18nc("@window:title", "Edit Image")});
+                    let imageEditor = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(imageEditorPage, {}, { title: KI18n.i18nc("@window:title", "Edit Image")});
                     imageEditor.newPathChanged.connect(function (newPath) {
                         imageEditor.closeDialog();
                         Message.contentModel?.addAttachment(newPath);
@@ -116,7 +117,7 @@ Item {
                 id: cancelButton
                 visible: root.editable
                 display: QQC2.AbstractButton.IconOnly
-                text: i18nc("@action:button", "Remove attachment")
+                text: KI18n.i18nc("@action:button", "Remove attachment")
                 icon.name: "dialog-close"
                 onClicked: root.Message.contentModel?.removeAttachment()
                 QQC2.ToolTip.text: text
@@ -192,7 +193,7 @@ Item {
 
         QQC2.Button {
             anchors.centerIn: parent
-            text: i18nc("@action:button", "Show Image")
+            text: KI18n.i18nc("@action:button", "Show Image")
             visible: root.block.imageHidden
             onClicked: Message.contentModel?.showMedia()
         }

@@ -7,6 +7,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -23,7 +24,7 @@ LoginStep {
     }
 
     FormCard.FormTextDelegate {
-        text: i18n("Continue the login process in your browser.")
+        text: KI18n.i18n("Continue the login process in your browser.")
     }
 
     previousAction: Kirigami.Action {
@@ -31,7 +32,7 @@ LoginStep {
     }
 
     nextAction: Kirigami.Action {
-        text: i18nc("@action:button", "Re-open SSO URL")
+        text: KI18n.i18nc("@action:button", "Re-open SSO URL")
         onTriggered: UrlHelper.openUrl(LoginHelper.ssoUrl)
     }
 }

@@ -11,11 +11,12 @@ import QtQml
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
 
-    title: i18n("Session Verification")
+    title: KI18n.i18n("Session Verification")
 
     required property var session
     required property NeoChatConnection connection
@@ -118,13 +119,13 @@ Kirigami.Page {
                 Layout.fillWidth: true
             }
             QQC2.Button {
-                text: i18n("Accept")
+                text: KI18n.i18n("Accept")
                 icon.name: "dialog-ok"
                 onClicked: root.session.sendReady()
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             }
             QQC2.Button {
-                text: i18n("Decline")
+                text: KI18n.i18n("Decline")
                 icon.name: "dialog-cancel"
                 onClicked: root.session.cancelVerification("m.user", "Declined")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
@@ -176,39 +177,39 @@ Kirigami.Page {
             text: {
                 switch (root.session.state) {
                 case KeyVerificationSession.WAITINGFORREADY:
-                    return i18n("Waiting for device to accept verification.");
+                    return KI18n.i18n("Waiting for device to accept verification.");
                 case KeyVerificationSession.INCOMING: {
                     if (root.isSelfVerification) {
-                        return i18nc("@info:label Encryption device verification", "Waiting for a device to respond to our verification request.");
+                        return KI18n.i18nc("@info:label Encryption device verification", "Waiting for a device to respond to our verification request.");
                     }
                     if (root.session.remoteDeviceId.length > 0) {
-                        return i18n("Incoming key verification request from device **%1**", root.session.remoteDeviceId);
+                        return KI18n.i18n("Incoming key verification request from device **%1**", root.session.remoteDeviceId);
                     } else {
-                        return i18n("Incoming key verification request from **%1**", root.session.remoteUserId);
+                        return KI18n.i18n("Incoming key verification request from **%1**", root.session.remoteUserId);
                     }
                 }
                 case KeyVerificationSession.WAITINGFORMAC:
-                    return i18n("Waiting for other party to send us keys.");
+                    return KI18n.i18n("Waiting for other party to send us keys.");
                 case KeyVerificationSession.WAITINGFORKEY:
-                    return i18n("Waiting for other party to confirm our keys.");
+                    return KI18n.i18n("Waiting for other party to confirm our keys.");
                 case KeyVerificationSession.WAITINGFORACCEPT:
-                    return i18n("Waiting for other party to verify.");
+                    return KI18n.i18n("Waiting for other party to verify.");
                 case KeyVerificationSession.DONE: {
                     if (root.session.remoteDeviceId.length > 0) {
-                        return i18n("Successfully verified device **%1**", root.session.remoteDeviceId)
+                        return KI18n.i18n("Successfully verified device **%1**", root.session.remoteDeviceId)
                     } else {
-                        return i18nc("@info", "Successfully verified **%1**", root.session.remoteUserId)
+                        return KI18n.i18nc("@info", "Successfully verified **%1**", root.session.remoteUserId)
                     }
                 }
                 case KeyVerificationSession.TRANSITIONED: {
                     if (root.session.sasState === KeyVerificationSession.SASCONFIRMED) {
-                        return i18nc("@info", "Waiting for remote party to confirm verification");
+                        return KI18n.i18nc("@info", "Waiting for remote party to confirm verification");
                     }
                     if (root.session.sasState === KeyVerificationSession.SASDONE) {
                         if (root.session.remoteDeviceId.length > 0) {
-                            return i18n("Successfully verified device **%1**", root.session.remoteDeviceId)
+                            return KI18n.i18n("Successfully verified device **%1**", root.session.remoteDeviceId)
                         } else {
-                            return i18nc("@info", "Successfully verified **%1**", root.session.remoteUserId)
+                            return KI18n.i18nc("@info", "Successfully verified **%1**", root.session.remoteUserId)
                         }
                     }
                 }
@@ -226,11 +227,11 @@ Kirigami.Page {
                 anchors.centerIn: parent
                 spacing: Kirigami.Units.largeSpacing
                 QQC2.Label {
-                    text: i18nc("@info", "Choose a verification method to continue")
+                    text: KI18n.i18nc("@info", "Choose a verification method to continue")
                 }
                 QQC2.Button {
                     id: emojiVerification
-                    text: i18nc("@action:button", "Emoji Verification")
+                    text: KI18n.i18nc("@action:button", "Emoji Verification")
                     icon.name: "smiley"
                     onClicked: root.session.sendStartSas()
                     Layout.alignment: Qt.AlignHCenter

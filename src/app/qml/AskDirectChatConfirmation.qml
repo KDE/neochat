@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -15,10 +16,10 @@ Kirigami.Dialog {
     height: Kirigami.Units.gridUnit * 8
 
     standardButtons: QQC2.Dialog.Close
-    title: i18nc("@title:dialog", "Start a chat")
+    title: KI18n.i18nc("@title:dialog", "Start a chat")
 
     contentItem: QQC2.Label {
-        text: i18nc("@info", "Do you want to start a chat with %1?", root.user.displayName)
+        text: KI18n.i18nc("@info", "Do you want to start a chat with %1?", root.user.displayName)
         textFormat: Text.PlainText
         wrapMode: Text.Wrap
         horizontalAlignment: Qt.AlignHCenter
@@ -27,7 +28,7 @@ Kirigami.Dialog {
 
     customFooterActions: [
         Kirigami.Action {
-            text: i18nc("@action:button", "Start Chat")
+            text: KI18n.i18nc("@action:button", "Start Chat")
             icon.name: "im-user"
             onTriggered: {
                 root.user.requestDirectChat();

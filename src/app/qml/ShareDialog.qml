@@ -13,6 +13,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.notification
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Page {
     id: root
@@ -33,7 +34,7 @@ Kirigami.Page {
     Notification {
         id: sharingFailed
         eventId: "Share"
-        text: i18nc("@info:status", "Sharing failed")
+        text: KI18n.i18nc("@info:status", "Sharing failed")
         urgency: Notification.NormalUrgency
     }
 
@@ -56,7 +57,7 @@ Kirigami.Page {
             root.Kirigami.PageStack.closeDialog();
             if (state === Purpose.PurposeJobController.Finished) {
                 if (jobView.job?.output?.url?.length > 0) {
-                    sharingSuccess.text = i18nc("@info", "Shared url for image is <a href='%1'>%1</a>", jobView.job.output.url);
+                    sharingSuccess.text = KI18n.i18nc("@info", "Shared url for image is <a href='%1'>%1</a>", jobView.job.output.url);
                     sharingSuccess.sendEvent();
                     Clipboard.saveText(jobView.job.output.url);
                 }

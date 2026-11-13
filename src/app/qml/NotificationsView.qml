@@ -11,13 +11,14 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as Components
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.ScrollablePage {
     id: root
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title", "Notifications")
+    title: KI18n.i18nc("@title", "Notifications")
 
     ListView {
         id: listView
@@ -32,12 +33,12 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             visible: listView.count === 0
-            text: notificationsModel.loading ? i18n("Loading…") : i18n("No Notifications")
+            text: notificationsModel.loading ? KI18n.i18n("Loading…") : KI18n.i18n("No Notifications")
         }
 
         footer: Kirigami.PlaceholderMessage {
             width: parent.width
-            text: i18n("Loading…")
+            text: KI18n.i18n("Loading…")
             visible: notificationsModel.nextToken.length > 0 && listView.count > 0
         }
 

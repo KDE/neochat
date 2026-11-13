@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -23,7 +24,7 @@ Kirigami.Dialog {
      */
     signal userSelected(string userId)
 
-    title: i18nc("@title", "User ID")
+    title: KI18n.i18nc("@title", "User ID")
     showCloseButton: false
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
@@ -42,18 +43,18 @@ Kirigami.Dialog {
             property bool isValidText: text.match(/@(.+):(.+)/g)
             property bool correctStart: text.startsWith("@")
 
-            label: i18n("User ID:")
+            label: KI18n.i18n("User ID:")
             statusMessage: {
                 if (text.length > 0 && !correctStart) {
-                    return i18n("User IDs Must start with @");
+                    return KI18n.i18n("User IDs Must start with @");
                 }
                 if (timer.running) {
                     return "";
                 }
                 if (text.length > 0 && !isValidText) {
-                    return i18n("The input is not a valid user ID");
+                    return KI18n.i18n("The input is not a valid user ID");
                 }
-                return correctStart ? "" : i18n("User IDs Must start with @");
+                return correctStart ? "" : KI18n.i18n("User IDs Must start with @");
             }
             status: text.length > 0 ? Kirigami.MessageType.Error : Kirigami.MessageType.Information
 
@@ -73,7 +74,7 @@ Kirigami.Dialog {
 
     footer: QQC2.DialogButtonBox {
         QQC2.Button {
-            text: i18nc("@action:button Perform an action with this user ID", "Ok")
+            text: KI18n.i18nc("@action:button Perform an action with this user ID", "Ok")
             icon.name: "checkmark"
             enabled: userIdText.isValidText
 

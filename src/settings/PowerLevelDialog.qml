@@ -9,10 +9,11 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
-    title: i18nc("@title", "Edit User Power Level")
+    title: KI18n.i18nc("@title", "Edit User Power Level")
 
     property NeoChatRoom room
     property var userId
@@ -32,7 +33,7 @@ Kirigami.Dialog {
         FormCard.FormComboBoxDelegate {
             id: powerLevelComboBox
 
-            text: i18n("New power level")
+            text: KI18n.i18n("New power level")
             model: PowerLevelModel {}
             textRole: "name"
             valueRole: "value"
@@ -40,7 +41,7 @@ Kirigami.Dialog {
     }
     customFooterActions: [
         Kirigami.Action {
-            text: i18n("Confirm")
+            text: KI18n.i18n("Confirm")
             icon.name: "dialog-ok"
             onTriggered: {
                 root.room.setUserPowerLevel(root.userId, powerLevelComboBox.currentValue);

@@ -9,6 +9,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a link preview from a message.
@@ -134,7 +135,7 @@ QQC2.Control {
         anchors.right: parent.right
         anchors.top: parent.top
         visible: root.hovered
-        text: i18nc("As in remove the link preview so it's no longer shown", "Remove preview")
+        text: KI18n.i18nc("As in remove the link preview so it's no longer shown", "Remove preview")
         icon.name: "dialog-close"
         display: QQC2.AbstractButton.IconOnly
 
@@ -157,7 +158,7 @@ QQC2.Control {
         anchors.bottom: parent.bottom
         visible: root.hovered && (root.truncated || checked)
         checkable: true
-        text: checked ? i18n("Shrink preview") : i18n("Expand preview")
+        text: checked ? KI18n.i18n("Shrink preview") : KI18n.i18n("Expand preview")
         icon.name: checked ? "go-up" : "go-down"
         display: QQC2.AbstractButton.IconOnly
 

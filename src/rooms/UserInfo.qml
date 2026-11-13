@@ -9,6 +9,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.settings
+import org.kde.ki18n
 
 RowLayout {
     id: root
@@ -40,7 +41,7 @@ RowLayout {
         Layout.fillWidth: true
 
         QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.text: i18nc("@info:tooltip", "Manage Account")
+        QQC2.ToolTip.text: KI18n.i18nc("@info:tooltip", "Manage Account")
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         contentItem: RowLayout {
@@ -100,7 +101,7 @@ RowLayout {
 
         actions: [
             Kirigami.Action {
-                text: i18nc("@action:button", "Verify This Device")
+                text: KI18n.i18nc("@action:button", "Verify This Device")
                 icon.name: "security-low"
                 visible: !root.connection.isVerifiedSession
 
@@ -109,7 +110,7 @@ RowLayout {
                 onTriggered: NeoChatSettingsView.open("devices")
             },
             Kirigami.Action {
-                text: i18nc("@action:button", "View Notifications")
+                text: KI18n.i18nc("@action:button", "View Notifications")
                 icon.name: "notifications"
 
                 displayHint: root.collapsed ? Kirigami.DisplayHint.AlwaysHide : Kirigami.DisplayHint.IconOnly
@@ -117,12 +118,12 @@ RowLayout {
                 onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "NotificationsView"), {
                     connection: root.connection
                 }, {
-                    title: i18nc("@title", "Notifications"),
+                    title: KI18n.i18nc("@title", "Notifications"),
                     modality: Qt.NonModal
                 })
             },
             Kirigami.Action {
-                text: i18nc("@action:button", "Open Settings")
+                text: KI18n.i18nc("@action:button", "Open Settings")
                 icon.name: "settings-configure-symbolic"
 
                 displayHint: root.collapsed ? Kirigami.DisplayHint.AlwaysHide : Kirigami.DisplayHint.IconOnly

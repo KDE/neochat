@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 TimelineDelegate {
     id: root
@@ -23,10 +24,10 @@ TimelineDelegate {
 
     contentItem: Kirigami.InlineMessage {
         visible: true
-        text: i18n("This room has been replaced.")
+        text: KI18n.i18n("This room has been replaced.")
         type: Kirigami.MessageType.Information
         actions: Kirigami.Action {
-            text: i18n("See new room…")
+            text: KI18n.i18n("See new room…")
 
             // We want to skip the join confirmation check here,
             // Not only because the user is intentionally tapping this button but the room is trusted to be the successor already

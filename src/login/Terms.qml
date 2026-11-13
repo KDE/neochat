@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 LoginStep {
     id: root
@@ -15,8 +16,8 @@ LoginStep {
     noControls: true
 
     FormCard.FormTextDelegate {
-        text: i18n("Terms & Conditions")
-        description: i18n("By continuing with the registration, you agree to the following terms and conditions:")
+        text: KI18n.i18n("Terms & Conditions")
+        description: KI18n.i18n("By continuing with the registration, you agree to the following terms and conditions:")
     }
 
     Repeater {

@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 /**
  * @brief A component to show a reply button for threads in a message bubble.
@@ -31,7 +32,7 @@ Delegates.RoundedItemDelegate {
     icon.name: "arrow-up"
     icon.width: Kirigami.Units.iconSizes.sizeForLabels
     icon.height: Kirigami.Units.iconSizes.sizeForLabels
-    text: i18nc("@action:button", "Fetch More Events")
+    text: KI18n.i18nc("@action:button", "Fetch More Events")
 
     onClicked: {
         root.fetchMoreEvents()

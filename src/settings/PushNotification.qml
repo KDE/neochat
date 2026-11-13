@@ -10,6 +10,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kitemmodels
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
@@ -20,16 +21,16 @@ FormCard.FormCardPage {
         connection: root.room.connection as NeoChatConnection
     }
 
-    title: i18nc('@title:window', 'Notifications')
+    title: KI18n.i18nc('@title:window', 'Notifications')
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Send Notifications For")
+        title: KI18n.i18nc("@title:group", "Send Notifications For")
     }
 
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
             icon.name: "globe"
-            text: i18nc("As in the default notification setting", "Default Settings")
+            text: KI18n.i18nc("As in the default notification setting", "Default Settings")
             checked: root.room.pushNotificationState === PushNotificationState.Default
             enabled: root.room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
@@ -38,7 +39,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormRadioDelegate {
             icon.name: "notifications"
-            text: i18nc("As in 'notify for all messages'", "All Messages")
+            text: KI18n.i18nc("As in 'notify for all messages'", "All Messages")
             checked: root.room.pushNotificationState === PushNotificationState.All
             enabled: root.room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
@@ -47,7 +48,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormRadioDelegate {
             icon.name: "im-user"
-            text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'", "@Mentions and Keywords")
+            text: KI18n.i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'", "@Mentions and Keywords")
             checked: root.room.pushNotificationState === PushNotificationState.MentionKeyword
             enabled: root.room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
@@ -56,7 +57,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormRadioDelegate {
             icon.name: "notifications-disabled"
-            text: i18nc("As in 'do not notify for any messages'", "None")
+            text: KI18n.i18nc("As in 'do not notify for any messages'", "None")
             checked: root.room.pushNotificationState === PushNotificationState.Mute
             enabled: root.room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
@@ -66,7 +67,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Keywords")
+        title: KI18n.i18nc("@title:group", "Keywords")
     }
     FormCard.FormCard {
         Repeater {
@@ -96,7 +97,7 @@ FormCard.FormCardPage {
 
                     Layout.fillWidth: true
 
-                    placeholderText: i18n("Keyword…")
+                    placeholderText: KI18n.i18n("Keyword…")
                     enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown
 
                     rightActions: Kirigami.Action {
@@ -115,7 +116,7 @@ FormCard.FormCardPage {
                 QQC2.Button {
                     id: addButton
 
-                    text: i18n("Add keyword")
+                    text: KI18n.i18n("Add keyword")
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly

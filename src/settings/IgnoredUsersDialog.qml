@@ -11,20 +11,21 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title:window", "Ignored Users")
+    title: KI18n.i18nc("@title:window", "Ignored Users")
 
     width: Kirigami.Units.gridUnit * 16
     height: Kirigami.Units.gridUnit * 32
 
     children: Kirigami.PlaceholderMessage {
         icon.name: "im-invisible-user"
-        text: i18nc("Placeholder message when no user is ignored", "No ignored users")
+        text: KI18n.i18nc("Placeholder message when no user is ignored", "No ignored users")
         visible: repeater.count === 0
 
         anchors.centerIn: parent
@@ -56,7 +57,7 @@ FormCard.FormCardPage {
                     }
 
                     QQC2.ToolButton {
-                        text: i18nc("@action:button", "Unignore this user")
+                        text: KI18n.i18nc("@action:button", "Unignore this user")
                         icon.name: "list-remove-symbolic"
                         onClicked: root.connection.removeFromIgnoredUsers(ignoredUserDelegate.modelData)
                         display: QQC2.Button.IconOnly

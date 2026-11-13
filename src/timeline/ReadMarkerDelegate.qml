@@ -9,6 +9,7 @@ import Qt.labs.qmlmodels
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.ki18n
 
 TimelineDelegate {
     id: root
@@ -64,13 +65,13 @@ TimelineDelegate {
             }
 
             QQC2.Label {
-                text: i18nc("Relative time since the room was last read", "Last read: %1", root.dateTime.relativeDateTime)
+                text: KI18n.i18nc("Relative time since the room was last read", "Last read: %1", root.dateTime.relativeDateTime)
 
                 Layout.fillWidth: true
             }
 
             QQC2.ToolButton {
-                text: i18nc("@action:button Mark all messages up to now as read", "Mark as Read")
+                text: KI18n.i18nc("@action:button Mark all messages up to now as read", "Mark as Read")
                 icon.name: "checkmark"
 
                 onClicked: root.room.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts)

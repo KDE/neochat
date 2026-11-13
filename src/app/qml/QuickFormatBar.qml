@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 QQC2.Popup {
     id: root
@@ -19,7 +20,7 @@ QQC2.Popup {
     contentItem: Flow {
         QQC2.ToolButton {
             icon.name: "format-text-bold"
-            text: i18nc("@action:button", "Bold")
+            text: KI18n.i18nc("@action:button", "Bold")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -38,7 +39,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "format-text-italic"
-            text: i18nc("@action:button", "Italic")
+            text: KI18n.i18nc("@action:button", "Italic")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -57,7 +58,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "format-text-strikethrough"
-            text: i18nc("@action:button", "Strikethrough")
+            text: KI18n.i18nc("@action:button", "Strikethrough")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -76,7 +77,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "view-hidden-symbolic"
-            text: i18nc("@action:button", "Spoiler")
+            text: KI18n.i18nc("@action:button", "Spoiler")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -95,7 +96,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "format-text-code"
-            text: i18nc("@action:button", "Code block")
+            text: KI18n.i18nc("@action:button", "Code block")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -114,7 +115,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "format-text-blockquote"
-            text: i18nc("@action:button", "Quote")
+            text: KI18n.i18nc("@action:button", "Quote")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -133,7 +134,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "link"
-            text: i18nc("@action:button", "Insert link")
+            text: KI18n.i18nc("@action:button", "Insert link")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {

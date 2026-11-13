@@ -14,13 +14,14 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kitemmodels
 
 import org.kde.neochat
+import org.kde.ki18n
 
 FormCard.FormCardPage {
     id: root
 
     property NeoChatRoom room
 
-    title: i18nc('@title:window', 'Permissions')
+    title: KI18n.i18nc('@title:window', 'Permissions')
 
     readonly property bool loading: permissions.count === 0 && !root.room.roomCreatorHasUltimatePowerLevel()
 
@@ -33,7 +34,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Power Levels")
+        title: KI18n.i18nc("@title", "Power Levels")
     }
     FormCard.FormCard {
         enabled: root.room.canSendState("m.room.power_levels")
@@ -72,7 +73,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Messages")
+        title: KI18n.i18nc("@title", "Messages")
     }
     FormCard.FormCard {
         enabled: root.room.canSendState("m.room.power_levels")
@@ -111,7 +112,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Moderation")
+        title: KI18n.i18nc("@title", "Moderation")
     }
     FormCard.FormCard {
         enabled: root.room.canSendState("m.room.power_levels")
@@ -150,7 +151,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "General")
+        title: KI18n.i18nc("@title", "General")
     }
     FormCard.FormCard {
         enabled: root.room.canSendState("m.room.power_levels")
@@ -189,7 +190,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Other Events")
+        title: KI18n.i18nc("@title", "Other Events")
     }
     FormCard.FormCard {
         enabled: root.room.canSendState("m.room.power_levels")
@@ -247,7 +248,7 @@ FormCard.FormCardPage {
 
                     Layout.fillWidth: true
 
-                    placeholderText: i18nc("@placeholder", "Event Type…")
+                    placeholderText: KI18n.i18nc("@placeholder", "Event Type…")
                     enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown
 
                     rightActions: Kirigami.Action {
@@ -273,7 +274,7 @@ FormCard.FormCardPage {
                 QQC2.Button {
                     id: addButton
 
-                    text: i18nc("@action:button", "Add keyword")
+                    text: KI18n.i18nc("@action:button", "Add keyword")
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly
@@ -299,7 +300,7 @@ FormCard.FormCardPage {
         implicitHeight: root.height * 0.9
         Kirigami.LoadingPlaceholder {
             anchors.centerIn: parent
-            text: i18nc("@placeholder", "Loading…")
+            text: KI18n.i18nc("@placeholder", "Loading…")
         }
     }
 }

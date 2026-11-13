@@ -10,6 +10,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Kirigami.Dialog {
     id: root
@@ -20,7 +21,7 @@ Kirigami.Dialog {
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     maximumHeight: Kirigami.Units.gridUnit * 24
-    title: i18nc("@title:menu Seen by/read marker dialog", "Seen By")
+    title: KI18n.i18nc("@title:menu Seen by/read marker dialog", "Seen By")
 
     contentItem: ColumnLayout {
         spacing: 0

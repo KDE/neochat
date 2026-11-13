@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.ki18n
 
 Delegates.RoundedItemDelegate {
     id: root
@@ -124,7 +125,7 @@ Delegates.RoundedItemDelegate {
             implicitWidth: Kirigami.Units.iconSizes.smallMedium
             implicitHeight: Kirigami.Units.iconSizes.smallMedium
             visible: root.currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && !root.collapsed
-            Accessible.name: i18n("Muted room")
+            Accessible.name: KI18n.i18n("Muted room")
             Layout.rightMargin: Kirigami.Units.smallSpacing
         }
         QQC2.Label {
@@ -155,7 +156,7 @@ Delegates.RoundedItemDelegate {
         QQC2.Button {
             id: configButton
             visible: root.hovered && !Kirigami.Settings.isMobile && !NeoChatConfig.compactRoomList && !root.collapsed && root.showConfigure
-            text: i18n("Configure room")
+            text: KI18n.i18n("Configure room")
             display: QQC2.Button.IconOnly
 
             icon.name: "overflow-menu-symbolic"
