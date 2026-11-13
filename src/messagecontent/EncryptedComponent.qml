@@ -12,10 +12,17 @@ import org.kde.neochat
  * @brief A component for an encrypted message that can't be decrypted.
  */
 TextEdit {
+    id: root
+
+    /**
+     * @brief The Blocks::Block for the delegate; its display says why the message can't be read.
+     */
+    required property BasicTextBlock block
+
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
 
-    text: i18n("This message is encrypted and the sender has not shared the key with this device.")
+    text: root.block.display
     color: Kirigami.Theme.disabledTextColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor

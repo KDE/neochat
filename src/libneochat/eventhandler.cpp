@@ -51,6 +51,39 @@ enum MemberChange {
 };
 Q_DECLARE_FLAGS(MemberChanges, MemberChange)
 Q_DECLARE_OPERATORS_FOR_FLAGS(MemberChanges)
+
+//! The text to show instead of an event that couldn't be decrypted, depending on why
+QString undecryptableText(const NeoChatRoom *room, const RoomEvent *event)
+{
+#if Quotient_VERSION_MINOR > 9
+    switch (room->decryptionFailure(event->id())) {
+    case DecryptionFailure::UnknownMessageIndex:
+        return i18nc("@info", "You don't have access to this message. It was probably sent before you joined the room or before this device was logged in.");
+    case DecryptionFailure::WithheldUnverified:
+        return i18nc("@info", "The sender only shares keys with verified devices. Verify this device to read their future messages.");
+    case DecryptionFailure::WithheldBlacklisted:
+        return i18nc("@info", "The sender has blocked this device from reading their messages.");
+    case DecryptionFailure::WithheldUnauthorised:
+        return i18nc("@info", "You are not allowed to read this message.");
+    case DecryptionFailure::WithheldUnavailable:
+        return i18nc("@info", "The key for this message is not available.");
+    case DecryptionFailure::WithheldNoOlm:
+        return i18nc("@info", "The sender could not establish a secure connection with this device.");
+    case DecryptionFailure::WithheldHistoryNotShared:
+        return i18nc("@info", "The sender does not share messages that were sent before you joined.");
+    case DecryptionFailure::WithheldOther:
+    case DecryptionFailure::Other:
+        return i18nc("@info", "This message could not be decrypted.");
+    case DecryptionFailure::None:
+    case DecryptionFailure::MissingKey:
+        break;
+    }
+#else
+    Q_UNUSED(room)
+    Q_UNUSED(event)
+#endif
+    return i18nc("@info", "This message is encrypted and the sender has not shared the key with this device.");
+}
 };
 
 QString EventHandler::authorDisplayName(const NeoChatRoom *room, const RoomEvent *event, bool isPending)
@@ -817,7 +850,7 @@ Blocks::BlockPtrs EventHandler::blocksForEventType(NeoChatRoom *room, const Room
     }
     case Blocks::Encrypted: {
         Blocks::BlockPtrs blocks;
-        blocks.push_back(new Blocks::Block(Blocks::Encrypted, parent));
+        blocks.push_back(new Blocks::BasicTextBlock(Blocks::Encrypted, undecryptableText(room, event), parent));
         return blocks;
     }
     default:
