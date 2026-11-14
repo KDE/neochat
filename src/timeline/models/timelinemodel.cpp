@@ -8,11 +8,14 @@
 TimelineModel::TimelineModel(QObject *parent)
     : QConcatenateTablesProxyModel(parent)
 {
+    // Instantiate all the models before calling addSourceModel(), which emits signals, which (may) cause
+    // calls to our getters, which access models that are still nullptr at that time.
     m_timelineBeginningModel = new TimelineBeginningModel(this);
-    addSourceModel(m_timelineBeginningModel);
     m_timelineMessageModel = new TimelineMessageModel(this);
-    addSourceModel(m_timelineMessageModel);
     m_timelineEndModel = new TimelineEndModel(this);
+
+    addSourceModel(m_timelineBeginningModel);
+    addSourceModel(m_timelineMessageModel);
     addSourceModel(m_timelineEndModel);
 }
 
