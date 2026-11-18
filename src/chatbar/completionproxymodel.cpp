@@ -148,7 +148,7 @@ bool CompletionProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &so
     const auto matchSequences = sourceIndex.data(CompletionModel::MatchSequencesRole).toStringList();
     return !matchSequences.isEmpty() && m_filterText.startsWith(startSequence)
         && std::ranges::any_of(matchSequences, [noStartFilterText](const QString &matchSequence) {
-               return matchSequence.startsWith(noStartFilterText);
+               return matchSequence.contains(noStartFilterText, Qt::CaseInsensitive);
            });
 }
 
